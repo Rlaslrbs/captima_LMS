@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>관리자 · 문제노트</title>
+<link rel="preload" href="/fonts/Pretendard-SemiBold.sub.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="./admin.css">
+<script>try{var t=localStorage.getItem("mn:adminTheme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#/">문제노트<sup>관리자</sup></a>
+    <nav class="nav" id="snav" aria-label="관리자 메뉴">
+      <a href="#/" data-r="dash">대시보드</a>
+      <a href="#/quality" data-r="quality">문제 품질</a>
+      <a href="#/diag" data-r="diag">진단</a>
+      <a href="#/reports" data-r="reports">오류 제보<span class="cnt" id="repCnt" hidden></span></a>
+      <a href="#/manage" data-r="manage">학기·과목</a>
+      <a href="#/import" data-r="import">올리기</a>
+    </nav>
+    <a class="userweb" href="/" target="_blank" rel="noopener">사용자 웹 ↗</a>
+    <button class="icon" id="themeBtn" type="button"></button>
+  </div>
+</header>
+<main class="main" id="main"></main>
+<script type="module" src="./admin.js"></script>
+</body>
+</html>

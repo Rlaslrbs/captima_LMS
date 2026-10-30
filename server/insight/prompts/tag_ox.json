@@ -1,0 +1,171 @@
+{
+ "type": "OBJECT",
+ "properties": {
+  "items": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "$q"
+      ]
+     },
+     "rationale": {
+      "type": "STRING"
+     },
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "$f"
+      ]
+     },
+     "facets2": {
+      "type": "ARRAY",
+      "items": {
+       "type": "STRING",
+       "enum": [
+        "$f"
+       ]
+      },
+      "maxItems": 2
+     },
+     "depth": {
+      "type": "STRING",
+      "enum": [
+       "1",
+       "2",
+       "3",
+       "4"
+      ]
+     },
+     "depth_why": {
+      "type": "STRING",
+      "enum": [
+       "D1a",
+       "D1b",
+       "D1c",
+       "D2a",
+       "D2b",
+       "D3a",
+       "D3b",
+       "D3c",
+       "D4a",
+       "D4b",
+       "D4c",
+       "D4d"
+      ]
+     },
+     "ox": {
+      "type": "OBJECT",
+      "properties": {
+       "statement_true": {
+        "type": "BOOLEAN"
+       },
+       "planted_error": {
+        "type": "STRING"
+       },
+       "misc": {
+        "type": "STRING",
+        "enum": [
+         "$m"
+        ]
+       },
+       "d": {
+        "type": "STRING",
+        "enum": [
+         "0",
+         "1",
+         "2",
+         "3"
+        ]
+       },
+       "err": {
+        "type": "STRING",
+        "enum": [
+         "concept_confusion",
+         "overgeneralize",
+         "qualifier",
+         "condition_misread",
+         "partial",
+         "calc_slip",
+         "recall",
+         "weak_distractor"
+        ]
+       },
+       "reverse_misc": {
+        "type": "STRING",
+        "enum": [
+         "$m"
+        ]
+       }
+      },
+      "propertyOrdering": [
+       "statement_true",
+       "planted_error",
+       "misc",
+       "d",
+       "err",
+       "reverse_misc"
+      ],
+      "required": [
+       "statement_true",
+       "misc",
+       "d",
+       "err",
+       "reverse_misc"
+      ]
+     },
+     "new_misc": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "belief": {
+         "type": "STRING"
+        },
+        "truth": {
+         "type": "STRING"
+        }
+       },
+       "propertyOrdering": [
+        "belief",
+        "truth"
+       ],
+       "required": [
+        "belief",
+        "truth"
+       ]
+      },
+      "maxItems": 1
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "rationale",
+     "facet",
+     "facets2",
+     "depth",
+     "depth_why",
+     "ox",
+     "new_misc"
+    ],
+    "required": [
+     "ref",
+     "rationale",
+     "facet",
+     "depth",
+     "depth_why",
+     "ox"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "items"
+ ],
+ "required": [
+  "items"
+ ]
+}

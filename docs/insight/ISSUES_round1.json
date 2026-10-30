@@ -1,0 +1,305 @@
+[
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "928 (QN at 760)",
+  "problem": "The gap card for any topic or KC unit reads \"'X' 개념의 개념이 아직 잡히지 않은 것 같아요\", with the word 개념 doubled. QN() already appends \"개념\" for non-chapter units and the template then adds \"의 개념이\". Chapter units read correctly (\"단원의 개념이\"). It is visible whenever a topic unit is the weak unit, so any course with topics will show it.",
+  "evidence": "A report from a synthetic future course (cid 6, topic unit t_y) returned diag \"'개념 와이' 개념의 개념이 아직 잡히지 않은 것 같아요: 객관식 오답 3개가 서로 다른 보기로 흩어짐, X라고 답한 참인 진술 2개.\" The same string was rendered on screen in the browser at /course/6/INSIGHT.",
+  "fix": "Line 928: use `${u.kind === \"chapter\" ? `${QN(u)}의 개념이` : `${QN(u)}이`} 아직 잡히지 않은 것 같아요${parts.length ? \": \" + parts.slice(0, 2).join(\", \") : \"\"}.`. A non-chapter unit then reads \"'X' 개념이 아직 잡히지 않은 것 같아요\"."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "1045",
+  "problem": "The course gate counts every essay rubric point (src 'essay_pt') as one \"event\" (evN is a count of observations). One AI-graded essay with 5 points therefore adds 5 events, and each regrade adds 5 more. POST /api/grade writes a new ai_grade row on every call, including cache hits. A device with 12 events can pass the 15-event gate by grading a single essay once. have.events and need.events are shown as answer events, and the SPEC wording is \"event-level (non-legacy) observations\", so the count and the label disagree.",
+  "evidence": "In the heavy device's 응용통계 report (course 1) the baseline is locked with have {n_eff:96, events:12, chapters:7}. After one AI grade of essay 56 (5 points) it is ready. With 1, 2, 3 and 4 grade rows of the same essay the state stays ready and the essay_pt observations grow 5, 10, 15, 20. A POST /api/grade that hit the cache created ai_grade rows 20 and 22. See /private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/integ/gate.mjs.",
+  "fix": "Count answer events, with at most one count per graded essay. Replace line 1045 with: `const evN = new Set(keptObs.filter(o => o.src !== \"legacy\" && o.src !== \"legacy_fix\").map(o => o.src === \"essay_pt\" ? \"g\" + o.pid : o.pid + \":\" + o.rid)).size;`. Optionally have the server skip saving an ai_grade row on a cache hit."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/server/insight/test/report.test.mjs",
+  "line": "222 (test at 210)",
+  "problem": "The test asserts wall-clock p95 thresholds (cold < 20 ms, cache < 5 ms, ctx < 25 ms) with no allowance for machine load. node --test runs sim.test.mjs and engine.test.mjs in parallel, so a CPU spike fails it spuriously.",
+  "evidence": "In 8 full-suite runs, 7 passed 56/56 and 1 failed 55/56 with \"AssertionError: 새로 계산 p95\". That run logged cold p50 3.46 ms, p95 32.41 ms, and ctx p95 28.00 ms. Passing runs showed p95 about 5–6 ms. report.test.mjs run alone passed 4 of 4.",
+  "fix": "Fail on a regression, not on a spike. For example, assert on p50 (about 3x headroom) and keep p95 as t.diagnostic only, or use thresholds of about 3x the current values. Or take the minimum of 3 measurement rounds, or run this file with --test-concurrency=1."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/docs/insight/BUILD_P0_P1.md",
+  "line": "161 (also docs/insight/SPEC.md:1031; no \"test\" script in package.json)",
+  "problem": "The documented \"done\" command `node --test server/insight/test/` does not work on Node 24: it treats the directory as a module. Three owners hit it.",
+  "evidence": "`node --test /…/stage/app/server/insight/test/` exits non-zero with \"Error: Cannot find module '…/server/insight/test'\" and reports tests 1, pass 0, fail 1. The glob form passes 56/56.",
+  "fix": "Change both docs to `node --test \"server/insight/test/*.test.mjs\"` and add `\"test\": \"node --test \\\"server/insight/test/*.test.mjs\\\"\"` to the scripts in package.json."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/server/insight/report.js",
+  "line": "61",
+  "problem": "The first requests after every server start are slower than the stated targets. The overview checks the 50 ms budget only before starting each course, so one cold build can overshoot it. Measured cold times are JIT plus course context build, one-time per server start.",
+  "evidence": "On a fresh start with an empty insight table, the first GET /api/me/insight took 84 ms total. The first report for course 4 took 45.9 ms server time (Server-Timing) on one restart, 36.2 ms on another, and 17–18 ms when warm. The SPEC §14 target is under 20 ms cold, and the contract says about 50 ms for the overview.",
+  "fix": "Warm up at boot, in initInsight or right after server.listen: call courseCtx(cid, ctxKey(cid)) for every visible course, and run buildReport once on an empty raw ({events:[],progress:[],grades:[],aux:[]}) per course. Optionally make overview() skip a build when its remaining budget is below the slowest build seen so far."
+ },
+ {
+  "severity": "major",
+  "file": "web/js/insight-engine.js",
+  "line": "905 (chipOf; also 878, 849, 1015)",
+  "problem": "Answer leak for items the learner reset. An evidence chip counts as hidden only when progress.status === \"wrong\". The card, however, hides the solution unless the status is correct or resolved. After \"기록 지우고 다시 풀기\" (resetOne/resetScope) the progress row is deleted but the old wrong events remain. The engine then marks those items hidden:false and fills trap (the b.fix \"바른 진술: …\" or the explanation sentence). hidden_truth also stays false. The report shows the corrected statement for an item the learner just reset to retry with the answer hidden.",
+  "evidence": "In a throwaway copy of the DB I deleted the heavy device's 69 status='wrong' progress rows (what a scope reset does) and rebuilt via buildDoc. Course 5 F1 (habit) then had 3 chips with trap text and status undefined: pid 980 \"바른 진술: 네트워크 말단에서 일부 처리\", pid 1044 \"바른 진술: 자재명세서 작성 → 제조 및 생산 기능\", pid 1029 \"헷갈리기 쉬운 지점이에요.\" Before the reset there were 0 leaks. With the fix below applied in a copy, the same scenario gave 0 leaks.",
+  "fix": "Define hidden the way card() does: hid = !(st.status.get(o.pid) === \"correct\" || st.status.get(o.pid) === \"resolved\"). Apply the same test to the hasty plan filter at line 878 (currently === \"wrong\"). Restrict the plan read.pid candidate (lastOk, line 849) to items whose status is correct or resolved. hidden_truth (line 1015) then follows automatically. The tooltip \"아직 오답이에요\" is slightly off for reset items; \"아직 못 맞혔어요\" fits better."
+ },
+ {
+  "severity": "minor",
+  "file": "web/js/course.js",
+  "line": "472-477 (watchCards)",
+  "problem": "Regression in list mode. The IntersectionObserver threshold changed from 0.6 to [0.3, 0.6], but markShown is still called on e.isIntersecting alone. A card now counts as shown, with its problem_shown event and the shownAt timer, once 30% is visible, not 60% as before. This shifts list-mode ms and the admin per-problem times, and it logs problem_shown for cards that are barely on screen.",
+  "evidence": "Browser at 375x812, list mode: I scrolled so card c-898 was 40% visible. problem_shown for 898 was queued in mn:evq immediately. With the base threshold [0.6] no callback fires at 40%.",
+  "fix": "Keep the 0.3 crossing only for the vis and dwell logic. Change line 472 to: if (e.isIntersecting && (e.intersectionRatio >= 0.6 || e.intersectionRect.height >= innerHeight * 0.6)) markShown(id);"
+ },
+ {
+  "severity": "minor",
+  "file": "web/js/insight.js",
+  "line": "95-96 (listHTML); web/js/course.js 135, 170",
+  "problem": "The \"오늘 확인할 N문제\" button builds its Q: scope from the whole relearn.due list (82 ids on 공학수학 for the heavy device). The full scope string is copied into every problem_shown and answer_submit payload (scope: set), into the resume scope_key (the server cuts it at 200 chars), and into the last-scope store. The server stores JSON.stringify(payload).slice(0, 2000). With roughly 300-400 due items a payload is cut mid-JSON, J() returns {}, and the engine reads that answer as a wrong first attempt (p.correct !== true). The plan itself only uses 6 due items, so this is an unbounded input.",
+  "evidence": "Observed in the browser: the heavy device's 공학수학 report shows \"오늘 확인할 82문제 ›\". Code path: course.js grade() sends scope: set unchanged; server.js:272 slices the payload to 2000 chars; evidence.js obj() falls back to {} on invalid JSON. I did not reproduce a truncated payload with real data (it needs 300+ due ids).",
+  "fix": "Cap the scope: qOf(due.slice(0, 12)) in insight.js (and show min(due.length, 12) in the label). Also log a short scope for Q: sets in course.js: scope: isQ() ? \"Q\" : set (both track calls)."
+ },
+ {
+  "severity": "minor",
+  "file": "web/js/insight.js",
+  "line": "8-22 (TYPE, TONE, CAVEAT); 74-78, 60-64 (evidence/step rendering)",
+  "problem": "The screen does not render several things the engine emits. fb_skip findings have no label or tone, so the badge reads \"참고\". The list_time caveat is silently dropped, though the heavy device's 진인본 report carries it. Evidence sec/rel and plan step target_s (the fluency, hasty and timed steps) are never shown, so a fluency card's chips say just \"O라고 답함\" and the point of the card (time vs expected) is invisible. TYPE also has an unused \"help\" key.",
+  "evidence": "engine buildReport (insight-engine.js ~1071-1075) emits type \"fb_skip\" and the engine pushes \"list_time\" into caveats (~1096). Neither key exists in insight.js. evdHTML() never reads e.sec or e.rel. Browser check: 진인본's caveats include list_time and the page lists no list-time sentence.",
+  "fix": "Add fb_skip: \"해설 읽기\" to TYPE and a tone in TONE. Add CAVEAT.list_time: () => \"목록 모드로 푼 문제는 풀이 시간을 정확히 알 수 없어 시간 분석은 참고로만 봐 주세요.\" In evdHTML, when e.sec != null, show `${e.sec}초` plus `평소의 ${e.rel}배` when e.rel is present."
+ },
+ {
+  "severity": "minor",
+  "file": "web/js/insight-engine.js",
+  "line": "909",
+  "problem": "Chip labels for multiple-choice answers use circled digits (\"③ 고름\") while the cards label options A-D (LETTERS = \"ABCDEFGH\"; chosen is already the letter). The learner sees \"③\" in the report and \"C\" on the card. The web owner flagged this as open.",
+  "evidence": "insight-engine.js:909 label = `${CIRC[i] || LET[i]} 고름`; course.js card() renders <b class=\"k\">${LETTERS[i]}</b>; 공학수학 report chip \"② 고름\".",
+  "fix": "label = `${LET[i]} 고름` (and the same for the relearn chips). Update SPEC/BUILD text and the test that asserts \"③\"."
+ },
+ {
+  "severity": "minor",
+  "file": "server/ai.js",
+  "line": "172 (run, 404 branch); server/db.js blockModel",
+  "problem": "Behaviour change in grading: any single 404 from a model blocks that model for 24h in the ai_block table, which survives restarts. A transient 404 or a wrong GEMINI_BASE on all three models disables AI grading for a day. In base, a 404 only moved on to the next model, and the next request retried. There is no admin control to clear the block.",
+  "evidence": "On a copy server (port 4023) with fake Gemini in mode 404, one POST /api/grade blocked all 3 models (ai_block until +24h). After switching the fake to ok, the next grade request returned 502 \"모델 \\\"gemini-flash-lite-latest\\\"을 찾지 못했어요\" without calling Gemini.",
+  "fix": "Spec §7.1 asks for 24h, so keep that for background purposes. For purpose \"grade\", use a short TTL (about 10 min, like 5xx) or skip the persistent block. Also add an admin \"차단 풀기\" action (DELETE FROM ai_block) or clear a model's block on its first success."
+ },
+ {
+  "severity": "minor",
+  "file": "server/schema.sql",
+  "line": "154 (ai_grade) / server/insight/evidence.js 25-27, 37-39",
+  "problem": "No index on ai_grade(device_id). loadRaw and fingerprint filter on ai_grade.device_id and p.course_id, so SQLite walks every problem of the course and probes ai_grade by problem_id (about 450 probes). fingerprint runs on every report request, including cache hits. The server owner noted this and did not add the index.",
+  "evidence": "EXPLAIN QUERY PLAN for the fingerprint grade query: SEARCH p USING COVERING INDEX sqlite_autoindex_problem_1 (course_id=?) then SEARCH g USING INDEX ai_grade_problem (problem_id=?). All other new hot queries use event_device, the progress primary key, or insight_meta's primary key.",
+  "fix": "Append CREATE INDEX IF NOT EXISTS ai_grade_device ON ai_grade(device_id, problem_id); to schema.sql."
+ },
+ {
+  "severity": "minor",
+  "file": "web/js/insight.js",
+  "line": "205 (cached report) and web/js/store.js 54 (adoptDevice)",
+  "problem": "The stored report \"ins:<cid>\" is keyed by course only, not by device. adoptDevice (and a new createDevice) clears enroll, progress, resume, last and saved but not ins:*. After a device transfer in the same browser, the previous device's report is painted first (including evidence stems and the learner's typed answers) until the fetch returns. If the new device has no consent, ncHTML replaces it.",
+  "evidence": "insight.js: valid(cached) && cached.cid === cid sets doc = cached with no device check. store.js adoptDevice resets only [\"enroll\",\"progress\",\"resume\",\"last\",\"saved\"].",
+  "fix": "Store the owner with the doc and compare, e.g. LS.set(key, { ...r, _dev_id: S.device.id }) and ignore the cache when it differs. Or clear every \"ins:*\" key in adoptDevice and createDevice."
+ },
+ {
+  "severity": "minor",
+  "file": "web/js/fixtures/insight-sample.json; web/js/course.js 37-38",
+  "problem": "The dev fixture and the ?insightFixture switch ship to production. The fixture is served unauthenticated at /js/fixtures/insight-sample.json, and the switch (stored in sessionStorage) shows a fake report to anyone. The fixture carries real 공학수학 stems and trap/truth text (and truth/contrast on findings with hidden_truth: true). Those problem bodies are already in the course payload, so this is not a new leak, but it is dev data in the public web root. The engine also keeps text.truth/contrast in the det JSON when hidden_truth is true and relies on the UI to hide them.",
+  "evidence": "fixture ready.F1 hidden_truth=true with truth \"행렬식은 한 행씩 선형이지…\", hyp.F1 truth \"행을 한 번 바꿀 때마다 부호가 바뀌어요.\" insight-engine.js:1015 only sets the flag. course.js reads location.search with no localhost guard.",
+  "fix": "Remove the fixture and the insDev branch before release, or enable them only when location.hostname is localhost or 127.0.0.1. In composeText, when hidden_truth is true set t.truth = t.contrast = \"\" so the det JSON never carries them (P3 will need this)."
+ },
+ {
+  "severity": "minor",
+  "file": "web/css/app.css",
+  "line": "463 (existing rule) used by the new .ins-mrow in web/js/me.js 30-39",
+  "problem": "At 375px the 학습 현황 row wraps badly: the \"오답 N\" span falls into the 10px first column and breaks one character per line, and the row is 117px tall. The base rule .srow .sv:nth-of-type(3) was meant to hide the 오답 .sv, but nth-of-type counts spans (the bar is also a span), so it matches nothing. The wrap already exists in base. It also drops the new \"리포트 ›\" link into the middle of the tall row.",
+  "evidence": "At 375x812, /me with the heavy device: .srow is 258x117; computed columns are \"10px 62px 45px 57px 41px\"; the span.sv.w is 10px wide and displayed block. A clone of the row outside .ins-mrow measures the same 117px.",
+  "fix": "Change the ≤640px rule to hide the 오답 cell directly: .srow .sv.w,.srow .sl{display:none}. If the 오답 count should stay visible, use a 6-column grid-template-columns override instead."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "624-631 (params.js:26 ox_c)",
+  "problem": "The ox_bias habit gate has no uncertainty test, only |c|>0.35, and ox_bias has the highest habit priority (.55), so it can become the headline. An unbiased learner trips it often on thin data.",
+  "evidence": "Simulation of the exact rule c=-(probit((hO+.5)/(nT+1))+probit((fO+.5)/(nF+1)))/2 with n true = n false and an unbiased learner (P(O|true)=a, P(O|false)=1-a). Accuracy 0.6-0.9: at n=10 (the minimum gate) it fires in 19-25% of runs; at n=15 in 9-22%; at n=20 in 9-18%; at n=30 in 3-13%. The real 경정시 case (18 true all O, 10/23 false O, c=-0.89) is genuinely biased: posterior P(|c|>0.35)=0.99.",
+  "fix": "Replace the point gate with a posterior gate: draw H~Beta(hO+.5, nT-hO+.5) and F~Beta(fO+.5, nF-fO+.5), compute c on the probit scale, and require P(|c|>0.35)>=0.9. In the same simulation this gives 0-4% false fires in every cell and keeps the real case at 0.99. Also raise ox_n to 12 and avoid 'headline' priority unless P>=0.95."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "895 TRAP, 900-903 trapOf, 914 chipOf",
+  "problem": "The chip's 함정 sentence is the first sentence in body.s matching /함정|주의|헷갈|혼동|아니|오답/. The bare '아니' matches any negation, and nothing relates the sentence to the option the learner chose, so the user can be shown the explanation of the correct option as the trap.",
+  "evidence": "진인본 relearn chip E1 (X-3, learner chose D, correct C): trap shown is '비만은 전염병이 아니지만 병의 단서처럼 보여 … 예입니다.', the explanation of the correct answer C. The sentence about the chosen option is the third one, '함정: … 새 음식 소량 맛보기는 새것 공포증…이지 거짓 경보가 아닙니다.'. 공학수학 gap chip E1 (x23-7, learner chose B): trap is a garbled formula '… (det = −1 주의) [수식] [수식]…', while body.s contains the option-specific sentence '둘째 보기는 det의 부호를, 셋째는 ½을, 넷째는 전치를 실수한 것입니다.' (B is the second option). Option-specific wording (둘째/셋째/①-④/A)-D)) occurs in about 12% of 공학수학 MC explanations (39 of 319), 55% of 진인본 (15 of 27) and 41% of 응용통계 (31 of 75).",
+  "fix": "For MC chips pick the sentence in this order: (1) from the first ordinal marker (첫째|둘째|셋째|넷째|①-④|(A)-(D)) to the end of its sentence, when the marker for the chosen index exists; (2) the sentence sharing the most content tokens (>=2) with the chosen option text; (3) a sentence starting with 함정|주의. Drop the bare 아니|오답 from the regex. I prototyped this in a scratch copy: X-3 now shows the 함정 sentence about D, and x23-7 shows the 둘째-보기 sentence. Also pass the chosen index and option text into trapOf."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "952",
+  "problem": "The chip sort key checks b.idk but not b.lidk (an idk from an old-app progress row, last_answer '모르겠어요'). Four of the five idk items are therefore sorted behind generic '예전 기록 · 틀림' chips.",
+  "evidence": "공학수학 gap card text says '모르겠어요 5번', but the 5 chips are x23-7 (B), x24-9 (idk) and three '예전 기록 · 틀림' (x25-8, x24-4, x24-15). The four legacy idk items (x23-20, x22-6, x22-8, x21-9) are in s.wrong with lidk=true and day 10/12, so they sort last. After adding b.lidk to both sides of the sort key, the chips are x23-7 plus four '모르겠어요' chips, matching the claim.",
+  "fix": "Use (o.optRaw != null || o.txt || o.idk || o.lidk) on both sides of the comparator at line 952. Preferably also rank chips by how directly they support the sentence's lead signal, so the first two signal types always have chips."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "454 (band), insight.js:86 and :91 (labels)",
+  "problem": "units[].band is the 80% interval of m_u = E[sigmoid(theta-dbar)], which has no guessing floor. The web labels it '맞힐 가능성의 범위 (80%)' next to a tooltip that shows the learner's real counts. The bar therefore sits below the learner's actual accuracy, most visibly for O/X and MC units.",
+  "evidence": "15 of 42 units (진인본, 공학수학, 경정시) have observed first-try accuracy above the top of the bar, and 0 are below. Examples: 경정시 CH1 21/24=88% with bar 51-79%; 공학수학 'O/X 개념 카드' 55/64=86% with bar 58-79%; 진인본 G23 21/27=78% with bar 54-76%. With the guess floor applied (g_bar + (1-g_bar)*band, g_bar = mean guess floor of the unit's items), 34 of 42 are inside the band (81%, close to the nominal 80%), 3 above, 5 below.",
+  "fix": "In buildReport convert the band before output: lo' = g_bar + (1-g_bar)*lo, hi' = g_bar + (1-g_bar)*hi, with g_bar the mean o.g of the unit's items. Keep the label thresholds (weak/solid) in knowledge space but note that in the legend. If the raw band is kept, change the legend to '개념을 알고 있을 가능성 (찍어서 맞힌 것 제외)'."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "757 (legacy part last), 928, 930 (parts.slice(0,2))",
+  "problem": "The gap card and headline use only the first two signal parts. Old-app wrongs have no recorded choice, are appended last as '예전 기록 오답 N개(고른 답 모름)', and are cut from the headline. The headline for a chapter whose real problem is legacy MC failures then reports an irrelevant count.",
+  "evidence": "공학수학 headline: '\"중간고사 기출 2021–2025\" 단원에서 막혀요: \"모르겠어요\" 5번 (그중 1번은 1분 넘게 고민한 뒤) · 객관식 오답 1개.' My SQL: the 기출 chapter has 24 attempted items, 14 failed on the first try; the 8 MC items are 0/8 first-try (5 wrong, 3 idk), O/X 10/16. The failures concentrate in two topics: 연립일차방정식 4 and 행렬식 4 of the 14. Of the 5 '모르겠어요', 4 are legacy rows with no timing, so '(그중 1번은 1분 넘게…)' wrongly implies the other 4 were quick; only the one timed idk took 302 s.",
+  "fix": "Build the gap/unclear signal from first-try outcomes per kind including legacy rows: '기출 24문제 중 첫 풀이에 맞힌 것 10개 · 객관식 0/8 · O/X 10/16 · 틀린 14문제 중 8개가 연립방정식·행렬식'. Compute topic concentration from item.topic when present. Word the timing as '(시간을 잰 1번은 5분 가까이 고민한 뒤)' and drop it when only legacy idks exist."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "26-41 cutTex; 912-915 chipOf (stem 120, trap 160, option 80)",
+  "problem": "The cut budget is counted in raw TeX characters, and once it is used up every remaining formula, even a 9-char \\(\\det C\\), becomes '[수식]'. A spurious '…' is also appended when nothing was dropped except formulas. In the math course the evidence chips are unrecognisable.",
+  "evidence": "x24-9 (125 chars, complete) becomes '\\(C=\\left[…\\right]\\)의 [수식]는?…'. x25-8 becomes '기본행렬 [수식]에 대해 \\(E_3E_2E_1A=I\\)이다. \\(A^{-1}\\)을 구하여라.…'. x24-4 becomes '…\\(T(\\mathbf e_1)\\)과 [수식] 사이의 각 [수식]는?…'. The chosen-option text for x23-7 B (a 5x5 matrix) is just '[수식]…'. Minimal repro: cutTex('\\\\(' + 'x'.repeat(130) + '\\\\)는 무엇인가', 120) returns '[수식]는 무엇인가…' although the text is whole.",
+  "fix": "(a) Do not append '…' unless text was actually dropped. (b) Budget by visible length (collapse each formula to about len/3 characters when counting), and raise the caps for math courses (stem about 300, option about 200). (c) Better: insight.js already has BYID (the course payload), so render the stem and chosen option from BYID[pid] on the client and keep the server's cut text only as a fallback."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "322 (comment), 914, 965; app UI: course.js:109 and :445",
+  "problem": "A ☆ on a correct answer is reported as '자신 없음'. In the product ☆ is '나중에 볼 문제 / 나중에 담기' (a save-for-later list), not a confidence rating. The text puts a belief in the learner's mouth.",
+  "evidence": "경정시 has 13 ☆ events. Only 2 are on a correct first answer (1-34, 4-54, both 4 s after answering). Most of the rest follow wrong answers or idks (1-21, 3-30, 4-33, 4-38, 5-12, 5-48, 3-18, 3-34, 3-39), so the ☆ is used as a to-do. The report says '(자신 없다고 표시한 2문제 포함)' and labels the chips '· ☆ 자신 없음'. The same flag also blocks the 탄탄 label.",
+  "fix": "Reword to neutral facts: '맞혔지만 ☆로 담아 둔 문제 2개', chip suffix '· ☆ 담아 둠'. Keep the recheck scheduling if wanted, but do not claim uncertainty. Consider dropping the effect on solid unless the same learner's ☆-on-correct answers are later answered wrong at above the base rate."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "791 (relearn candidate), 964-971 (relearn text), 1110-1111 (headline)",
+  "problem": "The relearn finding is generated for every learner with at least 3 due items, with the same second sentence and cue each time. When it is the top finding it becomes the headline, and a count of 0 reads as a failure although it mostly reflects missing retest opportunities.",
+  "evidence": "All three ready reports (진인본 F1, 공학수학 F2, 경정시 F2) carry '고친 뒤 날을 바꿔 다시 맞혀야 오래 남아요.' and the cue '해설을 보기 전에 먼저 풀고, 맞히면 며칠 뒤 한 번 더 확인'. 진인본 headline is '고친 문제 10개 중 하루 뒤 다시 맞힌 것은 0개예요.': 5 of the 10 resolved items are old-app rows with no event since import, and the other 5 (G23) were fixed on 10/23, two days before the report date. 공학수학 '81개 중 36개': 33 of the 81 have no events at all, so only 48 could have been retested (36 of 48 were).",
+  "fix": "Use the denominator 'since import, items re-asked' ('다시 풀어 본 48개 중 36개'). When confirmed=0, say '고친 뒤 아직 다시 풀어 보지 않은 문제 N개' instead of the count. When relearn is the top finding, build the headline from knowledge facts (lowest chapter, format profile, strong areas) and demote relearn to the plan section. Vary the cue by the actual state (for example items fixed 1-3 days ago versus never retested)."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "474-479 (label rules; no format breakdown anywhere in buildReport/habits)",
+  "problem": "The report misses a large, obvious pattern: accuracy by question format. The learner recognises well but fails retrieval and production, and nothing in the det says so.",
+  "evidence": "My SQL on first-try outcomes (events plus legacy plus AI first grade). 진인본: O/X 85/91 (93%), 단답 17/29 (59%), 서술형 1/9 correct (2 partial, 5 '모르겠어요'), 기출 MC 21/27. 경정시: O/X 74/89 (83%), 단답 24/28 (86%), 서술형 2/14 correct (7 '모르겠어요'). 공학수학: 일반 MC 61% versus 기출 MC 0/8. The 진인본 report has only the relearn card.",
+  "fix": "Add a deterministic 'format' finding or a fixed row: per kind first-try counts (c/n) and, when the best-versus-worst kind gap is at least 25 points with n>=8 each and Beta posterior P(diff>.2)>=.9, one sentence such as '객관식·O/X는 93%인데 서술형은 9개 중 1개만 맞혔어요 (5개는 모르겠어요)', with a plan step of unattempted worst-format items. This needs no tagging."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "474-479 and params.js label.* / find.*",
+  "problem": "The weak rule (P(delta<-.3)>=.8 or P(m<.5)>=.8) is conservative, so on this data the clearly lowest chapters are all '보통' and nothing is said about them. The 'all concepts' list is a column of identical dots.",
+  "evidence": "경정시 CH3 22/34 correct (65%), including 4 essay idks and 1 short idk, versus 84-88% elsewhere; P(delta<-.3)=0.66. CH5 13/19 (68%), 0.56. 진인본 C10 7/12 (58%), 0.62. 공학수학 2.7-8 12/22 (55%), 0.47. Every one is labeled 보통 and never mentioned. 경정시 CH3 holds 12 of the course's 30 non-correct first outcomes but 25% of its items.",
+  "fix": "Add a fourth, softer tier ('상대적으로 낮음' / watch) when n>=8 and P(delta<-.3)>=.5, shown as a muted tag and in the headline when no weak unit exists ('가장 낮은 단원은 CH3(65%)예요. 표본이 적어 확정은 아니에요'). Do not create a finding card for it."
+ },
+ {
+  "severity": "major",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "687-690",
+  "problem": "essay_skip counts only idk and essay_self observations, so AI-graded essays (src essay_pt) are left out of the denominator. SPEC §5.4 says '>=50% of essay attempts'.",
+  "evidence": "경정시: es has n=7, k=4 (4 quick idks: 1-18 1.2 s, 2-36 7.9 s, 3-19 6.1 s, 4-50 5.9 s), so 57% passes the 50% gate. The learner also submitted 7 essays to AI grading (900, 918, 966, 1134, 1152, 1153, 1171), so the real denominator is 14 and the share is 29%. The candidate appears in dbg.hab (prio .35) and loses only because ox_bias takes the single habit slot; without ox_bias the card '서술형 7개 중 4개를 써 보지 않고 넘겼어요' would be shown to a learner who graded 7 essays.",
+  "fix": "Take as denominator all essay items with a first attempt: idk, essay_self and the first essay_pt row per pid. Keep the quick-idk numerator. Consider adding a significance condition (Beta posterior P(rate>.5)>=.8)."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "348-353 (tt = focus ? ms : vis), 350",
+  "problem": "List-mode first attempts without vis are discarded from the time model although their ms is valid in sequential runs. 진인본 (all list mode) gets n_timed=0 and no speed analysis. Essay idks in list mode carry meaningless ms, so quick-skip detection cannot work there.",
+  "evidence": "All list-mode first attempts (n=26, all 진인본 G23 MC): ms divided by the gap since the previous answer has quantiles 10/25/50/75/90% = 0.62/0.80/0.91/0.95/0.97, and only 4% exceed 1.5. Focus mode: median 0.69, 1% above 1.5. The 5 essay idks have ms=2.10-2.18 million (35-36 min) but gaps to the previous answer of only 24, 32, 14 and 18 s, so they cannot have involved writing.",
+  "fix": "For list mode use tt=min(ms, gap to the previous answer in the same session) when gap<=5 min and ms<=1.1*gap; otherwise untimed. Apply the same cap to quick-idk detection (essay_skip, w*0.5). This would give 진인본 about 25 timed MC answers. Keep rapid flags as they are. The nMin=8 and z gates then protect against thin cells."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight.js",
+  "line": "15-21",
+  "problem": "The CAVEAT map has no list_time entry, so the caveat the engine adds for list-mode courses is never shown. Meanwhile time.notes still says '너무 빨리 고른 답 3개는 진단에서 뺐어요' from raw list-mode ms.",
+  "evidence": "진인본 caveats = relative_only, imported_history, untagged, few_timed, list_time, but the web map has only relative_only, imported_history, no_mc, untagged, few_timed. The list_time text in TIME_FACTORS §6 never appears.",
+  "fix": "Add list_time: () => '목록 모드로 푼 문제는 시간을 정확히 잴 수 없어 시간 분석에서 뺐어요.' to CAVEAT, and make the web render unknown caveat codes with a generic fallback rather than skipping them. If issue 'list mode untimed' is fixed, change the text to say times are capped by the gap."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/server/insight/params.js",
+  "line": "33 (time.b_len 0.5); engine prep() line ~170",
+  "problem": "The text-length slope b_len is a fixed 0.5 for every learner and course. The per-course slope differs widely, so z has a length residual and fast/slow flags are biased by statement length.",
+  "evidence": "OX timed answers: 경정시 Theil-Sen slope of ln t on ln len = 1.63 (r=0.61), 공학수학 0.08 (r=0.09; TeX-heavy statements). corr(z, ln len) = +0.49 and -0.32 respectively. Findings and unit speeds are unchanged for b_len in {0, .25, .5, 1, 1.6} (sigma_ox moves .66-1.00 in 공학수학, .70-.80 in 경정시), so this is low risk today but will bite once hasty/fluency fire.",
+  "fix": "Estimate b_len per kind from the learner's own timed answers with a shrinkage prior N(0.5, 0.4^2) and a robust fit (Theil-Sen or Huber), only when n>=30; and in math courses measure len on text with each TeX formula collapsed (ctx.len currently counts raw TeX characters)."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "348-358",
+  "problem": "The rapid flag is applied to retry and spaced answers as well as first attempts, and its OX floor (1.5 s) removes short statements the learner answered correctly in about 1.3-1.5 s. Repeated items are expected to be answered faster.",
+  "evidence": "공학수학 has 9 rapid answers. 4 are short O/X first attempts (15-34 characters; ox-18 1302 ms, ox-34 1483 ms, ox-58 1313 ms, ox-22 1490 ms), all correct, each only 17-200 ms under the 1500 ms floor. 5 are MC re-answers (spaced or retry at 4.6-7.4 s, 3 of them correct). Only 3.3-P1 (MC first attempt, 1.76 s, wrong) is a clear rapid guess. TIME_FACTORS' own audit also found the rapid OX answers were all correct.",
+  "fix": "Flag rapid only for src='first'. Make the O/X floor length-aware, T = max(0.8 s, 0.1*predicted median), or require the answer to be wrong or at chance before excluding it. Keep the retained fast-correct answers as evidence (they are strong)."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/server/insight/params.js",
+  "line": "36 (z.idle: 3); engine line 378",
+  "problem": "The idle cutoff z>3 lets clearly idle O/X answers be classed 'slow' and feed slow_correct, unit speed and fluency.",
+  "evidence": "경정시: of 5 slow answers, 3 took 54 s (z 2.55), 60 s (2.82) and 71 s (2.97) on O/X statements whose expected time is 7-8 s. No away/vis data exists for old events, and the visibility events are unreliable (138 hidden vs 83 visible, many 'hidden' states persisting across consecutive active answers).",
+  "fix": "Set idle at z>2.5 (about 6x expected at sigma .75) or add an absolute cap per kind (O/X 45 s, MC 5 min), and exclude such answers from unit speed and slow_correct."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "760 (QN), 928",
+  "problem": "For a topic or kc unit the gap sentence reads '개념의 개념'.",
+  "evidence": "Reproduced with composeText on a weak topic unit: \"'행렬식' 개념의 개념이 아직 잡히지 않은 것 같아요: '모르겠어요' 2번.\" (chapter units read correctly: '단원의 개념이'). It will appear as soon as a 공학수학 topic unit is weak.",
+  "fix": "For kind!='chapter' write `${QN(u)}이 아직 잡히지 않은 것 같아요` (and keep '단원의 개념이' for chapters), or build the subject separately from the unit kind."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "797-805 (gap pick) and buildPlan gap branch",
+  "problem": "The gap plan is chosen by closeness to a difficulty band, not by relevance to the evidence, and the 'worked example' is a problem the learner struggled with.",
+  "evidence": "공학수학 P1 '풀이 하나 읽고 3문제' = Q:742.743.744 = x25-2-1, x25-2-2, x25-3, all topic 직선과 평면 (learner 15/24, no exam failure there). The exam failures are in 연립방정식 (4) and 행렬식 (4); 62 of the 86 exam items are untried and carry topic. read.pid=760 (x24-9) is an item answered '모르겠어요' for 5 minutes and solved only on the 3rd attempt, while the cue says '맞힌 문제의 풀이'.",
+  "fix": "When items carry topic, rank candidate plan items by overlap with the topics of the wrong/idk evidence first, then by band distance. Choose the worked example from correctly answered first-try items of those topics, or say '풀이를 먼저 읽기' without 맞힌."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "624-631 evidence list, 981-983 cue",
+  "problem": "The ox_bias card has a generic cue, no plan step, and weak chip selection. Three of the four chips are hidden items (no explanation can be shown) and the cue names a pattern that fits only one of them.",
+  "evidence": "경정시 F1 chips are the first 4 of 10 false-O answers by pid: 5-12, 1-21, 2-21 hidden, 4-2 visible. The cue is '바뀐 조건(항상·모든·만·역방향)이 있는지 먼저 찾기'. Only 5-12 has that shape; 4-2 (S = System vs Service), 1-21 and 2-21 are term/category substitutions (fix: '책임 있는 AI → 경영 측면…', '자재명세서 → 제조 및 생산'). Calling an OX statement 'false' while showing a hidden item also tells the learner its answer (X), contrary to the hidden-answer rule.",
+  "fix": "Order chips non-hidden first, then fastest or most recent. Derive the cue from the fix field (term/category swap versus qualifier) or use a neutral '진술의 용어·분류·범위 중 바뀐 곳을 하나 짚기'. Add a plan step (type 'drill') of unattempted O/X items from the chapters with the highest false-O rate. For hidden OX chips, do not state that the statement is false."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "475-477 (lab, minI/minItems), insight.js:pendHTML",
+  "problem": "'판단 보류' is decided by an information threshold of 0.5, which marks an easy, mostly correct chapter as pending, and the UI message gives the wrong reason.",
+  "evidence": "진인본 C6: 9/10 correct plus 1 idk, I=0.4, so pending. The same-size chapters C3 (I=0.5), C5, C9 (0.6) are 보통. The list says '6강 · 생존상의 문제 — 10문제만 풀었어요', although equally sized chapters are not pending.",
+  "fix": "Use n<8 (or I<0.3) for pending, and word the message by reason ('판단하기엔 근거가 부족해요') rather than '10문제만 풀었어요'."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "483-485",
+  "problem": "The 'fixed' (고쳐짐) mark needs only 2 later-day correct answers on different items, with no share of the initially wrong items.",
+  "evidence": "공학수학 2.3 선형변환 is marked 고쳐짐 with 2 of 11 initially wrong items re-confirmed later (1.9-7, 1.9-31), while the chapter still has 14/25 = 56% first-try accuracy, the lowest of the regular chapters apart from 2.7-8.",
+  "fix": "Require re-confirmation on at least max(2, 40%) of the initially wrong items, and keep the current-label non-weak condition."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/web/js/insight-engine.js",
+  "line": "1096-1102 (time.notes)",
+  "problem": "The only time sentences shown are descriptive ('O/X 보통 5.5초 걸려요') with awkward wording, and nothing about speed versus accuracy, which is the one time signal the data does support.",
+  "evidence": "Note text: '비슷한 길이의 한 문제에 O/X 보통 6.5초 걸려요.' Observed: 공학수학 O/X answered in <=3.5 s are 15/16 correct versus 37/45 slower; 경정시 <=3.5 s are 5/10 versus 26/31 (Fisher p=0.08). The relation differs by course, so any learner-wide claim would be wrong, and the length-adjusted z shows no fast excess (only 3 'fast' answers).",
+  "fix": "Drop the 'ref' sentence or rewrite as 'O/X는 한 문제에 보통 6.5초 걸려요'. Optionally add a descriptive, hedged note only when a Fisher/Beta test passes (P>=.9) and the effect is in the same direction for >=2 courses; otherwise keep silent as now."
+ },
+ {
+  "severity": "minor",
+  "file": "/private/tmp/claude-501/-Users-rla-skrbs-Desktop-2026--/1a7961c1-ca70-46d1-9e66-72cab2914c81/scratchpad/stage/app/server/insight/ctx.js",
+  "line": "57-65 (topic names)",
+  "problem": "When info.topics is missing, a topic's name is guessed from the chapter title by splitting at 와/과 and assigning the parts in first-item order. The result can be vague or wrong.",
+  "evidence": "공학수학 topic lincomb (linear combination) is shown as '벡터' (chapter '1.1–1.2 벡터와 내적' split into 벡터/내적, dot is '내적'). The staged DB has no course.info.topics for course 4.",
+  "fix": "Add info.topics for existing courses (such as 공학수학) in the DB, and consider showing the topic code's name only when it came from info.topics, otherwise the chapter title plus code."
+ }
+]

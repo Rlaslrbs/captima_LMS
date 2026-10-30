@@ -1,0 +1,8 @@
+# 운영 데이터와 비밀은 올리지 않아요 (사용자 기록 DB, Gemini 키, 관리자 경로, 백업, 문제 팩)
+data/
+node_modules/
+tools/bin/
+*.db
+*.db-*
+*.log
+.DS_Store

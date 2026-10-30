@@ -1,0 +1,96 @@
+{
+ "type": "OBJECT",
+ "properties": {
+  "families": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "$f"
+      ]
+     },
+     "principle": {
+      "type": "STRING"
+     },
+     "base": {
+      "type": "STRING",
+      "enum": [
+       "$q"
+      ]
+     },
+     "members": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "ref": {
+         "type": "STRING",
+         "enum": [
+          "$q"
+         ]
+        },
+        "role": {
+         "type": "STRING",
+         "enum": [
+          "iso",
+          "near"
+         ]
+        },
+        "delta_type": {
+         "type": "STRING",
+         "enum": [
+          "surface",
+          "repr",
+          "object",
+          "condition",
+          "qualifier",
+          "reverse",
+          "neighbour",
+          "combine"
+         ]
+        },
+        "delta": {
+         "type": "STRING"
+        }
+       },
+       "propertyOrdering": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ],
+       "required": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ]
+      },
+      "minItems": 1
+     }
+    },
+    "propertyOrdering": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ],
+    "required": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "families"
+ ],
+ "required": [
+  "families"
+ ]
+}

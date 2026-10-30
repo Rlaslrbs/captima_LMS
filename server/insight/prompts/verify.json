@@ -1,0 +1,89 @@
+{
+ "type": "OBJECT",
+ "properties": {
+  "checks": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "$v"
+      ]
+     },
+     "reason": {
+      "type": "STRING"
+     },
+     "picked": {
+      "type": "STRING",
+      "enum": [
+       "A",
+       "B",
+       "C",
+       "D",
+       "E",
+       "F",
+       "G",
+       "H",
+       "O",
+       "X"
+      ]
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "reason",
+     "picked"
+    ],
+    "required": [
+     "ref",
+     "reason",
+     "picked"
+    ]
+   }
+  },
+  "fit": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "$q"
+      ]
+     },
+     "reason": {
+      "type": "STRING"
+     },
+     "fit": {
+      "type": "STRING",
+      "enum": [
+       "yes",
+       "no"
+      ]
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "reason",
+     "fit"
+    ],
+    "required": [
+     "ref",
+     "reason",
+     "fit"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "checks",
+  "fit"
+ ],
+ "required": [
+  "checks",
+  "fit"
+ ]
+}

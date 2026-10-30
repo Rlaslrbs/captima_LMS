@@ -1,0 +1,86 @@
+[
+ {
+  "ext_id": "1-27",
+  "facet": null,
+  "facet_hint": "정보기술 차원의 다섯 요소(하드웨어·소프트웨어·데이터 관리·네트워크·보안)",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "A-28",
+  "facet": null,
+  "facet_hint": "약어: RISC vs CISC",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "5-24",
+  "facet": null,
+  "facet_hint": "SLA(서비스 수준 계약)",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "4-30",
+  "facet": null,
+  "facet_hint": "지식재산 네 유형의 구별",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "2-11",
+  "facet": null,
+  "facet_hint": "협업 역량 = 협업 기술 + 보완적 자산(문화·프로세스)",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "3-40",
+  "facet": null,
+  "facet_hint": "거래비용 이론: IS가 거래비용을 낮추면 기업이 작아짐",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "3-41",
+  "facet": null,
+  "facet_hint": "대리인 비용 이론: 규모가 커질수록 대리인 비용 증가",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "2-12",
+  "facet": null,
+  "facet_hint": "비즈니스 프로세스의 정의",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "4-33",
+  "facet": null,
+  "facet_hint": "기술 트렌드별 윤리 이슈 짝",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "5-25",
+  "facet": null,
+  "facet_hint": "MDM(모바일 기기 관리)",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "1-8",
+  "facet": null,
+  "facet_hint": "정보시스템의 기술적 접근 vs 행위적 접근",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "1-2",
+  "facet": null,
+  "facet_hint": "정보시스템의 세 활동(입력·처리·출력)과 피드백",
+  "depth": 1,
+  "depth_why": "D1a"
+ }
+]

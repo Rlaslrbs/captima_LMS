@@ -1,0 +1,86 @@
+[
+ {
+  "ext_id": "1-2",
+  "facet": "om.fb_ctrl",
+  "facet_hint": "통제 ≠ 피드백(측정)",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "1-6",
+  "facet": "decision.design_op",
+  "facet_hint": "용량·입지 = 시스템 설계 결정",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "2-12",
+  "facet": "productivity.calc",
+  "facet_hint": "다요소 생산성 계산",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "2-17",
+  "facet": "strategy.qual_win",
+  "facet_hint": "자격 요건 vs 획득 요인",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "3-1",
+  "facet": "fc.group",
+  "facet_hint": "그룹 예측이 더 정확",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "3-4",
+  "facet": "avg.ma",
+  "facet_hint": "이동평균은 실제값만",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "3-17",
+  "facet": "avg.es",
+  "facet_hint": "지수평활 두 기간",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "M-9",
+  "facet": "fc.qual_methods",
+  "facet_hint": "델파이의 특징",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "M-16",
+  "facet": "acc.ts_read",
+  "facet_hint": "추적 신호 양수 = 과소예측",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "4-4",
+  "facet": "dfx.dfd",
+  "facet_hint": "DFD ≠ DFA",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "M-11",
+  "facet": "kano.shift",
+  "facet_hint": "감동 → 성능 → 기본",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "K-22",
+  "facet": "cap.eff_util",
+  "facet_hint": "효율 = 실제 ÷ 유효 용량",
+  "depth": 2,
+  "depth_why": "D2a"
+ }
+]

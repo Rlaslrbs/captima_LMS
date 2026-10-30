@@ -1,0 +1,3883 @@
+{
+ "course": "IE216",
+ "course_id": 2,
+ "made": "2026-10-25T21:59:07.137Z",
+ "vocab_ver": 1,
+ "summary": {
+  "facets": 65,
+  "gap_items": 224,
+  "by_priority": {
+   "1-learner": [
+    17,
+    54
+   ],
+   "2-star": [
+    30,
+    118
+   ],
+   "3-rest": [
+    18,
+    52
+   ]
+  }
+ },
+ "facets": [
+  {
+   "facet": "productivity.calc",
+   "kc": "productivity",
+   "name": "부분·다요소·총 생산성",
+   "status": "active",
+   "n": 6,
+   "d12": 6,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_prod_inputs": 4
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_prod_inputs",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_prod_inputs",
+     "n": 2
+    }
+   ],
+   "statement": "생산성 = 산출 금액 ÷ 투입. 노동 생산성은 노동비, 다요소는 노동+재료비, 총 생산성은 모든 투입 비용으로 나눈다",
+   "kind": "procedure",
+   "priority": "1-learner",
+   "wrong_first": 3,
+   "answered": 4,
+   "base_ext_id": "2-12",
+   "families": [
+    "prod_multi",
+    "prod_total"
+   ],
+   "items": [
+    {
+     "ext_id": "2-12",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "2-13",
+     "kind": "short",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "M-23",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-1",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-2",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-3",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L3 p.37",
+    "L3 p.38",
+    "RV p.15",
+    "RV p.16"
+   ],
+   "lead_misc": {
+    "code": "m_prod_inputs",
+    "belief": "다요소 생산성과 총 생산성의 분모에 넣는 투입을 섞어 생각함",
+    "truth": "다요소는 지정한 투입(예: 노동+재료)만, 총 생산성은 에너지까지 모든 투입 비용을 넣는다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "om.fb_ctrl",
+   "kc": "om",
+   "name": "피드백과 통제",
+   "status": "active",
+   "n": 3,
+   "d12": 2,
+   "d34": 1,
+   "deltaTypes": [
+    "neighbour"
+   ],
+   "miscOffers": {
+    "m_fb_ctrl": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_fb_ctrl",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "neighbour"
+     ],
+     "misc": "m_fb_ctrl",
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "피드백은 변환 과정 여러 지점의 측정이고, 통제는 피드백을 기준과 비교해 시정 조치가 필요한지 판단하는 것이다",
+   "kind": "distinction",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 2,
+   "base_ext_id": "M-1",
+   "families": [
+    "fb_ctrl"
+   ],
+   "items": [
+    {
+     "ext_id": "1-2",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "1-10",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "M-1",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.6",
+    "L2 p.7",
+    "RV p.6"
+   ],
+   "lead_misc": {
+    "code": "m_fb_ctrl",
+    "belief": "통제(control)가 변환 과정 여러 지점에서 측정한 값 자체라고 생각함",
+    "truth": "측정은 피드백, 통제는 피드백을 기준과 비교해 시정 조치 여부를 판단하는 것",
+    "cw": null
+   }
+  },
+  {
+   "facet": "decision.design_op",
+   "kc": "decision",
+   "name": "설계 결정과 운영 결정",
+   "status": "active",
+   "n": 2,
+   "d12": 0,
+   "d34": 2,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_design_as_op": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_design_as_op",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_design_as_op",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "용량 계획·입지·배치·제품 계획·설비는 장기·전략적인 시스템 설계 결정, 인력·재고·일정은 시스템 운영 결정이다",
+   "kind": "distinction",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "1-6",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-6",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "1-12",
+     "kind": "essay",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "L2 p.26",
+    "L2 p.27",
+    "L2 p.25"
+   ],
+   "lead_misc": {
+    "code": "m_design_as_op",
+    "belief": "생산능력 계획·시설 입지를 시스템 운영 결정이라고 생각함",
+    "truth": "용량·입지·배치는 장기·전략적인 시스템 설계 결정이다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "strategy.mission",
+   "kc": "strategy",
+   "name": "사명",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "사명(mission)은 '우리는 어떤 사업을 하는가'에 답하며 조직의 존재 이유를 나타낸다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "2-11",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-11",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.12"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "strategy.core",
+   "kc": "strategy",
+   "name": "핵심 역량",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "핵심 역량은 조직에 경쟁 우위를 주는 특별한 속성이나 능력이다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "2-10",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-10",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L3 p.16",
+    "L3 p.20"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "fc.def",
+   "kc": "fc",
+   "name": "예측의 정의",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "예측(forecast)은 관심 변수의 미래 값에 대한 진술이다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "3-11",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "3-11",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L4 p.6"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "fc.group",
+   "kc": "fc",
+   "name": "그룹 예측의 정확도",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_fc_individual": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_fc_individual",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_fc_individual",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "품목 그룹 예측은 개별 오차가 상쇄되어 개별 품목 예측보다 더 정확하다",
+   "kind": "property",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 2,
+   "base_ext_id": "3-1",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "3-1",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "M-4",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.10",
+    "L4 p.11",
+    "RV p.18",
+    "RV p.19",
+    "RV p.20"
+   ],
+   "lead_misc": {
+    "code": "m_fc_individual",
+    "belief": "개별 품목 예측이 품목 그룹 예측보다 더 정확하다고 생각함",
+    "truth": "그룹 예측은 개별 오차가 상쇄되어 더 정확하다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "fc.qual_methods",
+   "kc": "fc",
+   "name": "정성적 기법 비교",
+   "status": "active",
+   "n": 3,
+   "d12": 0,
+   "d34": 3,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_delphi_exec": 3
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_delphi_exec",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_delphi_exec",
+     "n": 2
+    }
+   ],
+   "statement": "경영진 의견은 빠르지만 한 사람이 지배할 위험, 델파이는 익명 반복으로 그 위험을 줄이지만 시간이 오래 걸린다",
+   "kind": "distinction",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 3,
+   "base_ext_id": "3-8",
+   "families": [
+    "qual_methods"
+   ],
+   "items": [
+    {
+     "ext_id": "3-8",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "3-21",
+     "kind": "essay",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "M-9",
+     "kind": "mc",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.23",
+    "L4 p.26",
+    "L4 p.24",
+    "L4 p.25",
+    "RV p.24",
+    "RV p.25",
+    "RV p.26",
+    "RV p.27"
+   ],
+   "lead_misc": {
+    "code": "m_delphi_exec",
+    "belief": "델파이 기법이 빠르지만 한 사람 의견이 지배할 수 있다고 생각함",
+    "truth": "그건 경영진 의견법. 델파이는 익명 반복으로 지배 위험을 줄이지만 시간이 오래 걸린다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "avg.wma",
+   "kc": "avg",
+   "name": "가중이동평균",
+   "status": "active",
+   "n": 3,
+   "d12": 3,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_wma_order": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_wma_order",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_wma_order",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "가중이동평균은 가장 최근 값에 가장 큰 가중치를 주고, 가중치의 합은 1이어야 한다",
+   "kind": "procedure",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 2,
+   "base_ext_id": "3-16",
+   "families": [
+    "wma"
+   ],
+   "items": [
+    {
+     "ext_id": "3-5",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "3-16",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-10",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.39",
+    "L4 p.41",
+    "RV p.34",
+    "RV p.36"
+   ],
+   "lead_misc": {
+    "code": "m_wma_order",
+    "belief": "가장 큰 가중치를 가장 오래된 값에 준다고 생각함",
+    "truth": "가장 큰 가중치는 가장 최근 값에 준다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "acc.measures",
+   "kc": "acc",
+   "name": "MAD·MSE·MAPE 계산",
+   "status": "active",
+   "n": 5,
+   "d12": 5,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_mse_n": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_mse_n",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_mse_n",
+     "n": 2
+    }
+   ],
+   "statement": "MAD = Σ|e| ÷ n, MSE = Σe² ÷ (n − 1) (이 강의), MAPE = Σ(|e| ÷ A × 100) ÷ n",
+   "kind": "procedure",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 3,
+   "base_ext_id": "3-14",
+   "families": [
+    "mad",
+    "mse"
+   ],
+   "items": [
+    {
+     "ext_id": "3-13",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "3-14",
+     "kind": "short",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "K-6",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-7",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-8",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.16",
+    "L4 p.19",
+    "RV p.21",
+    "RV p.22",
+    "RV p.23"
+   ],
+   "lead_misc": {
+    "code": "m_mse_n",
+    "belief": "MSE도 MAD처럼 n으로 나눈다고 생각함",
+    "truth": "이 강의는 MSE를 n − 1로 나눈다. MAD·MAPE는 n",
+    "cw": null
+   }
+  },
+  {
+   "facet": "acc.ts_read",
+   "kc": "acc",
+   "name": "추적 신호 해석",
+   "status": "active",
+   "n": 3,
+   "d12": 3,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_ts_sign": 1
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_ts_sign",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_ts_sign",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "추적 신호는 0이 이상적이고 흔히 ±4~±5를 한계로 쓴다. 양수로 커지면 실제가 계속 예측보다 큰 과소예측 편향이다",
+   "kind": "property",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 3,
+   "base_ext_id": "3-7",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "3-7",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "3-12",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "M-16",
+     "kind": "mc",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.67",
+    "RV p.55",
+    "RV p.57"
+   ],
+   "lead_misc": {
+    "code": "m_ts_sign",
+    "belief": "추적 신호가 양수로 커지면 예측이 실제보다 크다(과대예측)고 생각함",
+    "truth": "추적 신호 = Σ(A − F) ÷ MAD. 양수면 실제가 예측보다 커서 과소예측이다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "rd.reverse_eng",
+   "kc": "rd",
+   "name": "역설계",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    }
+   ],
+   "statement": "역설계는 경쟁사 제품을 분해·검사해 자사 제품의 개선점을 찾는 것이다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 2,
+   "base_ext_id": "4-9",
+   "families": [
+    "reverse_eng"
+   ],
+   "items": [
+    {
+     "ext_id": "4-9",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "M-17",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.12",
+    "L5 p.13",
+    "RV p.58",
+    "RV p.59"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "design.robust",
+   "kc": "design",
+   "name": "강건 설계",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "강건 설계는 넓은 범위의 조건에서도 작동하는 제품·서비스를 만드는 설계다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "4-12",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-12",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.33"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "design.ce",
+   "kc": "design",
+   "name": "동시공학",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "동시공학은 설계 초기 단계부터 설계 엔지니어와 제조 인력을 함께 참여시키는 것이다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "4-13",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-13",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.42"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "design.qfd",
+   "kc": "design",
+   "name": "품질 기능 전개",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "QFD는 고객의 소리(VoC)를 제품·서비스 개발에 통합하는 접근이며 품질의 집(House of Quality)을 쓴다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "4-11",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-11",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L5 p.36",
+    "L5 p.37"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "cap.eff_util",
+   "kc": "cap",
+   "name": "효율과 가동률",
+   "status": "active",
+   "n": 4,
+   "d12": 3,
+   "d34": 1,
+   "deltaTypes": [
+    "neighbour"
+   ],
+   "miscOffers": {
+    "m_eff_util_swap": 4
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_eff_util_swap",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "neighbour"
+     ],
+     "misc": "m_eff_util_swap",
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "효율 = 실제 산출 ÷ 유효 용량 × 100, 가동률 = 실제 산출 ÷ 설계 용량 × 100",
+   "kind": "distinction",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 2,
+   "base_ext_id": "K-22",
+   "families": [
+    "eff"
+   ],
+   "items": [
+    {
+     "ext_id": "M-7",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "M-25",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-21",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-22",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.68",
+    "RV p.69",
+    "RV p.67"
+   ],
+   "lead_misc": {
+    "code": "m_eff_util_swap",
+    "belief": "효율과 가동률의 분모(유효 용량·설계 용량)를 서로 바꿔 생각함",
+    "truth": "효율은 유효 용량으로, 가동률은 설계 용량으로 나눈다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "cap.cushion",
+   "kc": "cap",
+   "name": "용량 여유분",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [
+    "repr"
+   ],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "repr"
+     ],
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "용량 여유분은 수요 불확실성에 대비한 추가 용량으로 100% − 가동률이며 불확실성이 클수록 크게 둔다",
+   "kind": "def",
+   "priority": "1-learner",
+   "wrong_first": 1,
+   "answered": 1,
+   "base_ext_id": "M-20",
+   "families": [
+    "cushion"
+   ],
+   "items": [
+    {
+     "ext_id": "M-20",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "K-24",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.70"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "om.def",
+   "kc": "om",
+   "name": "운영관리의 정의",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "운영관리는 재화를 만들고 서비스를 제공하는 시스템·프로세스를 관리하는 것이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "1-1",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-1",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L2 p.5"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "om.goods_svc",
+   "kc": "om",
+   "name": "재화와 서비스의 차이",
+   "status": "active",
+   "n": 3,
+   "d12": 3,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_svc_like_goods": 3
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_svc_like_goods",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_svc_like_goods",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "서비스는 재화보다 고객 접촉·노동 비중이 높고, 투입이 덜 균일하며, 생산성 측정이 어렵고, 대개 특허·재고가 불가능하다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 3,
+   "base_ext_id": "1-3",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-3",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "4-6",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "M-2",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.9",
+    "L5 p.48",
+    "RV p.7"
+   ],
+   "lead_misc": {
+    "code": "m_svc_like_goods",
+    "belief": "서비스도 재화처럼 특허·재고가 가능하고 투입이 균일하다고 생각함",
+    "truth": "서비스는 대개 특허·재고가 불가능하고, 투입이 덜 균일하며 생산성 측정이 어렵다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "variation.sources",
+   "kc": "variation",
+   "name": "변동의 네 원천",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "변동의 원천은 제공하는 재화·서비스의 다양성, 수요의 구조적 변동, 무작위 변동, 할당 가능 변동이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "1-11",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-11",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L2 p.22"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "variation.random_assign",
+   "kc": "variation",
+   "name": "무작위와 할당 가능 변동",
+   "status": "active",
+   "n": 2,
+   "d12": 0,
+   "d34": 2,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_random_fix": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_random_fix",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_random_fix",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "무작위 변동은 모든 프로세스의 자연적 변동이라 관리자가 대체로 줄일 수 없고, 할당 가능 변동은 분석·시정으로 줄일 수 있다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "1-5",
+   "families": [
+    "random_assign"
+   ],
+   "items": [
+    {
+     "ext_id": "1-5",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "M-3",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "L2 p.22",
+    "RV p.9"
+   ],
+   "lead_misc": {
+    "code": "m_random_fix",
+    "belief": "무작위 변동도 원인을 찾아 시정하면 줄이거나 없앨 수 있다고 생각함",
+    "truth": "분석·시정으로 줄이는 것은 할당 가능 변동. 무작위 변동은 관리자가 대체로 줄일 수 없다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "strategy.tactics",
+   "kc": "strategy",
+   "name": "전술",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "전술(tactics)은 전략을 달성하기 위한 방법과 행동으로, 전략보다 구체적인 '어떻게' 부분이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "2-2",
+   "families": [
+    "tactics"
+   ],
+   "items": [
+    {
+     "ext_id": "2-2",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "M-22",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.17",
+    "L3 p.18",
+    "RV p.10",
+    "RV p.11"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "strategy.hierarchy",
+   "kc": "strategy",
+   "name": "사명–운영 계층",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "사명 → 목표 → 전략(조직 → 기능별) → 전술 → 운영 순으로 위가 아래를 이끈다",
+   "kind": "relation",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "2-15",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-15",
+     "kind": "essay",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L3 p.11",
+    "L3 p.12",
+    "L3 p.17",
+    "L3 p.18",
+    "L3 p.19"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "strategy.swot",
+   "kc": "strategy",
+   "name": "SWOT의 내부·외부",
+   "status": "active",
+   "n": 2,
+   "d12": 0,
+   "d34": 2,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_swot_swap": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_swot_swap",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_swot_swap",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "강점·약점은 내부 요인(인적자원·설비·재무·기술), 기회·위협은 외부 요인(경제·정치·법·기술·경쟁·시장)이다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "2-3",
+   "families": [
+    "swot"
+   ],
+   "items": [
+    {
+     "ext_id": "2-3",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "M-13",
+     "kind": "mc",
+     "depth": 3,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.21",
+    "RV p.12"
+   ],
+   "lead_misc": {
+    "code": "m_swot_swap",
+    "belief": "SWOT에서 내부 요인과 외부 요인을 서로 바꿔 생각함",
+    "truth": "강점·약점은 내부(인적자원·설비·재무), 기회·위협은 외부(경제·법·경쟁·시장)다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "strategy.qual_win",
+   "kc": "strategy",
+   "name": "자격 요건과 획득 요인",
+   "status": "active",
+   "n": 3,
+   "d12": 0,
+   "d34": 3,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_qual_win_swap": 3,
+    "m_qw_fixed": 1
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_qual_win_swap",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_qual_win_swap",
+     "n": 2
+    }
+   ],
+   "statement": "주문 자격 요건은 구매 후보가 되기 위한 최소 기준, 주문 획득 요인은 경쟁사보다 낫다고 인식되게 하는 특성이다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "2-4",
+   "families": [
+    "qual_win"
+   ],
+   "items": [
+    {
+     "ext_id": "2-4",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "2-17",
+     "kind": "essay",
+     "depth": 3,
+     "star": false
+    },
+    {
+     "ext_id": "M-12",
+     "kind": "mc",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "L3 p.23",
+    "RV p.13"
+   ],
+   "lead_misc": {
+    "code": "m_qual_win_swap",
+    "belief": "주문 자격 요건과 주문 획득 요인의 정의를 서로 바꿔 생각함",
+    "truth": "자격 요건 = 후보가 될 최소 기준, 획득 요인 = 경쟁사보다 낫다고 보이게 하는 특성",
+    "cw": null
+   }
+  },
+  {
+   "facet": "productivity.growth",
+   "kc": "productivity",
+   "name": "생산성 증가율",
+   "status": "active",
+   "n": 3,
+   "d12": 3,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_growth_base": 3
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_growth_base",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_growth_base",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "생산성 증가율 = (이번 기 − 지난 기) ÷ 지난 기 × 100. 분모는 이전 값이고 감소면 음수다",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 3,
+   "base_ext_id": "2-14",
+   "families": [
+    "growth"
+   ],
+   "items": [
+    {
+     "ext_id": "2-14",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-4",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-5",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L3 p.39",
+    "RV p.17"
+   ],
+   "lead_misc": {
+    "code": "m_growth_base",
+    "belief": "생산성 증가율을 이번 기(현재) 값으로 나눈다고 생각함",
+    "truth": "증가율의 분모는 지난 기(이전) 값이다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "productivity.eff_vs_prod",
+   "kc": "productivity",
+   "name": "효율과 생산성",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_eff_broader": 1
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_eff_broader",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_eff_broader",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "효율은 주어진 고정 자원에서 최대 산출을 내는 좁은 개념이고, 생산성은 자원 전체의 효과적 사용으로 더 넓다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "2-7",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-7",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L3 p.43"
+   ],
+   "lead_misc": {
+    "code": "m_eff_broader",
+    "belief": "효율이 생산성보다 넓은 개념이라고 생각함",
+    "truth": "효율이 더 좁다. 기계를 더 사는 것까지 포함하는 것은 생산성이다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "ts.patterns",
+   "kc": "ts",
+   "name": "추세·계절·순환·불규칙",
+   "status": "active",
+   "n": 2,
+   "d12": 1,
+   "d34": 1,
+   "deltaTypes": [
+    "neighbour"
+   ],
+   "miscOffers": {
+    "m_cycle_season": 1,
+    "m_irreg_random": 1
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_cycle_season",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "neighbour"
+     ],
+     "misc": "m_cycle_season",
+     "n": 1
+    },
+    {
+     "need": "misc",
+     "misc": "m_cycle_season",
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "계절성은 달력·시간대와 관련된 1년 미만 변동, 순환은 1년 넘는 파동, 불규칙 변동은 파업 같은 특수 상황에 의한 변동이다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "M-10",
+   "families": [
+    "ts_patterns"
+   ],
+   "items": [
+    {
+     "ext_id": "3-6",
+     "kind": "ox",
+     "depth": 3,
+     "star": false
+    },
+    {
+     "ext_id": "M-10",
+     "kind": "mc",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.29",
+    "L4 p.30",
+    "RV p.28",
+    "RV p.29"
+   ],
+   "lead_misc": {
+    "code": "m_cycle_season",
+    "belief": "순환(cycle)이 달력·시간대와 관련된 1년 미만 변동이라고 생각함",
+    "truth": "그건 계절성. 순환은 1년 넘게 이어지는 파동이다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "avg.ma",
+   "kc": "avg",
+   "name": "이동평균",
+   "status": "active",
+   "n": 4,
+   "d12": 2,
+   "d34": 2,
+   "deltaTypes": [
+    "neighbour"
+   ],
+   "miscOffers": {
+    "m_ma_window": 2,
+    "m_ma_forecast": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_ma_forecast",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "neighbour"
+     ],
+     "misc": "m_ma_forecast",
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "이동평균은 가장 최근 n개의 실제값만 같은 무게로 평균하며 이전 예측값은 쓰지 않는다",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 3,
+   "base_ext_id": "3-15",
+   "families": [
+    "ma"
+   ],
+   "items": [
+    {
+     "ext_id": "3-4",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "3-15",
+     "kind": "short",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "M-5",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "K-9",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.35",
+    "L4 p.37",
+    "L4 p.44",
+    "L4 p.38",
+    "RV p.30",
+    "RV p.32",
+    "RV p.39",
+    "RV p.33"
+   ],
+   "lead_misc": {
+    "code": "m_ma_forecast",
+    "belief": "이동평균이 이전 기간의 예측값도 평균에 넣는다고 생각함",
+    "truth": "이동평균은 실제값만 쓴다. 이전 예측값을 쓰는 것은 지수평활이다",
+    "cw": "avg.es"
+   }
+  },
+  {
+   "facet": "avg.es",
+   "kc": "avg",
+   "name": "지수평활",
+   "status": "active",
+   "n": 4,
+   "d12": 4,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_es_swap": 4
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_es_swap",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_es_swap",
+     "n": 2
+    }
+   ],
+   "statement": "지수평활 예측 = 직전 예측 + α × (직전 실제 − 직전 예측)",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "M-24",
+   "families": [
+    "es1",
+    "es2"
+   ],
+   "items": [
+    {
+     "ext_id": "3-17",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "M-24",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-11",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-12",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.42",
+    "L4 p.44",
+    "RV p.37",
+    "RV p.39",
+    "RV p.38"
+   ],
+   "lead_misc": {
+    "code": "m_es_swap",
+    "belief": "지수평활에서 α를 실제값이 아니라 이전 예측값에 곱한다고 생각함",
+    "truth": "F = F + α(A − F) = αA + (1 − α)F. α는 실제값(오차)에 곱한다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "avg.compare",
+   "kc": "avg",
+   "name": "평균 기법 비교",
+   "status": "active",
+   "n": 1,
+   "d12": 0,
+   "d34": 1,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_ma_forecast": 1,
+    "m_wma_order": 1,
+    "m_es_swap": 1
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "이동평균은 실제값만 동일 가중, 가중이동평균은 최근에 큰 가중, 지수평활은 직전 예측에 오차의 α배를 더해 반응한다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "M-30",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "M-30",
+     "kind": "essay",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.30",
+    "RV p.33",
+    "RV p.34",
+    "RV p.37",
+    "RV p.39"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "trend.line",
+   "kc": "trend",
+   "name": "선형 추세선",
+   "status": "active",
+   "n": 4,
+   "d12": 4,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    }
+   ],
+   "statement": "추세선 b = (nΣty − ΣtΣy) ÷ (nΣt² − (Σt)²), a = (Σy − bΣt) ÷ n, 예측 = a + bt",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "3-18",
+   "families": [
+    "trend_line"
+   ],
+   "items": [
+    {
+     "ext_id": "3-18",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "M-26",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-13",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-14",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.46",
+    "L4 p.48",
+    "RV p.40",
+    "RV p.42"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "trend.taf",
+   "kc": "trend",
+   "name": "추세 조정 지수평활",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "다음 예측 TAF = 평활값 S + 추세 T. S는 α로 오차를 반영하고, T는 β로 TAF 변화에서 직전 추세를 뺀 만큼 갱신한다",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "3-19",
+   "families": [
+    "taf"
+   ],
+   "items": [
+    {
+     "ext_id": "3-19",
+     "kind": "short",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "K-15",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.49",
+    "L4 p.51",
+    "RV p.43",
+    "RV p.44",
+    "RV p.45"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "trend.reg",
+   "kc": "trend",
+   "name": "단순선형회귀",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "회귀식 y = a + bx의 b = (nΣxy − ΣxΣy) ÷ (nΣx² − (Σx)²), a = (Σy − bΣx) ÷ n",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "K-16",
+   "families": [
+    "reg"
+   ],
+   "items": [
+    {
+     "ext_id": "K-16",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-17",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.47",
+    "RV p.48"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "trend.r",
+   "kc": "trend",
+   "name": "상관계수와 r²",
+   "status": "active",
+   "n": 4,
+   "d12": 4,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    }
+   ],
+   "statement": "r은 두 변수의 선형 관계의 강도·방향이고, r²는 y의 변동 중 독립변수가 설명하는 비율이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "3-9",
+   "families": [
+    "r2"
+   ],
+   "items": [
+    {
+     "ext_id": "3-9",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "M-21",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "K-18",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-19",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.62",
+    "RV p.53",
+    "RV p.49",
+    "RV p.50",
+    "RV p.51"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "acc.weighting",
+   "kc": "acc",
+   "name": "오차 가중 방식",
+   "status": "active",
+   "n": 4,
+   "d12": 4,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_mse_even": 4
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_mse_even",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_mse_even",
+     "n": 2
+    }
+   ],
+   "statement": "MAD는 모든 오차에 같은 무게, MSE는 제곱해 큰 오차에 큰 무게, MAPE는 상대 오차로 가중하므로 MAD가 같아도 MSE는 다를 수 있다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "3-3",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "3-3",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "3-22",
+     "kind": "essay",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "M-6",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "M-28",
+     "kind": "essay",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.16",
+    "L4 p.17",
+    "RV p.21",
+    "RV p.22",
+    "RV p.23"
+   ],
+   "lead_misc": {
+    "code": "m_mse_even",
+    "belief": "MSE도 MAD처럼 모든 오차에 같은 무게를 준다고 생각함",
+    "truth": "MSE는 오차를 제곱해 큰 오차에 더 큰 무게를 준다. 그래서 MAD가 같아도 MSE는 다를 수 있다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "acc.ts_calc",
+   "kc": "acc",
+   "name": "추적 신호 계산",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "추적 신호 = Σ(A − F) ÷ MAD",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "3-20",
+   "families": [
+    "ts_calc"
+   ],
+   "items": [
+    {
+     "ext_id": "3-20",
+     "kind": "short",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "K-20",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L4 p.67",
+    "L4 p.68",
+    "RV p.55",
+    "RV p.56",
+    "RV p.57"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "sustain.lca",
+   "kc": "sustain",
+   "name": "전과정 평가",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "전과정 평가(LCA)는 제품·서비스의 수명 전체(요람에서 무덤까지)에 걸친 환경 영향 평가다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "4-10",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-10",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L5 p.20",
+    "L5 p.21"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "sustain.va",
+   "kc": "sustain",
+   "name": "가치 분석",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "가치 분석은 부품·자재의 기능을 검토해 비용을 줄이거나 성능을 높이려는 노력이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "M-18",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "M-18",
+     "kind": "short",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.60",
+    "RV p.61"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "dfx.dfd",
+   "kc": "dfx",
+   "name": "분해 용이 설계 DFD",
+   "status": "active",
+   "n": 2,
+   "d12": 1,
+   "d34": 1,
+   "deltaTypes": [
+    "neighbour"
+   ],
+   "miscOffers": {
+    "m_dfd_as_dfa": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_dfd_as_dfa",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "neighbour"
+     ],
+     "misc": "m_dfd_as_dfa",
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "DFD는 쓴 제품을 쉽게 분해할 수 있게 하는 설계로 재제조(재사용)를 위한 것이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "M-19",
+   "families": [
+    "dfd"
+   ],
+   "items": [
+    {
+     "ext_id": "4-4",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "M-19",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.24",
+    "L5 p.44",
+    "RV p.62",
+    "RV p.63"
+   ],
+   "lead_misc": {
+    "code": "m_dfd_as_dfa",
+    "belief": "분해 용이 설계(DFD)가 부품 수를 줄이고 조립을 쉽게 하는 설계라고 생각함",
+    "truth": "그건 DFA. DFD는 쓴 제품을 쉽게 분해하게 하는 재제조용 설계다",
+    "cw": "dfx.dfa"
+   }
+  },
+  {
+   "facet": "design.mass_cust",
+   "kc": "design",
+   "name": "대량 맞춤",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "대량 맞춤은 표준화된 생산을 하면서 최종 제품에 맞춤을 반영하는 전략이고, 지연 차별화와 모듈러 설계로 가능하다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "4-16",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-16",
+     "kind": "essay",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L5 p.30",
+    "L5 p.31"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "design.delayed",
+   "kc": "design",
+   "name": "지연 차별화",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "지연 차별화는 고객 선호를 알 때까지 제품을 생산하되 완성하지 않는 것이다",
+   "kind": "def",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "4-2",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-2",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    }
+   ],
+   "src": [
+    "L5 p.30"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "kano.types",
+   "kc": "kano",
+   "name": "세 품질 유형",
+   "status": "active",
+   "n": 1,
+   "d12": 0,
+   "d34": 1,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_kano_static": 1
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "기본 품질은 없으면 불만, 성능 품질은 수준에 비례해 만족, 감동 품질은 기대하지 못한 기능으로 감동을 준다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "4-15",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-15",
+     "kind": "essay",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "L5 p.39",
+    "L5 p.40"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "kano.shift",
+   "kc": "kano",
+   "name": "품질 유형의 이동",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [
+    "object"
+   ],
+   "miscOffers": {
+    "m_kano_static": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_kano_static",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "object"
+     ],
+     "misc": "m_kano_static",
+     "n": 1
+    },
+    {
+     "need": "more",
+     "n": 3
+    }
+   ],
+   "statement": "시간이 지나면 대체로 감동 품질은 성능 품질로, 성능 품질은 기본 품질로 옮겨 간다",
+   "kind": "property",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "4-3",
+   "families": [
+    "kano_shift"
+   ],
+   "items": [
+    {
+     "ext_id": "4-3",
+     "kind": "ox",
+     "depth": 1,
+     "star": true
+    },
+    {
+     "ext_id": "M-11",
+     "kind": "mc",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "L5 p.40",
+    "RV p.64",
+    "RV p.65"
+   ],
+   "lead_misc": {
+    "code": "m_kano_static",
+    "belief": "카노 품질 유형은 한번 정해지면 시간이 지나도 그대로라고 생각함",
+    "truth": "시간이 지나면 감동 → 성능 → 기본 품질로 옮겨 간다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "cap.effective",
+   "kc": "cap",
+   "name": "유효 용량",
+   "status": "active",
+   "n": 1,
+   "d12": 0,
+   "d34": 1,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "유효 용량은 설계 용량에서 셋업·유지보수·휴식처럼 통제 가능한 여유를 뺀 것. 고장·결근은 실제 산출을 줄인다",
+   "kind": "condition",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "M-14",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "M-14",
+     "kind": "mc",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.67"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "cap.strategy",
+   "kc": "cap",
+   "name": "선도·추종·추적 전략",
+   "status": "active",
+   "n": 2,
+   "d12": 0,
+   "d34": 2,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_lag_lead": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_lag_lead",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_lag_lead",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "선도 전략은 수요를 예상해 미리, 추종 전략은 수요가 용량을 넘은 뒤, 추적 전략은 작은 단위로 자주 용량을 늘린다",
+   "kind": "distinction",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "M-8",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "M-8",
+     "kind": "ox",
+     "depth": 3,
+     "star": true
+    },
+    {
+     "ext_id": "M-29",
+     "kind": "essay",
+     "depth": 3,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.74",
+    "RV p.70"
+   ],
+   "lead_misc": {
+    "code": "m_lag_lead",
+    "belief": "추종(lag) 전략이 수요 증가를 예상해 미리 용량을 늘리는 전략이라고 생각함",
+    "truth": "미리 늘리는 것은 선도 전략, 추종 전략은 수요가 용량을 넘은 뒤 늘린다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "cap.machines",
+   "kc": "cap",
+   "name": "필요 기계 수",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_machine_round": 2
+   },
+   "star": true,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_machine_round",
+   "target": 6,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_machine_round",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 2
+    }
+   ],
+   "statement": "필요 기계 수 = 총 처리 시간 ÷ 기계 한 대의 가용 시간, 소수면 올림한다",
+   "kind": "procedure",
+   "priority": "2-star",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "M-27",
+   "families": [
+    "machines"
+   ],
+   "items": [
+    {
+     "ext_id": "M-27",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    },
+    {
+     "ext_id": "K-23",
+     "kind": "short",
+     "depth": 2,
+     "star": true
+    }
+   ],
+   "src": [
+    "RV p.71",
+    "RV p.72"
+   ],
+   "lead_misc": {
+    "code": "m_machine_round",
+    "belief": "필요 기계 수를 소수 그대로나 내림으로 답해도 된다고 생각함",
+    "truth": "기계는 나눌 수 없으므로 필요 대수는 올림한다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "om.sc_flow",
+   "kc": "om",
+   "name": "공급사슬의 두 흐름",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "재화·서비스는 최종 고객 쪽으로, 주문·정보·대금은 반대 방향으로 흐른다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "1-4",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-4",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.11"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "om.sd_match",
+   "kc": "om",
+   "name": "공급과 수요의 균형",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "공급 > 수요면 낭비·재고 비용, 공급 < 수요면 기회 손실·고객 불만이 생기므로 둘을 맞추는 것이 이상적이다",
+   "kind": "relation",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "1-13",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-13",
+     "kind": "essay",
+     "depth": 2,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.20",
+    "L2 p.21"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "decision.time",
+   "kc": "decision",
+   "name": "관리자의 시간 배분",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "운영관리자는 다른 어떤 결정 영역보다 시스템 운영 결정에 더 많은 시간을 쓴다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "1-7",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-7",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.27"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "decision.model",
+   "kc": "decision",
+   "name": "모델의 한계",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_model_sure": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_model_sure",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_model_sure",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "모델은 현실의 단순화라서 잘못 적용될 수 있고, 모델을 써도 좋은 결정이 보장되지 않는다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "1-8",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-8",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.32"
+   ],
+   "lead_misc": {
+    "code": "m_model_sure",
+    "belief": "모델을 쓰면 좋은 결정이 보장된다고 생각함",
+    "truth": "모델은 단순화라 잘못 적용될 수 있고 좋은 결정을 보장하지 않는다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "decision.systems",
+   "kc": "decision",
+   "name": "시스템 접근법",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "시스템 접근법은 조직 전체의 산출·목표가 어느 한 하위시스템의 목표보다 우선한다고 본다",
+   "kind": "def",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "1-9",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "1-9",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L2 p.35"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "strategy.compet",
+   "kc": "strategy",
+   "name": "경쟁력은 상대적",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_compet_abs": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_compet_abs",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_compet_abs",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "경쟁력은 비슷한 것을 제공하는 다른 조직에 비해 고객의 욕구를 얼마나 잘 충족하는가로, 늘 상대적이다",
+   "kind": "def",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": "2-1",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-1",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.6"
+   ],
+   "lead_misc": {
+    "code": "m_compet_abs",
+    "belief": "경쟁력이 다른 기업과 무관한 절대적 척도라고 생각함",
+    "truth": "경쟁력은 늘 다른 조직에 견준 상대적인 것이다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "strategy.qw_both",
+   "kc": "strategy",
+   "name": "같은 속성의 두 역할",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_qw_fixed": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_qw_fixed",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_qw_fixed",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "가격·납기 신뢰성/속도·품질은 상황에 따라 주문 자격 요건도 주문 획득 요인도 될 수 있다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "2-5",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-5",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.23"
+   ],
+   "lead_misc": {
+    "code": "m_qw_fixed",
+    "belief": "가격·납기·품질은 자격 요건과 획득 요인 중 한쪽으로 정해져 있다고 생각함",
+    "truth": "같은 속성이 상황에 따라 자격 요건도 획득 요인도 될 수 있다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "strategy.agile",
+   "kc": "strategy",
+   "name": "민첩한 운영",
+   "status": "active",
+   "n": 2,
+   "d12": 2,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    }
+   ],
+   "statement": "민첩한 운영은 변화하는 환경에서 유연성으로 적응하고 번창하려는 접근이다",
+   "kind": "def",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "2-9",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-9",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "2-16",
+     "kind": "essay",
+     "depth": 2,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.32",
+    "L3 p.33"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "productivity.units",
+   "kc": "productivity",
+   "name": "분모 단위 통일",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "생산성 척도의 분모에 넣는 투입은 모두 같은 단위여야 하므로 다요소·총 척도는 금액으로 바꿔 더한다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "2-6",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-6",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.37"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "productivity.service",
+   "kc": "productivity",
+   "name": "서비스 생산성 측정",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_svc_prod_easy": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_svc_prod_easy",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_svc_prod_easy",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "서비스 생산성은 지적 활동이 많고 변동성이 커서 측정·관리하기 어렵다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "2-8",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "2-8",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L3 p.40"
+   ],
+   "lead_misc": {
+    "code": "m_svc_prod_easy",
+    "belief": "서비스 생산성은 변동성이 낮아 측정하기 쉽다고 생각함",
+    "truth": "서비스는 지적 활동이 많고 변동성이 커서 생산성 측정이 어렵다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "fc.horizon",
+   "kc": "fc",
+   "name": "예측 기간과 정확도",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "예측 기간이 길어질수록 예측 정확도는 떨어진다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "3-2",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "3-2",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L4 p.10",
+    "L4 p.12"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "fc.qual_quant",
+   "kc": "fc",
+   "name": "정성적과 정량적",
+   "status": "active",
+   "n": 1,
+   "d12": 0,
+   "d34": 1,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_qual_hard": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_qual_hard",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_qual_hard",
+     "n": 2
+    }
+   ],
+   "statement": "정성적 예측은 의견·직관 같은 soft 정보를, 정량적 예측은 과거 데이터 투영 같은 hard data를 쓴다",
+   "kind": "distinction",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "3-10",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "3-10",
+     "kind": "ox",
+     "depth": 3,
+     "star": false
+    }
+   ],
+   "src": [
+    "L4 p.20",
+    "L4 p.21"
+   ],
+   "lead_misc": {
+    "code": "m_qual_hard",
+    "belief": "정성적 예측도 과거 데이터 같은 hard data에 의존한다고 생각함",
+    "truth": "hard data는 정량적 예측, 정성적 예측은 의견·직관 같은 soft 정보를 쓴다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "rd.types",
+   "kc": "rd",
+   "name": "기초·응용·개발",
+   "status": "active",
+   "n": 1,
+   "d12": 0,
+   "d34": 1,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_basic_applied": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_basic_applied",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_basic_applied",
+     "n": 2
+    }
+   ],
+   "statement": "기초연구는 단기 상업 기대 없이 지식을 넓히고, 응용연구는 상업적 응용을, 개발은 그 결과를 쓸모 있는 상품으로 바꾼다",
+   "kind": "distinction",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "4-1",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-1",
+     "kind": "ox",
+     "depth": 3,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.14"
+   ],
+   "lead_misc": {
+    "code": "m_basic_applied",
+    "belief": "기초연구가 단기 상업적 응용을 목표로 한다고 생각함",
+    "truth": "상업적 응용은 응용연구, 기초연구는 단기 상업 기대 없이 지식을 넓힌다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "sustain.r3",
+   "kc": "sustain",
+   "name": "설계의 3R",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "3R은 줄이기(비용·자재: 가치 분석), 재사용(반품 부품: 재제조·DFD), 재활용(자재 회수: DFR)이다",
+   "kind": "def",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "4-14",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-14",
+     "kind": "short",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.22"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "dfx.dfa",
+   "kc": "dfx",
+   "name": "조립 용이 설계 DFA",
+   "status": "active",
+   "n": 0,
+   "d12": 0,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "base",
+     "depth": "1-2",
+     "n": 1
+    },
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "DFA는 부품 수를 줄이고 조립 방법·순서를 단순하게 하는 설계다",
+   "kind": "def",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 0,
+   "base_ext_id": null,
+   "families": [],
+   "items": [],
+   "src": [],
+   "lead_misc": null
+  },
+  {
+   "facet": "design.std",
+   "kc": "design",
+   "name": "표준화의 장단점",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {
+    "m_std_variety": 1
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_std_variety",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "misc": "m_std_variety",
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "표준화는 다양성이 없는 것이라 소비자 매력이 줄고, 불완전한 설계가 굳어지며 개선에 저항이 생긴다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "4-8",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-8",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.29"
+   ],
+   "lead_misc": {
+    "code": "m_std_variety",
+    "belief": "표준화가 다양성을 늘려 소비자 매력을 높인다고 생각함",
+    "truth": "표준화는 다양성이 없는 것이라 소비자 매력이 줄어든다",
+    "cw": null
+   }
+  },
+  {
+   "facet": "design.modular",
+   "kc": "design",
+   "name": "모듈러 설계",
+   "status": "active",
+   "n": 1,
+   "d12": 1,
+   "d34": 0,
+   "deltaTypes": [],
+   "miscOffers": {},
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": null,
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [],
+     "n": 2
+    },
+    {
+     "need": "more",
+     "n": 1
+    }
+   ],
+   "statement": "모듈러 설계는 진단·수리·교체가 쉽지만, 고장 난 모듈을 통째로 버려야 하고 가능한 구성 수가 제한된다",
+   "kind": "property",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 1,
+   "base_ext_id": "4-7",
+   "families": [],
+   "items": [
+    {
+     "ext_id": "4-7",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.31"
+   ],
+   "lead_misc": null
+  },
+  {
+   "facet": "svc.std",
+   "kc": "svc",
+   "name": "접촉·변동과 표준화",
+   "status": "active",
+   "n": 3,
+   "d12": 3,
+   "d34": 0,
+   "deltaTypes": [
+    "repr"
+   ],
+   "miscOffers": {
+    "m_svc_contact_rev": 3
+   },
+   "star": false,
+   "exam": false,
+   "pending": 0,
+   "lead": "m_svc_contact_rev",
+   "target": 4,
+   "gaps": [
+    {
+     "need": "near",
+     "depth": "3-4",
+     "avoid_delta": [
+      "repr"
+     ],
+     "misc": "m_svc_contact_rev",
+     "n": 1
+    }
+   ],
+   "statement": "고객 접촉과 서비스 요구 변동이 적을수록 표준화 기회가 크다. 둘 다 크면 가장 맞춤화한다",
+   "kind": "relation",
+   "priority": "3-rest",
+   "wrong_first": 0,
+   "answered": 2,
+   "base_ext_id": "4-5",
+   "families": [
+    "svc_std"
+   ],
+   "items": [
+    {
+     "ext_id": "4-5",
+     "kind": "ox",
+     "depth": 1,
+     "star": false
+    },
+    {
+     "ext_id": "4-17",
+     "kind": "essay",
+     "depth": 2,
+     "star": false
+    },
+    {
+     "ext_id": "M-15",
+     "kind": "mc",
+     "depth": 2,
+     "star": false
+    }
+   ],
+   "src": [
+    "L5 p.47",
+    "L5 p.48",
+    "RV p.66"
+   ],
+   "lead_misc": {
+    "code": "m_svc_contact_rev",
+    "belief": "고객 접촉·요구 변동이 적은 서비스일수록 맞춤화해야 한다고 생각함",
+    "truth": "접촉·변동이 적을수록 표준화 기회가 크다. 둘 다 크면 가장 맞춤화",
+    "cw": null
+   }
+  }
+ ]
+}

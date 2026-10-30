@@ -1,0 +1,69 @@
+{
+ "type": "OBJECT",
+ "properties": {
+  "items": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "$q"
+      ]
+     },
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "$f"
+      ]
+     },
+     "depth_why": {
+      "type": "STRING",
+      "enum": [
+       "D1a",
+       "D1b",
+       "D1c",
+       "D2a",
+       "D2b",
+       "D3a",
+       "D3b",
+       "D3c",
+       "D4a",
+       "D4b",
+       "D4c",
+       "D4d"
+      ]
+     },
+     "depth": {
+      "type": "STRING",
+      "enum": [
+       "1",
+       "2",
+       "3",
+       "4"
+      ]
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "facet",
+     "depth_why",
+     "depth"
+    ],
+    "required": [
+     "ref",
+     "facet",
+     "depth_why",
+     "depth"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "items"
+ ],
+ "required": [
+  "items"
+ ]
+}

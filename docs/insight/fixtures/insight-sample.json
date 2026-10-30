@@ -1,0 +1,1571 @@
+{
+ "_note": "개발용 예시 (학습 리포트 Contract 4). 실제 공학수학(cid 4) 문제 번호를 씀. ?insightFixture=1|ready|hyp|thin|locked|no_consent|error 로 고름 · 2026-10-25: 결정 7(뽑은 리포트) 모양으로 고침 — made_at·since·can_make·units[].acc, none/none_low, format·relative 예시. INSIGHT_DEV=1 서버에서만 /js/fixtures/insight-sample.json으로 나간다.",
+ "ready": {
+  "v": 1,
+  "cid": 4,
+  "state": "ready",
+  "frame": "relative",
+  "asOf": "2026-10-25",
+  "fp": "fixture-ready-1",
+  "basis": {
+   "first": 142,
+   "choice": 61,
+   "legacy": 120,
+   "n_eff": 188.4
+  },
+  "headline": "행렬식 성질에서 같은 착각이 반복되고, 선형변환은 다시 풀어도 맞혀요.",
+  "findings": [
+   {
+    "id": "F1",
+    "type": "misc",
+    "conf": "sure",
+    "unit": {
+     "kind": "topic",
+     "code": "det",
+     "name": "행렬식 성질"
+    },
+    "with": null,
+    "text": {
+     "diag": "'det(A+B) = det A + det B'처럼 행렬식이 덧셈에도 나눠진다고 보고 있어요.",
+     "truth": "행렬식은 한 행씩 선형이지, 행렬 전체에 대해 선형이 아니에요.",
+     "contrast": "\\(\\det(AB)=\\det A\\det B\\)는 맞지만 \\(\\det(A+B)\\)에는 공식이 없어요.",
+     "cue": "덧셈·블록이 보이면 2×2 반례 하나로 먼저 확인하기",
+     "signals": ""
+    },
+    "hidden_truth": true,
+    "evidence": [
+     {
+      "id": "E1",
+      "pid": 869,
+      "ext": "ox-52",
+      "ch": "ox",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": true,
+      "day": "10/20",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(\\det(A+B)=\\det A+\\det B\\)이다.",
+      "chosen_text": "O",
+      "trap": ""
+     },
+     {
+      "id": "E2",
+      "pid": 876,
+      "ext": "ox-59",
+      "ch": "ox",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": true,
+      "day": "10/20",
+      "fast": true,
+      "role": "hit",
+      "stem": "치환행렬의 행렬식은 항상 1이다.",
+      "chosen_text": "O",
+      "trap": ""
+     },
+     {
+      "id": "E3",
+      "pid": 877,
+      "ext": "ox-60",
+      "ch": "ox",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": true,
+      "day": "10/21",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(\\det\\begin{bmatrix}A&B\\\\C&D\\end{bmatrix}=\\det A\\det D-\\det B\\det C\\)이다.",
+      "chosen_text": "O",
+      "trap": ""
+     },
+     {
+      "id": "E4",
+      "pid": 689,
+      "ext": "3.1-2:3.2-27",
+      "ch": "3.1-2",
+      "kind": "mc",
+      "chosen": "B",
+      "label": "B 고름",
+      "hidden": false,
+      "day": "10/22",
+      "fast": false,
+      "role": "avoided",
+      "stem": "\\(A,B\\)는 \\(n\\times n\\) 행렬이다. 각 진술이 참인지 거짓인지 쓰고 이유를 밝혀라. (a) 행 대치 연산은 행렬식에 영향을 주지 않는다. (b) \\(A\\)의 행렬식은 \\(A\\)의 임의의 사다리꼴 \\…",
+      "chosen_text": "(a) 참, (b) 거짓, (c) 참, (d) 거짓",
+      "trap": "행 대치는 det를 바꾸지 않지만, 한 행을 상수배하면 det도 그만큼 배가 돼요."
+     }
+    ],
+    "avoided": 1,
+    "n_items": 4,
+    "plan": "P1"
+   },
+   {
+    "id": "F2",
+    "type": "confusion",
+    "conf": "likely",
+    "unit": {
+     "kind": "topic",
+     "code": "lintrans",
+     "name": "선형변환"
+    },
+    "with": {
+     "code": "matops",
+     "name": "행렬 곱"
+    },
+    "text": {
+     "diag": "T(e₁), T(e₂)를 표준행렬의 '열'이 아니라 '행'으로 쓰는 일이 있어요.",
+     "truth": "표준행렬의 j번째 열이 \\(T(\\mathbf e_j)\\)예요: \\(A=[T(\\mathbf e_1)\\ \\cdots\\ T(\\mathbf e_n)]\\).",
+     "contrast": "행렬 곱도 같은 원리예요. \\(AB\\)의 j번째 열은 \\(A\\mathbf b_j\\)이고, 행에 놓으면 전치행렬이 돼요.",
+     "cue": "표준행렬을 쓰면 첫 열이 T(e₁)인지 먼저 확인하기",
+     "signals": "서로 바꿔 씀 · 두 단원에서 4번"
+    },
+    "hidden_truth": false,
+    "evidence": [
+     {
+      "id": "E5",
+      "pid": 522,
+      "ext": "2.3:1.9-1",
+      "ch": "2.3",
+      "kind": "mc",
+      "chosen": "D",
+      "label": "D 고름",
+      "hidden": false,
+      "day": "10/18",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(T\\)는 선형변환이다. \\(T:\\mathbf R^2\\to\\mathbf R^4\\), \\(T(\\mathbf e_1)=(3,1,3,1)\\), \\(T(\\mathbf e_2)=(-5,2,0,0)\\) (\\(\\mathbf …",
+      "chosen_text": "\\(\\begin{bmatrix}3&1&3&1\\\\-5&2&0&0\\end{bmatrix}\\)",
+      "trap": "표준행렬은 T(e₁), T(e₂)를 열로 세워요. 행으로 쓰면 전치행렬이 돼요."
+     },
+     {
+      "id": "E6",
+      "pid": 523,
+      "ext": "2.3:1.9-2",
+      "ch": "2.3",
+      "kind": "mc",
+      "chosen": "B",
+      "label": "B 고름",
+      "hidden": false,
+      "day": "10/18",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(T:\\mathbf R^3\\to\\mathbf R^2\\), \\(T(\\mathbf e_1)=(1,3)\\), \\(T(\\mathbf e_2)=(4,-7)\\), \\(T(\\mathbf e_3)=(-5,4)\\) (\\(\\mat…",
+      "chosen_text": "\\(\\begin{bmatrix}1&3\\\\4&-7\\\\-5&4\\end{bmatrix}\\)",
+      "trap": "A=[T(e₁) T(e₂) T(e₃)] — 각 열이 기저 벡터의 상이에요."
+     },
+     {
+      "id": "E7",
+      "pid": 503,
+      "ext": "2.1-2:2.1-11",
+      "ch": "2.1-2",
+      "kind": "mc",
+      "chosen": "B",
+      "label": "B 고름",
+      "hidden": false,
+      "day": "10/19",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(A=\\begin{bmatrix}1&1&1\\\\1&2&3\\\\1&4&5\\end{bmatrix}\\), \\(D=\\begin{bmatrix}2&0&0\\\\0&3&0\\\\0&0&5\\end{bmatrix}\\)일 때 \\(AD\\)와…",
+      "chosen_text": "\\(AD\\)는 \\(A\\)의 \\(i\\)번째 행에 \\(d_i\\)를 곱한 것, \\(DA\\)는 \\(j\\)번째 열에 \\(d_j\\)를 곱한 것이며, \\(…",
+      "trap": "AD는 A의 열에, DA는 A의 행에 대각 성분을 곱해요."
+     },
+     {
+      "id": "E8",
+      "pid": 534,
+      "ext": "2.3:1.9-18",
+      "ch": "2.3",
+      "kind": "mc",
+      "chosen": "A",
+      "label": "A 고름",
+      "hidden": false,
+      "day": "10/19",
+      "fast": true,
+      "role": "hit",
+      "stem": "이 사상을 구현하는 행렬을 찾아 \\(T\\)가 선형변환임을 보여라. \\[T(x_1,x_2)=(2x_2-3x_1,\\ x_1-4x_2,\\ 0,\\ x_2)\\]",
+      "chosen_text": "\\(\\begin{bmatrix}2&-3\\\\1&-4\\\\0&0\\\\0&1\\end{bmatrix}\\)",
+      "trap": "x₁의 계수들이 첫째 열이 돼요."
+     }
+    ],
+    "avoided": 2,
+    "n_items": 6,
+    "plan": "P2"
+   },
+   {
+    "id": "F3",
+    "type": "gap",
+    "conf": "likely",
+    "unit": {
+     "kind": "topic",
+     "code": "block",
+     "name": "블록 행렬과 LU 분해"
+    },
+    "with": null,
+    "text": {
+     "diag": "아직 이 개념을 잡지 못했어요.",
+     "truth": "",
+     "contrast": "",
+     "cue": "",
+     "signals": "'모르겠어요' 1번 · 틀린 답이 서로 다른 보기로 흩어져 있어요"
+    },
+    "hidden_truth": true,
+    "evidence": [
+     {
+      "id": "E9",
+      "pid": 789,
+      "ext": "x22-8",
+      "ch": "exam",
+      "kind": "mc",
+      "chosen": "idk",
+      "label": "모르겠어요",
+      "hidden": true,
+      "day": "10/21",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(A=LU=\\begin{bmatrix}1&0&0&0\\\\-3&1&0&0\\\\3&-2&1&0\\\\-5&4&-1&1\\end{bmatrix}\\begin{bmatrix}1&3&4&0\\\\0&3&5&2\\\\0&0&-2&0\\\\0&0…",
+      "chosen_text": "모르겠어요",
+      "trap": ""
+     },
+     {
+      "id": "E10",
+      "pid": 651,
+      "ext": "2.7-8:2.4-14",
+      "ch": "2.7-8",
+      "kind": "mc",
+      "chosen": "D",
+      "label": "D 고름",
+      "hidden": true,
+      "day": "10/21",
+      "fast": false,
+      "role": "hit",
+      "stem": "예제 5의 블록 상삼각행렬 \\(A=\\begin{bmatrix}A_{11}&A_{12}\\\\0&A_{22}\\end{bmatrix}\\)이 가역일 필요충분조건은 \\(A_{11}\\)과 \\(A_{22}\\)가 모두 가역인 것임…",
+      "chosen_text": "\\(-A_{22}^{-1}A_{12}A_{11}^{-1}\\)",
+      "trap": ""
+     },
+     {
+      "id": "E11",
+      "pid": 650,
+      "ext": "2.7-8:2.4-13",
+      "ch": "2.7-8",
+      "kind": "mc",
+      "chosen": "A",
+      "label": "A 고름",
+      "hidden": true,
+      "day": "10/22",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(A=\\begin{bmatrix}B&0\\\\0&C\\end{bmatrix}\\)이고 \\(B\\), \\(C\\)는 정사각행렬이라 하자. \\(A\\)가 가역일 필요충분조건은 \\(B\\)와 \\(C\\)가 모두 가역인 것임을 보여라.",
+      "chosen_text": "\\(A\\)가 가역이면 \\(A^{-1}=\\begin{bmatrix}C^{-1}&0\\\\0&B^{-1}\\end{bmatrix}\\)이다. 대각 블록의…",
+      "trap": ""
+     }
+    ],
+    "avoided": 0,
+    "n_items": 3,
+    "plan": "P3"
+   },
+   {
+    "id": "F4",
+    "type": "unclear",
+    "conf": "hyp",
+    "unit": {
+     "kind": "chapter",
+     "code": "2.5",
+     "name": "2.5 행 축약과 사다리꼴"
+    },
+    "with": null,
+    "text": {
+     "diag": "해 집합을 매개변수로 쓰는 단계에서 막히는 것 같아요. 자유변수 부호 실수일 수도, 기본해를 고르는 방법이 헷갈린 것일 수도 있어요.",
+     "truth": "",
+     "contrast": "",
+     "cue": "",
+     "signals": "틀린 답 2개 · 원인을 가르려면 2문제가 더 필요해요"
+    },
+    "hidden_truth": true,
+    "evidence": [
+     {
+      "id": "E12",
+      "pid": 604,
+      "ext": "2.5:1.5-11",
+      "ch": "2.5",
+      "kind": "mc",
+      "chosen": "D",
+      "label": "D 고름",
+      "hidden": true,
+      "day": "10/20",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(A\\)가 \\(\\begin{bmatrix}1&-4&-2&0&3&-5\\\\0&0&1&0&0&-1\\\\0&0&0&0&1&-4\\\\0&0&0&0&0&0\\end{bmatrix}\\)와 행 동치일 때, \\(A\\mathbf x=\\…",
+      "chosen_text": "\\(x_2(4,1,0,0,0,0)+x_4(0,0,0,1,0,0)+x_6(5,0,1,0,4,1)\\)",
+      "trap": ""
+     },
+     {
+      "id": "E13",
+      "pid": 787,
+      "ext": "x22-6",
+      "ch": "exam",
+      "kind": "mc",
+      "chosen": "idk",
+      "label": "모르겠어요",
+      "hidden": true,
+      "day": "10/20",
+      "fast": false,
+      "role": "hit",
+      "stem": "첨가행렬 \\([A\\,|\\,\\mathbf b]=\\left[\\begin{array}{ccc|c}1&3&4&7\\\\3&9&7&6\\end{array}\\right]\\)인 \\(A\\mathbf x=\\mathbf b\\)의 comp…",
+      "chosen_text": "모르겠어요",
+      "trap": ""
+     },
+     {
+      "id": "E14",
+      "pid": 603,
+      "ext": "2.5:1.5-10",
+      "ch": "2.5",
+      "kind": "mc",
+      "chosen": "A",
+      "label": "A 고름",
+      "hidden": false,
+      "day": "10/19",
+      "fast": false,
+      "role": "hit",
+      "stem": "\\(A\\)가 \\(\\begin{bmatrix}1&3&0&-4\\\\2&6&0&-8\\end{bmatrix}\\)와 행 동치일 때, \\(A\\mathbf x=\\mathbf 0\\)의 모든 해를 매개변수 벡터 형태로 쓰시오.",
+      "chosen_text": "\\(\\mathbf x=x_2(-3,1,0,0)+x_3(0,0,1,0)+x_4(-4,0,0,1)\\)",
+      "trap": "자유변수 x₂의 계수는 이항하면서 부호가 바뀌어요."
+     }
+    ],
+    "avoided": 0,
+    "n_items": 3,
+    "plan": "P4"
+   },
+   {
+    "id": "F5",
+    "type": "habit",
+    "conf": null,
+    "unit": null,
+    "with": null,
+    "text": {
+     "diag": "그럴듯하면 O로 답하는 경향이 있어요. 거짓 진술 23개 중 9개에 O라고 답했어요.",
+     "truth": "",
+     "contrast": "",
+     "cue": "'항상·모든·만'이 보이면 반례 조건부터 찾기",
+     "signals": "빨리 답한 O/X에서 더 자주 나와요"
+    },
+    "hidden_truth": false,
+    "evidence": [
+     {
+      "id": "E15",
+      "pid": 541,
+      "ext": "2.3:1.9-24d",
+      "ch": "2.3",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": false,
+      "day": "10/18",
+      "fast": true,
+      "role": "hit",
+      "stem": "참/거짓: \\(\\mathbf R^n\\)의 각 벡터가 \\(\\mathbf R^m\\)의 유일한 벡터로 보내지면 사상 \\(T:\\mathbf R^n\\to\\mathbf R^m\\)은 일대일이다.",
+      "chosen_text": "O",
+      "trap": "각 x가 값 하나로 가는 것은 함수의 정의일 뿐, 일대일과는 달라요."
+     },
+     {
+      "id": "E16",
+      "pid": 577,
+      "ext": "2.4:2.2-31c",
+      "ch": "2.4",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": false,
+      "day": "10/19",
+      "fast": true,
+      "role": "hit",
+      "stem": "행 교환 없이 소거로 \\(A\\)가 \\(U\\)가 될 때, \\(A\\mathbf x=\\mathbf b\\)이면 \\(U\\mathbf x=\\mathbf b\\)이다.",
+      "chosen_text": "O",
+      "trap": "소거하면 우변도 함께 바뀌어 Ux=c가 돼요."
+     },
+     {
+      "id": "E17",
+      "pid": 876,
+      "ext": "ox-59",
+      "ch": "ox",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": true,
+      "day": "10/20",
+      "fast": true,
+      "role": "hit",
+      "stem": "치환행렬의 행렬식은 항상 1이다.",
+      "chosen_text": "O",
+      "trap": ""
+     }
+    ],
+    "avoided": 0,
+    "n_items": 3,
+    "plan": null
+   },
+   {
+    "id": "F6",
+    "type": "relearn",
+    "conf": null,
+    "unit": null,
+    "with": null,
+    "text": {
+     "diag": "고친 문제 4개는 하루가 지나 다시 풀어 볼 때예요. 다시 맞히면 오래 기억에 남아요.",
+     "truth": "",
+     "contrast": "",
+     "cue": "",
+     "signals": ""
+    },
+    "hidden_truth": false,
+    "evidence": [
+     {
+      "id": "E18",
+      "pid": 620,
+      "ext": "2.6:2.2-10e",
+      "ch": "2.6",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": false,
+      "day": "10/19",
+      "fast": false,
+      "role": "wrong",
+      "stem": "(10e) \\(A\\)가 가역이면, \\(A\\)를 \\(I_n\\)으로 바꾸는 기본 행연산들은 \\(A^{-1}\\)도 \\(I_n\\)으로 바꾼다.",
+      "chosen_text": "O",
+      "trap": "같은 행연산은 A⁻¹을 I가 아니라 A⁻²로 바꿔요."
+     },
+     {
+      "id": "E19",
+      "pid": 610,
+      "ext": "2.5:1.5-30",
+      "ch": "2.5",
+      "kind": "mc",
+      "chosen": "A",
+      "label": "A 고름",
+      "hidden": false,
+      "day": "10/20",
+      "fast": false,
+      "role": "wrong",
+      "stem": "\\(A\\)는 피벗 위치가 2개인 \\(3\\times3\\) 행렬이다. (a) \\(A\\mathbf x=\\mathbf 0\\)이 자명하지 않은 해를 갖는가? (b) 가능한 모든 \\(\\mathbf b\\)에 대해 \\(A\\mat…",
+      "chosen_text": "(a) 예 (b) 예",
+      "trap": ""
+     },
+     {
+      "id": "E20",
+      "pid": 566,
+      "ext": "2.4:2.2-15",
+      "ch": "2.4",
+      "kind": "mc",
+      "chosen": "B",
+      "label": "B 고름",
+      "hidden": false,
+      "day": "10/20",
+      "fast": false,
+      "role": "wrong",
+      "stem": "어떤 \\(b\\)가 나중에 행 교환을 일으키는가? 어떤 \\(b\\)가 피벗 누락을 일으키는가? 그 특이한 경우 0이 아닌 해 \\(x,y,z\\)를 구하라. \\[x+by=0,\\qquad x-2y-z=0,\\qquad y+z…",
+      "chosen_text": "행 교환 \\(b=-1\\), 피벗 누락 \\(b=-2\\); 해 \\((1,1,-1)\\)",
+      "trap": ""
+     },
+     {
+      "id": "E21",
+      "pid": 597,
+      "ext": "2.5:1.2-23",
+      "ch": "2.5",
+      "kind": "mc",
+      "chosen": "A",
+      "label": "A 고름",
+      "hidden": false,
+      "day": "10/21",
+      "fast": false,
+      "role": "wrong",
+      "stem": "어떤 시스템의 \\(3\\times5\\) 계수행렬에 피벗 열이 3개 있다. 이 시스템은 해를 갖는가? 이유는?",
+      "chosen_text": "우변 \\(\\mathbf b\\)에 따라 다르다",
+      "trap": ""
+     }
+    ],
+    "avoided": 0,
+    "n_items": 4,
+    "plan": "P5"
+   },
+   {
+    "id": "F7",
+    "type": "fluency",
+    "conf": "likely",
+    "unit": {
+     "kind": "topic",
+     "code": "lineplane",
+     "name": "직선과 평면"
+    },
+    "with": null,
+    "text": {
+     "diag": "직선과 평면 문제는 맞히지만 다른 객관식보다 2배 넘게 오래 걸려요.",
+     "truth": "",
+     "contrast": "",
+     "cue": "법선벡터를 먼저 적고 시작하기",
+     "signals": "중앙값 3분 40초 · 이 과목 객관식 1분 20초"
+    },
+    "hidden_truth": false,
+    "evidence": [
+     {
+      "id": "E22",
+      "pid": 476,
+      "ext": "1.3:12.5-33",
+      "ch": "1.3",
+      "kind": "mc",
+      "chosen": null,
+      "label": "맞힘 · 3분 40초",
+      "hidden": false,
+      "day": "10/18",
+      "fast": false,
+      "role": "hit",
+      "stem": "세 점 \\((2,1,2)\\), \\((3,-8,6)\\), \\((-2,-3,1)\\)을 지나는 평면의 방정식을 구하여라.",
+      "chosen_text": "",
+      "trap": "",
+      "sec": 220,
+      "rel": 2.6
+     },
+     {
+      "id": "E23",
+      "pid": 477,
+      "ext": "1.3:12.5-35",
+      "ch": "1.3",
+      "kind": "mc",
+      "chosen": null,
+      "label": "맞힘 · 4분 5초",
+      "hidden": false,
+      "day": "10/18",
+      "fast": false,
+      "role": "hit",
+      "stem": "점 \\((3,5,-1)\\)을 지나고 직선 \\(x=4-t,\\;y=2t-1,\\;z=-3t\\)를 포함하는 평면의 방정식을 구하여라.",
+      "chosen_text": "",
+      "trap": "",
+      "sec": 180,
+      "rel": 2.1
+     },
+     {
+      "id": "E24",
+      "pid": 478,
+      "ext": "1.3:12.5-37",
+      "ch": "1.3",
+      "kind": "mc",
+      "chosen": null,
+      "label": "맞힘 · 2분 50초",
+      "hidden": false,
+      "day": "10/19",
+      "fast": false,
+      "role": "hit",
+      "stem": "점 \\((3,1,4)\\)를 지나고 두 평면 \\(x+2y+3z=1\\), \\(2x-y+z=-3\\)의 교선을 포함하는 평면의 방정식을 구하여라.",
+      "chosen_text": "",
+      "trap": "",
+      "sec": 150,
+      "rel": 1.8
+     }
+    ],
+    "avoided": 0,
+    "n_items": 3,
+    "plan": "P6"
+   }
+  ],
+  "plan": {
+   "today": {
+    "pids": [
+     620,
+     610,
+     566,
+     690,
+     692,
+     688,
+     523,
+     525,
+     655
+    ],
+    "minutes": 12
+   },
+   "steps": [
+    {
+     "id": "P1",
+     "type": "misc",
+     "title": "같은 함정, 다른 문제",
+     "scope": "Q:690.692.688",
+     "n": 3,
+     "read": null
+    },
+    {
+     "id": "P2",
+     "type": "contrast",
+     "title": "섞어서 풀기",
+     "scope": "Q:522.503.523.511.534.513",
+     "n": 6,
+     "read": null
+    },
+    {
+     "id": "P3",
+     "type": "gap",
+     "title": "이 개념 다시 풀기",
+     "scope": "Q:655.656.646",
+     "n": 3,
+     "read": {
+      "chapter": "2.7-8",
+      "pid": null
+     }
+    },
+    {
+     "id": "P4",
+     "type": "diag",
+     "title": "확인용 문제",
+     "scope": "Q:586.587",
+     "n": 2,
+     "read": null
+    },
+    {
+     "id": "P5",
+     "type": "relearn",
+     "title": "고친 문제 다시 확인",
+     "scope": "Q:620.610.566.597",
+     "n": 4,
+     "read": null
+    },
+    {
+     "id": "P6",
+     "type": "gap",
+     "title": "풀이 예시부터 보기",
+     "scope": "Q:469.470",
+     "n": 2,
+     "read": {
+      "chapter": "1.3",
+      "pid": 476
+     }
+    }
+   ]
+  },
+  "units": [
+   {
+    "kind": "topic",
+    "code": "det",
+    "name": "행렬식 성질",
+    "label": "weak",
+    "band": [
+     0.18,
+     0.46
+    ],
+    "mark": "slipping",
+    "n": 9,
+    "counts": {
+     "c": 4,
+     "w": 4,
+     "idk": 0
+    },
+    "acc": {
+     "c": 4,
+     "n": 8
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "block",
+    "name": "블록 행렬",
+    "label": "weak",
+    "band": [
+     0.12,
+     0.5
+    ],
+    "mark": null,
+    "n": 4,
+    "counts": {
+     "c": 1,
+     "w": 2,
+     "idk": 1
+    },
+    "acc": {
+     "c": 1,
+     "n": 4
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "lintrans",
+    "name": "선형변환",
+    "label": "ok",
+    "band": [
+     0.48,
+     0.79
+    ],
+    "mark": "fixed",
+    "n": 14,
+    "counts": {
+     "c": 12,
+     "w": 2,
+     "idk": 0
+    },
+    "acc": {
+     "c": 12,
+     "n": 14
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "matops",
+    "name": "행렬 연산",
+    "label": "solid",
+    "band": [
+     0.78,
+     0.95
+    ],
+    "mark": null,
+    "n": 16,
+    "counts": {
+     "c": 15,
+     "w": 1,
+     "idk": 0
+    },
+    "acc": {
+     "c": 15,
+     "n": 16
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "elim",
+    "name": "소거와 연립방정식",
+    "label": "solid",
+    "band": [
+     0.76,
+     0.93
+    ],
+    "mark": null,
+    "n": 21,
+    "counts": {
+     "c": 19,
+     "w": 2,
+     "idk": 0
+    },
+    "acc": {
+     "c": 19,
+     "n": 21
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "lineplane",
+    "name": "직선과 평면",
+    "label": "ok",
+    "band": [
+     0.55,
+     0.86
+    ],
+    "mark": null,
+    "n": 15,
+    "counts": {
+     "c": 13,
+     "w": 2,
+     "idk": 0
+    },
+    "speed": "slow",
+    "acc": {
+     "c": 13,
+     "n": 15
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "dot",
+    "name": "내적",
+    "label": "ok",
+    "band": [
+     0.35,
+     0.74
+    ],
+    "mark": null,
+    "n": 11,
+    "counts": {
+     "c": 7,
+     "w": 3,
+     "idk": 2
+    },
+    "acc": {
+     "c": 7,
+     "n": 12
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "lincomb",
+    "name": "선형결합",
+    "label": "ok",
+    "band": [
+     0.4,
+     0.8
+    ],
+    "mark": null,
+    "n": 8,
+    "counts": {
+     "c": 6,
+     "w": 1,
+     "idk": 1
+    },
+    "acc": {
+     "c": 6,
+     "n": 8
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "inv",
+    "name": "역행렬",
+    "label": "ok",
+    "band": [
+     0.42,
+     0.78
+    ],
+    "mark": null,
+    "n": 12,
+    "counts": {
+     "c": 9,
+     "w": 1,
+     "idk": 2
+    },
+    "acc": {
+     "c": 9,
+     "n": 12
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "cs",
+    "name": "해 집합",
+    "label": "pending",
+    "band": [
+     0.2,
+     0.8
+    ],
+    "mark": null,
+    "n": 2,
+    "counts": {
+     "c": 0,
+     "w": 1,
+     "idk": 1
+    },
+    "acc": {
+     "c": 0,
+     "n": 2
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "lu",
+    "name": "LU 분해",
+    "label": "pending",
+    "band": [
+     0.15,
+     0.75
+    ],
+    "mark": null,
+    "n": 1,
+    "counts": {
+     "c": 0,
+     "w": 0,
+     "idk": 1
+    },
+    "acc": {
+     "c": 0,
+     "n": 1
+    }
+   },
+   {
+    "kind": "topic",
+    "code": "detapp",
+    "name": "크래머·넓이와 부피",
+    "label": "pending",
+    "band": [
+     0.25,
+     0.85
+    ],
+    "mark": null,
+    "n": 1,
+    "counts": {
+     "c": 0,
+     "w": 1,
+     "idk": 0
+    },
+    "acc": {
+     "c": 0,
+     "n": 1
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "1.1-2",
+    "name": "1.1–1.2 벡터와 내적",
+    "ch": "1.1-2",
+    "label": "ok",
+    "band": [
+     0.45,
+     0.8
+    ],
+    "mark": null,
+    "n": 19,
+    "counts": {
+     "c": 13,
+     "w": 4,
+     "idk": 2
+    },
+    "acc": {
+     "c": 13,
+     "n": 19
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "1.3",
+    "name": "1.3 직선과 평면",
+    "ch": "1.3",
+    "label": "ok",
+    "band": [
+     0.55,
+     0.86
+    ],
+    "mark": null,
+    "n": 15,
+    "counts": {
+     "c": 13,
+     "w": 2,
+     "idk": 0
+    },
+    "speed": "slow",
+    "acc": {
+     "c": 13,
+     "n": 15
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "2.1-2",
+    "name": "2.1-2 행렬 연산과 행렬 곱",
+    "ch": "2.1-2",
+    "label": "solid",
+    "band": [
+     0.77,
+     0.94
+    ],
+    "mark": null,
+    "n": 18,
+    "counts": {
+     "c": 17,
+     "w": 1,
+     "idk": 0
+    },
+    "acc": {
+     "c": 17,
+     "n": 18
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "2.3",
+    "name": "2.3 선형변환",
+    "ch": "2.3",
+    "label": "ok",
+    "band": [
+     0.5,
+     0.8
+    ],
+    "mark": "fixed",
+    "n": 14,
+    "counts": {
+     "c": 12,
+     "w": 2,
+     "idk": 0
+    },
+    "acc": {
+     "c": 12,
+     "n": 14
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "2.5",
+    "name": "2.5 행 축약과 사다리꼴",
+    "ch": "2.5",
+    "label": "ok",
+    "band": [
+     0.38,
+     0.77
+    ],
+    "mark": null,
+    "n": 12,
+    "counts": {
+     "c": 8,
+     "w": 3,
+     "idk": 1
+    },
+    "acc": {
+     "c": 8,
+     "n": 12
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "2.6",
+    "name": "2.6 역행렬과 가역행렬 정리",
+    "ch": "2.6",
+    "label": "ok",
+    "band": [
+     0.42,
+     0.78
+    ],
+    "mark": null,
+    "n": 12,
+    "counts": {
+     "c": 9,
+     "w": 1,
+     "idk": 2
+    },
+    "acc": {
+     "c": 9,
+     "n": 12
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "2.7-8",
+    "name": "2.7–2.8 블록 행렬과 LU 분해",
+    "ch": "2.7-8",
+    "label": "weak",
+    "band": [
+     0.12,
+     0.48
+    ],
+    "mark": null,
+    "n": 4,
+    "counts": {
+     "c": 1,
+     "w": 2,
+     "idk": 1
+    },
+    "acc": {
+     "c": 1,
+     "n": 4
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "3.1-2",
+    "name": "3.1–3.2 행렬식",
+    "ch": "3.1-2",
+    "label": "pending",
+    "band": [
+     0.2,
+     0.7
+    ],
+    "mark": null,
+    "n": 2,
+    "counts": {
+     "c": 1,
+     "w": 1,
+     "idk": 0
+    },
+    "acc": {
+     "c": 1,
+     "n": 2
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "ox",
+    "name": "O/X 개념 카드",
+    "ch": "ox",
+    "label": "weak",
+    "band": [
+     0.3,
+     0.55
+    ],
+    "mark": "slipping",
+    "n": 40,
+    "counts": {
+     "c": 25,
+     "w": 15,
+     "idk": 0
+    },
+    "speed": "fast",
+    "acc": {
+     "c": 25,
+     "n": 40
+    }
+   }
+  ],
+  "relearn": {
+   "resolved": 81,
+   "confirmed": 12,
+   "due": [
+    620,
+    610,
+    566,
+    597
+   ]
+  },
+  "strong": [
+   {
+    "code": "matops",
+    "name": "행렬 연산"
+   },
+   {
+    "code": "elim",
+    "name": "소거와 연립방정식"
+   }
+  ],
+  "pending": [
+   {
+    "code": "cs",
+    "name": "해 집합",
+    "n": 2
+   },
+   {
+    "code": "lu",
+    "name": "LU 분해",
+    "n": 1
+   },
+   {
+    "code": "detapp",
+    "name": "크래머·넓이와 부피",
+    "n": 1
+   }
+  ],
+  "caveats": [
+   "relative_only",
+   "imported_history",
+   "few_timed",
+   "list_time"
+  ],
+  "time": {
+   "speed": "normal",
+   "n_timed": 181,
+   "notes": [
+    "객관식은 한 문제에 보통 1분 20초쯤 걸려요.",
+    "2초 안에 답한 O/X는 정답률이 크게 낮아요. 한 번 더 읽고 답해 보세요."
+   ]
+  },
+  "narr_state": "off",
+  "made_at": "2026-10-25T09:20:00.000Z",
+  "since": {
+   "answers": 3
+  },
+  "can_make": true
+ },
+ "hyp": {
+  "v": 1,
+  "cid": 4,
+  "state": "ready",
+  "frame": "relative",
+  "asOf": "2026-10-25",
+  "fp": "fixture-hyp-1",
+  "basis": {
+   "first": 38,
+   "choice": 20,
+   "legacy": 0,
+   "n_eff": 41.5
+  },
+  "headline": "아직 확실한 약점은 없지만, 행렬식에서 확인해 볼 것이 하나 있어요.",
+  "findings": [
+   {
+    "id": "F1",
+    "type": "misc",
+    "conf": "hyp",
+    "unit": {
+     "kind": "topic",
+     "code": "det",
+     "name": "행렬식 성질"
+    },
+    "with": null,
+    "text": {
+     "diag": "행 교환을 해도 행렬식이 그대로라고 보고 있을 수 있어요.",
+     "truth": "행을 한 번 바꿀 때마다 부호가 바뀌어요.",
+     "contrast": "",
+     "cue": "행 교환 횟수를 세어 두기",
+     "signals": ""
+    },
+    "hidden_truth": true,
+    "evidence": [
+     {
+      "id": "E1",
+      "pid": 876,
+      "ext": "ox-59",
+      "ch": "ox",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": true,
+      "day": "10/24",
+      "fast": false,
+      "role": "hit",
+      "stem": "치환행렬의 행렬식은 항상 1이다.",
+      "chosen_text": "O",
+      "trap": ""
+     }
+    ],
+    "avoided": 0,
+    "n_items": 1,
+    "plan": "P1"
+   },
+   {
+    "id": "F2",
+    "type": "streak",
+    "conf": "hyp",
+    "unit": {
+     "kind": "chapter",
+     "code": "2.6",
+     "name": "2.6 역행렬과 가역행렬 정리"
+    },
+    "with": null,
+    "text": {
+     "diag": "(새 진단 종류 — 화면은 이름표를 '참고'로 보여 줘요.)",
+     "truth": "",
+     "contrast": "",
+     "cue": "",
+     "signals": ""
+    },
+    "hidden_truth": false,
+    "evidence": [
+     {
+      "id": "E2",
+      "pid": 636,
+      "ext": "2.6:2.3-12d",
+      "ch": "2.6",
+      "kind": "ox",
+      "chosen": "O",
+      "label": "O라고 답함",
+      "hidden": false,
+      "day": "10/24",
+      "fast": false,
+      "role": "hit",
+      "stem": "(함의 문제: “명제 1이 참이면 명제 2가 항상 참인가?”) 선형변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)가 \\(\\mathbb R^n\\)을 \\(\\mathbb R^n\\) 안으로 보내면(into)…",
+      "chosen_text": "O",
+      "trap": "모든 n×n 행렬은 Rⁿ을 Rⁿ 안으로 보내요."
+     }
+    ],
+    "avoided": 0,
+    "n_items": 1,
+    "plan": null
+   },
+   {
+    "id": "F3",
+    "type": "format",
+    "conf": null,
+    "unit": null,
+    "with": null,
+    "text": {
+     "diag": "O/X·객관식은 대부분 맞히는데(93%) 단답(59%)·서술형(11%)에서 많이 틀려요. 알아보는 건 되는데 떠올려 쓰기가 약해요.",
+     "truth": "",
+     "contrast": "",
+     "cue": "보기 없이 답을 먼저 떠올린 뒤 확인하기",
+     "signals": ""
+    },
+    "hidden_truth": false,
+    "evidence": [],
+    "avoided": 0,
+    "n_items": 41,
+    "plan": "P2"
+   },
+   {
+    "id": "F4",
+    "type": "relative",
+    "conf": null,
+    "unit": {
+     "kind": "chapter",
+     "code": "2.4",
+     "name": "연립일차방정식"
+    },
+    "with": null,
+    "text": {
+     "diag": "다른 단원보다 첫 풀이 정답률이 낮아요 · 55% (평균 78%)",
+     "truth": "",
+     "contrast": "",
+     "cue": "",
+     "signals": ""
+    },
+    "hidden_truth": false,
+    "evidence": [],
+    "avoided": 0,
+    "n_items": 11,
+    "plan": "P3"
+   },
+   {
+    "id": "F5",
+    "type": "fb_skip",
+    "conf": null,
+    "unit": null,
+    "with": null,
+    "text": {
+     "diag": "틀린 뒤 해설을 거의 보지 않고 넘어가요 (틀린 12문제 중 9문제).",
+     "truth": "",
+     "contrast": "",
+     "cue": "틀리면 해설의 함정 한 줄만이라도 읽고 넘어가기",
+     "signals": ""
+    },
+    "hidden_truth": false,
+    "evidence": [],
+    "avoided": 0,
+    "n_items": 12,
+    "plan": null
+   }
+  ],
+  "plan": {
+   "today": {
+    "pids": [
+     876,
+     690,
+     637
+    ],
+    "minutes": 3
+   },
+   "steps": [
+    {
+     "id": "P1",
+     "type": "diag",
+     "title": "확인용 문제",
+     "scope": "Q:690.689",
+     "n": 2,
+     "read": null
+    },
+    {
+     "id": "P2",
+     "type": "format",
+     "title": "단답·서술형 다시 풀기",
+     "scope": "Q:690.689",
+     "n": 2,
+     "read": null
+    },
+    {
+     "id": "P3",
+     "type": "relative",
+     "title": "연립일차방정식 다시 보기",
+     "scope": "Q:690",
+     "n": 1,
+     "read": null
+    }
+   ]
+  },
+  "units": [
+   {
+    "kind": "chapter",
+    "code": "3.1-2",
+    "name": "3.1–3.2 행렬식",
+    "ch": "3.1-2",
+    "label": "pending",
+    "band": [
+     0.1,
+     0.9
+    ],
+    "mark": null,
+    "n": 2,
+    "counts": {
+     "c": 1,
+     "w": 1,
+     "idk": 0
+    },
+    "acc": {
+     "c": 1,
+     "n": 2
+    }
+   }
+  ],
+  "relearn": {
+   "resolved": 0,
+   "confirmed": 0,
+   "due": []
+  },
+  "strong": [],
+  "pending": [
+   {
+    "code": "3.1-2",
+    "name": "3.1–3.2 행렬식",
+    "n": 2
+   }
+  ],
+  "caveats": [
+   "relative_only",
+   "untagged",
+   "no_mc",
+   "some_future_caveat"
+  ],
+  "time": {
+   "speed": null,
+   "n_timed": 6,
+   "notes": []
+  },
+  "narr_state": "off",
+  "made_at": "2026-10-25T09:20:00.000Z",
+  "since": {
+   "answers": 3
+  },
+  "can_make": true
+ },
+ "thin": {
+  "v": 1,
+  "cid": 4,
+  "state": "ready",
+  "frame": "relative",
+  "asOf": "2026-10-25",
+  "fp": "fixture-thin-1",
+  "basis": {
+   "first": 35,
+   "choice": 12,
+   "legacy": 0,
+   "n_eff": 33
+  },
+  "headline": "",
+  "findings": [],
+  "plan": {
+   "today": {
+    "pids": [],
+    "minutes": 0
+   },
+   "steps": []
+  },
+  "units": [
+   {
+    "kind": "chapter",
+    "code": "2.1-2",
+    "name": "2.1-2 행렬 연산과 행렬 곱",
+    "ch": "2.1-2",
+    "label": "ok",
+    "band": [
+     0.5,
+     0.85
+    ],
+    "mark": null,
+    "n": 12,
+    "counts": {
+     "c": 10,
+     "w": 2,
+     "idk": 0
+    },
+    "acc": {
+     "c": 10,
+     "n": 12
+    }
+   },
+   {
+    "kind": "chapter",
+    "code": "2.3",
+    "name": "2.3 선형변환",
+    "ch": "2.3",
+    "label": "pending",
+    "band": [
+     0.2,
+     0.9
+    ],
+    "mark": null,
+    "n": 2,
+    "counts": {
+     "c": 2,
+     "w": 0,
+     "idk": 0
+    },
+    "acc": {
+     "c": 2,
+     "n": 2
+    }
+   }
+  ],
+  "relearn": {
+   "resolved": 2,
+   "confirmed": 0,
+   "due": []
+  },
+  "strong": [],
+  "pending": [
+   {
+    "code": "2.3",
+    "name": "2.3 선형변환",
+    "n": 2
+   },
+   {
+    "code": "2.4",
+    "name": "2.4 연립일차방정식",
+    "n": 1
+   }
+  ],
+  "caveats": [
+   "relative_only"
+  ],
+  "time": {
+   "speed": null,
+   "n_timed": 20,
+   "notes": []
+  },
+  "narr_state": "off",
+  "made_at": "2026-10-25T09:20:00.000Z",
+  "since": {
+   "answers": 0
+  },
+  "can_make": true
+ },
+ "locked": {
+  "v": 1,
+  "cid": 4,
+  "state": "locked",
+  "fp": "fixture-locked-1",
+  "have": {
+   "n_eff": 18.6,
+   "events": 9,
+   "chapters": 2
+  },
+  "need": {
+   "n_eff": 30,
+   "chapters": 3
+  },
+  "next": {
+   "pids": [
+    687,
+    655,
+    586,
+    469,
+    637
+   ]
+  },
+  "narr_state": "off",
+  "made_at": "2026-10-25T09:20:00.000Z",
+  "since": {
+   "answers": 3
+  },
+  "can_make": false
+ },
+ "no_consent": {
+  "v": 1,
+  "cid": 4,
+  "state": "no_consent"
+ },
+ "none": {
+  "v": 1,
+  "cid": 4,
+  "state": "none",
+  "can_make": true,
+  "have": {
+   "n_eff": 42,
+   "events": 31,
+   "chapters": 5
+  },
+  "need": {
+   "n_eff": 30,
+   "chapters": 3
+  }
+ },
+ "none_low": {
+  "v": 1,
+  "cid": 4,
+  "state": "none",
+  "can_make": false,
+  "have": {
+   "n_eff": 12.4,
+   "events": 9,
+   "chapters": 2
+  },
+  "need": {
+   "n_eff": 30,
+   "chapters": 3
+  }
+ }
+}

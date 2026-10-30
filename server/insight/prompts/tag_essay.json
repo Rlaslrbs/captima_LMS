@@ -1,0 +1,120 @@
+{
+ "type": "OBJECT",
+ "properties": {
+  "items": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "$q"
+      ]
+     },
+     "rationale": {
+      "type": "STRING"
+     },
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "$f"
+      ]
+     },
+     "facets2": {
+      "type": "ARRAY",
+      "items": {
+       "type": "STRING",
+       "enum": [
+        "$f"
+       ]
+      },
+      "maxItems": 2
+     },
+     "depth": {
+      "type": "STRING",
+      "enum": [
+       "1",
+       "2",
+       "3",
+       "4"
+      ]
+     },
+     "depth_why": {
+      "type": "STRING",
+      "enum": [
+       "D1a",
+       "D1b",
+       "D1c",
+       "D2a",
+       "D2b",
+       "D3a",
+       "D3b",
+       "D3c",
+       "D4a",
+       "D4b",
+       "D4c",
+       "D4d"
+      ]
+     },
+     "points": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "i": {
+         "type": "INTEGER"
+        },
+        "facet": {
+         "type": "STRING",
+         "enum": [
+          "$f"
+         ]
+        },
+        "misc": {
+         "type": "STRING",
+         "enum": [
+          "$m"
+         ]
+        }
+       },
+       "propertyOrdering": [
+        "i",
+        "facet",
+        "misc"
+       ],
+       "required": [
+        "i",
+        "facet",
+        "misc"
+       ]
+      }
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "rationale",
+     "facet",
+     "facets2",
+     "depth",
+     "depth_why",
+     "points"
+    ],
+    "required": [
+     "ref",
+     "rationale",
+     "facet",
+     "depth",
+     "depth_why",
+     "points"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "items"
+ ],
+ "required": [
+  "items"
+ ]
+}

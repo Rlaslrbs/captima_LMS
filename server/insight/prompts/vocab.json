@@ -1,0 +1,197 @@
+{
+ "type": "OBJECT",
+ "properties": {
+  "notes": {
+   "type": "STRING"
+  },
+  "kcs": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "$k"
+      ]
+     },
+     "name": {
+      "type": "STRING"
+     },
+     "definition": {
+      "type": "STRING"
+     },
+     "boundary": {
+      "type": "STRING"
+     },
+     "support": {
+      "type": "ARRAY",
+      "items": {
+       "type": "STRING",
+       "enum": [
+        "$q"
+       ]
+      },
+      "minItems": 1
+     },
+     "facets": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "ref": {
+         "type": "STRING",
+         "enum": [
+          "$f"
+         ]
+        },
+        "name": {
+         "type": "STRING"
+        },
+        "kind": {
+         "type": "STRING",
+         "enum": [
+          "def",
+          "property",
+          "condition",
+          "procedure",
+          "relation",
+          "distinction"
+         ]
+        },
+        "statement": {
+         "type": "STRING"
+        },
+        "support": {
+         "type": "ARRAY",
+         "items": {
+          "type": "STRING",
+          "enum": [
+           "$q"
+          ]
+         },
+         "minItems": 1
+        }
+       },
+       "propertyOrdering": [
+        "ref",
+        "name",
+        "kind",
+        "statement",
+        "support"
+       ],
+       "required": [
+        "ref",
+        "name",
+        "kind",
+        "statement",
+        "support"
+       ]
+      },
+      "minItems": 1,
+      "maxItems": 5
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "name",
+     "definition",
+     "boundary",
+     "support",
+     "facets"
+    ],
+    "required": [
+     "ref",
+     "name",
+     "definition",
+     "boundary",
+     "support",
+     "facets"
+    ]
+   },
+   "minItems": 1,
+   "maxItems": 6
+  },
+  "miscs": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "evidence": {
+      "type": "ARRAY",
+      "items": {
+       "type": "STRING",
+       "enum": [
+        "$q"
+       ]
+      },
+      "minItems": 1,
+      "maxItems": 6
+     },
+     "kc": {
+      "type": "STRING",
+      "enum": [
+       "$k"
+      ]
+     },
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "$f"
+      ]
+     },
+     "confused_with": {
+      "type": "STRING",
+      "enum": [
+       "none",
+       "$k"
+      ]
+     },
+     "belief": {
+      "type": "STRING"
+     },
+     "truth": {
+      "type": "STRING"
+     },
+     "contrast": {
+      "type": "STRING"
+     },
+     "cue": {
+      "type": "STRING"
+     }
+    },
+    "propertyOrdering": [
+     "evidence",
+     "kc",
+     "facet",
+     "confused_with",
+     "belief",
+     "truth",
+     "contrast",
+     "cue"
+    ],
+    "required": [
+     "evidence",
+     "kc",
+     "facet",
+     "confused_with",
+     "belief",
+     "truth",
+     "contrast",
+     "cue"
+    ]
+   },
+   "maxItems": 12
+  }
+ },
+ "propertyOrdering": [
+  "notes",
+  "kcs",
+  "miscs"
+ ],
+ "required": [
+  "notes",
+  "kcs",
+  "miscs"
+ ]
+}

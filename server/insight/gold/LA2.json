@@ -1,0 +1,86 @@
+[
+ {
+  "ext_id": "ox-59",
+  "facet": null,
+  "facet_hint": "det: 행 교환과 부호, 치환행렬 det = ±1",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "ox-52",
+  "facet": null,
+  "facet_hint": "det: 행마다 선형, det(A+B) ≠ det A + det B",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "ox-60",
+  "facet": null,
+  "facet_hint": "det: 블록 det = det A·det D 는 블록 삼각일 때만",
+  "depth": 4,
+  "depth_why": "D4b"
+ },
+ {
+  "ext_id": "x21-t11",
+  "facet": null,
+  "facet_hint": "det: 블록 det = det A·det D 는 블록 삼각일 때만",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "x24-9",
+  "facet": null,
+  "facet_hint": "det: 블록 det = det A·det D 는 블록 삼각일 때만",
+  "depth": 4,
+  "depth_why": "D4d"
+ },
+ {
+  "ext_id": "3.1-2:3.2-29",
+  "facet": null,
+  "facet_hint": "det: det(AB) = det A·det B, det(Aᵏ) = (det A)ᵏ",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "2.5:1.5-26",
+  "facet": null,
+  "facet_hint": "cs: 해가 있을 때 유일 ⇔ Ax = 0 이 자명해만 (정사각 불필요)",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "2.6:2.2-15",
+  "facet": null,
+  "facet_hint": "inv: (AB)⁻¹ = B⁻¹A⁻¹ 순서가 뒤집힘",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "2.4:N-1c",
+  "facet": null,
+  "facet_hint": "elim: [0 … 0 | b≠0] 행이 나오면 해 없음",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "1.3:12.5-76",
+  "facet": null,
+  "facet_hint": "lineplane: 평행한 평면 사이 거리 = |d₁−d₂| ÷ ‖n‖",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "2.7-8:2.4-14",
+  "facet": null,
+  "facet_hint": "block: 블록 상삼각 역행렬 공식",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "2.1-2:2.1-19",
+  "facet": null,
+  "facet_hint": "matops: AB의 j열 = A·b_j (열 관계가 유지됨)",
+  "depth": 2,
+  "depth_why": "D2a"
+ }
+]

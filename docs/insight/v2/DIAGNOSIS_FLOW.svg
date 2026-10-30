@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="830" viewBox="0 0 1500 830" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6e6e73"/></marker></defs>
+<rect width="1500" height="830" fill="#ffffff"/>
+<text x="40" y="42" font-size="26" font-weight="700" fill="#1d1d1f" text-anchor="start">문제노트 학습 진단 알고리즘 구조 (v2)</text>
+<text x="40" y="64" font-size="13" font-weight="400" fill="#6e6e73" text-anchor="start">문제마다 붙인 꼬리표(개념·깊이·오개념)를 학습자의 풀이 기록과 맞춰, 깊이와 착각을 따로 판단해요</text>
+<text x="40" y="90" font-size="16" font-weight="700" fill="#3478F6" text-anchor="start">A. 문제 준비 (과목마다 한 번, 오프라인)</text>
+<rect x="40" y="100" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="56" y="128" font-size="15" font-weight="700" fill="#1d1d1f">① 개념 목록</text>
+<text x="56" y="150" font-size="12.5" fill="#3a3a3c">개념 → 세부 포인트</text>
+<text x="56" y="169" font-size="12.5" fill="#3a3a3c">→ 흔한 오개념</text>
+<text x="56" y="188" font-size="12.5" fill="#3a3a3c">(vocab · merge)</text>
+<rect x="320" y="100" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="336" y="128" font-size="15" font-weight="700" fill="#1d1d1f">② 관리자 확인</text>
+<text x="336" y="150" font-size="12.5" fill="#3a3a3c">진단 탭에서 목록을</text>
+<text x="336" y="169" font-size="12.5" fill="#3a3a3c">고치고 승인</text>
+<rect x="600" y="100" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="616" y="128" font-size="15" font-weight="700" fill="#1d1d1f">③ 문항 태깅 (tag)</text>
+<text x="616" y="150" font-size="12.5" fill="#3a3a3c">세부 포인트 · 깊이 1~4</text>
+<text x="616" y="169" font-size="12.5" fill="#3a3a3c">선지별 오개념</text>
+<rect x="880" y="100" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="896" y="128" font-size="15" font-weight="700" fill="#1d1d1f">④ 두 번째 의견</text>
+<text x="896" y="150" font-size="12.5" fill="#3a3a3c">다른 모델이 독립 판단</text>
+<text x="896" y="169" font-size="12.5" fill="#3a3a3c">같으면 확신도 2 이상</text>
+<rect x="880" y="222" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="896" y="250" font-size="15" font-weight="700" fill="#1d1d1f">⑤ 세 번째 판정</text>
+<text x="896" y="272" font-size="12.5" fill="#3a3a3c">불일치 문항만 다수결</text>
+<text x="896" y="291" font-size="12.5" fill="#3a3a3c">(또 다른 모델)</text>
+<rect x="600" y="222" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="616" y="250" font-size="15" font-weight="700" fill="#1d1d1f">⑥ 블라인드 풀이 검증</text>
+<text x="616" y="272" font-size="12.5" fill="#3a3a3c">정답을 모르고 풀어</text>
+<text x="616" y="291" font-size="12.5" fill="#3a3a3c">태그가 맞는지 확인</text>
+<rect x="320" y="222" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="336" y="250" font-size="15" font-weight="700" fill="#1d1d1f">⑦ 변형 묶음 (family)</text>
+<text x="336" y="272" font-size="12.5" fill="#3a3a3c">같은 개념을 바꿔 낸</text>
+<text x="336" y="291" font-size="12.5" fill="#3a3a3c">문제끼리 묶기</text>
+<rect x="40" y="222" width="230" height="84" rx="14" fill="#EAF2FF" stroke="#3478F6" stroke-width="1.6"/>
+<text x="56" y="250" font-size="15" font-weight="700" fill="#1d1d1f">켜기 기준 (과목별)</text>
+<text x="56" y="272" font-size="12.5" fill="#3a3a3c">확신도 2 이상 90%</text>
+<text x="56" y="291" font-size="12.5" fill="#3a3a3c">기준 문제 일치 · 관리자 켜기</text>
+<path d="M270,142 L318,142" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M550,142 L598,142" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M830,142 L878,142" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M995,184 L995,220" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M880,264 L832,264" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M600,264 L552,264" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M320,264 L272,264" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<text x="40" y="358" font-size="16" font-weight="700" fill="#34A853" text-anchor="start">B. 학습자가 풀 때 (리포트를 뽑을 때 계산)</text>
+<rect x="40" y="372" width="230" height="130" rx="14" fill="#E8F7EE" stroke="#34A853" stroke-width="1.6"/>
+<text x="56" y="400" font-size="15" font-weight="700" fill="#1d1d1f">학습자 풀이 기록</text>
+<text x="56" y="422" font-size="12.5" fill="#3a3a3c">정답 · 고른 선지</text>
+<text x="56" y="441" font-size="12.5" fill="#3a3a3c">풀이 시간</text>
+<text x="56" y="460" font-size="12.5" fill="#3a3a3c">‘모르겠어요’</text>
+<rect x="320" y="372" width="230" height="130" rx="14" fill="#E8F7EE" stroke="#34A853" stroke-width="1.6"/>
+<text x="336" y="400" font-size="15" font-weight="700" fill="#1d1d1f">증거 정리</text>
+<text x="336" y="422" font-size="12.5" fill="#3a3a3c">첫 풀이 기준으로 셈</text>
+<text x="336" y="441" font-size="12.5" fill="#3a3a3c">제외: 빠른 연속 클릭,</text>
+<text x="336" y="460" font-size="12.5" fill="#3a3a3c">너무 빠른 답,</text>
+<text x="336" y="479" font-size="12.5" fill="#3a3a3c">예전 앱 기록</text>
+<rect x="600" y="372" width="230" height="130" rx="14" fill="#E8F7EE" stroke="#34A853" stroke-width="1.6"/>
+<text x="616" y="400" font-size="15" font-weight="700" fill="#1d1d1f">세부 포인트별 진단</text>
+<text x="616" y="422" font-size="12.5" fill="#3a3a3c">깊이: 모름 · 얕게 ·</text>
+<text x="616" y="441" font-size="12.5" fill="#3a3a3c">확실히 앎</text>
+<text x="616" y="460" font-size="12.5" fill="#3a3a3c">착각: 오개념 확률</text>
+<text x="616" y="479" font-size="12.5" fill="#3a3a3c">(두 축을 따로 계산)</text>
+<rect x="880" y="372" width="230" height="130" rx="14" fill="#E8F7EE" stroke="#34A853" stroke-width="1.6"/>
+<text x="896" y="400" font-size="15" font-weight="700" fill="#1d1d1f">판정 규칙</text>
+<text x="896" y="422" font-size="12.5" fill="#3a3a3c">착각: 다른 문제 2개 이상</text>
+<text x="896" y="441" font-size="12.5" fill="#3a3a3c">에서 같은 오개념</text>
+<text x="896" y="460" font-size="12.5" fill="#3a3a3c">확실히 앎: 3문제 이상 +</text>
+<text x="896" y="479" font-size="12.5" fill="#3a3a3c">어려운 문제 정답</text>
+<text x="896" y="498" font-size="12.5" fill="#3a3a3c">그 밖: 판단 보류 + 확인 문제</text>
+<path d="M270,437 L318,437" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M550,437 L598,437" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M830,437 L878,437" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<path d="M435,306 L435,330 L715,330 L715,370" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<text x="450" y="322" font-size="11.5" font-weight="400" fill="#3478F6" text-anchor="start">태그된 문항 · 개념 목록 사용</text>
+<text x="40" y="545" font-size="16" font-weight="700" fill="#F29D38" text-anchor="start">C. 리포트 화면</text>
+<rect x="40" y="556" width="1070" height="140" rx="16" fill="#FFFBF5" stroke="#F29D38" stroke-width="1.4"/>
+<rect x="60" y="576" width="190" height="104" rx="14" fill="#FFF1E0" stroke="#F29D38" stroke-width="1.6"/>
+<text x="76" y="604" font-size="14" font-weight="700" fill="#1d1d1f">착각 카드</text>
+<text x="76" y="626" font-size="12.5" fill="#3a3a3c">근거 사슬: 맞힘 →</text>
+<text x="76" y="645" font-size="12.5" fill="#3a3a3c">바꾼 문제 틀림 →</text>
+<text x="76" y="664" font-size="12.5" fill="#3a3a3c">같은 생각으로 또 틀림</text>
+<rect x="255" y="576" width="190" height="104" rx="14" fill="#FFF1E0" stroke="#F29D38" stroke-width="1.6"/>
+<text x="271" y="604" font-size="14" font-weight="700" fill="#1d1d1f">개념 깊이 사다리</text>
+<text x="271" y="626" font-size="12.5" fill="#3a3a3c">정의 · 적용 ·</text>
+<text x="271" y="645" font-size="12.5" fill="#3a3a3c">구별 · 조건</text>
+<rect x="450" y="576" width="190" height="104" rx="14" fill="#FFF1E0" stroke="#F29D38" stroke-width="1.6"/>
+<text x="466" y="604" font-size="14" font-weight="700" fill="#1d1d1f">확인 문제</text>
+<text x="466" y="626" font-size="12.5" fill="#3a3a3c">다음에 풀 문제와</text>
+<text x="466" y="645" font-size="12.5" fill="#3a3a3c">이유</text>
+<rect x="645" y="576" width="190" height="104" rx="14" fill="#FFF1E0" stroke="#F29D38" stroke-width="1.6"/>
+<text x="661" y="604" font-size="14" font-weight="700" fill="#1d1d1f">학습 습관 메모</text>
+<text x="661" y="626" font-size="12.5" fill="#3a3a3c">(접이식)</text>
+<text x="661" y="645" font-size="12.5" fill="#3a3a3c">속도 · 피로 · 형식</text>
+<rect x="840" y="576" width="190" height="104" rx="14" fill="#FFF1E0" stroke="#F29D38" stroke-width="1.6"/>
+<text x="856" y="604" font-size="14" font-weight="700" fill="#1d1d1f">AI 추정 카드</text>
+<text x="856" y="626" font-size="12.5" fill="#3a3a3c">(스위치 켜짐일 때)</text>
+<text x="856" y="645" font-size="12.5" fill="#3a3a3c">제미나이 진단</text>
+<path d="M995,502 L995,554" fill="none" stroke="#6e6e73" stroke-width="1.8" marker-end="url(#ah)"/>
+<rect x="1160" y="372" width="300" height="130" rx="14" fill="#F1ECFF" stroke="#8A63D2" stroke-width="1.6"/>
+<text x="1176" y="400" font-size="15" font-weight="700" fill="#1d1d1f">AI 오답 진단 (선택)</text>
+<text x="1176" y="422" font-size="12.5" fill="#3a3a3c">스위치가 켜졌을 때만</text>
+<text x="1176" y="441" font-size="12.5" fill="#3a3a3c">최근 틀린 3~5개를</text>
+<text x="1176" y="460" font-size="12.5" fill="#3a3a3c">익명으로 제미나이에 보냄</text>
+<text x="1176" y="479" font-size="12.5" fill="#3a3a3c">검증을 통과한 결과만 사용</text>
+<path d="M1110,437 L1158,437" fill="none" stroke="#8A63D2" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ah)"/>
+<rect x="1160" y="576" width="300" height="104" rx="14" fill="#F2F2F7" stroke="#8e8e93" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="1176" y="604" font-size="15" font-weight="700" fill="#1d1d1f">태그가 없는 과목</text>
+<text x="1176" y="626" font-size="12.5" fill="#3a3a3c">기존 리포트 (v1)</text>
+<text x="1176" y="645" font-size="12.5" fill="#3a3a3c">단원 정답률 + 오답 중심</text>
+<path d="M715,502 L715,520 L1310,520 L1310,574" fill="none" stroke="#8e8e93" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ah)"/>
+<text x="730" y="514" font-size="11.5" font-weight="400" fill="#8e8e93" text-anchor="start">태그가 없으면</text>
+<text x="40" y="730" font-size="12.5" font-weight="400" fill="#3a3a3c" text-anchor="start">확신도: 3 = 해설·바른 진술에 근거 · 2 = 두 판단이 같음 · 1 = 판단이 다름(낮음)</text>
+<text x="40" y="752" font-size="12.5" font-weight="400" fill="#3a3a3c" text-anchor="start">착각은 서로 다른 문제에서 같은 틀린 생각이 반복될 때만 말해요 (한 번은 ‘~일 수 있어요’ + 확인 문제)</text>
+<text x="40" y="774" font-size="11.5" font-weight="400" fill="#8e8e93" text-anchor="start">근거: 순서형 객관식(Briggs 2006) · 인지진단모형 DINA 계열(고정값) · Webb 깊이 기준 · 과신 오답 교정 효과(Butterfield &amp; Metcalfe 2001)</text>
+</svg>
