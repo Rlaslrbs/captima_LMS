@@ -1,0 +1,159 @@
+{
+  "notes": "약자 단원은 경정시 용어를 영어 풀이로 정확히 쓰는지를 본다. 같은 모양의 약자라도 뜻이 다른 쌍(CIO·CDO·CPO, TCO·SLA, GDPR·FIP·ATT)을 가려 쓰는 것이 핵심이다. 철자(eXtensible, Ownership, Application 등)를 틀리면 정답이 아니므로 철자까지 확인한다.",
+  "kcs": [
+    {
+      "ref": "k1",
+      "name": "정보시스템 유형 약자",
+      "definition": "TPS·DSS·ESS·ERP·SCM·CRM·KMS·LMS·ECM·HCM·BI·DBMS·SOA 같은 정보시스템과 응용의 영어 풀이.",
+      "boundary": "시스템 이름의 한국어 뜻만 외우고 영어 풀이를 빼지 않는다.",
+      "support": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q14", "q23", "q29", "q31", "q36", "q37"],
+      "facets": [
+        { "ref": "f1", "name": "거래·의사결정 시스템", "kind": "def", "statement": "TPS는 Transaction Processing Systems, DSS는 Decision Support Systems, ESS는 Executive Support Systems이다.", "support": ["q1", "q2", "q3"] },
+        { "ref": "f2", "name": "기업 응용 시스템", "kind": "def", "statement": "ERP는 Enterprise Resource Planning, SCM은 Supply Chain Management, CRM은 Customer Relationship Management이다.", "support": ["q4", "q5", "q6"] },
+        { "ref": "f3", "name": "지식·학습·콘텐츠·인적자원 시스템", "kind": "def", "statement": "KMS는 Knowledge Management System, LMS는 Learning Management System, ECM은 Enterprise Content Management, HCM은 Human Capital Management이다.", "support": ["q7", "q8", "q36", "q37"] },
+        { "ref": "f4", "name": "정보·데이터 관리 기술", "kind": "def", "statement": "BI는 Business Intelligence, DBMS는 Database Management System, SOA는 Service-Oriented Architecture이다.", "support": ["q23", "q29", "q31"] },
+        { "ref": "f5", "name": "채널 전략", "kind": "def", "statement": "BOPIS는 Buy Online, Pick-up In Store이다.", "support": ["q14"] }
+      ]
+    },
+    {
+      "ref": "k2",
+      "name": "경영진 직책 약자",
+      "definition": "CIO·CISO·CSO·CPO·CKO·CDO 같은 최고 책임자 직책의 영어 풀이.",
+      "boundary": "직책 약자의 두 번째 글자(Information, Data, Privacy 등)를 섞지 않는다.",
+      "support": ["q9", "q10", "q32", "q33", "q34", "q35"],
+      "facets": [
+        { "ref": "f1", "name": "정보 책임자", "kind": "def", "statement": "CIO는 Chief Information Officer, CISO는 Chief Information Security Officer이다.", "support": ["q9", "q10"] },
+        { "ref": "f2", "name": "보안·개인정보 책임자", "kind": "def", "statement": "CSO는 Chief Security Officer, CPO는 Chief Privacy Officer이다.", "support": ["q32", "q33"] },
+        { "ref": "f3", "name": "지식·데이터 책임자", "kind": "def", "statement": "CKO는 Chief Knowledge Officer, CDO는 Chief Data Officer이다.", "support": ["q34", "q35"] }
+      ]
+    },
+    {
+      "ref": "k3",
+      "name": "클라우드·기기·기술 약자",
+      "definition": "SaaS·PaaS·IaaS, SDS, RISC, XML, BYOD, MDM, TAM 같은 클라우드와 기기·기술 용어의 영어 풀이.",
+      "boundary": "클라우드 세 유형의 마지막 글자(Service)를 바꾸지 않는다.",
+      "support": ["q12", "q15", "q24", "q25", "q26", "q27", "q28", "q30", "q38"],
+      "facets": [
+        { "ref": "f1", "name": "클라우드 서비스 유형", "kind": "def", "statement": "SaaS는 Software as a Service, PaaS는 Platform as a Service, IaaS는 Infrastructure as a Service이다.", "support": ["q15", "q30", "q38"] },
+        { "ref": "f2", "name": "기기·저장·프로세서·마크업", "kind": "def", "statement": "SDS는 Software-Defined Storage, RISC는 Reduced Instruction Set Computer, XML은 eXtensible Markup Language이다.", "support": ["q24", "q27", "q28"] },
+        { "ref": "f3", "name": "개인 기기 관리", "kind": "def", "statement": "BYOD는 Bring Your Own Device, MDM은 Mobile Device Management이다.", "support": ["q25", "q26"] },
+        { "ref": "f4", "name": "기술 수용 모형", "kind": "def", "statement": "TAM은 Technology Acceptance Model이다.", "support": ["q12"] }
+      ]
+    },
+    {
+      "ref": "k4",
+      "name": "규제·윤리·탄소 약자",
+      "definition": "FIP·GDPR·COPPA, ATT, CBAM, ESG 같은 개인정보 규제, 추적 투명성, 탄소 규제와 지속가능성의 영어 풀이.",
+      "boundary": "FIP를 Principles로, GDPR를 Privacy로 풀지 않는다.",
+      "support": ["q11", "q16", "q17", "q18", "q19", "q20"],
+      "facets": [
+        { "ref": "f1", "name": "개인정보 원칙·법", "kind": "def", "statement": "FIP는 Fair Information Practices, GDPR은 General Data Protection Regulation, COPPA는 Child's Online Privacy Protection Act이다.", "support": ["q16", "q17", "q18"] },
+        { "ref": "f2", "name": "앱 추적 투명성", "kind": "def", "statement": "ATT는 App Tracking Transparency이다.", "support": ["q20"] },
+        { "ref": "f3", "name": "탄소·지속가능성", "kind": "def", "statement": "CBAM은 Carbon Border Adjustment Mechanism, ESG는 Environmental, Social, and Governance이다.", "support": ["q11", "q19"] }
+      ]
+    },
+    {
+      "ref": "k5",
+      "name": "비용·서비스·지표 약자",
+      "definition": "TCO, SLA, MTTR 같은 비용과 서비스 수준, 처리 시간 지표의 영어 풀이.",
+      "boundary": "TCO를 Operation으로, SLA를 Assurance로 풀지 않는다.",
+      "support": ["q13", "q21", "q22"],
+      "facets": [
+        { "ref": "f1", "name": "총소유비용과 서비스 수준 계약", "kind": "def", "statement": "TCO는 Total Cost of Ownership, SLA는 Service Level Agreement이다.", "support": ["q21", "q22"] },
+        { "ref": "f2", "name": "평균 처리 시간", "kind": "def", "statement": "MTTR은 Mean Time To Resolution이다.", "support": ["q13"] }
+      ]
+    }
+  ],
+  "miscs": [
+    {
+      "evidence": ["q35"],
+      "kc": "k2",
+      "facet": "f3",
+      "confused_with": "none",
+      "belief": "CDO는 Chief Digital Officer라고 생각함",
+      "truth": "CDO는 Chief Data Officer이다",
+      "contrast": "틀린 믿음 CDO = 디지털 책임자 / 바른 이해 CDO = 데이터 책임자",
+      "cue": "Data 글자를 떠올린다"
+    },
+    {
+      "evidence": ["q33"],
+      "kc": "k2",
+      "facet": "f2",
+      "confused_with": "none",
+      "belief": "CPO는 Chief Product Officer라고 생각함",
+      "truth": "CPO는 Chief Privacy Officer이다",
+      "contrast": "틀린 믿음 CPO = 제품 책임자 / 바른 이해 CPO = 개인정보 책임자",
+      "cue": "개인정보 문맥이면 Privacy다"
+    },
+    {
+      "evidence": ["q9"],
+      "kc": "k2",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "CIO는 Chief Internet Officer라고 생각함",
+      "truth": "CIO는 Chief Information Officer이다",
+      "contrast": "틀린 믿음 CIO = 인터넷 책임자 / 바른 이해 CIO = 정보 책임자",
+      "cue": "정보기술 책임자라는 뜻으로 풀이한다"
+    },
+    {
+      "evidence": ["q21"],
+      "kc": "k5",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "TCO는 Total Cost of Operation이라고 생각함",
+      "truth": "TCO는 Total Cost of Ownership이다",
+      "contrast": "틀린 믿음 운영 비용 합계 / 바른 이해 소유 전 과정의 비용 합계",
+      "cue": "Ownership(소유)으로 쓴다"
+    },
+    {
+      "evidence": ["q22"],
+      "kc": "k5",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "SLA는 Service Level Assurance라고 생각함",
+      "truth": "SLA는 Service Level Agreement이다",
+      "contrast": "틀린 믿음 보장(Assurance) / 바른 이해 계약(Agreement)",
+      "cue": "계약서라는 뜻으로 Agreement를 쓴다"
+    },
+    {
+      "evidence": ["q20"],
+      "kc": "k4",
+      "facet": "f2",
+      "confused_with": "none",
+      "belief": "ATT는 Advertising Tracking Transparency라고 생각함",
+      "truth": "ATT는 App Tracking Transparency이다",
+      "contrast": "틀린 믿음 광고 추적 투명성 / 바른 이해 앱 추적 투명성",
+      "cue": "앱 단위 추적 허용 여부 문맥이면 App이다"
+    },
+    {
+      "evidence": ["q16"],
+      "kc": "k4",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "FIP는 Fair Information Principles라고 생각함",
+      "truth": "FIP는 Fair Information Practices(공정정보원칙)이다",
+      "contrast": "틀린 믿음 Principles로 쓴다 / 바른 이해 Practices로 쓴다",
+      "cue": "정확한 표기 Practices를 기억한다"
+    },
+    {
+      "evidence": ["q17"],
+      "kc": "k4",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "GDPR은 General Data Privacy Regulation이라고 생각함",
+      "truth": "GDPR은 General Data Protection Regulation이다",
+      "contrast": "틀린 믿음 Privacy / 바른 이해 Protection",
+      "cue": "보호(Protection) 규정이다"
+    },
+    {
+      "evidence": ["q27"],
+      "kc": "k3",
+      "facet": "f2",
+      "confused_with": "none",
+      "belief": "XML은 Extended Markup Language라고 생각함",
+      "truth": "XML은 eXtensible Markup Language이다",
+      "contrast": "틀린 믿음 Extended / 바른 이해 eXtensible (X는 대문자 표기)",
+      "cue": "확장 가능(eXtensible)으로 쓴다"
+    }
+  ]
+}

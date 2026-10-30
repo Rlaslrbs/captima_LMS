@@ -1,0 +1,143 @@
+{
+ "items": [
+  {
+   "ref": "p1051",
+   "rationale": "LMS의 일반 기능에 학습 효과 측정이 포함되므로 '측정할 수 없다'는 기업 LMS의 차이가 아니다. 기업 LMS의 차이는 일과 학습 병행, 가변적 일정, 지리적 분산이다.",
+   "facet": "c08.f5",
+   "depth": "4",
+   "depth_why": "D4a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "일과 학습의 병행이 슬라이드에 제시되지 않은 차이라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "일정이 가변적이라는 점이 슬라이드에 없었다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "지리적 분산이 슬라이드에 없었다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    }
+   ]
+  },
+  {
+   "ref": "p1139",
+   "rationale": "질문을 사전에 정의할 수 없는 비일상 문제(공장 증축)에 분석 모델·DB로 답하는 것이 DSS이다. 재고 잔량은 TPS, 지점별 매출 보고는 MIS, 최고 경영진의 전략 판단은 ESS이다.",
+   "facet": "c06.f2",
+   "facets2": [
+    "c06.f3",
+    "c06.f1"
+   ],
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 1,
+     "belief_if_chosen": "재고 같은 일상 질문도 DSS가 답한다고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "사전 정의된 보고서도 DSS의 역할이라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "DSS가 고위 관리층의 전략 판단을 돕는 중역용 시스템이라고 생각함",
+     "misc": "m013",
+     "d": "3",
+     "src": "explanation",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1140",
+   "rationale": "기록되지 않고 개인에게 내재된 경험 노하우이므로 암묵지이다. 정렬된 판매 기록은 정보, 문서화된 것은 명시지이다.",
+   "facet": "c08.f2",
+   "facets2": [
+    "c02.f1"
+   ],
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "경험으로 얻은 패턴도 정렬된 판매 기록 수준의 정보라고 생각함",
+     "misc": "m019",
+     "d": "2",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "노하우를 말로 설명할 수 있으면 문서화된 명시지라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "기록되지 않은 경험 노하우는 지식이 아니라 사실의 나열이라고 생각함",
+     "misc": "m019",
+     "d": "2",
+     "src": "inferred",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1141",
+   "rationale": "협업 도구 선택 6단계는 문제 파악(시공간 매트릭스), 해결책 식별, 비용·편익 식별, 보안 위험 평가, 구현·교육 문제 파악, 후보 선택 순이다. 세 번째는 비용 및 편익 식별이다.",
+   "facet": "c09.f3",
+   "depth": "2",
+   "depth_why": "D2a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "보안 및 취약성 위험 평가가 세 번째 단계라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "해결책 식별이 세 번째 단계라고 생각함(첫 단계를 건너뜀)",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "partial"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "구현·교육 문제 파악이 세 번째 단계라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "recall"
+    }
+   ]
+  }
+ ]
+}
