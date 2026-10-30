@@ -108,3 +108,46 @@ body::before{content:"";position:fixed;inset:-15%;z-index:-1;pointer-events:none
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   :root{--lg-chrome:var(--lg-card-hi)}
 }
+
+/* ───────── 문제 화면: 읽기 우선 ─────────
+   애플 원칙대로 유리는 떠 있는 조작 영역(위쪽 바, 아래 이동 바, ⋯ 메뉴, 토스트)에만 쓰고, 글이 놓이는 면은 불투명하게.
+   #view.in-set = 단원·오답노트 등 문제를 푸는 화면. 그 안에서만 유리 변수를 불투명 값으로 바꿔 끼운다 → 위의 유리 규칙이 그대로 종이가 된다 */
+:root{--read-sheet:#ffffff;--read-ink:#111114;--read-line:rgba(15,20,40,.12);--read-sol:#f3f5f9;--read-rim:inset 0 1px 0 rgba(255,255,255,.9);
+  --read-shadow:0 6px 20px rgba(20,25,60,.06),0 1px 2px rgba(20,25,60,.05);--read-lift:0 30px 80px rgba(20,25,60,.16),0 8px 24px rgba(20,25,60,.08);--read-veil:rgba(245,245,247,.55)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--read-sheet:#1c1c1e;--read-ink:#f2f2f5;--read-line:rgba(255,255,255,.14);--read-sol:#26272c;--read-rim:inset 0 1px 0 rgba(255,255,255,.07);
+  --read-shadow:0 6px 20px rgba(0,0,0,.4);--read-lift:0 30px 80px rgba(0,0,0,.6);--read-veil:rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--read-sheet:#1c1c1e;--read-ink:#f2f2f5;--read-line:rgba(255,255,255,.14);--read-sol:#26272c;--read-rim:inset 0 1px 0 rgba(255,255,255,.07);
+  --read-shadow:0 6px 20px rgba(0,0,0,.4);--read-lift:0 30px 80px rgba(0,0,0,.6);--read-veil:rgba(0,0,0,.5)}
+
+.view.in-set{--lg-card:var(--read-sheet);--lg-card-hi:var(--read-sheet);--lg-fill:var(--fill2);--lg-rim:var(--read-rim);--lg-edge:0 0 0 1px var(--read-line);--shadow:var(--read-shadow);
+  letter-spacing:0;color:var(--read-ink)}
+/* 배경 빛: 목록에서는 거의 지우고, 집중 모드에서는 흐리고 어둡게 깔아 문제 시트를 띄운다 */
+body:has(.view.in-set)::before{opacity:calc(var(--amb) * .25)}
+html.fx-on body:has(.view.in-set)::before{opacity:calc(var(--amb) * .7);filter:blur(70px)}
+html.fx-on body:has(.view.in-set)::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--read-veil)}
+
+/* 글자: 자간 0, 줄간격 넉넉하게, 진한 글자 */
+.in-set .q{color:var(--read-ink);line-height:1.65;letter-spacing:0}
+.fx-on .in-set .card.fx-cur .q{letter-spacing:-.005em;line-height:1.6}
+.in-set .opts.mc .opt{line-height:1.5}
+.in-set .sol{line-height:1.65;font-size:15px}
+
+/* 보기: 흰 바탕 + 테두리 (흐린 회색 면 대신). 맞힘·틀림 테두리는 그대로 */
+.in-set .opt{background:var(--read-sheet);color:var(--read-ink);box-shadow:inset 0 0 0 1px var(--read-line)}
+.in-set .opt:hover:not(:disabled){background:color-mix(in srgb,var(--action) 6%,var(--read-sheet));box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--action) 45%,transparent)}
+.in-set .opt.good{box-shadow:inset 0 0 0 1.5px var(--ok)}
+.in-set .opt.bad{box-shadow:inset 0 0 0 1.5px var(--red)}
+
+/* 해설: 문제와 나뉘게 옅은 색 면 + 왼쪽 색 띠 */
+.in-set .sol{border-top:0;margin-top:20px;padding:14px 18px;border-radius:14px;background:var(--read-sol);box-shadow:inset 3px 0 0 var(--accent)}
+.in-set .sol .ans{background:var(--read-sheet);box-shadow:inset 0 0 0 1px var(--read-line)}
+.in-set .sol .ans.soft{background:transparent}
+
+/* 상태 테두리 (맞힘 초록 · 틀림 빨강) */
+.in-set .card.st-correct,.in-set .card.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--read-shadow)}
+.in-set .card.st-wrong{box-shadow:0 0 0 2px var(--red),var(--read-shadow)}
+
+/* 집중 모드: 문제 하나가 큰 불투명 시트로 떠 있다 (iOS 모달 시트처럼) */
+.fx-on .in-set .card.fx-cur{border-radius:28px;box-shadow:var(--read-rim),0 0 0 1px var(--read-line),var(--read-lift)}
+.fx-on .in-set .card.fx-cur.st-correct,.fx-on .in-set .card.fx-cur.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--read-lift)}
+.fx-on .in-set .card.fx-cur.st-wrong{box-shadow:0 0 0 2px var(--red),var(--read-lift)}

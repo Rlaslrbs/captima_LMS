@@ -344,17 +344,17 @@ textarea{width:100%;min-height:120px;resize:vertical;display:block}
 .pm-b.rep:hover{color:var(--red)}
 .pm-b.done{background:var(--cpy-bg);color:var(--cpy-ink)}   /* "복사됨" 동안만 파란색 */
 .pm-b svg{width:14px;height:14px;flex:none}
-.q{margin:12px 0 16px;font-size:clamp(17px,1.8vw,18.5px);font-weight:500;line-height:1.65;letter-spacing:-.01em;overflow-wrap:anywhere}
+.q{margin:10px 0 14px;font-size:clamp(15.5px,1.6vw,16.5px);font-weight:500;line-height:1.65;letter-spacing:-.01em;overflow-wrap:anywhere}
 .q .en{display:block;color:var(--muted);font-size:13px;font-weight:400;line-height:1.55;margin-top:6px}
 .stem{font-weight:600;margin:0 0 10px;color:var(--ink)}
-.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.opt{appearance:none;border:0;background:var(--fill2);color:var(--ink);font-size:17px;font-weight:600;padding:14px;min-height:52px;border-radius:14px;cursor:pointer;text-align:center;min-width:0;overflow-wrap:anywhere}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{appearance:none;border:0;background:var(--fill2);color:var(--ink);font-size:16px;font-weight:600;padding:11px;min-height:46px;border-radius:12px;cursor:pointer;text-align:center;min-width:0;overflow-wrap:anywhere}
 .opt:hover:not(:disabled){background:var(--fill)}
 .opt:active:not(:disabled){transform:scale(.985)}
 .opt.good{background:var(--ok-weak)!important;color:var(--ok);box-shadow:inset 0 0 0 1.5px var(--ok)}
 .opt.bad{background:var(--red-weak)!important;color:var(--red);box-shadow:inset 0 0 0 1.5px var(--red)}
 .opts.mc{grid-template-columns:1fr}
-.opts.mc .opt{display:flex;gap:12px;align-items:baseline;text-align:left;font-weight:500;font-size:16px;line-height:1.55;padding:14px 16px}
+.opts.mc .opt{display:flex;gap:10px;align-items:baseline;text-align:left;font-weight:500;font-size:15px;line-height:1.5;padding:10px 14px;min-height:44px}
 .opts.mc .opt .k{color:var(--muted);flex:none;width:1.1em;font-weight:700}
 .opts.mc .opt.good .k,.opts.mc .opt.bad .k{color:inherit}
 .opts.mc .opt small.ko{display:block;margin-top:2px;font-size:12px;font-weight:400;color:var(--muted);line-height:1.45}
@@ -381,11 +381,11 @@ textarea{width:100%;min-height:120px;resize:vertical;display:block}
 .fx-on .grp-h{display:none!important}
 .fx-hide{display:none!important}
 .fx-on .view{padding-top:44px}
-.fx-on .card.fx-cur{margin-top:18px;padding:clamp(22px,4.5vw,44px);border-radius:24px;min-height:min(62vh,560px)}
+.fx-on .card.fx-cur{margin-top:14px;padding:clamp(18px,3.4vw,32px);border-radius:24px;min-height:min(46vh,420px)}
 .fx-on .card.fx-cur.fx-enter{animation:fx-in .35s var(--ease)}
-.fx-on .card.fx-cur .q{font-size:clamp(18px,2.4vw,23px);line-height:1.6;font-weight:600;letter-spacing:-.015em;margin:14px 0 22px}
-.fx-on .card.fx-cur .opt{font-size:clamp(15px,1.8vw,17px);padding:14px 18px}
-.fx-on .card.fx-cur .opts.ox .opt{padding:20px;font-size:20px}
+.fx-on .card.fx-cur .q{font-size:clamp(16.5px,1.9vw,19px);line-height:1.6;font-weight:600;letter-spacing:-.015em;margin:10px 0 16px}
+.fx-on .card.fx-cur .opt{font-size:clamp(14.5px,1.5vw,15.5px);padding:11px 16px}
+.fx-on .card.fx-cur .opts.ox .opt{padding:14px;font-size:18px}
 .fx-on .card.fx-cur .inrow input{font-size:17px;padding:13px 16px}
 @keyframes fx-in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}
 .fx-has-bar body{padding-bottom:70px}
@@ -888,3 +888,12 @@ a.ins-me:hover{background:var(--fill2)}
 .ng-t b{display:block;font-size:15.5px;letter-spacing:-.015em}
 .ng-t small{display:block;font-size:13px;color:var(--muted);margin-top:3px;line-height:1.5}
 .ng-b{display:flex;gap:6px;margin-top:12px}
+
+
+/* 원문·번역 접기 (course.js subBtn): 기본은 접고, 과목에서 한 번 펼치면 계속 펼친다 */
+.view:not(.sub-on) .q .en,.view:not(.sub-on) .opts.mc .opt small.ko{display:none}
+.subt{appearance:none;border:0;background:none;cursor:pointer;display:inline-flex;align-items:center;gap:5px;margin:-6px 0 12px;padding:4px 10px 4px 8px;border-radius:980px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.subt::before{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:rotate(-45deg);transition:transform .2s var(--ease)}
+.subt[aria-pressed="true"]::before{transform:rotate(45deg)}
+.subt:hover{background:var(--fill2);color:var(--ink)}
+.fx-on .card.fx-cur .subt{margin:-14px 0 18px}
