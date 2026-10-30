@@ -1,0 +1,4877 @@
+{
+  "course": 4,
+  "made_at": "2026-10-29T14:11:56.257Z",
+  "rule": "첫 태그(DB의 Gemini 태그)와 second2 답의 facet 또는 depth가 다르면 충돌",
+  "counts": {
+    "conflicts": 286,
+    "facet": 143,
+    "depth_only": 143,
+    "agree": 159,
+    "no_answer": 0
+  },
+  "missing_answer_files": [],
+  "items": [
+    {
+      "ref": "p432",
+      "problem_id": 432,
+      "version": 2,
+      "ext_id": "1.1-1",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p433",
+      "problem_id": 433,
+      "version": 2,
+      "ext_id": "1.1-5",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p434",
+      "problem_id": 434,
+      "version": 2,
+      "ext_id": "1.1-6",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f2",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p435",
+      "problem_id": 435,
+      "version": 2,
+      "ext_id": "1.1-9",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p436",
+      "problem_id": 436,
+      "version": 2,
+      "ext_id": "1.1-12",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p437",
+      "problem_id": 437,
+      "version": 2,
+      "ext_id": "1.1-13",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p438",
+      "problem_id": 438,
+      "version": 2,
+      "ext_id": "1.1-16",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p439",
+      "problem_id": 439,
+      "version": 2,
+      "ext_id": "1.1-20",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p440",
+      "problem_id": 440,
+      "version": 2,
+      "ext_id": "1.1-23",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p441",
+      "problem_id": 441,
+      "version": 2,
+      "ext_id": "1.1-25",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p442",
+      "problem_id": 442,
+      "version": 2,
+      "ext_id": "1.1-26",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p443",
+      "problem_id": 443,
+      "version": 2,
+      "ext_id": "1.1-29",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p444",
+      "problem_id": 444,
+      "version": 2,
+      "ext_id": "1.1-31",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p451",
+      "problem_id": 451,
+      "version": 2,
+      "ext_id": "1.2-11",
+      "chapter": "1.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p452",
+      "problem_id": 452,
+      "version": 2,
+      "ext_id": "1.2-12",
+      "chapter": "1.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p453",
+      "problem_id": 453,
+      "version": 2,
+      "ext_id": "1.2-17",
+      "chapter": "1.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p456",
+      "problem_id": 456,
+      "version": 2,
+      "ext_id": "1.2-20",
+      "chapter": "1.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p458",
+      "problem_id": 458,
+      "version": 2,
+      "ext_id": "1.2-22",
+      "chapter": "1.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p459",
+      "problem_id": 459,
+      "version": 2,
+      "ext_id": "1.2-26",
+      "chapter": "1.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p460",
+      "problem_id": 460,
+      "version": 2,
+      "ext_id": "1.2-28",
+      "chapter": "1.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p462",
+      "problem_id": 462,
+      "version": 2,
+      "ext_id": "1.3:12.5-1",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p467",
+      "problem_id": 467,
+      "version": 2,
+      "ext_id": "1.3:12.5-13",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p468",
+      "problem_id": 468,
+      "version": 2,
+      "ext_id": "1.3:12.5-14",
+      "chapter": "1.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p469",
+      "problem_id": 469,
+      "version": 2,
+      "ext_id": "1.3:12.5-15",
+      "chapter": "1.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p471",
+      "problem_id": 471,
+      "version": 2,
+      "ext_id": "1.3:12.5-20",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p472",
+      "problem_id": 472,
+      "version": 2,
+      "ext_id": "1.3:12.5-21",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p478",
+      "problem_id": 478,
+      "version": 2,
+      "ext_id": "1.3:12.5-37",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p479",
+      "problem_id": 479,
+      "version": 2,
+      "ext_id": "1.3:12.5-39",
+      "chapter": "1.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p482",
+      "problem_id": 482,
+      "version": 2,
+      "ext_id": "1.3:12.5-57",
+      "chapter": "1.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p483",
+      "problem_id": 483,
+      "version": 2,
+      "ext_id": "1.3:12.5-64",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p484",
+      "problem_id": 484,
+      "version": 2,
+      "ext_id": "1.3:12.5-67",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p485",
+      "problem_id": 485,
+      "version": 2,
+      "ext_id": "1.3:12.5-68",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p488",
+      "problem_id": 488,
+      "version": 2,
+      "ext_id": "1.3:12.5-73",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p489",
+      "problem_id": 489,
+      "version": 2,
+      "ext_id": "1.3:12.5-76",
+      "chapter": "1.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p492",
+      "problem_id": 492,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-P1",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f4",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p493",
+      "problem_id": 493,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-P2",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p494",
+      "problem_id": 494,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-P3",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p498",
+      "problem_id": 498,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-6",
+      "chapter": "2.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p502",
+      "problem_id": 502,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-10",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p503",
+      "problem_id": 503,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-11",
+      "chapter": "2.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p504",
+      "problem_id": 504,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-12",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p506",
+      "problem_id": 506,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-15",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p507",
+      "problem_id": 507,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-16",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p508",
+      "problem_id": 508,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-17",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p510",
+      "problem_id": 510,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-19",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p512",
+      "problem_id": 512,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-21",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p513",
+      "problem_id": 513,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-22",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p514",
+      "problem_id": 514,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-23",
+      "chapter": "2.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p515",
+      "problem_id": 515,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-24",
+      "chapter": "2.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p516",
+      "problem_id": 516,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-25",
+      "chapter": "2.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p518",
+      "problem_id": 518,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-28",
+      "chapter": "2.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f4",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p521",
+      "problem_id": 521,
+      "version": 2,
+      "ext_id": "2.1-2:2.1-39",
+      "chapter": "2.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p527",
+      "problem_id": 527,
+      "version": 2,
+      "ext_id": "2.3:1.9-7",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p529",
+      "problem_id": 529,
+      "version": 2,
+      "ext_id": "2.3:1.9-9",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p530",
+      "problem_id": 530,
+      "version": 2,
+      "ext_id": "2.3:1.9-10",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p531",
+      "problem_id": 531,
+      "version": 2,
+      "ext_id": "2.3:1.9-12",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p536",
+      "problem_id": 536,
+      "version": 2,
+      "ext_id": "2.3:1.9-21",
+      "chapter": "2.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p537",
+      "problem_id": 537,
+      "version": 2,
+      "ext_id": "2.3:1.9-22",
+      "chapter": "2.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p538",
+      "problem_id": 538,
+      "version": 2,
+      "ext_id": "2.3:1.9-23d",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p539",
+      "problem_id": 539,
+      "version": 2,
+      "ext_id": "2.3:1.9-23e",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p541",
+      "problem_id": 541,
+      "version": 2,
+      "ext_id": "2.3:1.9-24d",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p542",
+      "problem_id": 542,
+      "version": 2,
+      "ext_id": "2.3:1.9-24e",
+      "chapter": "2.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p549",
+      "problem_id": 549,
+      "version": 2,
+      "ext_id": "2.3:N-3b",
+      "chapter": "2.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p550",
+      "problem_id": 550,
+      "version": 2,
+      "ext_id": "2.3:N-3c",
+      "chapter": "2.3",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p553",
+      "problem_id": 553,
+      "version": 2,
+      "ext_id": "2.4:2.2-2",
+      "chapter": "2.4",
+      "differs": "facet",
+      "first": {
+        "facet": "lincomb.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p555",
+      "problem_id": 555,
+      "version": 2,
+      "ext_id": "2.4:2.2-4",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p557",
+      "problem_id": 557,
+      "version": 2,
+      "ext_id": "2.4:2.2-6",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p559",
+      "problem_id": 559,
+      "version": 2,
+      "ext_id": "2.4:2.2-8",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p560",
+      "problem_id": 560,
+      "version": 2,
+      "ext_id": "2.4:2.2-9",
+      "chapter": "2.4",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p562",
+      "problem_id": 562,
+      "version": 2,
+      "ext_id": "2.4:2.2-11a",
+      "chapter": "2.4",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p565",
+      "problem_id": 565,
+      "version": 2,
+      "ext_id": "2.4:2.2-14",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p566",
+      "problem_id": 566,
+      "version": 2,
+      "ext_id": "2.4:2.2-15",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p567",
+      "problem_id": 567,
+      "version": 2,
+      "ext_id": "2.4:2.2-17a",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p568",
+      "problem_id": 568,
+      "version": 2,
+      "ext_id": "2.4:2.2-17b",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p569",
+      "problem_id": 569,
+      "version": 2,
+      "ext_id": "2.4:2.2-18",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p570",
+      "problem_id": 570,
+      "version": 2,
+      "ext_id": "2.4:2.2-19",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p571",
+      "problem_id": 571,
+      "version": 2,
+      "ext_id": "2.4:2.2-20",
+      "chapter": "2.4",
+      "differs": "facet",
+      "first": {
+        "facet": "lincomb.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p572",
+      "problem_id": 572,
+      "version": 2,
+      "ext_id": "2.4:2.2-24",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p573",
+      "problem_id": 573,
+      "version": 2,
+      "ext_id": "2.4:2.2-25",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p574",
+      "problem_id": 574,
+      "version": 2,
+      "ext_id": "2.4:2.2-26",
+      "chapter": "2.4",
+      "differs": "facet",
+      "first": {
+        "facet": "lincomb.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p576",
+      "problem_id": 576,
+      "version": 2,
+      "ext_id": "2.4:2.2-30",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p577",
+      "problem_id": 577,
+      "version": 2,
+      "ext_id": "2.4:2.2-31c",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p580",
+      "problem_id": 580,
+      "version": 2,
+      "ext_id": "2.4:N-2c",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p581",
+      "problem_id": 581,
+      "version": 2,
+      "ext_id": "2.4:N-2d",
+      "chapter": "2.4",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p583",
+      "problem_id": 583,
+      "version": 2,
+      "ext_id": "2.5:1.2-P2",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p586",
+      "problem_id": 586,
+      "version": 2,
+      "ext_id": "2.5:1.2-8",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p589",
+      "problem_id": 589,
+      "version": 2,
+      "ext_id": "2.5:1.2-13",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p593",
+      "problem_id": 593,
+      "version": 2,
+      "ext_id": "2.5:1.2-19",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p594",
+      "problem_id": 594,
+      "version": 2,
+      "ext_id": "2.5:1.2-20",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p595",
+      "problem_id": 595,
+      "version": 2,
+      "ext_id": "2.5:1.2-21e",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p596",
+      "problem_id": 596,
+      "version": 2,
+      "ext_id": "2.5:1.2-22d",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p597",
+      "problem_id": 597,
+      "version": 2,
+      "ext_id": "2.5:1.2-23",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p598",
+      "problem_id": 598,
+      "version": 2,
+      "ext_id": "2.5:1.2-25",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p599",
+      "problem_id": 599,
+      "version": 2,
+      "ext_id": "2.5:1.2-27",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p603",
+      "problem_id": 603,
+      "version": 2,
+      "ext_id": "2.5:1.5-10",
+      "chapter": "2.5",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p604",
+      "problem_id": 604,
+      "version": 2,
+      "ext_id": "2.5:1.5-11",
+      "chapter": "2.5",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p605",
+      "problem_id": 605,
+      "version": 2,
+      "ext_id": "2.5:1.5-12",
+      "chapter": "2.5",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p606",
+      "problem_id": 606,
+      "version": 2,
+      "ext_id": "2.5:1.5-15",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p607",
+      "problem_id": 607,
+      "version": 2,
+      "ext_id": "2.5:1.5-16",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p608",
+      "problem_id": 608,
+      "version": 2,
+      "ext_id": "2.5:1.5-23e",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p609",
+      "problem_id": 609,
+      "version": 2,
+      "ext_id": "2.5:1.5-26",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lincomb.f4",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p611",
+      "problem_id": 611,
+      "version": 2,
+      "ext_id": "2.5:1.5-38",
+      "chapter": "2.5",
+      "differs": "depth_only",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p612",
+      "problem_id": 612,
+      "version": 2,
+      "ext_id": "2.6:2.2-P1",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p613",
+      "problem_id": 613,
+      "version": 2,
+      "ext_id": "2.6:2.2-P2",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p614",
+      "problem_id": 614,
+      "version": 2,
+      "ext_id": "2.6:2.2-1",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p615",
+      "problem_id": 615,
+      "version": 2,
+      "ext_id": "2.6:2.2-3",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p616",
+      "problem_id": 616,
+      "version": 2,
+      "ext_id": "2.6:2.2-5",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p617",
+      "problem_id": 617,
+      "version": 2,
+      "ext_id": "2.6:2.2-7",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p620",
+      "problem_id": 620,
+      "version": 2,
+      "ext_id": "2.6:2.2-10e",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p621",
+      "problem_id": 621,
+      "version": 2,
+      "ext_id": "2.6:2.2-15",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p623",
+      "problem_id": 623,
+      "version": 2,
+      "ext_id": "2.6:2.2-17",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p624",
+      "problem_id": 624,
+      "version": 2,
+      "ext_id": "2.6:2.2-19",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p625",
+      "problem_id": 625,
+      "version": 2,
+      "ext_id": "2.6:2.2-28",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p628",
+      "problem_id": 628,
+      "version": 2,
+      "ext_id": "2.6:2.2-35",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p629",
+      "problem_id": 629,
+      "version": 2,
+      "ext_id": "2.6:2.3-3",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p630",
+      "problem_id": 630,
+      "version": 2,
+      "ext_id": "2.6:2.3-5",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p631",
+      "problem_id": 631,
+      "version": 2,
+      "ext_id": "2.6:2.3-7",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p632",
+      "problem_id": 632,
+      "version": 2,
+      "ext_id": "2.6:2.3-11c",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p633",
+      "problem_id": 633,
+      "version": 2,
+      "ext_id": "2.6:2.3-11e",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p634",
+      "problem_id": 634,
+      "version": 2,
+      "ext_id": "2.6:2.3-12a",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p635",
+      "problem_id": 635,
+      "version": 2,
+      "ext_id": "2.6:2.3-12c",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p636",
+      "problem_id": 636,
+      "version": 2,
+      "ext_id": "2.6:2.3-12d",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p637",
+      "problem_id": 637,
+      "version": 2,
+      "ext_id": "2.6:2.3-12e",
+      "chapter": "2.6",
+      "differs": "facet",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p638",
+      "problem_id": 638,
+      "version": 2,
+      "ext_id": "2.6:2.3-18",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p639",
+      "problem_id": 639,
+      "version": 2,
+      "ext_id": "2.6:2.3-20",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p641",
+      "problem_id": 641,
+      "version": 2,
+      "ext_id": "2.6:2.3-27",
+      "chapter": "2.6",
+      "differs": "depth_only",
+      "first": {
+        "facet": "inv.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p642",
+      "problem_id": 642,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-P1",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "block.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p643",
+      "problem_id": 643,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-5",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p645",
+      "problem_id": 645,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-8",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p646",
+      "problem_id": 646,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-9",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p647",
+      "problem_id": 647,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-10",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "block.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p648",
+      "problem_id": 648,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-11b",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p649",
+      "problem_id": 649,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-12b",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p651",
+      "problem_id": 651,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-14",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "block.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p652",
+      "problem_id": 652,
+      "version": 2,
+      "ext_id": "2.7-8:2.4-15",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p654",
+      "problem_id": 654,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-P1",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p663",
+      "problem_id": 663,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-12",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p664",
+      "problem_id": 664,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-13",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p665",
+      "problem_id": 665,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-14",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p666",
+      "problem_id": 666,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-17",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p667",
+      "problem_id": 667,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-18",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p668",
+      "problem_id": 668,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-19",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p669",
+      "problem_id": 669,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-20",
+      "chapter": "2.7-8",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p670",
+      "problem_id": 670,
+      "version": 2,
+      "ext_id": "2.7-8:2.5-22",
+      "chapter": "2.7-8",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p676",
+      "problem_id": 676,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-N5",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p687",
+      "problem_id": 687,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-23",
+      "chapter": "3.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p689",
+      "problem_id": 689,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-27",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p690",
+      "problem_id": 690,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-28",
+      "chapter": "3.1-2",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p694",
+      "problem_id": 694,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-35",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p696",
+      "problem_id": 696,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-39",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p697",
+      "problem_id": 697,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-40",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p698",
+      "problem_id": 698,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-41",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p700",
+      "problem_id": 700,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-43",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p701",
+      "problem_id": 701,
+      "version": 2,
+      "ext_id": "3.1-2:3.2-45",
+      "chapter": "3.1-2",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p702",
+      "problem_id": 702,
+      "version": 2,
+      "ext_id": "3.3:3.3-P1",
+      "chapter": "3.3",
+      "differs": "facet",
+      "first": {
+        "facet": "detapp.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p707",
+      "problem_id": 707,
+      "version": 2,
+      "ext_id": "3.3:3.3-7",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p708",
+      "problem_id": 708,
+      "version": 2,
+      "ext_id": "3.3:3.3-8",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p709",
+      "problem_id": 709,
+      "version": 2,
+      "ext_id": "3.3:3.3-9",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p710",
+      "problem_id": 710,
+      "version": 2,
+      "ext_id": "3.3:3.3-10",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p717",
+      "problem_id": 717,
+      "version": 2,
+      "ext_id": "3.3:3.3-17",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p718",
+      "problem_id": 718,
+      "version": 2,
+      "ext_id": "3.3:3.3-18",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p721",
+      "problem_id": 721,
+      "version": 2,
+      "ext_id": "3.3:3.3-21",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p722",
+      "problem_id": 722,
+      "version": 2,
+      "ext_id": "3.3:3.3-22",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p725",
+      "problem_id": 725,
+      "version": 2,
+      "ext_id": "3.3:3.3-25",
+      "chapter": "3.3",
+      "differs": "facet",
+      "first": {
+        "facet": "detapp.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p729",
+      "problem_id": 729,
+      "version": 2,
+      "ext_id": "3.3:3.3-30",
+      "chapter": "3.3",
+      "differs": "facet",
+      "first": {
+        "facet": "detapp.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p730",
+      "problem_id": 730,
+      "version": 2,
+      "ext_id": "3.3:3.3-31",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p731",
+      "problem_id": 731,
+      "version": 2,
+      "ext_id": "3.3:3.3-32",
+      "chapter": "3.3",
+      "differs": "depth_only",
+      "first": {
+        "facet": "detapp.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p732",
+      "problem_id": 732,
+      "version": 1,
+      "ext_id": "x25-1-1",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p733",
+      "problem_id": 733,
+      "version": 1,
+      "ext_id": "x25-1-2",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p735",
+      "problem_id": 735,
+      "version": 1,
+      "ext_id": "x25-1-4",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p737",
+      "problem_id": 737,
+      "version": 1,
+      "ext_id": "x25-1-6",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p738",
+      "problem_id": 738,
+      "version": 1,
+      "ext_id": "x25-1-7",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f4",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p739",
+      "problem_id": 739,
+      "version": 1,
+      "ext_id": "x25-1-8",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p740",
+      "problem_id": 740,
+      "version": 1,
+      "ext_id": "x25-1-9",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p741",
+      "problem_id": 741,
+      "version": 1,
+      "ext_id": "x25-1-10",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p745",
+      "problem_id": 745,
+      "version": 1,
+      "ext_id": "x25-4",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p746",
+      "problem_id": 746,
+      "version": 1,
+      "ext_id": "x25-5-1",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p747",
+      "problem_id": 747,
+      "version": 1,
+      "ext_id": "x25-5-2",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p748",
+      "problem_id": 748,
+      "version": 1,
+      "ext_id": "x25-6",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p749",
+      "problem_id": 749,
+      "version": 1,
+      "ext_id": "x25-7",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p750",
+      "problem_id": 750,
+      "version": 1,
+      "ext_id": "x25-8",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p751",
+      "problem_id": 751,
+      "version": 1,
+      "ext_id": "x25-9",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p752",
+      "problem_id": 752,
+      "version": 1,
+      "ext_id": "x24-1",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p753",
+      "problem_id": 753,
+      "version": 1,
+      "ext_id": "x24-2",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p754",
+      "problem_id": 754,
+      "version": 1,
+      "ext_id": "x24-3",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p755",
+      "problem_id": 755,
+      "version": 1,
+      "ext_id": "x24-4",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 4
+      },
+      "second2": {
+        "facet": "lintrans.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p756",
+      "problem_id": 756,
+      "version": 1,
+      "ext_id": "x24-5",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p757",
+      "problem_id": 757,
+      "version": 1,
+      "ext_id": "x24-6",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p759",
+      "problem_id": 759,
+      "version": 1,
+      "ext_id": "x24-8",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p760",
+      "problem_id": 760,
+      "version": 1,
+      "ext_id": "x24-9",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p761",
+      "problem_id": 761,
+      "version": 1,
+      "ext_id": "x24-11",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p763",
+      "problem_id": 763,
+      "version": 1,
+      "ext_id": "x24-14",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p764",
+      "problem_id": 764,
+      "version": 1,
+      "ext_id": "x24-15",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p765",
+      "problem_id": 765,
+      "version": 1,
+      "ext_id": "x24-18",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p766",
+      "problem_id": 766,
+      "version": 1,
+      "ext_id": "x23-1",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p767",
+      "problem_id": 767,
+      "version": 1,
+      "ext_id": "x23-2",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p769",
+      "problem_id": 769,
+      "version": 1,
+      "ext_id": "x23-4",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f2",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p770",
+      "problem_id": 770,
+      "version": 1,
+      "ext_id": "x23-5",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p773",
+      "problem_id": 773,
+      "version": 1,
+      "ext_id": "x23-8",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p774",
+      "problem_id": 774,
+      "version": 1,
+      "ext_id": "x23-9",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p776",
+      "problem_id": 776,
+      "version": 1,
+      "ext_id": "x23-11",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f3",
+        "depth": 4
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p778",
+      "problem_id": 778,
+      "version": 1,
+      "ext_id": "x23-14",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 4
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p779",
+      "problem_id": 779,
+      "version": 1,
+      "ext_id": "x23-15",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p780",
+      "problem_id": 780,
+      "version": 1,
+      "ext_id": "x23-16",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p781",
+      "problem_id": 781,
+      "version": 1,
+      "ext_id": "x23-20",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p784",
+      "problem_id": 784,
+      "version": 1,
+      "ext_id": "x22-3",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p785",
+      "problem_id": 785,
+      "version": 1,
+      "ext_id": "x22-4",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p788",
+      "problem_id": 788,
+      "version": 1,
+      "ext_id": "x22-7",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "block.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p791",
+      "problem_id": 791,
+      "version": 1,
+      "ext_id": "x22-11",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p792",
+      "problem_id": 792,
+      "version": 1,
+      "ext_id": "x22-12",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lineplane.f2",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p793",
+      "problem_id": 793,
+      "version": 1,
+      "ext_id": "x22-13",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p795",
+      "problem_id": 795,
+      "version": 1,
+      "ext_id": "x22-15",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p796",
+      "problem_id": 796,
+      "version": 1,
+      "ext_id": "x22-16",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p798",
+      "problem_id": 798,
+      "version": 1,
+      "ext_id": "x22-18",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 4
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p799",
+      "problem_id": 799,
+      "version": 1,
+      "ext_id": "x21-1",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lineplane.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p802",
+      "problem_id": 802,
+      "version": 1,
+      "ext_id": "x21-4",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "elim.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p805",
+      "problem_id": 805,
+      "version": 1,
+      "ext_id": "x21-8",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p806",
+      "problem_id": 806,
+      "version": 1,
+      "ext_id": "x21-9",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p807",
+      "problem_id": 807,
+      "version": 1,
+      "ext_id": "x21-t1",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p808",
+      "problem_id": 808,
+      "version": 1,
+      "ext_id": "x21-t2",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "block.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p809",
+      "problem_id": 809,
+      "version": 1,
+      "ext_id": "x21-t3",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 4
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p810",
+      "problem_id": 810,
+      "version": 1,
+      "ext_id": "x21-t4",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p811",
+      "problem_id": 811,
+      "version": 1,
+      "ext_id": "x21-t5",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p812",
+      "problem_id": 812,
+      "version": 1,
+      "ext_id": "x21-t6",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "det.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p813",
+      "problem_id": 813,
+      "version": 1,
+      "ext_id": "x21-t7",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lintrans.f3",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p815",
+      "problem_id": 815,
+      "version": 1,
+      "ext_id": "x21-t9",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p816",
+      "problem_id": 816,
+      "version": 1,
+      "ext_id": "x21-t11",
+      "chapter": "exam",
+      "differs": "facet",
+      "first": {
+        "facet": "det.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p817",
+      "problem_id": 817,
+      "version": 1,
+      "ext_id": "x21-t12",
+      "chapter": "exam",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p818",
+      "problem_id": 818,
+      "version": 1,
+      "ext_id": "ox-1",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p819",
+      "problem_id": 819,
+      "version": 1,
+      "ext_id": "ox-2",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 1,
+        "depth_why": "D1b"
+      }
+    },
+    {
+      "ref": "p820",
+      "problem_id": 820,
+      "version": 1,
+      "ext_id": "ox-3",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p821",
+      "problem_id": 821,
+      "version": 1,
+      "ext_id": "ox-4",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p822",
+      "problem_id": 822,
+      "version": 1,
+      "ext_id": "ox-5",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p823",
+      "problem_id": 823,
+      "version": 1,
+      "ext_id": "ox-6",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p824",
+      "problem_id": 824,
+      "version": 1,
+      "ext_id": "ox-7",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p825",
+      "problem_id": 825,
+      "version": 1,
+      "ext_id": "ox-8",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p826",
+      "problem_id": 826,
+      "version": 1,
+      "ext_id": "ox-9",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "dot.f1",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p827",
+      "problem_id": 827,
+      "version": 1,
+      "ext_id": "ox-10",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "dot.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "dot.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p829",
+      "problem_id": 829,
+      "version": 1,
+      "ext_id": "ox-12",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p832",
+      "problem_id": 832,
+      "version": 1,
+      "ext_id": "ox-15",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p833",
+      "problem_id": 833,
+      "version": 1,
+      "ext_id": "ox-16",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lineplane.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lineplane.f1",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p837",
+      "problem_id": 837,
+      "version": 1,
+      "ext_id": "ox-20",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p838",
+      "problem_id": 838,
+      "version": 1,
+      "ext_id": "ox-21",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p839",
+      "problem_id": 839,
+      "version": 1,
+      "ext_id": "ox-22",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p841",
+      "problem_id": 841,
+      "version": 1,
+      "ext_id": "ox-24",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f3",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p842",
+      "problem_id": 842,
+      "version": 1,
+      "ext_id": "ox-25",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f1",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p844",
+      "problem_id": 844,
+      "version": 1,
+      "ext_id": "ox-27",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p845",
+      "problem_id": 845,
+      "version": 1,
+      "ext_id": "ox-28",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lintrans.f3",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lintrans.f3",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p846",
+      "problem_id": 846,
+      "version": 1,
+      "ext_id": "ox-29",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p847",
+      "problem_id": 847,
+      "version": 1,
+      "ext_id": "ox-30",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p848",
+      "problem_id": 848,
+      "version": 1,
+      "ext_id": "ox-31",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p849",
+      "problem_id": 849,
+      "version": 1,
+      "ext_id": "ox-32",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lincomb.f3",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p850",
+      "problem_id": 850,
+      "version": 1,
+      "ext_id": "ox-33",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p851",
+      "problem_id": 851,
+      "version": 1,
+      "ext_id": "ox-34",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 3,
+        "depth_why": "D3a"
+      }
+    },
+    {
+      "ref": "p852",
+      "problem_id": 852,
+      "version": 1,
+      "ext_id": "ox-35",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p853",
+      "problem_id": 853,
+      "version": 1,
+      "ext_id": "ox-36",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p854",
+      "problem_id": 854,
+      "version": 1,
+      "ext_id": "ox-37",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lincomb.f4",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p855",
+      "problem_id": 855,
+      "version": 1,
+      "ext_id": "ox-38",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f3",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "inv.f1",
+        "depth": 1,
+        "depth_why": "D1b"
+      }
+    },
+    {
+      "ref": "p856",
+      "problem_id": 856,
+      "version": 1,
+      "ext_id": "ox-39",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "matops.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "matops.f4",
+        "depth": 4,
+        "depth_why": "D4d"
+      }
+    },
+    {
+      "ref": "p857",
+      "problem_id": 857,
+      "version": 1,
+      "ext_id": "ox-40",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p858",
+      "problem_id": 858,
+      "version": 1,
+      "ext_id": "ox-41",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f1",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p859",
+      "problem_id": 859,
+      "version": 1,
+      "ext_id": "ox-42",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "inv.f2",
+        "depth": 3,
+        "depth_why": "D3b"
+      }
+    },
+    {
+      "ref": "p860",
+      "problem_id": 860,
+      "version": 1,
+      "ext_id": "ox-43",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 1,
+        "depth_why": "D1b"
+      }
+    },
+    {
+      "ref": "p861",
+      "problem_id": 861,
+      "version": 1,
+      "ext_id": "ox-44",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p862",
+      "problem_id": 862,
+      "version": 1,
+      "ext_id": "ox-45",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "elim.f2",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p863",
+      "problem_id": 863,
+      "version": 1,
+      "ext_id": "ox-46",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p864",
+      "problem_id": 864,
+      "version": 1,
+      "ext_id": "ox-47",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p865",
+      "problem_id": 865,
+      "version": 1,
+      "ext_id": "ox-48",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p866",
+      "problem_id": 866,
+      "version": 1,
+      "ext_id": "ox-49",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p868",
+      "problem_id": 868,
+      "version": 1,
+      "ext_id": "ox-51",
+      "chapter": "ox",
+      "differs": "depth_only",
+      "first": {
+        "facet": "lu.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "lu.f1",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p869",
+      "problem_id": 869,
+      "version": 1,
+      "ext_id": "ox-52",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f4",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 1,
+        "depth_why": "D1b"
+      }
+    },
+    {
+      "ref": "p870",
+      "problem_id": 870,
+      "version": 1,
+      "ext_id": "ox-53",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 1,
+        "depth_why": "D1b"
+      }
+    },
+    {
+      "ref": "p871",
+      "problem_id": 871,
+      "version": 1,
+      "ext_id": "ox-54",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p872",
+      "problem_id": 872,
+      "version": 1,
+      "ext_id": "ox-55",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p873",
+      "problem_id": 873,
+      "version": 1,
+      "ext_id": "ox-56",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p874",
+      "problem_id": 874,
+      "version": 1,
+      "ext_id": "ox-57",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "lintrans.f2",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p875",
+      "problem_id": 875,
+      "version": 1,
+      "ext_id": "ox-58",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 2,
+        "depth_why": "D2b"
+      }
+    },
+    {
+      "ref": "p876",
+      "problem_id": 876,
+      "version": 1,
+      "ext_id": "ox-59",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 4,
+        "depth_why": "D4c"
+      }
+    },
+    {
+      "ref": "p877",
+      "problem_id": 877,
+      "version": 1,
+      "ext_id": "ox-60",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "block.f2",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    },
+    {
+      "ref": "p878",
+      "problem_id": 878,
+      "version": 1,
+      "ext_id": "ox-61",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f1",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p879",
+      "problem_id": 879,
+      "version": 1,
+      "ext_id": "ox-62",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f4",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4a"
+      }
+    },
+    {
+      "ref": "p880",
+      "problem_id": 880,
+      "version": 1,
+      "ext_id": "ox-63",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f4",
+        "depth": 3
+      },
+      "second2": {
+        "facet": "det.f2",
+        "depth": 4,
+        "depth_why": "D4b"
+      }
+    },
+    {
+      "ref": "p881",
+      "problem_id": 881,
+      "version": 1,
+      "ext_id": "ox-64",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "det.f3",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p882",
+      "problem_id": 882,
+      "version": 1,
+      "ext_id": "ox-65",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 1
+      },
+      "second2": {
+        "facet": "detapp.f1",
+        "depth": 1,
+        "depth_why": "D1a"
+      }
+    },
+    {
+      "ref": "p883",
+      "problem_id": 883,
+      "version": 1,
+      "ext_id": "ox-66",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f2",
+        "depth": 2,
+        "depth_why": "D2a"
+      }
+    },
+    {
+      "ref": "p884",
+      "problem_id": 884,
+      "version": 1,
+      "ext_id": "ox-67",
+      "chapter": "ox",
+      "differs": "facet",
+      "first": {
+        "facet": "matops.f1",
+        "depth": 2
+      },
+      "second2": {
+        "facet": "detapp.f3",
+        "depth": 3,
+        "depth_why": "D3c"
+      }
+    }
+  ]
+}

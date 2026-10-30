@@ -1,0 +1,12 @@
+{"families":[
+{"facet":"block.f1","principle":"블록 곱을 블록 단위로 계산해 우변과 비교하고, 역행렬을 올바른 쪽에 곱해 미지 블록을 구한다.","base":"p643","members":[{"ref":"p645","role":"near","delta_type":"object","delta":"2×2 블록 → 열이 3분할된 블록"}]},
+{"facet":"block.f1","principle":"블록 곱 소거로 아래 블록을 0으로 만드는 행렬을 구하고, 그 역이 LDU 분해가 된다.","base":"p646","members":[{"ref":"p652","role":"near","delta_type":"reverse","delta":"소거 행렬 → 그 역인 LDU 분해 인수"}]},
+{"facet":"block.f1","principle":"블록 곱은 앞 행렬의 열 분할과 뒤 행렬의 행 분할이 맞아야 가능하다.","base":"p648","members":[{"ref":"p649","role":"near","delta_type":"neighbour","delta":"분할 일치 → 전체 크기(안쪽 차원) 일치"}]},
+{"facet":"block.f1","principle":"곱이 정의되려면 앞 행렬의 열 수와 뒤 행렬의 행 수가 같아야 한다.","base":"p807","members":[{"ref":"p808","role":"near","delta_type":"neighbour","delta":"A² 정의 → AB, BA 모두 정의"}]},
+{"facet":"det.f1","principle":"여인자 전개를 행과 열 어느 쪽으로 해도 행렬식은 같다(부호판 주의).","base":"p672","members":[{"ref":"p673","role":"iso","delta_type":"surface","delta":"다른 3×3 숫자"}]},
+{"facet":"det.f1","principle":"0이 많은 행이나 열을 골라 여인자 전개를 반복해 행렬식을 구한다.","base":"p674","members":[{"ref":"p675","role":"iso","delta_type":"surface","delta":"다른 4×4 숫자와 전개 행"}]},
+{"facet":"det.f1","principle":"행 대치와 교환으로 사다리꼴을 만들어 피벗 곱에 교환 부호를 곱해 행렬식을 구한다.","base":"p678","members":[{"ref":"p677","role":"near","delta_type":"condition","delta":"행 교환 없음, 3×3"},{"ref":"p679","role":"near","delta_type":"condition","delta":"행의 상수배 추출 추가"}]},
+{"facet":"det.f1","principle":"행 대치로 한 줄을 정리한 뒤 여인자 전개를 반복해 행렬식을 구한다.","base":"p680","members":[{"ref":"p681","role":"iso","delta_type":"surface","delta":"다른 4×4 숫자"},{"ref":"p682","role":"iso","delta_type":"surface","delta":"다른 4×4 숫자"},{"ref":"p683","role":"iso","delta_type":"surface","delta":"다른 4×4 숫자"}]},
+{"facet":"det.f1","principle":"행 연산이 행렬식에 주는 영향(교환 부호, 대치 불변, 상수배)으로 값을 추론한다.","base":"p684","members":[{"ref":"p685","role":"near","delta_type":"neighbour","delta":"행 교환 → 행 대치와 상수배"}]},
+{"facet":"det.f1","principle":"행렬식의 성질에 관한 여러 진술의 참/거짓을 반례로 판별한다.","base":"p689","members":[{"ref":"p690","role":"iso","delta_type":"surface","delta":"같은 형식, 다른 성질 진술 4개"}]}
+]}

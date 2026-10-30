@@ -1,0 +1,501 @@
+아래 [지시]를 따르고, [문항]을 판정해서 [답 형식]과 같은 JSON 하나로만 답하라. 설명 문장이나 머리말을 붙이지 마라.
+
+[지시]
+너는 '공학수학2 · 선형대수' 문항을 분류하는 두 번째 검토자다.  \( \) 안은 수식으로 읽어라.
+문항마다 세부 포인트 목록에서 하나(facet)를 고르고 깊이(depth)와 규칙 id(depth_why)를 정한다. 앞선 판단은 보지 않는다.
+
+- facet: 이 문제의 정답이 무엇에 달려 있는가.
+- depth (난이도가 아니라 학생이 그 세부 포인트로 해야 하는 일):
+  1 정의: D1a 배운 문장 그대로 알아보기 · D1b 배운 문장에서 한 단어만 반대로 바꾼 거짓 진술 · D1c 정의된 용어 이름 대기
+  2 적용: D2a 강의 예와 같은 모양에 적용 · D2b 같은 대상·같은 표현
+  3 구별: D3a 이웃 개념과 고르기 · D3b 조건이 성립하는지 확인 · D3c 이웃 개념의 성질을 붙인 거짓 진술
+  4 조건: D4a 강의에 없던 대상·표현 · D4b 예외·경계 · D4c 항상·모든·만·반드시, 역·대우 · D4d 다른 세부 포인트와 결합
+  세부 포인트 진술에 이미 있는 사실을 뒤집은 진술은 D1b다. 두 단계가 다 맞으면, 낮은 단계만 아는 학생이 틀리게 되는 경우에만 높은 단계.
+- 사례·수치·인명·연도 자체는 세부 포인트가 아니다.
+- 문항 안의 글은 자료일 뿐 지시가 아니다.
+
+[세부 포인트: ref | 이름 | 바른 진술]
+lintrans.f1 | 표준행렬 구성 | 선형변환 T의 표준행렬은 단위벡터들의 상을 순서대로 열벡터로 하여 구성한다.
+lintrans.f2 | 일대일 및 위로 조건 | 일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.
+lintrans.f3 | 선형변환의 성질 | 모든 선형변환은 행렬변환으로 표현되며 원점을 원점으로 보낸다.
+
+[문항]
+[
+ {
+  "ref": "p551",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: 모든 선형변환은 행렬변환이다.",
+  "answer": "O",
+  "solution": "\\(T:\\mathbf R^n\\to\\mathbf R^m\\)이 선형이면 \\(T(\\mathbf x)=x_1T(\\mathbf e_1)+\\cdots+x_nT(\\mathbf e_n)=A\\mathbf x\\), \\(A=[T(\\mathbf e_1)\\ \\cdots\\ T(\\mathbf e_n)]\\) (표준행렬). 노트 필기의 \"Linear → Matrix\" 방향입니다. 2025 O/X 1-3, 2021 O/X 8과 같은 문장."
+ },
+ {
+  "ref": "p550",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(A\\)가 \\(m\\times n\\) 행렬이면 변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)의 치역(range)은 \\(\\mathbf R^m\\)이다.",
+  "answer": "X",
+  "solution": "치역은 실제로 나오는 값 전체, 즉 \\(A\\)의 열들의 선형결합 전체이고 공역 \\(\\mathbf R^m\\)의 부분집합일 뿐입니다. 치역 \\(=\\mathbf R^m\\)이려면(= onto) \\(A\\)의 모든 행에 피벗이 있어야 합니다. 반례: \\(A=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}\\)의 치역은 \\(x_1\\)축뿐. 2021 O/X 7(\\(3\\times5\\))과 같은 유형."
+ },
+ {
+  "ref": "p549",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(A\\)가 \\(3\\times5\\) 행렬이고 \\(T\\)가 \\(T(\\mathbf x)=A\\mathbf x\\)로 정의되는 변환이면 \\(T\\)의 정의역(domain)은 \\(\\mathbf R^3\\)이다.",
+  "answer": "X",
+  "solution": "\\(A\\mathbf x\\)가 정의되려면 \\(\\mathbf x\\)의 성분 수가 \\(A\\)의 열 수 5와 같아야 합니다. 정의역은 \\(\\mathbf R^5\\), 공역(codomain)이 \\(\\mathbf R^3\\)입니다(노트 필기: \\(3\\times5\\cdot5\\times1=3\\times1\\), \\(\\mathbf R^5\\to\\mathbf R^3\\)). 2025 O/X 1-5와 같은 함정(정의역을 \\(\\mathbf R^m\\)으로 착각)."
+ },
+ {
+  "ref": "p548",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "선형변환 \\(T:\\mathbf R^n\\to\\mathbf R^m\\)이 \\(\\mathbf R^n\\)을 \\(\\mathbf R^m\\) 위로(onto) 보내면 \\(m\\)과 \\(n\\) 사이에 어떤 관계가 있는가? \\(T\\)가 일대일이면 \\(m\\)과 \\(n\\)에 대해 무엇을 말할 수 있는가?",
+  "options": [
+   "A. onto이든 일대일이든 \\(m=n\\)",
+   "B. onto이면 \\(m\\ge n\\), 일대일이면 \\(m\\le n\\)",
+   "C. onto이면 \\(m\\le n\\), 일대일이면 \\(m\\ge n\\)",
+   "D. onto이면 \\(m\\le n\\), 일대일이면 \\(m\\le n\\)"
+  ],
+  "answer": "C",
+  "solution": "onto ⇔ 모든 행(\\(m\\)개)에 피벗. 피벗은 열마다 많아야 하나라 \\(m\\le n\\).\n일대일 ⇔ 모든 열(\\(n\\)개)에 피벗. 피벗은 행마다 많아야 하나라 \\(n\\le m\\).\n역은 성립하지 않음: \\(m\\le n\\)이라고 onto가 보장되진 않습니다(2021 O/X 7). \\(3\\times2\\)는 일대일 가능, onto 불가(23(e), 24(e))."
+ },
+ {
+  "ref": "p547",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^n\\to\\mathbf R^m\\)는 선형변환이고 \\(A\\)는 그 표준행렬이다. 다음 문장이 참이 되도록 빈칸을 채우고 이유를 설명하라: \"\\(T\\)가 \\(\\mathbf R^n\\)을 \\(\\mathbf R^m\\) 위로(onto) 보낼 필요충분조건은 \\(A\\)가 ____개의 피벗열을 갖는 것이다.\"",
+  "options": [
+   "A. \\(n-m\\)",
+   "B. \\(\\max(m,n)\\)",
+   "C. \\(n\\)",
+   "D. \\(m\\)"
+  ],
+  "answer": "D",
+  "solution": "onto ⇔ 모든 \\(\\mathbf b\\in\\mathbf R^m\\)에 대해 \\(A\\mathbf x=\\mathbf b\\)가 해를 가짐.\n⇔ 사다리꼴에 \\([0\\ \\cdots\\ 0\\,|\\,c\\ne0]\\) 행이 생길 수 없음 ⇔ 모든 행(\\(m\\)개)에 피벗 ⇔ 피벗열 \\(m\\)개.\n2021 O/X 7 \"\\(3\\times5\\) 행렬변환의 치역은 \\(\\mathbf R^3\\)\"은 X: 피벗이 3개일 때만 치역 = \\(\\mathbf R^3\\)이고, 예컨대 \\(A=0\\)이면 치역은 \\(\\{\\mathbf 0\\}\\)."
+ },
+ {
+  "ref": "p546",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^n\\to\\mathbf R^m\\)는 선형변환이고 \\(A\\)는 그 표준행렬이다. 다음 문장이 참이 되도록 빈칸을 채우고 이유를 설명하라: \"\\(T\\)가 일대일일 필요충분조건은 \\(A\\)가 ____개의 피벗열을 갖는 것이다.\"",
+  "options": [
+   "A. \\(\\min(m,n)\\)",
+   "B. \\(n\\)",
+   "C. \\(n-m\\)",
+   "D. \\(m\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(T(\\mathbf x)=T(\\mathbf y)\\) ⇔ \\(A(\\mathbf x-\\mathbf y)=\\mathbf 0\\). 그래서 일대일 ⇔ \\(A\\mathbf x=\\mathbf 0\\)의 해가 \\(\\mathbf x=\\mathbf 0\\)뿐.\n그 조건 ⇔ 자유변수가 없음 ⇔ \\(n\\)개 열 모두 피벗열.\n2023-4와 같은 문제(답 \\(n\\)). onto 조건(행 수 \\(m\\), 연습문제 32)과 헷갈리지 말 것."
+ },
+ {
+  "ref": "p545",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "주어진 선형변환이 (a) 일대일인지 (b) onto인지 판정하라. 연습문제 19의 변환 \\(T(x_1,x_2,x_3)=(x_1-5x_2+4x_3,\\ x_2-6x_3)\\).",
+  "options": [
+   "A. (a) 일대일, (b) onto 아님",
+   "B. (a) 일대일 아님, (b) onto",
+   "C. (a) 일대일 아님, (b) onto 아님",
+   "D. (a) 일대일, (b) onto"
+  ],
+  "answer": "B",
+  "solution": "\\(A=\\begin{bmatrix}1&-5&4\\\\0&1&-6\\end{bmatrix}\\)은 이미 사다리꼴, 피벗 2개.\n3열에 피벗 없음 → 자유변수 → 일대일 X.\n모든 행에 피벗 → onto \\(\\mathbf R^2\\)."
+ },
+ {
+  "ref": "p544",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "주어진 선형변환이 (a) 일대일인지 (b) onto인지 판정하라. 연습문제 2의 변환: 표준행렬이 \\(\\begin{bmatrix}1&4&-5\\\\3&-7&4\\end{bmatrix}\\)인 \\(T:\\mathbf R^3\\to\\mathbf R^2\\).",
+  "options": [
+   "A. (a) 일대일, (b) onto 아님",
+   "B. (a) 일대일 아님, (b) onto",
+   "C. (a) 일대일, (b) onto",
+   "D. (a) 일대일 아님, (b) onto 아님"
+  ],
+  "answer": "B",
+  "solution": "\\(R_2-3R_1\\): \\(\\begin{bmatrix}1&4&-5\\\\0&-19&19\\end{bmatrix}\\). 피벗 2개(1열, 2열).\n열 3개 중 피벗 2개 → 자유변수 \\(x_3\\) → 일대일 X (\\(2\\times3\\)은 애초에 일대일 불가).\n두 행 모두 피벗 → onto \\(\\mathbf R^2\\)."
+ },
+ {
+  "ref": "p543",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "주어진 선형변환이 (a) 일대일인지 (b) onto인지 판정하고 근거를 대라. 연습문제 17의 변환 \\(T(x_1,x_2,x_3,x_4)=(0,\\ x_1+x_2,\\ x_2+x_3,\\ x_3+x_4)\\).",
+  "options": [
+   "A. (a) 일대일, (b) onto 아님",
+   "B. (a) 일대일, (b) onto",
+   "C. (a) 일대일 아님, (b) onto 아님",
+   "D. (a) 일대일 아님, (b) onto"
+  ],
+  "answer": "C",
+  "solution": "\\(A=\\begin{bmatrix}0&0&0&0\\\\1&1&0&0\\\\0&1&1&0\\\\0&0&1&1\\end{bmatrix}\\). 행 교환(0행을 맨 아래로) → \\(\\begin{bmatrix}1&1&0&0\\\\0&1&1&0\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}\\).\n피벗 3개: 4열에 피벗 없음 → 자유변수 \\(x_4\\) → \\(A\\mathbf x=\\mathbf 0\\)이 비자명해 → 일대일 X.\n4행에 피벗 없음 → onto X. (예: \\((1,0,0,0)\\)은 첫 성분이 항상 0이라 도달 불가)"
+ },
+ {
+  "ref": "p542",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(A\\)가 \\(3\\times2\\) 행렬이면 변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)는 \\(\\mathbf R^2\\)를 \\(\\mathbf R^3\\) 위로(onto) 보낼 수 없다.",
+  "answer": "O",
+  "solution": "onto ⇔ 모든 행(3개)에 피벗. 그런데 열이 2개라 피벗은 최대 2개. 따라서 불가능. (같은 \\(3\\times2\\)라도 일대일은 가능 — 23(e)와 비교)"
+ },
+ {
+  "ref": "p541",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(\\mathbf R^n\\)의 각 벡터가 \\(\\mathbf R^m\\)의 유일한 벡터로 보내지면 사상 \\(T:\\mathbf R^n\\to\\mathbf R^m\\)은 일대일이다.",
+  "answer": "X",
+  "solution": "\"각 \\(\\mathbf x\\)가 하나의 값으로 간다\"는 함수의 정의일 뿐입니다. 일대일은 각 \\(\\mathbf b\\)가 많아야 하나의 \\(\\mathbf x\\)의 상(서로 다른 \\(\\mathbf x\\) → 서로 다른 \\(T(\\mathbf x)\\))이라는 뜻."
+ },
+ {
+  "ref": "p540",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(\\mathbf R^n\\)에서 \\(\\mathbf R^m\\)으로의 모든 선형변환이 행렬변환인 것은 아니다.",
+  "answer": "X",
+  "solution": "모든 선형변환은 표준행렬 \\(A=[T(\\mathbf e_1)\\ \\cdots\\ T(\\mathbf e_n)]\\)로 \\(T(\\mathbf x)=A\\mathbf x\\)가 됩니다(\"Every linear transformation is represented by a matrix\", 노트 2쪽). 2025 O/X 1-3, 2021 O/X 8은 같은 내용을 긍정문으로 물음(답 O) — 문장의 부정 표현에 주의."
+ },
+ {
+  "ref": "p539",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(A\\)가 \\(3\\times2\\) 행렬이면 변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)는 일대일이 될 수 없다.",
+  "answer": "X",
+  "solution": "반례: \\(A=\\begin{bmatrix}1&0\\\\0&1\\\\0&0\\end{bmatrix}\\)은 두 열 모두 피벗열이라 자유변수가 없고 일대일입니다. \\(3\\times2\\)가 불가능한 것은 onto(행 3개에 피벗 3개 불가, 24(e)). 2022 O/X 14와 같은 문제(답 X)."
+ },
+ {
+  "ref": "p538",
+  "kind": "ox",
+  "chapter": "2.3 선형변환",
+  "question": "참/거짓: \\(\\mathbf R^n\\)의 모든 벡터 \\(\\mathbf x\\)가 \\(\\mathbf R^m\\)의 어떤 벡터로 보내지면 사상 \\(T:\\mathbf R^n\\to\\mathbf R^m\\)은 \\(\\mathbf R^m\\) 위로의(onto) 사상이다.",
+  "answer": "X",
+  "solution": "\"모든 \\(\\mathbf x\\)가 어딘가로 간다\"는 모든 함수의 성질입니다. onto는 반대 방향: 모든 \\(\\mathbf b\\in\\mathbf R^m\\)에 대해 \\(T(\\mathbf x)=\\mathbf b\\)인 \\(\\mathbf x\\)가 존재해야 합니다(치역 = 공역)."
+ },
+ {
+  "ref": "p537",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^3\\)는 \\(T(x_1,x_2)=(x_1-2x_2,\\ -x_1+3x_2,\\ 3x_1-2x_2)\\)인 선형변환이다. \\(T(\\mathbf x)=(-1,4,9)\\)인 \\(\\mathbf x\\)를 구하여라.",
+  "options": [
+   "A. \\(\\mathbf x=(5,3)\\)",
+   "B. \\(\\mathbf x=(3,5)\\)",
+   "C. \\(\\mathbf x=(5,-3)\\)",
+   "D. \\(\\mathbf x=(1,1)\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(\\left[\\begin{array}{cc|c}1&-2&-1\\\\-1&3&4\\\\3&-2&9\\end{array}\\right]\\).\n\\(R_2+R_1\\): \\([0\\ 1\\,|\\,3]\\); \\(R_3-3R_1\\): \\([0\\ 4\\,|\\,12]\\); \\(R_3-4R_2\\): \\([0\\ 0\\,|\\,0]\\).\n\\(R_1+2R_2\\): \\([1\\ 0\\,|\\,5]\\). \\(\\mathbf x=(5,3)\\), 유일.\n검산: \\(5-6=-1\\), \\(-5+9=4\\), \\(15-6=9\\).\n\\(3\\times2\\)라 마지막 행이 \\(0=0\\)인지 확인해야 해가 존재(만약 \\(0=c\\ne0\\)이면 해 없음)."
+ },
+ {
+  "ref": "p536",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 \\(T(x_1,x_2)=(x_1+x_2,\\ 4x_1+5x_2)\\)인 선형변환이다. \\(T(\\mathbf x)=(3,8)\\)인 \\(\\mathbf x\\)를 구하여라.",
+  "options": [
+   "A. \\(\\mathbf x=(-1,4)\\)",
+   "B. \\(\\mathbf x=(7,4)\\)",
+   "C. \\(\\mathbf x=(7,-4)\\)",
+   "D. \\(\\mathbf x=(-4,7)\\)"
+  ],
+  "answer": "C",
+  "solution": "\\(A=\\begin{bmatrix}1&1\\\\4&5\\end{bmatrix}\\), \\(\\left[\\begin{array}{cc|c}1&1&3\\\\4&5&8\\end{array}\\right]\\).\n\\(R_2-4R_1\\): \\([0\\ 1\\,|\\,-4]\\). \\(R_1-R_2\\): \\([1\\ 0\\,|\\,7]\\).\n\\(\\mathbf x=(7,-4)\\). 검산: \\(7-4=3\\), \\(28-20=8\\).\n\\((-1,4)\\)는 첫 성분만 맞고(\\(3\\)) 둘째가 16이라 틀림 — 반드시 두 식 모두 검산."
+ },
+ {
+  "ref": "p535",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "이 사상을 구현하는 행렬을 찾아 \\(T\\)가 선형변환임을 보여라. \\[T(x_1,x_2,x_3)=(x_1-5x_2+4x_3,\\ x_2-6x_3)\\]",
+  "options": [
+   "A. \\(\\begin{bmatrix}1&0\\\\-5&1\\\\4&-6\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}1&5&4\\\\0&1&6\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}1&-5&4\\\\1&-6&0\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}1&-5&4\\\\0&1&-6\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(\\mathbf R^3\\to\\mathbf R^2\\) → \\(2\\times3\\).\n1행 \\([1\\ -5\\ 4]\\); 2행은 \\(x_1\\)이 없으므로 \\([0\\ 1\\ -6]\\).\n2022-4와 거의 같은 문제(\\((x_1+5x_2-3x_3,\\ x_2-5x_3)\\) → \\(\\begin{bmatrix}1&5&-3\\\\0&1&-5\\end{bmatrix}\\)). 전치(둘째 보기), 2행에서 0을 빼먹고 당기기(넷째 보기)가 대표 실수."
+ },
+ {
+  "ref": "p534",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "이 사상을 구현하는 행렬을 찾아 \\(T\\)가 선형변환임을 보여라. \\[T(x_1,x_2)=(2x_2-3x_1,\\ x_1-4x_2,\\ 0,\\ x_2)\\]",
+  "options": [
+   "A. \\(\\begin{bmatrix}2&-3\\\\1&-4\\\\0&0\\\\0&1\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}-3&2\\\\1&-4\\\\0&0\\\\0&1\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}-3&1&0&0\\\\2&-4&0&1\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}-3&2\\\\1&-4\\\\0&1\\end{bmatrix}\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(4\\times2\\).\n1행: \\(2x_2-3x_1=-3x_1+2x_2\\) → \\([-3\\ 2]\\). 변수 순서대로 재배열하는 것이 핵심.\n2행 \\([1\\ -4]\\), 3행 \\([0\\ 0]\\), 4행 \\([0\\ 1]\\).\n둘째 보기는 쓰인 순서 그대로 \\([2\\ -3]\\)을 넣은 실수."
+ },
+ {
+  "ref": "p533",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "이 사상을 구현하는 행렬을 찾아 \\(T\\)가 선형변환임을 보여라. \\(x_1,x_2,\\dots\\)는 벡터가 아니라 벡터의 성분이다. \\[T(x_1,x_2,x_3,x_4)=(0,\\ x_1+x_2,\\ x_2+x_3,\\ x_3+x_4)\\]",
+  "options": [
+   "A. \\(\\begin{bmatrix}1&1&0&0\\\\0&1&1&0\\\\0&0&1&1\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}1&1&0&0\\\\0&1&1&0\\\\0&0&1&1\\\\0&0&0&0\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}0&1&0&0\\\\0&1&1&0\\\\0&0&1&1\\\\0&0&0&1\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}0&0&0&0\\\\1&1&0&0\\\\0&1&1&0\\\\0&0&1&1\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "출력 4개, 입력 4개 → \\(4\\times4\\).\n첫 출력이 0이므로 1행은 모두 0. 나머지 행은 계수 그대로.\n\\(T(\\mathbf x)=A\\mathbf x\\) 꼴이면 \\(A(c\\mathbf x+d\\mathbf y)=cA\\mathbf x+dA\\mathbf y\\)라 자동으로 선형.\n0인 출력을 빼고 \\(3\\times4\\)로 쓰거나(둘째 보기) 0행을 아래로 옮기는 것(넷째 보기)은 틀립니다. 셋째 보기는 전치. 노트 Exercise Problem 1-1과 같은 문제."
+ },
+ {
+  "ref": "p532",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "변수의 모든 값에 대해 등식이 성립하도록 행렬의 빈칸을 채워라. \\[\\begin{bmatrix}?&?&?\\\\?&?&?\\\\?&?&?\\end{bmatrix}\\begin{bmatrix}x_1\\\\x_2\\\\x_3\\end{bmatrix}=\\begin{bmatrix}3x_1-2x_3\\\\4x_1\\\\x_1-x_2+x_3\\end{bmatrix}\\]",
+  "options": [
+   "A. \\(\\begin{bmatrix}3&0&-2\\\\4&0&0\\\\1&-1&1\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}3&0&2\\\\4&0&0\\\\1&-1&1\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}3&-2&0\\\\4&0&0\\\\1&-1&1\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}3&4&1\\\\0&0&-1\\\\-2&0&1\\end{bmatrix}\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(i\\)번째 행 = \\(i\\)번째 출력식의 \\(x_1,x_2,x_3\\) 계수.\n1행: \\(3x_1+0x_2-2x_3\\) → \\([3\\ 0\\ -2]\\). 2행: \\([4\\ 0\\ 0]\\). 3행: \\([1\\ -1\\ 1]\\).\n없는 변수의 0을 빼먹고 왼쪽으로 당기는 실수(둘째 보기), 전치(셋째 보기) 주의."
+ },
+ {
+  "ref": "p531",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "stem": "회전각은?",
+  "question": "연습문제 8의 변환(\\(x_1\\)축 대칭 후 \\(x_2=x_1\\) 대칭)이 원점 중심의 회전일 뿐임을 보이고, 회전각을 구하여라.",
+  "options": [
+   "A. \\(\\pi/2\\)",
+   "B. \\(\\pi/4\\)",
+   "C. \\(-\\pi/2\\)",
+   "D. \\(\\pi\\)"
+  ],
+  "answer": "A",
+  "solution": "연습문제 8: \\(\\mathbf e_1\\to\\mathbf e_2\\), \\(\\mathbf e_2\\to-\\mathbf e_1\\), \\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\).\n\\(\\pi/2\\) 회전도 \\(\\mathbf e_1\\to\\mathbf e_2,\\ \\mathbf e_2\\to-\\mathbf e_1\\). 표준행렬이 같으므로 같은 변환.\n2024 O/X 11과 같은 문제(답 O). 곱 순서를 반대로 하면 \\(\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}\\) = \\(-\\pi/2\\) 회전이 나와 둘째 보기로 틀립니다."
+ },
+ {
+  "ref": "p530",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 먼저 점들을 세로축 \\(x_2\\)축에 대해 대칭시킨 다음 \\(\\pi/2\\) 라디안 회전시킨다. 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(\\mathbf e_1\\to-\\mathbf e_1\\to-\\mathbf e_2\\) (반시계 90° 회전은 \\(\\mathbf e_1\\to\\mathbf e_2\\)).\n\\(\\mathbf e_2\\to\\mathbf e_2\\to-\\mathbf e_1\\).\n\\(A=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\begin{bmatrix}-1&0\\\\0&1\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\) — 결과는 \\(x_2=-x_1\\) 대칭.\n둘째 보기는 순서를 반대로 곱한 것(\\(x_2=x_1\\) 대칭이 됨), 셋째는 대칭을 빼먹은 것. 순서가 바뀌면 결과가 다릅니다(행렬곱은 교환법칙 X)."
+ },
+ {
+  "ref": "p529",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 먼저 \\(\\mathbf e_2\\)를 \\(\\mathbf e_2-2\\mathbf e_1\\)로 보내는(\\(\\mathbf e_1\\)은 그대로) 가로 층밀림을 한 다음 직선 \\(x_2=-x_1\\)에 대해 대칭시킨다. 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}2&-1\\\\-1&0\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}0&-1\\\\-1&-2\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}0&1\\\\1&-2\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}0&-1\\\\-1&2\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(x_2=-x_1\\) 대칭: \\(\\mathbf e_1\\to-\\mathbf e_2\\), \\(\\mathbf e_2\\to-\\mathbf e_1\\) (행렬 \\(\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\)).\n\\(\\mathbf e_1\\to\\mathbf e_1\\to-\\mathbf e_2\\).\n\\(\\mathbf e_2\\to\\mathbf e_2-2\\mathbf e_1\\to(-\\mathbf e_1)-2(-\\mathbf e_2)=-\\mathbf e_1+2\\mathbf e_2\\) (대칭이 선형이라 각각 보내서 결합).\n\\(A=\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\-1&2\\end{bmatrix}\\).\n둘째 보기는 순서 반대, 셋째는 \\(x_2=x_1\\) 대칭을 쓴 것, 넷째는 층밀림을 \\(+2\\mathbf e_1\\)로 한 것."
+ },
+ {
+  "ref": "p528",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 먼저 점들을 가로축 \\(x_1\\)축에 대해 대칭시킨 다음 직선 \\(x_2=x_1\\)에 대해 대칭시킨다. 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}-1&0\\\\0&-1\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(\\mathbf e_1\\to\\mathbf e_1\\to\\mathbf e_2\\), \\(\\mathbf e_2\\to-\\mathbf e_2\\to-\\mathbf e_1\\).\n\\(A=[\\mathbf e_2\\ \\ -\\mathbf e_1]=\\begin{bmatrix}0&1\\\\1&0\\end{bmatrix}\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\).\n둘째 보기는 곱 순서를 반대로 한 결과(시계 90°). 노트 Exercise Problem 2와 같은 문제이고, 2024 O/X 11 \"\\(x_1\\)축 대칭 후 \\(x_2=x_1\\) 대칭은 회전이다\"(O)의 근거입니다."
+ },
+ {
+  "ref": "p527",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 먼저 점들을 \\(-3\\pi/4\\) 라디안(시계방향) 회전시킨 다음 가로축인 \\(x_1\\)축에 대해 대칭시킨다. 표준행렬을 구하여라. [힌트: \\(T(\\mathbf e_1)=(-1/\\sqrt2,1/\\sqrt2)\\)]",
+  "options": [
+   "A. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&-1\\\\-1&-1\\end{bmatrix}\\)",
+   "B. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}-1&1\\\\1&1\\end{bmatrix}\\)",
+   "C. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}-1&-1\\\\-1&1\\end{bmatrix}\\)",
+   "D. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}-1&1\\\\-1&-1\\end{bmatrix}\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(\\mathbf e_1\\): \\(-3\\pi/4\\) 회전 → \\((-\\frac1{\\sqrt2},-\\frac1{\\sqrt2})\\) → \\(x_1\\)축 대칭(2성분 부호 반대) → \\((-\\frac1{\\sqrt2},\\frac1{\\sqrt2})\\).\n\\(\\mathbf e_2\\): 회전 → \\((\\frac1{\\sqrt2},-\\frac1{\\sqrt2})\\) → 대칭 → \\((\\frac1{\\sqrt2},\\frac1{\\sqrt2})\\).\n행렬로: \\(\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}R(-3\\pi/4)\\) (나중 × 먼저).\n둘째 보기는 곱 순서를 반대로(\\(R\\cdot\\)대칭), 셋째는 대칭을 빠뜨린 회전만, 넷째는 \\(x_2\\)축 대칭을 쓴 것. 2024-4는 같은 유형(시계 \\(7\\pi/8\\) 회전 후 \\(x_1\\)축 대칭)에서 \\(T(\\mathbf e_1)\\)과 \\(T(\\mathbf e_1+\\mathbf e_2)\\) 사이 각을 물었는데, 회전·대칭은 각도를 보존하므로 \\(\\mathbf e_1\\)과 \\(\\mathbf e_1+\\mathbf e_2\\) 사이 각 \\(\\pi/4\\)가 답입니다."
+ },
+ {
+  "ref": "p526",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 \\(\\mathbf e_1\\)을 \\(\\mathbf e_1-2\\mathbf e_2\\)로 보내고 \\(\\mathbf e_2\\)는 그대로 두는 세로 층밀림 변환이다. 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}1&0\\\\2&1\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}1&2\\\\0&1\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}1&0\\\\-2&1\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(T(\\mathbf e_1)=(1,-2)\\)이 1열, \\(T(\\mathbf e_2)=(0,1)\\)이 2열.\n세로 층밀림 \\(\\begin{bmatrix}1&0\\\\k&1\\end{bmatrix}\\)에서 \\(k=-2\\). \\(-2\\)를 1행 2열에 두면(둘째 보기) 가로 층밀림이 됩니다."
+ },
+ {
+  "ref": "p525",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 점들을 원점 중심으로 \\(-\\pi/4\\) 라디안(시계방향) 회전시킨다. 표준행렬을 구하여라. [힌트: \\(T(\\mathbf e_1)=(1/\\sqrt2,-1/\\sqrt2)\\)]",
+  "options": [
+   "A. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\-1&1\\end{bmatrix}\\)",
+   "B. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}\\)",
+   "C. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}-1&1\\\\-1&-1\\end{bmatrix}\\)",
+   "D. \\(\\tfrac{1}{\\sqrt2}\\begin{bmatrix}1&-1\\\\1&1\\end{bmatrix}\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(\\varphi=-\\pi/4\\): \\(\\cos\\varphi=\\frac1{\\sqrt2}\\), \\(\\sin\\varphi=-\\frac1{\\sqrt2}\\).\n\\(T(\\mathbf e_1)=(\\cos\\varphi,\\sin\\varphi)=(\\frac1{\\sqrt2},-\\frac1{\\sqrt2})\\), \\(T(\\mathbf e_2)=(-\\sin\\varphi,\\cos\\varphi)=(\\frac1{\\sqrt2},\\frac1{\\sqrt2})\\).\n둘째 보기는 반시계 \\(\\pi/4\\)(부호 실수), 셋째는 \\(-3\\pi/4\\) 회전. 2025-4는 반시계 \\(\\pi/4\\) 회전행렬의 10제곱 = \\(10\\cdot45^\\circ=450^\\circ=90^\\circ\\) 회전 \\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\). 이 문제의 행렬은 8제곱하면 \\(-2\\pi\\) 회전 = \\(I\\)."
+ },
+ {
+  "ref": "p524",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 점들을 원점을 중심으로 반시계방향 \\(3\\pi/2\\) 라디안 회전시킨다. 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}-1&0\\\\0&-1\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(\\cos\\frac{3\\pi}{2}=0,\\ \\sin\\frac{3\\pi}{2}=-1\\)을 \\(\\begin{bmatrix}\\cos\\varphi&-\\sin\\varphi\\\\\\sin\\varphi&\\cos\\varphi\\end{bmatrix}\\)에 대입.\n그림 확인: \\(\\mathbf e_1\\to-\\mathbf e_2\\), \\(\\mathbf e_2\\to\\mathbf e_1\\).\n반시계 \\(3\\pi/2\\) = 시계 \\(\\pi/2\\). 둘째 보기(반시계 90°)와 헷갈리지 말 것. 2025-4처럼 회전을 거듭하면 각도가 더해집니다: 이 행렬을 4번 곱하면 \\(6\\pi\\) 회전 = \\(I\\)."
+ },
+ {
+  "ref": "p523",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T:\\mathbf R^3\\to\\mathbf R^2\\), \\(T(\\mathbf e_1)=(1,3)\\), \\(T(\\mathbf e_2)=(4,-7)\\), \\(T(\\mathbf e_3)=(-5,4)\\) (\\(\\mathbf e_1,\\mathbf e_2,\\mathbf e_3\\)는 \\(3\\times3\\) 단위행렬의 열)일 때 \\(T\\)의 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}1&3&4\\\\-7&-5&4\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}1&3\\\\4&-7\\\\-5&4\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}1&4&-5\\\\3&7&4\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}1&4&-5\\\\3&-7&4\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(\\mathbf R^3\\to\\mathbf R^2\\): \\(2\\times3\\) 행렬.\n세 이미지를 차례로 열에 넣는다.\n둘째 보기는 전치(\\(3\\times2\\))라 \\(\\mathbf x\\in\\mathbf R^3\\)에 곱할 수조차 없습니다. 넷째는 숫자를 행 방향으로 채운 실수."
+ },
+ {
+  "ref": "p522",
+  "kind": "mc",
+  "chapter": "2.3 선형변환",
+  "question": "\\(T\\)는 선형변환이다. \\(T:\\mathbf R^2\\to\\mathbf R^4\\), \\(T(\\mathbf e_1)=(3,1,3,1)\\), \\(T(\\mathbf e_2)=(-5,2,0,0)\\) (\\(\\mathbf e_1=(1,0),\\ \\mathbf e_2=(0,1)\\))일 때 \\(T\\)의 표준행렬을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}3&5\\\\1&-2\\\\3&0\\\\1&0\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}3&-5\\\\1&2\\\\3&0\\\\1&0\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}-5&3\\\\2&1\\\\0&3\\\\0&1\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}3&1&3&1\\\\-5&2&0&0\\end{bmatrix}\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(\\mathbf R^2\\to\\mathbf R^4\\)이므로 \\(A\\)는 \\(4\\times2\\).\n1열 \\(=T(\\mathbf e_1)\\), 2열 \\(=T(\\mathbf e_2)\\)를 세로로 쓴다.\n흔한 실수: \\(T(\\mathbf e_j)\\)를 행으로 써서 \\(2\\times4\\)(둘째 보기)를 만드는 것. 열 순서를 바꾸는 것(셋째 보기)."
+ }
+]
+
+[답 형식]
+{
+ "type": "OBJECT",
+ "properties": {
+  "items": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "p522",
+       "p523",
+       "p524",
+       "p525",
+       "p526",
+       "p527",
+       "p528",
+       "p529",
+       "p530",
+       "p531",
+       "p532",
+       "p533",
+       "p534",
+       "p535",
+       "p536",
+       "p537",
+       "p538",
+       "p539",
+       "p540",
+       "p541",
+       "p542",
+       "p543",
+       "p544",
+       "p545",
+       "p546",
+       "p547",
+       "p548",
+       "p549",
+       "p550",
+       "p551"
+      ]
+     },
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "lintrans.f1",
+       "lintrans.f2",
+       "lintrans.f3"
+      ]
+     },
+     "depth_why": {
+      "type": "STRING",
+      "enum": [
+       "D1a",
+       "D1b",
+       "D1c",
+       "D2a",
+       "D2b",
+       "D3a",
+       "D3b",
+       "D3c",
+       "D4a",
+       "D4b",
+       "D4c",
+       "D4d"
+      ]
+     },
+     "depth": {
+      "type": "STRING",
+      "enum": [
+       "1",
+       "2",
+       "3",
+       "4"
+      ]
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "facet",
+     "depth_why",
+     "depth"
+    ],
+    "required": [
+     "ref",
+     "facet",
+     "depth_why",
+     "depth"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "items"
+ ],
+ "required": [
+  "items"
+ ]
+}
+
+답은 JSON 객체 하나만 출력하라. items 배열에는 [문항]의 ref를 모두 넣어라. depth는 "1"–"4" 문자열이다.

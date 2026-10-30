@@ -1,0 +1,832 @@
+{
+  "course": 4,
+  "made_at": "2026-10-29T14:17:50.107Z",
+  "how_to": "각 code마다 stored(잘린 문장)와 uses(그 오개념이 붙은 문항·보기·풀이)를 보고 뜻을 되살려, belief(학생이 잘못 믿는 것, 70자 이하)와 truth(바른 내용, 90자 이하)를 끝맺은 완전한 문장으로 다시 쓴다. code와 facet은 바꾸지 않는다. 사례·수치가 아니라 개념의 세부를 쓴다.",
+  "answer_format": {
+    "items": [
+      {
+        "code": "m066",
+        "facet": "(그대로)",
+        "belief": "…70자 이하 완전한 문장",
+        "truth": "…90자 이하 완전한 문장",
+        "note": "무엇을 근거로 되살렸는지 한 줄"
+      }
+    ]
+  },
+  "items": [
+    {
+      "code": "m066",
+      "facet": "lineplane.f2",
+      "facet_name": "위치 관계 판별",
+      "facet_statement": "직선과 평면의 평행, 수직, 교차 여부는 방향벡터와 법선벡터의 관계를 통해 판별한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "t 값을 잘못 계산했거나, 계산된 t 값을 직선의 방정식에 잘못 대입했다고 생각합니다.",
+        "truth": "직선과 평면의 교점을 찾기 위해서는 직선의 매개변수 방정식을 평면의 방정식에 대입하여 매개변수 t를 정확히 계산하고, 그 t 값을 다시 직선의 방정식에 대입해야…"
+      },
+      "uses": [
+        {
+          "problem_id": 480,
+          "ext_id": "1.3:12.5-45",
+          "kind": "mc",
+          "question": "직선 \\(x=2-2t,\\;y=3t,\\;z=1+t\\)가 평면 \\(x+2y-z=7\\)과 만나는 점을 구하여라.",
+          "options": [
+            "A. \\((6,-6,-1)\\)",
+            "B. \\((-2,6,3)\\)",
+            "C. \\((\\tfrac25,\\tfrac{12}5,\\tfrac95)\\)",
+            "D. \\((-\\tfrac83,7,\\tfrac{10}3)\\)"
+          ],
+          "answer": "B",
+          "solution": "직선의 \\(x,y,z\\)를 평면 식에 대입: \\((2-2t)+2(3t)-(1+t)=7\\).\n\\(1+3t=7\\) → \\(t=2\\). 점 \\((2-4,\\,6,\\,3)=(-2,6,3)\\). 검산: \\(-2+12-3=7\\).\n\\(-(1+t)\\)의 부호를 풀 때 \\(+t\\)로 틀리면 \\(t=\\tfrac45\\), 상수를 빼먹으면 \\(t=\\tfrac73\\)이 됩니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\((6,-6,-1)\\)",
+              "belief_if_chosen": "매개변수 t를 대입하고 계산하는 과정에서 부호나 연산 실수가 있었다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "C. \\((\\tfrac25,\\tfrac{12}5,\\tfrac95)\\)",
+              "belief_if_chosen": "매개변수 t를 구하는 과정에서 분모·분자 계산 오류가 발생했다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. \\((-\\tfrac83,7,\\tfrac{10}3)\\)",
+              "belief_if_chosen": "직선의 방정식과 평면의 방정식을 연립할 때 식을 잘못 세웠다.",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 481,
+          "ext_id": "1.3:12.5-48",
+          "kind": "mc",
+          "question": "두 점 \\((-3,1,0)\\), \\((-1,5,6)\\)을 지나는 직선은 평면 \\(2x+y-z=-2\\)와 어디에서 만나는가?",
+          "options": [
+            "A. \\((1,9,12)\\)",
+            "B. \\((-\\tfrac{18}7,\\tfrac{13}7,\\tfrac97)\\)",
+            "C. \\((0,7,9)\\)",
+            "D. \\((3,13,18)\\)"
+          ],
+          "answer": "C",
+          "solution": "방향 \\(\\langle2,4,6\\rangle\\): \\(x=-3+2t,\\;y=1+4t,\\;z=6t\\).\n대입: \\(2(-3+2t)+(1+4t)-6t=-2\\) → \\(2t-5=-2\\) → \\(t=\\tfrac32\\).\n점 \\((0,7,9)\\). 검산: \\(0+7-9=-2\\).\n2025-3(두 점을 지나는 직선과 평면 \\(x+2y-z=7\\)의 교점)과 같은 절차입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\((1,9,12)\\)",
+              "belief_if_chosen": "t 값을 잘못 계산하거나 대입함",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 483,
+          "ext_id": "1.3:12.5-64",
+          "kind": "mc",
+          "stem": "(a)의 교점과 (b)의 평면으로 옳은 것은?",
+          "question": "(a) 다음 두 직선이 만나는 점을 구하여라:\n\\(\\mathbf r=\\langle1,1,0\\rangle+t\\langle1,-1,2\\rangle\\), \\(\\mathbf r=\\langle2,0,2\\rangle+s\\langle-1,1,0\\rangle\\).\n(b) 이 두 직선을 포함하는 평면의 방정식을 구하여라.",
+          "options": [
+            "A. 교점 \\((2,0,2)\\), 평면 \\(x+y=2\\)",
+            "B. 교점 \\((2,0,2)\\), 평면 \\(z=2\\)",
+            "C. 교점 \\((1,1,0)\\), 평면 \\(x+y=2\\)",
+            "D. 교점 \\((2,0,2)\\), 평면 \\(x+y+z=4\\)"
+          ],
+          "answer": "A",
+          "solution": "\\(1+t=2-s,\\;1-t=s,\\;2t=2\\) → \\(t=1\\), \\(s=0\\). 첫째 식 \\(2=2\\) ✓, 둘째 \\(0=0\\) ✓. 교점 \\((2,0,2)\\).\n두 방향 \\(\\langle1,-1,2\\rangle\\), \\(\\langle-1,1,0\\rangle\\)에 수직인 법선: \\(a-b+2c=0\\), \\(-a+b=0\\) → \\(a=b,\\;c=0\\), \\(\\langle1,1,0\\rangle\\) (외적 \\(\\langle-2,-2,0\\rangle\\)).\n\\((2,0,2)\\): \\(x+y=2\\). 검산: 첫 직선 점 \\((1,1,0)\\)도 \\(1+1=2\\).",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "D. 교점 \\((2,0,2)\\), 평면 \\(x+y+z=4\\)",
+              "belief_if_chosen": "첫 번째 직선의 시작점을 교점으로 오인함",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 744,
+          "ext_id": "x25-3",
+          "kind": "mc",
+          "question": "두 점 \\((2,0,1)\\)과 \\((0,3,2)\\)를 지나는 직선과 평면 \\(x+2y-z=7\\)의 교점을 구하여라.",
+          "options": [
+            "A. \\((-2,6,3)\\)",
+            "B. \\((-4,9,4)\\)",
+            "C. \\((4,-3,0)\\)",
+            "D. \\((1,\\tfrac32,\\tfrac32)\\)"
+          ],
+          "answer": "A",
+          "solution": "방향 \\((0,3,2)-(2,0,1)=(-2,3,1)\\), 직선 \\(x=2-2t,\\;y=3t,\\;z=1+t\\).\n평면에 대입: \\((2-2t)+2(3t)-(1+t)=7\\) → \\(1+3t=7\\) → \\(t=2\\).\n\\(t=2\\)를 넣으면 \\((-2,6,3)\\). 검산: \\(-2+12-3=7\\).",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "B. \\((-4,9,4)\\)",
+              "belief_if_chosen": "t 값을 잘못 계산했거나, 계산된 t 값을 직선의 방정식에 잘못 대입했다고 생각합니다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "C. \\((4,-3,0)\\)",
+              "belief_if_chosen": "t 값을 잘못 계산했거나, 계산된 t 값을 직선의 방정식에 잘못 대입했다고 생각합니다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. \\((1,\\tfrac32,\\tfrac32)\\)",
+              "belief_if_chosen": "t 값을 잘못 계산했거나, 계산된 t 값을 직선의 방정식에 잘못 대입했다고 생각합니다.",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m068",
+      "facet": "det.f1",
+      "facet_name": "행렬식 계산과 행 연산",
+      "facet_statement": "여인자 전개와 행 연산을 이용하여 행렬식을 효율적으로 계산한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "세 번째 행의 두 번째 원소를 0으로 만드는 과정에서 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n 연산을 적용할 …",
+        "truth": "올바른 연산은 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n이며, 이 연산을 적용하면 \n\\(a\\)\n는 \n\\(a-1\\)\n이 되고 \n\\(b\\)\n는 \n\\(b…"
+      },
+      "uses": [
+        {
+          "problem_id": 746,
+          "ext_id": "x25-5-1",
+          "kind": "mc",
+          "question": "연립방정식 \\(x+2y=1,\\;2x+3y+z=4,\\;x+y+az=b\\)에 가우스 소거법을 사용하여 첨가행렬의 최종 형태(상삼각)를 쓰시오. (\\(a,b\\)는 상수)",
+          "options": [
+            "A. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a+1&b-3\\end{array}\\right]\\)",
+            "B. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b+1\\end{array}\\right]\\)",
+            "C. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&-1&a&b-1\\end{array}\\right]\\)",
+            "D. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b-3\\end{array}\\right]\\)"
+          ],
+          "answer": "D",
+          "solution": "\\(R_2-2R_1\\): \\([0\\;-1\\;1\\,|\\,2]\\), \\(R_3-R_1\\): \\([0\\;-1\\;a\\,|\\,b-1]\\).\n\\(R_3-R_2\\): \\([0\\;0\\;a-1\\,|\\,b-3]\\).\n넷째 보기는 둘째 단계를 하지 않은 중간 상태입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a+1&b-3\\end{array}\\right]\\)",
+              "belief_if_chosen": "세 번째 행의 두 번째 원소를 0으로 만드는 과정에서 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n 연산을 적용할 때, \n\\(a\\)\n…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m069",
+      "facet": "det.f1",
+      "facet_name": "행렬식 계산과 행 연산",
+      "facet_statement": "여인자 전개와 행 연산을 이용하여 행렬식을 효율적으로 계산한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "세 번째 행의 두 번째 원소를 0으로 만드는 과정에서 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n 연산을 적용할 …",
+        "truth": "올바른 연산은 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n이며, 이 연산을 적용하면 \n\\(a\\)\n는 \n\\(a-1\\)\n이 되고 \n\\(b\\)\n는 \n\\(b…"
+      },
+      "uses": [
+        {
+          "problem_id": 746,
+          "ext_id": "x25-5-1",
+          "kind": "mc",
+          "question": "연립방정식 \\(x+2y=1,\\;2x+3y+z=4,\\;x+y+az=b\\)에 가우스 소거법을 사용하여 첨가행렬의 최종 형태(상삼각)를 쓰시오. (\\(a,b\\)는 상수)",
+          "options": [
+            "A. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a+1&b-3\\end{array}\\right]\\)",
+            "B. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b+1\\end{array}\\right]\\)",
+            "C. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&-1&a&b-1\\end{array}\\right]\\)",
+            "D. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b-3\\end{array}\\right]\\)"
+          ],
+          "answer": "D",
+          "solution": "\\(R_2-2R_1\\): \\([0\\;-1\\;1\\,|\\,2]\\), \\(R_3-R_1\\): \\([0\\;-1\\;a\\,|\\,b-1]\\).\n\\(R_3-R_2\\): \\([0\\;0\\;a-1\\,|\\,b-3]\\).\n넷째 보기는 둘째 단계를 하지 않은 중간 상태입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "B. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b+1\\end{array}\\right]\\)",
+              "belief_if_chosen": "세 번째 행의 두 번째 원소를 0으로 만드는 과정에서 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n 연산을 적용할 때, \n\\(a\\)\n…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m070",
+      "facet": "det.f1",
+      "facet_name": "행렬식 계산과 행 연산",
+      "facet_statement": "여인자 전개와 행 연산을 이용하여 행렬식을 효율적으로 계산한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "세 번째 행의 두 번째 원소를 0으로 만드는 과정에서 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n 연산을 적용할 …",
+        "truth": "올바른 연산은 \n\\(R_3 \\leftarrow R_3 - R_2\\)\n이며, 이 연산을 적용하면 \n\\(a\\)\n는 \n\\(a-1\\)\n이 되고 \n\\(b\\)\n는 \n\\(b…"
+      },
+      "uses": [
+        {
+          "problem_id": 746,
+          "ext_id": "x25-5-1",
+          "kind": "mc",
+          "question": "연립방정식 \\(x+2y=1,\\;2x+3y+z=4,\\;x+y+az=b\\)에 가우스 소거법을 사용하여 첨가행렬의 최종 형태(상삼각)를 쓰시오. (\\(a,b\\)는 상수)",
+          "options": [
+            "A. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a+1&b-3\\end{array}\\right]\\)",
+            "B. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b+1\\end{array}\\right]\\)",
+            "C. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&-1&a&b-1\\end{array}\\right]\\)",
+            "D. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&0&a-1&b-3\\end{array}\\right]\\)"
+          ],
+          "answer": "D",
+          "solution": "\\(R_2-2R_1\\): \\([0\\;-1\\;1\\,|\\,2]\\), \\(R_3-R_1\\): \\([0\\;-1\\;a\\,|\\,b-1]\\).\n\\(R_3-R_2\\): \\([0\\;0\\;a-1\\,|\\,b-3]\\).\n넷째 보기는 둘째 단계를 하지 않은 중간 상태입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "C. \\(\\left[\\begin{array}{ccc|c}1&2&0&1\\\\0&-1&1&2\\\\0&-1&a&b-1\\end{array}\\right]\\)",
+              "belief_if_chosen": "세 번째 행의 두 번째 원소를 0으로 만드는 연산을 수행하지 않았거나, 연산 과정에서 오류가 발생했다고 생각합니다.",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m072",
+      "facet": "lintrans.f2",
+      "facet_name": "일대일 및 위로 조건",
+      "facet_statement": "일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "특수해 \n\\(\\mathbf x_p\\)\n를 계산할 때 \n\\(x_1\\)\n의 값을 잘못 계산했거나, 자유 변수를 0으로 설정하는 …",
+        "truth": "자유 변수를 0으로 설정하고 역대입을 통해 \n\\(x_1\\)\n을 계산하면 \n\\(x_1 = 2 - x_2 - 3x_3 - 7x_5 = 2 - (-1) - 0 - 0…"
+      },
+      "uses": [
+        {
+          "problem_id": 536,
+          "ext_id": "2.3:1.9-21",
+          "kind": "mc",
+          "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 \\(T(x_1,x_2)=(x_1+x_2,\\ 4x_1+5x_2)\\)인 선형변환이다. \\(T(\\mathbf x)=(3,8)\\)인 \\(\\mathbf x\\)를 구하여라.",
+          "options": [
+            "A. \\(\\mathbf x=(-1,4)\\)",
+            "B. \\(\\mathbf x=(7,4)\\)",
+            "C. \\(\\mathbf x=(7,-4)\\)",
+            "D. \\(\\mathbf x=(-4,7)\\)"
+          ],
+          "answer": "C",
+          "solution": "\\(A=\\begin{bmatrix}1&1\\\\4&5\\end{bmatrix}\\), \\(\\left[\\begin{array}{cc|c}1&1&3\\\\4&5&8\\end{array}\\right]\\).\n\\(R_2-4R_1\\): \\([0\\ 1\\,|\\,-4]\\). \\(R_1-R_2\\): \\([1\\ 0\\,|\\,7]\\).\n\\(\\mathbf x=(7,-4)\\). 검산: \\(7-4=3\\), \\(28-20=8\\).\n\\((-1,4)\\)는 첫 성분만 맞고(\\(3\\)) 둘째가 16이라 틀림 — 반드시 두 식 모두 검산.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\(\\mathbf x=(-1,4)\\)",
+              "belief_if_chosen": "계산 과정에서 부호를 잘못 처리함.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. \\(\\mathbf x=(-4,7)\\)",
+              "belief_if_chosen": "역행렬 계산이나 연립방정식 풀이에서 부호 오류를 범함.",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 854,
+          "ext_id": "ox-37",
+          "kind": "ox",
+          "question": "complete solution에서 특수해 \\(\\mathbf s_i\\)를 구할 때는 우변 \\(\\mathbf b\\)를 그대로 쓴다.",
+          "answer": "X",
+          "solution": "특수해는 우변을 0으로 두고, 자유변수 하나만 1로 둡니다(2025-6 풀이 ②③).",
+          "tagged_as": [
+            {
+              "where": "ox",
+              "planted_error": "우변 b를 그대로 쓴다"
+            }
+          ]
+        },
+        {
+          "problem_id": 748,
+          "ext_id": "x25-6",
+          "kind": "mc",
+          "question": "첨가행렬 \\([A\\,|\\,\\mathbf b]=\\left[\\begin{array}{ccccc|c}1&1&3&0&7&2\\\\0&1&1&0&2&-1\\\\0&0&0&1&4&6\\\\0&0&0&0&0&0\\end{array}\\right]\\)인 \\(A\\mathbf x=\\mathbf b\\)의 complete solution \\(\\mathbf x=\\mathbf x_p+\\lambda_1\\mathbf s_1+\\lambda_2\\mathbf s_2\\)를 구하시오.",
+          "options": [
+            "A. \\((3,-1,0,6,0)+\\lambda_1(-2,-1,1,0,0)+\\lambda_2(-5,-2,0,-4,1)\\)",
+            "B. \\((2,-1,0,6,0)+\\lambda_1(-3,-1,1,0,0)+\\lambda_2(-7,-2,0,-4,1)\\)",
+            "C. \\((3,-1,6,0,0)+\\lambda_1(-2,-1,1,0,0)+\\lambda_2(-5,-2,0,-4,1)\\)",
+            "D. \\((3,-1,0,6,0)+\\lambda_1(2,1,1,0,0)+\\lambda_2(5,2,0,4,1)\\)"
+          ],
+          "answer": "A",
+          "solution": "RREF로: \\(R_1-R_2\\) → \\([1\\;0\\;2\\;0\\;5\\,|\\,3]\\). 피벗 열 1, 2, 4, 자유변수 \\(x_3,x_5\\).\n\\(\\mathbf x_p\\): \\(x_3=x_5=0\\)으로 두면 \\(x_1=3,\\;x_2=-1,\\;x_4=6\\).\n\\(\\mathbf s_1\\): 우변 0, \\(x_3=1,x_5=0\\) → \\(x_1=-2,\\;x_2=-1,\\;x_4=0\\).\n\\(\\mathbf s_2\\): 우변 0, \\(x_3=0,x_5=1\\) → \\(x_1=-5,\\;x_2=-2,\\;x_4=-4\\).\n둘째 보기는 RREF로 줄이지 않고 원래 1행 계수(3, 7)를 그대로 쓴 실수, 셋째는 우변으로 넘길 때 부호를 안 바꾼 실수입니다. 검산: \\(A\\mathbf x_p=\\mathbf b\\), \\(A\\mathbf s_i=\\mathbf 0\\).",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "B. \\((2,-1,0,6,0)+\\lambda_1(-3,-1,1,0,0)+\\lambda_2(-7,-2,0,-4,1)\\)",
+              "belief_if_chosen": "특수해 \n\\(\\mathbf x_p\\)\n를 계산할 때 \n\\(x_1\\)\n의 값을 잘못 계산했거나, 자유 변수를 0으로 설정하는 과정에서 오류가 발…",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "C. \\((3,-1,6,0,0)+\\lambda_1(-2,-1,1,0,0)+\\lambda_2(-5,-2,0,-4,1)\\)",
+              "belief_if_chosen": "특수해 \n\\(\\mathbf x_p\\)\n의 성분 순서를 잘못 이해했거나, 자유 변수의 위치를 혼동했다고 생각합니다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. \\((3,-1,0,6,0)+\\lambda_1(2,1,1,0,0)+\\lambda_2(5,2,0,4,1)\\)",
+              "belief_if_chosen": "동차해 \n\\(\\mathbf s_1, \\mathbf s_2\\)\n를 계산할 때 부호를 잘못 적용했거나, 자유 변수를 1로 설정했을 때 피벗 변수의…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m075",
+      "facet": "lintrans.f2",
+      "facet_name": "일대일 및 위로 조건",
+      "facet_statement": "일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "행렬 \\(A\\)의 크기와 관계없이 특정 \\(\\mathbf b\\)에 대해 유일한 해가 존재할 수 있다고 생각함.",
+        "truth": "\\(A\\mathbf x = \\mathbf b\\)가 유일한 해를 가지려면 행렬 \\(A\\)의 열들이 선형 독립이어야 하며, 이는 \\(A\\)의 열의 개수가 행의 개수…"
+      },
+      "uses": [
+        {
+          "problem_id": 764,
+          "ext_id": "x24-15",
+          "kind": "ox",
+          "question": "\\(A\\mathbf x=\\begin{bmatrix}0\\\\1\\end{bmatrix}\\)의 해가 \\(\\mathbf x=(1,2,3)\\)으로 유일하다. 이런 행렬 \\(A\\)가 존재한다.",
+          "answer": "X",
+          "solution": "\\(A\\)는 \\(2\\times3\\)입니다. 피벗은 최대 2개라 자유변수가 적어도 하나 있습니다. 해가 있으면 무수히 많고, 유일할 수 없습니다.",
+          "tagged_as": [
+            {
+              "where": "ox",
+              "planted_error": "해가 \\(\\mathbf x=(1,2,3)\\)으로 유일하다. 이런 행렬 \\(A\\)가 존재한다."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m076",
+      "facet": "lineplane.f1",
+      "facet_name": "직선과 평면의 방정식",
+      "facet_statement": "직선은 점과 방향벡터로, 평면은 점과 법선벡터로 다양한 형태로 표현할 수 있다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "삼각 부등식의 방향을 혼동하거나, \\(\\|\\mathbf a\\|+\\|\\mathbf b\\|\\)와 \\(\\|\\mathbf a+\\ma…",
+        "truth": "삼각 부등식은 \\(\\|\\mathbf a+\\mathbf b\\| \\le \\|\\mathbf a\\| + \\|\\mathbf b\\|\\)이며, 이는 두 변의 길이의 합이 나…"
+      },
+      "uses": [
+        {
+          "problem_id": 827,
+          "ext_id": "ox-10",
+          "kind": "ox",
+          "question": "임의의 \\(\\mathbf v,\\mathbf w\\)에 대해 \\(\\|\\mathbf v-\\mathbf w\\|\\ge\\|\\mathbf v\\|-\\|\\mathbf w\\|\\)이다.",
+          "answer": "O",
+          "solution": "삼각부등식 \\(\\|\\mathbf v\\|=\\|(\\mathbf v-\\mathbf w)+\\mathbf w\\|\\le\\|\\mathbf v-\\mathbf w\\|+\\|\\mathbf w\\|\\)를 옮긴 것입니다.",
+          "tagged_as": [
+            {
+              "where": "ox_reverse"
+            }
+          ]
+        },
+        {
+          "problem_id": 733,
+          "ext_id": "x25-1-2",
+          "kind": "ox",
+          "question": "임의의 두 벡터 \\(\\mathbf a,\\mathbf b\\)에 대해 항상 \\(\\|\\mathbf a\\|+\\|\\mathbf b\\|\\le\\|\\mathbf a+\\mathbf b\\|\\) 부등식이 성립한다.",
+          "answer": "X",
+          "solution": "삼각부등식은 반대 방향 \\(\\|\\mathbf a+\\mathbf b\\|\\le\\|\\mathbf a\\|+\\|\\mathbf b\\|\\)입니다(1.2-21). 반례: \\(\\mathbf b=-\\mathbf a\\ne\\mathbf 0\\)이면 우변이 0입니다.",
+          "tagged_as": [
+            {
+              "where": "ox",
+              "planted_error": "\\(\\|\\mathbf a\\|+\\|\\mathbf b\\|\\le\\|\\mathbf a+\\mathbf b\\)\\"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m084",
+      "facet": "lintrans.f2",
+      "facet_name": "일대일 및 위로 조건",
+      "facet_statement": "일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "우변 벡터가 바뀌면 선형시스템의 해의 유무가 달라질 수 있다고 생각함",
+        "truth": "선형시스템의 해의 유무는 계수 행렬의 피벗 위치에 의해 결정되며, 우변 벡터는 해의 존재 여부보다는 해의 구체적인 형태에 영향을 미친다. 계수 행렬의 랭크가 변…"
+      },
+      "uses": [
+        {
+          "problem_id": 536,
+          "ext_id": "2.3:1.9-21",
+          "kind": "mc",
+          "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 \\(T(x_1,x_2)=(x_1+x_2,\\ 4x_1+5x_2)\\)인 선형변환이다. \\(T(\\mathbf x)=(3,8)\\)인 \\(\\mathbf x\\)를 구하여라.",
+          "options": [
+            "A. \\(\\mathbf x=(-1,4)\\)",
+            "B. \\(\\mathbf x=(7,4)\\)",
+            "C. \\(\\mathbf x=(7,-4)\\)",
+            "D. \\(\\mathbf x=(-4,7)\\)"
+          ],
+          "answer": "C",
+          "solution": "\\(A=\\begin{bmatrix}1&1\\\\4&5\\end{bmatrix}\\), \\(\\left[\\begin{array}{cc|c}1&1&3\\\\4&5&8\\end{array}\\right]\\).\n\\(R_2-4R_1\\): \\([0\\ 1\\,|\\,-4]\\). \\(R_1-R_2\\): \\([1\\ 0\\,|\\,7]\\).\n\\(\\mathbf x=(7,-4)\\). 검산: \\(7-4=3\\), \\(28-20=8\\).\n\\((-1,4)\\)는 첫 성분만 맞고(\\(3\\)) 둘째가 16이라 틀림 — 반드시 두 식 모두 검산.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "B. \\(\\mathbf x=(7,4)\\)",
+              "belief_if_chosen": "행렬 연산 시 덧셈과 곱셈을 혼동함.",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 781,
+          "ext_id": "x23-20",
+          "kind": "ox",
+          "question": "다음 두 선형시스템의 해의 유무는 같다. ① \\(5x_1+x_2-3x_3=0,\\;-9x_1+2x_2+5x_3=1,\\;4x_1+x_2-6x_3=9\\) ② 우변만 \\(0,5,45\\)로 바뀐 시스템.",
+          "answer": "O",
+          "solution": "②의 우변은 ①의 우변의 5배입니다. \\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)가 있으면 \\(5\\mathbf x\\)가 \\(A\\mathbf y=5\\mathbf b\\)의 해이고, 거꾸로도 \\(\\tfrac15\\)배로 됩니다.",
+          "tagged_as": [
+            {
+              "where": "ox_reverse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m087",
+      "facet": "lintrans.f2",
+      "facet_name": "일대일 및 위로 조건",
+      "facet_statement": "일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "일대일대응이 되려면 정의역과 공역의 차원이 같아야 한다는 조건을 간과하고, 일대일 또는 위로 조건 중 하나만 만족하면 일대일…",
+        "truth": "선형변환이 일대일대응이 되려면 정의역과 공역의 차원이 같아야 하며, 동시에 일대일(피벗열 개수=n)과 위로(피벗열 개수=m) 조건을 모두 만족해야 한다. 3x2…"
+      },
+      "uses": [
+        {
+          "problem_id": 544,
+          "ext_id": "2.3:1.9-26",
+          "kind": "mc",
+          "question": "주어진 선형변환이 (a) 일대일인지 (b) onto인지 판정하라. 연습문제 2의 변환: 표준행렬이 \\(\\begin{bmatrix}1&4&-5\\\\3&-7&4\\end{bmatrix}\\)인 \\(T:\\mathbf R^3\\to\\mathbf R^2\\).",
+          "options": [
+            "A. (a) 일대일, (b) onto 아님",
+            "B. (a) 일대일 아님, (b) onto",
+            "C. (a) 일대일, (b) onto",
+            "D. (a) 일대일 아님, (b) onto 아님"
+          ],
+          "answer": "B",
+          "solution": "\\(R_2-3R_1\\): \\(\\begin{bmatrix}1&4&-5\\\\0&-19&19\\end{bmatrix}\\). 피벗 2개(1열, 2열).\n열 3개 중 피벗 2개 → 자유변수 \\(x_3\\) → 일대일 X (\\(2\\times3\\)은 애초에 일대일 불가).\n두 행 모두 피벗 → onto \\(\\mathbf R^2\\).",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "C. (a) 일대일, (b) onto",
+              "belief_if_chosen": "차원과 피벗 관계를 오독함",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 545,
+          "ext_id": "2.3:1.9-27",
+          "kind": "mc",
+          "question": "주어진 선형변환이 (a) 일대일인지 (b) onto인지 판정하라. 연습문제 19의 변환 \\(T(x_1,x_2,x_3)=(x_1-5x_2+4x_3,\\ x_2-6x_3)\\).",
+          "options": [
+            "A. (a) 일대일, (b) onto 아님",
+            "B. (a) 일대일 아님, (b) onto",
+            "C. (a) 일대일 아님, (b) onto 아님",
+            "D. (a) 일대일, (b) onto"
+          ],
+          "answer": "B",
+          "solution": "\\(A=\\begin{bmatrix}1&-5&4\\\\0&1&-6\\end{bmatrix}\\)은 이미 사다리꼴, 피벗 2개.\n3열에 피벗 없음 → 자유변수 → 일대일 X.\n모든 행에 피벗 → onto \\(\\mathbf R^2\\).",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "D. (a) 일대일, (b) onto",
+              "belief_if_chosen": "일대일대응으로 착각함",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 548,
+          "ext_id": "2.3:1.9-35",
+          "kind": "mc",
+          "question": "선형변환 \\(T:\\mathbf R^n\\to\\mathbf R^m\\)이 \\(\\mathbf R^n\\)을 \\(\\mathbf R^m\\) 위로(onto) 보내면 \\(m\\)과 \\(n\\) 사이에 어떤 관계가 있는가? \\(T\\)가 일대일이면 \\(m\\)과 \\(n\\)에 대해 무엇을 말할 수 있는가?",
+          "options": [
+            "A. onto이든 일대일이든 \\(m=n\\)",
+            "B. onto이면 \\(m\\ge n\\), 일대일이면 \\(m\\le n\\)",
+            "C. onto이면 \\(m\\le n\\), 일대일이면 \\(m\\ge n\\)",
+            "D. onto이면 \\(m\\le n\\), 일대일이면 \\(m\\le n\\)"
+          ],
+          "answer": "C",
+          "solution": "onto ⇔ 모든 행(\\(m\\)개)에 피벗. 피벗은 열마다 많아야 하나라 \\(m\\le n\\).\n일대일 ⇔ 모든 열(\\(n\\)개)에 피벗. 피벗은 행마다 많아야 하나라 \\(n\\le m\\).\n역은 성립하지 않음: \\(m\\le n\\)이라고 onto가 보장되진 않습니다(2021 O/X 7). \\(3\\times2\\)는 일대일 가능, onto 불가(23(e), 24(e)).",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. onto이든 일대일이든 \\(m=n\\)",
+              "belief_if_chosen": "선형변환이 일대일대응이 아니어도 onto이거나 일대일이면 차원이 항상 같다고 생각함",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. onto이면 \\(m\\le n\\), 일대일이면 \\(m\\le n\\)",
+              "belief_if_chosen": "onto와 일대일 모두 m<=n이어야 한다고 잘못 생각함",
+              "option_note": null
+            }
+          ]
+        },
+        {
+          "problem_id": 794,
+          "ext_id": "x22-14",
+          "kind": "ox",
+          "question": "\\(3\\times2\\) 행렬 \\(A\\)가 나타내는 선형변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)는 일대일대응이 될 수 없다.",
+          "answer": "X",
+          "solution": "반례 \\(A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}\\): 열 2개 모두 피벗열이라 일대일입니다(2023-4: 피벗열 \\(n=2\\)개). 일대일이 불가능한 것은 \\(2\\times3\\)처럼 열이 행보다 많을 때입니다.",
+          "tagged_as": [
+            {
+              "where": "ox",
+              "planted_error": "일대일대응이 될 수 없다"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m098",
+      "facet": "lineplane.f1",
+      "facet_name": "직선과 평면의 방정식",
+      "facet_statement": "직선은 점과 방향벡터로, 평면은 점과 법선벡터로 다양한 형태로 표현할 수 있다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "\\(c+d=1\\) 형태의 선형결합이 항상 원점을 지나는 직선을 나타낸다고 생각한다.",
+        "truth": "\\(c+d=1\\)인 \\(c\\mathbf v+d\\mathbf w\\)는 두 벡터 \\(\\mathbf v\\)와 \\(\\mathbf w\\)를 잇는 직선을 나타내며, 이 직…"
+      },
+      "uses": [
+        {
+          "problem_id": 820,
+          "ext_id": "ox-3",
+          "kind": "ox",
+          "question": "\\(c+d=1\\)인 \\(c\\mathbf v+d\\mathbf w\\) 전체는 원점을 지나는 직선이다.",
+          "answer": "X",
+          "solution": "\\(\\mathbf v\\)와 \\(\\mathbf w\\)의 끝점을 지나는 직선(affine 결합)이고, 일반적으로 원점을 지나지 않습니다(1.1-16).",
+          "tagged_as": [
+            {
+              "where": "ox",
+              "planted_error": "항상 원점을 지나는 직선이다"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m139",
+      "facet": "lineplane.f1",
+      "facet_name": "직선과 평면의 방정식",
+      "facet_statement": "직선은 점과 방향벡터로, 평면은 점과 법선벡터로 다양한 형태로 표현할 수 있다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "평면의 방정식 계수가 2배가 되었을 때, 상수항은 2배가 되지 않고 원래 평면의 상수항과 평행이동으로 인한 변화량의 합으로만…",
+        "truth": "평면의 방정식 \n\\(Ax+By+Cz=D\\)\n를 \n\\(k(Ax+By+Cz)=kD\\)\n로 표현할 수 있으므로, 계수가 \n\\(k\\)\n배 되면 상수항도 \n\\(k\\)\n배…"
+      },
+      "uses": [
+        {
+          "problem_id": 753,
+          "ext_id": "x24-2",
+          "kind": "mc",
+          "question": "\\(i=1,2\\)에 대해 평면 \\(P_i:2w+4x+6y+8z=a_i\\)는 평면 \\(P:w+2x+3y+4z=5\\)를 \\((3-2i)\\mathbf n\\) 방향으로 3만큼 평행이동한 평면이다(\\(\\mathbf n=(1,2,3,4)\\)). \\(a_1+a_2\\)는?",
+          "options": [
+            "A. \\(10\\)",
+            "B. \\(20+12\\sqrt{30}\\)",
+            "C. \\(40\\)",
+            "D. \\(20\\)"
+          ],
+          "answer": "D",
+          "solution": "\\(P\\) 위의 점 \\(\\mathbf v\\)(\\(\\mathbf n\\cdot\\mathbf v=5\\))를 단위 법선 방향으로 \\(\\pm3\\) 옮깁니다: \\(i=1\\)이면 \\(+\\mathbf n\\) 방향, \\(i=2\\)이면 \\(-\\mathbf n\\) 방향.\n\\(P_i\\)의 법선은 \\(2\\mathbf n\\)이라 \\(a_i=2\\mathbf n\\cdot(\\mathbf v\\pm3\\mathbf n/\\|\\mathbf n\\|)=2(5\\pm3\\sqrt{30})\\).\n더하면 \\(\\pm\\)가 상쇄되어 \\(a_1+a_2=20\\).\n계수가 2배인 평면식에서 우변도 2배가 된다는 점이 함정입니다(\\(10\\)이 아니라 \\(20\\)).",
+          "trap_lines": [
+            "계수가 2배인 평면식에서 우변도 2배가 된다는 점이 함정입니다(\\(10\\)이 아니라 \\(20\\))."
+          ],
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\(10\\)",
+              "belief_if_chosen": "평면의 방정식 계수가 2배가 되었을 때, 상수항은 2배가 되지 않고 원래 평면의 상수항과 평행이동으로 인한 변화량의 합으로만 계산된다고 생각합…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m141",
+      "facet": "lintrans.f2",
+      "facet_name": "일대일 및 위로 조건",
+      "facet_statement": "일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "자유 변수에 대한 동차해 벡터의 부호를 잘못 계산했거나, 피벗 변수를 자유 변수로 표현하는 과정에서 부호 실수가 있었다고 생…",
+        "truth": "선형 연립방정식의 완전해를 구할 때, 동차해의 기저 벡터를 구성하는 과정에서 자유 변수의 계수 부호를 정확히 계산해야 합니다."
+      },
+      "uses": [
+        {
+          "problem_id": 757,
+          "ext_id": "x24-6",
+          "kind": "mc",
+          "question": "첨가행렬 \\([A\\,|\\,\\mathbf b]=\\left[\\begin{array}{ccccc|c}1&2&-5&-6&0&5\\\\0&1&-6&-3&0&2\\\\0&0&0&0&1&1\\\\0&0&0&0&0&0\\end{array}\\right]\\)인 \\(A\\mathbf x=\\mathbf b\\)의 complete solution은?",
+          "options": [
+            "A. \\((1,2,0,0,1)+\\lambda_1(7,-6,1,0,0)+\\lambda_2(0,-3,0,1,0)\\)",
+            "B. \\((1,2,0,0,1)+\\lambda_1(-7,6,1,0,0)+\\lambda_2(0,3,0,1,0)\\)",
+            "C. \\((5,2,0,0,1)+\\lambda_1(5,6,1,0,0)+\\lambda_2(6,3,0,1,0)\\)",
+            "D. \\((1,2,1,0,0)+\\lambda_1(-7,6,1,0,0)+\\lambda_2(0,3,0,1,0)\\)"
+          ],
+          "answer": "B",
+          "solution": "\\(R_1-2R_2\\): \\([1\\;0\\;7\\;0\\;0\\,|\\,1]\\). 피벗 열 1, 2, 5, 자유변수 \\(x_3,x_4\\).\n\\(\\mathbf x_p\\) (\\(x_3=x_4=0\\)): \\(x_1=1,\\;x_2=2,\\;x_5=1\\).\n\\(\\mathbf s_1\\) (\\(x_3=1\\)): \\(x_1=-7,\\;x_2=6\\). \\(\\mathbf s_2\\) (\\(x_4=1\\)): \\(x_1=0,\\;x_2=3\\).\n둘째 보기는 RREF를 하지 않고 위쪽 행 계수를 그대로 쓴 실수입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\((1,2,0,0,1)+\\lambda_1(7,-6,1,0,0)+\\lambda_2(0,-3,0,1,0)\\)",
+              "belief_if_chosen": "자유 변수에 대한 동차해 벡터의 부호를 잘못 계산했거나, 피벗 변수를 자유 변수로 표현하는 과정에서 부호 실수가 있었다고 생각합니다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "C. \\((5,2,0,0,1)+\\lambda_1(5,6,1,0,0)+\\lambda_2(6,3,0,1,0)\\)",
+              "belief_if_chosen": "특수해를 구성할 때 상수항을 잘못 대입했거나, 자유 변수와 관련된 계수를 잘못 계산했다고 생각합니다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. \\((1,2,1,0,0)+\\lambda_1(-7,6,1,0,0)+\\lambda_2(0,3,0,1,0)\\)",
+              "belief_if_chosen": "특수해의 성분 중 x5 값을 잘못 계산했거나, 자유 변수와 관련된 계수를 잘못 계산했다고 생각합니다.",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m143",
+      "facet": "lineplane.f3",
+      "facet_name": "거리 계산",
+      "facet_statement": "점과 평면, 평행 평면, 꼬인 직선 사이의 거리는 각 상황에 맞는 공식을 사용하여 계산한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "||u-v||의 최댓값을 8로 올바르게 계산했지만, u·v의 최솟값을 15로 잘못 계산하여 8+15=23으로 답했습니다. 이…",
+        "truth": "두 벡터의 내적 u·v = ||u|| ||v|| cosθ에서 cosθ의 최솟값은 -1이므로, u·v의 최솟값은 ||u|| ||v|| (-1) = 5 * 3 * …"
+      },
+      "uses": [
+        {
+          "problem_id": 766,
+          "ext_id": "x23-1",
+          "kind": "mc",
+          "question": "\\(\\|\\mathbf u\\|=5\\), \\(\\|\\mathbf v\\|=3\\)인 두 벡터에 대하여 \\(\\|\\mathbf u-\\mathbf v\\|\\)의 최댓값과 \\(\\mathbf u\\cdot\\mathbf v\\)의 최솟값을 더한 값은?",
+          "options": [
+            "A. \\(-7\\)",
+            "B. \\(23\\)",
+            "C. \\(-5\\)",
+            "D. \\(-13\\)"
+          ],
+          "answer": "A",
+          "solution": "삼각부등식으로 \\(\\|\\mathbf u-\\mathbf v\\|\\le5+3=8\\), 슈바르츠로 \\(\\mathbf u\\cdot\\mathbf v\\ge-15\\). 둘 다 반대 방향일 때 달성됩니다. 연습문제 1.2-29 그대로입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "B. \\(23\\)",
+              "belief_if_chosen": "||u-v||의 최댓값을 8로 올바르게 계산했지만, u·v의 최솟값을 15로 잘못 계산하여 8+15=23으로 답했습니다. 이는 내적의 정의에서…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m144",
+      "facet": "lineplane.f3",
+      "facet_name": "거리 계산",
+      "facet_statement": "점과 평면, 평행 평면, 꼬인 직선 사이의 거리는 각 상황에 맞는 공식을 사용하여 계산한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "||u-v||의 최댓값을 8로 올바르게 계산했지만, u·v의 최솟값을 15로 잘못 계산하여 8+15=23으로 답했습니다. 이…",
+        "truth": "두 벡터의 내적 u·v = ||u|| ||v|| cosθ에서 cosθ의 최솟값은 -1이므로, u·v의 최솟값은 ||u|| ||v|| (-1) = 5 * 3 * …"
+      },
+      "uses": [
+        {
+          "problem_id": 766,
+          "ext_id": "x23-1",
+          "kind": "mc",
+          "question": "\\(\\|\\mathbf u\\|=5\\), \\(\\|\\mathbf v\\|=3\\)인 두 벡터에 대하여 \\(\\|\\mathbf u-\\mathbf v\\|\\)의 최댓값과 \\(\\mathbf u\\cdot\\mathbf v\\)의 최솟값을 더한 값은?",
+          "options": [
+            "A. \\(-7\\)",
+            "B. \\(23\\)",
+            "C. \\(-5\\)",
+            "D. \\(-13\\)"
+          ],
+          "answer": "A",
+          "solution": "삼각부등식으로 \\(\\|\\mathbf u-\\mathbf v\\|\\le5+3=8\\), 슈바르츠로 \\(\\mathbf u\\cdot\\mathbf v\\ge-15\\). 둘 다 반대 방향일 때 달성됩니다. 연습문제 1.2-29 그대로입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "C. \\(-5\\)",
+              "belief_if_chosen": "||u-v||의 최댓값을 8로 올바르게 계산했지만, u·v의 최솟값을 -13으로 잘못 계산하여 8+(-13)=-5로 답했습니다. 이는 내적의 …",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m145",
+      "facet": "lineplane.f3",
+      "facet_name": "거리 계산",
+      "facet_statement": "점과 평면, 평행 평면, 꼬인 직선 사이의 거리는 각 상황에 맞는 공식을 사용하여 계산한다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "||u-v||의 최댓값을 8로 올바르게 계산했지만, u·v의 최솟값을 15로 잘못 계산하여 8+15=23으로 답했습니다. 이…",
+        "truth": "두 벡터의 내적 u·v = ||u|| ||v|| cosθ에서 cosθ의 최솟값은 -1이므로, u·v의 최솟값은 ||u|| ||v|| (-1) = 5 * 3 * …"
+      },
+      "uses": [
+        {
+          "problem_id": 766,
+          "ext_id": "x23-1",
+          "kind": "mc",
+          "question": "\\(\\|\\mathbf u\\|=5\\), \\(\\|\\mathbf v\\|=3\\)인 두 벡터에 대하여 \\(\\|\\mathbf u-\\mathbf v\\|\\)의 최댓값과 \\(\\mathbf u\\cdot\\mathbf v\\)의 최솟값을 더한 값은?",
+          "options": [
+            "A. \\(-7\\)",
+            "B. \\(23\\)",
+            "C. \\(-5\\)",
+            "D. \\(-13\\)"
+          ],
+          "answer": "A",
+          "solution": "삼각부등식으로 \\(\\|\\mathbf u-\\mathbf v\\|\\le5+3=8\\), 슈바르츠로 \\(\\mathbf u\\cdot\\mathbf v\\ge-15\\). 둘 다 반대 방향일 때 달성됩니다. 연습문제 1.2-29 그대로입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "D. \\(-13\\)",
+              "belief_if_chosen": "||u-v||의 최댓값을 8로 올바르게 계산했지만, u·v의 최솟값을 -21로 잘못 계산하여 8+(-21)=-13으로 답했습니다. 이는 내적의…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "m146",
+      "facet": "lineplane.f1",
+      "facet_name": "직선과 평면의 방정식",
+      "facet_statement": "직선은 점과 방향벡터로, 평면은 점과 법선벡터로 다양한 형태로 표현할 수 있다.",
+      "status": "auto",
+      "src": "llm",
+      "stored": {
+        "belief": "평행이동된 평면의 상수항을 계산할 때, 평행이동 벡터의 크기를 잘못 계산하거나 부호를 혼동하여 d = -3√14 - 2√14…",
+        "truth": "평면의 평행이동은 법선벡터 방향으로 이루어지며, 이동 거리를 고려하여 상수항을 조정해야 합니다. P2의 상수항 -3√14에 이동 거리 2와 법선벡터의 크기 √1…"
+      },
+      "uses": [
+        {
+          "problem_id": 767,
+          "ext_id": "x23-2",
+          "kind": "mc",
+          "question": "평면 \\(P_1:x+2y+3z=d\\)는 평면 \\(P_2:2x+4y+6z=-6\\sqrt{14}\\)를 \\(\\mathbf n=(1,2,3)\\) 방향으로 2만큼 평행이동한 평면이다. \\(d\\)는?",
+          "options": [
+            "A. \\(-5\\sqrt{14}\\)",
+            "B. \\(-3\\sqrt{14}\\)",
+            "C. \\(-\\sqrt{14}\\)",
+            "D. \\(\\sqrt{14}\\)"
+          ],
+          "answer": "C",
+          "solution": "\\(P_2\\) 위의 점 \\(\\mathbf u\\): \\(2\\mathbf n\\cdot\\mathbf u=-6\\sqrt{14}\\)이라 \\(\\mathbf n\\cdot\\mathbf u=-3\\sqrt{14}\\).\n옮긴 점 \\(\\mathbf v=\\mathbf u+2\\mathbf n/\\|\\mathbf n\\|\\), \\(\\|\\mathbf n\\|=\\sqrt{14}\\).\n\\(d=\\mathbf n\\cdot\\mathbf v=-3\\sqrt{14}+2\\sqrt{14}=-\\sqrt{14}\\).\n\\(P_2\\)의 계수가 2배라 먼저 반으로 나눠야 한다는 것(\\(-3\\sqrt{14}\\))과, 법선 방향으로 2 이동하면 \\(\\mathbf n\\cdot\\mathbf x\\)가 \\(2\\|\\mathbf n\\|\\)만큼 커진다는 것이 핵심입니다.",
+          "tagged_as": [
+            {
+              "where": "option",
+              "option": "A. \\(-5\\sqrt{14}\\)",
+              "belief_if_chosen": "평행이동된 평면의 상수항을 계산할 때, 평행이동 벡터의 크기를 잘못 계산하거나 부호를 혼동하여 d = -3√14 - 2√14 = -5√14로 …",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "B. \\(-3\\sqrt{14}\\)",
+              "belief_if_chosen": "평행이동된 평면의 상수항을 계산할 때, 평행이동 벡터의 크기를 잘못 계산하거나 부호를 혼동하여 d = -3√14로 계산했다고 생각합니다.",
+              "option_note": null
+            },
+            {
+              "where": "option",
+              "option": "D. \\(\\sqrt{14}\\)",
+              "belief_if_chosen": "평행이동된 평면의 상수항을 계산할 때, 평행이동 벡터의 크기를 잘못 계산하거나 부호를 혼동하여 d = -3√14 + 4√14 = √14로 계산…",
+              "option_note": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

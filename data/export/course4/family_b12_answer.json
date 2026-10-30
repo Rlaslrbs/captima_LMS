@@ -1,0 +1,32 @@
+{"families":[
+{"facet":"det.f3","principle":"행렬 전체에 상수 c를 곱하면 모든 행이 c배라 det(cA)=c^n det A가 된다.","base":"p695","members":[
+{"ref":"p751","role":"near","delta_type":"combine","delta":"공식 → 행 소거·여인자 전개와 결합한 계산"}]},
+{"facet":"det.f3","principle":"행렬식은 한 행(열)만 합으로 나뉠 때 가법적이고, 행렬 전체의 덧셈에는 분배되지 않는다.","base":"p698","members":[
+{"ref":"p700","role":"near","delta_type":"object","delta":"2×2 행 분해 → 3×3 열 분해(여인자 전개)"},
+{"ref":"p699","role":"near","delta_type":"condition","delta":"한 행 분해 → 전체 덧셈이 성립할 조건(a+d=0)"}]},
+{"facet":"detapp.f3","principle":"가역행렬의 역행렬은 수반행렬(여인자 행렬의 전치)을 det로 나눈 것이다.","base":"p711","members":[
+{"ref":"p712","role":"iso","delta_type":"surface","delta":"다른 3×3 행렬(숫자만 변경)"},
+{"ref":"p713","role":"iso","delta_type":"surface","delta":"다른 3×3 행렬(숫자만 변경)"},
+{"ref":"p714","role":"iso","delta_type":"surface","delta":"다른 3×3 행렬(숫자만 변경)"},
+{"ref":"p715","role":"iso","delta_type":"surface","delta":"하삼각 3×3 행렬(숫자만 변경)"},
+{"ref":"p716","role":"iso","delta_type":"surface","delta":"상삼각 3×3 행렬(숫자만 변경)"},
+{"ref":"p717","role":"near","delta_type":"repr","delta":"3×3 수치 → 2×2 문자 행렬의 수반"},
+{"ref":"p718","role":"near","delta_type":"object","delta":"역행렬 계산 → 정수·det 1일 때 정수성 논증"}]},
+{"facet":"lineplane.f3","principle":"점과 평면 사이 거리는 |n·p-d|/||n|| 공식으로 구한다.","base":"p487","members":[
+{"ref":"p799","role":"near","delta_type":"object","delta":"3차원 평면 → 4차원 초평면"},
+{"ref":"p831","role":"near","delta_type":"repr","delta":"수치 계산 → 일반 공식 O/X 진술"},
+{"ref":"p488","role":"near","delta_type":"object","delta":"점-평면 → 평행한 두 평면 사이 거리"},
+{"ref":"p489","role":"near","delta_type":"reverse","delta":"거리 구하기 → 거리 2인 평행 평면 찾기"}]},
+{"facet":"lineplane.f3","principle":"꼬인 두 직선 사이 거리는 방향벡터의 외적(공통 법선)에 두 점 연결벡터를 사영해 구한다.","base":"p490","members":[
+{"ref":"p491","role":"iso","delta_type":"repr","delta":"대칭방정식 → 매개변수방정식"}]},
+{"facet":"lintrans.f3","principle":"R^n에서 R^m으로의 모든 선형변환은 표준행렬 A로 표현되는 행렬변환이다.","base":"p551","members":[
+{"ref":"p734","role":"iso","delta_type":"surface","delta":"'표현할 수 있다'로 문장 바꿈"},
+{"ref":"p814","role":"iso","delta_type":"surface","delta":"R^n→R^m 명시한 같은 문장"},
+{"ref":"p540","role":"near","delta_type":"qualifier","delta":"긍정문 → '모두는 아니다' 부정문"}]},
+{"facet":"lintrans.f3","principle":"m×n 행렬변환 x→Ax의 정의역은 R^n(열 수), 공역은 R^m(행 수)이다.","base":"p549","members":[
+{"ref":"p736","role":"near","delta_type":"repr","delta":"3×5 수치 → 일반 m×n 문자"}]},
+{"facet":"lintrans.f3","principle":"행렬변환의 치역은 열들의 선형결합 전체로, 공역 전체와 같다고 할 수 없다.","base":"p550","members":[
+{"ref":"p813","role":"iso","delta_type":"repr","delta":"일반 m×n → 3×5 구체 행렬"}]},
+{"facet":"lintrans.f3","principle":"선형변환은 원점을 원점으로 보내므로 T(0)≠0이면 선형이 아니다.","base":"p840","members":[
+{"ref":"p841","role":"near","delta_type":"reverse","delta":"성질 진술 → 평행이동이 선형 아님을 판정"}]}
+]}

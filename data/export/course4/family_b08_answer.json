@@ -1,0 +1,29 @@
+{"families":[
+{"facet":"detapp.f2","principle":"평행사변형·평행육면체의 넓이·부피는 변 벡터를 열로 한 행렬의 행렬식의 절댓값이다.","base":"p719","members":[
+{"ref":"p720","role":"iso","delta_type":"surface","delta":"꼭짓점 좌표(숫자)만 바뀜"},
+{"ref":"p721","role":"near","delta_type":"condition","delta":"원점이 꼭짓점이 아님 → 평행이동 먼저"},
+{"ref":"p722","role":"near","delta_type":"condition","delta":"원점이 꼭짓점이 아님 → 평행이동 먼저"},
+{"ref":"p723","role":"near","delta_type":"object","delta":"평행사변형 넓이 → 평행육면체 부피"},
+{"ref":"p724","role":"near","delta_type":"object","delta":"평행사변형 넓이 → 평행육면체 부피"}]},
+{"facet":"detapp.f2","principle":"선형변환 x→Ax 에 의한 영역의 넓이·부피는 |det A| 배가 된다.","base":"p726","members":[
+{"ref":"p727","role":"iso","delta_type":"surface","delta":"벡터와 행렬의 숫자만 바뀜"},
+{"ref":"p730","role":"near","delta_type":"object","delta":"평행사변형 → 단위 구(타원체) 부피"}]},
+{"facet":"detapp.f2","principle":"꼭짓점이 0, v1, v2(, v3)인 삼각형·사면체의 크기는 행렬식 절댓값의 1/2!(1/3!)배이다.","base":"p728","members":[
+{"ref":"p729","role":"near","delta_type":"repr","delta":"벡터 공식 → 3×3 행렬식 좌표 공식"},
+{"ref":"p731","role":"near","delta_type":"object","delta":"삼각형 → 사면체 (1/2 → 1/6)"}]},
+{"facet":"dot.f2","principle":"|v·w| ≤ ‖v‖‖w‖ (슈바르츠 부등식)이며 등호는 두 벡터가 평행할 때이다.","base":"p458","members":[
+{"ref":"p461","role":"near","delta_type":"object","delta":"증명 → 길이가 주어진 내적 범위 계산"},
+{"ref":"p823","role":"near","delta_type":"condition","delta":"부등식 → 등호 성립 조건"},
+{"ref":"p457","role":"near","delta_type":"combine","delta":"슈바르츠를 삼각부등식 증명에 활용"}]},
+{"facet":"elim.f2","principle":"소거 후 계수가 0인 행의 우변이 0이 아니면 해가 없고, 0이면 자유변수 유무로 해의 수가 갈린다.","base":"p556","members":[
+{"ref":"p557","role":"near","delta_type":"condition","delta":"계수 b도 미지수로 추가"},
+{"ref":"p560","role":"near","delta_type":"repr","delta":"우변 선택 → b1,b2 조건과 열 그림"},
+{"ref":"p593","role":"near","delta_type":"qualifier","delta":"해 없음·무수히에 유일해까지 세 경우"},
+{"ref":"p591","role":"near","delta_type":"repr","delta":"연립방정식 → 첨가행렬, 해 존재 h"},
+{"ref":"p592","role":"near","delta_type":"condition","delta":"특이 → 비특이, 해 있는 조건이 부등호"},
+{"ref":"p559","role":"near","delta_type":"combine","delta":"행 교환 가능성과 0·1·무한 분류 결합"},
+{"ref":"p570","role":"near","delta_type":"object","delta":"2변수 → 3변수 q,t 문제"},
+{"ref":"p569","role":"near","delta_type":"object","delta":"2변수 → 행이 비례하는 3×3 계"}]},
+{"facet":"elim.f2","principle":"첨가행렬을 행 소거해 마지막 열이 피벗 열이면 해가 없다.","base":"p578","members":[
+{"ref":"p583","role":"iso","delta_type":"surface","delta":"수치·식 개수만 바뀐 같은 풀이"}]}
+]}

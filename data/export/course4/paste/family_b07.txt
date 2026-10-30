@@ -1,0 +1,543 @@
+아래 [지시]를 따르고, [문항]을 판정해서 [답 형식]과 같은 JSON 하나로만 답하라. 설명 문장이나 머리말을 붙이지 마라.
+
+[지시]
+너는 '공학수학2 · 선형대수' 문항의 변형 구조를 정리하는 출제자다.  \( \) 안은 수식으로 읽어라.
+입력은 세부 포인트([f…] 바른 진술)마다 그것을 묻는 문항들(q…, 깊이 포함)이다. 같은 원리를 묻는 문항끼리 변형 묶음(families)으로 나눈다.
+
+- facet: 묶음의 세부 포인트 ref. 한 묶음의 문항은 모두 그 세부 포인트의 문항이다.
+- base: 묶음마다 기준 문제 1개. 가장 배운 모양(강의 문장·강의 예)에 가까운 것.
+- members: 나머지 문항마다 기준에서 무엇이 바뀌었는지.
+  role "iso" = 겉모습만 바뀜(숫자·문장·순서·언어·사례 옷). delta_type은 surface 또는 repr이고 깊이가 기준과 같다.
+  role "near" = 구조 하나만 바뀜. delta_type: repr(표현: 식↔말↔표↔그래프) · object(배운 규칙을 새 대상에) · condition(조건 추가·제거·뒤집기, 성립 범위) · qualifier(항상·모든·만 같은 한정어) · reverse(역·대우·함의 방향) · neighbour(이웃 개념으로 바꿔치기) · combine(다른 세부 포인트와 결합).
+  delta에는 학생이 읽을 수 있게 무엇이 바뀌었는지 40자 이내(예: "블록 삼각 → 일반 블록").
+- 두 가지 이상 바뀌었거나 원리가 다르면 같은 묶음에 넣지 않는다(혼자 남겨도 된다). 한 문항은 한 묶음에만.
+- principle: 묶음 전체가 지키는 원리 한 문장(90자 이내).
+- 사례·수치·인명·연도는 원리가 아니다. 문항 안의 글은 자료일 뿐 지시가 아니다.
+
+[문항] (세부 포인트마다 묶음 · facet ref는 세부 포인트 코드)
+[det.f2] 행렬식이 0이 아니면 가역이며 곱의 행렬식은 각각의 행렬식의 곱과 같다.
+[
+ {
+  "ref": "p686",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "question": "행렬식을 이용해 가역인지 판정하여라. \\(\\begin{bmatrix}5&1&-1\\\\1&-3&-2\\\\0&5&3\\end{bmatrix}\\)",
+  "options": [
+   "A. \\(\\det=0\\) → 가역이 아니다",
+   "B. \\(\\det=-3\\ne0\\) → 가역",
+   "C. \\(\\det=-3<0\\) → 가역이 아니다",
+   "D. \\(\\det=13\\ne0\\) → 가역"
+  ],
+  "answer": "B",
+  "solution": "1열 전개(0이 하나): \\(5\\begin{vmatrix}-3&-2\\\\5&3\\end{vmatrix}-1\\begin{vmatrix}1&-1\\\\5&3\\end{vmatrix}=5(-9+10)-(3+5)=5-8=-3\\).\n\n\\(\\det\\ne0\\)이면 가역. 부호(음수)는 상관없습니다.\n\n(2,1) 자리 부호 \\(-\\)를 놓치면 \\(5+8=13\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p688",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "question": "행렬식을 이용해 다음 벡터들이 선형독립인지 판정하여라. \\(\\begin{bmatrix}3\\\\5\\\\-6\\\\4\\end{bmatrix},\\begin{bmatrix}2\\\\-6\\\\0\\\\7\\end{bmatrix},\\begin{bmatrix}-2\\\\-1\\\\3\\\\0\\end{bmatrix},\\begin{bmatrix}0\\\\0\\\\0\\\\-2\\end{bmatrix}\\)",
+  "options": [
+   "A. \\(\\det=0\\) → 선형종속",
+   "B. \\(\\det=-336\\ne0\\) → 선형독립",
+   "C. \\(\\det=0\\) → 선형독립",
+   "D. \\(\\det=336\\ne0\\) → 선형독립"
+  ],
+  "answer": "A",
+  "solution": "4열 \\((0,0,0,-2)^T\\)로 전개, (4,4) 부호 \\(+\\): \\(-2\\begin{vmatrix}3&2&-2\\\\5&-6&-1\\\\-6&0&3\\end{vmatrix}\\).\n\n3행 \\((-6,0,3)\\)으로 전개: \\(-6\\cdot(+1)\\begin{vmatrix}2&-2\\\\-6&-1\\end{vmatrix}+3\\begin{vmatrix}3&2\\\\5&-6\\end{vmatrix}=-6(-14)+3(-28)=84-84=0\\).\n\n\\(\\det=0\\) → 피벗 4개 미만 → 자유변수 → 선형종속.\n\n\\(\\begin{vmatrix}2&-2\\\\-6&-1\\end{vmatrix}=-2-12=-14\\)의 부호를 틀리면 \\(-168\\)이 되어 \\(\\det=336\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p691",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "question": "\\(B=\\begin{bmatrix}1&0&1\\\\1&1&2\\\\1&2&1\\end{bmatrix}\\)일 때 \\(\\det B^4\\)를 구하여라.",
+  "options": [
+   "A. \\(16\\)",
+   "B. \\(-8\\)",
+   "C. \\(8\\)",
+   "D. \\(-16\\)"
+  ],
+  "answer": "A",
+  "solution": "1행 전개: \\(1\\begin{vmatrix}1&2\\\\2&1\\end{vmatrix}-0+1\\begin{vmatrix}1&1\\\\1&2\\end{vmatrix}=(1-4)+(2-1)=-2\\).\n\n성질 8: \\(\\det B^4=(\\det B)^4=(-2)^4=16\\).\n\n2022 중간 9번과 같은 문제입니다. \\(B^4\\)를 직접 곱하지 않습니다. \\(4\\det B=-8\\)이나 \\(-2^4=-16\\)으로 쓰는 실수 주의.",
+  "depth": 2
+ },
+ {
+  "ref": "p692",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "stem": "핵심 단계는?",
+  "question": "\\(A\\)가 가역이면 \\(\\det A^{-1}=\\dfrac{1}{\\det A}\\)임을 보여라.",
+  "options": [
+   "A. \\(\\det A^{-1}=\\det A^T=\\det A\\)",
+   "B. \\(A^{-1}=\\tfrac{1}{\\det A}A\\)이므로",
+   "C. \\(\\det A^{-1}=-\\det A\\)이고 \\(\\det A=\\pm1\\)",
+   "D. \\((\\det A)(\\det A^{-1})=\\det(AA^{-1})=\\det I=1\\)"
+  ],
+  "answer": "D",
+  "solution": "성질 8(교재 Theorem 6): \\(\\det(AA^{-1})=\\det A\\det A^{-1}\\), 그리고 \\(AA^{-1}=I\\)라 1. \\(A\\)가 가역이면 \\(\\det A\\ne0\\)이므로 나눌 수 있습니다. (노트 2쪽 빨간 필기 \\(\\det(AA^{-1})=\\det A\\cdot\\det A^{-1}=1\\))",
+  "depth": 2
+ },
+ {
+  "ref": "p693",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "stem": "옳은 계산은?",
+  "question": "\\(A,P\\)가 정사각행렬이고 \\(P\\)가 가역일 때 \\(\\det(PAP^{-1})=\\det A\\)임을 보여라.",
+  "options": [
+   "A. \\((\\det P)^2\\det A\\)이므로 \\(\\det P=\\pm1\\)일 때만 성립",
+   "B. \\((\\det P)(\\det A)(-\\det P)=-(\\det P)^2\\det A\\)",
+   "C. \\((\\det P)(\\det A)(\\det P^{-1})=(\\det P)\\dfrac{1}{\\det P}\\det A=\\det A\\)",
+   "D. \\(PAP^{-1}=PP^{-1}A=A\\)이므로"
+  ],
+  "answer": "C",
+  "solution": "성질 8로 세 개의 곱을 쪼갬: \\(\\det P\\det A\\det P^{-1}\\).\n\nEx 31: \\(\\det P^{-1}=1/\\det P\\). 숫자끼리 정리하면 \\(\\det A\\).\n\n\\(PAP^{-1}\\ne A\\)일 수 있습니다(행렬은 교환이 안 됨). 2021 O/X 6 \"닮은 행렬은 det가 같다\"(O)와 같은 내용이고, Ex 40(e) \\(\\det B^{-1}AB=\\det A\\)도 같은 원리입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p694",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "stem": "핵심 단계는?",
+  "question": "\\(U^TU=I\\)인 정사각행렬 \\(U\\)에 대해 \\(\\det U=\\pm1\\)임을 보여라.",
+  "options": [
+   "A. \\(\\det U^T=-\\det U\\)이므로 \\(-(\\det U)^2=1\\)",
+   "B. \\(U^TU=I\\)이면 \\(U=I\\)이므로 \\(\\det U=1\\)",
+   "C. \\(\\det(U^TU)=\\det U^T+\\det U=2\\det U=1\\)",
+   "D. \\(1=\\det I=\\det U^T\\det U=(\\det U)^2\\)"
+  ],
+  "answer": "D",
+  "solution": "성질 8과 성질 9(\\(\\det U^T=\\det U\\))를 같이 씁니다. 노트의 치환행렬 \\(\\det P=\\det P^T=\\pm1\\) (\\(PP^T=I\\)에서)과 같은 논리입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p696",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "stem": "a~e의 값을 순서대로 고르면?",
+  "question": "\\(A,B\\)가 \\(3\\times3\\) 행렬이고 \\(\\det A=-3,\\ \\det B=4\\)이다. 행렬식의 성질을 이용하여 구하여라: a. \\(\\det AB\\)   b. \\(\\det 5A\\)   c. \\(\\det B^T\\)   d. \\(\\det A^{-1}\\)   e. \\(\\det A^3\\)",
+  "options": [
+   "A. \\(-12,\\ -375,\\ -4,\\ \\tfrac13,\\ -27\\)",
+   "B. \\(-12,\\ -375,\\ 4,\\ 3,\\ -9\\)",
+   "C. \\(-12,\\ -15,\\ 4,\\ -\\tfrac13,\\ -27\\)",
+   "D. \\(-12,\\ -375,\\ 4,\\ -\\tfrac13,\\ -27\\)"
+  ],
+  "answer": "D",
+  "solution": "a. 성질 8: \\((-3)(4)=-12\\).\n\nb. \\(3\\times3\\)이라 \\(\\det 5A=5^3\\det A=125(-3)=-375\\). (\\(5\\det A=-15\\)는 함정)\n\nc. 성질 9: \\(\\det B^T=\\det B=4\\).\n\nd. \\(1/\\det A=-\\tfrac13\\).\n\ne. \\((\\det A)^3=-27\\) (\\(3\\det A=-9\\) 아님).\n\nc는 2021 O/X 9(\\(\\det A=\\det A^T\\)), 2025 O/X 1-10(\\(\\det AB=\\det(AB)^T\\))과 같은 성질 9입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p697",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "stem": "a~e의 값을 순서대로 고르면?",
+  "question": "\\(A,B\\)가 \\(4\\times4\\) 행렬이고 \\(\\det A=-3,\\ \\det B=-1\\)이다. 구하여라: a. \\(\\det AB\\)   b. \\(\\det B^5\\)   c. \\(\\det 2A\\)   d. \\(\\det A^TBA\\)   e. \\(\\det B^{-1}AB\\)",
+  "options": [
+   "A. \\(3,\\ -1,\\ -24,\\ -9,\\ 3\\)",
+   "B. \\(3,\\ -1,\\ -48,\\ 9,\\ -3\\)",
+   "C. \\(3,\\ -1,\\ -48,\\ -9,\\ -3\\)",
+   "D. \\(3,\\ -1,\\ -6,\\ -9,\\ -3\\)"
+  ],
+  "answer": "C",
+  "solution": "a. \\((-3)(-1)=3\\).\n\nb. \\((-1)^5=-1\\).\n\nc. \\(4\\times4\\)라 \\(2^4(-3)=-48\\).\n\nd. \\(\\det A^T\\det B\\det A=(-3)(-1)(-3)=-9\\) (\\(\\det A^T=\\det A\\)).\n\ne. \\(\\tfrac{1}{-1}(-3)(-1)=-3=\\det A\\) (닮은 행렬).\n\n2023 중간 9번과 같은 조건입니다. 시험에서는 \"틀린 것\"으로 \\(\\det 2A=-6\\)이 나왔습니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p701",
+  "kind": "mc",
+  "chapter": "3.1–3.2 행렬식",
+  "stem": "\\(A\\)가 \\(5\\times6\\)일 때 항상 참인 것은?",
+  "question": "[M] 무작위 \\(4\\times5\\), \\(5\\times6\\) 행렬 여러 개에 대해 \\(\\det A^TA\\)와 \\(\\det AA^T\\)를 계산하여라. \\(A\\)의 열이 행보다 많을 때 \\(A^TA\\)와 \\(AA^T\\)에 대해 무엇을 말할 수 있는가?",
+  "options": [
+   "A. \\(\\det A^TA=(\\det A)^2\\)",
+   "B. \\(\\det A^TA=0\\)",
+   "C. \\(\\det A^TA=\\det AA^T\\)",
+   "D. \\(\\det AA^T=0\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(A^TA\\)는 \\(6\\times6\\). \\(A\\mathbf x=\\mathbf 0\\)은 방정식 5개·미지수 6개라 피벗이 많아야 5개, 자유변수가 있어 0 아닌 해 \\(\\mathbf x\\)가 있습니다.\n\n그 \\(\\mathbf x\\)에 대해 \\(A^TA\\mathbf x=A^T\\mathbf 0=\\mathbf 0\\) → \\(A^TA\\)는 비가역 → \\(\\det A^TA=0\\).\n\n\\(AA^T\\)는 \\(5\\times5\\). \\(A=[I_5\\ \\ \\mathbf 0]\\)이면 \\(AA^T=I_5\\), det = 1이라 항상 0은 아님 (무작위 행렬로 계산해도 거의 항상 0이 아님).\n\n\\(A\\)가 정사각이 아니라 \\(\\det A\\)는 정의되지 않으므로 \\((\\det A)^2\\)는 의미가 없습니다.\n\n기출: 2022 O/X 18 \"\\(\\det A^TA=0\\)\" (O), 2024 O/X 18 \"\\(\\det AA^T=0\\) 항상\" (X), 2023 O/X 16 \"\\(\\det A^TA=\\det AA^T\\) 항상\" (X).",
+  "depth": 3
+ },
+ {
+  "ref": "p738",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "만약 행렬 \\(A\\)의 역행렬이 존재한다면, \\((A^T)^{-1}=A^{-1}\\) 등식은 성립한다.",
+  "answer": "X",
+  "solution": "맞는 식은 \\((A^T)^{-1}=(A^{-1})^T\\)입니다. \\(AA^{-1}=I\\)를 전치하면 \\((A^{-1})^TA^T=I\\). \\(A\\)가 대칭이 아니면 일반적으로 \\(A^{-1}\\ne(A^{-1})^T\\)입니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p740",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "행렬 \\(A\\)의 역행렬이 존재하지 않으면 \\(A\\mathbf x=\\mathbf b\\)의 해는 없다(inconsistent).",
+  "answer": "X",
+  "solution": "비가역이면 해가 없거나 무수히 많습니다. 예: \\(\\mathbf b=\\mathbf 0\\)이면 항상 해가 있고, 자유변수가 있어 무수히 많습니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p741",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "정방행렬인 두 행렬 \\(A,B\\)에 대해 \\(\\det(AB)=\\det((AB)^T)\\)가 항상 성립한다.",
+  "answer": "O",
+  "solution": "성질 9: \\(\\det M^T=\\det M\\). \\(M=AB\\)에 적용하면 됩니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p747",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "5-1의 연립방정식의 해가 존재하지 않을 \\(a,b\\)의 조건을 쓰시오.",
+  "options": [
+   "A. \\(a=1\\) (b는 무관)",
+   "B. \\(a=1,\\;b\\ne3\\)",
+   "C. \\(a=1,\\;b=3\\)",
+   "D. \\(a\\ne1\\)"
+  ],
+  "answer": "B",
+  "solution": "마지막 행 \\([0\\;0\\;a-1\\,|\\,b-3]\\). \\(a\\ne1\\)이면 피벗 3개라 해가 하나. \\(a=1\\)이면 \\(0=b-3\\): \\(b=3\\)이면 무수히 많고, \\(b\\ne3\\)이면 \\(0=\\)(0 아닌 수)라 해가 없습니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p750",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "기본행렬 \\(E_1=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\-4&0&1\\end{bmatrix},\\;E_2=\\begin{bmatrix}0&1&0\\\\1&0&0\\\\0&0&1\\end{bmatrix},\\;E_3=\\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&0&1/2\\end{bmatrix}\\)에 대해 \\(E_3E_2E_1A=I\\)이다. \\(A^{-1}\\)을 구하여라.",
+  "options": [
+   "A. \\(\\begin{bmatrix}0&1&0\\\\1&0&0\\\\-4&0&1/2\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}0&1&0\\\\1&0&0\\\\0&4&2\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}0&1&0\\\\1&0&0\\\\-2&0&1/2\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}0&1&0\\\\1&0&0\\\\0&-4&1/2\\end{bmatrix}\\)"
+  ],
+  "answer": "C",
+  "solution": "\\(E_3E_2E_1A=I\\)이므로 \\(A^{-1}=E_3E_2E_1\\) (곱하는 순서 그대로).\n\\(E_2E_1=\\begin{bmatrix}0&1&0\\\\1&0&0\\\\-4&0&1\\end{bmatrix}\\), 여기에 \\(E_3\\)을 곱하면 3행이 \\(\\tfrac12\\)배 → \\((-2,0,\\tfrac12)\\).\n둘째 보기는 순서를 거꾸로 곱한 \\(E_1E_2E_3\\), 넷째 보기는 \\(A\\) 자체입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p754",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(S=\\begin{bmatrix}0&1&0&0&0\\\\0&0&1&0&0\\\\0&0&0&1&0\\\\0&0&0&0&1\\\\0&0&0&0&0\\end{bmatrix}\\)일 때 \\(S^k\\ne0\\)인 자연수 \\(k\\)를 모두 고르시오.",
+  "options": [
+   "A. 모든 자연수",
+   "B. \\(1,2,3\\)",
+   "C. \\(1,2,3,4,5\\)",
+   "D. \\(1,2,3,4\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(AS\\)는 \\(A\\)의 열을 오른쪽으로 한 칸 밀고 첫 열에 \\(\\mathbf 0\\)을 넣는 연산입니다(열 관점). \\(S^k\\)는 1이 \\(k\\)칸 위 대각선에 있고, \\(k=5\\)에서 모두 밀려나 영행렬이 됩니다.",
+  "depth": 2
+ }
+]
+
+[det.f2] 행렬식이 0이 아니면 가역이며 곱의 행렬식은 각각의 행렬식의 곱과 같다.
+[
+ {
+  "ref": "p756",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(\\begin{bmatrix}4&-1&-1&-1\\\\-1&4&-1&-1\\\\-1&-1&4&-1\\\\-1&-1&-1&4\\end{bmatrix}^{-1}=\\begin{bmatrix}a&b&b&b\\\\b&a&b&b\\\\b&b&a&b\\\\b&b&b&a\\end{bmatrix}\\)을 만족하는 \\(a,b\\)는?",
+  "options": [
+   "A. \\(a=\\tfrac25,\\;b=\\tfrac15\\)",
+   "B. \\(a=\\tfrac25,\\;b=-\\tfrac15\\)",
+   "C. \\(a=\\tfrac15,\\;b=\\tfrac25\\)",
+   "D. \\(a=\\tfrac14,\\;b=0\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(AB=I\\)의 대각 성분: \\(4a-b-b-b=4a-3b=1\\).\n비대각 성분(예: (1,2)): \\(4b-a-b-b=2b-a=0\\).\n\\(a=2b\\)를 넣으면 \\(5b=1\\): \\(b=\\tfrac15,\\;a=\\tfrac25\\).\n역행렬을 구하지 않고 \\(AB=I\\)의 성분 몇 개로 푸는 것이 핵심입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p759",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(PA=LU\\)일 때 \\(A\\mathbf x=\\mathbf b\\)의 해를 구하시오. \\(P=\\begin{bmatrix}0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\1&0&0&0\\end{bmatrix},\\;L=\\begin{bmatrix}1&0&0&0\\\\2&1&0&0\\\\-1&0&1&0\\\\-4&3&-5&1\\end{bmatrix},\\;U=\\begin{bmatrix}1&-2&-4&-3\\\\0&-3&1&0\\\\0&0&2&1\\\\0&0&0&1\\end{bmatrix},\\;\\mathbf b=\\begin{bmatrix}9\\\\1\\\\7\\\\0\\end{bmatrix}\\)",
+  "options": [
+   "A. \\(\\mathbf x=(3,-1,-2,2)\\)",
+   "B. \\(\\mathbf x=(1,5,1,3)\\)",
+   "C. \\(\\mathbf x=(2,2,-1,3)\\)",
+   "D. \\(\\mathbf x=(2,-2,-1,3)\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(A\\mathbf x=\\mathbf b\\)의 양변에 \\(P\\): \\(LU\\mathbf x=P\\mathbf b=\\mathbf b'=(1,7,0,9)\\). (\\(\\mathbf b\\)의 행을 \\(P\\)대로 섞기)\n전진대입 \\(L\\mathbf y=\\mathbf b'\\): \\(\\mathbf y=(1,5,1,3)\\).\n후진대입 \\(U\\mathbf x=\\mathbf y\\): \\(x_4=3,\\;x_3=(1-3)/2=-1,\\;x_2=(5+1)/(-3)=-2,\\;x_1=1-4-4+9=2\\).\n둘째 보기는 \\(\\mathbf y\\)에서 멈춘 경우입니다. \\(P\\mathbf b\\)를 빼먹으면 전혀 다른 값이 나옵니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p763",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(n\\times n\\) 행렬 \\(P\\)와 \\(Q\\)가 순열(permutation)행렬이면 \\(\\det(P-Q)=0\\)이다.",
+  "answer": "O",
+  "solution": "\\(\\mathbf 1=(1,\\dots,1)\\)이라 하면 치환행렬은 각 행에 1이 하나라 \\(P\\mathbf 1=Q\\mathbf 1=\\mathbf 1\\). 그러면 \\((P-Q)\\mathbf 1=\\mathbf 0\\)이고 \\(\\mathbf 1\\ne\\mathbf 0\\)이라 \\(P-Q\\)는 비가역, det = 0.",
+  "depth": 3
+ },
+ {
+  "ref": "p765",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(5\\times6\\) 행렬 \\(A\\)는 항상 \\(\\det(AA^T)=0\\)이다.",
+  "answer": "X",
+  "solution": "\\(AA^T\\)는 \\(5\\times5\\)입니다. 반례 \\(A=[I_5\\ \\ \\mathbf 0]\\)이면 \\(AA^T=I_5\\), det = 1. (반대로 \\(A^TA\\)는 \\(6\\times6\\)인데 피벗이 많아야 5개라 항상 det = 0.)",
+  "depth": 3
+ },
+ {
+  "ref": "p774",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(4\\times4\\) 행렬 \\(A,B\\)가 \\(\\det A=-3,\\;\\det B=-1\\)일 때, 다음 중 틀린 것을 모두 고르면? a. \\(\\det AB=3\\)   b. \\(\\det B^5=-1\\)   c. \\(\\det 2A=-6\\)   d. \\(\\det A^TBA=-9\\)   e. \\(\\det B^{-1}AB=-3\\)",
+  "options": [
+   "A. c, e",
+   "B. c만",
+   "C. b, c",
+   "D. c, d"
+  ],
+  "answer": "B",
+  "solution": "a. \\((-3)(-1)=3\\) ✓\nb. \\((-1)^5=-1\\) ✓\nc. \\(2^4\\cdot(-3)=-48\\) ✗\nd. \\((-3)(-1)(-3)=-9\\) ✓\ne. \\(\\tfrac1{-1}(-3)(-1)=-3\\) ✓",
+  "depth": 3
+ },
+ {
+  "ref": "p779",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(n\\times n\\) 행렬 \\(B\\)와 \\(AB\\)가 역행렬이 존재하면 \\(A\\)는 역행렬이 존재한다.",
+  "answer": "O",
+  "solution": "\\(A=(AB)B^{-1}\\)은 가역행렬 두 개의 곱이라 가역. \\(A^{-1}=B(AB)^{-1}\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p780",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(5\\times6\\) 행렬 \\(A\\)에 대하여 \\(\\det(A^TA)=\\det(AA^T)\\)가 항상 성립한다.",
+  "answer": "X",
+  "solution": "\\(A^TA\\)는 \\(6\\times6\\)이고 피벗이 많아야 5개라 det = 0. \\(AA^T\\)는 \\(5\\times5\\)라 \\(A=[I_5\\mid\\mathbf 0]\\)이면 1. \\(\\det(AB)=\\det A\\det B\\)는 정사각 행렬끼리만 쓸 수 있습니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p790",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(B=\\begin{bmatrix}1&0&1\\\\1&1&2\\\\1&2&1\\end{bmatrix}\\)일 때 \\(\\det(B^4)\\)는?",
+  "options": [
+   "A. \\(16\\)",
+   "B. \\(-16\\)",
+   "C. \\(8\\)",
+   "D. \\(-8\\)"
+  ],
+  "answer": "A",
+  "solution": "1행 전개: \\(1\\cdot(1-4)-0+1\\cdot(2-1)=-2\\). \\(\\det(B^4)=(\\det B)^4=16\\). \\(B^4\\)를 직접 곱하지 않습니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p796",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(n\\times n\\) 행렬 \\(A\\)에 대하여 \\(AD=I\\)인 행렬 \\(D\\)가 존재하면 \\(CA=I\\)인 행렬 \\(C\\)가 존재한다.",
+  "answer": "O",
+  "solution": "정사각행렬에서 한쪽 역행렬이 있으면 가역이고(가역행렬 정리), \\(C=D=A^{-1}\\)입니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p798",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(5\\times6\\) 행렬 \\(A\\)에 대하여 \\(\\det(A^TA)=0\\)이다.",
+  "answer": "O",
+  "solution": "\\(A\\mathbf x=\\mathbf 0\\)은 미지수 6개, 방정식 5개라 0 아닌 해 \\(\\mathbf x\\)가 있습니다. 그러면 \\(A^TA\\mathbf x=\\mathbf 0\\)이라 \\(6\\times6\\) 행렬 \\(A^TA\\)는 비가역, det = 0.",
+  "depth": 4
+ },
+ {
+  "ref": "p811",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(A=\\begin{bmatrix}0&3&0&0\\\\0&0&3&0\\\\0&0&0&3\\\\0&0&0&0\\end{bmatrix}\\)이면 \\(A^4\\)은 영행렬이다.",
+  "answer": "O",
+  "solution": "2024-3과 같은 구조: 곱할 때마다 0 아닌 대각선이 한 칸씩 올라가 4번째에 사라집니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p812",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "닮은 행렬(\\(B=P^{-1}AP\\)) \\(A\\)와 \\(B\\)에 대해 \\(\\det A=\\det B\\)이다.",
+  "answer": "O",
+  "solution": "\\(\\det B=\\det P^{-1}\\det A\\det P=\\dfrac1{\\det P}\\det A\\det P=\\det A\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p815",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(\\det(A)=\\det(A^T)\\)이다.",
+  "answer": "O",
+  "solution": "행렬식 성질 9. 기본행렬로 쪼개 증명합니다(3.1절).",
+  "depth": 1
+ },
+ {
+  "ref": "p816",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(n\\times n\\) 행렬 \\(A,B,D\\)에 대해 \\(\\det\\begin{bmatrix}A&B\\\\0&D\\end{bmatrix}=\\det A\\det D\\)가 항상 성립한다.",
+  "answer": "O",
+  "solution": "블록 상삼각의 행렬식입니다(3.2절 7쪽). \\(B\\)는 영향을 주지 않습니다. \\(\\begin{bmatrix}A&0\\\\C&D\\end{bmatrix}\\)도 같습니다.",
+  "depth": 1
+ }
+]
+
+[답 형식]
+{
+ "type": "OBJECT",
+ "properties": {
+  "families": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "det.f2"
+      ]
+     },
+     "principle": {
+      "type": "STRING"
+     },
+     "base": {
+      "type": "STRING",
+      "enum": [
+       "p686",
+       "p688",
+       "p691",
+       "p692",
+       "p693",
+       "p694",
+       "p696",
+       "p697",
+       "p701",
+       "p738",
+       "p740",
+       "p741",
+       "p747",
+       "p750",
+       "p754",
+       "p756",
+       "p759",
+       "p763",
+       "p765",
+       "p774",
+       "p779",
+       "p780",
+       "p790",
+       "p796",
+       "p798",
+       "p811",
+       "p812",
+       "p815",
+       "p816"
+      ]
+     },
+     "members": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "ref": {
+         "type": "STRING",
+         "enum": [
+          "p686",
+          "p688",
+          "p691",
+          "p692",
+          "p693",
+          "p694",
+          "p696",
+          "p697",
+          "p701",
+          "p738",
+          "p740",
+          "p741",
+          "p747",
+          "p750",
+          "p754",
+          "p756",
+          "p759",
+          "p763",
+          "p765",
+          "p774",
+          "p779",
+          "p780",
+          "p790",
+          "p796",
+          "p798",
+          "p811",
+          "p812",
+          "p815",
+          "p816"
+         ]
+        },
+        "role": {
+         "type": "STRING",
+         "enum": [
+          "iso",
+          "near"
+         ]
+        },
+        "delta_type": {
+         "type": "STRING",
+         "enum": [
+          "surface",
+          "repr",
+          "object",
+          "condition",
+          "qualifier",
+          "reverse",
+          "neighbour",
+          "combine"
+         ]
+        },
+        "delta": {
+         "type": "STRING"
+        }
+       },
+       "propertyOrdering": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ],
+       "required": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ]
+      },
+      "minItems": 1
+     }
+    },
+    "propertyOrdering": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ],
+    "required": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "families"
+ ],
+ "required": [
+  "families"
+ ]
+}
+
+답은 JSON 객체 하나만 출력하라. 묶음으로 만들 수 없는 문항은 넣지 않아도 된다. 한 문항은 한 묶음에만 넣어라.

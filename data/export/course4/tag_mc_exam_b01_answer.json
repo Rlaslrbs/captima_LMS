@@ -1,0 +1,54 @@
+{"items":[
+{"ref":"p751","rationale":"행연산을 통해 행렬식 값을 구한 뒤, n차 행렬에 대한 스칼라배 성질로 거듭제곱을 적용한다.","facet":"det.f3","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"거듭제곱과 스칼라배를 할 때 단순 계산 실수를 함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":1,"belief_if_chosen":"초기 행렬식 값을 구할 때 부호를 반대로 계산함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"스칼라 배를 한 행렬의 행렬식은 원래 행렬식에 스칼라를 그대로 곱한 것과 같다고 생각함","misc":"m039","d":"3","src":"explanation","err":"concept_confusion"}]},
+{"ref":"p752","rationale":"모든 방향의 균형을 이루는 벡터의 합은 0이 되므로, 제외된 벡터의 역벡터가 전체 합이 된다.","facet":"lincomb.f1","depth":"2","depth_why":"D2b","options":[
+{"idx":0,"belief_if_chosen":"제외된 방향이 그대로 남는다고 반대로 생각함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"벡터의 합 방향을 임의로 유추함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"시침의 방향 벡터 조합을 잘못 계산함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p753","rationale":"평행한 평면식을 비례계수로 맞춘 후, 이동 거리에 따른 법선벡터 내적값의 변화량을 계산한다.","facet":"lineplane.f3","depth":"3","depth_why":"D3b","options":[
+{"idx":0,"belief_if_chosen":"평면식의 계수가 2배가 될 때 우변도 2배가 되어야 함을 누락함","misc":"m008","d":"3","src":"explanation","err":"partial"},
+{"idx":1,"belief_if_chosen":"이동 거리 부호 상쇄를 파악하지 못하고 제곱근 항을 그대로 둠","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":2,"belief_if_chosen":"상수합 과정에서 계수나 거리를 2배로 잘못 곱함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p754","rationale":"주어진 이동 행렬을 연속 곱하면 열 벡터들이 차례로 이동하며, n번 곱할 때 영행렬이 됨을 파악한다.","facet":"matops.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"행렬의 거듭제곱은 결코 영행렬이 되지 않는다고 생각함","misc":"none","d":"1","src":"inferred","err":"overgeneralize"},
+{"idx":1,"belief_if_chosen":"행렬이 한 칸씩 밀리는 횟수를 실제 차원보다 적게 착각함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":2,"belief_if_chosen":"5번째 이동 시에도 완전히 영행렬이 되지 않는다고 착각함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p756","rationale":"원래 행렬과 역행렬의 곱이 단위행렬이 되는 성분 조건을 연립하여 직접 미지수를 찾는다.","facet":"inv.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":1,"belief_if_chosen":"대수 연산 중 부호를 반대로 계산함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":2,"belief_if_chosen":"연립방정식 과정에서 a와 b의 값을 뒤바꿔서 구함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"비대각 성분의 합이 상쇄되어 0이 되는 구조를 단순화하여 오판함","misc":"none","d":"0","src":"inferred","err":"partial"}]},
+{"ref":"p757","rationale":"기약 사다리꼴 변환(RREF)을 통해 특수해와 동차해를 구하여 완전해를 구성한다.","facet":"lincomb.f4","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"자유변수를 매개변수로 이항할 때 부호를 바꾸지 않음","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":2,"belief_if_chosen":"RREF를 완전히 수행하지 않고 특수해를 임의로 도출함","misc":"none","d":"1","src":"inferred","err":"partial"},
+{"idx":3,"belief_if_chosen":"자유변수의 위치를 잘못 잡아 특수해 기입에 오류를 냄","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p758","rationale":"블록 하삼각행렬의 역행렬을 계산할 때 대각 블록의 역행렬과 하단 블록의 변환 공식을 적용한다.","facet":"block.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"블록 역행렬 공식을 일부 혼동하여 부호를 잘못 기입함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":1,"belief_if_chosen":"가운데 블록의 역행렬에서 부호를 거꾸로 적용함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"블록 행렬의 비대각 성분 위치에서 식 전개 부호를 적용하지 않음","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p759","rationale":"LU 시스템을 풀기 전 우변에 치환행렬 P를 먼저 곱하여 행 위치를 섞은 후 순차 대입을 수행한다.","facet":"lu.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"방정식 풀이 도중 계산 실수로 값을 다르게 도출함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":1,"belief_if_chosen":"전진대입 과정까지만 완료하고 후진대입을 누락함","misc":"none","d":"3","src":"explanation","err":"partial"},
+{"idx":2,"belief_if_chosen":"Pb 과정에서 행을 섞지 않고 연산을 진행함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"}]},
+{"ref":"p766","rationale":"삼각부등식과 코시-슈바르츠 부등식을 적용하여 두 벡터 차의 최댓값과 내적의 최솟값을 합산한다.","facet":"dot.f2","depth":"3","depth_why":"D3b","options":[
+{"idx":1,"belief_if_chosen":"부등식의 최댓값과 최댓값을 혼동하여 양수를 모두 더함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"계산식에서 삼각부등식을 잘못 적용하여 값을 뺌","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"내적과 차이 공식을 혼용하여 잘못된 극단값을 도출함","misc":"none","d":"0","src":"inferred","err":"concept_confusion"}]},
+{"ref":"p767","rationale":"평면의 법선 방향 이동 시, 계수 비례를 먼저 맞추고 내적값이 거리만큼 비례하여 변함을 파악한다.","facet":"lineplane.f3","depth":"3","depth_why":"D3b","options":[
+{"idx":0,"belief_if_chosen":"평면의 계수가 2배가 된 것을 무시하고 상수를 직접 더하거나 뺌","misc":"m008","d":"2","src":"inferred","err":"concept_confusion"},
+{"idx":1,"belief_if_chosen":"이동 방향이나 초기 상수값을 잘못 절반으로 착각함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"법선 방향 이동의 부호를 잘못 적용하여 이동량을 덧셈함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p768","rationale":"행렬 곱의 결과 행렬의 각 열은 앞 행렬의 열들에 대한 선형결합임을 이용하여 식을 세우고 미지수 열을 찾는다.","facet":"matops.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":1,"belief_if_chosen":"선형결합 시 가중치의 위치나 부호를 반대로 해석함","misc":"m014","d":"2","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"역행렬 곱을 잘못 적용하여 부호가 뒤집힌 벡터를 도출함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"행렬 곱의 결합 계수를 계산할 때 스칼라 부호를 덧셈에서 실수함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p769","rationale":"선형변환이 일대일이기 위해서는 동차시스템의 해가 영벡터뿐이어야 하므로 모든 열이 피벗열이 되어야 한다.","facet":"lintrans.f2","depth":"1","depth_why":"D1c","options":[
+{"idx":0,"belief_if_chosen":"일대일과 위로(onto) 조건에 필요한 피벗열의 개수를 혼동한다","misc":"m022","d":"3","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"행렬 크기 전체가 피벗 개수와 관련있다고 생각함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"행과 열의 개수 중 작은 쪽이 무조건 답이라고 착각함","misc":"none","d":"1","src":"inferred","err":"overgeneralize"}]},
+{"ref":"p770","rationale":"행 연산이나 행렬식 전개를 통해 대각 성분 위치에서 0이 발생하는 모든 케이스를 누락 없이 찾는다.","facet":"elim.f1","depth":"3","depth_why":"D3b","options":[
+{"idx":0,"belief_if_chosen":"a=5일 때 비가역이 되는 조건을 누락함","misc":"none","d":"1","src":"inferred","err":"partial"},
+{"idx":2,"belief_if_chosen":"a=3일 때 비가역이 되는 조건을 누락함","misc":"none","d":"1","src":"inferred","err":"partial"},
+{"idx":3,"belief_if_chosen":"첫 열이 0이 되는 a=0 조건을 누락함","misc":"none","d":"3","src":"explanation","err":"partial"}]}
+]}

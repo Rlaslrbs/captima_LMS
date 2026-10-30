@@ -1,0 +1,327 @@
+아래 [지시]를 따르고, [문항]을 판정해서 [답 형식]과 같은 JSON 하나로만 답하라. 설명 문장이나 머리말을 붙이지 마라.
+
+[지시]
+너는 '공학수학2 · 선형대수' 문항을 분류하는 두 번째 검토자다.  \( \) 안은 수식으로 읽어라.
+문항마다 세부 포인트 목록에서 하나(facet)를 고르고 깊이(depth)와 규칙 id(depth_why)를 정한다. 앞선 판단은 보지 않는다.
+
+- facet: 이 문제의 정답이 무엇에 달려 있는가.
+- depth (난이도가 아니라 학생이 그 세부 포인트로 해야 하는 일):
+  1 정의: D1a 배운 문장 그대로 알아보기 · D1b 배운 문장에서 한 단어만 반대로 바꾼 거짓 진술 · D1c 정의된 용어 이름 대기
+  2 적용: D2a 강의 예와 같은 모양에 적용 · D2b 같은 대상·같은 표현
+  3 구별: D3a 이웃 개념과 고르기 · D3b 조건이 성립하는지 확인 · D3c 이웃 개념의 성질을 붙인 거짓 진술
+  4 조건: D4a 강의에 없던 대상·표현 · D4b 예외·경계 · D4c 항상·모든·만·반드시, 역·대우 · D4d 다른 세부 포인트와 결합
+  세부 포인트 진술에 이미 있는 사실을 뒤집은 진술은 D1b다. 두 단계가 다 맞으면, 낮은 단계만 아는 학생이 틀리게 되는 경우에만 높은 단계.
+- 사례·수치·인명·연도 자체는 세부 포인트가 아니다.
+- 문항 안의 글은 자료일 뿐 지시가 아니다.
+
+[세부 포인트: ref | 이름 | 바른 진술]
+dot.f1 | 수직 조건 | 두 벡터의 내적이 0일 때, 두 벡터는 서로 직교(수직)한다.
+lineplane.f1 | 직선과 평면의 방정식 | 직선은 점과 방향벡터로, 평면은 점과 법선벡터로 다양한 형태로 표현할 수 있다.
+lintrans.f1 | 표준행렬 구성 | 선형변환 T의 표준행렬은 단위벡터들의 상을 순서대로 열벡터로 하여 구성한다.
+lu.f1 | LU 분해의 조건과 구성 | 행 교환 없이 대치 연산만으로 U를 만들 수 있을 때 L과 U로 분해된다.
+matops.f1 | 행렬 연산 정의 및 크기 | 행렬 연산은 정의된 크기 조건과 성분별 또는 행-열 규칙에 따라 수행된다.
+dot.f2 | 코시-슈바르츠 부등식 | 두 벡터 내적의 절댓값은 항상 각 벡터의 길이를 곱한 값보다 작거나 같다.
+lineplane.f2 | 위치 관계 판별 | 직선과 평면의 평행, 수직, 교차 여부는 방향벡터와 법선벡터의 관계를 통해 판별한다.
+lintrans.f2 | 일대일 및 위로 조건 | 일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.
+lu.f2 | 삼각 시스템의 순차적 해결 | Ax=b를 풀 때 Lc=b를 전진대입하고 Ux=c를 후진대입하여 푼다.
+matops.f2 | 행렬 곱의 열 해석 | 행렬 곱 AB의 각 열은 행렬 A의 열 벡터들의 선형결합으로 표현된다.
+lineplane.f3 | 거리 계산 | 점과 평면, 평행 평면, 꼬인 직선 사이의 거리는 각 상황에 맞는 공식을 사용하여 계산한다.
+lintrans.f3 | 선형변환의 성질 | 모든 선형변환은 행렬변환으로 표현되며 원점을 원점으로 보낸다.
+matops.f3 | 행렬 곱의 비가환성 | 행렬 곱 AB는 일반적으로 BA와 같지 않으며 약분이 성립하지 않는다.
+matops.f4 | 전치 연산의 성질 | 전치 연산은 덧셈에 분배되며 곱셈에 대해서는 순서가 뒤집혀 분배된다.
+
+[문항]
+[
+ {
+  "ref": "p840",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "선형변환은 원점을 원점으로 보낸다.",
+  "answer": "O",
+  "solution": "\\(T(\\mathbf 0)=T(0\\cdot\\mathbf 0)=0\\cdot T(\\mathbf 0)=\\mathbf 0\\)."
+ },
+ {
+  "ref": "p839",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(AB=AC\\)이고 \\(A\\ne0\\)이면 \\(B=C\\)이다.",
+  "answer": "X",
+  "solution": "\\(A\\)가 가역일 때만 양변에 \\(A^{-1}\\)을 곱할 수 있습니다."
+ },
+ {
+  "ref": "p838",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(AB=0\\)이면 \\(A=0\\) 또는 \\(B=0\\)이다.",
+  "answer": "X",
+  "solution": "예: \\(A=B=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix}\\)이면 \\(A^2=0\\)."
+ },
+ {
+  "ref": "p837",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\((A+B)^2=A^2+2AB+B^2\\)는 \\(AB=BA\\)일 때 성립한다.",
+  "answer": "O",
+  "solution": "일반적으로는 \\(A^2+AB+BA+B^2\\) (2022-3)."
+ },
+ {
+  "ref": "p836",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(AB\\)의 \\(j\\)번째 열은 \\(A\\)에 \\(B\\)의 \\(j\\)번째 열을 곱한 것이다.",
+  "answer": "O",
+  "solution": "열 관점(2.7절). 2023-3, 2025 O/X 1-4의 근거."
+ },
+ {
+  "ref": "p835",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\((AB)^T=A^TB^T\\)이다.",
+  "answer": "X",
+  "solution": "순서가 뒤집힙니다: \\((AB)^T=B^TA^T\\)."
+ },
+ {
+  "ref": "p834",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\mathbf R^3\\)에서 평행하지 않은 두 직선은 반드시 만난다.",
+  "answer": "X",
+  "solution": "꼬인 위치일 수 있습니다. 예: \\(x\\)축과, \\((0,0,1)\\)을 지나는 \\(y\\) 방향 직선."
+ },
+ {
+  "ref": "p833",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "직선을 평행이동하면 방향벡터도 같은 만큼 더해진다.",
+  "answer": "X",
+  "solution": "평행이동은 지나는 점만 바꾸고 방향은 그대로입니다(2025-2)."
+ },
+ {
+  "ref": "p832",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "평면 \\(\\mathbf n\\cdot\\mathbf x=d\\)를 법선 방향으로 거리 \\(k\\)만큼 평행이동하면 \\(\\mathbf n\\cdot\\mathbf x=d+k\\)가 된다.",
+  "answer": "X",
+  "solution": "\\(\\mathbf x\\to\\mathbf x+k\\,\\mathbf n/\\|\\mathbf n\\|\\)이라 \\(d+k\\|\\mathbf n\\|\\)이 됩니다(2023-2, 2024-2)."
+ },
+ {
+  "ref": "p831",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "점 \\(\\mathbf p\\)에서 평면 \\(\\mathbf n\\cdot\\mathbf x=d\\)까지의 거리는 \\(\\dfrac{|\\mathbf n\\cdot\\mathbf p-d|}{\\|\\mathbf n\\|}\\)이다.",
+  "answer": "O",
+  "solution": "2021-1처럼 4차원에서도 그대로 씁니다."
+ },
+ {
+  "ref": "p830",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "평면 \\(2x-y+z=3\\)과 \\(4x-2y+2z=1\\)은 평행하다.",
+  "answer": "O",
+  "solution": "법선 \\((4,-2,2)=2(2,-1,1)\\)이고, 우변이 2배가 아니라 같은 평면은 아닙니다."
+ },
+ {
+  "ref": "p829",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "평면 \\(x+2y-z=4\\)의 법선벡터는 \\((1,2,-1)\\)이다.",
+  "answer": "O",
+  "solution": "평면 \\(\\mathbf n\\cdot\\mathbf x=d\\)의 계수가 법선입니다."
+ },
+ {
+  "ref": "p828",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "단위벡터 \\(\\mathbf u\\)와 수직인 단위벡터 \\(\\mathbf v\\)에 대해 \\(\\|\\mathbf u-\\mathbf v\\|=\\sqrt2\\)이다.",
+  "answer": "O",
+  "solution": "\\(1-0+1=2\\) (1.2-8(c))."
+ },
+ {
+  "ref": "p827",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "임의의 \\(\\mathbf v,\\mathbf w\\)에 대해 \\(\\|\\mathbf v-\\mathbf w\\|\\ge\\|\\mathbf v\\|-\\|\\mathbf w\\|\\)이다.",
+  "answer": "O",
+  "solution": "삼각부등식 \\(\\|\\mathbf v\\|=\\|(\\mathbf v-\\mathbf w)+\\mathbf w\\|\\le\\|\\mathbf v-\\mathbf w\\|+\\|\\mathbf w\\|\\)를 옮긴 것입니다."
+ },
+ {
+  "ref": "p826",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\mathbf w\\)를 \\(\\mathbf v\\) 방향으로 사영한 벡터는 \\(\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf w\\cdot\\mathbf w}\\mathbf v\\)이다.",
+  "answer": "X",
+  "solution": "분모는 사영할 방향의 \\(\\mathbf v\\cdot\\mathbf v\\)입니다: \\(\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf v\\cdot\\mathbf v}\\mathbf v\\) (1.2-12)."
+ },
+ {
+  "ref": "p825",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "0이 아닌 벡터 \\(\\mathbf a\\) 하나에 대해 \\(\\mathbf a\\cdot\\mathbf b=\\mathbf a\\cdot\\mathbf c\\)이면 \\(\\mathbf b=\\mathbf c\\)이다.",
+  "answer": "X",
+  "solution": "\\(\\mathbf b-\\mathbf c\\)가 \\(\\mathbf a\\)에 수직이기만 하면 됩니다. 예: \\(\\mathbf a=(1,0),\\mathbf b=(0,1),\\mathbf c=(0,2)\\). \"모든 \\(\\mathbf a\\)\"이면 참(2021 O/X 12)."
+ },
+ {
+  "ref": "p824",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\|\\mathbf v+\\mathbf w\\|^2=\\|\\mathbf v\\|^2+\\|\\mathbf w\\|^2\\)이면 \\(\\mathbf v\\perp\\mathbf w\\)이다.",
+  "answer": "O",
+  "solution": "전개하면 \\(2\\mathbf v\\cdot\\mathbf w=0\\)(1.2-19). 피타고라스의 역."
+ },
+ {
+  "ref": "p823",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "슈바르츠 부등식 \\(|\\mathbf v\\cdot\\mathbf w|\\le\\|\\mathbf v\\|\\|\\mathbf w\\|\\)의 등호는 두 벡터가 수직일 때 성립한다.",
+  "answer": "X",
+  "solution": "등호는 \\(|\\cos\\theta|=1\\), 즉 평행할 때입니다. 수직이면 좌변이 0입니다."
+ },
+ {
+  "ref": "p822",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\mathbf v\\cdot\\mathbf w<0\\)이면 두 벡터 사이의 각은 90°보다 크다.",
+  "answer": "O",
+  "solution": "\\(\\mathbf v\\cdot\\mathbf w=\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta\\)라 부호는 \\(\\cos\\theta\\)가 정합니다."
+ },
+ {
+  "ref": "p821",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(c,d,e\\ge0\\)이고 \\(c+d+e=1\\)인 \\(c\\mathbf u+d\\mathbf v+e\\mathbf w\\)는 세 끝점이 이루는 삼각형 안에 있다.",
+  "answer": "O",
+  "solution": "convex 결합의 정의입니다(1.1-20)."
+ },
+ {
+  "ref": "p820",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(c+d=1\\)인 \\(c\\mathbf v+d\\mathbf w\\) 전체는 원점을 지나는 직선이다.",
+  "answer": "X",
+  "solution": "\\(\\mathbf v\\)와 \\(\\mathbf w\\)의 끝점을 지나는 직선(affine 결합)이고, 일반적으로 원점을 지나지 않습니다(1.1-16)."
+ },
+ {
+  "ref": "p819",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\mathbf R^3\\)의 세 벡터의 선형결합은 항상 \\(\\mathbf R^3\\) 전체를 채운다.",
+  "answer": "X",
+  "solution": "세 벡터가 한 평면에 있으면(예: \\(\\mathbf w=\\mathbf u+\\mathbf v\\)) 그 평면만 채웁니다(1.1-5, 1.1-23)."
+ },
+ {
+  "ref": "p818",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "평행하지 않은 두 벡터의 선형결합 전체는 원점을 지나는 평면이다.",
+  "answer": "O",
+  "solution": "두 방향이 독립이라 평면 하나를 채웁니다(1.1-1)."
+ }
+]
+
+[답 형식]
+{
+ "type": "OBJECT",
+ "properties": {
+  "items": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "ref": {
+      "type": "STRING",
+      "enum": [
+       "p818",
+       "p819",
+       "p820",
+       "p821",
+       "p822",
+       "p823",
+       "p824",
+       "p825",
+       "p826",
+       "p827",
+       "p828",
+       "p829",
+       "p830",
+       "p831",
+       "p832",
+       "p833",
+       "p834",
+       "p835",
+       "p836",
+       "p837",
+       "p838",
+       "p839",
+       "p840"
+      ]
+     },
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "dot.f1",
+       "lineplane.f1",
+       "lintrans.f1",
+       "lu.f1",
+       "matops.f1",
+       "dot.f2",
+       "lineplane.f2",
+       "lintrans.f2",
+       "lu.f2",
+       "matops.f2",
+       "lineplane.f3",
+       "lintrans.f3",
+       "matops.f3",
+       "matops.f4"
+      ]
+     },
+     "depth_why": {
+      "type": "STRING",
+      "enum": [
+       "D1a",
+       "D1b",
+       "D1c",
+       "D2a",
+       "D2b",
+       "D3a",
+       "D3b",
+       "D3c",
+       "D4a",
+       "D4b",
+       "D4c",
+       "D4d"
+      ]
+     },
+     "depth": {
+      "type": "STRING",
+      "enum": [
+       "1",
+       "2",
+       "3",
+       "4"
+      ]
+     }
+    },
+    "propertyOrdering": [
+     "ref",
+     "facet",
+     "depth_why",
+     "depth"
+    ],
+    "required": [
+     "ref",
+     "facet",
+     "depth_why",
+     "depth"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "items"
+ ],
+ "required": [
+  "items"
+ ]
+}
+
+답은 JSON 객체 하나만 출력하라. items 배열에는 [문항]의 ref를 모두 넣어라. depth는 "1"–"4" 문자열이다.

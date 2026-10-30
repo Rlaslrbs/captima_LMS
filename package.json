@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node server/server.js",
     "import": "node server/import.js",
-    "test": "node --test \"server/insight/test/*.test.mjs\""
+    "test": "node --test \"server/insight/test/*.test.mjs\"",
+    "dev": "node --env-file-if-exists=.env server/server.js"
   },
-  "engines": { "node": ">=22.13" }
+  "engines": {
+    "node": ">=22.13"
+  }
 }

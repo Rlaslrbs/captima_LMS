@@ -1,0 +1,21 @@
+{"families":[
+{"facet":"det.f2","principle":"곱·거듭제곱·역·전치·스칼라배의 행렬식 규칙(det kA=kⁿdet A 등)으로 값을 계산한다.","base":"p697","members":[
+{"ref":"p696","role":"iso","delta_type":"surface","delta":"4×4 → 3×3, 수치와 항목 일부 교체"},
+{"ref":"p774","role":"near","delta_type":"reverse","delta":"값 구하기 → 틀린 것 고르기"}]},
+{"facet":"det.f2","principle":"det(Bᵏ)=(det B)ᵏ이므로 Bᵏ을 직접 곱하지 않고 det B만 구한다.","base":"p691","members":[
+{"ref":"p790","role":"iso","delta_type":"surface","delta":"문장과 보기 순서만 다름"}]},
+{"facet":"det.f2","principle":"det(AB)=det A·det B와 det A⁻¹=1/det A로 닮은 꼴 행렬의 행렬식을 정리한다.","base":"p693","members":[
+{"ref":"p812","role":"iso","delta_type":"repr","delta":"증명 단계 고르기 → O/X 판정"},
+{"ref":"p692","role":"near","delta_type":"object","delta":"PAP⁻¹ → A⁻¹ 자체의 행렬식"},
+{"ref":"p694","role":"near","delta_type":"combine","delta":"전치 성질과 결합해 UᵀU=I에 적용"}]},
+{"facet":"det.f2","principle":"열이 행보다 많은 A에서 det AᵀA=0이지만 det AAᵀ는 0이 아닐 수 있다.","base":"p701","members":[
+{"ref":"p798","role":"near","delta_type":"repr","delta":"비교 문항 → AᵀA만 묻는 O/X"},
+{"ref":"p765","role":"near","delta_type":"object","delta":"AᵀA → AAᵀ가 항상 0인지 판정"},
+{"ref":"p780","role":"near","delta_type":"qualifier","delta":"'항상 det AᵀA=det AAᵀ' 한정어"}]},
+{"facet":"det.f2","principle":"행렬식은 전치해도 변하지 않는다(det M=det Mᵀ).","base":"p815","members":[
+{"ref":"p741","role":"near","delta_type":"object","delta":"A → 곱 AB의 전치"}]},
+{"facet":"det.f2","principle":"행렬식이 0이 아니면 가역(열이 선형독립)이고 0이면 아니다.","base":"p686","members":[
+{"ref":"p688","role":"near","delta_type":"object","delta":"가역성 판정 → 벡터들의 선형독립 판정"}]},
+{"facet":"det.f2","principle":"위쪽 대각선만 있는 행렬은 거듭제곱할 때마다 대각선이 올라가 결국 영행렬이 된다.","base":"p754","members":[
+{"ref":"p811","role":"iso","delta_type":"repr","delta":"5×5 일 때 k 찾기 → 4×4에서 A⁴=0 O/X"}]}
+]}

@@ -1,0 +1,148 @@
+{
+ "items": [
+  {
+   "ref": "p515",
+   "facet": "lintrans.f2",
+   "depth_why": "D3a",
+   "depth": "3"
+  },
+  {
+   "ref": "p516",
+   "facet": "matops.f3",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p518",
+   "facet": "matops.f4",
+   "depth_why": "D4a",
+   "depth": "4"
+  },
+  {
+   "ref": "p521",
+   "facet": "matops.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p527",
+   "facet": "lintrans.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p529",
+   "facet": "lintrans.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p530",
+   "facet": "lintrans.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p531",
+   "facet": "lintrans.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p536",
+   "facet": "lintrans.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p537",
+   "facet": "elim.f2",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p538",
+   "facet": "lintrans.f2",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p539",
+   "facet": "lintrans.f2",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p541",
+   "facet": "lintrans.f2",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p542",
+   "facet": "lintrans.f2",
+   "depth_why": "D3b",
+   "depth": "3"
+  },
+  {
+   "ref": "p549",
+   "facet": "lintrans.f3",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p550",
+   "facet": "lintrans.f3",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p553",
+   "facet": "lu.f2",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p555",
+   "facet": "elim.f1",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p557",
+   "facet": "elim.f2",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p559",
+   "facet": "elim.f2",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p560",
+   "facet": "lincomb.f3",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p562",
+   "facet": "lincomb.f4",
+   "depth_why": "D4a",
+   "depth": "4"
+  },
+  {
+   "ref": "p565",
+   "facet": "elim.f1",
+   "depth_why": "D4b",
+   "depth": "4"
+  },
+  {
+   "ref": "p566",
+   "facet": "elim.f1",
+   "depth_why": "D4b",
+   "depth": "4"
+  }
+ ]
+}

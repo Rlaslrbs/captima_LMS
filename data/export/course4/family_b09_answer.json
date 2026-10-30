@@ -1,0 +1,30 @@
+{"families":[
+{"facet":"elim.f2","principle":"Ax=0의 모든 해는 자유변수(비피벗 열)를 매개변수로 하는 벡터 합으로 쓴다.","base":"p603","members":[
+{"ref":"p604","role":"iso","delta_type":"surface","delta":"다른 행렬(4×6, 영열이 있는 경우)"},
+{"ref":"p605","role":"iso","delta_type":"surface","delta":"다른 행렬(4×6, 마지막 열 피벗)"}]},
+{"facet":"elim.f2","principle":"계수 부분의 모든 행에 피벗이 있으면 마지막 열에 피벗이 없어 해가 존재한다.","base":"p598","members":[
+{"ref":"p597","role":"iso","delta_type":"repr","delta":"일반 서술 → 3×5 구체 행렬"},
+{"ref":"p595","role":"near","delta_type":"condition","delta":"모순 행은 계수가 모두 0일 때만"}]},
+{"facet":"elim.f2","principle":"해가 있을 때 자유변수가 없으면 유일하고, 있으면 무수히 많다.","base":"p599","members":[
+{"ref":"p596","role":"near","delta_type":"condition","delta":"'해가 있을 때'라는 조건을 뺌"},
+{"ref":"p600","role":"near","delta_type":"object","delta":"방정식 < 미지수인 과소결정 시스템"}]},
+{"facet":"elim.f2","principle":"피벗이 부족한 정사각행렬은 자명하지 않은 해가 있고 모든 b에 해가 있지는 않다.","base":"p610","members":[
+{"ref":"p611","role":"near","delta_type":"reverse","delta":"피벗 수 → 해 없는 y 주고 유일해 가능성"}]},
+{"facet":"inv.f2","principle":"2×2 행렬은 ad-bc≠0일 때 가역이며 역행렬은 공식으로 구한다.","base":"p614","members":[
+{"ref":"p615","role":"iso","delta_type":"surface","delta":"다른 2×2 행렬(음수 성분)"},
+{"ref":"p612","role":"near","delta_type":"neighbour","delta":"역행렬 구하기 → 행렬식으로 가역 판정"},
+{"ref":"p616","role":"near","delta_type":"combine","delta":"역행렬로 연립방정식 x=A⁻¹b 풀이"}]},
+{"facet":"inv.f2","principle":"[A|I]를 행축약해 I가 나오면 오른쪽이 A⁻¹이고, 영행이 생기면 비가역이다.","base":"p626","members":[
+{"ref":"p613","role":"near","delta_type":"condition","delta":"가역 → 영행이 생겨 비가역인 경우"},
+{"ref":"p627","role":"near","delta_type":"condition","delta":"가역 → 영행이 생겨 비가역인 경우"}]},
+{"facet":"inv.f2","principle":"정사각행렬은 피벗이 n개일 때만 가역이므로 피벗 개수로 가역을 판별한다.","base":"p630","members":[
+{"ref":"p631","role":"iso","delta_type":"surface","delta":"4×4 행렬, 피벗 4개로 가역"},
+{"ref":"p629","role":"near","delta_type":"object","delta":"삼각행렬은 대각 성분만 확인"}]},
+{"facet":"inv.f2","principle":"정사각행렬에서 모든 b에 해가 있으면 가역이므로 각 b의 해는 유일하다.","base":"p638","members":[
+{"ref":"p635","role":"near","delta_type":"repr","delta":"6×6 구체 질문 → 일반 O/X 명제"}]},
+{"facet":"inv.f2","principle":"어떤 b에 해가 없으면 가역이 아니므로 Ax=0이 자명하지 않은 해를 가진다.","base":"p640","members":[
+{"ref":"p637","role":"near","delta_type":"repr","delta":"비자명해 존재 → 일대일 아님"}]},
+{"facet":"inv.f2","principle":"정사각행렬에서 한쪽 역행렬이 있으면 가역이며 양쪽 역행렬이 된다.","base":"p639","members":[
+{"ref":"p634","role":"near","delta_type":"neighbour","delta":"교환가능 → 반대쪽 역행렬 존재"},
+{"ref":"p641","role":"near","delta_type":"object","delta":"곱 AB가 가역이면 A도 가역"}]}
+]}

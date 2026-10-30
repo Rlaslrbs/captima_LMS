@@ -1,5 +1,9 @@
-# 운영 데이터와 비밀은 올리지 않아요 (사용자 기록 DB, Gemini 키, 관리자 경로, 백업, 문제 팩)
-data/
+# 비밀·개인 기록은 올리지 않아요: Gemini 키, 관리자 경로, 학습자 기록 DB, 백업, 로그
+.env
+data/*
+!data/import/
+!data/raw/
+!data/export/
 node_modules/
 tools/bin/
 *.db

@@ -1,0 +1,42 @@
+{"items":[
+{"ref":"p773","rationale":"삼중대각행렬의 LU 분해 패턴을 분석해 다음 피벗과 소거 승수를 순차적으로 구한다.","facet":"lu.f1","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"대각 성분이 소거 과정에서 계속 3으로 유지된다고 잘못 가정함","misc":"none","d":"2","src":"inferred","err":"concept_confusion"},
+{"idx":1,"belief_if_chosen":"소거 승수가 이전과 동일하게 유지된다고 단순 착각함","misc":"none","d":"1","src":"inferred","err":"overgeneralize"},
+{"idx":2,"belief_if_chosen":"행연산 도중 빼기가 아닌 더하기로 부호를 반대로 처리함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p774","rationale":"n차 행렬의 스칼라배 행렬식 성질인 det(cA) = c^n det(A)를 사용하여 4제곱을 곱해야 함을 확인한다.","facet":"det.f2","depth":"3","depth_why":"D3b","options":[
+{"idx":0,"belief_if_chosen":"역행렬의 행렬식 값과 스칼라배 성질 모두 틀렸다고 오해함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"스칼라배 성질뿐만 아니라 행렬 거듭제곱 성질도 틀렸다고 착각함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"전치행렬 곱의 행렬식 성질을 잘못 계산하여 같이 골라버림","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p783","rationale":"평면 위의 점들을 이용해 평행한 두 벡터를 구하고, 두 벡터 모두에 수직인 법선벡터를 통해 식을 세운다.","facet":"lineplane.f1","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"외적 또는 법선벡터 도출 과정에서 한 축의 부호를 반대로 구함","misc":"m004","d":"1","src":"inferred","err":"calc_slip"},
+{"idx":2,"belief_if_chosen":"법선벡터를 구하고 원점을 지나는 평면이라고 임의 단정함","misc":"none","d":"1","src":"inferred","err":"partial"},
+{"idx":3,"belief_if_chosen":"점을 대입하여 상수를 구할 때 계산 실수를 발생시킴","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p784","rationale":"행렬 곱셈은 교환법칙이 성립하지 않으므로 곱 순서를 그대로 유지한 채 분배법칙을 전개해야 한다.","facet":"matops.f3","depth":"1","depth_why":"D1a","options":[
+{"idx":0,"belief_if_chosen":"행렬 곱은 스칼라 곱처럼 교환법칙이 항상 성립한다","misc":"m011","d":"3","src":"explanation","err":"concept_confusion"},
+{"idx":1,"belief_if_chosen":"모든 전개방식이 스칼라 곱처럼 전부 동치라고 믿음","misc":"m011","d":"3","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"분배법칙의 중간 변형 과정까지 허용하지 않는다고 오해함","misc":"none","d":"1","src":"inferred","err":"partial"}]},
+{"ref":"p785","rationale":"출력 공간의 식에서 대응하는 변수의 계수들을 차례대로 모아 표준행렬의 행을 구성한다.","facet":"lintrans.f1","depth":"1","depth_why":"D1a","options":[
+{"idx":1,"belief_if_chosen":"대수적 표현에서 특정 변수가 없는 경우 계수를 0으로 미처리함","misc":"m018","d":"2","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"음수 부호를 무시하고 성분을 대입함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"표준행렬을 구성할 때 행과 열의 역할을 전치시켜 바꿈","misc":"m016","d":"3","src":"explanation","err":"concept_confusion"}]},
+{"ref":"p787","rationale":"소거를 통해 기약 사다리꼴을 만들면, 피벗이 없는 열의 변수가 자유변수가 되어 일반해를 형성한다.","facet":"lincomb.f4","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"특수해를 계산할 때 특정 변수항을 누락함","misc":"none","d":"0","src":"inferred","err":"partial"},
+{"idx":2,"belief_if_chosen":"피벗열과 자유변수 열을 반대로 식별하여 동차해 위치가 어긋남","misc":"none","d":"2","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"자유변수를 2개로 잘못 판별하여 허위 기저벡터를 추가함","misc":"none","d":"3","src":"explanation","err":"concept_confusion"}]},
+{"ref":"p788","rationale":"블록 행렬식의 곱셈을 전개하여 단위행렬이 될 조건을 맞추면, 역행렬의 비대각 블록 성분에 원래 블록의 곱이 생긴다.","facet":"block.f2","depth":"3","depth_why":"D3b","options":[
+{"idx":0,"belief_if_chosen":"부호 상쇄식을 풀 때 마이너스를 잘못 분배함","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":1,"belief_if_chosen":"전체 역행렬 연산에서 부호를 역전시키지 않음","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"행렬 곱이 비가환성임을 무시하고 BC를 CB로 순서를 바꿈","misc":"m011","d":"3","src":"explanation","err":"concept_confusion"}]},
+{"ref":"p789","rationale":"가장 먼저 전진대입을 통해 중간 매개변수 y를 구한 뒤, 이를 바탕으로 후진대입하여 최종 해를 얻는다.","facet":"lu.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":1,"belief_if_chosen":"전진대입 과정에서 구한 중간 변수 y값을 최종 해로 착각함","misc":"none","d":"3","src":"explanation","err":"partial"},
+{"idx":2,"belief_if_chosen":"후진대입 도중 계산 실수로 앞의 부호를 반대로 적음","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":3,"belief_if_chosen":"특정 위치 변수 계산시 나누기 부호를 잘못 처리함","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p790","rationale":"행렬 곱셈식의 행렬식은 각각의 행렬식 곱과 같으므로, 원래 행렬식을 구하고 그 값을 거듭제곱한다.","facet":"det.f2","depth":"2","depth_why":"D2a","options":[
+{"idx":1,"belief_if_chosen":"행렬을 4제곱 하는 과정에서 부호를 음수로 잘못 씌움","misc":"none","d":"0","src":"inferred","err":"calc_slip"},
+{"idx":2,"belief_if_chosen":"거듭제곱 공식을 곱셈으로 착각하여 차수를 낮춰 계산함","misc":"m033","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"행렬식 계산과 지수 법칙 모두 오류를 발생시킴","misc":"none","d":"0","src":"inferred","err":"calc_slip"}]},
+{"ref":"p802","rationale":"행 소거를 통해 사다리꼴을 만든 후, 주대각선의 모든 피벗이 0이 되지 않아야 가역임을 판별한다.","facet":"elim.f2","depth":"3","depth_why":"D3b","options":[
+{"idx":0,"belief_if_chosen":"비가역 조건을 가역 조건으로 거꾸로 착각하여 답안을 작성함","misc":"none","d":"3","src":"explanation","err":"condition_misread"},
+{"idx":1,"belief_if_chosen":"a=0일 때 첫 행/열이 모두 0이 되어 비가역임을 인지하지 못함","misc":"none","d":"1","src":"inferred","err":"partial"},
+{"idx":2,"belief_if_chosen":"조건 중 하나 이상을 누락하여 가능한 상수 목록을 잘못 추림","misc":"none","d":"0","src":"inferred","err":"partial"}]}
+]}

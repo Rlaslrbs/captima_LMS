@@ -1,0 +1,31 @@
+{"families":[
+{"facet":"lineplane.f1","principle":"세 점이 주어지면 평면 위 두 벡터의 외적을 법선으로 하여 평면식을 만든다.","base":"p475","members":[
+{"ref":"p783","role":"iso","delta_type":"surface","delta":"같은 세 점, 문장·보기만 다름"},
+{"ref":"p476","role":"iso","delta_type":"surface","delta":"세 점의 좌표만 바뀜"},
+{"ref":"p477","role":"near","delta_type":"object","delta":"세 점 → 점 + 직선을 포함하는 평면"},
+{"ref":"p479","role":"near","delta_type":"object","delta":"세 점 → 점 + 두 평면에 수직인 평면"},
+{"ref":"p483","role":"near","delta_type":"combine","delta":"두 직선의 교점 구하기와 결합"}]},
+{"facet":"lineplane.f1","principle":"두 벡터에 모두 수직인 방향은 외적(연립)으로 구해 직선의 방향벡터로 쓴다.","base":"p465","members":[
+{"ref":"p466","role":"near","delta_type":"combine","delta":"두 평면의 교선: 한 점 찾기와 결합"}]},
+{"facet":"lineplane.f1","principle":"평면의 법선벡터와 직선의 방향벡터는 서로 바꿔 쓸 수 있다.","base":"p463","members":[
+{"ref":"p474","role":"near","delta_type":"reverse","delta":"평면에 수직인 직선 → 직선에 수직인 평면"}]},
+{"facet":"lineplane.f1","principle":"직선을 평행이동하면 지나는 점만 바뀌고 방향벡터는 그대로다.","base":"p742","members":[
+{"ref":"p743","role":"iso","delta_type":"repr","delta":"벡터방정식 → 매개변수방정식"},
+{"ref":"p833","role":"near","delta_type":"repr","delta":"수치 문제 → 일반 진술(O/X)"}]},
+{"facet":"lineplane.f1","principle":"평면을 법선 방향으로 거리 k 옮기면 우변이 d+k|n|으로 바뀐다.","base":"p767","members":[
+{"ref":"p753","role":"near","delta_type":"condition","delta":"한 방향 → 양쪽 ± 두 평면의 합"},
+{"ref":"p832","role":"near","delta_type":"repr","delta":"수치 문제 → 일반 공식 진술(O/X)"}]},
+{"facet":"lineplane.f1","principle":"두 벡터의 선형결합 전체는 평면이고, 계수 합 조건이 붙으면 직선이 된다.","base":"p818","members":[
+{"ref":"p820","role":"near","delta_type":"condition","delta":"계수 합 c+d=1 조건 추가"}]},
+{"facet":"lintrans.f1","principle":"표준행렬은 표준단위벡터의 상 T(e_j)를 순서대로 열로 세워 만든다.","base":"p522","members":[
+{"ref":"p523","role":"iso","delta_type":"surface","delta":"R2→R4 → R3→R2, 숫자만 바뀜"},
+{"ref":"p532","role":"near","delta_type":"repr","delta":"단위벡터의 상 → 출력식 계수 읽기"},
+{"ref":"p524","role":"near","delta_type":"object","delta":"주어진 상 → 반시계 3π/2 회전"},
+{"ref":"p525","role":"near","delta_type":"object","delta":"주어진 상 → 시계방향 π/4 회전"},
+{"ref":"p526","role":"near","delta_type":"object","delta":"주어진 상 → 세로 층밀림"}]},
+{"facet":"lintrans.f1","principle":"연속 변환의 표준행렬은 나중 변환 행렬을 앞쪽에 곱한 합성이다.","base":"p528","members":[
+{"ref":"p530","role":"iso","delta_type":"surface","delta":"대칭 → 회전, 다른 축과 각도"},
+{"ref":"p527","role":"iso","delta_type":"surface","delta":"회전 → 대칭, 다른 각도"},
+{"ref":"p529","role":"near","delta_type":"object","delta":"층밀림 변환이 합성에 포함됨"},
+{"ref":"p531","role":"near","delta_type":"combine","delta":"합성 결과가 회전임을 보이고 각 구하기"}]}
+]}

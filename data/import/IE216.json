@@ -1,0 +1,7630 @@
+{
+ "format": 1,
+ "semester": {
+  "code": "26-2",
+  "name": "2026년 2학기"
+ },
+ "course": {
+  "code": "IE216",
+  "short": "생경론",
+  "name": "생산경영론",
+  "professor": "정호영",
+  "meta": "Lecture 02~05 PPT + 중간고사 복습(L01~L06)",
+  "lang": "ko",
+  "color": {
+   "light": "#2f6b3f",
+   "dark": "#7fc493"
+  },
+  "math": false,
+  "files": {
+   "L2": "Lecture02 PPT (IE216_Lecture02_Intro_to_POM_.pdf)",
+   "L3": "Lecture03 PPT (IE216_Lecture03_Competitiveness_Strategy_Productivity.pdf)",
+   "L4": "Lecture04 PPT (IE216_Lecture04_Forecasting.pdf)",
+   "L5": "Lecture05 PPT (IE216_Lecture05_Product_and_Service_Design.pdf)",
+   "RV": "중간고사 복습 (IE216_중간고사_복습_한국어.pdf)"
+  },
+  "topics": {
+   "om": {
+    "name": "운영관리 기초",
+    "facets": {
+     "def": {
+      "name": "운영관리의 정의",
+      "kind": "def",
+      "statement": "운영관리는 재화를 만들고 서비스를 제공하는 시스템·프로세스를 관리하는 것이다"
+     },
+     "fb_ctrl": {
+      "name": "피드백과 통제",
+      "kind": "distinction",
+      "statement": "피드백은 변환 과정 여러 지점의 측정이고, 통제는 피드백을 기준과 비교해 시정 조치가 필요한지 판단하는 것이다"
+     },
+     "goods_svc": {
+      "name": "재화와 서비스의 차이",
+      "kind": "distinction",
+      "statement": "서비스는 재화보다 고객 접촉·노동 비중이 높고, 투입이 덜 균일하며, 생산성 측정이 어렵고, 대개 특허·재고가 불가능하다"
+     },
+     "sc_flow": {
+      "name": "공급사슬의 두 흐름",
+      "kind": "property",
+      "statement": "재화·서비스는 최종 고객 쪽으로, 주문·정보·대금은 반대 방향으로 흐른다"
+     },
+     "sd_match": {
+      "name": "공급과 수요의 균형",
+      "kind": "relation",
+      "statement": "공급 > 수요면 낭비·재고 비용, 공급 < 수요면 기회 손실·고객 불만이 생기므로 둘을 맞추는 것이 이상적이다"
+     }
+    }
+   },
+   "variation": {
+    "name": "운영의 변동",
+    "facets": {
+     "sources": {
+      "name": "변동의 네 원천",
+      "kind": "def",
+      "statement": "변동의 원천은 제공하는 재화·서비스의 다양성, 수요의 구조적 변동, 무작위 변동, 할당 가능 변동이다"
+     },
+     "random_assign": {
+      "name": "무작위와 할당 가능 변동",
+      "kind": "distinction",
+      "statement": "무작위 변동은 모든 프로세스의 자연적 변동이라 관리자가 대체로 줄일 수 없고, 할당 가능 변동은 분석·시정으로 줄일 수 있다"
+     }
+    }
+   },
+   "decision": {
+    "name": "운영 결정과 접근법",
+    "facets": {
+     "design_op": {
+      "name": "설계 결정과 운영 결정",
+      "kind": "distinction",
+      "statement": "용량 계획·입지·배치·제품 계획·설비는 장기·전략적인 시스템 설계 결정, 인력·재고·일정은 시스템 운영 결정이다"
+     },
+     "time": {
+      "name": "관리자의 시간 배분",
+      "kind": "property",
+      "statement": "운영관리자는 다른 어떤 결정 영역보다 시스템 운영 결정에 더 많은 시간을 쓴다"
+     },
+     "model": {
+      "name": "모델의 한계",
+      "kind": "property",
+      "statement": "모델은 현실의 단순화라서 잘못 적용될 수 있고, 모델을 써도 좋은 결정이 보장되지 않는다"
+     },
+     "systems": {
+      "name": "시스템 접근법",
+      "kind": "def",
+      "statement": "시스템 접근법은 조직 전체의 산출·목표가 어느 한 하위시스템의 목표보다 우선한다고 본다"
+     }
+    }
+   },
+   "strategy": {
+    "name": "경쟁력과 전략",
+    "confusable": [
+     "productivity"
+    ],
+    "facets": {
+     "compet": {
+      "name": "경쟁력은 상대적",
+      "kind": "def",
+      "statement": "경쟁력은 비슷한 것을 제공하는 다른 조직에 비해 고객의 욕구를 얼마나 잘 충족하는가로, 늘 상대적이다"
+     },
+     "mission": {
+      "name": "사명",
+      "kind": "def",
+      "statement": "사명(mission)은 '우리는 어떤 사업을 하는가'에 답하며 조직의 존재 이유를 나타낸다"
+     },
+     "tactics": {
+      "name": "전술",
+      "kind": "def",
+      "statement": "전술(tactics)은 전략을 달성하기 위한 방법과 행동으로, 전략보다 구체적인 '어떻게' 부분이다"
+     },
+     "hierarchy": {
+      "name": "사명–운영 계층",
+      "kind": "relation",
+      "statement": "사명 → 목표 → 전략(조직 → 기능별) → 전술 → 운영 순으로 위가 아래를 이끈다"
+     },
+     "swot": {
+      "name": "SWOT의 내부·외부",
+      "kind": "distinction",
+      "statement": "강점·약점은 내부 요인(인적자원·설비·재무·기술), 기회·위협은 외부 요인(경제·정치·법·기술·경쟁·시장)이다"
+     },
+     "qual_win": {
+      "name": "자격 요건과 획득 요인",
+      "kind": "distinction",
+      "statement": "주문 자격 요건은 구매 후보가 되기 위한 최소 기준, 주문 획득 요인은 경쟁사보다 낫다고 인식되게 하는 특성이다"
+     },
+     "qw_both": {
+      "name": "같은 속성의 두 역할",
+      "kind": "property",
+      "statement": "가격·납기 신뢰성/속도·품질은 상황에 따라 주문 자격 요건도 주문 획득 요인도 될 수 있다"
+     },
+     "core": {
+      "name": "핵심 역량",
+      "kind": "def",
+      "statement": "핵심 역량은 조직에 경쟁 우위를 주는 특별한 속성이나 능력이다"
+     },
+     "agile": {
+      "name": "민첩한 운영",
+      "kind": "def",
+      "statement": "민첩한 운영은 변화하는 환경에서 유연성으로 적응하고 번창하려는 접근이다"
+     }
+    }
+   },
+   "productivity": {
+    "name": "생산성",
+    "confusable": [
+     "cap"
+    ],
+    "facets": {
+     "units": {
+      "name": "분모 단위 통일",
+      "kind": "property",
+      "statement": "생산성 척도의 분모에 넣는 투입은 모두 같은 단위여야 하므로 다요소·총 척도는 금액으로 바꿔 더한다"
+     },
+     "calc": {
+      "name": "부분·다요소·총 생산성",
+      "kind": "procedure",
+      "statement": "생산성 = 산출 금액 ÷ 투입. 노동 생산성은 노동비, 다요소는 노동+재료비, 총 생산성은 모든 투입 비용으로 나눈다"
+     },
+     "growth": {
+      "name": "생산성 증가율",
+      "kind": "procedure",
+      "statement": "생산성 증가율 = (이번 기 − 지난 기) ÷ 지난 기 × 100. 분모는 이전 값이고 감소면 음수다"
+     },
+     "eff_vs_prod": {
+      "name": "효율과 생산성",
+      "kind": "distinction",
+      "statement": "효율은 주어진 고정 자원에서 최대 산출을 내는 좁은 개념이고, 생산성은 자원 전체의 효과적 사용으로 더 넓다"
+     },
+     "service": {
+      "name": "서비스 생산성 측정",
+      "kind": "property",
+      "statement": "서비스 생산성은 지적 활동이 많고 변동성이 커서 측정·관리하기 어렵다"
+     }
+    }
+   },
+   "fc": {
+    "name": "예측의 기초",
+    "facets": {
+     "def": {
+      "name": "예측의 정의",
+      "kind": "def",
+      "statement": "예측(forecast)은 관심 변수의 미래 값에 대한 진술이다"
+     },
+     "group": {
+      "name": "그룹 예측의 정확도",
+      "kind": "property",
+      "statement": "품목 그룹 예측은 개별 오차가 상쇄되어 개별 품목 예측보다 더 정확하다"
+     },
+     "horizon": {
+      "name": "예측 기간과 정확도",
+      "kind": "property",
+      "statement": "예측 기간이 길어질수록 예측 정확도는 떨어진다"
+     },
+     "qual_quant": {
+      "name": "정성적과 정량적",
+      "kind": "distinction",
+      "statement": "정성적 예측은 의견·직관 같은 soft 정보를, 정량적 예측은 과거 데이터 투영 같은 hard data를 쓴다"
+     },
+     "qual_methods": {
+      "name": "정성적 기법 비교",
+      "kind": "distinction",
+      "statement": "경영진 의견은 빠르지만 한 사람이 지배할 위험, 델파이는 익명 반복으로 그 위험을 줄이지만 시간이 오래 걸린다"
+     }
+    }
+   },
+   "ts": {
+    "name": "시계열 행태",
+    "facets": {
+     "patterns": {
+      "name": "추세·계절·순환·불규칙",
+      "kind": "distinction",
+      "statement": "계절성은 달력·시간대와 관련된 1년 미만 변동, 순환은 1년 넘는 파동, 불규칙 변동은 파업 같은 특수 상황에 의한 변동이다"
+     }
+    }
+   },
+   "avg": {
+    "name": "평균 기법",
+    "confusable": [
+     "trend"
+    ],
+    "facets": {
+     "ma": {
+      "name": "이동평균",
+      "kind": "procedure",
+      "statement": "이동평균은 가장 최근 n개의 실제값만 같은 무게로 평균하며 이전 예측값은 쓰지 않는다"
+     },
+     "wma": {
+      "name": "가중이동평균",
+      "kind": "procedure",
+      "statement": "가중이동평균은 가장 최근 값에 가장 큰 가중치를 주고, 가중치의 합은 1이어야 한다"
+     },
+     "es": {
+      "name": "지수평활",
+      "kind": "procedure",
+      "statement": "지수평활 예측 = 직전 예측 + α × (직전 실제 − 직전 예측)"
+     },
+     "compare": {
+      "name": "평균 기법 비교",
+      "kind": "distinction",
+      "statement": "이동평균은 실제값만 동일 가중, 가중이동평균은 최근에 큰 가중, 지수평활은 직전 예측에 오차의 α배를 더해 반응한다"
+     }
+    }
+   },
+   "trend": {
+    "name": "추세와 회귀",
+    "facets": {
+     "line": {
+      "name": "선형 추세선",
+      "kind": "procedure",
+      "statement": "추세선 b = (nΣty − ΣtΣy) ÷ (nΣt² − (Σt)²), a = (Σy − bΣt) ÷ n, 예측 = a + bt"
+     },
+     "taf": {
+      "name": "추세 조정 지수평활",
+      "kind": "procedure",
+      "statement": "다음 예측 TAF = 평활값 S + 추세 T. S는 α로 오차를 반영하고, T는 β로 TAF 변화에서 직전 추세를 뺀 만큼 갱신한다"
+     },
+     "reg": {
+      "name": "단순선형회귀",
+      "kind": "procedure",
+      "statement": "회귀식 y = a + bx의 b = (nΣxy − ΣxΣy) ÷ (nΣx² − (Σx)²), a = (Σy − bΣx) ÷ n"
+     },
+     "r": {
+      "name": "상관계수와 r²",
+      "kind": "def",
+      "statement": "r은 두 변수의 선형 관계의 강도·방향이고, r²는 y의 변동 중 독립변수가 설명하는 비율이다"
+     }
+    }
+   },
+   "acc": {
+    "name": "예측 정확도",
+    "facets": {
+     "measures": {
+      "name": "MAD·MSE·MAPE 계산",
+      "kind": "procedure",
+      "statement": "MAD = Σ|e| ÷ n, MSE = Σe² ÷ (n − 1) (이 강의), MAPE = Σ(|e| ÷ A × 100) ÷ n"
+     },
+     "weighting": {
+      "name": "오차 가중 방식",
+      "kind": "distinction",
+      "statement": "MAD는 모든 오차에 같은 무게, MSE는 제곱해 큰 오차에 큰 무게, MAPE는 상대 오차로 가중하므로 MAD가 같아도 MSE는 다를 수 있다"
+     },
+     "ts_calc": {
+      "name": "추적 신호 계산",
+      "kind": "procedure",
+      "statement": "추적 신호 = Σ(A − F) ÷ MAD"
+     },
+     "ts_read": {
+      "name": "추적 신호 해석",
+      "kind": "property",
+      "statement": "추적 신호는 0이 이상적이고 흔히 ±4~±5를 한계로 쓴다. 양수로 커지면 실제가 계속 예측보다 큰 과소예측 편향이다"
+     }
+    }
+   },
+   "rd": {
+    "name": "연구개발과 아이디어",
+    "facets": {
+     "types": {
+      "name": "기초·응용·개발",
+      "kind": "distinction",
+      "statement": "기초연구는 단기 상업 기대 없이 지식을 넓히고, 응용연구는 상업적 응용을, 개발은 그 결과를 쓸모 있는 상품으로 바꾼다"
+     },
+     "reverse_eng": {
+      "name": "역설계",
+      "kind": "def",
+      "statement": "역설계는 경쟁사 제품을 분해·검사해 자사 제품의 개선점을 찾는 것이다"
+     }
+    }
+   },
+   "sustain": {
+    "name": "지속가능한 설계",
+    "facets": {
+     "lca": {
+      "name": "전과정 평가",
+      "kind": "def",
+      "statement": "전과정 평가(LCA)는 제품·서비스의 수명 전체(요람에서 무덤까지)에 걸친 환경 영향 평가다"
+     },
+     "r3": {
+      "name": "설계의 3R",
+      "kind": "def",
+      "statement": "3R은 줄이기(비용·자재: 가치 분석), 재사용(반품 부품: 재제조·DFD), 재활용(자재 회수: DFR)이다"
+     },
+     "va": {
+      "name": "가치 분석",
+      "kind": "def",
+      "statement": "가치 분석은 부품·자재의 기능을 검토해 비용을 줄이거나 성능을 높이려는 노력이다"
+     }
+    }
+   },
+   "dfx": {
+    "name": "제품 설계 기법(DFx)",
+    "confusable": [
+     "sustain"
+    ],
+    "facets": {
+     "dfa": {
+      "name": "조립 용이 설계 DFA",
+      "kind": "def",
+      "statement": "DFA는 부품 수를 줄이고 조립 방법·순서를 단순하게 하는 설계다"
+     },
+     "dfd": {
+      "name": "분해 용이 설계 DFD",
+      "kind": "def",
+      "statement": "DFD는 쓴 제품을 쉽게 분해할 수 있게 하는 설계로 재제조(재사용)를 위한 것이다",
+      "confusable": [
+       "dfx.dfa"
+      ]
+     }
+    }
+   },
+   "design": {
+    "name": "제품·서비스 설계 기법",
+    "facets": {
+     "std": {
+      "name": "표준화의 장단점",
+      "kind": "property",
+      "statement": "표준화는 다양성이 없는 것이라 소비자 매력이 줄고, 불완전한 설계가 굳어지며 개선에 저항이 생긴다"
+     },
+     "mass_cust": {
+      "name": "대량 맞춤",
+      "kind": "def",
+      "statement": "대량 맞춤은 표준화된 생산을 하면서 최종 제품에 맞춤을 반영하는 전략이고, 지연 차별화와 모듈러 설계로 가능하다"
+     },
+     "delayed": {
+      "name": "지연 차별화",
+      "kind": "def",
+      "statement": "지연 차별화는 고객 선호를 알 때까지 제품을 생산하되 완성하지 않는 것이다"
+     },
+     "modular": {
+      "name": "모듈러 설계",
+      "kind": "property",
+      "statement": "모듈러 설계는 진단·수리·교체가 쉽지만, 고장 난 모듈을 통째로 버려야 하고 가능한 구성 수가 제한된다"
+     },
+     "robust": {
+      "name": "강건 설계",
+      "kind": "def",
+      "statement": "강건 설계는 넓은 범위의 조건에서도 작동하는 제품·서비스를 만드는 설계다"
+     },
+     "ce": {
+      "name": "동시공학",
+      "kind": "def",
+      "statement": "동시공학은 설계 초기 단계부터 설계 엔지니어와 제조 인력을 함께 참여시키는 것이다"
+     },
+     "qfd": {
+      "name": "품질 기능 전개",
+      "kind": "def",
+      "statement": "QFD는 고객의 소리(VoC)를 제품·서비스 개발에 통합하는 접근이며 품질의 집(House of Quality)을 쓴다"
+     }
+    }
+   },
+   "kano": {
+    "name": "카노 모형",
+    "facets": {
+     "types": {
+      "name": "세 품질 유형",
+      "kind": "distinction",
+      "statement": "기본 품질은 없으면 불만, 성능 품질은 수준에 비례해 만족, 감동 품질은 기대하지 못한 기능으로 감동을 준다"
+     },
+     "shift": {
+      "name": "품질 유형의 이동",
+      "kind": "property",
+      "statement": "시간이 지나면 대체로 감동 품질은 성능 품질로, 성능 품질은 기본 품질로 옮겨 간다"
+     }
+    }
+   },
+   "svc": {
+    "name": "서비스 설계",
+    "facets": {
+     "std": {
+      "name": "접촉·변동과 표준화",
+      "kind": "relation",
+      "statement": "고객 접촉과 서비스 요구 변동이 적을수록 표준화 기회가 크다. 둘 다 크면 가장 맞춤화한다"
+     }
+    }
+   },
+   "cap": {
+    "name": "용량 계획",
+    "facets": {
+     "eff_util": {
+      "name": "효율과 가동률",
+      "kind": "distinction",
+      "statement": "효율 = 실제 산출 ÷ 유효 용량 × 100, 가동률 = 실제 산출 ÷ 설계 용량 × 100"
+     },
+     "effective": {
+      "name": "유효 용량",
+      "kind": "condition",
+      "statement": "유효 용량은 설계 용량에서 셋업·유지보수·휴식처럼 통제 가능한 여유를 뺀 것. 고장·결근은 실제 산출을 줄인다"
+     },
+     "strategy": {
+      "name": "선도·추종·추적 전략",
+      "kind": "distinction",
+      "statement": "선도 전략은 수요를 예상해 미리, 추종 전략은 수요가 용량을 넘은 뒤, 추적 전략은 작은 단위로 자주 용량을 늘린다"
+     },
+     "cushion": {
+      "name": "용량 여유분",
+      "kind": "def",
+      "statement": "용량 여유분은 수요 불확실성에 대비한 추가 용량으로 100% − 가동률이며 불확실성이 클수록 크게 둔다"
+     },
+     "machines": {
+      "name": "필요 기계 수",
+      "kind": "procedure",
+      "statement": "필요 기계 수 = 총 처리 시간 ÷ 기계 한 대의 가용 시간, 소수면 올림한다"
+     }
+    }
+   }
+  },
+  "misconceptions": {
+   "m_fb_ctrl": {
+    "facet": "om.fb_ctrl",
+    "belief": "통제(control)가 변환 과정 여러 지점에서 측정한 값 자체라고 생각함",
+    "truth": "측정은 피드백, 통제는 피드백을 기준과 비교해 시정 조치 여부를 판단하는 것"
+   },
+   "m_svc_like_goods": {
+    "facet": "om.goods_svc",
+    "belief": "서비스도 재화처럼 특허·재고가 가능하고 투입이 균일하다고 생각함",
+    "truth": "서비스는 대개 특허·재고가 불가능하고, 투입이 덜 균일하며 생산성 측정이 어렵다"
+   },
+   "m_random_fix": {
+    "facet": "variation.random_assign",
+    "belief": "무작위 변동도 원인을 찾아 시정하면 줄이거나 없앨 수 있다고 생각함",
+    "truth": "분석·시정으로 줄이는 것은 할당 가능 변동. 무작위 변동은 관리자가 대체로 줄일 수 없다"
+   },
+   "m_design_as_op": {
+    "facet": "decision.design_op",
+    "belief": "생산능력 계획·시설 입지를 시스템 운영 결정이라고 생각함",
+    "truth": "용량·입지·배치는 장기·전략적인 시스템 설계 결정이다"
+   },
+   "m_model_sure": {
+    "facet": "decision.model",
+    "belief": "모델을 쓰면 좋은 결정이 보장된다고 생각함",
+    "truth": "모델은 단순화라 잘못 적용될 수 있고 좋은 결정을 보장하지 않는다"
+   },
+   "m_compet_abs": {
+    "facet": "strategy.compet",
+    "belief": "경쟁력이 다른 기업과 무관한 절대적 척도라고 생각함",
+    "truth": "경쟁력은 늘 다른 조직에 견준 상대적인 것이다"
+   },
+   "m_swot_swap": {
+    "facet": "strategy.swot",
+    "belief": "SWOT에서 내부 요인과 외부 요인을 서로 바꿔 생각함",
+    "truth": "강점·약점은 내부(인적자원·설비·재무), 기회·위협은 외부(경제·법·경쟁·시장)다"
+   },
+   "m_qual_win_swap": {
+    "facet": "strategy.qual_win",
+    "belief": "주문 자격 요건과 주문 획득 요인의 정의를 서로 바꿔 생각함",
+    "truth": "자격 요건 = 후보가 될 최소 기준, 획득 요인 = 경쟁사보다 낫다고 보이게 하는 특성"
+   },
+   "m_qw_fixed": {
+    "facet": "strategy.qw_both",
+    "belief": "가격·납기·품질은 자격 요건과 획득 요인 중 한쪽으로 정해져 있다고 생각함",
+    "truth": "같은 속성이 상황에 따라 자격 요건도 획득 요인도 될 수 있다"
+   },
+   "m_prod_inputs": {
+    "facet": "productivity.calc",
+    "belief": "다요소 생산성과 총 생산성의 분모에 넣는 투입을 섞어 생각함",
+    "truth": "다요소는 지정한 투입(예: 노동+재료)만, 총 생산성은 에너지까지 모든 투입 비용을 넣는다"
+   },
+   "m_growth_base": {
+    "facet": "productivity.growth",
+    "belief": "생산성 증가율을 이번 기(현재) 값으로 나눈다고 생각함",
+    "truth": "증가율의 분모는 지난 기(이전) 값이다"
+   },
+   "m_eff_broader": {
+    "facet": "productivity.eff_vs_prod",
+    "belief": "효율이 생산성보다 넓은 개념이라고 생각함",
+    "truth": "효율이 더 좁다. 기계를 더 사는 것까지 포함하는 것은 생산성이다"
+   },
+   "m_svc_prod_easy": {
+    "facet": "productivity.service",
+    "belief": "서비스 생산성은 변동성이 낮아 측정하기 쉽다고 생각함",
+    "truth": "서비스는 지적 활동이 많고 변동성이 커서 생산성 측정이 어렵다"
+   },
+   "m_fc_individual": {
+    "facet": "fc.group",
+    "belief": "개별 품목 예측이 품목 그룹 예측보다 더 정확하다고 생각함",
+    "truth": "그룹 예측은 개별 오차가 상쇄되어 더 정확하다"
+   },
+   "m_qual_hard": {
+    "facet": "fc.qual_quant",
+    "belief": "정성적 예측도 과거 데이터 같은 hard data에 의존한다고 생각함",
+    "truth": "hard data는 정량적 예측, 정성적 예측은 의견·직관 같은 soft 정보를 쓴다"
+   },
+   "m_delphi_exec": {
+    "facet": "fc.qual_methods",
+    "belief": "델파이 기법이 빠르지만 한 사람 의견이 지배할 수 있다고 생각함",
+    "truth": "그건 경영진 의견법. 델파이는 익명 반복으로 지배 위험을 줄이지만 시간이 오래 걸린다"
+   },
+   "m_cycle_season": {
+    "facet": "ts.patterns",
+    "belief": "순환(cycle)이 달력·시간대와 관련된 1년 미만 변동이라고 생각함",
+    "truth": "그건 계절성. 순환은 1년 넘게 이어지는 파동이다"
+   },
+   "m_irreg_random": {
+    "facet": "ts.patterns",
+    "belief": "파업 같은 특수 상황에 의한 변동을 무작위 변동이라고 생각함",
+    "truth": "특수 상황에 의한 변동은 불규칙 변동, 무작위 변동은 나머지 잔여 변동이다"
+   },
+   "m_ma_forecast": {
+    "facet": "avg.ma",
+    "cw": "avg.es",
+    "belief": "이동평균이 이전 기간의 예측값도 평균에 넣는다고 생각함",
+    "truth": "이동평균은 실제값만 쓴다. 이전 예측값을 쓰는 것은 지수평활이다"
+   },
+   "m_ma_window": {
+    "facet": "avg.ma",
+    "belief": "n기간 이동평균에 n개보다 오래된 실제값까지 넣는다고 생각함",
+    "truth": "가장 최근 n개만 평균하고 가장 오래된 값은 빠진다"
+   },
+   "m_wma_order": {
+    "facet": "avg.wma",
+    "belief": "가장 큰 가중치를 가장 오래된 값에 준다고 생각함",
+    "truth": "가장 큰 가중치는 가장 최근 값에 준다"
+   },
+   "m_es_swap": {
+    "facet": "avg.es",
+    "belief": "지수평활에서 α를 실제값이 아니라 이전 예측값에 곱한다고 생각함",
+    "truth": "F = F + α(A − F) = αA + (1 − α)F. α는 실제값(오차)에 곱한다"
+   },
+   "m_mse_n": {
+    "facet": "acc.measures",
+    "belief": "MSE도 MAD처럼 n으로 나눈다고 생각함",
+    "truth": "이 강의는 MSE를 n − 1로 나눈다. MAD·MAPE는 n"
+   },
+   "m_mse_even": {
+    "facet": "acc.weighting",
+    "belief": "MSE도 MAD처럼 모든 오차에 같은 무게를 준다고 생각함",
+    "truth": "MSE는 오차를 제곱해 큰 오차에 더 큰 무게를 준다. 그래서 MAD가 같아도 MSE는 다를 수 있다"
+   },
+   "m_ts_sign": {
+    "facet": "acc.ts_read",
+    "belief": "추적 신호가 양수로 커지면 예측이 실제보다 크다(과대예측)고 생각함",
+    "truth": "추적 신호 = Σ(A − F) ÷ MAD. 양수면 실제가 예측보다 커서 과소예측이다"
+   },
+   "m_basic_applied": {
+    "facet": "rd.types",
+    "belief": "기초연구가 단기 상업적 응용을 목표로 한다고 생각함",
+    "truth": "상업적 응용은 응용연구, 기초연구는 단기 상업 기대 없이 지식을 넓힌다"
+   },
+   "m_dfd_as_dfa": {
+    "facet": "dfx.dfd",
+    "cw": "dfx.dfa",
+    "belief": "분해 용이 설계(DFD)가 부품 수를 줄이고 조립을 쉽게 하는 설계라고 생각함",
+    "truth": "그건 DFA. DFD는 쓴 제품을 쉽게 분해하게 하는 재제조용 설계다"
+   },
+   "m_std_variety": {
+    "facet": "design.std",
+    "belief": "표준화가 다양성을 늘려 소비자 매력을 높인다고 생각함",
+    "truth": "표준화는 다양성이 없는 것이라 소비자 매력이 줄어든다"
+   },
+   "m_kano_static": {
+    "facet": "kano.shift",
+    "belief": "카노 품질 유형은 한번 정해지면 시간이 지나도 그대로라고 생각함",
+    "truth": "시간이 지나면 감동 → 성능 → 기본 품질로 옮겨 간다"
+   },
+   "m_svc_contact_rev": {
+    "facet": "svc.std",
+    "belief": "고객 접촉·요구 변동이 적은 서비스일수록 맞춤화해야 한다고 생각함",
+    "truth": "접촉·변동이 적을수록 표준화 기회가 크다. 둘 다 크면 가장 맞춤화"
+   },
+   "m_eff_util_swap": {
+    "facet": "cap.eff_util",
+    "belief": "효율과 가동률의 분모(유효 용량·설계 용량)를 서로 바꿔 생각함",
+    "truth": "효율은 유효 용량으로, 가동률은 설계 용량으로 나눈다"
+   },
+   "m_lag_lead": {
+    "facet": "cap.strategy",
+    "belief": "추종(lag) 전략이 수요 증가를 예상해 미리 용량을 늘리는 전략이라고 생각함",
+    "truth": "미리 늘리는 것은 선도 전략, 추종 전략은 수요가 용량을 넘은 뒤 늘린다"
+   },
+   "m_machine_round": {
+    "facet": "cap.machines",
+    "belief": "필요 기계 수를 소수 그대로나 내림으로 답해도 된다고 생각함",
+    "truth": "기계는 나눌 수 없으므로 필요 대수는 올림한다"
+   },
+   "m_exec_anon": {
+    "facet": "fc.qual_methods",
+    "belief": "경영진 의견법이 익명 설문으로 한 사람의 지배를 막는다고 생각함",
+    "truth": "그건 델파이법. 경영진 의견법은 빠르지만 한 사람 의견이 우세해질 수 있다"
+   },
+   "m_ts_zero_noerr": {
+    "facet": "acc.ts_read",
+    "belief": "추적 신호가 0에 가까우면 예측 오차가 작다고 생각함",
+    "truth": "추적 신호는 편향만 본다. +·− 오차가 상쇄돼도 오차 크기(MAD)는 클 수 있다"
+   }
+  }
+ },
+ "chapters": [
+  {
+   "key": "C1",
+   "title": "Ch1 · Introduction to P&OM (Lecture 02)",
+   "short": "Ch1",
+   "group": ""
+  },
+  {
+   "key": "C2",
+   "title": "Ch2 · Competitiveness, Strategy & Productivity (Lecture 03)",
+   "short": "Ch2",
+   "group": ""
+  },
+  {
+   "key": "C3",
+   "title": "Ch3 · Forecasting (Lecture 04)",
+   "short": "Ch3",
+   "group": ""
+  },
+  {
+   "key": "C4",
+   "title": "Ch4 · Product & Service Design (Lecture 05)",
+   "short": "Ch4",
+   "group": ""
+  },
+  {
+   "key": "MOCK",
+   "title": "모의고사 · 중간고사 대비 30문항 (L01~L06)",
+   "short": "모의고사",
+   "group": "모의고사 · 계산"
+  },
+  {
+   "key": "CALC",
+   "title": "공식 계산 · 생산성 · 예측 · 용량 24문항",
+   "short": "공식 계산",
+   "group": "모의고사 · 계산"
+  }
+ ],
+ "problems": [
+  {
+   "ext_id": "1-1",
+   "dx": {
+    "facet": "om.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "1-1",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "Operations management is the management of systems or processes that create goods and/or provide services.",
+   "ox": true,
+   "s": "<p>슬라이드 정의 그대로입니다. <b>Operations</b> = the part of a business organization that is responsible for producing goods or services.</p>",
+   "src": [
+    [
+     "L2",
+     "5"
+    ]
+   ],
+   "q_sub": "운영관리는 재화를 만들고/만들거나 서비스를 제공하는 시스템·프로세스의 관리이다."
+  },
+  {
+   "ext_id": "1-2",
+   "dx": {
+    "facet": "om.fb_ctrl",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "fb_ctrl",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "통제 이름에 피드백의 정의"
+    ],
+    "mis": "m_fb_ctrl"
+   },
+   "no": "1-2",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "Control is defined as measurements taken at various points in the transformation process.",
+   "ox": false,
+   "s": "<p>그건 <b>Feedback</b>의 정의입니다. <b>Control</b> = the <b>comparison of feedback against previously established standards</b> to determine if corrective action is needed. 예) 웨이퍼 팹은 매 공정 후 선폭(line width)을 재고(feedback), 규격과 비교해 다음 공정을 재설정합니다(control).</p>",
+   "src": [
+    [
+     "L2",
+     "6"
+    ],
+    [
+     "L2",
+     "7"
+    ]
+   ],
+   "fix": "Feedback의 정의",
+   "q_sub": "통제(control)는 변환 과정의 여러 지점에서 측정한 값이다."
+  },
+  {
+   "ext_id": "1-3",
+   "dx": {
+    "facet": "om.goods_svc",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_svc_like_goods"
+   },
+   "no": "1-3",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "Compared with goods, services have high customer contact and are usually patentable.",
+   "ox": false,
+   "s": "<p>서비스는 고객 접촉이 많다(High)는 건 맞지만, <b>Patentable: Not usually</b>입니다. Goods vs Services 표: Output tangible/intangible, Customer contact low/high, Labor content low/high, Uniformity of input high/low, Productivity measurement easy/difficult, Quality assurance high/low, Inventory much/little, Wages narrow/wide, Patentable usually/not usually.</p>",
+   "src": [
+    [
+     "L2",
+     "9"
+    ]
+   ],
+   "fix": "서비스는 대개 특허 불가",
+   "q_sub": "재화와 비교할 때 서비스는 고객 접촉이 많고 대개 특허를 받을 수 있다."
+  },
+  {
+   "ext_id": "1-4",
+   "dx": {
+    "facet": "om.sc_flow",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "1-4",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "In a supply chain, goods and services flow toward final customers, while orders, information and payment flow in the opposite direction.",
+   "ox": true,
+   "s": "<p>두 흐름이 맞지 않으면 재고 수준이 출렁이기 시작합니다. 5단계: Suppliers' suppliers → Direct suppliers → Producer → Distributor → Final customers.</p>",
+   "src": [
+    [
+     "L2",
+     "11"
+    ]
+   ],
+   "q_sub": "공급사슬에서 재화·서비스는 최종 고객 쪽으로, 주문·정보·대금은 반대 방향으로 흐른다."
+  },
+  {
+   "ext_id": "1-5",
+   "dx": {
+    "facet": "variation.random_assign",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "random_assign",
+    "role": "base",
+    "principle": "관리자가 줄일 수 있는 변동은 할당 가능 변동뿐이다",
+    "mis": "m_random_fix"
+   },
+   "no": "1-5",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "Random variation can generally be reduced or eliminated by analysis and corrective action.",
+   "ox": false,
+   "s": "<p>그건 <b>Assignable variation</b>(원인이 식별 가능한 변동)입니다. Random variation은 모든 프로세스에 있는 자연적 변동으로 <b>generally cannot be influenced by managers</b>.</p>",
+   "src": [
+    [
+     "L2",
+     "22"
+    ]
+   ],
+   "fix": "Assignable variation에 대한 설명",
+   "q_sub": "무작위 변동은 분석과 시정 조치로 대체로 줄이거나 없앨 수 있다."
+  },
+  {
+   "ext_id": "1-6",
+   "dx": {
+    "facet": "decision.design_op",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_design_as_op"
+   },
+   "no": "1-6",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "Capacity planning and facility location are system operation decisions.",
+   "ox": false,
+   "s": "<p><b>System design</b> 결정입니다(전략적, 자원의 장기 투입, 시스템 운영의 파라미터를 정함): capacity planning, facility location, facility layout, product and service planning, acquisition and placement of equipment. System operation 결정(전술·운영적): personnel, inventory, scheduling, project management, quality assurance.</p>",
+   "src": [
+    [
+     "L2",
+     "26"
+    ],
+    [
+     "L2",
+     "27"
+    ]
+   ],
+   "fix": "System design decisions",
+   "q_sub": "생산능력 계획과 시설 입지는 시스템 운영 결정이다."
+  },
+  {
+   "ext_id": "1-7",
+   "dx": {
+    "facet": "decision.time",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "1-7",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "Operations managers spend more time on system operation decisions than on any other decision area.",
+   "ox": true,
+   "s": "<p>슬라이드 p.27 하단 문장 그대로입니다.</p>",
+   "src": [
+    [
+     "L2",
+     "27"
+    ]
+   ],
+   "q_sub": "운영관리자는 다른 어떤 결정 영역보다 시스템 운영 결정에 더 많은 시간을 쓴다."
+  },
+  {
+   "ext_id": "1-8",
+   "dx": {
+    "facet": "decision.model",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_model_sure"
+   },
+   "no": "1-8",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "Using a model guarantees a good decision because models are simplifications of reality.",
+   "ox": false,
+   "s": "<p>Model limitations: quantitative information may be emphasized at the expense of qualitative information / models may be incorrectly applied / <b>the use of models does not guarantee good decisions</b>.</p>",
+   "src": [
+    [
+     "L2",
+     "32"
+    ]
+   ],
+   "q_sub": "모델은 현실을 단순화한 것이므로 모델을 쓰면 좋은 결정이 보장된다."
+  },
+  {
+   "ext_id": "1-9",
+   "dx": {
+    "facet": "decision.systems",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "1-9",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "The systems approach emphasizes that the output and objectives of the organization take precedence over those of any one subsystem.",
+   "ox": true,
+   "s": "<p>'The whole is greater than the sum of its parts.' 예) 대량 구매는 단가를 낮추지만 재고 비용을 올린다 → 조직 전체 관점에서 판단.</p>",
+   "src": [
+    [
+     "L2",
+     "35"
+    ]
+   ],
+   "q_sub": "시스템 접근법은 조직 전체의 산출·목표가 어느 한 하위시스템의 목표보다 우선한다고 본다."
+  },
+  {
+   "ext_id": "1-10",
+   "dx": {
+    "facet": "om.fb_ctrl",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "fb_ctrl",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "O/X 진술 → 용어 쓰기"
+    ],
+    "mis": [
+     {
+      "pattern": "피드백과 혼동",
+      "ex": [
+       "Feedback"
+      ],
+      "m": "m_fb_ctrl"
+     }
+    ]
+   },
+   "no": "1-10",
+   "chapter": "C1",
+   "kind": "short",
+   "star": true,
+   "q": "What is the term for 'the comparison of feedback against previously established standards to determine if corrective action is needed'?",
+   "a": "Control",
+   "accept": [
+    "control"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>Feedback(측정)과 짝으로 외우세요.</p>",
+   "src": [
+    [
+     "L2",
+     "6"
+    ]
+   ],
+   "q_sub": "'피드백을 기존 기준과 비교해 시정 조치가 필요한지 판단하는 것'을 뭐라고 하나? (영어)"
+  },
+  {
+   "ext_id": "1-11",
+   "dx": {
+    "facet": "variation.sources",
+    "depth": 1,
+    "depth_why": "D1c"
+   },
+   "no": "1-11",
+   "chapter": "C1",
+   "kind": "short",
+   "star": true,
+   "q": "Name the four sources of variation in operations.",
+   "a": "① Variety of goods or services being offered ② Structural variation in demand ③ Random variation ④ Assignable variation",
+   "strict": false,
+   "s": "<p>Structural variation은 대체로 예측 가능하며 capacity planning에 중요합니다. 관리자가 줄일 수 있는 것은 assignable.</p>",
+   "src": [
+    [
+     "L2",
+     "22"
+    ]
+   ],
+   "q_sub": "운영에서 변동의 네 가지 원천을 쓰시오."
+  },
+  {
+   "ext_id": "1-12",
+   "dx": {
+    "facet": "decision.design_op",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": [
+     "m_design_as_op",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "1-12",
+   "chapter": "C1",
+   "kind": "essay",
+   "star": true,
+   "q": "Compare system design decisions and system operation decisions. Give two examples of each.",
+   "a": "<b>System design decisions</b>는 전략적(strategic) 결정으로, 자원의 장기적 투입(long-term commitment of resources)이 필요하고 시스템 운영의 파라미터를 결정한다. 예: capacity planning, facility location(울산 vs 경기: 운송 거리와 지역 임금이 다름), facility layout, product and service planning, acquisition and placement of equipment. <b>System operation decisions</b>는 전술적·운영적(tactical and operational) 결정이다. 예: management of personnel, inventory management and control, production scheduling, project management, quality assurance. 운영관리자는 운영 결정에 가장 많은 시간을 쓴다.",
+   "pts": [
+    "Design = strategic, long-term commitment, sets parameters",
+    "Operation = tactical/operational",
+    "각 예시 2개 이상(영어 용어)",
+    "관리자가 운영 결정에 시간을 더 씀"
+   ],
+   "src": [
+    [
+     "L2",
+     "25"
+    ],
+    [
+     "L2",
+     "26"
+    ],
+    [
+     "L2",
+     "27"
+    ]
+   ],
+   "q_sub": "시스템 설계 결정과 시스템 운영 결정을 비교하고 각각 예를 두 개씩 드시오."
+  },
+  {
+   "ext_id": "V-006",
+   "no": "V-006",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "시설 입지·배치와 생산능력 계획은 장기적인 자원 투입이 따르는 전략적 결정이며, 시스템 설계 결정에 속한다.",
+   "ox": true,
+   "s": "<p>시스템 설계 결정: 생산능력 계획, 시설 입지, 시설 배치, 제품·서비스 계획, 설비의 구입과 배치. 이들은 전략적이고 장기 투입이 필요하며 시스템 운영의 모수를 정합니다. 인력 관리, 재고 관리·통제, 생산 일정, 프로젝트 관리, 품질 보증은 시스템 <b>운영</b> 결정입니다.</p>",
+   "src": [
+    [
+     "L2",
+     "25"
+    ],
+    [
+     "L2",
+     "26"
+    ],
+    [
+     "L2",
+     "27"
+    ]
+   ],
+   "dx": {
+    "facet": "decision.design_op",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "design_op",
+    "role": "base",
+    "principle": "용량·입지·배치·제품 계획·설비는 설계 결정, 인력·재고·일정은 운영 결정",
+    "mis": {
+     "mr": "m_design_as_op"
+    },
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L2 p26: capacity planning and facility location/layout are strategic, long-term commitment, system design decisions",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-007",
+   "no": "V-007",
+   "chapter": "C1",
+   "kind": "mc",
+   "star": false,
+   "q": "다음 중 시스템 <b>운영</b> 결정으로만 짝지은 것은?",
+   "opts": [
+    "생산능력 계획, 인력 관리, 재고 관리와 통제",
+    "시설 입지, 품질 보증, 프로젝트 관리",
+    "인력 관리, 재고 관리와 통제, 생산 일정",
+    "설비의 구입과 배치, 생산 일정, 품질 보증"
+   ],
+   "ans": 2,
+   "a": "인력 관리, 재고 관리와 통제, 생산 일정",
+   "why": [
+    "생산능력 계획을 시스템 운영 결정이라고 생각함",
+    "시설 입지를 시스템 운영 결정이라고 생각함",
+    "",
+    "설비 구입·배치를 시스템 운영 결정이라고 생각함"
+   ],
+   "s": "<p>운영 결정(전술·운영 수준): 인력 관리, 재고 관리와 통제, 생산 일정, 프로젝트 관리, 품질 보증. 생산능력 계획·시설 입지·설비 구입과 배치는 모두 설계 결정입니다.</p><p>함정: 운영 관리자가 일상적으로 다루는 말들(용량, 설비)이 섞여 있어 어느 쪽인지 헷갈립니다.</p>",
+   "src": [
+    [
+     "L2",
+     "26"
+    ],
+    [
+     "L2",
+     "27"
+    ]
+   ],
+   "dx": {
+    "facet": "decision.design_op",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "design_op",
+    "role": "near",
+    "mis": [
+     "m_design_as_op",
+     "m_design_as_op",
+     "",
+     "m_design_as_op"
+    ],
+    "delta": [
+     "neighbour",
+     "운영 결정 항목에 설계 결정을 섞음"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "L2 p27: operation decisions = personnel, inventory management/control, scheduling, project mgmt, quality assurance; othe",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-008",
+   "no": "V-008",
+   "chapter": "C1",
+   "kind": "mc",
+   "star": false,
+   "q": "한 회사가 새 공장을 어느 지역에 지을지 정했다(가). 그 공장이 가동된 뒤 다음 달 근무 일정을 짰다(나). (가)와 (나)를 시스템 설계 결정과 시스템 운영 결정으로 옳게 분류한 것은?",
+   "opts": [
+    "(가) 운영 결정, (나) 설계 결정",
+    "(가) 설계 결정, (나) 설계 결정",
+    "(가) 운영 결정, (나) 운영 결정",
+    "(가) 설계 결정, (나) 운영 결정"
+   ],
+   "ans": 3,
+   "a": "(가) 설계 결정, (나) 운영 결정",
+   "why": [
+    "공장 부지 선정을 시스템 운영 결정이라고 생각함",
+    "일정 짜기도 장기 전략 결정이라고 생각함",
+    "시설 입지를 일상 운영 결정이라고 생각함",
+    ""
+   ],
+   "s": "<p>(가) 시설 입지는 장기 투입이 따르는 전략적 <b>설계</b> 결정입니다. (나) 근무 일정은 인력 관리·생산 일정에 해당하는 <b>운영</b> 결정입니다. 같은 공장 이야기라도 시점과 성격이 다른 두 결정이 한 문장에 섞여 나옵니다.</p>",
+   "src": [
+    [
+     "L2",
+     "25"
+    ],
+    [
+     "L2",
+     "26"
+    ],
+    [
+     "L2",
+     "27"
+    ]
+   ],
+   "dx": {
+    "facet": "decision.design_op",
+    "depth": 4,
+    "depth_why": "D4a",
+    "family": "design_op",
+    "role": "near",
+    "mis": [
+     "m_design_as_op",
+     null,
+     "m_design_as_op",
+     ""
+    ],
+    "delta": [
+     "object",
+     "새 공장 부지·근무 일정 사례"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "L2 p26-27: facility location is design; work scheduling is operation decision",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-009",
+   "no": "V-009",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "제품·서비스 계획과 설비의 구입·배치도 시스템 설계 결정에 속한다.",
+   "ox": true,
+   "s": "<p>설계 결정의 목록: 생산능력 계획, 시설 입지, 시설 배치, 제품·서비스 계획, 설비의 구입과 배치.</p>",
+   "src": [
+    [
+     "L2",
+     "26"
+    ]
+   ],
+   "dx": {
+    "facet": "decision.design_op",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "design_op",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "예시 항목만 다름"
+    ],
+    "mis": {
+     "mr": "m_design_as_op"
+    },
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L2 p26: product and service planning, acquisition and placement of equipment are listed under system design",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "1-13",
+   "dx": {
+    "facet": "om.sd_match",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "1-13",
+   "chapter": "C1",
+   "kind": "essay",
+   "star": false,
+   "q": "Using the Honey Butter Chip case, explain what happens when supply does not match demand.",
+   "a": "Supply &gt; Demand이면 <b>wasteful / costly</b>(낭비, 재고 비용), Supply &lt; Demand이면 <b>opportunity loss / customer dissatisfaction</b>, Supply = Demand가 <b>ideal</b>이다. 허니버터칩은 수요가 예측의 10배여서 몇 달간 배급(rationing)해야 했고(Supply &lt; Demand → 기회손실·고객 불만), 2015년 4월 공장 증설을 결정해 공급을 2배로 늘렸다. 따라서 수요 예측(Ch3)과 생산능력 계획이 공급–수요 균형의 핵심이다.",
+   "pts": [
+    "세 경우(>,<,=)와 결과",
+    "허니버터칩: 수요 10배, 배급, 증설로 공급 2배",
+    "예측·생산능력 계획의 중요성"
+   ],
+   "src": [
+    [
+     "L2",
+     "20"
+    ],
+    [
+     "L2",
+     "21"
+    ]
+   ],
+   "q_sub": "허니버터칩 사례로 공급과 수요가 맞지 않을 때 생기는 일을 설명하시오."
+  },
+  {
+   "ext_id": "2-1",
+   "dx": {
+    "facet": "strategy.compet",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_compet_abs"
+   },
+   "no": "2-1",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "Competitiveness is an absolute measure of a firm's performance that does not depend on other firms.",
+   "ox": false,
+   "s": "<p>Competitiveness is <b>always relative</b>: how effectively an organization meets the wants and needs of customers <b>relative to others</b> that offer similar goods or services.</p>",
+   "src": [
+    [
+     "L3",
+     "6"
+    ]
+   ],
+   "fix": "relative (상대적)",
+   "q_sub": "경쟁력은 다른 기업과 무관한 절대적 척도이다."
+  },
+  {
+   "ext_id": "2-2",
+   "dx": {
+    "facet": "strategy.tactics",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "tactics",
+    "role": "base",
+    "principle": "전술은 전략을 달성하는 구체적 방법·행동이다"
+   },
+   "no": "2-2",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "Tactics are the methods and actions taken to accomplish strategies; they are the 'how to' part of the process.",
+   "ox": true,
+   "s": "<p>Tactics는 strategy보다 구체적이고 실제 operations에 방향을 줍니다. Operations = the actual 'doing' part. 학생 예: Strategy(대학 교육) → Tactics(대학·전공 선택, 학비 마련) → Operations(등록, 책 구입, 수강, 공부).</p>",
+   "src": [
+    [
+     "L3",
+     "17"
+    ],
+    [
+     "L3",
+     "18"
+    ]
+   ],
+   "q_sub": "전술은 전략을 달성하기 위한 방법과 행동이며, 과정의 '어떻게(how to)' 부분이다."
+  },
+  {
+   "ext_id": "2-3",
+   "dx": {
+    "facet": "strategy.swot",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "swot",
+    "role": "base",
+    "principle": "S/W는 내부, O/T는 외부 요인이다",
+    "mis": "m_swot_swap"
+   },
+   "no": "2-3",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "In SWOT analysis, opportunities and threats are analyzed from internal factors such as human resources and facilities.",
+   "ox": false,
+   "s": "<p><b>Strengths/Weaknesses = internal factors</b>(human resources, facilities, financial resources, technology, suppliers…). <b>Opportunities/Threats = external factors</b>(economic, political, legal, technology, competition, markets).</p>",
+   "src": [
+    [
+     "L3",
+     "21"
+    ]
+   ],
+   "fix": "O/T는 외부 요인",
+   "q_sub": "SWOT에서 기회와 위협은 인적자원·설비 같은 내부 요인에서 분석한다."
+  },
+  {
+   "ext_id": "2-4",
+   "dx": {
+    "facet": "strategy.qual_win",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "qual_win",
+    "role": "base",
+    "principle": "자격 요건은 최소 기준, 획득 요인은 경쟁 우위 특성이다",
+    "mis": "m_qual_win_swap"
+   },
+   "no": "2-4",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "Order qualifiers are characteristics that cause a firm's goods or services to be perceived as better than the competition.",
+   "ox": false,
+   "s": "<p>그건 <b>Order winners</b>입니다. Order qualifiers = characteristics customers perceive as <b>minimum standards of acceptability</b> to be considered for purchase. \"Qualify first, then win the order.\"</p>",
+   "src": [
+    [
+     "L3",
+     "23"
+    ]
+   ],
+   "fix": "Order winners의 정의",
+   "q_sub": "주문 자격 요건(order qualifiers)은 경쟁사보다 낫다고 인식되게 만드는 특성이다."
+  },
+  {
+   "ext_id": "2-5",
+   "dx": {
+    "facet": "strategy.qw_both",
+    "depth": 1,
+    "depth_why": "D1a",
+    "mis": {
+     "mr": "m_qw_fixed"
+    }
+   },
+   "no": "2-5",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "Price, delivery reliability/speed and quality can be either order qualifiers or order winners.",
+   "ox": true,
+   "s": "<p>슬라이드 p.23 하단 문장 그대로입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "23"
+    ]
+   ],
+   "q_sub": "가격, 납기 신뢰성/속도, 품질은 주문 자격 요건도 주문 획득 요인도 될 수 있다."
+  },
+  {
+   "ext_id": "2-6",
+   "dx": {
+    "facet": "productivity.units",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "2-6",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "In a productivity measure, the unit of measure must be the same for all factors in the denominator.",
+   "ox": true,
+   "s": "<p>그래서 multifactor·total measures는 노동·재료·에너지를 모두 <b>비용($)</b>으로 바꿔 더합니다.</p>",
+   "src": [
+    [
+     "L3",
+     "37"
+    ]
+   ],
+   "q_sub": "생산성 척도에서 분모의 모든 요소는 같은 단위여야 한다."
+  },
+  {
+   "ext_id": "2-7",
+   "dx": {
+    "facet": "productivity.eff_vs_prod",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_eff_broader"
+   },
+   "no": "2-7",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "Efficiency is a broader concept than productivity, because it includes the possibility of buying more machines.",
+   "ox": false,
+   "s": "<p>반대입니다. <b>Efficiency = narrower</b>(주어진 고정 자원에서 최대 산출: 기계 일정, 최적 세팅). <b>Productivity = broader</b>(전체 자원의 효과적 사용: 기계를 더 사는 것까지 포함).</p>",
+   "src": [
+    [
+     "L3",
+     "43"
+    ]
+   ],
+   "fix": "Efficiency가 더 좁은 개념",
+   "q_sub": "효율은 기계를 더 사는 가능성까지 포함하므로 생산성보다 넓은 개념이다."
+  },
+  {
+   "ext_id": "2-8",
+   "dx": {
+    "facet": "productivity.service",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_svc_prod_easy"
+   },
+   "no": "2-8",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "Service sector productivity is easy to measure because services have a low degree of variability.",
+   "ox": false,
+   "s": "<p>서비스 생산성은 <b>difficult</b> to measure and manage: ① intellectual activities ② <b>high degree of variability</b>. 서비스의 공정 수율 예: 대여된 차량 ÷ 보유 차량.</p>",
+   "src": [
+    [
+     "L3",
+     "40"
+    ]
+   ],
+   "q_sub": "서비스 부문 생산성은 변동성이 낮아 측정하기 쉽다."
+  },
+  {
+   "ext_id": "2-9",
+   "dx": {
+    "facet": "strategy.agile",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "2-9",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "Agile operations emphasizes the use of flexibility to adapt and prosper in an environment of change.",
+   "ox": true,
+   "s": "<p>Agile operations blends several core competencies: cost, quality, reliability, flexibility. 사례: 2021 반도체 부족 때 현대차.</p>",
+   "src": [
+    [
+     "L3",
+     "32"
+    ],
+    [
+     "L3",
+     "33"
+    ]
+   ],
+   "q_sub": "민첩한 운영은 변화하는 환경에서 적응하고 번창하기 위해 유연성을 강조한다."
+  },
+  {
+   "ext_id": "2-10",
+   "dx": {
+    "facet": "strategy.core",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "core",
+    "role": "base",
+    "principle": "핵심 역량 = 조직에 경쟁 우위를 주는 특별한 속성·능력"
+   },
+   "no": "2-10",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "What is 'the special attributes or abilities that give an organization a competitive edge'?",
+   "a": "Core competencies",
+   "accept": [
+    "core competencies",
+    "core competency",
+    "core competence"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>조직은 대체로 자신의 core competencies를 기반으로 전략을 세웁니다. 예: 현대차의 R&amp;D.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L3",
+     "20"
+    ]
+   ],
+   "q_sub": "'조직에 경쟁 우위를 주는 특별한 속성이나 능력'을 뭐라고 하나? (영어)"
+  },
+  {
+   "ext_id": "V-013",
+   "no": "V-013",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": false,
+   "q": "다음 중 <b>핵심 역량(core competency)</b>을 설명한 것은?",
+   "opts": [
+    "조직 외부의 사건과 추세를 감시해 위협과 기회를 찾는 활동",
+    "강점·약점·기회·위협을 내부와 외부로 나누어 정리하는 분석",
+    "조직에 경쟁 우위를 주는 특별한 속성이나 능력",
+    "조직이 이르려는 구체적인 성과 수준"
+   ],
+   "ans": 2,
+   "a": "조직에 경쟁 우위를 주는 특별한 속성이나 능력",
+   "why": [
+    "핵심 역량이 외부 환경을 감시하는 활동(환경 탐색)이라고 생각함",
+    "핵심 역량이 SWOT 분석이라고 생각함",
+    "",
+    "핵심 역량이 조직의 목표 수준이라고 생각함"
+   ],
+   "s": "<p>핵심 역량 = 조직에 경쟁 우위를 주는 특별한 속성이나 능력(조직 <b>내부</b>의 것). 환경 탐색은 외부의 사건·추세를 감시하는 활동이고, SWOT 분석이 그 일반적인 방법입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L3",
+     "20"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.core",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "core",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "핵심 역량 ↔ 환경 탐색·SWOT"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "L3 p16/p20: core competencies = special attributes or abilities that give an organization a competitive edge",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-014",
+   "no": "V-014",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "경쟁 우위를 주는지와는 관계없이, 조직이 잘하는 일이라면 무엇이든 그 조직의 핵심 역량이다.",
+   "ox": false,
+   "s": "<p>핵심 역량은 잘하는 일 가운데서도 <b>경쟁 우위(competitive edge)</b>를 주는 특별한 속성이나 능력만을 가리킵니다. 경쟁사도 똑같이 잘하는 일은 우위를 주지 못하므로 핵심 역량이 아닙니다.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L3",
+     "20"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.core",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "core",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'무엇이든 잘하면'"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L3 p16/p20: core competencies are the special attributes/abilities that give an organization a competitive edge; being m",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "경쟁 우위를 주는 특별한 능력만 핵심 역량",
+   "publish": false
+  },
+  {
+   "ext_id": "V-015",
+   "no": "V-015",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": false,
+   "q": "한 제과점은 경쟁 제과점들이 흉내 내지 못하는 반죽 숙성 기술 덕분에 단골이 많다. 이 제과점이 신메뉴 전략을 세울 때 바탕으로 삼기에 가장 적절한 것은?",
+   "opts": [
+    "경쟁 제과점들이 모두 팔고 있는 메뉴",
+    "가게 외부의 유행 정보만을 모아 가장 많이 검색된 메뉴",
+    "원가가 가장 낮은 재료로 만들 수 있는 메뉴",
+    "경쟁 우위를 주는 반죽 숙성 기술을 살릴 수 있는 메뉴"
+   ],
+   "ans": 3,
+   "a": "경쟁 우위를 주는 반죽 숙성 기술을 살릴 수 있는 메뉴",
+   "why": [
+    "경쟁사와 같은 것을 따라 하는 것이 전략의 바탕이라고 생각함",
+    "내부 능력과 무관하게 외부 유행만 따르면 된다고 생각함",
+    "경쟁 우위가 늘 가장 낮은 원가에서 나온다고 생각함",
+    ""
+   ],
+   "s": "<p>조직은 대체로 자신의 핵심 역량(경쟁 우위를 주는 특별한 능력)을 기반으로 전략을 세웁니다. 이 제과점의 핵심 역량은 반죽 숙성 기술입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L3",
+     "20"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.core",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "core",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ],
+    "delta": [
+     "object",
+     "현대차 R&D → 제과점 숙성 기술"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "L3 p16/p20: strategy is set around the organization's own core competencies",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-016",
+   "no": "V-016",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "조직에 경쟁 우위를 주는 특별한 속성이나 능력을 무엇이라 하는가?",
+   "a": "핵심 역량 (core competency)",
+   "strict": false,
+   "s": "<p>조직은 대체로 자신의 핵심 역량을 기반으로 전략을 세웁니다.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L3",
+     "20"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.core",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "core",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "영어 정의 → 한국어 정의"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "핵심 역량 (core competency)",
+     "note": "L3 p16: special attributes or abilities giving a competitive edge",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "accept": [
+    "핵심 역량",
+    "핵심역량",
+    "core competency",
+    "core competencies",
+    "core competence"
+   ],
+   "publish": false
+  },
+  {
+   "ext_id": "V-017",
+   "no": "V-017",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "효과적인 전략을 세우려면 조직 내부의 핵심 역량을 아는 것과, 외부의 사건·추세를 감시하는 환경 탐색(environmental scanning)을 함께 고려해야 한다.",
+   "ox": true,
+   "s": "<p>전략 수립은 두 가지를 함께 봅니다: 핵심 역량(내가 잘하는 것, 내부)과 환경 탐색(위협과 기회를 가져오는 외부의 사건·추세). SWOT 분석이 환경 탐색의 일반적 방법입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "20"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.core",
+    "depth": 4,
+    "depth_why": "D4d",
+    "family": "core",
+    "role": "near",
+    "delta": [
+     "combine",
+     "핵심 역량 + 환경 탐색"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L3 p20: strategy formulation takes into account core competencies and environmental scanning",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "2-11",
+   "dx": {
+    "facet": "strategy.mission",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "mission",
+    "role": "base",
+    "principle": "사명은 '우리는 어떤 사업을 하는가'에 답한다"
+   },
+   "no": "2-11",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "What answers the question 'What business are we in?' and states the reason for an organization's existence?",
+   "a": "Mission",
+   "accept": [
+    "mission",
+    "mission statement"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>Hierarchy: Mission → Goals → Strategies (organizational → functional) → Tactics → Operations.</p>",
+   "src": [
+    [
+     "L3",
+     "12"
+    ]
+   ],
+   "q_sub": "'우리는 어떤 사업을 하는가?'에 답하고 조직의 존재 이유를 나타내는 것은? (영어)"
+  },
+  {
+   "ext_id": "V-010",
+   "no": "V-010",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": false,
+   "q": "계층적 계획(사명 → 목표 → 전략 → 전술 → 운영)에서 <b>사명(mission)</b>에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "조직이 어떤 사업을 하는지 밝히며 조직의 존재 이유를 나타낸다",
+    "전략을 달성하기 위해 쓰는 구체적인 방법과 행동이다",
+    "조직 목표를 달성하기 위한 계획이다",
+    "프로세스에서 실제로 실행하는 부분이다"
+   ],
+   "ans": 0,
+   "a": "조직이 어떤 사업을 하는지 밝히며 조직의 존재 이유를 나타낸다",
+   "why": [
+    "",
+    "사명이 전략을 이루는 방법·행동(전술)이라고 생각함",
+    "사명이 목표 달성 계획(전략)이라고 생각함",
+    "사명이 프로세스의 실제 실행(운영)이라고 생각함"
+   ],
+   "s": "<p>사명 = 조직의 존재 이유, '우리는 어떤 사업을 하는가'에 대한 답. 전략 = 조직 목표를 달성하기 위한 계획, 전술 = 전략을 달성하기 위한 방법과 행동, 운영 = 실제 실행입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ],
+    [
+     "L3",
+     "12"
+    ],
+    [
+     "RV",
+     "10"
+    ],
+    [
+     "RV",
+     "11"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.mission",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "mission",
+    "role": "near",
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "사명 정의에 이웃 계층의 정의"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L3 p12: mission = reason for existence, answers 'What business are we in?'",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-011",
+   "no": "V-011",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "사명(mission)은 목표가 먼저 정해진 뒤 그 목표를 이루는 수단으로 도출된다.",
+   "ox": false,
+   "s": "<p>순서가 반대입니다. 계층적 계획은 <b>사명 → 목표 → 전략 → 전술 → 운영</b> 순으로, 사명이 가장 먼저이고 목표는 사명에서 나옵니다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ],
+    [
+     "RV",
+     "10"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.mission",
+    "depth": 3,
+    "depth_why": "D3b",
+    "family": "mission",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "사명 → 목표 순서를 뒤집음"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L3 p12-13: mission comes first; goals are derived from the mission (mission is the basis for goals), not vice versa",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "사명이 먼저이고 목표는 사명에서 나온다",
+   "publish": false
+  },
+  {
+   "ext_id": "V-012",
+   "no": "V-012",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": false,
+   "q": "한 회사가 홈페이지에 '우리는 가정용 청소 로봇을 만드는 사업을 한다'고 적었다. 이 문장은 계층적 계획에서 무엇에 해당하는가?",
+   "opts": [
+    "목표",
+    "사명",
+    "전략",
+    "전술"
+   ],
+   "ans": 1,
+   "a": "사명",
+   "why": [
+    "사업 정의 문장을 달성 수치가 있는 목표라고 생각함",
+    "",
+    "사업 정의 문장을 목표 달성 계획이라고 생각함",
+    "사업 정의 문장을 구체적인 실행 방법이라고 생각함"
+   ],
+   "s": "<p>'우리는 어떤 사업을 하는가'에 답하는 문장이므로 사명입니다. 목표는 사명에서 도출되는 구체적 성과 지향점, 전략은 목표 달성 계획, 전술은 그 계획의 방법과 행동입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ],
+    [
+     "L3",
+     "12"
+    ],
+    [
+     "RV",
+     "10"
+    ],
+    [
+     "RV",
+     "11"
+    ]
+   ],
+   "dx": {
+    "facet": "strategy.mission",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "mission",
+    "role": "near",
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ],
+    "delta": [
+     "object",
+     "새 사례 문장 분류"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L3 p12: mission statement answers 'What business are we in?'",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "2-12",
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "prod_multi",
+    "role": "base",
+    "principle": "다요소 생산성 = 산출 금액 ÷ (노동비 + 재료비)",
+    "mis": [
+     {
+      "pattern": "에너지까지 분모에 넣음",
+      "ex": [
+       "7.5"
+      ],
+      "m": "m_prod_inputs"
+     }
+    ]
+   },
+   "no": "2-12",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "Data: 5,000 units at $30/unit; labor cost $12,500; material cost $5,000; energy cost $2,500. Compute the <b>multifactor</b> productivity (labor + material).",
+   "a": "8.57",
+   "strict": false,
+   "num": 8.57,
+   "tol": 0.01,
+   "ph": "숫자로 입력",
+   "s": "<ol><li>Output value = 5,000 × $30 = $150,000</li><li>Multifactor = Output value / (Labor + Material cost) = 150,000 / (12,500 + 5,000) = 150,000 / 17,500 = <b>8.57</b></li></ol><p>참고: Labor 12, Material 30, Energy 60, Total = 150,000 / 20,000 = 7.5</p>",
+   "src": [
+    [
+     "L3",
+     "37"
+    ],
+    [
+     "L3",
+     "38"
+    ]
+   ],
+   "q_sub": "데이터로 다요소 생산성(노동 + 재료)을 구하시오. (소수 둘째 자리)"
+  },
+  {
+   "ext_id": "2-13",
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "prod_total",
+    "role": "base",
+    "principle": "총 생산성 = 산출 금액 ÷ 모든 투입 비용",
+    "mis": [
+     {
+      "pattern": "에너지를 빼먹음",
+      "ex": [
+       "8.57"
+      ],
+      "m": "m_prod_inputs"
+     }
+    ]
+   },
+   "no": "2-13",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "Same data as above. Compute the <b>total</b> productivity measure.",
+   "a": "7.5",
+   "strict": false,
+   "num": 7.5,
+   "tol": 0.01,
+   "ph": "숫자로 입력",
+   "s": "<p>Total = Output value / All input costs = 150,000 / (12,500 + 5,000 + 2,500) = 150,000 / 20,000 = <b>7.5</b></p>",
+   "src": [
+    [
+     "L3",
+     "37"
+    ],
+    [
+     "L3",
+     "38"
+    ]
+   ],
+   "q_sub": "위와 같은 데이터로 총 생산성을 구하시오."
+  },
+  {
+   "ext_id": "V-001",
+   "no": "V-001",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": false,
+   "q": "어느 공장의 산출 금액은 $90,000, 노동비 $20,000, 재료비 $10,000, 에너지비 $10,000이다. 담당자가 90,000 ÷ 40,000 = 2.25를 '다요소 생산성(노동 + 재료)'이라고 보고했다. 이 보고에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "2.25는 총 생산성이다. 노동 + 재료의 다요소 생산성은 90,000 ÷ 30,000 = 3.0이다",
+    "옳은 보고다. 다요소 생산성은 노동·재료·에너지를 모두 분모에 넣는다",
+    "2.25는 노동 생산성이다. 노동 생산성의 분모는 모든 투입 비용이다",
+    "다요소 생산성과 총 생산성은 이름만 다르고 늘 같은 값이다"
+   ],
+   "ans": 0,
+   "a": "2.25는 총 생산성이다. 노동 + 재료의 다요소 생산성은 90,000 ÷ 30,000 = 3.0이다",
+   "why": [
+    "",
+    "다요소 생산성의 분모에도 모든 투입 비용을 넣는다고 생각함",
+    "노동 생산성의 분모가 모든 투입 비용이라고 생각함",
+    "다요소와 총 생산성이 같은 분모를 쓴다고 생각함"
+   ],
+   "s": "<p>다요소 생산성 = 산출 금액 ÷ (<b>지정한</b> 투입, 여기서는 노동비 + 재료비) = 90,000 ÷ 30,000 = 3.0. 분모에 에너지비까지 모든 투입 비용을 넣은 90,000 ÷ 40,000 = 2.25는 <b>총 생산성</b>입니다.</p><p>함정: '다요소'라는 말 때문에 투입을 전부 넣는다고 착각하기 쉽습니다. 다요소는 분모에 넣을 투입을 정해 두고, 총 생산성만 모든 투입을 넣습니다.</p>",
+   "src": [
+    [
+     "L3",
+     "37"
+    ],
+    [
+     "L3",
+     "38"
+    ],
+    [
+     "RV",
+     "15"
+    ],
+    [
+     "RV",
+     "16"
+    ]
+   ],
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "prod_multi",
+    "role": "near",
+    "mis": [
+     "",
+     "m_prod_inputs",
+     null,
+     "m_prod_inputs"
+    ],
+    "delta": [
+     "neighbour",
+     "다요소 이름에 총 생산성의 분모"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L3 p37-38: multifactor = output/(labor+material), total = output/all inputs incl. energy; 90,000/30,000=3.0, 90,000/40,0",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-002",
+   "no": "V-002",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "공정에 에너지 투입이 전혀 없어 투입이 노동비와 재료비뿐이라면, 다요소 생산성(노동 + 재료)과 총 생산성은 같은 값이 된다.",
+   "ox": true,
+   "s": "<p>총 생산성의 분모 = 모든 투입 비용 = 노동비 + 재료비 + 에너지비. 에너지비가 0이면 분모가 노동비 + 재료비와 같아져서 두 값이 일치합니다. 둘이 다른 이유는 오직 분모에서 빼 둔 투입(여기서는 에너지)이 있기 때문입니다.</p>",
+   "src": [
+    [
+     "L3",
+     "37"
+    ],
+    [
+     "L3",
+     "38"
+    ],
+    [
+     "RV",
+     "15"
+    ],
+    [
+     "RV",
+     "16"
+    ]
+   ],
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 4,
+    "depth_why": "D4b",
+    "family": "prod_total",
+    "role": "near",
+    "delta": [
+     "condition",
+     "에너지 투입이 0인 경우"
+    ],
+    "mis": {
+     "mr": "m_prod_inputs"
+    },
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L3 p37-38: with no energy input, denominators of multifactor (labor+material) and total coincide",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "2-14",
+   "dx": {
+    "facet": "productivity.growth",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "growth",
+    "role": "base",
+    "principle": "증가율 = (현재 − 이전) ÷ 이전 × 100",
+    "mis": [
+     {
+      "pattern": "현재 값으로 나눔",
+      "ex": [
+       "-8.7",
+       "−8.7"
+      ],
+      "m": "m_growth_base"
+     }
+    ]
+   },
+   "no": "2-14",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "Labor productivity on a line was 25 units/hour last year and 23 units/hour this year. What is the productivity growth (%)?",
+   "a": "−8%",
+   "strict": false,
+   "num": -8,
+   "tol": 0.05,
+   "ph": "예: -8",
+   "s": "<p>Growth = (Current − Previous) / Previous × 100% = (23 − 25) / 25 × 100% = <b>−8%</b>. 분모는 <b>이전(previous)</b> 값, 부호까지.</p>",
+   "src": [
+    [
+     "L3",
+     "39"
+    ]
+   ],
+   "q_sub": "작년 25개/시간, 올해 23개/시간일 때 생산성 증가율(%)은?"
+  },
+  {
+   "ext_id": "2-15",
+   "dx": {
+    "facet": "strategy.hierarchy",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "2-15",
+   "chapter": "C2",
+   "kind": "essay",
+   "star": true,
+   "q": "Describe the hierarchy of mission, goals, strategies, tactics and operations, using the student example.",
+   "a": "<b>Mission</b>(존재 이유, 'What business are we in?') → <b>Goals</b>(사명의 세부·범위, 조직의 목적지) → <b>Strategies</b>(목표 달성 계획; 조직 전략이 기능별 전략[재무·마케팅·운영]을 이끎) → <b>Tactics</b>(전략을 달성하는 방법·행동, 'how to') → <b>Operations</b>(실제 'doing'). 학생 예: Mission = live a good life / Goal = successful career, good income / Strategy = obtain a university education / Tactics = select a university and a major, decide how to finance / Operations = register, buy books, take courses, study.",
+   "pts": [
+    "다섯 단계 순서",
+    "각 단계의 정의(영어 키워드)",
+    "organizational vs functional strategies",
+    "학생 예시 매칭"
+   ],
+   "src": [
+    [
+     "L3",
+     "11"
+    ],
+    [
+     "L3",
+     "12"
+    ],
+    [
+     "L3",
+     "17"
+    ],
+    [
+     "L3",
+     "18"
+    ],
+    [
+     "L3",
+     "19"
+    ]
+   ],
+   "q_sub": "사명–목표–전략–전술–운영의 계층을 학생 예시로 설명하시오."
+  },
+  {
+   "ext_id": "2-16",
+   "dx": {
+    "facet": "strategy.agile",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "2-16",
+   "chapter": "C2",
+   "kind": "essay",
+   "star": false,
+   "q": "Explain agile operations using the Hyundai chip-shortage case (2021).",
+   "a": "Agile operations는 변화하는 환경에서 <b>유연성(flexibility)</b>으로 적응하고 번창하려는 전략적 접근으로, cost·quality·reliability·flexibility 역량을 결합한다. <b>변화</b>: 2021년 칩이 부족해 약 47만 대 생산이 지연되었다. <b>대응</b>: 부품이 있고 가장 빨리 출고할 수 있는 모델부터 생산했고, 칩을 1년 단위로 주문하며 소비자용 대체 칩을 검증했다. 슬라이드 결론: \"The shortage was the change. What the firm did next is the agility.\"",
+   "pts": [
+    "Agile 정의(flexibility, change)",
+    "47만 대 지연",
+    "대응 2가지",
+    "변화 vs 대응 = agility"
+   ],
+   "src": [
+    [
+     "L3",
+     "32"
+    ],
+    [
+     "L3",
+     "33"
+    ]
+   ],
+   "q_sub": "2021년 현대차 반도체 부족 사례로 agile operations를 설명하시오."
+  },
+  {
+   "ext_id": "2-17",
+   "dx": {
+    "facet": "strategy.qual_win",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": [
+     "m_qual_win_swap",
+     "m_qual_win_swap",
+     null,
+     "m_qw_fixed"
+    ]
+   },
+   "no": "2-17",
+   "chapter": "C2",
+   "kind": "essay",
+   "star": false,
+   "q": "Distinguish order qualifiers from order winners. Can the same attribute be both?",
+   "a": "<b>Order qualifiers</b>는 고객이 구매 후보로 고려하기 위한 <b>최소 수용 기준</b>(minimum standards of acceptability)이고, <b>order winners</b>는 경쟁사보다 <b>낫다고 인식</b>되게 만드는 특성이다. 먼저 자격을 갖춰야(qualify) 주문을 따낼 수 있다(win). 가격, 납기 신뢰성/속도, 품질은 상황에 따라 둘 중 어느 쪽도 될 수 있다.",
+   "pts": [
+    "Qualifier = minimum standard",
+    "Winner = better than competition",
+    "Qualify first, then win",
+    "price/delivery/quality는 둘 다 가능"
+   ],
+   "src": [
+    [
+     "L3",
+     "23"
+    ]
+   ],
+   "q_sub": "주문 자격 요건과 주문 획득 요인을 구분하고, 같은 속성이 둘 다 될 수 있는지 쓰시오."
+  },
+  {
+   "ext_id": "3-1",
+   "dx": {
+    "facet": "fc.group",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_fc_individual",
+    "family": "fc_group",
+    "role": "base",
+    "principle": "품목 그룹 예측은 개별 오차가 상쇄되어 더 정확하다"
+   },
+   "no": "3-1",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "Forecasts for groups of items are less accurate than forecasts for individual items.",
+   "ox": false,
+   "s": "<p>반대: groups are <b>more accurate</b> — 개별 오차가 서로 상쇄됩니다. 예) 한 집의 에어컨 켜는 시점은 예측 불가지만 전국 하루 전 여름 전력 수요는 MAPE 약 2%(1.83%).</p>",
+   "src": [
+    [
+     "L4",
+     "10"
+    ],
+    [
+     "L4",
+     "11"
+    ]
+   ],
+   "fix": "그룹이 더 정확",
+   "q_sub": "품목 그룹에 대한 예측은 개별 품목 예측보다 덜 정확하다."
+  },
+  {
+   "ext_id": "V-021",
+   "no": "V-021",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "예측의 정확도에 관한 다음 진술 중 옳은 것은?",
+   "opts": [
+    "예측 기간이 길어질수록 불확실성이 줄어 예측은 더 정확해진다",
+    "여러 품목을 묶어 예측하면 개별 오차가 서로 상쇄되어 개별 품목 예측보다 대체로 더 정확하다",
+    "한 품목만 예측하면 그 품목의 특성에 집중하므로 그룹 예측보다 더 정확하다",
+    "모든 요인을 반영하면 무작위 변동에 의한 오차를 완전히 없앨 수 있다"
+   ],
+   "ans": 1,
+   "a": "여러 품목을 묶어 예측하면 개별 오차가 서로 상쇄되어 개별 품목 예측보다 대체로 더 정확하다",
+   "why": [
+    "예측 기간이 길수록 더 정확해진다고 생각함",
+    "",
+    "개별 품목 예측이 그룹 예측보다 더 정확하다고 생각함",
+    "요인을 다 반영하면 잔여 오차가 없어진다고 생각함"
+   ],
+   "s": "<p>예측의 공통 특징: ① 과거의 인과 체계가 미래에도 이어진다고 가정 ② 완벽하지 않으며 잔여 오차가 늘 남는다 ③ <b>그룹 예측이 개별 예측보다 정확</b> ④ 예측 기간이 길수록 정확도는 <b>떨어진다</b>. 네 가지를 서로 바꿔 쓰는 함정에 주의하세요.</p>",
+   "src": [
+    [
+     "L4",
+     "10"
+    ],
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "RV",
+     "18"
+    ],
+    [
+     "RV",
+     "19"
+    ],
+    [
+     "RV",
+     "20"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.group",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "fc_group",
+    "role": "near",
+    "mis": [
+     null,
+     "",
+     "m_fc_individual",
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "그룹 정확도 ↔ 예측 기간·잔여 오차"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L4 p10-11: group forecasts more accurate than individual items; horizon longer -> less accurate; random error always rem",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-022",
+   "no": "V-022",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "편의점 본사가 점포 한 곳의 내일 우유 판매량과 전국 3,000개 점포 전체의 내일 우유 판매량을 같은 방법으로 예측한다. 평균적으로 기대되는 것은?",
+   "opts": [
+    "한 점포 예측의 상대 오차(MAPE)가 전체 합계 예측보다 더 작다",
+    "예측 방법이 같으면 두 예측의 상대 오차는 늘 같다",
+    "전체 점포 합계 예측의 상대 오차(MAPE)가 한 점포 예측보다 더 작다",
+    "전체 점포 예측은 오차가 상쇄되지 않고 점포 수만큼 곱해진다"
+   ],
+   "ans": 2,
+   "a": "전체 점포 합계 예측의 상대 오차(MAPE)가 한 점포 예측보다 더 작다",
+   "why": [
+    "개별 품목 예측이 그룹 예측보다 더 정확하다고 생각함",
+    "방법이 같으면 대상의 크기와 무관하게 오차가 같다고 생각함",
+    "",
+    "오차가 상쇄되지 않고 합쳐질수록 커진다고 생각함"
+   ],
+   "s": "<p>점포마다 생기는 +·− 오차는 합계에서 서로 상쇄됩니다. 합계의 절댓값 오차는 점포 수가 늘면 커질 수 있지만 <b>상대 오차(MAPE)</b>는 줄어듭니다. 강의의 전력 수요 예(한 가구는 예측 불가, 전국은 MAPE 약 2%)와 같은 원리입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "10"
+    ],
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "RV",
+     "19"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.group",
+    "depth": 4,
+    "depth_why": "D4a",
+    "family": "fc_group",
+    "role": "near",
+    "mis": [
+     "m_fc_individual",
+     null,
+     "",
+     "m_fc_individual"
+    ],
+    "delta": [
+     "object",
+     "전력 수요 → 편의점 우유 판매"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "L4 p10-11: aggregate forecast more accurate (errors cancel), compare MAPE.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-023",
+   "no": "V-023",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "품목 그룹 예측이 개별 품목 예측보다 정확한 까닭은 그룹 예측에 더 좋은 예측 방법을 쓰기 때문이다.",
+   "ox": false,
+   "s": "<p>같은 방법을 쓰더라도 그룹 예측이 더 정확한 것은 개별 품목의 오차가 서로 <b>상쇄</b>되기 때문입니다. 방법의 우열 때문이 아닙니다.</p>",
+   "src": [
+    [
+     "L4",
+     "10"
+    ],
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "RV",
+     "19"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.group",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "fc_group",
+    "role": "near",
+    "delta": [
+     "condition",
+     "원인: 오차 상쇄 → 더 좋은 방법"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L4 p11: reason is that individual errors cancel against each other, not a better method.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "방법이 같아도 개별 오차가 상쇄되어 더 정확하다",
+   "publish": false
+  },
+  {
+   "ext_id": "V-024",
+   "no": "V-024",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "한 가구가 에어컨을 언제 켜는지는 예측하기 어렵지만, 전국의 하루 전 전력 수요는 비교적 정확히 예측된다.",
+   "ox": true,
+   "s": "<p>강의의 전력 수요 예입니다. 전국 하루 전 수요는 여름철 MAPE 약 2% 이내로 맞습니다.</p>",
+   "src": [
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "RV",
+     "19"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.group",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "fc_group",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "강의의 전력 수요 예를 진술로"
+    ],
+    "mis": {
+     "mr": "m_fc_individual"
+    },
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L4 p172-174: forecasts for groups of items are more accurate than for individual items; electricity demand example (sing",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "3-2",
+   "dx": {
+    "facet": "fc.horizon",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "3-2",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "Forecast accuracy decreases as the forecasting horizon increases.",
+   "ox": true,
+   "s": "<p>태풍 진로 예보: 72시간 원이 24시간 원보다 넓습니다. 공통 특징 4가지: ① 과거 인과 시스템이 미래에도 지속된다고 가정 ② 예측은 완벽하지 않음(random variation) ③ 그룹이 더 정확 ④ 기간이 길수록 정확도 감소.</p>",
+   "src": [
+    [
+     "L4",
+     "10"
+    ],
+    [
+     "L4",
+     "12"
+    ]
+   ],
+   "q_sub": "예측 기간이 길어질수록 정확도는 떨어진다."
+  },
+  {
+   "ext_id": "3-3",
+   "dx": {
+    "facet": "acc.weighting",
+    "depth": 1,
+    "depth_why": "D1a",
+    "mis": {
+     "mr": "m_mse_even"
+    }
+   },
+   "no": "3-3",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "Two methods can have the same MAD but very different MSE, because MSE weights errors according to their squared values.",
+   "ox": true,
+   "s": "<p>예: Method A(매기 ±3) MAD 3.0, MSE 10.8 / Method B(5번 정확, 1번 18 빗나감) MAD 3.0, MSE 64.8. \"One measure is not enough.\"</p>",
+   "src": [
+    [
+     "L4",
+     "16"
+    ],
+    [
+     "L4",
+     "17"
+    ]
+   ],
+   "q_sub": "MSE는 오차를 제곱해 가중하므로, MAD가 같아도 MSE는 크게 다를 수 있다."
+  },
+  {
+   "ext_id": "3-4",
+   "dx": {
+    "facet": "avg.ma",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "ma",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "이동평균에 지수평활처럼 예측값 사용"
+    ],
+    "mis": "m_ma_forecast"
+   },
+   "no": "3-4",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "A moving average uses both previous actual values and previous forecasts.",
+   "ox": false,
+   "s": "<p>Moving average uses <b>actual values only, never a previous forecast</b>. 이전 예측을 쓰는 것은 exponential smoothing입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "35"
+    ],
+    [
+     "L4",
+     "37"
+    ],
+    [
+     "L4",
+     "44"
+    ]
+   ],
+   "fix": "실제값만 사용",
+   "q_sub": "이동평균은 이전 실제값과 이전 예측값을 모두 쓴다."
+  },
+  {
+   "ext_id": "3-5",
+   "dx": {
+    "facet": "avg.wma",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "3-5",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "In a weighted moving average, the choice of weights is somewhat arbitrary, but the weights must sum to one.",
+   "ox": true,
+   "s": "<p>가장 최근 값에 더 큰 가중치를 줍니다.</p>",
+   "src": [
+    [
+     "L4",
+     "39"
+    ]
+   ],
+   "q_sub": "가중이동평균의 가중치는 다소 임의적이지만 합은 1이어야 한다."
+  },
+  {
+   "ext_id": "3-6",
+   "dx": {
+    "facet": "ts.patterns",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "ts_patterns",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "순환 이름에 계절성의 정의"
+    ],
+    "mis": "m_cycle_season"
+   },
+   "no": "3-6",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "Cycles are wavelike variations lasting less than one year that are related to the calendar or time of day.",
+   "ox": false,
+   "s": "<p>그건 <b>seasonality</b>(short-term, calendar or time of day)에 가까운 설명입니다. <b>Cycle</b> = wavelike variations lasting <b>more than one year</b>(경제·정치·농업 조건).</p>",
+   "src": [
+    [
+     "L4",
+     "29"
+    ],
+    [
+     "L4",
+     "30"
+    ]
+   ],
+   "fix": "1년 초과",
+   "q_sub": "순환(cycle)은 달력·시간대와 관련된 1년 미만의 파동형 변동이다."
+  },
+  {
+   "ext_id": "3-7",
+   "dx": {
+    "facet": "acc.ts_read",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "ts_read",
+    "role": "base",
+    "principle": "추적 신호 = Σ(A − F) ÷ MAD. 0이 이상적이고 ±4~±5가 한계"
+   },
+   "no": "3-7",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "A tracking signal of 0 is ideal, and limits of ±4 or ±5 are often used.",
+   "ox": true,
+   "s": "<p>Tracking signal = Σ(Actual − Forecast) / MAD. 지속적으로 한쪽으로 치우치는 <b>bias</b>를 감지합니다.</p>",
+   "src": [
+    [
+     "L4",
+     "67"
+    ]
+   ],
+   "q_sub": "추적신호는 0이 이상적이며 흔히 ±4 또는 ±5를 한계로 쓴다."
+  },
+  {
+   "ext_id": "V-033",
+   "no": "V-033",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "9기간 동안 누적 예측 오차 Σ(A − F) = −45, MAD = 10이다. 옳은 해석은?",
+   "opts": [
+    "추적 신호는 −4.5로 한계(±4~±5) 근처이며, 예측이 실제보다 지속적으로 큰 과대예측 편향이다",
+    "추적 신호는 −4.5로 한계 근처이며, 실제가 예측보다 지속적으로 큰 과소예측 편향이다",
+    "추적 신호는 −4.5로 0에 가까우므로 예측이 이상적이다",
+    "추적 신호가 음수라서 편향이 없고 한계와도 관계없다"
+   ],
+   "ans": 0,
+   "a": "추적 신호는 −4.5로 한계(±4~±5) 근처이며, 예측이 실제보다 지속적으로 큰 과대예측 편향이다",
+   "why": [
+    "",
+    "추적 신호가 음수면 예측이 실제보다 작다(과소예측)고 생각함",
+    "음수이므로 0에 가깝고 이상적이라고 생각함",
+    "음수 추적 신호는 한계와 상관없다고 생각함"
+   ],
+   "s": "<p>추적 신호 = Σ(A − F) ÷ MAD = −45 ÷ 10 = −4.5. A − F가 음수로 쌓였다는 것은 <b>예측 F가 실제 A보다 계속 컸다</b>는 뜻, 즉 과대예측입니다. 양수일 때(과소예측)와 반대 방향이고, 한계는 부호와 관계없이 ±4~±5입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "67"
+    ],
+    [
+     "RV",
+     "55"
+    ],
+    [
+     "RV",
+     "57"
+    ]
+   ],
+   "dx": {
+    "facet": "acc.ts_read",
+    "depth": 4,
+    "depth_why": "D4a",
+    "family": "ts_read",
+    "role": "near",
+    "mis": [
+     "",
+     "m_ts_sign",
+     null,
+     null
+    ],
+    "delta": [
+     "reverse",
+     "양의 편향 → 음의 편향 읽기"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L4 p67: TS = cumulative error/MAD = -45/10 = -4.5; e=A-F (p15) so negative means F>A, over-forecast bias; near limit +-4",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-034",
+   "no": "V-034",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "추적 신호가 0에 가까우면 예측 오차가 거의 없다는 뜻이다.",
+   "ox": false,
+   "s": "<p>추적 신호는 오차의 <b>편향(한쪽으로 치우침)</b>만 봅니다. +오차와 −오차가 서로 상쇄되면 추적 신호는 0에 가까워도, 오차 크기(MAD)는 클 수 있습니다. 오차의 크기는 MAD·MSE·MAPE로 따로 봅니다.</p><p>함정: '0이 이상적'이라는 말을 '오차가 0'으로 읽으면 안 됩니다.</p>",
+   "src": [
+    [
+     "L4",
+     "16"
+    ],
+    [
+     "L4",
+     "67"
+    ],
+    [
+     "RV",
+     "55"
+    ]
+   ],
+   "dx": {
+    "facet": "acc.ts_read",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "ts_read",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'0이면 오차가 없다'"
+    ],
+    "mis": "m_ts_zero_noerr",
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L4 p67: TS=0 means no bias (errors cancel); it says nothing about error size (see p17 MAD/MSE).",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "추적 신호는 편향만 본다. 오차 크기는 MAD로 따로 본다",
+   "publish": false
+  },
+  {
+   "ext_id": "V-035",
+   "no": "V-035",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "최근 8기 동안 실제 수요가 예측보다 매번 5~10씩 컸다. 추적 신호는 어떻게 움직이는가?",
+   "opts": [
+    "0에서 음의 방향으로 계속 커져 한계를 넘어선다",
+    "0에서 양의 방향으로 계속 커져 한계(±4~±5)를 넘어선다",
+    "0 근처에 머문다",
+    "한계와 무관하게 늘 ±1 안에서 움직인다"
+   ],
+   "ans": 1,
+   "a": "0에서 양의 방향으로 계속 커져 한계(±4~±5)를 넘어선다",
+   "why": [
+    "실제가 예측보다 크면 추적 신호가 음수가 된다고 생각함",
+    "",
+    "오차가 꾸준히 같은 크기면 추적 신호는 0 근처라고 생각함",
+    "추적 신호는 항상 ±1 안에 있다고 생각함"
+   ],
+   "s": "<p>오차 e = A − F가 매번 양수이면 누적 오차가 계속 커지고, MAD는 일정 수준에 머무르므로 추적 신호(누적 오차 ÷ MAD)는 <b>양의 방향</b>으로 커집니다. 예측이 실제보다 지속적으로 작은 과소예측이고, 한계를 넘으면 예측 방법을 점검합니다.</p>",
+   "src": [
+    [
+     "L4",
+     "67"
+    ],
+    [
+     "RV",
+     "55"
+    ],
+    [
+     "RV",
+     "56"
+    ],
+    [
+     "RV",
+     "57"
+    ]
+   ],
+   "dx": {
+    "facet": "acc.ts_read",
+    "depth": 3,
+    "depth_why": "D3b",
+    "family": "ts_read",
+    "role": "near",
+    "mis": [
+     "m_ts_sign",
+     "",
+     null,
+     null
+    ],
+    "delta": [
+     "object",
+     "실제가 예측보다 반복해 큰 상황 서술"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L4 p15,67: e=A-F>0 each period, cumulative error grows while MAD stays ~5-10, TS grows positive, exceeds +-4~5 (about 8 ",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "3-8",
+   "dx": {
+    "facet": "fc.qual_methods",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "qual_methods",
+    "role": "base",
+    "principle": "델파이는 익명 반복으로 한 사람의 지배를 막지만 오래 걸린다",
+    "mis": "m_delphi_exec"
+   },
+   "no": "3-8",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "The Delphi method is quick, but it carries a risk that one person's opinion will prevail.",
+   "ox": false,
+   "s": "<p>Delphi의 약점은 <b>time-consuming</b>이고, 익명성 덕분에 한 사람이 지배할 위험을 <b>줄이는 것</b>이 강점입니다. '빠르지만 한 사람이 지배할 위험'은 <b>executive opinions</b>의 특징.</p>",
+   "src": [
+    [
+     "L4",
+     "23"
+    ],
+    [
+     "L4",
+     "26"
+    ]
+   ],
+   "fix": "Executive opinions의 특징",
+   "q_sub": "델파이 기법은 빠르지만 한 사람의 의견이 지배할 위험이 있다."
+  },
+  {
+   "ext_id": "3-9",
+   "dx": {
+    "facet": "trend.r",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "r2",
+    "role": "base",
+    "principle": "r²는 y 변동 중 독립변수가 설명하는 비율이다"
+   },
+   "no": "3-9",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "r² measures the percentage of variability in y that is explained by the independent variable.",
+   "ox": true,
+   "s": "<p>예: r = 0.89 → r² = 0.79 → 기온이 판매량 변동의 약 79%를 설명, 나머지 21%는 모델 밖.</p>",
+   "src": [
+    [
+     "L4",
+     "62"
+    ]
+   ],
+   "q_sub": "r²는 y의 변동 중 독립변수가 설명하는 비율이다."
+  },
+  {
+   "ext_id": "3-10",
+   "dx": {
+    "facet": "fc.qual_quant",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_qual_hard"
+   },
+   "no": "3-10",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "Qualitative forecasting relies on hard data such as the projection of historical data.",
+   "ox": false,
+   "s": "<p>그건 <b>quantitative</b>. Qualitative는 human factors, personal opinions, intuition 같은 <b>soft information</b>을 포함합니다. 신제품처럼 데이터가 없을 때 사용.</p>",
+   "src": [
+    [
+     "L4",
+     "20"
+    ],
+    [
+     "L4",
+     "21"
+    ]
+   ],
+   "fix": "Quantitative의 설명",
+   "q_sub": "정성적 예측은 과거 데이터 투영 같은 hard data에 의존한다."
+  },
+  {
+   "ext_id": "3-11",
+   "dx": {
+    "facet": "fc.def",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "fc_def",
+    "role": "base",
+    "principle": "예측 = 관심 변수의 미래 값에 대한 진술"
+   },
+   "no": "3-11",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "What is 'a statement about the future value of a variable of interest'?",
+   "a": "Forecast",
+   "accept": [
+    "forecast",
+    "a forecast"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "src": [
+    [
+     "L4",
+     "6"
+    ]
+   ],
+   "q_sub": "'관심 변수의 미래 값에 대한 진술'을 뭐라고 하나? (영어)"
+  },
+  {
+   "ext_id": "V-018",
+   "no": "V-018",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "다음 중 <b>예측(forecast)</b>에 해당하는 진술은?",
+   "opts": [
+    "다음 달 이 상품의 수요는 약 800개일 것이다",
+    "지난달 이 상품의 실제 판매량은 750개였다",
+    "이 상품의 현재 재고는 800개이다",
+    "지난 1년간 이 상품의 월평균 수요는 780개였다"
+   ],
+   "ans": 0,
+   "a": "다음 달 이 상품의 수요는 약 800개일 것이다",
+   "why": [
+    "",
+    "예측이 이미 일어난 실제 값에 대한 기록이라고 생각함",
+    "예측이 현재 상태를 기술하는 것이라고 생각함",
+    "과거 자료의 요약이 예측이라고 생각함"
+   ],
+   "s": "<p>예측 = <b>관심 변수의 미래 값</b>에 대한 진술. 실제 판매량 기록, 현재 재고, 과거 평균은 이미 알려진 값에 대한 진술이라 예측이 아닙니다(예측의 입력 자료가 될 수는 있습니다).</p>",
+   "src": [
+    [
+     "L4",
+     "6"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.def",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "fc_def",
+    "role": "near",
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "미래 값 ↔ 과거·현재 값 진술"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L4 p6: forecast = statement about the future value of a variable; B, C, D are past/present facts",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-019",
+   "no": "V-019",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "예측은 과거 자료가 있어야만 만들 수 있다.",
+   "ox": false,
+   "s": "<p>과거 자료로 만드는 정량적 방법만 예측의 전부가 아닙니다. 경영진 의견법, 델파이법처럼 사람의 의견과 판단으로 만드는 <b>정성적 예측</b>도 예측입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "6"
+    ],
+    [
+     "L4",
+     "23"
+    ],
+    [
+     "L4",
+     "26"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.def",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "fc_def",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'과거 자료가 있어야만'"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L4 p21: with no past data (new product) qualitative methods (executive/sales force/consumer survey/Delphi) still produce",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "정성적 방법은 과거 자료 없이 의견으로도 예측을 만든다",
+   "publish": false
+  },
+  {
+   "ext_id": "V-020",
+   "no": "V-020",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "날씨, 수요, 자원의 가용성처럼 관심 있는 변수의 앞으로의 값을 말하는 진술을 예측이라 한다.",
+   "ox": true,
+   "s": "<p>예측은 날씨, 수요, 자원 가용성 같은 것에 대해 만들며, 정보에 입각한 의사결정에 중요합니다.</p>",
+   "src": [
+    [
+     "L4",
+     "6"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.def",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "fc_def",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "용어 쓰기 → O/X 진술"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L4 p6: forecast = statement about the future value of a variable of interest (weather, demand, resource availability).",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "3-12",
+   "dx": {
+    "facet": "acc.ts_read",
+    "depth": 1,
+    "depth_why": "D1c"
+   },
+   "no": "3-12",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "What is 'a persistent tendency for forecasts to be greater or less than the actual values of a time series'?",
+   "a": "Bias",
+   "accept": [
+    "bias"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>Tracking signal로 감지합니다.</p>",
+   "src": [
+    [
+     "L4",
+     "67"
+    ]
+   ],
+   "q_sub": "'예측이 실제값보다 지속적으로 크거나 작은 경향'을 뭐라고 하나? (영어)"
+  },
+  {
+   "ext_id": "3-13",
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "mse",
+    "role": "base",
+    "principle": "MSE = Σe² ÷ (n − 1)",
+    "mis": [
+     {
+      "pattern": "n으로 나눔",
+      "ex": [
+       "14.5"
+      ],
+      "m": "m_mse_n"
+     }
+    ]
+   },
+   "no": "3-13",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "Actual: 100, 110, 120, 130 / Forecast: 105, 108, 125, 128. Compute the MSE using the course formula.",
+   "a": "19.33",
+   "strict": false,
+   "num": 19.33,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<ol><li>e = A − F = −5, 2, −5, 2</li><li>e² = 25, 4, 25, 4 → Σ = 58</li><li>MSE = Σe² / <b>(n − 1)</b> = 58 / 3 = <b>19.33</b></li></ol><p>참고: MAD = 14/4 = 3.5, MAPE = (5 + 1.818 + 4.167 + 1.538)/4 = 3.13%</p>",
+   "src": [
+    [
+     "L4",
+     "16"
+    ],
+    [
+     "L4",
+     "19"
+    ]
+   ],
+   "q_sub": "실제값과 예측값이 위와 같을 때 강의 공식으로 MSE를 구하시오. (소수 둘째 자리)"
+  },
+  {
+   "ext_id": "3-14",
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "mad",
+    "role": "base",
+    "principle": "MAD = Σ|e| ÷ n"
+   },
+   "no": "3-14",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "Same data. Compute the MAD.",
+   "a": "3.5",
+   "strict": false,
+   "num": 3.5,
+   "tol": 0.01,
+   "ph": "숫자로 입력",
+   "s": "<p>MAD = Σ|e| / n = (5 + 2 + 5 + 2) / 4 = 14 / 4 = <b>3.5</b> (MAD의 분모는 n)</p>",
+   "src": [
+    [
+     "L4",
+     "16"
+    ]
+   ],
+   "q_sub": "같은 데이터로 MAD를 구하시오."
+  },
+  {
+   "ext_id": "3-15",
+   "dx": {
+    "facet": "avg.ma",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "ma",
+    "role": "base",
+    "principle": "이동평균은 최근 n개 실제값만 평균한다",
+    "mis": [
+     {
+      "pattern": "네 기간 모두 평균",
+      "ex": [
+       "45"
+      ],
+      "m": "m_ma_window"
+     }
+    ]
+   },
+   "no": "3-15",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "Demand for periods 1–4 was 40, 44, 46, 50. Compute the 3-period moving average forecast for period 5.",
+   "a": "46.67",
+   "strict": false,
+   "num": 46.67,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<p>가장 최근 3개 실제값: (44 + 46 + 50) / 3 = 140 / 3 = <b>46.67</b></p>",
+   "src": [
+    [
+     "L4",
+     "35"
+    ],
+    [
+     "L4",
+     "38"
+    ]
+   ],
+   "q_sub": "1~4기 수요가 40, 44, 46, 50일 때 5기의 3기간 이동평균 예측은?"
+  },
+  {
+   "ext_id": "3-16",
+   "dx": {
+    "facet": "avg.wma",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "wma",
+    "role": "base",
+    "principle": "가장 최근 값에 가장 큰 가중치",
+    "mis": [
+     {
+      "pattern": "가중치를 거꾸로 붙임",
+      "ex": [
+       "45.8"
+      ],
+      "m": "m_wma_order"
+     }
+    ]
+   },
+   "no": "3-16",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "Same demand. Using weights 0.5 (most recent), 0.3, 0.2, compute the WMA forecast for period 5.",
+   "a": "47.6",
+   "strict": false,
+   "num": 47.6,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<p>50 × 0.5 + 46 × 0.3 + 44 × 0.2 = 25 + 13.8 + 8.8 = <b>47.6</b></p>",
+   "src": [
+    [
+     "L4",
+     "39"
+    ],
+    [
+     "L4",
+     "41"
+    ]
+   ],
+   "q_sub": "같은 수요로, 가중치 0.5(가장 최근)·0.3·0.2일 때 5기 가중이동평균 예측은?"
+  },
+  {
+   "ext_id": "3-17",
+   "dx": {
+    "facet": "avg.es",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "es2",
+    "role": "base",
+    "principle": "지수평활을 두 기간 이어서 계산한다",
+    "mis": [
+     {
+      "pattern": "α를 예측값에 곱함",
+      "ex": [
+       "46.02"
+      ],
+      "m": "m_es_swap"
+     }
+    ]
+   },
+   "no": "3-17",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "Exponential smoothing with α = 0.3 and F₁ = 40. Actual A₁ = 42 and A₂ = 48. Find F₃.",
+   "a": "42.82",
+   "strict": false,
+   "num": 42.82,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<ol><li>F₂ = F₁ + α(A₁ − F₁) = 40 + 0.3(42 − 40) = 40.6</li><li>F₃ = F₂ + α(A₂ − F₂) = 40.6 + 0.3(48 − 40.6) = 40.6 + 2.22 = <b>42.82</b></li></ol>",
+   "src": [
+    [
+     "L4",
+     "42"
+    ],
+    [
+     "L4",
+     "44"
+    ]
+   ],
+   "q_sub": "α = 0.3, F₁ = 40, A₁ = 42, A₂ = 48일 때 F₃는? (소수 둘째 자리)"
+  },
+  {
+   "ext_id": "3-18",
+   "dx": {
+    "facet": "trend.line",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "trend_line",
+    "role": "base",
+    "principle": "최소제곱 추세선의 b, a를 구해 미래 t에 넣는다"
+   },
+   "no": "3-18",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "Sales for t = 1, 2, 3, 4 were 10, 12, 15, 17. Using a linear trend line, forecast sales for t = 5.",
+   "a": "19.5",
+   "strict": false,
+   "num": 19.5,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<ol><li>n = 4, Σt = 10, Σy = 54, Σty = 147, Σt² = 30</li><li>b = (nΣty − ΣtΣy) / (nΣt² − (Σt)²) = (588 − 540) / (120 − 100) = 2.4</li><li>a = (Σy − bΣt) / n = (54 − 24) / 4 = 7.5</li><li>F₅ = 7.5 + 2.4 × 5 = <b>19.5</b></li></ol>",
+   "src": [
+    [
+     "L4",
+     "46"
+    ],
+    [
+     "L4",
+     "48"
+    ]
+   ],
+   "q_sub": "t = 1~4의 판매가 10, 12, 15, 17일 때 선형 추세선으로 t = 5를 예측하시오."
+  },
+  {
+   "ext_id": "3-19",
+   "dx": {
+    "facet": "trend.taf",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "taf",
+    "role": "base",
+    "principle": "평활 → 추세 → 다음 예측 순서로 TAF를 갱신한다"
+   },
+   "no": "3-19",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "Trend-adjusted ES (slide example): α = 0.4, β = 0.5, TAF₃ = S₃ = 2.5, T₃ = 1, A₄ = 4, A₅ = 4.2. Find TAF₆.",
+   "a": "5.6",
+   "strict": false,
+   "num": 5.6,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<ol><li>TAF₄ = S₃ + T₃ = 3.5</li><li>S₄ = 3.5 + 0.4(4 − 3.5) = 3.7, T₄ = 1 + 0.5(3.5 − 2.5 − 1) = 1</li><li>TAF₅ = 3.7 + 1 = 4.7</li><li>S₅ = 4.7 + 0.4(4.2 − 4.7) = 4.5, T₅ = 1 + 0.5(4.7 − 3.5 − 1) = 1.1</li><li>TAF₆ = 4.5 + 1.1 = <b>5.6</b></li></ol>",
+   "src": [
+    [
+     "L4",
+     "49"
+    ],
+    [
+     "L4",
+     "51"
+    ]
+   ],
+   "q_sub": "슬라이드 예제의 추세조정 지수평활로 TAF₆를 구하시오."
+  },
+  {
+   "ext_id": "3-20",
+   "dx": {
+    "facet": "acc.ts_calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "ts_calc",
+    "role": "base",
+    "principle": "추적 신호 = 누적 오차 ÷ MAD"
+   },
+   "no": "3-20",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "After 4 periods, the forecast errors were 3, −1, 4, 2. Compute the tracking signal.",
+   "a": "3.2",
+   "strict": false,
+   "num": 3.2,
+   "tol": 0.02,
+   "ph": "숫자로 입력",
+   "s": "<ol><li>Σe = 3 − 1 + 4 + 2 = 8</li><li>MAD = Σ|e| / n = 10 / 4 = 2.5</li><li>TS = 8 / 2.5 = <b>3.2</b> → ±4 이내라 허용, 다만 양수 = 예측이 실제보다 낮은 경향</li></ol>",
+   "src": [
+    [
+     "L4",
+     "67"
+    ],
+    [
+     "L4",
+     "68"
+    ]
+   ],
+   "q_sub": "4기 동안 예측오차가 3, −1, 4, 2일 때 추적신호를 구하시오."
+  },
+  {
+   "ext_id": "3-21",
+   "dx": {
+    "facet": "fc.qual_methods",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": [
+     null,
+     null,
+     null,
+     "m_delphi_exec"
+    ]
+   },
+   "no": "3-21",
+   "chapter": "C3",
+   "kind": "essay",
+   "star": true,
+   "q": "Compare the four qualitative forecasting methods (strength and weakness of each).",
+   "a": "<div class='tbl'><table><tr><th>Method</th><th>Strength</th><th>Weakness</th></tr><tr><td>Executive opinions</td><td>빠른 결정, 여러 관리자의 지식 결합</td><td>개별 품목 예측엔 부적합, 한 사람이 지배할 위험, 책임 분산</td></tr><tr><td>Sales force opinions</td><td>고객과 직접 접촉, 고객의 향후 계획 파악</td><td>'하고 싶은 것'과 '실제로 할 것' 구분 못 함, 최근 경험에 과도한 영향, 이해 상충</td></tr><tr><td>Consumer survey</td><td>정성적 기법 중 꽤 정확, 다른 곳에서 못 얻는 정보</td><td>지식·기술 필요, 비싸고 오래 걸림, 소비자의 비합리적 행동</td></tr><tr><td>Delphi</td><td>익명 반복 설문 → 솔직한 응답, 한 사람 지배 위험 감소</td><td>Time-consuming</td></tr></table></div>",
+   "pts": [
+    "4가지 기법 이름(영어)",
+    "각 강점",
+    "각 약점",
+    "Delphi 절차(익명·반복·수렴)"
+   ],
+   "src": [
+    [
+     "L4",
+     "23"
+    ],
+    [
+     "L4",
+     "24"
+    ],
+    [
+     "L4",
+     "25"
+    ],
+    [
+     "L4",
+     "26"
+    ]
+   ],
+   "q_sub": "정성적 예측 기법 4가지의 강점과 약점을 비교하시오."
+  },
+  {
+   "ext_id": "3-22",
+   "dx": {
+    "facet": "acc.weighting",
+    "depth": 2,
+    "depth_why": "D2a",
+    "mis": [
+     "m_mse_even",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "3-22",
+   "chapter": "C3",
+   "kind": "essay",
+   "star": false,
+   "q": "Explain why MAD alone may not be enough to compare forecasting methods. Use the Method A vs Method B example.",
+   "a": "MAD는 모든 오차를 같은 무게(evenly)로, MSE는 오차를 제곱해 큰 오차에 더 큰 무게를, MAPE는 상대 오차로 가중한다. Method A는 매기 ±3씩 조금씩 틀려 MAD 3.0, MSE 10.8이고, Method B는 5번은 정확하지만 한 번 18을 빗나가 MAD 3.0, MSE 64.8이다. MAD로는 같아 보이지만 MSE는 6배 차이다. 큰 오차의 비용이 크다면 MSE가 작은 A가 낫다. 따라서 하나의 지표로는 충분하지 않다.",
+   "pts": [
+    "MAD·MSE·MAPE 가중 방식",
+    "A/B 수치",
+    "큰 오차 비용 → MSE로 판단",
+    "One measure is not enough"
+   ],
+   "src": [
+    [
+     "L4",
+     "16"
+    ],
+    [
+     "L4",
+     "17"
+    ]
+   ],
+   "q_sub": "MAD만으로 예측 기법을 비교하기 부족한 이유를 Method A vs B로 설명하시오."
+  },
+  {
+   "ext_id": "4-1",
+   "dx": {
+    "facet": "rd.types",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_basic_applied"
+   },
+   "no": "4-1",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "Basic research has the objective of achieving commercial applications in the near term.",
+   "ox": false,
+   "s": "<p>Basic research = advancing knowledge <b>without any near-term expectation of commercial applications</b>. Applied research = achieving commercial applications. Development = converts applied research results into useful commercial applications.</p>",
+   "src": [
+    [
+     "L5",
+     "14"
+    ]
+   ],
+   "fix": "상업적 기대 없이 지식 발전",
+   "q_sub": "기초연구는 단기간에 상업적 응용을 달성하는 것이 목적이다."
+  },
+  {
+   "ext_id": "4-2",
+   "dx": {
+    "facet": "design.delayed",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "4-2",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "Delayed differentiation is the process of producing, but not quite completing, a product or service until customer preferences are known.",
+   "ox": true,
+   "s": "<p>예: 가구를 만들되 고객이 고르기 전까지 착색하지 않음 / 해외용 제품을 국내에서 대부분 완성하고 현지 가까이에서 마무리. Mass customization의 두 기법 = delayed differentiation + modular design.</p>",
+   "src": [
+    [
+     "L5",
+     "30"
+    ]
+   ],
+   "q_sub": "지연 차별화는 고객 선호를 알 때까지 제품·서비스를 생산하되 완성하지 않는 것이다."
+  },
+  {
+   "ext_id": "4-3",
+   "dx": {
+    "facet": "kano.shift",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "kano_shift",
+    "role": "base",
+    "principle": "감동 → 성능 → 기본 품질로 옮겨 간다",
+    "mis": {
+     "mr": "m_kano_static"
+    }
+   },
+   "no": "4-3",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "As time passes, excitement quality generally becomes performance quality, and performance quality becomes basic quality.",
+   "ox": true,
+   "s": "<p>Kano model. 처음엔 놀라웠던 기능이 점점 '당연한 것'이 됩니다.</p>",
+   "src": [
+    [
+     "L5",
+     "40"
+    ]
+   ],
+   "q_sub": "시간이 지나면 대체로 감동 품질은 성능 품질로, 성능 품질은 기본 품질로 바뀐다."
+  },
+  {
+   "ext_id": "4-4",
+   "dx": {
+    "facet": "dfx.dfd",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "dfd",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "DFD 이름에 DFA의 정의"
+    ],
+    "mis": "m_dfd_as_dfa"
+   },
+   "no": "4-4",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "Design for disassembly (DFD) focuses on reducing the number of parts in a product and on assembly methods and sequence.",
+   "ox": false,
+   "s": "<p>DFD = designing a product so that <b>used products can be easily taken apart</b> → 재제조(Re-use: remanufacturing)를 위한 설계.</p><p>문장은 DFA(조립 용이 설계)의 정의: 부품 수 줄이기 + 조립 방법·순서 (6개 → 2개). 쓴 제품을 분해해 재활용 부품을 회수하는 설계는 DFR.</p><p>함정: Assembly(조립) ↔ Disassembly(분해). DFA는 생산할 때 조립을 쉽게, DFD는 다 쓴 뒤 분해를 쉽게.</p>",
+   "src": [
+    [
+     "L5",
+     "24"
+    ],
+    [
+     "L5",
+     "44"
+    ]
+   ],
+   "fix": "쓴 제품을 쉽게 분해할 수 있게 하는 설계 (재제조용)",
+   "q_sub": "분해 용이성 설계(DFD)는 제품의 부품 수를 줄이는 것과 조립 방법·순서에 초점을 둔다."
+  },
+  {
+   "ext_id": "4-5",
+   "dx": {
+    "facet": "svc.std",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "svc_std",
+    "role": "base",
+    "principle": "접촉·변동이 적을수록 표준화 기회가 크다",
+    "mis": {
+     "mr": "m_svc_contact_rev"
+    }
+   },
+   "no": "4-5",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "The less the customer contact and service requirement variability, the greater the opportunity for standardization.",
+   "ox": true,
+   "s": "<p>Low contact + low variation = most standardized(예: ATM) / High contact + high variation = most customized.</p>",
+   "src": [
+    [
+     "L5",
+     "47"
+    ]
+   ],
+   "q_sub": "고객 접촉과 서비스 요구 변동이 적을수록 표준화 기회가 크다."
+  },
+  {
+   "ext_id": "4-6",
+   "dx": {
+    "facet": "om.goods_svc",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_svc_like_goods"
+   },
+   "no": "4-6",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "Like goods, services can be inventoried.",
+   "ox": false,
+   "s": "<p>Services <b>cannot be inventoried</b>, are created and delivered at the same time, are intangible. 그래서 수요 변동이 대기열이나 유휴 자원을 만듭니다.</p>",
+   "src": [
+    [
+     "L5",
+     "48"
+    ]
+   ],
+   "fix": "재고 불가",
+   "q_sub": "재화처럼 서비스도 재고로 보관할 수 있다."
+  },
+  {
+   "ext_id": "4-7",
+   "dx": {
+    "facet": "design.modular",
+    "depth": 1,
+    "depth_why": "D1a"
+   },
+   "no": "4-7",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "One disadvantage of modular design is that a faulty module often has to be scrapped entirely.",
+   "ox": true,
+   "s": "<p>장점: 고장 진단·수리·교체 쉬움, 제조·조립 단순화, 교육비 낮음. 단점: 모듈 수리 한계(통째로 폐기), 가능한 제품 구성 수 제한.</p>",
+   "src": [
+    [
+     "L5",
+     "31"
+    ]
+   ],
+   "q_sub": "모듈러 설계의 단점 중 하나는 고장 난 모듈을 통째로 폐기해야 하는 경우가 많다는 것이다."
+  },
+  {
+   "ext_id": "4-8",
+   "dx": {
+    "facet": "design.std",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_std_variety"
+   },
+   "no": "4-8",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "Standardization increases variety, which raises consumer appeal.",
+   "ox": false,
+   "s": "<p>Standardization = <b>absence of variety</b>. 단점: decreased variety → less consumer appeal, 불완전한 설계가 표준화될 수 있음, 설계 변경 비용이 커 개선에 저항.</p>",
+   "src": [
+    [
+     "L5",
+     "29"
+    ]
+   ],
+   "fix": "다양성 감소 → 매력 감소",
+   "q_sub": "표준화는 다양성을 늘려 소비자 매력을 높인다."
+  },
+  {
+   "ext_id": "4-9",
+   "dx": {
+    "facet": "rd.reverse_eng",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "reverse_eng",
+    "role": "base",
+    "principle": "경쟁사 제품을 분해·검사해 개선점을 찾는다"
+   },
+   "no": "4-9",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "What is 'disassembling and inspecting a competitor's product to discover product improvements'?",
+   "a": "Reverse engineering",
+   "accept": [
+    "reverse engineering"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>예: 새 스마트폰 출시 며칠 만에 나오는 teardown report. 아이디어 원천: supply-chain based / competitor based / research based.</p>",
+   "src": [
+    [
+     "L5",
+     "12"
+    ],
+    [
+     "L5",
+     "13"
+    ]
+   ],
+   "q_sub": "'경쟁사 제품을 분해·검사해 개선점을 찾는 것'은? (영어)"
+  },
+  {
+   "ext_id": "4-10",
+   "dx": {
+    "facet": "sustain.lca",
+    "depth": 1,
+    "depth_why": "D1c"
+   },
+   "no": "4-10",
+   "chapter": "C4",
+   "kind": "short",
+   "star": true,
+   "q": "What is the assessment of the environmental impact of a product or service throughout its useful life (a.k.a. cradle-to-grave assessment)?",
+   "a": "Life-cycle assessment (LCA)",
+   "accept": [
+    "life-cycle assessment",
+    "life cycle assessment",
+    "lca",
+    "cradle-to-grave assessment"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>Raw materials → Manufacture → Distribution → Use → Disposal. 초점: global warming, smog formation, oxygen depletion, solid waste.</p>",
+   "src": [
+    [
+     "L5",
+     "20"
+    ],
+    [
+     "L5",
+     "21"
+    ]
+   ],
+   "q_sub": "제품·서비스의 수명 전체에 걸친 환경 영향 평가(요람에서 무덤까지)는? (영어)"
+  },
+  {
+   "ext_id": "4-11",
+   "dx": {
+    "facet": "design.qfd",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "qfd",
+    "role": "base",
+    "principle": "QFD = 고객의 소리를 개발에 통합하는 접근, 품질의 집 사용"
+   },
+   "no": "4-11",
+   "chapter": "C4",
+   "kind": "short",
+   "star": true,
+   "q": "What approach integrates the voice of the customer (VoC) into both product and service development?",
+   "a": "Quality Function Deployment (QFD)",
+   "accept": [
+    "qfd",
+    "quality function deployment"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>중심 특징: listening to and understanding the customer. House of Quality: customer requirements → design requirements → relationship matrix → competitive evaluation → target values.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "37"
+    ]
+   ],
+   "q_sub": "고객의 소리(VoC)를 제품·서비스 개발에 통합하는 접근법은? (영어 또는 약자)"
+  },
+  {
+   "ext_id": "V-044",
+   "no": "V-044",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "<b>품질 기능 전개(QFD)</b>에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "설계 초기부터 설계와 제조 인력을 함께 참여시키는 방식이다",
+    "경쟁사 제품을 분해해 부품을 측정하는 방식이다",
+    "넓은 범위의 사용 조건에서도 작동하도록 하는 설계다",
+    "고객의 소리(VoC)를 제품·서비스 개발의 모든 과정에 반영하는 접근이며 품질의 집을 쓴다"
+   ],
+   "ans": 3,
+   "a": "고객의 소리(VoC)를 제품·서비스 개발의 모든 과정에 반영하는 접근이며 품질의 집을 쓴다",
+   "why": [
+    "QFD가 설계와 제조 인력을 함께 참여시키는 동시공학이라고 생각함",
+    "QFD가 경쟁사 제품을 분해하는 역설계라고 생각함",
+    "QFD가 사용 조건이 넓어도 작동하게 하는 강건 설계라고 생각함",
+    ""
+   ],
+   "s": "<p>QFD = 고객 요구가 개발의 모든 면에 반영되도록 하는 접근. 중심 특징은 <b>고객의 말을 듣고 이해하는 것</b>이며, 품질의 집(House of Quality)을 도구로 씁니다.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "37"
+    ]
+   ],
+   "dx": {
+    "facet": "design.qfd",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qfd",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ],
+    "delta": [
+     "neighbour",
+     "QFD ↔ 동시공학·역설계·강건 설계"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "L5 p36: QFD integrates VoC into product/service development; House of Quality p37.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-045",
+   "no": "V-045",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "품질의 집에서 '고객 요구'와 '설계 요구'가 서로 얼마나 연관되는지 강도를 적는 방은?",
+   "opts": [
+    "관계 행렬",
+    "상관 행렬(지붕)",
+    "경쟁 평가",
+    "목표 값(사양)"
+   ],
+   "ans": 0,
+   "a": "관계 행렬",
+   "why": [
+    "",
+    "고객 요구와 설계 요구의 연관을 적는 방이 상관 행렬이라고 생각함",
+    "고객 요구와 설계 요구의 연관을 적는 방이 경쟁 평가라고 생각함",
+    "고객 요구와 설계 요구의 연관을 적는 방이 목표 값이라고 생각함"
+   ],
+   "s": "<p>품질의 집의 방: 고객 요구, 설계 요구, <b>관계 행렬</b>(고객 요구 × 설계 요구의 연관 강도), 상관 행렬(설계 요구들끼리의 상호 영향), 경쟁 평가, 사양·목표 값.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "37"
+    ]
+   ],
+   "dx": {
+    "facet": "design.qfd",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qfd",
+    "role": "near",
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ],
+    "delta": [
+     "repr",
+     "정의 문장 → 품질의 집 구조"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L5 p37: Relationship matrix sits between customer requirements and design requirements.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-046",
+   "no": "V-046",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "QFD에서 고객의 말에 귀 기울이고 그것을 이해하는 것이 중심 특징이다.",
+   "ox": true,
+   "s": "<p>QFD의 목적은 고객 요구가 과정의 모든 면에 반영되게 하는 것이고, 중심 특징은 고객을 듣고 이해하는 것입니다.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ]
+   ],
+   "dx": {
+    "facet": "design.qfd",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "qfd",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "용어 쓰기 → O/X 진술"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L5 p36: listening to and understanding the customer is the central feature of QFD.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-047",
+   "no": "V-047",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "한 가전회사가 QFD를 쓴다. 품질의 집에서 '고객 요구' 칸에 들어갈 항목으로 가장 적절한 것은?",
+   "opts": [
+    "모터 소음 55dB 이하",
+    "작동할 때 조용했으면 좋겠다",
+    "모터 속도와 소음이 서로 영향을 준다",
+    "경쟁사 제품보다 소음이 5dB 낮다"
+   ],
+   "ans": 1,
+   "a": "작동할 때 조용했으면 좋겠다",
+   "why": [
+    "고객 요구 칸에 측정 가능한 사양·목표 값을 적는다고 생각함",
+    "",
+    "고객 요구 칸에 설계 요구 사이의 상관을 적는다고 생각함",
+    "고객 요구 칸에 경쟁 평가 결과를 적는다고 생각함"
+   ],
+   "s": "<p>고객 요구는 <b>고객의 말</b>로 적습니다('조용했으면 좋겠다'). 이를 설계 요구(예: 모터 소음)로 옮기고, 목표 값(55dB 이하)은 사양 칸에, 경쟁사와의 비교는 경쟁 평가 칸에, 설계 요구끼리의 영향은 상관 행렬에 적습니다.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "37"
+    ]
+   ],
+   "dx": {
+    "facet": "design.qfd",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qfd",
+    "role": "near",
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ],
+    "delta": [
+     "object",
+     "새 사례: 가전 소음 요구"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L5 p36-38: customer requirements are VoC in customer's words; others are design specs/correlation/competitive eval.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-048",
+   "no": "V-048",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "품질의 집(House of Quality)에서 설계 요구 항목들이 서로 어떤 영향을 주는지 나타내는 방(지붕)을 무엇이라 하는가?",
+   "a": "상관 행렬 (correlation matrix)",
+   "strict": false,
+   "s": "<p>상관 행렬: 설계 요구 항목 <b>사이의</b> 상호 영향. 관계 행렬(고객 요구 × 설계 요구의 연관 강도)과 헷갈리지 마세요.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "37"
+    ]
+   ],
+   "dx": {
+    "facet": "design.qfd",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qfd",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "관계 행렬 묻기 → 상관 행렬 묻기"
+    ],
+    "mis": [
+     {
+      "pattern": "관계 행렬이라고 답함",
+      "ex": [
+       "관계 행렬",
+       "relationship matrix"
+      ],
+      "m": null
+     }
+    ],
+    "check": {
+     "ok": true,
+     "picked": "상관 행렬 (correlation matrix, 지붕/correlations)",
+     "note": "L5 p36-37: roof of the house = correlation matrix among design requirements.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "accept": [
+    "상관 행렬",
+    "상관행렬",
+    "correlation matrix",
+    "correlations",
+    "지붕"
+   ],
+   "publish": false
+  },
+  {
+   "ext_id": "4-12",
+   "dx": {
+    "facet": "design.robust",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "robust",
+    "role": "base",
+    "principle": "강건 설계 = 넓은 범위의 조건에서도 작동하는 설계"
+   },
+   "no": "4-12",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "What is 'a design that results in products or services that can function over a broad range of conditions'?",
+   "a": "Robust design",
+   "accept": [
+    "robust design"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>예: 산악자전거가 일반 자전거보다 더 robust해야 함. Product뿐 아니라 process 설계에도 적용.</p>",
+   "src": [
+    [
+     "L5",
+     "33"
+    ]
+   ],
+   "q_sub": "'넓은 범위의 조건에서도 작동하는 제품·서비스를 만드는 설계'는? (영어)"
+  },
+  {
+   "ext_id": "V-038",
+   "no": "V-038",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "비가 오는 날에도, 한여름 폭염에도 같은 성능을 내도록 만든 우산에 가장 잘 들어맞는 설계 개념은?",
+   "opts": [
+    "동시공학 (concurrent engineering)",
+    "품질 기능 전개 (QFD)",
+    "분해 용이성 설계 (DFD)",
+    "강건 설계 (robust design)"
+   ],
+   "ans": 3,
+   "a": "강건 설계 (robust design)",
+   "why": [
+    "사용 환경이 넓어도 작동하게 하는 것이 동시공학이라고 생각함",
+    "사용 환경이 넓어도 작동하게 하는 것이 QFD라고 생각함",
+    "사용 환경이 넓어도 작동하게 하는 것이 분해 용이성 설계라고 생각함",
+    ""
+   ],
+   "s": "<p>강건 설계 = 넓은 범위의 조건에서도 기능하는 제품·서비스를 낳는 설계. 환경이 바뀌어도 고장 날 가능성이 낮습니다. 동시공학은 설계 초기부터 제조 인력을 참여시키는 것, QFD는 고객의 소리를 설계에 반영하는 것, DFD는 쓴 제품을 쉽게 분해하게 하는 설계입니다.</p>",
+   "src": [
+    [
+     "L5",
+     "33"
+    ],
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "42"
+    ],
+    [
+     "RV",
+     "62"
+    ]
+   ],
+   "dx": {
+    "facet": "design.robust",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "robust",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ],
+    "delta": [
+     "neighbour",
+     "강건 설계 ↔ 다른 설계 개념"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "L5 p33: robust design functions over a broad range of conditions (rain, heat).",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-039",
+   "no": "V-039",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "강건 설계는 제품 설계에만 적용되며 공정 설계에는 적용되지 않는다.",
+   "ox": false,
+   "s": "<p>강의: 강건 설계는 <b>제품 설계뿐 아니라 공정(process) 설계에도</b> 적용되는 개념입니다. 제품·서비스·공정이 사용되거나 수행되는 환경이 바뀌어도 잘 작동하게 하는 것이 목적입니다.</p>",
+   "src": [
+    [
+     "L5",
+     "33"
+    ]
+   ],
+   "dx": {
+    "facet": "design.robust",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "robust",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'제품에만 적용'"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L5 p33: robust design pertains to product as well as process design.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "제품뿐 아니라 공정 설계에도 적용됨",
+   "publish": false
+  },
+  {
+   "ext_id": "V-040",
+   "no": "V-040",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "같은 종류의 센서 중 한 대는 해안의 야외 철탑에, 다른 한 대는 실내 사무실에 설치된다. 두 센서 중 설계에서 강건성이 더 중요하게 요구되는 것은?",
+   "opts": [
+    "야외 철탑에 설치되는 센서",
+    "실내 사무실에 설치되는 센서",
+    "둘 다 같은 정도로 요구된다",
+    "가격이 더 높은 센서"
+   ],
+   "ans": 0,
+   "a": "야외 철탑에 설치되는 센서",
+   "why": [
+    "",
+    "실내 장비일수록 더 강건해야 한다고 생각함",
+    "사용 환경과 상관없이 강건성 요구가 같다고 생각함",
+    "강건성은 가격에 비례한다고 생각함"
+   ],
+   "s": "<p>강건 설계는 사용·수행 환경이 넓게 변해도 작동하게 하는 것입니다. 온도·습도·진동의 변화 폭이 큰 야외에 놓이는 쪽이 더 강건해야 합니다. 강의의 산악 자전거(일반 자전거보다 더 강건)와 같은 판단입니다.</p>",
+   "src": [
+    [
+     "L5",
+     "33"
+    ]
+   ],
+   "dx": {
+    "facet": "design.robust",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "robust",
+    "role": "near",
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ],
+    "delta": [
+     "object",
+     "산악 자전거 → 야외 센서 사례"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L5 p33: robust design functions over a broad range of conditions; less likely to fail with environment change (mountain ",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "4-13",
+   "dx": {
+    "facet": "design.ce",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "ce",
+    "role": "base",
+    "principle": "동시공학 = 설계 초기부터 설계와 제조 인력이 함께 참여"
+   },
+   "no": "4-13",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "What is 'bringing engineering design and manufacturing personnel together early in the design phase'?",
+   "a": "Concurrent engineering (CE)",
+   "accept": [
+    "concurrent engineering",
+    "ce"
+   ],
+   "strict": true,
+   "ph": "English term",
+   "s": "<p>Sequential보다 완성 설계까지의 시간이 줄어듭니다. 마케팅·구매, 공급자·고객 의견도 반영.</p>",
+   "src": [
+    [
+     "L5",
+     "42"
+    ]
+   ],
+   "q_sub": "'설계 초기에 설계 엔지니어와 제조 인력을 함께 참여시키는 것'은? (영어)"
+  },
+  {
+   "ext_id": "V-041",
+   "no": "V-041",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "<b>동시공학(concurrent engineering)</b>에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "설계를 모두 마친 뒤 제조 부서가 검토해 수정이 필요한 곳을 알려 주는 방식이다",
+    "설계 초기 단계부터 설계 엔지니어와 제조 인력(필요하면 마케팅·구매 인력도)을 함께 참여시켜 완성 설계까지 걸리는 시간을 줄인다",
+    "고객의 소리를 품질의 집에 정리해 설계 요구사항으로 옮기는 방식이다",
+    "경쟁사 제품을 분해해 부품을 측정하는 방식이다"
+   ],
+   "ans": 1,
+   "a": "설계 초기 단계부터 설계 엔지니어와 제조 인력(필요하면 마케팅·구매 인력도)을 함께 참여시켜 완성 설계까지 걸리는 시간을 줄인다",
+   "why": [
+    "동시공학이 설계가 끝난 뒤 제조가 검토하는 순차 방식이라고 생각함",
+    "",
+    "동시공학이 품질의 집을 쓰는 QFD라고 생각함",
+    "동시공학이 역설계라고 생각함"
+   ],
+   "s": "<p>동시공학: 설계 초기부터 설계와 제조 인력을 함께 불러서(마케팅·구매 인력도 느슨하게 통합된 교차기능 팀으로, 공급자·고객의 의견도 구함) 고객이 원하는 것과 제조 역량을 모두 반영한 설계를 얻으려 합니다. <b>순차</b> 설계보다 완성 설계까지 시간이 줄어듭니다.</p>",
+   "src": [
+    [
+     "L5",
+     "36"
+    ],
+    [
+     "L5",
+     "42"
+    ]
+   ],
+   "dx": {
+    "facet": "design.ce",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "ce",
+    "role": "near",
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "동시공학 ↔ 순차 설계·QFD·역설계"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L5 p42: bring design and manufacturing (and marketing/purchasing) together early; time to finished design reduced.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-042",
+   "no": "V-042",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "동시공학에서는 설계 엔지니어와 제조 인력만 참여하며, 마케팅·구매 인력이나 공급자·고객의 의견은 받지 않는다.",
+   "ox": false,
+   "s": "<p>설계·제조 인력이 중심이지만, 마케팅·구매 인력이 참여하는 느슨하게 통합된 교차기능 팀도 포함하며 공급자와 고객의 의견을 구하기도 합니다. 목적은 고객이 원하는 것과 제조 역량이 모두 반영된 설계입니다.</p>",
+   "src": [
+    [
+     "L5",
+     "42"
+    ]
+   ],
+   "dx": {
+    "facet": "design.ce",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "ce",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'만 참여, 나머지는 받지 않음'"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L5 p42: may involve manufacturing, marketing, purchasing; views of suppliers and customers may be sought.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "마케팅·구매도 참여할 수 있고 공급자·고객 의견도 구함",
+   "publish": false
+  },
+  {
+   "ext_id": "V-043",
+   "no": "V-043",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "신형 가전을 개발하는 회사에서, 설계가 모두 끝난 뒤에야 제조팀이 '이 부품은 조립하기 어렵다'고 알려 와 설계를 다시 고치느라 일정이 길어졌다. 이 문제를 줄이는 방법으로 가장 적절한 것은?",
+   "opts": [
+    "설계 단계를 더 오래 끌어 모든 문제를 설계팀 안에서 해결한다",
+    "제조 인력을 줄이고 외부에서 조립을 맡긴다",
+    "설계 초기부터 제조 인력이 함께 참여해 조립 용이성을 미리 반영한다",
+    "시제품 제작을 생략하고 곧바로 양산한다"
+   ],
+   "ans": 2,
+   "a": "설계 초기부터 제조 인력이 함께 참여해 조립 용이성을 미리 반영한다",
+   "why": [
+    "설계팀만 더 오래 검토하면 제조 문제도 해결된다고 생각함",
+    "조립 문제는 제조 인력을 줄이면 해결된다고 생각함",
+    "",
+    "시제품을 생략하면 일정이 줄어 문제도 해결된다고 생각함"
+   ],
+   "s": "<p>설계가 끝난 뒤에야 제조가 의견을 내는 <b>순차</b> 방식은 재설계 때문에 시간이 늘어납니다. 동시공학은 설계 초기부터 제조 인력을 참여시켜 이런 문제를 미리 반영하고 완성 설계까지의 시간을 줄입니다.</p>",
+   "src": [
+    [
+     "L5",
+     "42"
+    ]
+   ],
+   "dx": {
+    "facet": "design.ce",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "ce",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ],
+    "delta": [
+     "object",
+     "새 사례: 순차 개발의 재작업"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "L5 p42 concurrent engineering: involve manufacturing early; p44 manufacturability.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "4-14",
+   "dx": {
+    "facet": "sustain.r3",
+    "depth": 1,
+    "depth_why": "D1c"
+   },
+   "no": "4-14",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "Name the 3-Rs of sustainability in design.",
+   "a": "Reduce (costs and materials), Re-use (parts of returned products), Recycle (recover the materials)",
+   "accept": [
+    "reduce reuse recycle",
+    "reduce, re-use, recycle",
+    "reduce re-use recycle"
+   ],
+   "strict": false,
+   "s": "<p>Reduce → value analysis / Re-use → remanufacturing, DFD / Recycle → DFR.</p>",
+   "src": [
+    [
+     "L5",
+     "22"
+    ]
+   ],
+   "q_sub": "설계에서 지속가능성의 3R을 쓰시오."
+  },
+  {
+   "ext_id": "4-15",
+   "dx": {
+    "facet": "kano.types",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": [
+     null,
+     null,
+     "m_kano_static",
+     null
+    ]
+   },
+   "no": "4-15",
+   "chapter": "C4",
+   "kind": "essay",
+   "star": true,
+   "q": "Explain the three types of quality in the Kano model and how they change over time.",
+   "a": "<b>Basic quality</b>: 있어도 만족에는 제한적 영향이지만 없으면 불만을 일으키는 요구. <b>Performance quality</b>: 기능·매력의 수준에 <b>비례</b>해 만족 또는 불만을 일으키는 요구. <b>Excitement quality</b>: 고객이 기대하지 못한 기능으로 감동을 주는 것. 시간이 지나면 대체로 excitement → performance, performance → basic으로 이동한다(고객의 기대가 높아짐). 따라서 설계자는 basic을 반드시 충족하고, performance를 경쟁 수준 이상으로, excitement로 차별화해야 한다.",
+   "pts": [
+    "세 품질 정의(영어 용어)",
+    "만족–기능 관계(제한적/비례/감동)",
+    "시간에 따른 이동 방향",
+    "설계 시사점"
+   ],
+   "src": [
+    [
+     "L5",
+     "39"
+    ],
+    [
+     "L5",
+     "40"
+    ]
+   ],
+   "q_sub": "Kano 모델의 세 가지 품질과 시간에 따른 변화를 설명하시오."
+  },
+  {
+   "ext_id": "4-16",
+   "dx": {
+    "facet": "design.mass_cust",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "4-16",
+   "chapter": "C4",
+   "kind": "essay",
+   "star": true,
+   "q": "Explain mass customization and its two facilitating techniques with examples.",
+   "a": "<b>Mass customization</b>은 기본적으로 표준화된 재화·서비스를 생산하면서 최종 제품에 어느 정도의 맞춤을 반영하는 전략이다. ① <b>Delayed differentiation</b>: 고객 선호를 알 때까지 제품을 만들되 완성하지 않는 과정 — 가구를 착색 전 상태로 두었다가 고객이 색을 고르면 마무리, 해외용 제품을 현지 가까이에서 마무리. ② <b>Modular design</b>: 부품을 쉽게 교체·교환할 수 있는 모듈로 묶는 표준화 — 진단·수리·조립이 쉽고 교육비가 낮지만, 고장 모듈은 통째로 폐기해야 하고 가능한 구성이 제한된다(예: 전기차 공통 플랫폼).",
+   "pts": [
+    "Mass customization 정의",
+    "Delayed differentiation 정의+예",
+    "Modular design 정의+장단점",
+    "표준화와 다양성의 절충이라는 점"
+   ],
+   "src": [
+    [
+     "L5",
+     "30"
+    ],
+    [
+     "L5",
+     "31"
+    ]
+   ],
+   "q_sub": "대량 맞춤과 이를 가능하게 하는 두 기법을 예와 함께 설명하시오."
+  },
+  {
+   "ext_id": "4-17",
+   "dx": {
+    "facet": "svc.std",
+    "depth": 2,
+    "depth_why": "D2a",
+    "mis": [
+     null,
+     null,
+     "m_svc_contact_rev",
+     null
+    ]
+   },
+   "no": "4-17",
+   "chapter": "C4",
+   "kind": "essay",
+   "star": false,
+   "q": "How do the degree of customer contact and the variation in service requirements affect service design?",
+   "a": "서비스 설계의 두 핵심 이슈는 서비스 요구 변동의 정도와 고객 접촉·참여의 정도이며, 이것이 표준화 vs 맞춤의 정도를 결정한다. 고객 접촉과 요구 변동이 적을수록 표준화 기회가 크다: 저접촉·저변동 = most standardized(예: ATM), 고접촉·고변동 = most customized, 나머지 두 칸은 partly standardized. 서비스는 무형이고 재고로 둘 수 없으며 생산과 전달이 동시에 일어나므로, 수요 변동이 대기열이나 유휴 자원을 만든다는 점도 설계에 반영해야 한다.",
+   "pts": [
+    "두 이슈 명시",
+    "2×2 매트릭스 네 칸",
+    "표준화 기회 문장",
+    "서비스 vs 제품 차이 1개 이상"
+   ],
+   "src": [
+    [
+     "L5",
+     "47"
+    ],
+    [
+     "L5",
+     "48"
+    ]
+   ],
+   "q_sub": "고객 접촉 정도와 서비스 요구 변동이 서비스 설계에 어떤 영향을 주는지 설명하시오."
+  },
+  {
+   "ext_id": "M-1",
+   "dx": {
+    "facet": "om.fb_ctrl",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "fb_ctrl",
+    "role": "base",
+    "principle": "측정은 피드백, 기준과 비교해 판단하는 것은 통제다"
+   },
+   "no": "M-1",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": false,
+   "q": "통제(control)란 변환 과정의 여러 지점에서 측정한 피드백을 사전에 설정한 기준과 비교하여 시정 조치가 필요한지 판단하는 것이다.",
+   "ox": true,
+   "s": "<p>피드백 = 변환 과정의 여러 지점에서의 측정, 통제 = 피드백을 기준과 비교해 시정 조치 여부를 판단하는 것. 예: 웨이퍼 팹에서 공정 단계마다 선폭 측정.</p>",
+   "src": [
+    [
+     "RV",
+     "6"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-003",
+   "no": "V-003",
+   "chapter": "C1",
+   "kind": "mc",
+   "star": false,
+   "q": "한 배달 전문 주방이 주문마다 조리 완료 시간을 기록한다(가). 하루 평균 조리 시간이 목표 12분을 넘으면 조리 인원을 한 명 늘리기로 정했다(나). '통제(control)'에 해당하는 것은?",
+   "opts": [
+    "(가) 조리 완료 시간을 기록하는 것",
+    "(나) 기록한 평균을 목표와 비교해 시정 조치가 필요한지 판단하는 것",
+    "(가)와 (나)가 모두 통제이다",
+    "(가)와 (나) 모두 통제가 아니라 투입 관리이다"
+   ],
+   "ans": 1,
+   "a": "(나) 기록한 평균을 목표와 비교해 시정 조치가 필요한지 판단하는 것",
+   "why": [
+    "측정하는 것 자체가 통제라고 생각함",
+    "",
+    "측정과 판단이 한 덩어리로 통제라고 생각함",
+    "통제는 투입을 관리하는 것이라고 생각함"
+   ],
+   "s": "<p>(가)는 변환 과정 중의 측정이므로 <b>피드백</b>, (나)는 피드백을 사전에 정한 기준(목표 12분)과 비교해 시정 조치 여부를 판단하는 것이므로 <b>통제</b>입니다. 강의의 웨이퍼 팹 예(선폭 측정 = 피드백, 규격과 비교해 다음 단계를 재설정 = 통제)와 같은 구조입니다.</p><p>함정: 측정하고 기록하는 일에는 늘 '관리하고 있다'는 느낌이 들어 통제로 착각하기 쉽습니다.</p>",
+   "src": [
+    [
+     "L2",
+     "6"
+    ],
+    [
+     "L2",
+     "7"
+    ],
+    [
+     "RV",
+     "6"
+    ]
+   ],
+   "dx": {
+    "facet": "om.fb_ctrl",
+    "depth": 4,
+    "depth_why": "D4a",
+    "family": "fb_ctrl",
+    "role": "near",
+    "mis": [
+     "m_fb_ctrl",
+     "",
+     "m_fb_ctrl",
+     null
+    ],
+    "delta": [
+     "object",
+     "웨이퍼 팹 → 배달 주방 사례"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L2 p6: control = comparing feedback against previously established standards to decide if corrective action is needed; r",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-004",
+   "no": "V-004",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "변환 과정의 여러 지점에서 아무리 자주 측정해도, 그 측정값을 사전에 정한 기준과 비교해 시정 여부를 판단하는 단계가 없다면 통제가 이루어진 것이 아니다.",
+   "ox": true,
+   "s": "<p>통제의 핵심은 <b>기준과의 비교와 시정 여부 판단</b>입니다. 측정(피드백)만 있고 비교·판단이 없으면 데이터만 쌓일 뿐 통제는 일어나지 않습니다.</p>",
+   "src": [
+    [
+     "L2",
+     "6"
+    ],
+    [
+     "L2",
+     "7"
+    ],
+    [
+     "RV",
+     "6"
+    ]
+   ],
+   "dx": {
+    "facet": "om.fb_ctrl",
+    "depth": 4,
+    "depth_why": "D4b",
+    "family": "fb_ctrl",
+    "role": "near",
+    "delta": [
+     "condition",
+     "측정은 있고 비교·판단은 없음"
+    ],
+    "mis": {
+     "mr": "m_fb_ctrl"
+    },
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L2 p6: measurement alone is feedback; control requires comparison with standard and corrective-action decision",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-005",
+   "no": "V-005",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "변환 과정의 여러 지점에서 이루어지는 측정을 무엇이라 하는가?",
+   "a": "피드백 (feedback)",
+   "strict": false,
+   "s": "<p>피드백 = 변환 과정의 여러 지점에서 이루어지는 <b>측정</b>. 이 측정을 기준과 비교해 시정 여부를 판단하는 것은 통제입니다.</p>",
+   "src": [
+    [
+     "L2",
+     "6"
+    ],
+    [
+     "RV",
+     "6"
+    ]
+   ],
+   "dx": {
+    "facet": "om.fb_ctrl",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "fb_ctrl",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "통제 정의 묻기 → 피드백 정의 묻기"
+    ],
+    "mis": [
+     {
+      "pattern": "통제라고 답함",
+      "ex": [
+       "통제",
+       "control"
+      ],
+      "m": "m_fb_ctrl"
+     }
+    ],
+    "check": {
+     "ok": true,
+     "picked": "피드백 (feedback)",
+     "note": "L2 p6 / RV p6: feedback = measurements taken at various points in the transformation process",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "accept": [
+    "피드백",
+    "feedback",
+    "Feedback"
+   ],
+   "publish": false
+  },
+  {
+   "ext_id": "M-2",
+   "dx": {
+    "facet": "om.goods_svc",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_svc_like_goods"
+   },
+   "no": "M-2",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": false,
+   "q": "서비스는 상품(생산)에 비해 투입의 균일성이 높고 생산성 측정이 쉽다.",
+   "ox": false,
+   "s": "<p>반대입니다. 서비스는 투입의 균일성이 <b>낮고</b> 생산성 측정이 <b>어렵습니다</b>. 서비스는 고객 접촉·노동 비중이 높고, 재고가 적고, 특허가 대체로 불가능합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "7"
+    ]
+   ],
+   "fix": "서비스는 투입 균일성 낮음, 생산성 측정 어려움"
+  },
+  {
+   "ext_id": "M-3",
+   "dx": {
+    "facet": "variation.random_assign",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "random_assign",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "영어 진술 → 한국어 진술"
+    ],
+    "mis": "m_random_fix"
+   },
+   "no": "M-3",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": true,
+   "q": "무작위 변동은 원인을 찾아낼 수 있으므로 분석과 시정 조치로 줄이거나 없앨 수 있다.",
+   "ox": false,
+   "s": "<p>그 설명은 <b>할당 가능 변동</b>입니다. 무작위 변동은 모든 프로세스에 존재하는 자연적 변동으로, 일반적으로 관리자가 영향을 줄 수 없습니다.</p><p>변동의 네 원천: 상품·서비스의 다양성, 수요의 구조적 변동, 무작위 변동, 할당 가능 변동.</p>",
+   "src": [
+    [
+     "RV",
+     "9"
+    ]
+   ],
+   "fix": "그 설명은 할당 가능 변동"
+  },
+  {
+   "ext_id": "M-4",
+   "dx": {
+    "facet": "fc.group",
+    "depth": 1,
+    "depth_why": "D1a",
+    "mis": {
+     "mr": "m_fc_individual"
+    }
+   },
+   "no": "M-4",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": true,
+   "q": "품목 그룹에 대한 예측은 개별 품목에 대한 예측보다 대체로 더 정확하다.",
+   "ox": true,
+   "s": "<p>개별 오차들이 서로 상쇄되기 때문입니다. 예: 한 가구의 에어컨 사용은 예측하기 어렵지만, 전국 전력 수요는 여름철 MAPE 약 2% 이내로 맞습니다. 또한 예측 기간이 길어질수록 정확도는 떨어집니다(태풍 예보 원).</p>",
+   "src": [
+    [
+     "RV",
+     "18"
+    ],
+    [
+     "RV",
+     "19"
+    ],
+    [
+     "RV",
+     "20"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-5",
+   "dx": {
+    "facet": "avg.ma",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "ma",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "이동평균에 지수평활처럼 예측값 사용"
+    ],
+    "mis": "m_ma_forecast"
+   },
+   "no": "M-5",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": true,
+   "q": "이동평균법은 최근 실제값과 함께 이전 기간의 예측값도 평균에 포함한다.",
+   "ox": false,
+   "s": "<p>이동평균은 <b>실제값만</b> 사용하며 이전 예측값은 절대 사용하지 않습니다. 이전 예측값을 쓰는 것은 <b>지수평활</b>입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "30"
+    ],
+    [
+     "RV",
+     "32"
+    ],
+    [
+     "RV",
+     "39"
+    ]
+   ],
+   "fix": "실제값만 사용 (예측값을 쓰는 것은 지수평활)"
+  },
+  {
+   "ext_id": "M-6",
+   "dx": {
+    "facet": "acc.weighting",
+    "depth": 1,
+    "depth_why": "D1a",
+    "mis": {
+     "mr": "m_mse_even"
+    }
+   },
+   "no": "M-6",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": true,
+   "q": "MSE는 오차를 제곱하므로 큰 오차에 더 큰 가중치를 주고, MAPE는 실제값 대비 상대 오차로 오차를 가중한다.",
+   "ox": true,
+   "s": "<p>MAD는 모든 오차에 동일한 가중치, MSE는 제곱값에 따라 가중(큰 오차에 민감), MAPE는 상대 오차에 따라 가중합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "21"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-7",
+   "dx": {
+    "facet": "cap.eff_util",
+    "depth": 3,
+    "depth_why": "D3c",
+    "family": "eff",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "효율에 가동률의 분모(설계 용량)"
+    ],
+    "mis": "m_eff_util_swap"
+   },
+   "no": "M-7",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": true,
+   "q": "효율(efficiency)은 실제 산출량을 설계 용량으로 나눈 값이다.",
+   "ox": false,
+   "s": "<p>효율 = 실제 산출량 ÷ <b>유효</b> 용량 × 100. 설계 용량으로 나누는 것은 <b>가동률</b>입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "68"
+    ]
+   ],
+   "fix": "효율은 유효 용량으로 나눔 (설계 용량은 가동률)"
+  },
+  {
+   "ext_id": "M-8",
+   "dx": {
+    "facet": "cap.strategy",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_lag_lead"
+   },
+   "no": "M-8",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": true,
+   "q": "추종 전략(lag strategy)은 장래 수요 증가를 예상하고 미리 용량을 확충하는 전략이다.",
+   "ox": false,
+   "s": "<p>그 설명은 <b>선도 전략</b>입니다. 추종 전략은 수요가 현재 용량을 <b>초과할 때</b> 용량을 확충하고, 추적 전략은 비교적 작은 단위로 용량을 추가해 수요에 보조를 맞춥니다.</p>",
+   "src": [
+    [
+     "RV",
+     "74"
+    ]
+   ],
+   "fix": "미리 확충하는 것은 선도 전략"
+  },
+  {
+   "ext_id": "M-9",
+   "dx": {
+    "facet": "fc.qual_methods",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qual_methods",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "O/X 진술 → 특징 고르기"
+    ],
+    "mis": [
+     "m_delphi_exec",
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "M-9",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": true,
+   "q": "다음 중 <b>델파이법</b>의 특징으로 가장 적절한 것은?",
+   "opts": [
+    "소수의 고위 관리자가 모여 빠르게 공동 예측을 만든다",
+    "익명 설문을 반복해 응답이 수렴할 때까지 진행하며, 한 사람의 의견이 우세해질 위험을 줄인다",
+    "고객과 직접 접촉하는 직원들이 예측을 만든다",
+    "소비자 의견의 표본을 조사해 정성적 방법 중 꽤 정확한 예측을 얻는다"
+   ],
+   "ans": 1,
+   "a": "익명 설문을 반복해 응답이 수렴할 때까지 진행하며, 한 사람의 의견이 우세해질 위험을 줄인다",
+   "s": "<p>델파이법: 설문 배포 → 익명 응답 → 응답을 바탕으로 다음 설문 → 수렴할 때까지 반복. 솔직한 응답을 유도하지만 시간이 오래 걸립니다.</p><ul><li>①: 경영진 의견법 (빠르지만 한 사람이 지배할 위험)</li><li>③: 영업 인력 의견법</li><li>④: 소비자 설문법</li></ul>",
+   "src": [
+    [
+     "RV",
+     "24"
+    ],
+    [
+     "RV",
+     "25"
+    ],
+    [
+     "RV",
+     "26"
+    ],
+    [
+     "RV",
+     "27"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-025",
+   "no": "V-025",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": false,
+   "q": "경영진 의견법은 소수의 고위 관리자가 모여 공동으로 예측을 만드는 방법이다.",
+   "ox": true,
+   "s": "<p>경영진 의견법: 소수의 고위 관리자가 모여 함께 예측을 만듭니다. 강점은 빠른 의사결정과 여러 관리자의 지식을 모을 수 있다는 점, 약점은 한 사람의 의견이 우세해질 위험(그리고 책임이 분산됨)입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "23"
+    ],
+    [
+     "RV",
+     "24"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.qual_methods",
+    "depth": 1,
+    "depth_why": "D1a",
+    "family": "qual_def",
+    "role": "base",
+    "principle": "경영진은 빠르지만 한 사람이 지배할 위험, 델파이는 익명 반복으로 그 위험을 줄이지만 오래 걸림",
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "L4 p23: executive opinions = small group of upper-level managers meet and collectively develop a forecast.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-026",
+   "no": "V-026",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "회의에서 직급이 가장 높은 임원 한 사람의 의견이 그대로 예측이 되는 일이 반복된다. 응답을 익명으로 유지하고 설문을 반복해 이 위험을 줄이는 정성적 예측 방법은?",
+   "opts": [
+    "경영진 의견법",
+    "영업 인력 의견법",
+    "소비자 설문법",
+    "델파이법"
+   ],
+   "ans": 3,
+   "a": "델파이법",
+   "why": [
+    "경영진 의견법이 익명 설문으로 한 사람의 지배를 막는다고 생각함",
+    "영업 인력 의견법이 의견 지배를 막는 방법이라고 생각함",
+    "소비자 설문법이 의견 지배를 막는 방법이라고 생각함",
+    ""
+   ],
+   "s": "<p>델파이법: 설문 배포 → <b>익명</b> 응답 → 응답으로 다음 설문 작성 → 수렴할 때까지 반복. 솔직한 응답을 이끌고 한 사람 의견이 우세해질 위험을 줄입니다. 그 위험은 경영진 의견법의 약점입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "23"
+    ],
+    [
+     "L4",
+     "26"
+    ],
+    [
+     "RV",
+     "24"
+    ],
+    [
+     "RV",
+     "27"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.qual_methods",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qual_def",
+    "role": "near",
+    "mis": [
+     "m_exec_anon",
+     null,
+     null,
+     ""
+    ],
+    "delta": [
+     "neighbour",
+     "경영진 약점 → 델파이 강점"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "L4 p26: Delphi keeps responses anonymous, iterates; reduces risk one person's opinion prevails (p23 lists that risk for ",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-027",
+   "no": "V-027",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "며칠 안에 빠르게 예측을 내야 하고, 소수 고위 관리자의 지식을 모으는 것으로 충분하다. 이 상황에 가장 적절한 정성적 예측 방법은?",
+   "opts": [
+    "경영진 의견법",
+    "델파이법",
+    "소비자 설문법",
+    "영업 인력 의견법"
+   ],
+   "ans": 0,
+   "a": "경영진 의견법",
+   "why": [
+    "",
+    "델파이 기법이 빠르게 결과를 낸다고 생각함",
+    "소비자 설문이 가장 빠르고 저렴하다고 생각함",
+    "영업 인력 의견법이 고위 관리자의 지식을 모으는 방법이라고 생각함"
+   ],
+   "s": "<p>경영진 의견법은 의사결정이 빠르고 여러 관리자의 지식을 모을 수 있어서 시간이 부족한 상황에 맞습니다. 델파이법은 설문을 수렴할 때까지 반복하느라 <b>시간이 오래 걸리는</b> 것이 약점입니다. 소비자 설문법도 비용이 많이 들고 시간이 걸립니다.</p>",
+   "src": [
+    [
+     "L4",
+     "23"
+    ],
+    [
+     "L4",
+     "25"
+    ],
+    [
+     "L4",
+     "26"
+    ],
+    [
+     "RV",
+     "24"
+    ],
+    [
+     "RV",
+     "26"
+    ],
+    [
+     "RV",
+     "27"
+    ]
+   ],
+   "dx": {
+    "facet": "fc.qual_methods",
+    "depth": 4,
+    "depth_why": "D4b",
+    "family": "qual_def",
+    "role": "near",
+    "mis": [
+     "",
+     "m_delphi_exec",
+     null,
+     null
+    ],
+    "delta": [
+     "condition",
+     "시간 제약·소수 전문가 조건 추가"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "L4 p23: executive opinions strength = quick decision making, combines knowledge of managers; Delphi is time-consuming (p",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "M-10",
+   "dx": {
+    "facet": "ts.patterns",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "ts_patterns",
+    "role": "base",
+    "principle": "변동의 길이·원인으로 시계열 행태를 가른다",
+    "mis": [
+     null,
+     null,
+     "",
+     "m_irreg_random"
+    ]
+   },
+   "no": "M-10",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": true,
+   "q": "노동 파업으로 한 달간 판매량이 급감했다. 시계열 행태 중 무엇에 해당하는가?",
+   "opts": [
+    "순환",
+    "계절성",
+    "불규칙 변동",
+    "무작위 변동"
+   ],
+   "ans": 2,
+   "a": "불규칙 변동",
+   "s": "<p>불규칙 변동: 일반적인 행태를 반영하지 않는 <b>특수한 상황</b>(노동 파업, 기상 이변)에 의한 변동입니다.</p><ul><li>순환: 1년 넘게 이어지는 파동 (경제·정치 여건)</li><li>계절성: 달력·하루 중 시간과 관련된 단기적·규칙적 변동</li><li>무작위 변동: 다른 모든 행태를 반영하고도 남는 잔여 변동</li></ul>",
+   "src": [
+    [
+     "RV",
+     "28"
+    ],
+    [
+     "RV",
+     "29"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-11",
+   "dx": {
+    "facet": "kano.shift",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "kano_shift",
+    "role": "near",
+    "delta": [
+     "object",
+     "이동 규칙을 지문 인식 기능에 적용"
+    ],
+    "mis": [
+     "m_kano_static",
+     null,
+     "",
+     null
+    ]
+   },
+   "no": "M-11",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": true,
+   "q": "스마트폰 지문 인식 기능은 처음 나왔을 때 고객이 예상하지 못한 놀라운 기능이었지만, 지금은 없으면 불만을 느끼는 기능이 되었다. 카노 모형에서 이 기능의 <b>현재</b> 분류는?",
+   "opts": [
+    "감동 품질",
+    "성능 품질",
+    "기본 품질",
+    "역 품질"
+   ],
+   "ans": 2,
+   "a": "기본 품질",
+   "s": "<p>시간이 지나면 감동 품질 → 성능 품질 → 기본 품질로 옮겨 갑니다. 기본 품질은 있어도 만족에는 제한적 영향만 주지만, <b>없으면 불만</b>을 낳습니다.</p>",
+   "src": [
+    [
+     "RV",
+     "64"
+    ],
+    [
+     "RV",
+     "65"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-12",
+   "dx": {
+    "facet": "strategy.qual_win",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "qual_win",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "O/X 진술 → 정의에 맞는 용어 고르기"
+    ],
+    "mis": [
+     "m_qual_win_swap",
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "M-12",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": true,
+   "q": "고객이 상품이나 서비스를 구매 후보로 <b>고려하기 위해</b> 최소한으로 갖춰야 한다고 인식하는 특성은?",
+   "opts": [
+    "주문 획득 요인",
+    "주문 자격 요건",
+    "핵심 역량",
+    "경쟁 우위"
+   ],
+   "ans": 1,
+   "a": "주문 자격 요건",
+   "s": "<p>주문 자격 요건 = 최소 기준, 주문 획득 요인 = 경쟁사보다 낫다고 인식되게 만드는 특성. 가격·배송 신뢰성/속도·품질은 둘 중 어느 쪽도 될 수 있습니다.</p>",
+   "src": [
+    [
+     "RV",
+     "13"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-13",
+   "dx": {
+    "facet": "strategy.swot",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "swot",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "O/X 진술 → 외부 요인 아닌 것 고르기"
+    ],
+    "mis": [
+     "m_swot_swap",
+     "m_swot_swap",
+     "m_swot_swap",
+     ""
+    ]
+   },
+   "no": "M-13",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "SWOT 분석에서 <b>외부 요인</b>(기회·위협)으로 분석하는 대상이 <b>아닌</b> 것은?",
+   "opts": [
+    "경제 상황",
+    "법적 환경",
+    "경쟁",
+    "특허와 노사 관계"
+   ],
+   "ans": 3,
+   "a": "특허와 노사 관계",
+   "s": "<p>특허, 노사 관계, 기업 이미지, 인적·재무 자원, 시설 등은 <b>내부 요인</b>(강점·약점)입니다. 외부 요인: 경제, 정치, 법적 환경, 기술, 경쟁, 시장.</p>",
+   "src": [
+    [
+     "RV",
+     "12"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-14",
+   "dx": {
+    "facet": "cap.effective",
+    "depth": 3,
+    "depth_why": "D3b",
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "M-14",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": true,
+   "q": "다음 중 <b>유효 용량</b>을 설계 용량보다 작게 만드는 요인이 <b>아닌</b> 것은?",
+   "opts": [
+    "셋업 시간",
+    "예방 유지보수 활동",
+    "직원 휴식 시간",
+    "갑작스러운 기계 고장"
+   ],
+   "ans": 3,
+   "a": "갑작스러운 기계 고장",
+   "s": "<p>유효 용량은 셋업, 유지보수, 휴식, 스케줄링처럼 <b>통제할 수 있는</b> 여유분을 뺀 것입니다. 기계 고장, 결근, 자재 부족, 품질 문제처럼 <b>통제할 수 없는</b> 요인은 <b>실제 산출량</b>을 줄입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "67"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-15",
+   "dx": {
+    "facet": "svc.std",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "svc_std",
+    "role": "near",
+    "delta": [
+     "repr",
+     "진술 → 접촉·변동 칸에 맞는 설계 고르기"
+    ],
+    "mis": [
+     "m_svc_contact_rev",
+     null,
+     "",
+     null
+    ]
+   },
+   "no": "M-15",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "고객 접촉이 낮고 서비스 요건의 변동도 작은 서비스는 어떻게 설계하는 것이 적절한가?",
+   "opts": [
+    "가장 맞춤화",
+    "부분 표준화",
+    "가장 표준화",
+    "고객 참여 극대화"
+   ],
+   "ans": 2,
+   "a": "가장 표준화",
+   "s": "<p>고객 접촉과 서비스 요건의 변동이 적을수록 표준화할 여지가 커집니다. 접촉 높음 + 변동 큼 → 가장 맞춤화, 둘 중 하나만 크면 부분 표준화.</p>",
+   "src": [
+    [
+     "RV",
+     "66"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-16",
+   "dx": {
+    "facet": "acc.ts_read",
+    "depth": 2,
+    "depth_why": "D2a",
+    "mis": [
+     "m_ts_sign",
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "M-16",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": true,
+   "q": "어떤 예측의 추적 신호가 몇 기간 연속 +5 근처에서 커지고 있다. 가장 적절한 해석은?",
+   "opts": [
+    "예측값이 실제값보다 지속적으로 크다 (과대예측)",
+    "예측값이 실제값보다 지속적으로 작다 (과소예측)",
+    "무작위 오차만 있으므로 예측이 이상적이다",
+    "MAD가 작으므로 예측이 매우 정확하다"
+   ],
+   "ans": 1,
+   "a": "예측값이 실제값보다 지속적으로 작다 (과소예측)",
+   "s": "<p>추적 신호 = 누적 오차(Σ(A − F)) ÷ MAD. 양수로 커진다는 것은 A − F > 0이 쌓인다는 뜻, 즉 실제가 예측보다 계속 커서 <b>과소예측(편향)</b>이 있다는 뜻입니다. ±4 또는 ±5 한계를 넘으면 예측 방법을 점검합니다. 이상적인 값은 0입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "55"
+    ],
+    [
+     "RV",
+     "57"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-17",
+   "dx": {
+    "facet": "rd.reverse_eng",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "reverse_eng",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "영어 정의 → 한국어 정의"
+    ]
+   },
+   "no": "M-17",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": false,
+   "q": "경쟁사 제품을 입수하여 분해하고 부품을 검사·측정해 자사 제품의 개선점을 찾아내는 것은?",
+   "a": "역설계 (reverse engineering)",
+   "accept": [
+    "역설계",
+    "리버스 엔지니어링",
+    "reverse engineering"
+   ],
+   "strict": false,
+   "s": "<p>경쟁사 기반 아이디어 창출 방법입니다. 예: 신형 휴대폰 분해 보고서가 출시 며칠 만에 나옴.</p>",
+   "src": [
+    [
+     "RV",
+     "58"
+    ],
+    [
+     "RV",
+     "59"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-036",
+   "no": "V-036",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": false,
+   "q": "제품 개선 아이디어를 얻는 방법 가운데 <b>역설계(reverse engineering)</b>에 해당하는 것은?",
+   "opts": [
+    "납품 업체와 정비·수리 담당자에게서 개선 의견을 구한다",
+    "연구소에서 기초 연구로 과학적 지식을 넓힌다",
+    "경쟁사 신제품을 구해 분해하고 부품을 검사·측정해 자사 설계 개선에 쓴다",
+    "고객 설문과 불만 접수로 제품의 약점을 찾는다"
+   ],
+   "ans": 2,
+   "a": "경쟁사 신제품을 구해 분해하고 부품을 검사·측정해 자사 설계 개선에 쓴다",
+   "why": [
+    "역설계가 공급사슬 안의 의견을 모으는 방법이라고 생각함",
+    "역설계가 연구 기반 아이디어 창출이라고 생각함",
+    "",
+    "역설계가 고객 의견을 모으는 방법이라고 생각함"
+   ],
+   "s": "<p>아이디어의 세 원천: 공급사슬 기반(고객·공급자·유통업자·직원·정비 인력), <b>경쟁사 기반</b>(역설계 포함), 연구 기반(기초 연구·응용 연구·개발). 역설계 = 경쟁사 제품을 입수 → 분해 → 부품 검사·측정 → 자사 설계 개선.</p>",
+   "src": [
+    [
+     "L5",
+     "12"
+    ],
+    [
+     "L5",
+     "13"
+    ],
+    [
+     "RV",
+     "58"
+    ],
+    [
+     "RV",
+     "59"
+    ]
+   ],
+   "dx": {
+    "facet": "rd.reverse_eng",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "reverse_eng",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "경쟁사 기반 ↔ 공급사슬·연구 기반"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "L5 p13: reverse engineering = obtain competitor's product, disassemble, inspect/measure parts, improve own design.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-037",
+   "no": "V-037",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "강의의 정의에서 역설계는 분해·검사해 개선점을 찾는 활동이기만 하면, 대상이 누구의 제품이든 해당한다.",
+   "ox": false,
+   "s": "<p>강의의 정의는 <b>경쟁사의 제품</b>을 분해·검사해 개선점을 찾는 것입니다. 분해해서 개선점을 찾는다는 점은 같아도, 대상이 자사 이전 모델이면 경쟁사 기반 아이디어 창출인 역설계에 해당하지 않습니다.</p>",
+   "src": [
+    [
+     "L5",
+     "12"
+    ],
+    [
+     "L5",
+     "13"
+    ],
+    [
+     "RV",
+     "58"
+    ],
+    [
+     "RV",
+     "59"
+    ]
+   ],
+   "dx": {
+    "facet": "rd.reverse_eng",
+    "depth": 4,
+    "depth_why": "D4b",
+    "family": "reverse_eng",
+    "role": "near",
+    "delta": [
+     "object",
+     "경쟁사 제품 → 자사 이전 모델"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "L5 p13: reverse engineering = disassembling and inspecting a COMPETITOR's product to discover improvements; not any prod",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "역설계의 대상은 경쟁사의 제품",
+   "publish": false
+  },
+  {
+   "ext_id": "M-18",
+   "dx": {
+    "facet": "sustain.va",
+    "depth": 1,
+    "depth_why": "D1c"
+   },
+   "no": "M-18",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "부품과 자재의 기능을 검토하여 제품의 비용을 줄이거나 성능을 높이려는 노력은? (예: '이 품목은 꼭 필요한가?', '둘 이상의 부품을 합칠 수 있는가?')",
+   "a": "가치 분석 (value analysis)",
+   "accept": [
+    "가치 분석",
+    "가치분석",
+    "value analysis"
+   ],
+   "strict": false,
+   "s": "<p>3R 중 '줄이기(비용과 자재)'를 위한 도구입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "60"
+    ],
+    [
+     "RV",
+     "61"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-19",
+   "dx": {
+    "facet": "dfx.dfd",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "dfd",
+    "role": "base",
+    "principle": "DFD는 다 쓴 제품을 쉽게 분해하게 하는 설계다",
+    "mis": [
+     {
+      "pattern": "조립 용이 설계와 혼동",
+      "ex": [
+       "DFA"
+      ],
+      "m": "m_dfd_as_dfa"
+     }
+    ]
+   },
+   "no": "M-19",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": false,
+   "q": "사용된 제품을 쉽게 분해할 수 있도록 제품을 설계하는 것은? (약자도 함께)",
+   "a": "분해 용이성 설계 (DFD, Design for Disassembly)",
+   "accept": [
+    "분해 용이성 설계",
+    "DFD",
+    "Design for Disassembly",
+    "분해용이성설계"
+   ],
+   "strict": false,
+   "s": "<p>재제조(재사용)를 위한 설계입니다. 재활용 가능한 부품을 회수할 수 있게 하는 설계는 DFR(재활용 설계)입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "62"
+    ],
+    [
+     "RV",
+     "63"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-20",
+   "dx": {
+    "facet": "cap.cushion",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "cushion",
+    "role": "base",
+    "principle": "용량 여유분 = 100% − 가동률"
+   },
+   "no": "M-20",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "수요 불확실성을 상쇄하기 위해 확보하는 추가 용량을 무엇이라 하는가?",
+   "a": "용량 여유분 (capacity cushion)",
+   "accept": [
+    "용량 여유분",
+    "capacity cushion",
+    "용량여유분"
+   ],
+   "strict": false,
+   "s": "<p>용량 여유분 = 100% − 가동률. 수요 불확실성이 클수록 더 많이 필요합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "70"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-21",
+   "dx": {
+    "facet": "trend.r",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "r2",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "O/X 진술 → 용어 쓰기"
+    ]
+   },
+   "no": "M-21",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "선형회귀에서 y 값의 변동 중 독립변수로 '설명되는' 비율을 나타내며 0에서 1 사이의 값을 갖는 것은?",
+   "a": "r² (상관계수의 제곱, 결정계수)",
+   "accept": [
+    "r²",
+    "r^2",
+    "r2",
+    "결정계수",
+    "상관계수의 제곱"
+   ],
+   "strict": false,
+   "s": "<p>예: r = 0.89 → r² = 0.79, 기온이 판매량 변동의 약 79%를 설명.</p>",
+   "src": [
+    [
+     "RV",
+     "53"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-22",
+   "dx": {
+    "facet": "strategy.tactics",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "tactics",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "O/X 진술 → 용어 쓰기"
+    ]
+   },
+   "no": "M-22",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": false,
+   "q": "전략을 달성하기 위한 방법과 행동으로, 전략보다 구체적이며 프로세스의 '어떻게 할 것인가'에 해당하는 것은?",
+   "a": "전술 (tactics)",
+   "accept": [
+    "전술",
+    "tactics"
+   ],
+   "strict": false,
+   "s": "<p>미션 → 목표 → 전략 → 전술 → 운영(실제 실행).</p>",
+   "src": [
+    [
+     "RV",
+     "10"
+    ],
+    [
+     "RV",
+     "11"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-23",
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "prod_multi",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ]
+   },
+   "no": "M-23",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "제품 2,000개를 개당 $50에 팔았다. 노동 비용 $20,000, 재료비 $30,000일 때 <b>다요소 생산성</b>(노동 + 재료)은?",
+   "a": "2",
+   "num": 2.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>다요소 측정 = $100,000 ÷ ($20,000 + $30,000) = <b>2</b></p>",
+   "src": [
+    [
+     "RV",
+     "15"
+    ],
+    [
+     "RV",
+     "16"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-24",
+   "dx": {
+    "facet": "avg.es",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "es1",
+    "role": "base",
+    "principle": "F = 직전 F + α(직전 A − 직전 F)",
+    "mis": [
+     {
+      "pattern": "α를 예측값에 곱함",
+      "ex": [
+       "86"
+      ],
+      "m": "m_es_swap"
+     }
+    ]
+   },
+   "no": "M-24",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "지난 기간 예측 80, 실제 90, α = 0.4일 때 이번 기간 지수평활 예측값은?",
+   "a": "84",
+   "num": 84.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>F = 80 + 0.4 × (90 − 80) = <b>84</b></p>",
+   "src": [
+    [
+     "RV",
+     "37"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-25",
+   "dx": {
+    "facet": "cap.eff_util",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "eff",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "설계 용량으로 나눔",
+      "ex": [
+       "72%",
+       "72"
+      ],
+      "m": "m_eff_util_swap"
+     }
+    ]
+   },
+   "no": "M-25",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "설계 용량 하루 200대, 유효 용량 160대, 실제 산출 144대일 때 <b>효율(%)</b>은?",
+   "a": "90%",
+   "num": 90.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>효율 = 144 ÷ 160 × 100 = <b>90%</b> (가동률은 144 ÷ 200 = 72%)</p>",
+   "src": [
+    [
+     "RV",
+     "68"
+    ],
+    [
+     "RV",
+     "69"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-049",
+   "no": "V-049",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "설계 용량 100, 유효 용량 80, 실제 산출 60인 공정이 있다. 셋업을 줄여 유효 용량을 100으로 높였지만 실제 산출은 그대로 60이다. 효율과 가동률은 어떻게 변하는가?",
+   "opts": [
+    "가동률은 75%에서 60%로 낮아지고, 효율은 변하지 않는다",
+    "효율과 가동률이 모두 60%로 낮아진다",
+    "효율은 75%에서 60%로 낮아지고, 가동률은 60%로 변하지 않는다",
+    "효율과 가동률 모두 변하지 않는다"
+   ],
+   "ans": 2,
+   "a": "효율은 75%에서 60%로 낮아지고, 가동률은 60%로 변하지 않는다",
+   "why": [
+    "효율과 가동률의 분모를 서로 바꿔 생각함",
+    "유효 용량이 늘면 두 지표가 다 같이 변한다고 생각함",
+    "",
+    "실제 산출이 그대로면 두 지표가 모두 그대로라고 생각함"
+   ],
+   "s": "<p>효율 = 실제 ÷ <b>유효</b> 용량: 60 ÷ 80 = 75% → 60 ÷ 100 = 60%. 가동률 = 실제 ÷ <b>설계</b> 용량: 60 ÷ 100 = 60%로 처음부터 그대로입니다. 분모가 다르기 때문에 유효 용량이 변하면 효율만 변합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "67"
+    ],
+    [
+     "RV",
+     "68"
+    ],
+    [
+     "RV",
+     "69"
+    ]
+   ],
+   "dx": {
+    "facet": "cap.eff_util",
+    "depth": 4,
+    "depth_why": "D4b",
+    "family": "eff",
+    "role": "near",
+    "mis": [
+     "m_eff_util_swap",
+     null,
+     "",
+     null
+    ],
+    "delta": [
+     "condition",
+     "유효 용량만 설계 용량 수준으로 증가"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "RV p67-68: utilization = actual/design (60/100=60% unchanged); efficiency = actual/effective (60/80=75% -> 60/100=60%).",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-050",
+   "no": "V-050",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": false,
+   "q": "실제 산출량이 같더라도 유효 용량이 달라지면 효율은 달라지지만 가동률은 달라지지 않는다.",
+   "ox": true,
+   "s": "<p>효율의 분모는 유효 용량이고 가동률의 분모는 설계 용량입니다. 설계 용량이 그대로이면 실제 산출이 같을 때 가동률은 그대로이고, 유효 용량이 달라지면 효율만 변합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "67"
+    ],
+    [
+     "RV",
+     "68"
+    ]
+   ],
+   "dx": {
+    "facet": "cap.eff_util",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "eff",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'실제 산출량이 같아도'"
+    ],
+    "mis": {
+     "mr": "m_eff_util_swap"
+    },
+    "check": {
+     "ok": true,
+     "picked": "O",
+     "note": "RV p67-68: efficiency = actual/effective changes with effective capacity; utilization = actual/design does not.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "M-26",
+   "dx": {
+    "facet": "trend.line",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "trend_line",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ]
+   },
+   "no": "M-26",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "주차 1, 2, 3의 판매량이 4, 6, 9이다. 선형 추세 모형으로 <b>5주차</b> 판매량을 예측하시오. 소수 둘째 자리까지.",
+   "a": "13.83",
+   "num": 13.833333,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>Σt = 6, Σy = 19, Σty = 43, Σt² = 14</p><p>b = (3 × 43 − 6 × 19) ÷ (3 × 14 − 36) = 2.5, a = (19 − 2.5 × 6) ÷ 3 = 1.333</p><p>F₅ = 1.333 + 2.5 × 5 = <b>13.83</b></p>",
+   "src": [
+    [
+     "RV",
+     "40"
+    ],
+    [
+     "RV",
+     "42"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-27",
+   "dx": {
+    "facet": "cap.machines",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "machines",
+    "role": "base",
+    "principle": "총 처리 시간 ÷ 대당 가용 시간을 올림",
+    "mis": [
+     {
+      "pattern": "올림하지 않음",
+      "ex": [
+       "1.375",
+       "1"
+      ],
+      "m": "m_machine_round"
+     }
+    ]
+   },
+   "no": "M-27",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": true,
+   "q": "2교대(교대당 8시간), 연간 250일 일하는 공장이다. 제품 A 2,000개(개당 1.5시간), 제품 B 1,000개(개당 2.5시간)를 만들려면 기계가 최소 몇 대 필요한가?",
+   "a": "2대",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력 (대)",
+   "strict": false,
+   "s": "<p>필요 시간 = 2,000 × 1.5 + 1,000 × 2.5 = 5,500시간</p><p>T = 8 × 2교대 × 250 = 4,000시간/대</p><p>N = 5,500 ÷ 4,000 = 1.375 → <b>2대</b></p>",
+   "src": [
+    [
+     "RV",
+     "71"
+    ],
+    [
+     "RV",
+     "72"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-28",
+   "dx": {
+    "facet": "acc.weighting",
+    "depth": 2,
+    "depth_why": "D2a",
+    "mis": [
+     null,
+     "m_mse_even",
+     null,
+     null
+    ]
+   },
+   "no": "M-28",
+   "chapter": "MOCK",
+   "kind": "essay",
+   "star": true,
+   "q": "MAD, MSE, MAPE를 각각 정의하고, 세 지표가 오차를 어떻게 다르게 가중하는지와 각각이 유용한 상황을 서술하시오.",
+   "a": "MAD는 오차 절댓값의 평균(Σ|e| ÷ n)으로 모든 오차에 같은 가중치를 준다. 단위가 원래 수요와 같아 해석이 쉽다. MSE는 오차 제곱의 평균(이 강의에서는 Σe² ÷ (n − 1))으로, 제곱 때문에 큰 오차에 훨씬 큰 가중치를 준다. 따라서 큰 오차 몇 번이 치명적인 상황(예: 재고 부족 비용이 큰 경우)에서 예측 방법을 비교할 때 유용하다. MAPE는 실제값 대비 오차 비율의 평균(Σ(|e| ÷ A × 100) ÷ n)으로 상대 오차에 따라 가중한다. 단위나 규모가 다른 품목이나 시계열의 정확도를 비교할 때 유용하다. 예를 들어 복습 자료의 8기간 예제는 MAD 2.75, MSE 10.86, MAPE 1.28%였다.",
+   "pts": [
+    "MAD 정의(Σ|e|/n)와 동일 가중",
+    "MSE 정의(제곱, n−1)와 큰 오차에 민감",
+    "MAPE 정의(상대 오차 %)와 규모가 다른 대상 비교",
+    "각 지표가 유용한 상황"
+   ],
+   "s": "<p>시험에서는 공식과 나누는 값(n, n−1, n)을 정확히 쓰는 것이 핵심입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "21"
+    ],
+    [
+     "RV",
+     "22"
+    ],
+    [
+     "RV",
+     "23"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-29",
+   "dx": {
+    "facet": "cap.strategy",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": [
+     "m_lag_lead",
+     "m_lag_lead",
+     null,
+     null
+    ]
+   },
+   "no": "M-29",
+   "chapter": "MOCK",
+   "kind": "essay",
+   "star": true,
+   "q": "용량 확장 전략인 선도·추종·추적 전략을 비교하고, 수요 불확실성과 용량 여유분이 전략 선택에 어떤 영향을 주는지 서술하시오.",
+   "a": "선도 전략은 장래 수요 증가를 예상하고 미리 용량을 확충하므로 수요를 놓치지 않고 경쟁사보다 시장을 먼저 잡을 수 있지만, 수요가 예상보다 적으면 유휴 용량 비용이 크다. 추종 전략은 수요가 현재 용량을 초과한 뒤에 용량을 늘리므로 투자 위험은 작지만 그사이 판매 기회를 잃을 수 있다. 추적 전략은 추종과 비슷하지만 용량을 비교적 작은 단위로 자주 추가해 수요에 보조를 맞춘다. 용량 여유분(100% − 가동률)은 수요 불확실성을 상쇄하기 위한 추가 용량이다. 수요 불확실성이 클수록 더 큰 여유분이 필요하므로, 불확실성이 크고 기회 손실 비용이 크면 선도 전략과 큰 여유분이, 불확실성이 작고 투자 위험을 줄이고 싶으면 추종·추적 전략이 적합하다.",
+   "pts": [
+    "선도 전략: 미리 확충, 장단점",
+    "추종 전략: 초과 후 확충, 장단점",
+    "추적 전략: 작은 단위로 보조 맞춤",
+    "용량 여유분 정의와 수요 불확실성에 따른 선택"
+   ],
+   "s": "<p>장단점(유휴 비용 vs 기회 손실)은 전략의 정의에서 바로 따라 나오는 해석입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "70"
+    ],
+    [
+     "RV",
+     "74"
+    ]
+   ]
+  },
+  {
+   "ext_id": "M-30",
+   "dx": {
+    "facet": "avg.compare",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": [
+     "m_ma_forecast",
+     "m_wma_order",
+     "m_es_swap",
+     null
+    ]
+   },
+   "no": "M-30",
+   "chapter": "MOCK",
+   "kind": "essay",
+   "star": true,
+   "q": "이동평균, 가중이동평균, 지수평활을 사용하는 데이터, 가중치 부여 방식, 최근 변화에 대한 반응성 측면에서 비교하시오.",
+   "a": "이동평균은 최근 n개의 실제값만 같은 가중치로 평균하며 이전 예측값은 쓰지 않는다. 새 데이터가 들어오면 최신 실제값을 더하고 가장 오래된 값을 빼서 다시 평균한다. n이 클수록 평활되지만 변화에 늦게 반응한다. 가중이동평균은 최근 값에 더 큰 가중치를 주어 최근 변화에 더 빨리 반응한다. 가중치는 다소 임의적이고 시행착오가 필요하지만 합은 반드시 1이어야 한다. 지수평활은 직전 예측값에 직전 예측 오차의 일정 비율(α)을 더하는 방식(F_t = F_t−1 + α(A_t−1 − F_t−1))이다. 실제값이 아니라 직전 예측값을 이어서 쓰며, 과거 데이터의 가중치가 기하급수적으로 줄어든다. α가 클수록 최근 변화에 민감하다.",
+   "pts": [
+    "이동평균: 실제값 n개, 동일 가중, 예측값 사용 X",
+    "가중이동평균: 최근에 큰 가중치, 합 = 1",
+    "지수평활: 직전 예측 + α×오차, 기하급수적 감소",
+    "반응성 비교(n, 가중치, α)"
+   ],
+   "s": "<p>세 방법 모두 추세가 있는 데이터에는 뒤처지므로, 추세가 있으면 선형 추세 모형이나 추세 조정 지수평활(TAF)을 씁니다.</p>",
+   "src": [
+    [
+     "RV",
+     "30"
+    ],
+    [
+     "RV",
+     "33"
+    ],
+    [
+     "RV",
+     "34"
+    ],
+    [
+     "RV",
+     "37"
+    ],
+    [
+     "RV",
+     "39"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-1",
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "K-1",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "다음 자료로 <b>노동 생산성</b>을 구하시오. (금액 기준)<div class='tbl'><table><tr><th>생산량</th><td>4,000개</td><th>표준 가격</th><td>$25/개</td></tr><tr><th>노동 투입</th><td>400시간</td><th>노동 비용</th><td>$20/시간</td></tr><tr><th>에너지 투입</th><td>4,000 kWh</td><th>에너지 비용</th><td>$0.50/kWh</td></tr><tr><th>재료비</th><td colspan='3'>$6,000</td></tr></table></div>",
+   "a": "12.5",
+   "num": 12.5,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>노동 생산성 = 산출 금액 ÷ 노동 비용 = (4,000 × $25) ÷ (400 × $20) = $100,000 ÷ $8,000 = <b>12.5</b></p><p>분모와 분자의 단위를 맞추기 위해 모두 금액으로 바꿉니다.</p>",
+   "src": [
+    [
+     "RV",
+     "15"
+    ],
+    [
+     "RV",
+     "16"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-2",
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "prod_multi",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "에너지까지 분모에 넣음",
+      "ex": [
+       "6.25"
+      ],
+      "m": "m_prod_inputs"
+     }
+    ]
+   },
+   "no": "K-2",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-1과 같은 자료로 <b>다요소 생산성</b>(노동 + 재료)을 구하시오. 소수 둘째 자리까지.<div class='tbl'><table><tr><th>생산량</th><td>4,000개</td><th>표준 가격</th><td>$25/개</td></tr><tr><th>노동 투입</th><td>400시간</td><th>노동 비용</th><td>$20/시간</td></tr><tr><th>에너지 투입</th><td>4,000 kWh</td><th>에너지 비용</th><td>$0.50/kWh</td></tr><tr><th>재료비</th><td colspan='3'>$6,000</td></tr></table></div>",
+   "a": "7.14",
+   "num": 7.142857,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>다요소 측정 = 산출 금액 ÷ (노동 비용 + 재료비) = $100,000 ÷ ($8,000 + $6,000) = <b>7.14</b></p>",
+   "src": [
+    [
+     "RV",
+     "15"
+    ],
+    [
+     "RV",
+     "16"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-3",
+   "dx": {
+    "facet": "productivity.calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "prod_total",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "에너지를 빼먹음",
+      "ex": [
+       "7.14"
+      ],
+      "m": "m_prod_inputs"
+     }
+    ]
+   },
+   "no": "K-3",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-1과 같은 자료로 <b>총 생산성</b>(모든 투입)을 구하시오.<div class='tbl'><table><tr><th>생산량</th><td>4,000개</td><th>표준 가격</th><td>$25/개</td></tr><tr><th>노동 투입</th><td>400시간</td><th>노동 비용</th><td>$20/시간</td></tr><tr><th>에너지 투입</th><td>4,000 kWh</td><th>에너지 비용</th><td>$0.50/kWh</td></tr><tr><th>재료비</th><td colspan='3'>$6,000</td></tr></table></div>",
+   "a": "6.25",
+   "num": 6.25,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>총 측정 = 산출 금액 ÷ 모든 투입 비용 = $100,000 ÷ ($8,000 + $6,000 + $2,000) = <b>6.25</b></p><p>에너지 비용 = 4,000 kWh × $0.50 = $2,000.</p>",
+   "src": [
+    [
+     "RV",
+     "15"
+    ],
+    [
+     "RV",
+     "16"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-4",
+   "dx": {
+    "facet": "productivity.growth",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "growth",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치·증가"
+    ],
+    "mis": [
+     {
+      "pattern": "현재 값으로 나눔",
+      "ex": [
+       "9.09",
+       "9.09%"
+      ],
+      "m": "m_growth_base"
+     }
+    ]
+   },
+   "no": "K-4",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "어느 조립 라인의 노동 생산성이 작년 시간당 30개에서 올해 시간당 33개가 되었다. <b>생산성 증가율(%)</b>은?",
+   "a": "10%",
+   "num": 10.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>생산성 증가율 = (이번 기 생산성 − 지난 기 생산성) ÷ 지난 기 생산성 × 100 = (33 − 30) ÷ 30 × 100 = <b>10%</b></p>",
+   "src": [
+    [
+     "RV",
+     "17"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-5",
+   "dx": {
+    "facet": "productivity.growth",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "growth",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "영어 → 한국어"
+    ],
+    "mis": [
+     {
+      "pattern": "현재 값으로 나눔",
+      "ex": [
+       "-8.7",
+       "-8.70%"
+      ],
+      "m": "m_growth_base"
+     }
+    ]
+   },
+   "no": "K-5",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "노동 생산성이 2018년 시간당 25개에서 2019년 시간당 23개가 되었다. <b>생산성 증가율(%)</b>은? (감소면 음수로)",
+   "a": "-8%",
+   "num": -8.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>(23 − 25) ÷ 25 × 100 = <b>−8%</b>. 분모는 <b>이전 기간</b> 값입니다 (복습 자료 p.17 ABC 조립 라인 예제).</p>",
+   "src": [
+    [
+     "RV",
+     "17"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-6",
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "mad",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ]
+   },
+   "no": "K-6",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "다음 예측의 <b>MAD</b>를 구하시오.<div class='tbl'><table><tr><th>기간</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>실제값 A</th><td>100</td><td>110</td><td>95</td><td>105</td><td>120</td></tr><tr><th>예측값 F</th><td>102</td><td>105</td><td>100</td><td>100</td><td>115</td></tr></table></div>",
+   "a": "4.4",
+   "num": 4.4,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<div class='tbl'><table><tr><th>t</th><th>e=A−F</th><th>|e|</th><th>e²</th><th>|e|/A×100</th></tr><tr><td>1</td><td>-2</td><td>2</td><td>4</td><td>2.00%</td></tr><tr><td>2</td><td>+5</td><td>5</td><td>25</td><td>4.55%</td></tr><tr><td>3</td><td>-5</td><td>5</td><td>25</td><td>5.26%</td></tr><tr><td>4</td><td>+5</td><td>5</td><td>25</td><td>4.76%</td></tr><tr><td>5</td><td>+5</td><td>5</td><td>25</td><td>4.17%</td></tr></table></div><p>MAD = Σ|e| ÷ n = 22 ÷ 5 = <b>4.4</b></p>",
+   "src": [
+    [
+     "RV",
+     "21"
+    ],
+    [
+     "RV",
+     "22"
+    ],
+    [
+     "RV",
+     "23"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-7",
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "mse",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "n으로 나눔",
+      "ex": [
+       "20.8"
+      ],
+      "m": "m_mse_n"
+     }
+    ]
+   },
+   "no": "K-7",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-6과 같은 자료로 <b>MSE</b>를 구하시오. (이 강의의 공식을 따를 것)<div class='tbl'><table><tr><th>기간</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>실제값 A</th><td>100</td><td>110</td><td>95</td><td>105</td><td>120</td></tr><tr><th>예측값 F</th><td>102</td><td>105</td><td>100</td><td>100</td><td>115</td></tr></table></div>",
+   "a": "26",
+   "num": 26.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<div class='tbl'><table><tr><th>t</th><th>e=A−F</th><th>|e|</th><th>e²</th><th>|e|/A×100</th></tr><tr><td>1</td><td>-2</td><td>2</td><td>4</td><td>2.00%</td></tr><tr><td>2</td><td>+5</td><td>5</td><td>25</td><td>4.55%</td></tr><tr><td>3</td><td>-5</td><td>5</td><td>25</td><td>5.26%</td></tr><tr><td>4</td><td>+5</td><td>5</td><td>25</td><td>4.76%</td></tr><tr><td>5</td><td>+5</td><td>5</td><td>25</td><td>4.17%</td></tr></table></div><p>MSE = Σe² ÷ (n − 1) = 104 ÷ 4 = <b>26</b></p><p>주의: 이 강의(복습 자료 p.23)는 MSE를 <b>n − 1</b>로 나눕니다. MAD와 MAPE는 n으로 나눕니다.</p>",
+   "src": [
+    [
+     "RV",
+     "21"
+    ],
+    [
+     "RV",
+     "23"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-8",
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "K-8",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-6과 같은 자료로 <b>MAPE(%)</b>를 구하시오. 소수 둘째 자리까지.<div class='tbl'><table><tr><th>기간</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>실제값 A</th><td>100</td><td>110</td><td>95</td><td>105</td><td>120</td></tr><tr><th>예측값 F</th><td>102</td><td>105</td><td>100</td><td>100</td><td>115</td></tr></table></div>",
+   "a": "4.15%",
+   "num": 4.147437,
+   "tol": 0.02,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<div class='tbl'><table><tr><th>t</th><th>e=A−F</th><th>|e|</th><th>e²</th><th>|e|/A×100</th></tr><tr><td>1</td><td>-2</td><td>2</td><td>4</td><td>2.00%</td></tr><tr><td>2</td><td>+5</td><td>5</td><td>25</td><td>4.55%</td></tr><tr><td>3</td><td>-5</td><td>5</td><td>25</td><td>5.26%</td></tr><tr><td>4</td><td>+5</td><td>5</td><td>25</td><td>4.76%</td></tr><tr><td>5</td><td>+5</td><td>5</td><td>25</td><td>4.17%</td></tr></table></div><p>MAPE = Σ(|e|/A × 100) ÷ n = 20.74 ÷ 5 = <b>4.15%</b></p>",
+   "src": [
+    [
+     "RV",
+     "21"
+    ],
+    [
+     "RV",
+     "23"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-031",
+   "no": "V-031",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "n = 5기간의 예측 오차에서 Σ|e| = 20, Σe² = 120, Σ(|e| ÷ 실제값 × 100) = 15이다. 이 강의의 공식에 따른 MAD, MSE, MAPE는?",
+   "opts": [
+    "MAD 4 · MSE 24 · MAPE 3%",
+    "MAD 5 · MSE 30 · MAPE 3.75%",
+    "MAD 4 · MSE 30 · MAPE 3.75%",
+    "MAD 4 · MSE 30 · MAPE 3%"
+   ],
+   "ans": 3,
+   "a": "MAD 4 · MSE 30 · MAPE 3%",
+   "why": [
+    "MSE도 MAD처럼 n으로 나눈다고 생각함",
+    "MAD와 MAPE도 n − 1로 나눈다고 생각함",
+    "MAPE는 n − 1로 나눈다고 생각함",
+    ""
+   ],
+   "s": "<p>이 강의: MAD = Σ|e| ÷ <b>n</b> = 20 ÷ 5 = 4, MSE = Σe² ÷ <b>(n − 1)</b> = 120 ÷ 4 = 30, MAPE = Σ(|e| ÷ A × 100) ÷ <b>n</b> = 15 ÷ 5 = 3%. 세 지표의 나누는 값이 서로 다르다는 점이 핵심입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "16"
+    ],
+    [
+     "L4",
+     "19"
+    ],
+    [
+     "RV",
+     "21"
+    ],
+    [
+     "RV",
+     "22"
+    ],
+    [
+     "RV",
+     "23"
+    ]
+   ],
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "mse",
+    "role": "near",
+    "mis": [
+     "m_mse_n",
+     null,
+     null,
+     ""
+    ],
+    "delta": [
+     "neighbour",
+     "MSE의 n − 1을 MAD·MAPE에 붙임"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "L4 p18: MAD=20/5=4, MSE=120/(5-1)=30 (n-1), MAPE=15/5=3%.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-032",
+   "no": "V-032",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "예측 오차가 +3, −3 두 개뿐이다(n = 2). 이 강의의 공식으로 MSE는?",
+   "a": "18",
+   "strict": false,
+   "s": "<p>Σe² = 9 + 9 = 18, MSE = Σe² ÷ (n − 1) = 18 ÷ 1 = <b>18</b>. n이 작을수록 n − 1로 나누는 효과가 커서, n으로 나누면 9가 되어 절반이 됩니다.</p>",
+   "src": [
+    [
+     "L4",
+     "16"
+    ],
+    [
+     "L4",
+     "19"
+    ],
+    [
+     "RV",
+     "23"
+    ]
+   ],
+   "dx": {
+    "facet": "acc.measures",
+    "depth": 4,
+    "depth_why": "D4b",
+    "family": "mse",
+    "role": "near",
+    "delta": [
+     "condition",
+     "기간 수가 2로 아주 작음"
+    ],
+    "mis": [
+     {
+      "pattern": "n으로 나눔",
+      "ex": [
+       "9"
+      ],
+      "m": "m_mse_n"
+     }
+    ],
+    "check": {
+     "ok": true,
+     "picked": "18",
+     "note": "L4 p18: MSE divides by n-1: (9+9)/(2-1)=18.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "num": 18,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "publish": false
+  },
+  {
+   "ext_id": "K-9",
+   "dx": {
+    "facet": "avg.ma",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "ma",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "네 기간 모두 평균",
+      "ex": [
+       "136.25"
+      ],
+      "m": "m_ma_window"
+     }
+    ]
+   },
+   "no": "K-9",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "다음 수요로 5기의 <b>3기간 이동평균</b> 예측값을 구하시오. 소수 둘째 자리까지.<div class='tbl'><table><tr><th>기간</th><td>1</td><td>2</td><td>3</td><td>4 (현재)</td></tr><tr><th>실제 수요</th><td>120</td><td>135</td><td>150</td><td>140</td></tr></table></div>",
+   "a": "141.67",
+   "num": 141.666667,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>F₅ = (A₄ + A₃ + A₂) ÷ 3 = (140 + 150 + 135) ÷ 3 = <b>141.67</b></p><p>가장 오래된 1기(120)는 빠집니다. 이동평균은 <b>실제값만</b> 씁니다.</p>",
+   "src": [
+    [
+     "RV",
+     "30"
+    ],
+    [
+     "RV",
+     "32"
+    ],
+    [
+     "RV",
+     "33"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-10",
+   "dx": {
+    "facet": "avg.wma",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "wma",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "가중치를 거꾸로 붙임",
+      "ex": [
+       "140.5"
+      ],
+      "m": "m_wma_order"
+     }
+    ]
+   },
+   "no": "K-10",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "같은 수요로 5기의 <b>가중이동평균</b> 예측값을 구하시오. 가중치는 가장 최근부터 0.5, 0.3, 0.2이다.<div class='tbl'><table><tr><th>기간</th><td>1</td><td>2</td><td>3</td><td>4 (현재)</td></tr><tr><th>실제 수요</th><td>120</td><td>135</td><td>150</td><td>140</td></tr></table></div>",
+   "a": "142",
+   "num": 142.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>F₅ = 0.5 × 140 + 0.3 × 150 + 0.2 × 135 = 70 + 45 + 27 = <b>142</b></p><p>가중치의 합은 반드시 1이어야 하고, 가장 큰 가중치를 가장 최근 값에 줍니다.</p>",
+   "src": [
+    [
+     "RV",
+     "34"
+    ],
+    [
+     "RV",
+     "36"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-028",
+   "no": "V-028",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "어떤 팀이 3기간 가중이동평균의 가중치를 가장 최근부터 0.4, 0.3, 0.2로 정했다. 이에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "가장 오래된 값에 가장 큰 가중치를 주도록 가중치를 다시 정해야 한다",
+    "가중치의 합이 0.9로 1이 아니므로, 예측값이 수요 수준보다 낮게 나온다. 합이 1이 되도록 다시 정해야 한다",
+    "합이 1보다 작을수록 보수적인 예측이 되어 더 정확해진다",
+    "최근 값일수록 가중치가 크므로 가중치를 정하는 데 아무 문제가 없다"
+   ],
+   "ans": 1,
+   "a": "가중치의 합이 0.9로 1이 아니므로, 예측값이 수요 수준보다 낮게 나온다. 합이 1이 되도록 다시 정해야 한다",
+   "why": [
+    "가장 큰 가중치를 가장 오래된 값에 준다고 생각함",
+    "",
+    "가중치 합이 1보다 작아도 문제없다고 생각함",
+    "가중치가 최근 값일수록 크기만 하면 합은 상관없다고 생각함"
+   ],
+   "s": "<p>가중이동평균에서는 <b>가중치의 합이 반드시 1</b>이어야 합니다. 합이 0.9이면 계산한 값이 가중평균의 0.9배가 되어 수요 수준보다 체계적으로 낮게 나옵니다. 가중치는 다소 임의적이고 시행착오가 필요하지만 합이 1이라는 조건은 지켜야 합니다.</p>",
+   "src": [
+    [
+     "L4",
+     "39"
+    ],
+    [
+     "RV",
+     "34"
+    ]
+   ],
+   "dx": {
+    "facet": "avg.wma",
+    "depth": 3,
+    "depth_why": "D3b",
+    "family": "wma",
+    "role": "near",
+    "mis": [
+     "m_wma_order",
+     "",
+     null,
+     null
+    ],
+    "delta": [
+     "condition",
+     "가중치 합이 1이 아닌 경우"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "B",
+     "note": "L4 p39: weights of WMA must sum to one; 0.4+0.3+0.2=0.9, so forecast is biased low.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-029",
+   "no": "V-029",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": false,
+   "q": "수요가 100, 110, 130(가장 최근)으로 계속 늘었다. 이 자료로 구한 4기 예측값을 3기간 이동평균과 가중이동평균(가중치는 가장 최근부터 0.5, 0.3, 0.2)으로 비교한 것으로 옳은 것은?",
+   "opts": [
+    "이동평균이 가중이동평균보다 크다",
+    "두 값은 같다",
+    "가중이동평균이 이동평균보다 크다",
+    "두 값 모두 가장 최근 값 130보다 크다"
+   ],
+   "ans": 2,
+   "a": "가중이동평균이 이동평균보다 크다",
+   "why": [
+    "큰 가중치가 오래된 값에 붙으니 이동평균보다 작아야 한다고 생각함",
+    "가중치가 달라도 같은 자료면 같은 값이라고 생각함",
+    "",
+    "증가 추세에서는 평균도 최근 값을 넘는다고 생각함"
+   ],
+   "s": "<p>이동평균 = (100 + 110 + 130) ÷ 3 ≈ 113.3, 가중이동평균 = 0.5 × 130 + 0.3 × 110 + 0.2 × 100 = 118. 가장 큰 가중치가 <b>가장 최근 값</b>(가장 큰 130)에 붙으므로 증가 추세에서는 가중이동평균이 더 큽니다. 어느 쪽도 평균이므로 최댓값 130을 넘지 못합니다.</p>",
+   "src": [
+    [
+     "L4",
+     "39"
+    ],
+    [
+     "L4",
+     "41"
+    ],
+    [
+     "RV",
+     "32"
+    ],
+    [
+     "RV",
+     "36"
+    ]
+   ],
+   "dx": {
+    "facet": "avg.wma",
+    "depth": 3,
+    "depth_why": "D3a",
+    "family": "wma",
+    "role": "near",
+    "mis": [
+     "m_wma_order",
+     null,
+     "",
+     null
+    ],
+    "delta": [
+     "neighbour",
+     "가중이동평균 ↔ 이동평균 비교"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "C",
+     "note": "L4 p35,39: MA3=(100+110+130)/3=113.3; WMA=0.5*130+0.3*110+0.2*100=118 > 113.3; both below 130.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-030",
+   "no": "V-030",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "수요가 1기 62, 2기 70, 3기 68(가장 최근)이다. 가중치를 가장 최근부터 0.5, 0.3, 0.2로 둘 때 4기 가중이동평균 예측값은? 소수 첫째 자리까지.",
+   "a": "67.4",
+   "strict": false,
+   "s": "<p>F₄ = 0.5 × 68 + 0.3 × 70 + 0.2 × 62 = 34 + 21 + 12.4 = <b>67.4</b>. 가장 큰 가중치(0.5)는 가장 최근 값(3기)에 붙입니다.</p>",
+   "src": [
+    [
+     "L4",
+     "39"
+    ],
+    [
+     "L4",
+     "41"
+    ],
+    [
+     "RV",
+     "34"
+    ],
+    [
+     "RV",
+     "36"
+    ]
+   ],
+   "dx": {
+    "facet": "avg.wma",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "wma",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "가중치를 거꾸로 붙임",
+      "ex": [
+       "65.6"
+      ],
+      "m": "m_wma_order"
+     }
+    ],
+    "check": {
+     "ok": true,
+     "picked": "67.4",
+     "note": "L4 p39: 0.5*68+0.3*70+0.2*62 = 34+21+12.4 = 67.4.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "num": 67.4,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "publish": false
+  },
+  {
+   "ext_id": "K-11",
+   "dx": {
+    "facet": "avg.es",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "es1",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "α를 예측값에 곱함",
+      "ex": [
+       "214"
+      ],
+      "m": "m_es_swap"
+     }
+    ]
+   },
+   "no": "K-11",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "지난 기간 예측값이 200, 실제 수요가 220이었다. 평활 상수 α = 0.3일 때 이번 기간의 <b>지수평활</b> 예측값은?",
+   "a": "206",
+   "num": 206.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>F<sub>t</sub> = F<sub>t−1</sub> + α(A<sub>t−1</sub> − F<sub>t−1</sub>) = 200 + 0.3 × (220 − 200) = <b>206</b></p><p>괄호 안은 직전 기간의 예측 오차입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "37"
+    ],
+    [
+     "RV",
+     "39"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-12",
+   "dx": {
+    "facet": "avg.es",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "es2",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "α를 예측값에 곱함",
+      "ex": [
+       "487.2"
+      ],
+      "m": "m_es_swap"
+     }
+    ]
+   },
+   "no": "K-12",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "1기 예측값이 500, 1기 실제 수요 520, 2기 실제 수요 480이다. α = 0.2일 때 <b>3기</b> 지수평활 예측값은?",
+   "a": "499.2",
+   "num": 499.2,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>F₂ = 500 + 0.2 × (520 − 500) = 504</p><p>F₃ = 504 + 0.2 × (480 − 504) = <b>499.2</b></p><p>각 단계는 직전 실제값과 <b>직전 예측값</b>을 씁니다 (복습 자료 p.39와 같은 방식: αA + (1−α)F).</p>",
+   "src": [
+    [
+     "RV",
+     "37"
+    ],
+    [
+     "RV",
+     "38"
+    ],
+    [
+     "RV",
+     "39"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-13",
+   "dx": {
+    "facet": "trend.line",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "trend_line",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "기울기만 묻기"
+    ]
+   },
+   "no": "K-13",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "다음 자료로 선형 추세선 F<sub>t</sub> = a + bt의 <b>기울기 b</b>를 구하시오.<div class='tbl'><table><tr><th>주차 t</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>판매량 y</th><td>10</td><td>12</td><td>15</td><td>17</td></tr></table></div>",
+   "a": "2.4",
+   "num": 2.4,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>Σt = 10, Σy = 54, Σty = 147, Σt² = 30, n = 4</p><p>b = (nΣty − ΣtΣy) ÷ (nΣt² − (Σt)²) = (4 × 147 − 10 × 54) ÷ (4 × 30 − 10²) = 48 ÷ 20 = 2.4</p><p>a = (Σy − bΣt) ÷ n = (54 − 2.4 × 10) ÷ 4 = 7.5</p>",
+   "src": [
+    [
+     "RV",
+     "40"
+    ],
+    [
+     "RV",
+     "42"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-14",
+   "dx": {
+    "facet": "trend.line",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "trend_line",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 미래 시점"
+    ]
+   },
+   "no": "K-14",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-13의 추세선으로 <b>6주차</b> 판매량을 예측하시오.<div class='tbl'><table><tr><th>주차 t</th><td>1</td><td>2</td><td>3</td><td>4</td></tr><tr><th>판매량 y</th><td>10</td><td>12</td><td>15</td><td>17</td></tr></table></div>",
+   "a": "21.9",
+   "num": 21.9,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>Σt = 10, Σy = 54, Σty = 147, Σt² = 30, n = 4</p><p>b = (nΣty − ΣtΣy) ÷ (nΣt² − (Σt)²) = (4 × 147 − 10 × 54) ÷ (4 × 30 − 10²) = 48 ÷ 20 = 2.4</p><p>a = (Σy − bΣt) ÷ n = (54 − 2.4 × 10) ÷ 4 = 7.5</p><p>F₆ = 7.5 + 2.4 × 6 = <b>21.9</b></p>",
+   "src": [
+    [
+     "RV",
+     "40"
+    ],
+    [
+     "RV",
+     "42"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-15",
+   "dx": {
+    "facet": "trend.taf",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "taf",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ]
+   },
+   "no": "K-15",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "추세 조정 지수평활(TAF)에서 α = 0.4, β = 0.5이다. 지난 기간 TAF<sub>t−1</sub> = 92, 지난 추세 T<sub>t−1</sub> = 6, 이번 기간 TAF<sub>t</sub> = 100, 이번 기간 실제값 A<sub>t</sub> = 110일 때, <b>다음 기간 예측값 TAF<sub>t+1</sub></b>을 구하시오.",
+   "a": "111",
+   "num": 111.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>① 평활: S<sub>t</sub> = TAF<sub>t</sub> + α(A<sub>t</sub> − TAF<sub>t</sub>) = 100 + 0.4 × (110 − 100) = 104</p><p>② 추세: T<sub>t</sub> = T<sub>t−1</sub> + β(TAF<sub>t</sub> − TAF<sub>t−1</sub> − T<sub>t−1</sub>) = 6 + 0.5 × (100 − 92 − 6) = 7</p><p>③ 다음 기간: TAF<sub>t+1</sub> = S<sub>t</sub> + T<sub>t</sub> = <b>111</b></p><p>복습 자료 p.45 예제와 같은 순서입니다.</p>",
+   "src": [
+    [
+     "RV",
+     "43"
+    ],
+    [
+     "RV",
+     "44"
+    ],
+    [
+     "RV",
+     "45"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-16",
+   "dx": {
+    "facet": "trend.reg",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "reg",
+    "role": "base",
+    "principle": "최소제곱 회귀식의 b, a를 구한다"
+   },
+   "no": "K-16",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "광고비와 판매량 자료로 단순선형회귀식 y<sub>c</sub> = a + bx의 <b>기울기 b</b>를 구하시오.<div class='tbl'><table><tr><th>광고비 x (백만 원)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>판매량 y (천 개)</th><td>3</td><td>5</td><td>7</td><td>8</td><td>12</td></tr></table></div>",
+   "a": "2.1",
+   "num": 2.1,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>Σx = 15, Σy = 35, Σxy = 126, Σx² = 55, n = 5</p><p>b = (nΣxy − ΣxΣy) ÷ (nΣx² − (Σx)²) = (630 − 525) ÷ (275 − 225) = 2.1</p><p>a = (Σy − bΣx) ÷ n = (35 − 2.1 × 15) ÷ 5 = 0.7</p>",
+   "src": [
+    [
+     "RV",
+     "47"
+    ],
+    [
+     "RV",
+     "48"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-17",
+   "dx": {
+    "facet": "trend.reg",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "reg",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "식으로 값 예측까지"
+    ]
+   },
+   "no": "K-17",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-16의 회귀식으로 광고비가 <b>6</b>(백만 원)일 때 판매량(천 개)을 예측하시오.<div class='tbl'><table><tr><th>광고비 x (백만 원)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><th>판매량 y (천 개)</th><td>3</td><td>5</td><td>7</td><td>8</td><td>12</td></tr></table></div>",
+   "a": "13.3",
+   "num": 13.3,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>Σx = 15, Σy = 35, Σxy = 126, Σx² = 55, n = 5</p><p>b = (nΣxy − ΣxΣy) ÷ (nΣx² − (Σx)²) = (630 − 525) ÷ (275 − 225) = 2.1</p><p>a = (Σy − bΣx) ÷ n = (35 − 2.1 × 15) ÷ 5 = 0.7</p><p>y<sub>c</sub> = 0.7 + 2.1 × 6 = <b>13.3</b> (천 개)</p>",
+   "src": [
+    [
+     "RV",
+     "47"
+    ],
+    [
+     "RV",
+     "48"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-18",
+   "dx": {
+    "facet": "trend.r",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "K-18",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "기온 x와 판매량 y가 다음과 같다. <b>상관계수 r</b>을 소수 둘째 자리까지 구하시오. (표준편차는 이 강의처럼 n으로 나눈다)<div class='tbl'><table><tr><th>x</th><td>10</td><td>20</td><td>30</td></tr><tr><th>y</th><td>50</td><td>70</td><td>120</td></tr></table></div>",
+   "a": "0.97",
+   "num": 0.970725,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>x̄ = 20, ȳ = 80</p><p>Σ(x − x̄)(y − ȳ) = (-10)(-30) + (0)(-10) + (10)(40) = 700 → ÷ n = 233.33</p><p>σ<sub>x</sub> = 8.16, σ<sub>y</sub> = 29.44</p><p>r = 233.33 ÷ (8.16 × 29.44) = <b>0.97</b> → 양의 강한 관계</p>",
+   "src": [
+    [
+     "RV",
+     "49"
+    ],
+    [
+     "RV",
+     "50"
+    ],
+    [
+     "RV",
+     "51"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-19",
+   "dx": {
+    "facet": "trend.r",
+    "depth": 2,
+    "depth_why": "D2a"
+   },
+   "no": "K-19",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-18에서 기온이 판매량 변동의 몇 %를 설명하는가? (r²를 %로, 정수로 반올림)",
+   "a": "94%",
+   "num": 94,
+   "tol": 1,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>r² = 0.97² ≈ 0.94 → 약 <b>94%</b>. 나머지는 모형에 없는 다른 요인으로 설명됩니다.</p>",
+   "src": [
+    [
+     "RV",
+     "53"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-20",
+   "dx": {
+    "facet": "acc.ts_calc",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "ts_calc",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "다른 수치"
+    ]
+   },
+   "no": "K-20",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "지금까지 9기간 누적 예측 오차 Σe = 60, 누적 절대 오차 Σ|e| = 112.5이다. <b>추적 신호</b>를 구하시오.",
+   "a": "4.8",
+   "num": 4.8,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "strict": false,
+   "s": "<p>MAD = Σ|e| ÷ n = 112.5 ÷ 9 = 12.5</p><p>추적 신호 = 누적 오차 ÷ MAD = 60 ÷ 12.5 = <b>4.8</b></p><p>흔히 쓰는 한계 ±4를 넘으므로 예측에 <b>양의 편향</b>(실제가 예측보다 지속적으로 큼, 과소예측)이 있다고 봅니다.</p>",
+   "src": [
+    [
+     "RV",
+     "55"
+    ],
+    [
+     "RV",
+     "56"
+    ],
+    [
+     "RV",
+     "57"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-21",
+   "dx": {
+    "facet": "cap.eff_util",
+    "depth": 2,
+    "depth_why": "D2a",
+    "mis": [
+     {
+      "pattern": "유효 용량으로 나눔",
+      "ex": [
+       "90%",
+       "90"
+      ],
+      "m": "m_eff_util_swap"
+     }
+    ]
+   },
+   "no": "K-21",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "설계 용량 하루 120개, 유효 용량 100개, 실제 산출량 90개인 공정의 <b>가동률(%)</b>은?",
+   "a": "75%",
+   "num": 75.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>가동률 = 실제 산출량 ÷ <b>설계</b> 용량 × 100 = 90 ÷ 120 × 100 = <b>75%</b></p>",
+   "src": [
+    [
+     "RV",
+     "67"
+    ],
+    [
+     "RV",
+     "68"
+    ],
+    [
+     "RV",
+     "69"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-22",
+   "dx": {
+    "facet": "cap.eff_util",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "eff",
+    "role": "base",
+    "principle": "효율 = 실제 ÷ 유효 용량 × 100",
+    "mis": [
+     {
+      "pattern": "설계 용량으로 나눔",
+      "ex": [
+       "75%",
+       "75"
+      ],
+      "m": "m_eff_util_swap"
+     }
+    ]
+   },
+   "no": "K-22",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "K-21과 같은 공정의 <b>효율(%)</b>은?",
+   "a": "90%",
+   "num": 90.0,
+   "tol": 0.01,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>효율 = 실제 산출량 ÷ <b>유효</b> 용량 × 100 = 90 ÷ 100 × 100 = <b>90%</b></p><p>가동률은 설계 용량, 효율은 유효 용량으로 나눕니다.</p>",
+   "src": [
+    [
+     "RV",
+     "68"
+    ],
+    [
+     "RV",
+     "69"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-23",
+   "dx": {
+    "facet": "cap.machines",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "machines",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "제품 세 가지·다른 수치"
+    ],
+    "mis": [
+     {
+      "pattern": "올림하지 않음",
+      "ex": [
+       "3.5",
+       "3"
+      ],
+      "m": "m_machine_round"
+     }
+    ]
+   },
+   "no": "K-23",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "1교대 8시간, 연간 250일 일하는 공장에서 세 제품의 연간 수요와 단위당 표준 처리 시간이 다음과 같다. 수요를 맞추려면 기계가 <b>최소 몇 대</b> 필요한가?<div class='tbl'><table><tr><th>제품</th><th>연간 수요</th><th>단위당 처리 시간(시간)</th></tr><tr><td>A</td><td>1,200</td><td>2.5</td></tr><tr><td>B</td><td>800</td><td>4.0</td></tr><tr><td>C</td><td>500</td><td>1.6</td></tr></table></div>",
+   "a": "4대",
+   "num": 4,
+   "tol": 0,
+   "ph": "숫자만 입력 (대)",
+   "strict": false,
+   "s": "<p>필요 처리 시간 = 1,200 × 2.5 + 800 × 4.0 + 500 × 1.6 = 3,000 + 3,200 + 800 = 7,000시간</p><p>T = 8시간 × 250일 = 기계당 2,000시간</p><p>N = 7,000 ÷ 2,000 = 3.5 → 기계는 나눌 수 없으므로 <b>4대</b></p>",
+   "src": [
+    [
+     "RV",
+     "71"
+    ],
+    [
+     "RV",
+     "72"
+    ]
+   ]
+  },
+  {
+   "ext_id": "K-24",
+   "dx": {
+    "facet": "cap.cushion",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "cushion",
+    "role": "near",
+    "delta": [
+     "repr",
+     "용어 → 가동률로 계산"
+    ]
+   },
+   "no": "K-24",
+   "chapter": "CALC",
+   "kind": "short",
+   "star": true,
+   "q": "어느 서비스 시설의 가동률이 평균 85%이다. <b>용량 여유분(%)</b>은?",
+   "a": "15%",
+   "num": 15,
+   "tol": 0.01,
+   "ph": "숫자만 입력 (%)",
+   "strict": false,
+   "s": "<p>용량 여유분 = 100% − 가동률 = 100 − 85 = <b>15%</b>. 수요 불확실성이 클수록 더 큰 여유분이 필요합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "70"
+    ]
+   ]
+  },
+  {
+   "ext_id": "V-051",
+   "no": "V-051",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "어느 공정의 가동률이 90%에서 70%로 낮아졌다. 용량 여유분은 어떻게 변했는가?",
+   "opts": [
+    "30%에서 10%로 줄어들었다",
+    "변하지 않았다. 유효 용량이 그대로이기 때문이다",
+    "90%에서 70%로 줄어들었다",
+    "10%에서 30%로 늘어났다"
+   ],
+   "ans": 3,
+   "a": "10%에서 30%로 늘어났다",
+   "why": [
+    "가동률이 낮아지면 용량 여유분도 줄어든다고 생각함",
+    "용량 여유분이 유효 용량에 달려 변하지 않는다고 생각함",
+    "용량 여유분이 가동률과 같은 값이라고 생각함",
+    ""
+   ],
+   "s": "<p>용량 여유분 = 100% − 가동률. 90% → 10%, 70% → 30%이므로 여유분은 늘어났습니다. 가동률이 낮을수록 여유분은 큽니다.</p>",
+   "src": [
+    [
+     "RV",
+     "70"
+    ]
+   ],
+   "dx": {
+    "facet": "cap.cushion",
+    "depth": 3,
+    "depth_why": "D3b",
+    "family": "cushion",
+    "role": "near",
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ],
+    "delta": [
+     "condition",
+     "가동률이 변하는 경우 비교"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "D",
+     "note": "RV p70: cushion = 100% - utilization, so 10% -> 30%.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-052",
+   "no": "V-052",
+   "chapter": "MOCK",
+   "kind": "ox",
+   "star": false,
+   "q": "용량 여유분은 클수록 항상 좋다.",
+   "ox": false,
+   "s": "<p>여유분은 수요 불확실성에 대비하는 추가 용량이라, 불확실성이 클수록 더 필요합니다. 하지만 여유분이 크다는 것은 가동률이 낮다는 뜻이어서 남는 용량의 비용이 생깁니다. 수요 불확실성에 맞춰 정해야 합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "70"
+    ]
+   ],
+   "dx": {
+    "facet": "cap.cushion",
+    "depth": 4,
+    "depth_why": "D4c",
+    "family": "cushion",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "'클수록 항상 좋다'"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "X",
+     "note": "RV p70: cushion is extra capacity held against demand uncertainty; more is not always better (cost).",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "fix": "불확실성에 맞춰 정해야 하며 클수록 남는 용량 비용이 큼",
+   "publish": false
+  },
+  {
+   "ext_id": "V-053",
+   "no": "V-053",
+   "chapter": "MOCK",
+   "kind": "mc",
+   "star": false,
+   "q": "시설 A는 수요가 매우 안정적이고, 시설 B는 수요가 크게 출렁인다. 용량 여유분에 대한 설명으로 가장 적절한 것은?",
+   "opts": [
+    "B가 A보다 더 큰 용량 여유분을 두어야 한다",
+    "A가 B보다 더 큰 용량 여유분을 두어야 한다",
+    "두 시설 모두 여유분은 같아야 한다",
+    "B는 가동률을 100%로 맞추면 여유분이 필요 없다"
+   ],
+   "ans": 0,
+   "a": "B가 A보다 더 큰 용량 여유분을 두어야 한다",
+   "why": [
+    "",
+    "수요가 안정적인 시설일수록 여유분이 더 필요하다고 생각함",
+    "수요 불확실성과 여유분 크기는 무관하다고 생각함",
+    "가동률을 100%로 맞추면 수요 변동에도 대응할 수 있다고 생각함"
+   ],
+   "s": "<p>용량 여유분은 수요 불확실성을 상쇄하기 위한 추가 용량이라, 불확실성이 클수록 더 많이 필요합니다. 수요가 출렁이는 B에 더 큰 여유분이 필요합니다.</p>",
+   "src": [
+    [
+     "RV",
+     "70"
+    ]
+   ],
+   "dx": {
+    "facet": "cap.cushion",
+    "depth": 2,
+    "depth_why": "D2a",
+    "family": "cushion",
+    "role": "near",
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ],
+    "delta": [
+     "object",
+     "새 사례: 안정 시설 vs 변동 시설"
+    ],
+    "check": {
+     "ok": true,
+     "picked": "A",
+     "note": "RV p70: greater demand uncertainty requires more capacity cushion.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "publish": false
+  },
+  {
+   "ext_id": "V-054",
+   "no": "V-054",
+   "chapter": "MOCK",
+   "kind": "short",
+   "star": false,
+   "q": "용량 여유분 = 100% − (  )이다. 괄호에 들어갈 지표는?",
+   "a": "가동률 (utilization)",
+   "strict": false,
+   "s": "<p>가동률 = 실제 산출량 ÷ <b>설계</b> 용량 × 100. 용량 여유분 = 100% − 가동률. (효율과 혼동하지 마세요.)</p>",
+   "src": [
+    [
+     "RV",
+     "68"
+    ],
+    [
+     "RV",
+     "70"
+    ]
+   ],
+   "dx": {
+    "facet": "cap.cushion",
+    "depth": 1,
+    "depth_why": "D1c",
+    "family": "cushion",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "용어 묻기 → 식 빈칸 채우기"
+    ],
+    "mis": [
+     {
+      "pattern": "효율이라고 답함",
+      "ex": [
+       "효율",
+       "efficiency"
+      ],
+      "m": "m_eff_util_swap"
+     }
+    ],
+    "check": {
+     "ok": true,
+     "picked": "가동률 (utilization)",
+     "note": "RV p70: capacity cushion = 100% - utilization.",
+     "model": "sonnet-high-blind"
+    }
+   },
+   "accept": [
+    "가동률",
+    "utilization",
+    "Utilization"
+   ],
+   "publish": false
+  }
+ ]
+}

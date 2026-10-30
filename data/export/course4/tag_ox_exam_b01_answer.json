@@ -1,0 +1,4 @@
+{"items":[
+{"ref":"p763","rationale":"순열행렬의 특성에 따라 해집합에 영벡터가 아닌 벡터가 존재하므로 행렬식이 0임을 추론한다.","facet":"det.f2","depth":"3","depth_why":"D3b","ox":{"statement_true":true,"planted_error":"","misc":"none","d":"0","err":"concept_confusion","reverse_misc":"none"}},
+{"ref":"p817","rationale":"모든 벡터에 대해 내적이 성립하므로 두 벡터의 차와 임의의 벡터의 내적이 0이 되어 성립함을 판별한다.","facet":"dot.f1","depth":"3","depth_why":"D3b","ox":{"statement_true":true,"planted_error":"","misc":"none","d":"0","err":"condition_misread","reverse_misc":"none"}}
+]}

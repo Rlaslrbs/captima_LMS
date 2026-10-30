@@ -1,0 +1,10 @@
+{"items":[
+{"ref":"p459","rationale":"합과 차의 벡터 길이 제곱 공식을 더할 때 교차항인 내적항이 서로 상쇄되어 사라진다.","facet":"dot.f1","depth":"2","depth_why":"D2a","options":[
+{"idx":0,"belief_if_chosen":"항상 직사각형처럼 대각선의 길이가 서로 같다고 착각함","misc":"none","d":"1","src":"inferred","err":"overgeneralize"},
+{"idx":1,"belief_if_chosen":"삼각부등식을 잘못 연결지어 공식이 성립한다고 생각함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"모든 평행사변형의 두 변이 수직이라고 착각함","misc":"none","d":"2","src":"inferred","err":"overgeneralize"}]},
+{"ref":"p461","rationale":"두 벡터가 평행하여 같은 방향일 때 차가 최소이고 내적이 최대이며, 반대 방향일 때 차가 최대이다.","facet":"dot.f2","depth":"3","depth_why":"D3b","options":[
+{"idx":1,"belief_if_chosen":"내적의 최솟값이 무조건 양수나 0이라고 생각함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":2,"belief_if_chosen":"코시-슈바르츠 부등식의 범위를 혼동하여 다른 상수를 적용함","misc":"none","d":"1","src":"inferred","err":"concept_confusion"},
+{"idx":3,"belief_if_chosen":"길이의 차가 무조건 0부터 시작한다고 생각함","misc":"none","d":"1","src":"inferred","err":"overgeneralize"}]}
+]}

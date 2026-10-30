@@ -1,0 +1,27 @@
+{"families":[
+{"facet":"lintrans.f2","principle":"자유변수(해 개수 ≥ 2)가 있어도 해가 존재해야만 무수히 많은 해가 된다.","base":"p809","members":[
+{"ref":"p848","role":"near","delta_type":"object","delta":"자유변수 → 미지수가 방정식보다 많음"},
+{"ref":"p862","role":"near","delta_type":"neighbour","delta":"자유변수 → 비가역 행렬"}]},
+{"facet":"lintrans.f2","principle":"모든 열이 피벗열(랭크 n)이면 해가 있어도 유일하고 일대일이다.","base":"p795","members":[
+{"ref":"p794","role":"near","delta_type":"repr","delta":"해의 개수 → 선형변환의 일대일"}]},
+{"facet":"lintrans.f2","principle":"모든 행에 피벗이 있으면 모든 b에 대해 Ax=b가 해를 가진다.","base":"p810","members":[
+{"ref":"p850","role":"near","delta_type":"reverse","delta":"피벗 m개 → 해 존재, 의 거꾸로 방향"}]},
+{"facet":"lu.f2","principle":"A=LU이면 Lc=b를 전진대입, Ux=c를 후진대입하여 Ax=b를 푼다.","base":"p655","members":[
+{"ref":"p656","role":"iso","delta_type":"surface","delta":"다른 3×3 L, U, b"},
+{"ref":"p657","role":"iso","delta_type":"surface","delta":"다른 3×3 L, U, b (분수 성분)"},
+{"ref":"p658","role":"iso","delta_type":"surface","delta":"4×4 L, U, b"},
+{"ref":"p659","role":"iso","delta_type":"surface","delta":"다른 4×4 L, U, b"},
+{"ref":"p789","role":"iso","delta_type":"surface","delta":"4×4 L, U, b (기출 표현)"},
+{"ref":"p867","role":"near","delta_type":"repr","delta":"계산 문제 → 풀이 순서 진술"}]},
+{"facet":"matops.f2","principle":"AB의 j번째 열은 A에 B의 j번째 열을 곱한 Ab_j이므로, B 열의 성질이 AB 열에 전달된다.","base":"p509","members":[
+{"ref":"p510","role":"near","delta_type":"condition","delta":"같은 두 열 → 한 열이 두 열의 합"},
+{"ref":"p511","role":"near","delta_type":"condition","delta":"같은 두 열 → 영벡터 열"},
+{"ref":"p513","role":"near","delta_type":"object","delta":"열 관계 → 선형종속의 전달 증명"},
+{"ref":"p512","role":"near","delta_type":"reverse","delta":"B 열 → AB 영열이면 A 열 종속"},
+{"ref":"p504","role":"near","delta_type":"reverse","delta":"AB=0이 되도록 B의 열 구성"},
+{"ref":"p497","role":"near","delta_type":"repr","delta":"성질 판단 → 열별 직접 곱 계산"},
+{"ref":"p505","role":"near","delta_type":"repr","delta":"성질 판단 → 열 나열을 곱으로 쓰기"},
+{"ref":"p836","role":"near","delta_type":"repr","delta":"응용 문제 → 열 정의 진술"}]},
+{"facet":"matops.f2","principle":"AB의 열 Ab_j를 알면 A의 소거(또는 역행렬)로 B의 열 b_j를 하나씩 구할 수 있다.","base":"p508","members":[
+{"ref":"p768","role":"iso","delta_type":"surface","delta":"같은 A, 3·4열을 구하는 기출형"}]}
+]}

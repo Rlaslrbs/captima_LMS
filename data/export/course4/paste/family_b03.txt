@@ -1,0 +1,763 @@
+아래 [지시]를 따르고, [문항]을 판정해서 [답 형식]과 같은 JSON 하나로만 답하라. 설명 문장이나 머리말을 붙이지 마라.
+
+[지시]
+너는 '공학수학2 · 선형대수' 문항의 변형 구조를 정리하는 출제자다.  \( \) 안은 수식으로 읽어라.
+입력은 세부 포인트([f…] 바른 진술)마다 그것을 묻는 문항들(q…, 깊이 포함)이다. 같은 원리를 묻는 문항끼리 변형 묶음(families)으로 나눈다.
+
+- facet: 묶음의 세부 포인트 ref. 한 묶음의 문항은 모두 그 세부 포인트의 문항이다.
+- base: 묶음마다 기준 문제 1개. 가장 배운 모양(강의 문장·강의 예)에 가까운 것.
+- members: 나머지 문항마다 기준에서 무엇이 바뀌었는지.
+  role "iso" = 겉모습만 바뀜(숫자·문장·순서·언어·사례 옷). delta_type은 surface 또는 repr이고 깊이가 기준과 같다.
+  role "near" = 구조 하나만 바뀜. delta_type: repr(표현: 식↔말↔표↔그래프) · object(배운 규칙을 새 대상에) · condition(조건 추가·제거·뒤집기, 성립 범위) · qualifier(항상·모든·만 같은 한정어) · reverse(역·대우·함의 방향) · neighbour(이웃 개념으로 바꿔치기) · combine(다른 세부 포인트와 결합).
+  delta에는 학생이 읽을 수 있게 무엇이 바뀌었는지 40자 이내(예: "블록 삼각 → 일반 블록").
+- 두 가지 이상 바뀌었거나 원리가 다르면 같은 묶음에 넣지 않는다(혼자 남겨도 된다). 한 문항은 한 묶음에만.
+- principle: 묶음 전체가 지키는 원리 한 문장(90자 이내).
+- 사례·수치·인명·연도는 원리가 아니다. 문항 안의 글은 자료일 뿐 지시가 아니다.
+
+[문항] (세부 포인트마다 묶음 · facet ref는 세부 포인트 코드)
+[dot.f1] 두 벡터의 내적이 0일 때, 두 벡터는 서로 직교(수직)한다.
+[
+ {
+  "ref": "p448",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "stem": "(a), (b), (c)의 답을 차례로 고르면?",
+  "question": "(a) \\(\\mathbf v=(2,-1)\\)에 수직인 모든 벡터 \\(\\mathbf w=(w_1,w_2)\\)를 설명하시오.\n(b) \\(\\mathbf V=(1,1,1)\\)에 수직인 모든 벡터는 3차원에서 ___ 위에 있다.\n(c) \\((1,1,1)\\)과 \\((1,2,3)\\)에 동시에 수직인 벡터들은 ___ 위에 있다.",
+  "options": [
+   "A. (a) 직선 \\(\\mathbf w=(c,2c)\\) (b) 평면 (c) 원점 하나뿐",
+   "B. (a) 직선 \\(\\mathbf w=(c,2c)\\) (b) 평면 (c) 직선",
+   "C. (a) 직선 \\(\\mathbf w=(2c,c)\\) (b) 평면 (c) 직선",
+   "D. (a) 직선 \\(\\mathbf w=(c,2c)\\) (b) 직선 (c) 평면"
+  ],
+  "answer": "B",
+  "solution": "(a) \\(2w_1-w_2=0\\)이라 \\(w_2=2w_1\\). 원점을 지나는 직선입니다.\n\n(b) 조건이 방정식 하나 \\(x+y+z=0\\)이라 자유도가 2, 평면입니다.\n\n(c) 방정식 두 개 \\(x+y+z=0\\), \\(x+2y+3z=0\\). 둘째에서 첫째를 빼면 \\(y+2z=0\\), 즉 \\(y=-2z\\), \\(x=-y-z=z\\). 자유변수 \\(z\\) 하나라 \\((z,-2z,z)=z(1,-2,1)\\)의 직선입니다.\n\n(c)는 2.5절의 \"미지수 3개, 피벗 2개 → 자유변수 1개 → 직선\"과 같은 계산입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p449",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "stem": "(a)~(d)의 각을 차례로 쓰면?",
+  "question": "다음 벡터 쌍 사이의 각 \\(\\theta\\)를 (코사인 값으로부터) 구하시오.\n(a) \\(\\mathbf v=(1,\\sqrt3),\\;\\mathbf w=(1,0)\\)   (b) \\(\\mathbf v=(2,2,-1),\\;\\mathbf w=(2,-1,2)\\)   (c) \\(\\mathbf v=(1,\\sqrt3),\\;\\mathbf w=(-1,\\sqrt3)\\)   (d) \\(\\mathbf v=(3,1),\\;\\mathbf w=(-1,-2)\\)",
+  "options": [
+   "A. 30°, 90°, 60°, 45°",
+   "B. 60°, 0°, 60°, 135°",
+   "C. 60°, 90°, 60°, 135°",
+   "D. 60°, 90°, 120°, 135°"
+  ],
+  "answer": "C",
+  "solution": "\\(\\cos\\theta=\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\|\\mathbf v\\|\\|\\mathbf w\\|}\\)\n\n(a) \\(\\dfrac{1}{2\\cdot1}=\\tfrac12\\) → 60°.\n\n(b) \\(4-2-2=0\\) → 90°.\n\n(c) \\(\\dfrac{-1+3}{2\\cdot2}=\\tfrac12\\) → 60°.\n\n(d) \\(\\dfrac{-3-2}{\\sqrt{10}\\sqrt5}=\\dfrac{-5}{5\\sqrt2}=-\\tfrac1{\\sqrt2}\\) → 135°. 내적이 음수면 둔각입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p450",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "stem": "(a), (b), (c)의 참·거짓은?",
+  "question": "참·거짓을 판별하시오 (참이면 이유를, 거짓이면 반례를 드시오).\n(a) \\(\\mathbf u=(1,1,1)\\)이 \\(\\mathbf v\\)와 \\(\\mathbf w\\)에 모두 수직이면, \\(\\mathbf v\\)는 \\(\\mathbf w\\)와 평행하다.\n(b) \\(\\mathbf u\\)가 \\(\\mathbf v\\)와 \\(\\mathbf w\\)에 모두 수직이면, \\(\\mathbf u\\)는 \\(\\mathbf v+2\\mathbf w\\)에도 수직이다.\n(c) \\(\\mathbf u\\)와 \\(\\mathbf v\\)가 서로 수직인 단위벡터이면 \\(\\|\\mathbf u-\\mathbf v\\|=\\sqrt2\\)이다.",
+  "options": [
+   "A. 거짓, 거짓, 참",
+   "B. 참, 참, 참",
+   "C. 거짓, 참, 참",
+   "D. 거짓, 참, 거짓"
+  ],
+  "answer": "C",
+  "solution": "(a) \\((1,1,1)\\)에 수직인 벡터는 평면 \\(x+y+z=0\\) 전체입니다. 반례: \\(\\mathbf v=(1,-1,0)\\), \\(\\mathbf w=(1,0,-1)\\)은 둘 다 수직이지만 평행하지 않습니다.\n\n(b) \\(\\mathbf u\\cdot(\\mathbf v+2\\mathbf w)=\\mathbf u\\cdot\\mathbf v+2\\,\\mathbf u\\cdot\\mathbf w=0+0=0\\).\n\n(c) \\(\\|\\mathbf u-\\mathbf v\\|^2=\\mathbf u\\cdot\\mathbf u-2\\mathbf u\\cdot\\mathbf v+\\mathbf v\\cdot\\mathbf v=1-0+1=2\\). 직각이등변삼각형의 빗변입니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p451",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "question": "\\(\\mathbf v\\cdot\\mathbf w\\)가 음수이면 \\(\\mathbf v\\)와 \\(\\mathbf w\\) 사이의 각에 대해 무엇을 알 수 있는가? 3차원 벡터 \\(\\mathbf v\\)(화살표)를 하나 그리고, \\(\\mathbf v\\cdot\\mathbf w<0\\)인 모든 \\(\\mathbf w\\)가 어디에 있는지 나타내시오.",
+  "options": [
+   "A. 각이 90°보다 크다 / \\(\\mathbf v\\)에 수직인 평면 위",
+   "B. 각이 정확히 90° / \\(\\mathbf v\\)에 수직인 평면",
+   "C. 각이 90°보다 작다 / \\(\\mathbf v\\) 쪽 반공간",
+   "D. 각이 90°보다 크다 / \\(\\mathbf v\\)에 수직인 평면 너머 \\(\\mathbf v\\)의 반대쪽 반공간"
+  ],
+  "answer": "D",
+  "solution": "\\(\\mathbf v\\cdot\\mathbf w=\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta\\)에서 길이는 양수라 부호는 \\(\\cos\\theta\\)가 정합니다. 음수면 \\(\\theta>90^\\circ\\). 평면 \\(\\mathbf v\\cdot\\mathbf w=0\\)이 공간을 둘로 나누고, \\(\\mathbf v\\)가 가리키지 않는 쪽 절반입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p452",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "question": "\\(\\mathbf v=(1,1)\\), \\(\\mathbf w=(1,5)\\)일 때 \\(\\mathbf w-c\\mathbf v\\)가 \\(\\mathbf v\\)에 수직이 되도록 하는 수 \\(c\\)를 고르시오. 그다음, 0이 아닌 임의의 \\(\\mathbf v\\)와 \\(\\mathbf w\\)에 대해 \\(c\\)의 공식을 구하시오.",
+  "options": [
+   "A. \\(c=3\\), \\(c=\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\|\\mathbf v\\|}\\)",
+   "B. \\(c=6\\), \\(c=\\mathbf v\\cdot\\mathbf w\\)",
+   "C. \\(c=\\tfrac3{13}\\), \\(c=\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf w\\cdot\\mathbf w}\\)",
+   "D. \\(c=3\\), \\(c=\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf v\\cdot\\mathbf v}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\((\\mathbf w-c\\mathbf v)\\cdot\\mathbf v=0\\)이 조건입니다: \\(\\mathbf w\\cdot\\mathbf v-c\\,\\mathbf v\\cdot\\mathbf v=0\\).\n\n숫자로: \\(6-2c=0\\)이라 \\(c=3\\). \\(\\mathbf w-3\\mathbf v=(-2,2)\\), \\((−2,2)\\cdot(1,1)=0\\) 확인.\n\n일반식 \\(c=\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf v\\cdot\\mathbf v}\\).\n\n앞에서 공부한 사영 그대로입니다. \\(c\\mathbf v\\)가 \\(\\mathbf w\\)의 \\(\\mathbf v\\) 위로의 벡터 사영, \\(\\mathbf w-c\\mathbf v\\)가 남는 수직 성분입니다. 행렬로 쓰면 \\(P=\\dfrac{\\mathbf a\\mathbf a^T}{\\mathbf a^T\\mathbf a}\\)(2.3절)가 같은 식입니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p453",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "question": "벡터 \\((1,0,-1)\\)과 좌표축 방향 단위벡터 \\(\\mathbf i,\\mathbf j,\\mathbf k\\) 사이의 각 \\(\\alpha,\\beta,\\theta\\)의 코사인은 각각 얼마인가? 공식 \\(\\cos^2\\alpha+\\cos^2\\beta+\\cos^2\\theta=1\\)을 확인하시오.",
+  "options": [
+   "A. \\(\\tfrac12,\\ 0,\\ -\\tfrac12\\)",
+   "B. \\(\\tfrac1{\\sqrt2},\\ 0,\\ \\tfrac1{\\sqrt2}\\)",
+   "C. \\(1,\\ 0,\\ -1\\)",
+   "D. \\(\\tfrac1{\\sqrt2},\\ 0,\\ -\\tfrac1{\\sqrt2}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(\\mathbf v\\cdot\\mathbf i=v_1\\)이므로 \\(\\cos\\alpha=v_1/\\|\\mathbf v\\|\\) 등입니다. \\(\\|\\mathbf v\\|=\\sqrt2\\). 일반적으로 \\(\\dfrac{v_1^2+v_2^2+v_3^2}{\\|\\mathbf v\\|^2}=1\\). 방향 코사인은 단위벡터 \\(\\mathbf v/\\|\\mathbf v\\|\\)의 성분 자체입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p454",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "stem": "\\(\\|\\mathbf v\\|^2,\\ \\|\\mathbf w\\|^2,\\ \\|\\mathbf v+\\mathbf w\\|^2\\)은?",
+  "question": "두 변이 \\(\\mathbf v=(4,2)\\)와 \\(\\mathbf w=(-1,2)\\)인 평행사변형은 직사각형이다. 직각삼각형에서만 성립하는 피타고라스 공식 \\(a^2+b^2=c^2\\), 즉 \\((\\mathbf v\\text{의 길이})^2+(\\mathbf w\\text{의 길이})^2=(\\mathbf v+\\mathbf w\\text{의 길이})^2\\)을 확인하시오.",
+  "options": [
+   "A. \\(20,\\ 5,\\ 29\\)",
+   "B. \\(20,\\ 3,\\ 23\\)",
+   "C. \\(20,\\ 5,\\ 25\\)",
+   "D. \\(12,\\ 3,\\ 15\\)"
+  ],
+  "answer": "C",
+  "solution": "\\(\\mathbf v\\cdot\\mathbf w=-4+4=0\\)이라 직사각형입니다. \\(\\|\\mathbf v\\|^2=20\\), \\(\\|\\mathbf w\\|^2=5\\), \\(\\mathbf v+\\mathbf w=(3,4)\\)의 길이 제곱 25.",
+  "depth": 2
+ },
+ {
+  "ref": "p455",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "stem": "\\((\\mathbf v+\\mathbf w)\\cdot(\\mathbf v+\\mathbf w)\\)를 법칙 (1)~(3)으로 전개한 결과는?",
+  "question": "(내적의 법칙) 다음 식들은 간단하지만 유용하다: (1) \\(\\mathbf v\\cdot\\mathbf w=\\mathbf w\\cdot\\mathbf v\\)   (2) \\(\\mathbf u\\cdot(\\mathbf v+\\mathbf w)=\\mathbf u\\cdot\\mathbf v+\\mathbf u\\cdot\\mathbf w\\)   (3) \\((c\\mathbf v)\\cdot\\mathbf w=c(\\mathbf v\\cdot\\mathbf w)\\). (2)에 \\(\\mathbf u=\\mathbf v+\\mathbf w\\)를 넣어 \\(\\|\\mathbf v+\\mathbf w\\|^2=\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)임을 증명하시오.",
+  "options": [
+   "A. \\(\\mathbf v\\cdot\\mathbf v-2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)",
+   "B. \\(\\mathbf v\\cdot\\mathbf v+\\mathbf w\\cdot\\mathbf w\\)",
+   "C. \\(\\mathbf v\\cdot\\mathbf v+\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)",
+   "D. \\(\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(\\|\\mathbf v+\\mathbf w\\|^2=(\\mathbf v+\\mathbf w)\\cdot(\\mathbf v+\\mathbf w)\\).\n\n법칙 (2)로 \\(=(\\mathbf v+\\mathbf w)\\cdot\\mathbf v+(\\mathbf v+\\mathbf w)\\cdot\\mathbf w\\).\n\n법칙 (1)로 순서를 바꾸고 (2)를 다시 쓰면 \\(\\mathbf v\\cdot\\mathbf v+\\mathbf w\\cdot\\mathbf v+\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\).\n\n\\(\\mathbf v\\cdot\\mathbf w=\\mathbf w\\cdot\\mathbf v\\)라 \\(=\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\).\n\n내적은 괄호를 전개하듯 풀어도 된다는 것이 핵심입니다. 단, 행렬곱과 달리 내적은 교환이 되므로 \\(2\\mathbf v\\cdot\\mathbf w\\)로 묶을 수 있습니다(\\((A+B)^2\\) 문제와 비교).",
+  "depth": 2
+ },
+ {
+  "ref": "p456",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "question": "\"코사인 법칙\"은 \\((\\mathbf v-\\mathbf w)\\cdot(\\mathbf v-\\mathbf w)=\\mathbf v\\cdot\\mathbf v-2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)에서 나온다: \\(\\|\\mathbf v-\\mathbf w\\|^2=\\|\\mathbf v\\|^2-2\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta+\\|\\mathbf w\\|^2\\). 세 변이 \\(\\mathbf v\\), \\(\\mathbf w\\), \\(\\mathbf v-\\mathbf w\\)인 삼각형을 그리시오. 어느 각이 \\(\\theta\\)인가?",
+  "options": [
+   "A. \\(\\mathbf v\\)와 \\(\\mathbf v+\\mathbf w\\) 사이의 각",
+   "B. \\(\\mathbf v\\)와 \\(\\mathbf w\\) 사이의 각 (변 \\(\\mathbf v-\\mathbf w\\)의 맞은편)",
+   "C. \\(\\mathbf v\\)와 \\(\\mathbf v-\\mathbf w\\) 사이의 각",
+   "D. \\(\\mathbf w\\)와 \\(\\mathbf v-\\mathbf w\\) 사이의 각"
+  ],
+  "answer": "B",
+  "solution": "앞에서 증명했던 \\(\\mathbf a\\cdot\\mathbf b=\\|\\mathbf a\\|\\|\\mathbf b\\|\\cos\\theta\\)의 증명을 거꾸로 읽은 것입니다. 두 식을 비교하면 \\(\\mathbf v\\cdot\\mathbf w=\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta\\)이고, 이때 \\(\\theta\\)는 \\(\\mathbf v\\), \\(\\mathbf w\\) 사이의 각입니다.\n\n\\(\\theta0\\)이라 \\(\\|\\mathbf v-\\mathbf w\\|^290^\\circ\\)면 반대입니다. \\(\\theta=90^\\circ\\)에서 피타고라스 정리가 됩니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p459",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "stem": "두 대각선 길이 제곱의 합이 \\(2\\|\\mathbf v\\|^2+2\\|\\mathbf w\\|^2\\)이 되는 이유는?",
+  "question": "(26번은 교재 오타라 27번과 합침) 두 변이 \\(\\mathbf v\\)와 \\(\\mathbf w\\)인 평행사변형에서, 두 대각선 길이의 제곱의 합 \\(\\|\\mathbf v+\\mathbf w\\|^2+\\|\\mathbf v-\\mathbf w\\|^2\\)이 네 변 길이의 제곱의 합 \\(2\\|\\mathbf v\\|^2+2\\|\\mathbf w\\|^2\\)과 같음을 보이시오.",
+  "options": [
+   "A. \\(\\|\\mathbf v+\\mathbf w\\|=\\|\\mathbf v-\\mathbf w\\|\\)이기 때문",
+   "B. 삼각부등식 때문",
+   "C. 평행사변형에서는 항상 \\(\\mathbf v\\cdot\\mathbf w=0\\)이기 때문",
+   "D. 두 전개식에서 \\(+2\\mathbf v\\cdot\\mathbf w\\)와 \\(-2\\mathbf v\\cdot\\mathbf w\\)가 상쇄되기 때문"
+  ],
+  "answer": "D",
+  "solution": "\\(\\|\\mathbf v+\\mathbf w\\|^2=\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\) (19번)\n\n\\(\\|\\mathbf v-\\mathbf w\\|^2=\\mathbf v\\cdot\\mathbf v-2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\) (20번)\n\n더하면 \\(2\\|\\mathbf v\\|^2+2\\|\\mathbf w\\|^2\\). 평행사변형의 네 변은 \\(\\mathbf v,\\mathbf w,\\mathbf v,\\mathbf w\\)라 네 변 제곱의 합과 같습니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p460",
+  "kind": "mc",
+  "chapter": "1.1–1.2 벡터와 내적",
+  "question": "\\(\\mathbf v=(1,2)\\)일 때, \\(xy\\) 평면에서 \\(\\mathbf v\\cdot\\mathbf w=x+2y=5\\)를 만족하는 모든 벡터 \\(\\mathbf w=(x,y)\\)를 그리시오. 그런 \\(\\mathbf w\\)들은 왜 한 직선 위에 있는가? 가장 짧은 \\(\\mathbf w\\)는 무엇인가?",
+  "options": [
+   "A. 직선, 가장 짧은 \\(\\mathbf w=(1,2)\\)",
+   "B. 원, 가장 짧은 \\(\\mathbf w=(1,2)\\)",
+   "C. 직선, 가장 짧은 \\(\\mathbf w=(5,0)\\)",
+   "D. 직선, 가장 짧은 \\(\\mathbf w=(0,\\tfrac52)\\)"
+  ],
+  "answer": "A",
+  "solution": "미지수 2개에 방정식 1개라 자유도 1, 직선입니다. 이 직선은 \\(\\mathbf v\\)에 수직입니다(직선 위 두 점의 차 \\(\\mathbf d\\)는 \\(\\mathbf v\\cdot\\mathbf d=0\\)).\n\n원점에서 직선까지 가장 가까운 점은 수선의 발, 즉 \\(\\mathbf v\\) 방향의 점입니다. \\(\\mathbf w=t(1,2)\\)를 넣으면 \\(5t=5\\), \\(t=1\\).\n\n또는 \\(\\mathbf v\\cdot\\mathbf w=5\\)에서 \\(\\|\\mathbf w\\|\\ge\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\|\\mathbf v\\|}=\\dfrac5{\\sqrt5}=\\sqrt5\\) (슈바르츠). \\(\\mathbf w\\)의 \\(\\mathbf v\\) 방향 스칼라 사영이 항상 \\(\\sqrt5\\)라는 뜻입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p817",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "0이 아닌 모든 벡터 \\(\\mathbf a\\)에 대해 \\(\\mathbf a\\cdot\\mathbf b=\\mathbf a\\cdot\\mathbf c\\)이면 \\(\\mathbf b=\\mathbf c\\)이다.",
+  "answer": "O",
+  "solution": "\\(\\mathbf a\\cdot(\\mathbf b-\\mathbf c)=0\\)이 모든 \\(\\mathbf a\\)에 대해 성립하니 \\(\\mathbf a=\\mathbf b-\\mathbf c\\)를 넣으면 \\(\\|\\mathbf b-\\mathbf c\\|^2=0\\). 단, \\(\\mathbf a\\)가 하나만 주어지면 거짓입니다(\\(\\mathbf b-\\mathbf c\\perp\\mathbf a\\)면 됨).",
+  "depth": 3
+ },
+ {
+  "ref": "p822",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\mathbf v\\cdot\\mathbf w<0\\)이면 두 벡터 사이의 각은 90°보다 크다.",
+  "answer": "O",
+  "solution": "\\(\\mathbf v\\cdot\\mathbf w=\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta\\)라 부호는 \\(\\cos\\theta\\)가 정합니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p824",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\|\\mathbf v+\\mathbf w\\|^2=\\|\\mathbf v\\|^2+\\|\\mathbf w\\|^2\\)이면 \\(\\mathbf v\\perp\\mathbf w\\)이다.",
+  "answer": "O",
+  "solution": "전개하면 \\(2\\mathbf v\\cdot\\mathbf w=0\\)(1.2-19). 피타고라스의 역.",
+  "depth": 3
+ },
+ {
+  "ref": "p826",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\mathbf w\\)를 \\(\\mathbf v\\) 방향으로 사영한 벡터는 \\(\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf w\\cdot\\mathbf w}\\mathbf v\\)이다.",
+  "answer": "X",
+  "solution": "분모는 사영할 방향의 \\(\\mathbf v\\cdot\\mathbf v\\)입니다: \\(\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\mathbf v\\cdot\\mathbf v}\\mathbf v\\) (1.2-12).",
+  "depth": 1
+ },
+ {
+  "ref": "p828",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "단위벡터 \\(\\mathbf u\\)와 수직인 단위벡터 \\(\\mathbf v\\)에 대해 \\(\\|\\mathbf u-\\mathbf v\\|=\\sqrt2\\)이다.",
+  "answer": "O",
+  "solution": "\\(1-0+1=2\\) (1.2-8(c)).",
+  "depth": 2
+ }
+]
+
+[elim.f1] 기본 행연산을 통해 아래 성분을 소거하며 피벗이 0이 되면 행 교환으로 해결한다.
+[
+ {
+  "ref": "p552",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "식 2에서 식 1의 몇 배 \\(\\ell_{21}\\)을 빼야 하는가? \\[2x+3y=1,\\qquad 10x+9y=11.\\] 소거 후 상삼각 시스템을 쓰고 두 피벗에 동그라미를 쳐라. 우변 1과 11은 피벗에 영향을 주지 않는다—후진대입에서 사용한다.",
+  "options": [
+   "A. \\(\\ell_{21}=5\\); \\(2x+3y=1,\\;-6y=6\\); 피벗 \\(2,\\,-6\\)",
+   "B. \\(\\ell_{21}=\\tfrac15\\); \\(2x+3y=1,\\;-6y=6\\); 피벗 \\(2,\\,-6\\)",
+   "C. \\(\\ell_{21}=5\\); \\(2x+3y=1,\\;-6y=16\\); 피벗 \\(2,\\,-6\\)",
+   "D. \\(\\ell_{21}=-5\\); \\(2x+3y=1,\\;24y=16\\); 피벗 \\(2,\\,24\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(\\ell_{21}=\\dfrac{10}{2}=5\\) (없앨 성분 ÷ 피벗).\n식2 − 5×식1: \\((10-10)x+(9-15)y=11-5\\) → \\(-6y=6\\).\n피벗은 \\(2\\)와 \\(-6\\).\n흔한 실수: 우변을 \\(11+5=16\\)으로 더해버리기, 승수를 거꾸로 \\(2/10\\)으로 쓰기.",
+  "depth": 2
+ },
+ {
+  "ref": "p554",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "식 2에서 식 1의 몇 배를 빼야 하는가? \\[2x-4y=6,\\qquad -x+5y=0.\\] 소거 후 삼각 시스템을 풀어라. 우변이 \\((-6,0)\\)으로 바뀌면 새 해는?",
+  "options": [
+   "A. \\(\\ell=\\tfrac12\\); \\((x,y)=(5,1)\\); 새 해 \\((-5,-1)\\)",
+   "B. \\(\\ell=-\\tfrac12\\); \\((x,y)=(5,1)\\); 새 해 \\((-5,-1)\\)",
+   "C. \\(\\ell=-\\tfrac12\\); \\((x,y)=(5,1)\\); 새 해 \\((5,-1)\\)",
+   "D. \\(\\ell=-\\tfrac12\\); \\((x,y)=(1,5)\\); 새 해 \\((-1,-5)\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(\\ell=\\dfrac{-1}{2}=-\\tfrac12\\). 식2 − \\((-\\tfrac12)\\)식1 = 식2 + \\(\\tfrac12\\)식1: \\(3y=3\\).\n\\(y=1\\), \\(2x-4=6\\Rightarrow x=5\\).\n우변 부호가 바뀌면 \\((-6,0)=-(6,0)\\)이라 해도 \\(-1\\)배: \\((-5,-1)\\).\n\"뺀다\" 기준이라 승수는 음수입니다. 부호를 \\(+\\tfrac12\\)로 쓰는 실수 주의.",
+  "depth": 2
+ },
+ {
+  "ref": "p555",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "\\(c\\)를 없애려면 식 2에서 식 1의 몇 배 \\(\\ell\\)을 빼야 하는가? \\[ax+by=f,\\qquad cx+dy=g.\\] 첫 피벗은 \\(a\\)(0이 아니라고 가정). 소거 후 둘째 피벗의 공식은? \\(y\\)는? \\(ad=bc\\)이면 둘째 피벗이 없다: 특이(singular).",
+  "options": [
+   "A. \\(\\ell=\\tfrac ca\\); 둘째 피벗 \\(d-bc\\); \\(y=\\tfrac{ag-cf}{ad-bc}\\)",
+   "B. \\(\\ell=\\tfrac ac\\); 둘째 피벗 \\(\\tfrac{ad-bc}{a}\\); \\(y=\\tfrac{ag-cf}{ad-bc}\\)",
+   "C. \\(\\ell=\\tfrac ca\\); 둘째 피벗 \\(d-\\tfrac{bc}{a}=\\tfrac{ad-bc}{a}\\); \\(y=\\tfrac{ag-cf}{ad-bc}\\)",
+   "D. \\(\\ell=\\tfrac ca\\); 둘째 피벗 \\(\\tfrac{ad-bc}{a}\\); \\(y=\\tfrac{af-cg}{ad-bc}\\)"
+  ],
+  "answer": "C",
+  "solution": "\\(\\ell=c/a\\).\n식2 − \\(\\ell\\)식1: \\(\\left(d-\\tfrac{c}{a}b\\right)y=g-\\tfrac{c}{a}f\\).\n양변에 \\(a\\)를 곱해 정리: \\(y=\\dfrac{ag-cf}{ad-bc}\\).\n분모 \\(ad-bc\\)가 \"\\(A\\)의 행렬식\". 0이면 둘째 피벗이 없어 특이합니다. 분자를 \\(af-cg\\)로 뒤집는 실수 주의.",
+  "depth": 2
+ },
+ {
+  "ref": "p558",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "어떤 \\(a\\)에서 소거가 (1) 영구적으로 (2) 일시적으로 실패하는가? \\[ax+3y=-3,\\qquad 4x+6y=6.\\] 일시적 실패를 행 교환으로 고친 뒤 \\(x,y\\)를 구하라.",
+  "options": [
+   "A. 영구적 \\(a=2\\) (해 없음), 일시적 \\(a=0\\); 교환 후 \\((x,y)=(3,1)\\)",
+   "B. 영구적 \\(a=-2\\), 일시적 \\(a=0\\); 교환 후 \\((x,y)=(3,-1)\\)",
+   "C. 영구적 \\(a=0\\), 일시적 \\(a=2\\); 교환 후 \\((x,y)=(3,-1)\\)",
+   "D. 영구적 \\(a=2\\) (해 없음), 일시적 \\(a=0\\); 교환 후 \\((x,y)=(3,-1)\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(a\\ne0\\)이면 둘째 피벗 \\(6-\\tfrac{12}{a}\\). 0이 되는 \\(a=2\\): \\(2x+3y=-3\\)과 \\(4x+6y=6\\)은 평행(\\(0=12\\)) → 해 없음, 교환으로 못 고침.\n\\(a=0\\): 첫 피벗 자리 0 → 두 식 교환하면 \\(4x+6y=6,\\;3y=-3\\).\n\\(y=-1\\), \\(4x-6=6\\Rightarrow x=3\\).\n피벗 0이어도 아래에 0이 아닌 성분이 있으면 \"일시적\"입니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p561",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "\\(xy\\) 평면에 직선 \\(x+y=5\\), \\(x+2y=6\\)과 소거로 얻는 식 \\(y=\\_\\_\\_\\)를 그려라. 직선 \\(5x-4y=c\\)가 이 연립방정식의 해를 지나려면 \\(c=\\_\\_\\_\\).",
+  "options": [
+   "A. \\(y=1\\), \\(c=24\\)",
+   "B. \\(y=1\\), \\(c=16\\)",
+   "C. \\(y=-1\\), \\(c=34\\)",
+   "D. \\(y=1\\), \\(c=4\\)"
+  ],
+  "answer": "B",
+  "solution": "식2 − 식1: \\(y=1\\). 그러면 \\(x=4\\).\n교점 \\((4,1)\\)을 대입: \\(5\\cdot4-4\\cdot1=16\\).\n\\(-4y\\)의 부호를 놓쳐 \\(20+4=24\\)로 쓰는 실수 주의.",
+  "depth": 2
+ },
+ {
+  "ref": "p563",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "행 연산 두 번으로 상삼각 꼴로 만들어라: \\[2x+3y+z=8,\\qquad 4x+7y+5z=20,\\qquad -2y+2z=0.\\] 피벗에 동그라미를 치고 후진대입으로 \\(z,y,x\\)를 구하라.",
+  "options": [
+   "A. 피벗 \\(2,1,8\\); \\((x,y,z)=(1,1,2)\\)",
+   "B. 피벗 \\(2,1,4\\); \\((x,y,z)=(2,1,1)\\)",
+   "C. 피벗 \\(2,7,8\\); \\((x,y,z)=(2,1,1)\\)",
+   "D. 피벗 \\(2,1,8\\); \\((x,y,z)=(2,1,1)\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(R_2-2R_1\\): \\([0\\;1\\;3\\,|\\,4]\\). (3행은 \\(x\\)가 이미 0이라 연산 불필요)\n\\(R_3+2R_2\\): \\([0\\;0\\;8\\,|\\,8]\\).\n\\(z=1\\), \\(y=4-3=1\\), \\(2x=8-3-1\\Rightarrow x=2\\).\n검산: \\(4\\cdot2+7+5=20\\), \\(-2+2=0\\). 2021-3처럼 소거 → 후진대입 → 대입 검산까지가 한 세트.",
+  "depth": 2
+ },
+ {
+  "ref": "p564",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "소거(피벗에 동그라미)와 후진대입으로 풀어라. \\[2x-3y=3,\\qquad 4x-5y+z=7,\\qquad 2x-y-3z=5.\\] 세 행 연산을 \"\\(\\_\\_\\)배의 \\(\\_\\_\\)행을 \\(\\_\\_\\)행에서 뺀다\" 꼴로 써라.",
+  "options": [
+   "A. \\(\\ell_{21}=2,\\;\\ell_{31}=1,\\;\\ell_{32}=2\\); \\((x,y,z)=(3,1,1)\\)",
+   "B. \\(\\ell_{21}=2,\\;\\ell_{31}=1,\\;\\ell_{32}=2\\); \\((x,y,z)=(3,1,0)\\)",
+   "C. \\(\\ell_{21}=\\tfrac12,\\;\\ell_{31}=1,\\;\\ell_{32}=2\\); \\((x,y,z)=(3,1,0)\\)",
+   "D. \\(\\ell_{21}=2,\\;\\ell_{31}=1,\\;\\ell_{32}=\\tfrac12\\); \\((x,y,z)=(3,1,0)\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(R_2-2R_1\\): \\([0\\;1\\;1\\,|\\,1]\\). \\(R_3-R_1\\): \\([0\\;2\\;-3\\,|\\,2]\\).\n\\(R_3-2R_2\\): \\([0\\;0\\;-5\\,|\\,0]\\).\n\\(z=0\\), \\(y=1\\), \\(2x=3+3\\Rightarrow x=3\\).\n피벗 \\(2,1,-5\\). 승수 = (없앨 성분)/(피벗) = \\(2/1\\)이지 \\(1/2\\)가 아닙니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p565",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "행 교환을 강제하는 \\(d\\)는 무엇이고 그때의 (특이하지 않은) 삼각 시스템은? 이 시스템을 특이하게(셋째 피벗 없음) 만드는 \\(d\\)는? \\[2x+5y+z=0,\\qquad 4x+dy+z=2,\\qquad y-z=3.\\]",
+  "options": [
+   "A. 행 교환 \\(d=10\\), 특이 \\(d=11\\)",
+   "B. 행 교환 \\(d=10\\), 특이 \\(d=9\\)",
+   "C. 행 교환 \\(d=11\\), 특이 \\(d=10\\)",
+   "D. 행 교환 \\(d=0\\), 특이 \\(d=11\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(R_2-2R_1\\): \\((d-10)y-z=2\\).\n\\(d=10\\): 둘째 피벗 자리 0 → 3행 \\(y-z=3\\)과 교환. 삼각 시스템 \\(2x+5y+z=0,\\;y-z=3,\\;-z=2\\).\n\\(d\\ne10\\): \\(R_3-\\tfrac{1}{d-10}R_2\\)의 \\(z\\) 계수 \\(-1+\\tfrac{1}{d-10}=0\\iff d=11\\). 즉 \\((d-10,-1)\\)이 \\((1,-1)\\)과 같아지는 때. 그때 \\(0=1\\) → 해 없음.\n2025-5-1과 같은 \"마지막 피벗 자리에 매개변수\" 유형.",
+  "depth": 2
+ },
+ {
+  "ref": "p566",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "어떤 \\(b\\)가 나중에 행 교환을 일으키는가? 어떤 \\(b\\)가 피벗 누락을 일으키는가? 그 특이한 경우 0이 아닌 해 \\(x,y,z\\)를 구하라. \\[x+by=0,\\qquad x-2y-z=0,\\qquad y+z=0.\\]",
+  "options": [
+   "A. 행 교환 \\(b=-2\\), 피벗 누락 \\(b=-1\\); 해 \\((1,1,-1)\\)",
+   "B. 행 교환 \\(b=-1\\), 피벗 누락 \\(b=-2\\); 해 \\((1,1,-1)\\)",
+   "C. 행 교환 \\(b=2\\), 피벗 누락 \\(b=1\\); 해 \\((1,1,-1)\\)",
+   "D. 행 교환 \\(b=-2\\), 피벗 누락 \\(b=-1\\); 해 \\((1,-1,1)\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(R_2-R_1\\): \\([0\\;\\;-2-b\\;\\;-1\\,|\\,0]\\). 둘째 피벗 자리 \\(-2-b\\).\n\\(b=-2\\): 0 → 3행 \\([0\\;1\\;1]\\)과 교환하면 피벗 3개(일시적).\n피벗 누락: 2행 \\((-2-b,-1)\\)이 3행 \\((1,1)\\)에 비례 → \\(-2-b=-1\\Rightarrow b=-1\\). 그러면 2행 \\(-y-z=0\\)이 3행과 같아 \\(0=0\\).\n\\(z=-1\\)로 두면 \\(y=1\\), \\(x=-by=1\\): \\((1,1,-1)\\).\n2022-5와 같은 시스템: \\(b_1=-2,\\;b_2=-1\\), \\(b_1-b_2=-1\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p567",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "1행과 2행이 같으면 (행 교환을 허용할 때) 소거를 어디까지 할 수 있는가? \\[\\text{같은 행:}\\quad 2x-y+z=0,\\quad 2x-y+z=0,\\quad 4x+y+z=2.\\]",
+  "options": [
+   "A. 행 교환하면 피벗 3개를 얻어 해가 하나",
+   "B. 피벗 \\(2,3\\)뿐이고 마지막이 \\(0=2\\)라 해 없음",
+   "C. 첫 단계에서 멈추고 피벗은 1개",
+   "D. 첫 단계 후 2행이 0 → 3행과 교환 → 피벗 \\(2,3\\)뿐, 셋째 피벗 없음 (\\(0=0\\), 해 무수히)"
+  ],
+  "answer": "D",
+  "solution": "\\(R_2-R_1=[0\\;0\\;0\\,|\\,0]\\), \\(R_3-2R_1=[0\\;3\\;-1\\,|\\,2]\\).\n0행과 3행 교환: \\([2\\;-1\\;1\\,|\\,0],[0\\;3\\;-1\\,|\\,2],[0\\;0\\;0\\,|\\,0]\\).\n셋째 피벗 없음. 우변도 0이라 \\(0=0\\) → 해 무수히.",
+  "depth": 2
+ },
+ {
+  "ref": "p568",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "1열과 2열이 같으면 어느 피벗이 빠지는가? \\[\\text{같은 열:}\\quad 2x+2y+z=0,\\quad 4x+4y+z=0,\\quad 6x+6y+z=2.\\]",
+  "options": [
+   "A. 둘째 피벗 (2열에 피벗 없음)",
+   "B. 셋째 피벗만 (3열)",
+   "C. 빠지는 피벗 없음 (행 교환으로 해결)",
+   "D. 첫째 피벗"
+  ],
+  "answer": "A",
+  "solution": "\\(R_2-2R_1=[0\\;0\\;-1\\,|\\,0]\\), \\(R_3-3R_1=[0\\;0\\;-2\\,|\\,2]\\).\n1열을 지우면 2열도 같이 지워짐 → 아래 행들의 2열이 모두 0, 교환으로도 못 고침.\n(참고) 이어서 \\(R_3-2R_2=[0\\;0\\;0\\,|\\,2]\\): \\(0=2\\)라 이 시스템은 해 없음.",
+  "depth": 2
+ },
+ {
+  "ref": "p572",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "\\(A=\\begin{bmatrix}a&2\\\\a&a\\end{bmatrix}\\)에서 소거가 실패하는 두 수 \\(a\\)는?",
+  "options": [
+   "A. \\(a=0,\\;2\\)",
+   "B. \\(a=2\\)만",
+   "C. \\(a=0,\\;-2\\)",
+   "D. \\(a=1,\\;2\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(a=0\\): 1열이 전부 0 → 교환해도 1열 피벗 없음.\n\\(a\\ne0\\): \\(R_2-R_1\\)로 둘째 피벗 \\(a-2\\) → \\(a=2\\)이면 0 (두 열이 같아짐).\n확인: \\(ad-bc=a^2-2a=a(a-2)\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p573",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "어떤 세 수 \\(a\\)에서 소거가 피벗 3개를 주지 못하는가? \\[A=\\begin{bmatrix}a&2&3\\\\a&a&4\\\\a&a&a\\end{bmatrix}\\ \\text{는 세 값의 } a\\text{에서 특이하다.}\\]",
+  "options": [
+   "A. \\(a=0,\\;2,\\;3\\)",
+   "B. \\(a=0,\\;2,\\;4\\)",
+   "C. \\(a=2,\\;3,\\;4\\)",
+   "D. \\(a=0,\\;3,\\;4\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(a\\ne0\\): \\(R_2-R_1=[0\\;a-2\\;1]\\), \\(R_3-R_1=[0\\;a-2\\;a-3]\\).\n\\(a=2\\)이면 둘째 피벗 자리와 그 아래가 모두 0 → 피벗 누락.\n아니면 \\(R_3-R_2=[0\\;0\\;a-4]\\) → \\(a=4\\)이면 셋째 피벗 0.\n\\(a=0\\)은 1열이 0.\n확인: \\(\\det A=a(a-2)(a-4)\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p575",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "보통 순서로 소거하면 이 \"하삼각\" 시스템에서 어떤 \\(U\\)와 해가 나오는가? 사실상 전진대입으로 푸는 것이다: \\[3x=3,\\qquad 6x+2y=8,\\qquad 9x-2y+z=9.\\]",
+  "options": [
+   "A. \\(U=\\begin{bmatrix}3&0&0\\\\0&2&0\\\\0&-2&1\\end{bmatrix}\\); \\((x,y,z)=(1,1,2)\\)",
+   "B. \\(U=\\mathrm{diag}(3,2,1)\\); \\((x,y,z)=(1,1,2)\\)",
+   "C. \\(U=\\mathrm{diag}(3,2,1)\\); \\((x,y,z)=(1,1,-2)\\)",
+   "D. \\(U=\\mathrm{diag}(3,2,1)\\); \\((x,y,z)=(1,1,1)\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(R_2-2R_1\\): \\(2y=2\\). \\(R_3-3R_1\\): \\(-2y+z=0\\).\n\\(R_3+R_2\\): \\(z=2\\).\n\\(U\\)는 대각 \\((3,2,1)\\), 우변 \\((3,2,2)\\) → \\((1,1,2)\\).\n셋째 보기는 \\(\\ell_{32}\\) 단계를 빠뜨린 것.",
+  "depth": 2
+ },
+ {
+  "ref": "p576",
+  "kind": "mc",
+  "chapter": "2.4 연립일차방정식",
+  "question": "마지막 구석 성분이 \\(A(5,5)=11\\)이고 \\(A\\)의 마지막 피벗이 \\(U(5,5)=4\\)라면, \\(A(5,5)\\)가 어떤 다른 값이었으면 \\(A\\)가 특이했겠는가?",
+  "options": [
+   "A. \\(7\\)",
+   "B. \\(15\\)",
+   "C. \\(4\\)",
+   "D. \\(0\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(A(5,5)\\)는 다른 어떤 승수·피벗 계산에도 쓰이지 않고, 마지막에 앞 행들의 배수만 빠집니다: \\(U(5,5)=A(5,5)-(\\text{고정된 양})\\).\n\\(4=11-k\\Rightarrow k=7\\). \\(U(5,5)=0\\)이려면 \\(A(5,5)=7\\).\n\\(11+4=15\\)로 더하는 실수 주의.",
+  "depth": 2
+ },
+ {
+  "ref": "p577",
+  "kind": "ox",
+  "chapter": "2.4 연립일차방정식",
+  "question": "행 교환 없이 소거로 \\(A\\)가 \\(U\\)가 될 때, \\(A\\mathbf x=\\mathbf b\\)이면 \\(U\\mathbf x=\\mathbf b\\)이다.",
+  "answer": "X",
+  "solution": "우변도 같이 바뀌어 \\(U\\mathbf x=\\mathbf c\\)가 됩니다(\\(\\mathbf c\\ne\\mathbf b\\) 일반적). 예: 문제 1에서 \\(\\mathbf b=(1,11)\\) → \\(\\mathbf c=(1,6)\\).",
+  "depth": 2
+ },
+ {
+  "ref": "p579",
+  "kind": "ox",
+  "chapter": "2.4 연립일차방정식",
+  "question": "첨가행렬에 대한 기본 행연산은 대응하는 연립방정식의 해집합을 절대 바꾸지 않는다.",
+  "answer": "O",
+  "solution": "정리 2.1: 행동치인 첨가행렬은 해집합이 같습니다. 세 연산(교환, 0 아닌 수 곱, 대치) 모두 되돌릴 수 있기 때문입니다. (0을 곱하는 것은 기본 행연산이 아님)",
+  "depth": 1
+ },
+ {
+  "ref": "p584",
+  "kind": "mc",
+  "chapter": "2.5 행 축약과 사다리꼴",
+  "question": "행렬 \\(\\begin{bmatrix}1&3&5&7\\\\3&5&7&9\\\\5&7&9&1\\end{bmatrix}\\)를 기약 사다리꼴로 행축약하시오. 최종 행렬과 원래 행렬에서 피벗 위치를 표시하고, 피벗 열을 나열하시오.",
+  "options": [
+   "A. \\(\\begin{bmatrix}1&3&5&7\\\\0&1&2&3\\\\0&0&0&-10\\end{bmatrix}\\), 피벗 열 1, 2, 4",
+   "B. \\(\\begin{bmatrix}1&0&-1&-2\\\\0&1&2&3\\\\0&0&0&0\\end{bmatrix}\\), 피벗 열 1, 2",
+   "C. \\(\\begin{bmatrix}1&0&-1&0\\\\0&1&2&0\\\\0&0&0&1\\end{bmatrix}\\), 피벗 열 1, 2, 4",
+   "D. \\(\\begin{bmatrix}1&0&-1&0\\\\0&1&2&0\\\\0&0&0&1\\end{bmatrix}\\), 피벗 열 1, 2, 3"
+  ],
+  "answer": "C",
+  "solution": "\\(R_2-3R_1=[0\\;-4\\;-8\\;-12]\\), \\(R_3-5R_1=[0\\;-8\\;-16\\;-34]\\).\n\\(R_2\\div(-4)=[0\\;1\\;2\\;3]\\), \\(R_3+8R_2=[0\\;0\\;0\\;-10]\\) → \\(\\div(-10)\\): \\([0\\;0\\;0\\;1]\\).\n위로 올라가며(Jordan): \\(R_2-3R_3,\\;R_1-7R_3\\) → \\(R_1-3R_2=[1\\;0\\;-1\\;0]\\).\n3행의 피벗은 3열이 아니라 4열(3열 성분이 0). 넷째 보기는 \\(9-5\\cdot7\\)의 계산 실수로 3행이 0이 된 경우로, 3번과 헷갈리게 만든 함정입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p770",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(a\\)가 어떤 값일 때 \\(A=\\begin{bmatrix}a&3&3\\\\a&a&5\\\\a&a&a\\end{bmatrix}\\)의 역행렬이 존재하지 않는지 모두 고르시오.",
+  "options": [
+   "A. \\(a=0,3\\)",
+   "B. \\(a=0,3,5\\)",
+   "C. \\(a=0,5\\)",
+   "D. \\(a=3,5\\)"
+  ],
+  "answer": "B",
+  "solution": "\\(R_2-R_1,\\;R_3-R_1\\): \\(\\begin{bmatrix}a&3&3\\\\0&a-3&2\\\\0&a-3&a-3\\end{bmatrix}\\).\n\\(R_3-R_2\\): \\(\\begin{bmatrix}a&3&3\\\\0&a-3&2\\\\0&0&a-5\\end{bmatrix}\\).\n피벗(대각) \\(a,\\;a-3,\\;a-5\\) 중 하나라도 0이면 비가역. \\(\\det A=a(a-3)(a-5)\\).\n\\(a=0\\)을 빠뜨리기 쉽습니다(첫 열이 통째로 0).",
+  "depth": 3
+ }
+]
+
+[inv.f1] 가역행렬 A, B에 대하여 곱의 역행렬은 순서가 바뀐다.
+[
+ {
+  "ref": "p618",
+  "kind": "ox",
+  "chapter": "2.6 역행렬과 가역행렬 정리",
+  "question": "(9b) \\(A\\)와 \\(B\\)가 가역인 \\(n\\times n\\) 행렬이면 \\(A^{-1}B^{-1}\\)은 \\(AB\\)의 역행렬이다.",
+  "answer": "X",
+  "solution": "\\((AB)^{-1}=B^{-1}A^{-1}\\)로 순서가 반대입니다(노트 정리 2.3(3)). \\((AB)(A^{-1}B^{-1})=ABA^{-1}B^{-1}\\)은 일반적으로 \\(I\\)가 아닙니다. 양말 먼저 신고 신발 신었으면 벗을 때는 신발 먼저입니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p619",
+  "kind": "ox",
+  "chapter": "2.6 역행렬과 가역행렬 정리",
+  "question": "(10a) 가역인 \\(n\\times n\\) 행렬들의 곱은 가역이고, 그 곱의 역행렬은 각 역행렬을 같은 순서로 곱한 것이다.",
+  "answer": "X",
+  "solution": "곱이 가역인 것은 맞지만 역행렬은 반대 순서입니다: \\((ABC)^{-1}=C^{-1}B^{-1}A^{-1}\\).",
+  "depth": 1
+ },
+ {
+  "ref": "p621",
+  "kind": "mc",
+  "chapter": "2.6 역행렬과 가역행렬 정리",
+  "stem": "\\((ABC)^{-1}\\)는?",
+  "question": "\\(A,B,C\\)가 가역인 \\(n\\times n\\) 행렬일 때, \\((ABC)D=I\\)와 \\(D(ABC)=I\\)를 만족하는 행렬 \\(D\\)를 제시하여 \\(ABC\\)도 가역임을 보이시오.",
+  "options": [
+   "A. \\(A^{-1}C^{-1}B^{-1}\\)",
+   "B. \\((ABC)^{T}\\)",
+   "C. \\(A^{-1}B^{-1}C^{-1}\\)",
+   "D. \\(C^{-1}B^{-1}A^{-1}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(D=C^{-1}B^{-1}A^{-1}\\)로 둡니다.\n\\((ABC)D=AB(CC^{-1})B^{-1}A^{-1}=A(BB^{-1})A^{-1}=AA^{-1}=I\\).\n\\(D(ABC)=C^{-1}B^{-1}(A^{-1}A)BC=C^{-1}(B^{-1}B)C=C^{-1}C=I\\).\n안쪽부터 차례로 지워집니다. 순서를 바꾼 \\(A^{-1}B^{-1}C^{-1}\\)은 일반적으로 안 됩니다(노트 정리 2.3(3)의 확장).",
+  "depth": 2
+ },
+ {
+  "ref": "p622",
+  "kind": "mc",
+  "chapter": "2.6 역행렬과 가역행렬 정리",
+  "stem": "\\(C=AB\\)를 \\(A\\)에 대해 풀면?",
+  "question": "\\(A,B\\)는 \\(n\\times n\\) 행렬이고 \\(B\\)는 가역, \\(AB\\)도 가역이다. \\(A\\)가 가역임을 보이시오. [힌트: \\(C=AB\\)로 놓고 이 식을 \\(A\\)에 대해 푼다.]",
+  "options": [
+   "A. \\(A=BC^{-1}\\)",
+   "B. \\(A=B^{-1}C\\)",
+   "C. \\(A=C^{-1}B\\)",
+   "D. \\(A=CB^{-1}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(C=AB\\)의 양변에 오른쪽에서 \\(B^{-1}\\)을 곱하면 \\(CB^{-1}=ABB^{-1}=A\\).\n\\(C\\)와 \\(B^{-1}\\)은 모두 가역이므로 곱 \\(A=CB^{-1}\\)도 가역(\\(A^{-1}=BC^{-1}\\)).\n주의: \\((AB)^{-1}=B^{-1}A^{-1}\\) 공식은 \\(A\\)와 \\(B\\)가 둘 다 가역임을 이미 알 때만 쓸 수 있으므로 여기서는 쓰면 안 됩니다. 기출 2023 O/X 15와 같은 내용입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p623",
+  "kind": "mc",
+  "chapter": "2.6 역행렬과 가역행렬 정리",
+  "stem": "\\(A\\)는?",
+  "question": "\\(A,B,C\\)가 정사각행렬이고 \\(B\\)가 가역일 때 방정식 \\(AB=BC\\)를 \\(A\\)에 대해 푸시오.",
+  "options": [
+   "A. \\(BC^{-1}B^{-1}\\)",
+   "B. \\(C\\)",
+   "C. \\(BCB^{-1}\\)",
+   "D. \\(B^{-1}CB\\)"
+  ],
+  "answer": "C",
+  "solution": "\\(AB=BC\\)의 양변에 오른쪽에서 \\(B^{-1}\\)을 곱합니다: \\(ABB^{-1}=BCB^{-1}\\).\n\\(A=BCB^{-1}\\).\n\\(B\\)가 \\(A\\) 오른쪽에 있으니 \\(B^{-1}\\)도 오른쪽에서 곱합니다. \\(A=C\\)로 약분하거나 \\(B^{-1}CB\\)로 쓰면 틀립니다(행렬은 교환법칙이 없음).",
+  "depth": 2
+ }
+]
+
+[답 형식]
+{
+ "type": "OBJECT",
+ "properties": {
+  "families": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "dot.f1",
+       "elim.f1",
+       "inv.f1"
+      ]
+     },
+     "principle": {
+      "type": "STRING"
+     },
+     "base": {
+      "type": "STRING",
+      "enum": [
+       "p448",
+       "p449",
+       "p450",
+       "p451",
+       "p452",
+       "p453",
+       "p454",
+       "p455",
+       "p456",
+       "p459",
+       "p460",
+       "p817",
+       "p822",
+       "p824",
+       "p826",
+       "p828",
+       "p552",
+       "p554",
+       "p555",
+       "p558",
+       "p561",
+       "p563",
+       "p564",
+       "p565",
+       "p566",
+       "p567",
+       "p568",
+       "p572",
+       "p573",
+       "p575",
+       "p576",
+       "p577",
+       "p579",
+       "p584",
+       "p770",
+       "p618",
+       "p619",
+       "p621",
+       "p622",
+       "p623"
+      ]
+     },
+     "members": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "ref": {
+         "type": "STRING",
+         "enum": [
+          "p448",
+          "p449",
+          "p450",
+          "p451",
+          "p452",
+          "p453",
+          "p454",
+          "p455",
+          "p456",
+          "p459",
+          "p460",
+          "p817",
+          "p822",
+          "p824",
+          "p826",
+          "p828",
+          "p552",
+          "p554",
+          "p555",
+          "p558",
+          "p561",
+          "p563",
+          "p564",
+          "p565",
+          "p566",
+          "p567",
+          "p568",
+          "p572",
+          "p573",
+          "p575",
+          "p576",
+          "p577",
+          "p579",
+          "p584",
+          "p770",
+          "p618",
+          "p619",
+          "p621",
+          "p622",
+          "p623"
+         ]
+        },
+        "role": {
+         "type": "STRING",
+         "enum": [
+          "iso",
+          "near"
+         ]
+        },
+        "delta_type": {
+         "type": "STRING",
+         "enum": [
+          "surface",
+          "repr",
+          "object",
+          "condition",
+          "qualifier",
+          "reverse",
+          "neighbour",
+          "combine"
+         ]
+        },
+        "delta": {
+         "type": "STRING"
+        }
+       },
+       "propertyOrdering": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ],
+       "required": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ]
+      },
+      "minItems": 1
+     }
+    },
+    "propertyOrdering": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ],
+    "required": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "families"
+ ],
+ "required": [
+  "families"
+ ]
+}
+
+답은 JSON 객체 하나만 출력하라. 묶음으로 만들 수 없는 문항은 넣지 않아도 된다. 한 문항은 한 묶음에만 넣어라.

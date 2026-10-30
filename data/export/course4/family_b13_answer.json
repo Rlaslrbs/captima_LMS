@@ -1,0 +1,28 @@
+{"families":[
+{"facet":"matops.f3","principle":"행렬 곱은 약분(소거)이 성립하지 않으므로 AB=AC에서 B=C를 결론낼 수 없다.","base":"p502","members":[
+{"ref":"p839","role":"near","delta_type":"repr","delta":"구체 행렬 예 → 일반 O/X 진술"},
+{"ref":"p825","role":"near","delta_type":"object","delta":"행렬 곱 → 벡터 내적에서의 약분"},
+{"ref":"p838","role":"near","delta_type":"neighbour","delta":"약분 불가 → AB=0이어도 A,B≠0 가능"}]},
+{"facet":"matops.f3","principle":"행렬 곱은 교환되지 않아 (A+B)^2 전개에서 AB와 BA를 구분해야 하며, AB=BA일 때만 같다.","base":"p784","members":[
+{"ref":"p837","role":"near","delta_type":"condition","delta":"전개식 고르기 → AB=BA 조건 O/X"},
+{"ref":"p501","role":"near","delta_type":"object","delta":"일반식 → 특정 행렬에서 AB=BA 되는 k"}]},
+{"facet":"lincomb.f4","principle":"Ax=b의 일반해는 특수해에 동차시스템의 해(자유변수 몫)를 더한 꼴이다.","base":"p585","members":[
+{"ref":"p787","role":"iso","delta_type":"surface","delta":"같은 첨가행렬을 [A|b]로 표기"},
+{"ref":"p582","role":"iso","delta_type":"surface","delta":"다른 수의 2×3 첨가행렬"},
+{"ref":"p586","role":"iso","delta_type":"surface","delta":"3열이 0인 2×3 첨가행렬"},
+{"ref":"p587","role":"iso","delta_type":"surface","delta":"다른 수의 2×3 첨가행렬"},
+{"ref":"p588","role":"iso","delta_type":"surface","delta":"3×4 행렬, 자유변수 두 개"},
+{"ref":"p589","role":"iso","delta_type":"surface","delta":"4×5 행렬, 자유변수 두 개"},
+{"ref":"p590","role":"iso","delta_type":"surface","delta":"4×5 행렬, 자유변수 두 개"},
+{"ref":"p601","role":"near","delta_type":"condition","delta":"비동차 → 동차(b=0), 특수해 없음"},
+{"ref":"p602","role":"near","delta_type":"condition","delta":"비동차 → 동차(b=0), 행 동치 행렬 제시"},
+{"ref":"p606","role":"near","delta_type":"repr","delta":"계산 → 평행이동 기하 해석"},
+{"ref":"p607","role":"near","delta_type":"repr","delta":"계산 → 평행이동 기하 해석"},
+{"ref":"p608","role":"near","delta_type":"condition","delta":"p가 특수해·해 존재 조건 누락"},
+{"ref":"p609","role":"near","delta_type":"object","delta":"해 구조를 유일해 판정에 적용"}]},
+{"facet":"matops.f4","principle":"곱의 전치는 각 인자를 전치하고 순서를 뒤집어 곱한 것과 같다.","base":"p835","members":[
+{"ref":"p519","role":"near","delta_type":"repr","delta":"O/X 진술 → 증명의 핵심 논리"},
+{"ref":"p520","role":"near","delta_type":"object","delta":"두 행렬 곱 → 행렬 둘과 벡터의 곱"},
+{"ref":"p492","role":"near","delta_type":"repr","delta":"수치 계산으로 (Ax)^T 확인"},
+{"ref":"p856","role":"near","delta_type":"neighbour","delta":"곱의 전치 → 역행렬과 전치의 순서"}]}
+]}

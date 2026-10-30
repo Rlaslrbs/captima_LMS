@@ -1,0 +1,12 @@
+{"families":[
+{"facet":"dot.f1","principle":"내적의 부호는 cos의 부호로 정해지므로 음수이면 두 벡터 사이의 각은 90°보다 크다.","base":"p451","members":[{"ref":"p822","role":"iso","delta_type":"repr","delta":"반공간 그리기 → 각만 묻는 O/X"}]},
+{"facet":"dot.f1","principle":"두 벡터가 수직이면 |v+w|²=|v|²+|w|² (피타고라스)이고 내적이 0이다.","base":"p454","members":[{"ref":"p824","role":"near","delta_type":"reverse","delta":"수직 → 피타고라스 / 피타고라스 → 수직"}]},
+{"facet":"dot.f1","principle":"내적 법칙으로 (v+w)·(v+w)를 전개하면 가운데 항 2v·w가 생긴다.","base":"p455","members":[{"ref":"p459","role":"near","delta_type":"combine","delta":"v+w 전개 → v−w와 함께 더해 상쇄"}]},
+{"facet":"dot.f1","principle":"w−cv가 v에 수직이 되는 c는 (w−cv)·v=0에서 c=v·w/v·v이다.","base":"p452","members":[{"ref":"p826","role":"iso","delta_type":"repr","delta":"c 구하기 → 사영 공식 참거짓 판정"}]},
+{"facet":"elim.f1","principle":"소거의 승수는 (없앨 성분)÷(피벗)이고 식2에서 승수×식1을 빼서 상삼각으로 만든다.","base":"p552","members":[{"ref":"p554","role":"near","delta_type":"condition","delta":"우변을 바꿔 새 해까지 구하기"},{"ref":"p555","role":"near","delta_type":"repr","delta":"숫자 계수 → 문자 계수 일반식"}]},
+{"facet":"elim.f1","principle":"3원 연립방정식은 승수를 곱해 빼는 소거로 상삼각을 만들고 후진대입으로 푼다.","base":"p563","members":[{"ref":"p564","role":"iso","delta_type":"surface","delta":"다른 계수의 3원 연립방정식"},{"ref":"p575","role":"near","delta_type":"object","delta":"상삼각 → 하삼각 시스템"}]},
+{"facet":"elim.f1","principle":"매개변수 때문에 피벗이 0이면 아래에 0 아닌 성분이 있을 때만 행 교환으로 고쳐진다.","base":"p565","members":[{"ref":"p566","role":"iso","delta_type":"surface","delta":"다른 시스템·매개변수 b"},{"ref":"p558","role":"near","delta_type":"condition","delta":"첫 피벗 매개변수, 영구·일시 실패 구분"}]},
+{"facet":"elim.f1","principle":"소거 후 피벗이 하나라도 0이 되는 매개변수 값에서 행렬은 특이(비가역)이다.","base":"p573","members":[{"ref":"p572","role":"near","delta_type":"object","delta":"3×3 → 2×2 행렬"},{"ref":"p770","role":"near","delta_type":"repr","delta":"소거 실패 → 역행렬 존재 여부"}]},
+{"facet":"elim.f1","principle":"행·열이 같으면 소거 때 한 피벗이 빠지는데 같은 행은 교환으로, 같은 열은 못 고친다.","base":"p567","members":[{"ref":"p568","role":"near","delta_type":"neighbour","delta":"같은 행 → 같은 열"}]},
+{"facet":"inv.f1","principle":"곱의 역행렬은 각 역행렬을 반대 순서로 곱한 것이다: (AB)⁻¹=B⁻¹A⁻¹.","base":"p618","members":[{"ref":"p619","role":"near","delta_type":"object","delta":"행렬 2개 → 여러 개의 곱"},{"ref":"p621","role":"near","delta_type":"repr","delta":"참거짓 → 역행렬 D를 직접 구성"}]}
+]}

@@ -1,3 +1,11 @@
+# 팀 개발 시작하기 (GitHub에서 내려받은 뒤)
+1. Node 24 이상을 설치해요. npm 설치는 필요 없어요 (내장 기능만 써요).
+2. `.env.example`을 `.env`로 복사하고 `GEMINI_API_KEY`를 채워요. 키는 git에 올리지 않아요 (`.gitignore`가 `.env`를 막아요).
+3. 문제 세트를 넣어요: `node server/import.js` (`data/import/*.json`을 읽어 `data/app.db`를 만들어요).
+4. 켜요: `npm run dev` (`.env`를 읽어요) 또는 `GEMINI_API_KEY=... node server/server.js`. 사용자 웹은 http://127.0.0.1:4000 이에요. 관리자 주소는 터미널에 나와요.
+- `data/app.db`(학습자 기록), 백업, 키, 관리자 경로는 저장소에 없어요. 각자 로컬에서 새로 만들어져요.
+- 일부 테스트(`server/insight/test`)는 실제 운영 DB 사본이 있어야 돌아가요. 데이터 없이는 실패할 수 있어요.
+
 # 문제노트 플랫폼 (베타, 맥에서 실행)
 
 ## 켜기 / 끄기

@@ -1,0 +1,719 @@
+아래 [지시]를 따르고, [문항]을 판정해서 [답 형식]과 같은 JSON 하나로만 답하라. 설명 문장이나 머리말을 붙이지 마라.
+
+[지시]
+너는 '공학수학2 · 선형대수' 문항의 변형 구조를 정리하는 출제자다.  \( \) 안은 수식으로 읽어라.
+입력은 세부 포인트([f…] 바른 진술)마다 그것을 묻는 문항들(q…, 깊이 포함)이다. 같은 원리를 묻는 문항끼리 변형 묶음(families)으로 나눈다.
+
+- facet: 묶음의 세부 포인트 ref. 한 묶음의 문항은 모두 그 세부 포인트의 문항이다.
+- base: 묶음마다 기준 문제 1개. 가장 배운 모양(강의 문장·강의 예)에 가까운 것.
+- members: 나머지 문항마다 기준에서 무엇이 바뀌었는지.
+  role "iso" = 겉모습만 바뀜(숫자·문장·순서·언어·사례 옷). delta_type은 surface 또는 repr이고 깊이가 기준과 같다.
+  role "near" = 구조 하나만 바뀜. delta_type: repr(표현: 식↔말↔표↔그래프) · object(배운 규칙을 새 대상에) · condition(조건 추가·제거·뒤집기, 성립 범위) · qualifier(항상·모든·만 같은 한정어) · reverse(역·대우·함의 방향) · neighbour(이웃 개념으로 바꿔치기) · combine(다른 세부 포인트와 결합).
+  delta에는 학생이 읽을 수 있게 무엇이 바뀌었는지 40자 이내(예: "블록 삼각 → 일반 블록").
+- 두 가지 이상 바뀌었거나 원리가 다르면 같은 묶음에 넣지 않는다(혼자 남겨도 된다). 한 문항은 한 묶음에만.
+- principle: 묶음 전체가 지키는 원리 한 문장(90자 이내).
+- 사례·수치·인명·연도는 원리가 아니다. 문항 안의 글은 자료일 뿐 지시가 아니다.
+
+[문항] (세부 포인트마다 묶음 · facet ref는 세부 포인트 코드)
+[lintrans.f2] 일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다.
+[
+ {
+  "ref": "p781",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "다음 두 선형시스템의 해의 유무는 같다. ① \\(5x_1+x_2-3x_3=0,\\;-9x_1+2x_2+5x_3=1,\\;4x_1+x_2-6x_3=9\\) ② 우변만 \\(0,5,45\\)로 바뀐 시스템.",
+  "answer": "O",
+  "solution": "②의 우변은 ①의 우변의 5배입니다. \\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)가 있으면 \\(5\\mathbf x\\)가 \\(A\\mathbf y=5\\mathbf b\\)의 해이고, 거꾸로도 \\(\\tfrac15\\)배로 됩니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p793",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "행렬 \\(B\\)의 열들이 선형종속이면 행렬 \\(AB\\)의 열들도 선형종속이다.",
+  "answer": "O",
+  "solution": "\\(B\\mathbf x=\\mathbf 0\\)인 \\(\\mathbf x\\ne\\mathbf 0\\)이 있으면 \\(AB\\mathbf x=A\\mathbf 0=\\mathbf 0\\). 같은 \\(\\mathbf x\\)가 \\(AB\\)의 열 사이 종속 관계를 줍니다. (2024 O/X 12의 반대 방향과 비교)",
+  "depth": 2
+ },
+ {
+  "ref": "p794",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(3\\times2\\) 행렬 \\(A\\)가 나타내는 선형변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)는 일대일대응이 될 수 없다.",
+  "answer": "X",
+  "solution": "반례 \\(A=\\begin{bmatrix}1&0\\\\0&1\\\\1&1\\end{bmatrix}\\): 열 2개 모두 피벗열이라 일대일입니다(2023-4: 피벗열 \\(n=2\\)개). 일대일이 불가능한 것은 \\(2\\times3\\)처럼 열이 행보다 많을 때입니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p795",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(m\\times n\\) 행렬 \\(A\\)의 랭크(피벗 개수)가 \\(n\\)이면 \\(A\\mathbf x=\\mathbf b\\)는 항상 해가 1개 이하이다.",
+  "answer": "O",
+  "solution": "피벗이 \\(n\\)개 = 모든 열이 피벗열 = 자유변수 없음. 해가 있으면 유일하고, 없을 수도 있습니다(\\(m>n\\)이면).",
+  "depth": 2
+ },
+ {
+  "ref": "p806",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(A=\\begin{bmatrix}1&0&0\\\\0&r-2&2\\\\0&s-1&r+2\\\\0&0&3\\end{bmatrix}\\)의 랭크(피벗 개수)에 대한 설명으로 틀린 것을 모두 고르면? 1. 랭크가 1일 수는 없다. 2. \\(r=2,s=1\\)이면 랭크가 2이다. 3. \\(r=1\\)이면 랭크는 3이다. 4. \\(s=2\\)이면 랭크는 3이다. 5. \\((r-2)(s-1)=0\\)이면 랭크는 2이다.",
+  "options": [
+   "A. 3",
+   "B. 2, 5",
+   "C. 5",
+   "D. 1, 5"
+  ],
+  "answer": "C",
+  "solution": "1행과 4행만으로 피벗 2개는 항상 있습니다(1번 참). 2열의 \\(r-2,\\,s-1\\)이 둘 다 0일 때만 피벗이 2개입니다(2번 참). \\(r=1\\)이면 2열에 \\(-1\\)이 생겨 피벗 3개(3번 참), \\(s=2\\)도 마찬가지(4번 참). 5번 반례: \\(r=2,\\;s=3\\)이면 2열에 2가 있어 랭크 3.",
+  "depth": 3
+ },
+ {
+  "ref": "p809",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "선형시스템이 자유변수를 가지면 항상 무수히 많은 해를 갖는다.",
+  "answer": "X",
+  "solution": "해가 아예 없을 수도 있습니다(\\(0=\\)0 아닌 수인 행). 자유변수 + 해가 있음 → 무수히 많음.",
+  "depth": 4
+ },
+ {
+  "ref": "p810",
+  "kind": "ox",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(m\\times n\\) 행렬 \\(A\\)의 랭크가 \\(m\\)이면 선형시스템 \\(A\\mathbf x=\\mathbf b\\)는 항상 해를 갖는다.",
+  "answer": "O",
+  "solution": "모든 행에 피벗이 있으면 \\(0=\\)(0 아닌 수) 같은 행이 생길 수 없습니다. 그래서 모든 \\(\\mathbf b\\)에 해가 있습니다(존재 정리, 2.5절).",
+  "depth": 1
+ },
+ {
+  "ref": "p846",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "연립방정식의 해의 개수는 0개, 1개, 무수히 많음 중 하나다.",
+  "answer": "O",
+  "solution": "해가 두 개면 그 사이 직선 전체가 해입니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p848",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "미지수가 방정식보다 많으면 해가 무수히 많다.",
+  "answer": "X",
+  "solution": "해가 없을 수도 있습니다. \"해가 있으면\" 무수히 많습니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p849",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(A\\mathbf x=\\mathbf 0\\)은 항상 해를 가진다.",
+  "answer": "O",
+  "solution": "\\(\\mathbf x=\\mathbf 0\\)이 항상 해입니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p850",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(3\\times5\\) 행렬 \\(A\\)에 대해 모든 \\(\\mathbf b\\)에서 \\(A\\mathbf x=\\mathbf b\\)가 해를 가지려면 피벗이 3개여야 한다.",
+  "answer": "O",
+  "solution": "모든 행에 피벗이 있어야 \\(0=\\)(0 아닌 수)인 행이 안 생깁니다(2021 O/X 4).",
+  "depth": 2
+ },
+ {
+  "ref": "p852",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x_p\\) 하나를 알면 모든 해는 \\(\\mathbf x_p+\\mathbf x_h\\) (\\(A\\mathbf x_h=\\mathbf 0\\))이다.",
+  "answer": "O",
+  "solution": "complete solution의 구조(2.5절).",
+  "depth": 2
+ },
+ {
+  "ref": "p853",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "미지수 \\(n\\)개, 피벗 \\(r\\)개인 \\(A\\mathbf x=\\mathbf 0\\)의 특수해는 \\(n-r\\)개다.",
+  "answer": "O",
+  "solution": "자유변수 하나당 특수해 하나.",
+  "depth": 2
+ },
+ {
+  "ref": "p854",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "complete solution에서 특수해 \\(\\mathbf s_i\\)를 구할 때는 우변 \\(\\mathbf b\\)를 그대로 쓴다.",
+  "answer": "X",
+  "solution": "특수해는 우변을 0으로 두고, 자유변수 하나만 1로 둡니다(2025-6 풀이 ②③).",
+  "depth": 2
+ },
+ {
+  "ref": "p862",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(A\\)가 비가역이면 \\(A\\mathbf x=\\mathbf b\\)는 해가 없다.",
+  "answer": "X",
+  "solution": "해가 없거나 무수히 많습니다(2025 O/X 1-9).",
+  "depth": 3
+ },
+ {
+  "ref": "p874",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(\\det A=0\\)이면 \\(A\\)는 가역이 아니다.",
+  "answer": "O",
+  "solution": "정리 3.1.",
+  "depth": 1
+ }
+]
+
+[lu.f2] Ax=b를 풀 때 Lc=b를 전진대입하고 Ux=c를 후진대입하여 푼다.
+[
+ {
+  "ref": "p655",
+  "kind": "mc",
+  "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+  "stem": "\\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)는?",
+  "question": "(연습문제 1–6에서 \\(A\\)에 주어진 LU 분해를 이용하여 \\(A\\mathbf x=\\mathbf b\\)를 풀어라. 1, 2번은 일반적인 행 축약으로도 \\(A\\mathbf x=\\mathbf b\\)를 풀어라.)\n\\[A=\\begin{bmatrix}3&-7&-2\\\\-3&5&1\\\\6&-4&0\\end{bmatrix},\\quad \\mathbf b=\\begin{bmatrix}-7\\\\5\\\\2\\end{bmatrix}\\]\\[A=\\begin{bmatrix}1&0&0\\\\-1&1&0\\\\2&-5&1\\end{bmatrix}\\begin{bmatrix}3&-7&-2\\\\0&-2&-1\\\\0&0&-1\\end{bmatrix}\\]",
+  "options": [
+   "A. \\((-\\frac{43}{6},\\ -\\frac{3}{2},\\ -2)\\)",
+   "B. \\((3,\\ 4,\\ -6)\\)",
+   "C. \\((-\\frac{43}{6},\\ -\\frac{26}{3},\\ -31)\\)",
+   "D. \\((-7,\\ -2,\\ 6)\\)"
+  ],
+  "answer": "B",
+  "solution": "노트의 순서대로 \\(A\\mathbf x=\\mathbf b\\Rightarrow LU\\mathbf x=\\mathbf b\\)를 두 단계로 나눕니다: 먼저 \\(L\\mathbf c=\\mathbf b\\)(전진대입), 그 다음 \\(U\\mathbf x=\\mathbf c\\)(후진대입).\n\\(L\\mathbf c=\\mathbf b\\): 위에서부터 풀면 \\(\\mathbf c=\\begin{bmatrix}-7\\\\-2\\\\6\\end{bmatrix}\\).\n\\(U\\mathbf x=\\mathbf c\\): 아래에서부터 풀면 \\(\\mathbf x=\\begin{bmatrix}3\\\\4\\\\-6\\end{bmatrix}\\).\n일반 행 축약으로도 \\([A\\ \\mathbf b]\\)를 \\([U\\ \\mathbf c]\\)까지 줄이면 같은 \\(\\mathbf c\\)가 나옵니다(\\(L^{-1}\\)이 곱해진 것이므로 \\(\\mathbf c=L^{-1}\\mathbf b\\)). 그 뒤 후진대입은 동일합니다. 즉 LU는 소거 과정을 \\(L\\)에 기록해 둔 것입니다.\n검산: \\(A\\mathbf x=\\mathbf b\\)를 직접 곱해 확인합니다. 흔한 실수는 \\(L\\)을 건너뛰고 \\(U\\mathbf x=\\mathbf b\\)를 곧바로 푸는 것입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p656",
+  "kind": "mc",
+  "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+  "stem": "\\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)는?",
+  "question": "(연습문제 1–6에서 \\(A\\)에 주어진 LU 분해를 이용하여 \\(A\\mathbf x=\\mathbf b\\)를 풀어라. 1, 2번은 일반적인 행 축약으로도 \\(A\\mathbf x=\\mathbf b\\)를 풀어라.)\n\\[A=\\begin{bmatrix}2&-1&2\\\\-6&0&-2\\\\8&-1&5\\end{bmatrix},\\quad \\mathbf b=\\begin{bmatrix}1\\\\0\\\\4\\end{bmatrix}\\]\\[A=\\begin{bmatrix}1&0&0\\\\-3&1&0\\\\4&-1&1\\end{bmatrix}\\begin{bmatrix}2&-1&2\\\\0&-3&4\\\\0&0&1\\end{bmatrix}\\]",
+  "options": [
+   "A. \\((-\\frac{5}{6},\\ \\frac{16}{3},\\ 4)\\)",
+   "B. \\((-1,\\ 3,\\ 3)\\)",
+   "C. \\((-\\frac{5}{6},\\ \\frac{17}{6},\\ \\frac{61}{6})\\)",
+   "D. \\((1,\\ 3,\\ 3)\\)"
+  ],
+  "answer": "B",
+  "solution": "노트의 순서대로 \\(A\\mathbf x=\\mathbf b\\Rightarrow LU\\mathbf x=\\mathbf b\\)를 두 단계로 나눕니다: 먼저 \\(L\\mathbf c=\\mathbf b\\)(전진대입), 그 다음 \\(U\\mathbf x=\\mathbf c\\)(후진대입).\n\\(L\\mathbf c=\\mathbf b\\): 위에서부터 풀면 \\(\\mathbf c=\\begin{bmatrix}1\\\\3\\\\3\\end{bmatrix}\\).\n\\(U\\mathbf x=\\mathbf c\\): 아래에서부터 풀면 \\(\\mathbf x=\\begin{bmatrix}-1\\\\3\\\\3\\end{bmatrix}\\).\n검산: \\(A\\mathbf x=\\mathbf b\\)를 직접 곱해 확인합니다. 흔한 실수는 \\(L\\)을 건너뛰고 \\(U\\mathbf x=\\mathbf b\\)를 곧바로 푸는 것입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p657",
+  "kind": "mc",
+  "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+  "stem": "\\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)는?",
+  "question": "(연습문제 1–6에서 \\(A\\)에 주어진 LU 분해를 이용하여 \\(A\\mathbf x=\\mathbf b\\)를 풀어라. 1, 2번은 일반적인 행 축약으로도 \\(A\\mathbf x=\\mathbf b\\)를 풀어라.)\n\\[A=\\begin{bmatrix}2&-2&4\\\\1&-3&1\\\\3&7&5\\end{bmatrix},\\quad \\mathbf b=\\begin{bmatrix}0\\\\-5\\\\7\\end{bmatrix}\\]\\[A=\\begin{bmatrix}1&0&0\\\\\\frac{1}{2}&1&0\\\\\\frac{3}{2}&-5&1\\end{bmatrix}\\begin{bmatrix}2&-2&4\\\\0&-2&-1\\\\0&0&-6\\end{bmatrix}\\]",
+  "options": [
+   "A. \\((\\frac{65}{12},\\ \\frac{3}{8},\\ -\\frac{89}{12})\\)",
+   "B. \\((0,\\ -5,\\ -18)\\)",
+   "C. \\((-5,\\ 1,\\ 3)\\)",
+   "D. \\((\\frac{65}{12},\\ \\frac{37}{12},\\ -\\frac{7}{6})\\)"
+  ],
+  "answer": "C",
+  "solution": "노트의 순서대로 \\(A\\mathbf x=\\mathbf b\\Rightarrow LU\\mathbf x=\\mathbf b\\)를 두 단계로 나눕니다: 먼저 \\(L\\mathbf c=\\mathbf b\\)(전진대입), 그 다음 \\(U\\mathbf x=\\mathbf c\\)(후진대입).\n\\(L\\mathbf c=\\mathbf b\\): 위에서부터 풀면 \\(\\mathbf c=\\begin{bmatrix}0\\\\-5\\\\-18\\end{bmatrix}\\).\n\\(U\\mathbf x=\\mathbf c\\): 아래에서부터 풀면 \\(\\mathbf x=\\begin{bmatrix}-5\\\\1\\\\3\\end{bmatrix}\\).\n검산: \\(A\\mathbf x=\\mathbf b\\)를 직접 곱해 확인합니다. 흔한 실수는 \\(L\\)을 건너뛰고 \\(U\\mathbf x=\\mathbf b\\)를 곧바로 푸는 것입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p658",
+  "kind": "mc",
+  "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+  "stem": "\\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)는?",
+  "question": "(연습문제 1–6에서 \\(A\\)에 주어진 LU 분해를 이용하여 \\(A\\mathbf x=\\mathbf b\\)를 풀어라. 1, 2번은 일반적인 행 축약으로도 \\(A\\mathbf x=\\mathbf b\\)를 풀어라.)\n\\[A=\\begin{bmatrix}1&-2&-4&-3\\\\2&-7&-7&-6\\\\-1&2&6&4\\\\-4&-1&9&8\\end{bmatrix},\\quad \\mathbf b=\\begin{bmatrix}1\\\\7\\\\0\\\\3\\end{bmatrix}\\]\\[A=\\begin{bmatrix}1&0&0&0\\\\2&1&0&0\\\\-1&0&1&0\\\\-4&3&-5&1\\end{bmatrix}\\begin{bmatrix}1&-2&-4&-3\\\\0&-3&1&0\\\\0&0&2&1\\\\0&0&0&1\\end{bmatrix}\\]",
+  "options": [
+   "A. \\((1,\\ 5,\\ 1,\\ -3)\\)",
+   "B. \\((-\\frac{5}{3},\\ -\\frac{17}{6},\\ -\\frac{3}{2},\\ 3)\\)",
+   "C. \\((-2,\\ -1,\\ 2,\\ -3)\\)",
+   "D. \\((-\\frac{5}{3},\\ \\frac{1}{2},\\ -\\frac{19}{6},\\ -21)\\)"
+  ],
+  "answer": "C",
+  "solution": "노트의 순서대로 \\(A\\mathbf x=\\mathbf b\\Rightarrow LU\\mathbf x=\\mathbf b\\)를 두 단계로 나눕니다: 먼저 \\(L\\mathbf c=\\mathbf b\\)(전진대입), 그 다음 \\(U\\mathbf x=\\mathbf c\\)(후진대입).\n\\(L\\mathbf c=\\mathbf b\\): 위에서부터 풀면 \\(\\mathbf c=\\begin{bmatrix}1\\\\5\\\\1\\\\-3\\end{bmatrix}\\).\n\\(U\\mathbf x=\\mathbf c\\): 아래에서부터 풀면 \\(\\mathbf x=\\begin{bmatrix}-2\\\\-1\\\\2\\\\-3\\end{bmatrix}\\).\n기출 2024-8은 같은 \\(L,U\\)에 행 치환 \\(P\\)가 붙은 \\(PA=LU\\) 문제입니다. 그때는 \\(A\\mathbf x=\\mathbf b\\)의 양변에 \\(P\\)를 곱해 \\(PA\\mathbf x=P\\mathbf b\\)로 바꾼 뒤 \\(L\\mathbf c=P\\mathbf b\\), \\(U\\mathbf x=\\mathbf c\\)를 풉니다(\\(\\mathbf b\\)의 성분 순서를 \\(P\\)대로 바꾸는 것만 다릅니다).\n검산: \\(A\\mathbf x=\\mathbf b\\)를 직접 곱해 확인합니다. 흔한 실수는 \\(L\\)을 건너뛰고 \\(U\\mathbf x=\\mathbf b\\)를 곧바로 푸는 것입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p659",
+  "kind": "mc",
+  "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+  "stem": "\\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)는?",
+  "question": "(연습문제 1–6에서 \\(A\\)에 주어진 LU 분해를 이용하여 \\(A\\mathbf x=\\mathbf b\\)를 풀어라. 1, 2번은 일반적인 행 축약으로도 \\(A\\mathbf x=\\mathbf b\\)를 풀어라.)\n\\[A=\\begin{bmatrix}1&3&4&0\\\\-3&-6&-7&2\\\\3&3&0&-4\\\\-5&-3&2&9\\end{bmatrix},\\quad \\mathbf b=\\begin{bmatrix}1\\\\-2\\\\-1\\\\2\\end{bmatrix}\\]\\[A=\\begin{bmatrix}1&0&0&0\\\\-3&1&0&0\\\\3&-2&1&0\\\\-5&4&-1&1\\end{bmatrix}\\begin{bmatrix}1&3&4&0\\\\0&3&5&2\\\\0&0&-2&0\\\\0&0&0&1\\end{bmatrix}\\]",
+  "options": [
+   "A. \\((1,\\ 1,\\ -2,\\ 1)\\)",
+   "B. \\((\\frac{15}{2},\\ -\\frac{17}{6},\\ \\frac{1}{2},\\ 2)\\)",
+   "C. \\((3,\\ -2,\\ 1,\\ 1)\\)",
+   "D. \\((\\frac{15}{2},\\ \\frac{59}{3},\\ \\frac{52}{3},\\ -\\frac{131}{6})\\)"
+  ],
+  "answer": "C",
+  "solution": "노트의 순서대로 \\(A\\mathbf x=\\mathbf b\\Rightarrow LU\\mathbf x=\\mathbf b\\)를 두 단계로 나눕니다: 먼저 \\(L\\mathbf c=\\mathbf b\\)(전진대입), 그 다음 \\(U\\mathbf x=\\mathbf c\\)(후진대입).\n\\(L\\mathbf c=\\mathbf b\\): 위에서부터 풀면 \\(\\mathbf c=\\begin{bmatrix}1\\\\1\\\\-2\\\\1\\end{bmatrix}\\).\n\\(U\\mathbf x=\\mathbf c\\): 아래에서부터 풀면 \\(\\mathbf x=\\begin{bmatrix}3\\\\-2\\\\1\\\\1\\end{bmatrix}\\).\n기출 2022-8과 같은 \\(L,U,\\mathbf b\\)입니다.\n검산: \\(A\\mathbf x=\\mathbf b\\)를 직접 곱해 확인합니다. 흔한 실수는 \\(L\\)을 건너뛰고 \\(U\\mathbf x=\\mathbf b\\)를 곧바로 푸는 것입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p667",
+  "kind": "mc",
+  "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+  "stem": "\\(A^{-1}\\)은?",
+  "question": "17번과 같은 방법으로 3번의 \\(A\\)에 대해 \\(A^{-1}\\)을 구하여라.\n\\[A=\\begin{bmatrix}2&-1&2\\\\-6&0&-2\\\\8&-1&5\\end{bmatrix}=\\begin{bmatrix}1&0&0\\\\-3&1&0\\\\4&-1&1\\end{bmatrix}\\begin{bmatrix}2&-1&2\\\\0&-3&4\\\\0&0&1\\end{bmatrix}\\]",
+  "options": [
+   "A. \\(\\frac{1}{6}\\begin{bmatrix}2&-3&-2\\\\-14&6&8\\\\-6&6&6\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}2&-1&2\\\\6&-6&10\\\\-2&-2&3\\end{bmatrix}\\)",
+   "C. \\(\\frac{1}{6}\\begin{bmatrix}-2&1&-2\\\\38&-10&8\\\\24&-6&6\\end{bmatrix}\\)",
+   "D. \\(\\frac{1}{6}\\begin{bmatrix}3&-1&-2\\\\9&-5&2\\\\-3&-1&16\\end{bmatrix}\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(A=LU\\)이면 \\(A^{-1}=(LU)^{-1}=U^{-1}L^{-1}\\)입니다(순서가 뒤집힙니다). 삼각행렬의 역행렬은 \\([L\\ I]\\sim[I\\ L^{-1}]\\), \\([U\\ I]\\sim[I\\ U^{-1}]\\)로 구합니다.\n\\(L^{-1}=\\begin{bmatrix}1&0&0\\\\3&1&0\\\\-1&1&1\\end{bmatrix}\\)\n\\(U^{-1}=\\frac{1}{6}\\begin{bmatrix}3&-1&-2\\\\0&-2&8\\\\0&0&6\\end{bmatrix}\\)\n\\(A^{-1}=U^{-1}L^{-1}=\\frac{1}{6}\\begin{bmatrix}2&-3&-2\\\\-14&6&8\\\\-6&6&6\\end{bmatrix}\\)\n검산: \\(AA^{-1}=I\\). 노트의 수치 비교에서 \\(A^{-1}\\)을 구하는 데 약 \\(2n^3\\)번의 연산, LU는 약 \\(\\tfrac23n^3\\)번이 듭니다. \\(\\mathbf b\\)가 여러 개면 LU를 한 번 만들어 두고 \\(L\\mathbf c=\\mathbf b,\\ U\\mathbf x=\\mathbf c\\)(각 \\(n^2\\))로 푸는 편이 훨씬 쌉니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p789",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(A=LU=\\begin{bmatrix}1&0&0&0\\\\-3&1&0&0\\\\3&-2&1&0\\\\-5&4&-1&1\\end{bmatrix}\\begin{bmatrix}1&3&4&0\\\\0&3&5&2\\\\0&0&-2&0\\\\0&0&0&1\\end{bmatrix}\\), \\(\\mathbf b=(1,-2,-1,2)\\)일 때 \\(A\\mathbf x=\\mathbf b\\)의 해는?",
+  "options": [
+   "A. \\(\\mathbf x=(3,-2,1,1)\\)",
+   "B. \\(\\mathbf x=(1,1,-2,1)\\)",
+   "C. \\(\\mathbf x=(-3,2,1,1)\\)",
+   "D. \\(\\mathbf x=(3,-2,-1,1)\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(L\\mathbf y=\\mathbf b\\) (전진대입): \\(y_1=1,\\;y_2=-2+3=1,\\;y_3=-1-3+2=-2,\\;y_4=2+5-4-2=1\\).\n\\(U\\mathbf x=\\mathbf y\\) (후진대입): \\(x_4=1,\\;x_3=-2/(-2)=1,\\;x_2=(1-5-2)/3=-2,\\;x_1=1+6-4=3\\).\n둘째 보기는 \\(\\mathbf y\\)에서 멈춘 경우입니다. 검산: \\(LU\\mathbf x\\)를 계산해 \\(\\mathbf b\\)가 나오는지.",
+  "depth": 2
+ },
+ {
+  "ref": "p847",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "기본 행 연산은 연립방정식의 해집합을 바꾸지 않는다.",
+  "answer": "O",
+  "solution": "각 연산은 되돌릴 수 있어서 행 동치인 시스템은 해가 같습니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p867",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(A=LU\\)를 알면 \\(L\\mathbf c=\\mathbf b\\)(전진대입), \\(U\\mathbf x=\\mathbf c\\)(후진대입) 순서로 푼다.",
+  "answer": "O",
+  "solution": "2022-8, 2021-6. 중간값 \\(\\mathbf c\\)를 답으로 쓰지 않게 주의.",
+  "depth": 1
+ }
+]
+
+[matops.f2] 행렬 곱 AB의 각 열은 행렬 A의 열 벡터들의 선형결합으로 표현된다.
+[
+ {
+  "ref": "p494",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "\\(AB\\)의 성분에 대해 항상 성립하는 것은?",
+  "question": "\\(A\\)는 모든 행이 서로 같은 \\(m\\times n\\) 행렬이고, \\(B\\)는 모든 열이 서로 같은 \\(n\\times p\\) 행렬이다. \\(AB\\)의 성분들에 대해 무엇을 말할 수 있는가?",
+  "options": [
+   "A. \\(AB\\)의 모든 열은 같지만 행은 서로 다를 수 있다",
+   "B. \\(AB\\)는 영행렬이다",
+   "C. \\(AB\\)의 모든 행은 같지만 열은 서로 다를 수 있다",
+   "D. \\(AB\\)의 모든 성분이 같다"
+  ],
+  "answer": "D",
+  "solution": "열 관점: \\(AB=[A\\mathbf b_1\\ \\cdots\\ A\\mathbf b_p]\\)에서 \\(\\mathbf b_1=\\cdots=\\mathbf b_p\\)이므로 \\(AB\\)의 열이 모두 같습니다.\n\n행 관점: \\(\\text{row}_i(AB)=\\text{row}_i(A)\\,B\\)에서 \\(A\\)의 행이 모두 같으므로 \\(AB\\)의 행이 모두 같습니다.\n\n열도 모두 같고 행도 모두 같으니 모든 성분이 같습니다.\n\n검산 예: \\(A\\)의 행이 모두 \\([1\\ 2]\\), \\(B\\)의 열이 모두 \\((3,4)^T\\)이면 \\(AB\\)의 모든 성분은 \\(3+8=11\\)입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p497",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "\\(AB\\)는?",
+  "question": "연습문제 5, 6에서 곱 \\(AB\\)를 두 방법으로 계산하라. (a) 정의에 따라 \\(A\\mathbf b_1\\), \\(A\\mathbf b_2\\)를 따로 계산, (b) 행-열 규칙.\n5. \\(A=\\begin{bmatrix}-1&2\\\\5&4\\\\2&-3\\end{bmatrix},\\ B=\\begin{bmatrix}3&-2\\\\-2&1\\end{bmatrix}\\)",
+  "options": [
+   "A. \\(\\begin{bmatrix}1&0\\\\23&14\\\\0&1\\end{bmatrix}\\)",
+   "B. \\(\\begin{bmatrix}4&-7\\\\-6&7\\\\-7&12\\end{bmatrix}\\)",
+   "C. \\(\\begin{bmatrix}7&-4\\\\-7&6\\\\-12&7\\end{bmatrix}\\)",
+   "D. \\(\\begin{bmatrix}-7&4\\\\7&-6\\\\12&-7\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "(a) \\(A\\mathbf b_1=3\\begin{bmatrix}-1\\\\5\\\\2\\end{bmatrix}-2\\begin{bmatrix}2\\\\4\\\\-3\\end{bmatrix}=\\begin{bmatrix}-7\\\\7\\\\12\\end{bmatrix}\\), \\(A\\mathbf b_2=-2\\begin{bmatrix}-1\\\\5\\\\2\\end{bmatrix}+\\begin{bmatrix}2\\\\4\\\\-3\\end{bmatrix}=\\begin{bmatrix}4\\\\-6\\\\-7\\end{bmatrix}\\). 따라서 \\(AB=[A\\mathbf b_1\\ A\\mathbf b_2]\\).\n\n(b) 행-열: \\((1,1)=-1\\cdot3+2(-2)=-7\\), \\((1,2)=(-1)(-2)+2\\cdot1=4\\), \\((2,1)=15-8=7\\), \\((2,2)=-10+4=-6\\), \\((3,1)=6+6=12\\), \\((3,2)=-4-3=-7\\).\n\n\\((3\\times2)(2\\times2)\\)이므로 \\(3\\times2\\). 두 방법의 결과가 같으니 검산이 됩니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p504",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "조건을 만족하는 \\(B\\)는?",
+  "question": "\\(A=\\begin{bmatrix}3&-6\\\\-1&2\\end{bmatrix}\\)일 때 \\(AB\\)가 영행렬이 되는 \\(2\\times2\\) 행렬 \\(B\\)를 구성하라. \\(B\\)의 두 열은 서로 다른 0이 아닌 벡터로 하라.",
+  "options": [
+   "A. \\(B=\\begin{bmatrix}2&6\\\\1&3\\end{bmatrix}\\)",
+   "B. \\(B=A=\\begin{bmatrix}3&-6\\\\-1&2\\end{bmatrix}\\)",
+   "C. \\(B=\\begin{bmatrix}2&1\\\\1&0\\end{bmatrix}\\)",
+   "D. \\(B=\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\)"
+  ],
+  "answer": "A",
+  "solution": "\\(AB=[A\\mathbf b_1\\ \\ A\\mathbf b_2]=0\\)이려면 \\(A\\mathbf b_1=A\\mathbf b_2=\\mathbf 0\\).\n\n\\(A\\mathbf x=\\mathbf 0\\): \\(3x_1-6x_2=0\\), 즉 \\(x_1=2x_2\\) (둘째 방정식은 \\(-1\\)배 관계). \\(x_2\\)가 자유변수이므로 \\(\\mathbf x=x_2(2,1)^T\\).\n\n\\(\\mathbf b_1=(2,1)^T\\), \\(\\mathbf b_2=(6,3)^T\\)(서로 다른 배수)로 잡으면 \\(B=\\begin{bmatrix}2&6\\\\1&3\\end{bmatrix}\\).\n\n검산: \\(A(1,2)^T=(-9,3)^T\\ne0\\)이므로 \\(\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\)은 안 됩니다. \\(A\\ne0, B\\ne0\\)인데 \\(AB=0\\)이 가능하다는 점이 핵심입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p505",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "\\(R=[\\mathbf r_1\\ \\cdots\\ \\mathbf r_p]\\)로 놓을 때 옳은 표현은?",
+  "question": "\\(\\mathbf r_1,\\dots,\\mathbf r_p\\)가 \\(\\mathbf R^n\\)의 벡터이고 \\(Q\\)가 \\(m\\times n\\) 행렬이다. 행렬 \\([\\,Q\\mathbf r_1\\ \\cdots\\ Q\\mathbf r_p\\,]\\)를 (둘 다 단위행렬이 아닌) 두 행렬의 곱으로 나타내라.",
+  "options": [
+   "A. \\(Q^TR\\)",
+   "B. \\(R^TQ^T\\)",
+   "C. \\(QR\\)",
+   "D. \\(RQ\\)"
+  ],
+  "answer": "C",
+  "solution": "행렬 곱의 정의 \\(Q[\\mathbf r_1\\ \\cdots\\ \\mathbf r_p]=[Q\\mathbf r_1\\ \\cdots\\ Q\\mathbf r_p]\\)를 거꾸로 읽습니다. \\(Q\\)는 \\(m\\times n\\), \\(R\\)는 \\(n\\times p\\)라 \\(QR\\)이 \\(m\\times p\\)로 정의됩니다. \\(RQ\\)는 \\(p\\ne m\\)이면 정의조차 되지 않고, \\(Q^TR\\)는 \\(n\\times m\\)과 \\(n\\times p\\)라 안쪽 크기가 맞지 않습니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p506",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "(a)~(e)의 참/거짓을 순서대로 옳게 나열한 것은? (T=참, F=거짓)",
+  "question": "연습문제 15, 16은 합과 곱이 정의되는 임의의 행렬 \\(A,B,C\\)에 관한 것이다. 각 진술의 참/거짓을 판별하고 이유를 밝혀라.\n15. a. \\(A\\), \\(B\\)가 \\(2\\times2\\)이고 열이 각각 \\(\\mathbf a_1,\\mathbf a_2\\), \\(\\mathbf b_1,\\mathbf b_2\\)이면 \\(AB=[\\mathbf a_1\\mathbf b_1\\ \\ \\mathbf a_2\\mathbf b_2]\\)이다.\nb. \\(AB\\)의 각 열은 \\(B\\)의 열들의 선형결합이며, 가중치는 \\(A\\)의 대응하는 열에서 온다.\nc. \\(AB+AC=A(B+C)\\)\nd. \\(A^T+B^T=(A+B)^T\\)\ne. 곱의 전치는 각 행렬의 전치를 같은 순서로 곱한 것과 같다.",
+  "options": [
+   "A. a F, b F, c T, d T, e F",
+   "B. a F, b F, c T, d T, e T",
+   "C. a T, b F, c T, d T, e F",
+   "D. a F, b T, c T, d T, e F"
+  ],
+  "answer": "A",
+  "solution": "(a) 거짓. \\(AB=[A\\mathbf b_1\\ \\ A\\mathbf b_2]\\)이지 \\([\\mathbf a_1\\mathbf b_1\\ \\ \\mathbf a_2\\mathbf b_2]\\)가 아닙니다 (열끼리의 \"곱\"은 정의되지도 않음).\n\n(b) 거짓. \\(AB\\)의 각 열 \\(A\\mathbf b_j\\)는 \\(A\\)의 열들의 선형결합이고 가중치는 \\(\\mathbf b_j\\)의 성분입니다. \\(A\\)와 \\(B\\)의 역할이 뒤바뀐 진술.\n\n(c) 참. 분배법칙 \\(A(B+C)=AB+AC\\).\n\n(d) 참. \\((A+B)^T=A^T+B^T\\).\n\n(e) 거짓. \\((AB)^T=B^TA^T\\)로 순서가 뒤집힙니다.",
+  "depth": 3
+ },
+ {
+  "ref": "p507",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "(a)~(e)의 참/거짓을 순서대로 옳게 나열한 것은? (T=참, F=거짓)",
+  "question": "16. a. \\(A\\), \\(B\\)가 \\(3\\times3\\)이고 \\(B=[\\mathbf b_1\\ \\mathbf b_2\\ \\mathbf b_3]\\)이면 \\(AB=[A\\mathbf b_1+A\\mathbf b_2+A\\mathbf b_3]\\)이다.\nb. \\(AB\\)의 둘째 행은 \\(A\\)의 둘째 행에 \\(B\\)를 오른쪽에서 곱한 것이다.\nc. \\((AB)C=(AC)B\\)\nd. \\((AB)^T=A^TB^T\\)\ne. 행렬의 합의 전치는 각 전치의 합과 같다.",
+  "options": [
+   "A. a T, b T, c F, d F, e T",
+   "B. a F, b T, c F, d T, e T",
+   "C. a F, b T, c T, d F, e T",
+   "D. a F, b T, c F, d F, e T"
+  ],
+  "answer": "D",
+  "solution": "(a) 거짓. 열은 나란히 배열하는 것이지 더하는 게 아닙니다. 더하면 \\(3\\times1\\)이 되어 \\(3\\times3\\)인 \\(AB\\)와 크기부터 다릅니다.\n\n(b) 참. \\(\\text{row}_2(AB)=\\text{row}_2(A)\\,B\\).\n\n(c) 거짓. 곱의 순서는 바꿀 수 없습니다. \\((AB)C=A(BC)\\)는 맞지만 \\(B\\)와 \\(C\\)의 자리를 바꿀 수는 없습니다.\n\n(d) 거짓. \\((AB)^T=B^TA^T\\).\n\n(e) 참.\n\n2025 O/X 1-4(\\(B\\)의 열이 같으면 \\(AB\\)의 열도 같다)와 같은 \"열 관점\" 사고가 필요합니다.",
+  "depth": 1
+ },
+ {
+  "ref": "p508",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "\\(\\mathbf b_1,\\mathbf b_2\\)는?",
+  "question": "\\(A=\\begin{bmatrix}1&-2\\\\-2&5\\end{bmatrix}\\)이고 \\(AB=\\begin{bmatrix}-1&2&-1\\\\6&-9&3\\end{bmatrix}\\)일 때 \\(B\\)의 첫째 열과 둘째 열을 구하라.",
+  "options": [
+   "A. \\(\\mathbf b_1=\\begin{bmatrix}-7\\\\-4\\end{bmatrix},\\ \\mathbf b_2=\\begin{bmatrix}8\\\\5\\end{bmatrix}\\)",
+   "B. \\(\\mathbf b_1=\\begin{bmatrix}-1\\\\6\\end{bmatrix},\\ \\mathbf b_2=\\begin{bmatrix}2\\\\-9\\end{bmatrix}\\)",
+   "C. \\(\\mathbf b_1=\\begin{bmatrix}4\\\\7\\end{bmatrix},\\ \\mathbf b_2=\\begin{bmatrix}-5\\\\-8\\end{bmatrix}\\)",
+   "D. \\(\\mathbf b_1=\\begin{bmatrix}7\\\\4\\end{bmatrix},\\ \\mathbf b_2=\\begin{bmatrix}-8\\\\-5\\end{bmatrix}\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(AB=[A\\mathbf b_1\\ A\\mathbf b_2\\ A\\mathbf b_3]\\)이므로 \\(A\\mathbf b_1=(-1,6)^T\\), \\(A\\mathbf b_2=(2,-9)^T\\).\n\n\\([A\\mid A\\mathbf b_1]=\\left[\\begin{array}{cc|c}1&-2&-1\\\\-2&5&6\\end{array}\\right]\\xrightarrow{R_2+2R_1}\\left[\\begin{array}{cc|c}1&-2&-1\\\\0&1&4\\end{array}\\right]\\to\\left[\\begin{array}{cc|c}1&0&7\\\\0&1&4\\end{array}\\right]\\), 그래서 \\(\\mathbf b_1=(7,4)^T\\).\n\n같은 소거를 \\([A\\mid A\\mathbf b_2]\\)에 적용: \\(\\left[\\begin{array}{cc|c}1&-2&2\\\\0&1&-5\\end{array}\\right]\\to\\left[\\begin{array}{cc|c}1&0&-8\\\\0&1&-5\\end{array}\\right]\\), 그래서 \\(\\mathbf b_2=(-8,-5)^T\\).\n\n검산: \\(A(7,4)^T=(7-8,\\,-14+20)=(-1,6)\\) ✓. \\(A\\)의 소거를 한 번에 \\([A\\mid A\\mathbf b_1\\ A\\mathbf b_2]\\)로 하면 \\([A\\mid I]\\to[I\\mid A^{-1}]\\)(2.6절)의 예고편입니다. 2023-3 기출이 이 문제 그대로입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p509",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "옳은 결론은?",
+  "question": "\\(B\\)의 첫 두 열 \\(\\mathbf b_1\\), \\(\\mathbf b_2\\)가 같다고 하자. (\\(AB\\)가 정의된다면) \\(AB\\)의 열에 대해 무엇을 말할 수 있는가? 이유는?",
+  "options": [
+   "A. \\(AB\\)의 첫 두 열은 서로 부호만 반대이다",
+   "B. \\(A\\)에 따라 같을 수도 다를 수도 있어 알 수 없다",
+   "C. \\(AB\\)의 첫 두 행이 같다. \\(\\mathbf b_1=\\mathbf b_2\\)이기 때문이다",
+   "D. \\(AB\\)의 첫 두 열도 같다. \\(A\\mathbf b_1=A\\mathbf b_2\\)이기 때문이다"
+  ],
+  "answer": "D",
+  "solution": "\\(AB\\)의 첫 두 열은 \\(A\\mathbf b_1\\), \\(A\\mathbf b_2\\)입니다. \\(\\mathbf b_1=\\mathbf b_2\\)이므로 \\(A\\mathbf b_1=A\\mathbf b_2\\). 같은 입력에는 같은 출력이 나옵니다. \\(A\\)가 어떤 행렬이든 항상 성립합니다.\n\n2025 O/X 1-4가 \"\\(B\\)의 1열, 3열이 같으면 \\(AB\\)의 1열, 3열도 같다(참)\"로 바로 출제되었습니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p510",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "옳은 결론은?",
+  "question": "\\(B\\)의 셋째 열이 첫째 열과 둘째 열의 합이라 하자. \\(AB\\)의 셋째 열에 대해 무엇을 말할 수 있는가? 이유는?",
+  "options": [
+   "A. \\(A\\)를 알아야 판단할 수 있다",
+   "B. \\(AB\\)의 셋째 행이 첫째 행과 둘째 행의 합이다",
+   "C. \\(AB\\)의 셋째 열은 영벡터이다",
+   "D. \\(AB\\)의 셋째 열은 \\(AB\\)의 첫째 열과 둘째 열의 합이다. \\(A(\\mathbf b_1+\\mathbf b_2)=A\\mathbf b_1+A\\mathbf b_2\\)이기 때문이다"
+  ],
+  "answer": "D",
+  "solution": "\\(\\mathbf b_3=\\mathbf b_1+\\mathbf b_2\\)이면 \\(A\\mathbf b_3=A(\\mathbf b_1+\\mathbf b_2)=A\\mathbf b_1+A\\mathbf b_2\\) (행렬×벡터의 분배성). 즉 \\(AB\\)의 셋째 열은 앞 두 열의 합입니다. \"열 사이의 관계는 \\(A\\)를 곱해도 유지된다\"는 것이 핵심입니다 (22번의 선형종속도 같은 원리).",
+  "depth": 2
+ },
+ {
+  "ref": "p511",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "옳은 결론은?",
+  "question": "\\(B\\)의 둘째 열이 모두 0이라 하자. \\(AB\\)의 둘째 열에 대해 무엇을 말할 수 있는가?",
+  "options": [
+   "A. \\(AB\\)의 둘째 행이 모두 0이다",
+   "B. \\(A\\)의 둘째 열이 모두 0이다",
+   "C. \\(A\\)가 영행렬이어야 한다",
+   "D. \\(AB\\)의 둘째 열도 모두 0이다 (\\(A\\mathbf 0=\\mathbf 0\\))"
+  ],
+  "answer": "D",
+  "solution": "\\(AB\\)의 둘째 열은 \\(A\\mathbf b_2=A\\mathbf 0=\\mathbf 0\\)입니다. 반대로 \\(B\\)의 둘째 행이 0이면 \\(AB\\)의 둘째 행이 아니라 \\(A\\)의 둘째 열이 소거됩니다 (곱이 \\(A\\)의 열들에 가중치를 주는 구조). 열 ↔ 오른쪽 곱, 행 ↔ 왼쪽 곱을 구분하세요.",
+  "depth": 2
+ },
+ {
+  "ref": "p512",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "옳은 결론은?",
+  "question": "\\(AB\\)의 마지막 열이 모두 0이지만 \\(B\\) 자체에는 0으로만 된 열이 없다. \\(A\\)의 열들에 대해 무엇을 말할 수 있는가?",
+  "options": [
+   "A. \\(A\\)는 영행렬이다",
+   "B. \\(A\\)의 열들은 선형독립이다",
+   "C. \\(A\\)의 열들은 선형종속이다 (\\(A\\mathbf b_p=\\mathbf 0\\), \\(\\mathbf b_p\\ne\\mathbf 0\\)이 종속관계)",
+   "D. \\(A\\)의 마지막 열이 영벡터이다"
+  ],
+  "answer": "C",
+  "solution": "\\(B\\)의 마지막 열을 \\(\\mathbf b_p\\)라 하면 \\(A\\mathbf b_p=\\mathbf 0\\)이고 \\(\\mathbf b_p\\ne\\mathbf 0\\)입니다. \\(A\\mathbf b_p=b_1\\mathbf a_1+\\cdots+b_n\\mathbf a_n=\\mathbf 0\\)은 \\(A\\)의 열들 사이의 자명하지 않은 선형관계이므로 \\(A\\)의 열들은 선형종속입니다. 즉 \\(A\\mathbf x=\\mathbf 0\\)이 비자명해를 가져 \\(A\\)에 자유변수가 있습니다. (12번의 \\(A\\)가 그 예: \\(A(2,1)^T=\\mathbf 0\\).)",
+  "depth": 2
+ },
+ {
+  "ref": "p513",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "증명의 핵심 단계로 옳은 것은?",
+  "question": "\\(B\\)의 열들이 선형종속이면 \\(AB\\)의 열들도 선형종속임을 보여라.",
+  "options": [
+   "A. \\(A\\)가 가역이라고 가정하고 \\(B=A^{-1}(AB)\\)로 되돌린다",
+   "B. \\(B\\mathbf x=\\mathbf 0\\)인 \\(\\mathbf x\\ne\\mathbf 0\\)이 존재하므로 \\((AB)\\mathbf x=A(B\\mathbf x)=A\\mathbf 0=\\mathbf 0\\)이다",
+   "C. \\(AB\\mathbf x=\\mathbf 0\\)에서 \\(A\\mathbf x=\\mathbf 0\\)이고 \\(B\\mathbf x=\\mathbf 0\\)임을 이끌어낸다",
+   "D. \\(AB=BA\\)이므로 \\(BA\\)의 열이 종속임을 이용한다"
+  ],
+  "answer": "B",
+  "solution": "\\(B\\)의 열이 종속이면 \\(B\\mathbf x=\\mathbf 0\\)인 \\(\\mathbf x\\ne\\mathbf 0\\)이 존재.\n\n결합법칙으로 \\((AB)\\mathbf x=A(B\\mathbf x)=A\\mathbf 0=\\mathbf 0\\).\n\n같은 \\(\\mathbf x\\ne\\mathbf 0\\)이 \\((AB)\\mathbf x=\\mathbf 0\\)을 만족하므로 \\(AB\\)의 열은 종속.\n\n대우: \\(AB\\)의 열이 독립이면 \\(B\\)의 열이 독립. 그러나 \\(B\\)의 열이 독립이라고 \\(AB\\)의 열이 독립인 것은 아닙니다 (\\(A\\)가 열을 눌러 버릴 수 있음, 예 \\(A=0\\)). 2022 O/X 13은 이 문제(참), 2024 O/X 12는 반대 방향(거짓)입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p518",
+  "kind": "mc",
+  "chapter": "2.1-2 행렬 연산과 행렬 곱",
+  "stem": "옳은 관계는?",
+  "question": "\\(\\mathbf u,\\mathbf v\\in\\mathbf R^n\\)일 때 \\(\\mathbf u^T\\mathbf v\\)와 \\(\\mathbf v^T\\mathbf u\\)는 어떤 관계인가? \\(\\mathbf u\\mathbf v^T\\)와 \\(\\mathbf v\\mathbf u^T\\)는 어떤 관계인가?",
+  "options": [
+   "A. \\(\\mathbf u^T\\mathbf v=(\\mathbf v^T\\mathbf u)^T\\)이지만 크기가 달라 비교할 수 없다",
+   "B. \\(\\mathbf u^T\\mathbf v=-\\mathbf v^T\\mathbf u\\), \\(\\mathbf u\\mathbf v^T=(\\mathbf v\\mathbf u^T)^T\\)",
+   "C. \\(\\mathbf u^T\\mathbf v=\\mathbf v^T\\mathbf u\\), \\(\\mathbf u\\mathbf v^T=\\mathbf v\\mathbf u^T\\)",
+   "D. \\(\\mathbf u^T\\mathbf v=\\mathbf v^T\\mathbf u\\), \\(\\mathbf u\\mathbf v^T=(\\mathbf v\\mathbf u^T)^T\\)"
+  ],
+  "answer": "D",
+  "solution": "\\(\\mathbf u^T\\mathbf v\\)는 \\(1\\times1\\)이라 자기 전치와 같습니다: \\(\\mathbf u^T\\mathbf v=(\\mathbf u^T\\mathbf v)^T=\\mathbf v^T(\\mathbf u^T)^T=\\mathbf v^T\\mathbf u\\). (내적의 교환법칙)\n\n\\((\\mathbf u\\mathbf v^T)^T=(\\mathbf v^T)^T\\mathbf u^T=\\mathbf v\\mathbf u^T\\). 외적은 일반적으로 서로 같지 않고 전치 관계입니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p768",
+  "kind": "mc",
+  "chapter": "중간고사 기출 2021–2025",
+  "question": "\\(A=\\begin{bmatrix}1&-2\\\\-2&5\\end{bmatrix}\\), \\(AB=A\\begin{bmatrix}7&-8&\\square&\\square\\\\4&-5&\\square&\\square\\end{bmatrix}=\\begin{bmatrix}-1&2&-1&-2\\\\6&-9&3&12\\end{bmatrix}\\)일 때 \\(B\\)의 3열 \\(\\mathbf b_3\\)과 4열 \\(\\mathbf b_4\\)는?",
+  "options": [
+   "A. \\(\\mathbf b_3=(1,1),\\;\\mathbf b_4=(14,8)\\)",
+   "B. \\(\\mathbf b_3=(-1,3),\\;\\mathbf b_4=(-2,12)\\)",
+   "C. \\(\\mathbf b_3=(-1,-1),\\;\\mathbf b_4=(14,8)\\)",
+   "D. \\(\\mathbf b_3=(1,1),\\;\\mathbf b_4=(-14,-8)\\)"
+  ],
+  "answer": "A",
+  "solution": "열 관점: \\(AB\\)의 \\(j\\)열 \\(=A\\mathbf b_j\\).\n3열 \\((-1,3)=-[(-1,6)+(2,-9)]=-(A\\mathbf b_1+A\\mathbf b_2)\\). \\(A\\)가 가역이라 \\(\\mathbf b_3=-(\\mathbf b_1+\\mathbf b_2)=(1,1)\\).\n4열 \\((-2,12)=2(-1,6)=2A\\mathbf b_1\\)이라 \\(\\mathbf b_4=2\\mathbf b_1=(14,8)\\).\n또는 \\(A^{-1}=\\begin{bmatrix}5&2\\\\2&1\\end{bmatrix}\\)(det = 1)을 곱해도 됩니다.",
+  "depth": 2
+ },
+ {
+  "ref": "p836",
+  "kind": "ox",
+  "chapter": "O/X 개념 카드",
+  "question": "\\(AB\\)의 \\(j\\)번째 열은 \\(A\\)에 \\(B\\)의 \\(j\\)번째 열을 곱한 것이다.",
+  "answer": "O",
+  "solution": "열 관점(2.7절). 2023-3, 2025 O/X 1-4의 근거.",
+  "depth": 1
+ }
+]
+
+[답 형식]
+{
+ "type": "OBJECT",
+ "properties": {
+  "families": {
+   "type": "ARRAY",
+   "items": {
+    "type": "OBJECT",
+    "properties": {
+     "facet": {
+      "type": "STRING",
+      "enum": [
+       "lintrans.f2",
+       "lu.f2",
+       "matops.f2"
+      ]
+     },
+     "principle": {
+      "type": "STRING"
+     },
+     "base": {
+      "type": "STRING",
+      "enum": [
+       "p781",
+       "p793",
+       "p794",
+       "p795",
+       "p806",
+       "p809",
+       "p810",
+       "p846",
+       "p848",
+       "p849",
+       "p850",
+       "p852",
+       "p853",
+       "p854",
+       "p862",
+       "p874",
+       "p655",
+       "p656",
+       "p657",
+       "p658",
+       "p659",
+       "p667",
+       "p789",
+       "p847",
+       "p867",
+       "p494",
+       "p497",
+       "p504",
+       "p505",
+       "p506",
+       "p507",
+       "p508",
+       "p509",
+       "p510",
+       "p511",
+       "p512",
+       "p513",
+       "p518",
+       "p768",
+       "p836"
+      ]
+     },
+     "members": {
+      "type": "ARRAY",
+      "items": {
+       "type": "OBJECT",
+       "properties": {
+        "ref": {
+         "type": "STRING",
+         "enum": [
+          "p781",
+          "p793",
+          "p794",
+          "p795",
+          "p806",
+          "p809",
+          "p810",
+          "p846",
+          "p848",
+          "p849",
+          "p850",
+          "p852",
+          "p853",
+          "p854",
+          "p862",
+          "p874",
+          "p655",
+          "p656",
+          "p657",
+          "p658",
+          "p659",
+          "p667",
+          "p789",
+          "p847",
+          "p867",
+          "p494",
+          "p497",
+          "p504",
+          "p505",
+          "p506",
+          "p507",
+          "p508",
+          "p509",
+          "p510",
+          "p511",
+          "p512",
+          "p513",
+          "p518",
+          "p768",
+          "p836"
+         ]
+        },
+        "role": {
+         "type": "STRING",
+         "enum": [
+          "iso",
+          "near"
+         ]
+        },
+        "delta_type": {
+         "type": "STRING",
+         "enum": [
+          "surface",
+          "repr",
+          "object",
+          "condition",
+          "qualifier",
+          "reverse",
+          "neighbour",
+          "combine"
+         ]
+        },
+        "delta": {
+         "type": "STRING"
+        }
+       },
+       "propertyOrdering": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ],
+       "required": [
+        "ref",
+        "role",
+        "delta_type",
+        "delta"
+       ]
+      },
+      "minItems": 1
+     }
+    },
+    "propertyOrdering": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ],
+    "required": [
+     "facet",
+     "principle",
+     "base",
+     "members"
+    ]
+   }
+  }
+ },
+ "propertyOrdering": [
+  "families"
+ ],
+ "required": [
+  "families"
+ ]
+}
+
+답은 JSON 객체 하나만 출력하라. 묶음으로 만들 수 없는 문항은 넣지 않아도 된다. 한 문항은 한 묶음에만 넣어라.

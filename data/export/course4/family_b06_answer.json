@@ -1,0 +1,8 @@
+{"families":[
+{"facet":"matops.f1","principle":"행렬의 합·곱은 크기 조건을 먼저 확인하고, 정의될 때만 성분별·행-열 규칙으로 계산한다.","base":"p495","members":[{"ref":"p496","role":"iso","delta_type":"surface","delta":"다른 식·행렬 조합으로 정의 여부 판정"}]},
+{"facet":"matops.f1","principle":"곱 AB의 크기는 (m×n)(n×p)=m×p이므로 곱과 한쪽 크기로 다른 쪽 크기를 알 수 있다.","base":"p499","members":[{"ref":"p500","role":"near","delta_type":"condition","delta":"B 전체 크기 → 행 수만, C 크기는 모름"}]},
+{"facet":"matops.f1","principle":"CA=I(좌역)이면 Ax=0이 자명해뿐이라 모든 열이 피벗열이고 피벗 수로 행·열 크기가 제한된다.","base":"p514","members":[{"ref":"p515","role":"near","delta_type":"reverse","delta":"좌역 CA=I → 우역 AD=I"},{"ref":"p516","role":"near","delta_type":"combine","delta":"좌역과 우역 결합 → m=n, C=D"}]},
+{"facet":"block.f2","principle":"대각 블록이 가역인 블록 삼각행렬의 역행렬은 블록별 곱 비교로 블록 단위 계산한다.","base":"p644","members":[{"ref":"p642","role":"near","delta_type":"condition","delta":"일반 가역 블록 → 단위행렬 블록"},{"ref":"p651","role":"near","delta_type":"object","delta":"블록 하삼각 → 블록 상삼각"},{"ref":"p758","role":"near","delta_type":"object","delta":"기호 블록 → 4×4 구체 행렬에 적용"}]},
+{"facet":"block.f2","principle":"단위 대각 블록 삼각행렬의 역행렬은 블록별 곱이 I가 되도록 비교해 구하며 곱 순서를 지킨다.","base":"p647","members":[{"ref":"p788","role":"near","delta_type":"condition","delta":"X,Y,Z 모두 → X만 묻기"}]},
+{"facet":"block.f2","principle":"블록 대각행렬의 역행렬은 각 대각 블록의 역행렬을 대각에 놓은 것이다.","base":"p653","members":[{"ref":"p772","role":"iso","delta_type":"surface","delta":"같은 행렬, 보기와 서술만 다름"}]}
+]}

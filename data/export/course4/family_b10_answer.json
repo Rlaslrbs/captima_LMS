@@ -1,0 +1,28 @@
+{"families":[
+{"facet":"lineplane.f2","principle":"두 직선의 평행·수직은 방향벡터가 배수인지, 내적이 0인지로 판별한다.","base":"p467","members":[
+{"ref":"p777","role":"iso","delta_type":"repr","delta":"객관식 → 같은 직선쌍의 O/X 진술"},
+{"ref":"p468","role":"near","delta_type":"neighbour","delta":"평행 판별 → 수직 판별(내적)"}]},
+{"facet":"lineplane.f2","principle":"평행한 평면·직선은 법선(방향)이 배수이고, 일치 여부는 상수항까지 비교한다.","base":"p484","members":[
+{"ref":"p830","role":"near","delta_type":"condition","delta":"네 평면 → 한 쌍, 일치 아닌 평행"},
+{"ref":"p485","role":"near","delta_type":"object","delta":"평면 → 직선(방향벡터 비교)"}]},
+{"facet":"lineplane.f2","principle":"직선을 매개화해 평면 식에 대입하면 교점의 매개변수를 구한다.","base":"p480","members":[
+{"ref":"p744","role":"iso","delta_type":"repr","delta":"매개방정식 → 두 점으로 주어진 직선"},
+{"ref":"p481","role":"iso","delta_type":"repr","delta":"두 점으로 주어진 직선, 다른 수치"}]},
+{"facet":"lineplane.f2","principle":"두 직선의 위치는 방향 평행 여부와 연립해의 세 식 일치로 판별한다.","base":"p472","members":[
+{"ref":"p471","role":"iso","delta_type":"surface","delta":"교차 → 평행(서로 다른 평행선) 수치"},
+{"ref":"p473","role":"near","delta_type":"condition","delta":"두 성분만 비례하는 평행 함정 추가"},
+{"ref":"p470","role":"near","delta_type":"condition","delta":"두 식만 풀면 가짜 교점이 나오는 함정"},
+{"ref":"p834","role":"near","delta_type":"qualifier","delta":"구체 판정 → 안 평행하면 반드시 만난다?"}]},
+{"facet":"lintrans.f2","principle":"일대일은 모든 열이 피벗열(n개), onto는 모든 행에 피벗(m개)이다.","base":"p546","members":[
+{"ref":"p769","role":"iso","delta_type":"surface","delta":"같은 빈칸 문장, 서술·보기 변경"},
+{"ref":"p547","role":"near","delta_type":"neighbour","delta":"일대일(열 수) → onto(행 수)"}]},
+{"facet":"lintrans.f2","principle":"표준행렬의 피벗 위치로 일대일(모든 열)과 onto(모든 행)를 각각 판정한다.","base":"p544","members":[
+{"ref":"p545","role":"iso","delta_type":"repr","delta":"표준행렬 → 성분식으로 준 변환"},
+{"ref":"p543","role":"iso","delta_type":"surface","delta":"0행이 있는 4×4 행렬, 둘 다 아님"}]},
+{"facet":"lintrans.f2","principle":"행렬 크기로 피벗 수가 제한되어 onto나 일대일의 가능 여부가 갈린다.","base":"p542","members":[
+{"ref":"p539","role":"near","delta_type":"neighbour","delta":"onto 불가 → 일대일 불가 여부"}]},
+{"facet":"lintrans.f2","principle":"함수이기만 하다는 성질과 onto, 일대일 조건을 구분한다.","base":"p538","members":[
+{"ref":"p541","role":"near","delta_type":"neighbour","delta":"onto 혼동 → 일대일 혼동"}]},
+{"facet":"lintrans.f2","principle":"RREF로 줄여 피벗열·자유변수를 찾아 특수해와 영공간 기저로 일반해를 쓴다.","base":"p748","members":[
+{"ref":"p757","role":"iso","delta_type":"surface","delta":"다른 첨가행렬, 같은 일반해 구성"}]}
+]}
