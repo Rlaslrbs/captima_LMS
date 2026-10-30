@@ -1,0 +1,110 @@
+/* Liquid Glass 테마 (데모) — app.css 위에 덮어쓴다. index.html에서 이 파일 한 줄을 빼면 원래 디자인으로 돌아간다.
+   원칙
+   - 떠 있는 것(위쪽 바, 탭, 메뉴, 창, 알림)만 진짜 유리: 뒤를 흐리고(blur) 채도를 올린다.
+   - 문제 카드처럼 많이 쌓이는 것은 반투명 + 테두리 빛만 (blur를 수백 개 걸면 휴대폰 스크롤이 느려진다).
+   - 모든 유리에는 위쪽 가장자리 빛(rim)과 얇은 테두리를 줘서 판처럼 보이게 한다.
+   - 투명도 줄이기 설정을 켠 사용자에게는 불투명하게. */
+
+/* 글꼴: Pretendard Variable (SF Pro와 비슷하게 만든 한글 글꼴). 굵기 100~900을 파일 하나로.
+   예전 .sub 파일은 한글 917자뿐이라 빠진 글자(큘·챙·켠 …)가 맑은 고딕으로 섞여 나왔다 → 자주 쓰는 한글 2,350자 + 사이트에 나오는 글자 전부로 다시 만듦 */
+@font-face{font-family:"Pretendard Variable";font-weight:100 900;font-style:normal;font-display:swap;src:url(/fonts/PretendardVariable.sub.woff2) format("woff2-variations"),url(/fonts/PretendardVariable.sub.woff2) format("woff2")}
+:root{--font-body:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+body{letter-spacing:-.011em}
+/* 애플식 글자 위계: 큰 제목은 아주 굵고 좁게, 작은 글씨는 조금 넓게 */
+.hero h1,.c-head h1,.sh-card h2,.onb-card h1{font-weight:800;letter-spacing:-.035em}
+.eyebrow{font-weight:650;letter-spacing:-.005em}
+.hubh,.term h2,.panel h2,.ctitle,.ctile b,.eb-t b,.rv-h b{font-weight:720;letter-spacing:-.025em}
+.cmeta,.cstats,.hint,small{letter-spacing:-.003em}
+.big,.sum b,.eb-d b,.sline .sl-n b{font-weight:760;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+:root{
+  --lg-card:rgba(255,255,255,.8);
+  --lg-card-hi:rgba(255,255,255,.9);
+  --lg-chrome:rgba(255,255,255,.46);
+  --lg-fill:rgba(255,255,255,.5);
+  --lg-rim:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(255,255,255,.6),inset 0 -1px 1px rgba(255,255,255,.2);
+  --lg-edge:0 0 0 1px rgba(15,20,60,.09);
+  --lg-blur:blur(24px) saturate(190%);
+  --shadow:0 10px 30px rgba(40,50,120,.10),0 2px 4px rgba(20,25,60,.06);
+  --shadow-up:0 20px 48px rgba(40,50,120,.16),0 3px 8px rgba(20,25,60,.07);
+  --line:rgba(0,0,0,.06);
+  --r:22px;
+  --amb:.42;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --lg-card:rgba(48,48,56,.5); --lg-card-hi:rgba(58,58,66,.72); --lg-chrome:rgba(30,30,36,.5); --lg-fill:rgba(255,255,255,.08);
+  --lg-rim:inset 0 1px 0 rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.08); --lg-edge:0 0 0 .5px rgba(0,0,0,.4);
+  --shadow:0 8px 30px rgba(0,0,0,.35); --shadow-up:0 18px 46px rgba(0,0,0,.5); --amb:.32;
+}}
+:root[data-theme="dark"]{
+  --lg-card:rgba(48,48,56,.5); --lg-card-hi:rgba(58,58,66,.72); --lg-chrome:rgba(30,30,36,.5); --lg-fill:rgba(255,255,255,.08);
+  --lg-rim:inset 0 1px 0 rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.08); --lg-edge:0 0 0 .5px rgba(0,0,0,.4);
+  --shadow:0 8px 30px rgba(0,0,0,.35); --shadow-up:0 18px 46px rgba(0,0,0,.5); --amb:.32;
+}
+
+/* ── 배경: 유리 뒤에 비치는 은은한 빛 (화면에 고정) ── */
+body{padding-top:calc(var(--barh) + 14px)}
+body::before{content:"";position:fixed;inset:-15%;z-index:-1;pointer-events:none;opacity:var(--amb);
+  background:
+    radial-gradient(38% 32% at 12% 8%,#7fb2ff,transparent 70%),
+    radial-gradient(34% 30% at 88% 14%,#ffb0d0,transparent 70%),
+    radial-gradient(42% 38% at 74% 82%,#8fe6d2,transparent 70%),
+    radial-gradient(36% 36% at 8% 88%,#ffd59a,transparent 70%),
+    radial-gradient(30% 28% at 50% 46%,#c9b6ff,transparent 70%);
+  filter:blur(30px)}
+
+/* ── 떠 있는 위쪽 바: 화면 가장자리에서 떨어진 알약 모양 유리 ── */
+.top{top:10px;left:12px;right:12px;max-width:1040px;margin-inline:auto;border-radius:26px;border:0;
+  background:var(--lg-chrome);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow)}
+.nav a[aria-current="page"]{background:var(--lg-card-hi);color:var(--ink);box-shadow:var(--lg-rim),0 2px 8px rgba(0,0,0,.08)}
+.nav a:hover{background:var(--lg-fill)}
+.icon:hover{background:var(--lg-fill)}
+
+/* ── 쌓이는 면: 반투명 + 테두리 빛 ── */
+.course,.sum,.empty,.card,.hc,.stat,.overall,.ctile,.review,.panel,.next-up,.resume-big,.exam-big,.sline,.kpill,.ins-card{
+  background:var(--lg-card);box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow)}
+.course:hover,.hc:hover,.ctile:hover,.next-up:hover,.resume-big:hover,.kpill:hover{box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow-up)}
+.card.st-correct,.card.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--lg-rim),var(--shadow)}
+.card.st-wrong{box-shadow:0 0 0 2px var(--red),var(--lg-rim),var(--shadow)}
+.ctile.off{background:rgba(255,255,255,.38);box-shadow:var(--lg-rim),0 0 0 1px rgba(15,20,60,.06)}
+:root[data-theme="dark"] .ctile.off{background:rgba(255,255,255,.04);box-shadow:var(--lg-rim)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ctile.off{background:rgba(255,255,255,.04);box-shadow:var(--lg-rim)}}
+.starb{border-left-color:rgba(255,255,255,.35)}
+.eb-d,.opt{background:var(--lg-fill);box-shadow:var(--lg-rim)}
+.opt:hover:not(:disabled){background:var(--lg-card-hi)}
+
+/* ── 진짜 유리: 떠 있는 것들 ── */
+.sh-card,.pm,.onb-card,.dialog,.fx-bar,.fx-handle,.nudge{
+  background:var(--lg-chrome);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow-up)}
+.sh-card{background:var(--lg-card-hi)}
+.sheet{background:rgba(0,0,0,.18)}
+.onb{background:color-mix(in srgb,var(--paper) 35%,transparent)}
+.toast{background:color-mix(in srgb,var(--ink) 72%,transparent);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),var(--shadow-up)}
+
+/* ── 알약 버튼 · 칩 · 탭: 유리 캡슐 ── */
+.btn,.chip,.back,.enroll,.semtab,.ex-x{background:var(--lg-fill);box-shadow:var(--lg-rim),var(--lg-edge)}   /* 작은 버튼은 blur 없이 테두리 빛만 (많아서 느려지지 않게) */
+.btn:hover:not(:disabled),.chip:hover,.back:hover,.enroll:hover,.semtab:hover{background:var(--lg-card-hi)}
+.btn.ghost{background:transparent;box-shadow:none}
+.btn.ghost:hover:not(:disabled){background:var(--lg-fill)}
+/* 주요 버튼: 색 유리 (위는 밝고 아래는 진하게 + 위 가장자리 빛) */
+.btn.pri{background:linear-gradient(180deg,color-mix(in srgb,var(--action) 78%,#fff),var(--action) 55%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.08),0 6px 18px color-mix(in srgb,var(--action) 32%,transparent)}
+.btn.pri:hover:not(:disabled){background:linear-gradient(180deg,color-mix(in srgb,var(--action-hover) 72%,#fff),var(--action-hover) 55%)}
+.chip[aria-pressed="true"],.semtab[aria-selected="true"]{background:color-mix(in srgb,var(--ink) 88%,transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 4px 12px rgba(0,0,0,.15)}
+.ex-b.soon{background:color-mix(in srgb,var(--red) 14%,transparent)}
+.starb:hover{background:var(--lg-fill)}
+
+/* 분할 버튼(탭 · 화면 테마): 홈이 파인 유리 + 고른 칸은 볼록한 렌즈 */
+.tabs,.seg{background:color-mix(in srgb,var(--lg-fill) 70%,transparent);box-shadow:inset 0 1px 3px rgba(0,0,0,.08),var(--lg-edge);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.tab[aria-selected="true"],.seg input:checked + span{background:var(--lg-card-hi);box-shadow:var(--lg-rim),0 3px 10px rgba(0,0,0,.12)}
+
+/* 과목 배지: 색 유리 구슬 */
+.badge{background:linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,0) 55%),linear-gradient(145deg,color-mix(in srgb,var(--bc) 78%,#fff),var(--bc));box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 12px color-mix(in srgb,var(--c,#06c) 30%,transparent)}
+
+/* ── 접근성 · 대체 ── */
+@media (prefers-reduced-transparency:reduce){
+  :root{--lg-card:var(--sheet);--lg-card-hi:var(--sheet);--lg-chrome:var(--sheet);--amb:0}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  :root{--lg-chrome:var(--lg-card-hi)}
+}

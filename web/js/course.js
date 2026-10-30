@@ -1,10 +1,11 @@
 // 과목 화면: 메뉴(챕터·시험 대비 카드) → 범위 화면(문제 풀기 / 오답노트, 집중 모드)
 // 문제 카드·채점·오답노트는 이번 학기 문제노트 템플릿(quiz_template.html)을 옮겨 온 것이다.
 import { $, $$, esc, LS, KIND, LETTERS, barHTML, toast, ask } from "./util.js";
-import { S, loadCourse, saveProgress, deleteProgress, setResume, setLast, track, hiddenMs, toggleEnroll, isEnrolled, pullCourse, api, onChange, isSaved, toggleSaved, savedCount, flush, sendEvents, nextPos, sessionSec } from "./store.js";
+import { S, loadCourse, saveProgress, deleteProgress, setResume, setLast, track, hiddenMs, toggleEnroll, isEnrolled, pullCourse, api, onChange, isSaved, toggleSaved, savedCount, flush, sendEvents, nextPos, sessionSec, setExam, dday, ddText } from "./store.js";
 import { initFocus } from "./focus.js";
 import { typeset as typesetMath, clearMath } from "./math.js";
 
+export const REVIEW_AFTER = 864e5;   // 틀린 지 이만큼(하루) 지나면 "복습할 오답"으로 다시 꺼낸다
 const SPECIAL = [
   { key: "ALL", hn: "전체", title: "전체 문제 풀기", note: "모든 범위를 한 번에", f: () => true },
   { key: "STAR", hn: "★ 중요", title: "중요 문제 모음", note: "시험 직전 우선 복습", f: p => p.star },
@@ -53,7 +54,7 @@ export async function mountCourse(view, route, ctx) {
   const aiRes = {};           // AI 채점 결과 (이 화면에서만): problem_id → { id, verdict, points, feedback }
   const aiBusy = new Set();
   const graded = new Set();   // 이 화면에서 방금 채점한 문제 (틀린 문제를 다시 풀 때 직접 채점 버튼을 한 번만 보여 주려고)
-  const unsaved = new Set();  // "나중에 볼 문제" 화면에서 ☆를 끈 문제 (실수로 눌러도 바로 사라지지 않게)
+  const unsaved = new Set();  // "나중에 볼 문제" 화면에서 책갈피를 끈 문제 (실수로 눌러도 바로 사라지지 않게)
   const drafts = {};          // 입력 중인 답 (저장 안 함)
   const shownAt = {};         // 풀이 시간 측정: problem_id → { t, h }
   const shownLogged = new Set();
@@ -81,7 +82,7 @@ export async function mountCourse(view, route, ctx) {
     <header class="c-head">
       <div class="c-id"><span class="badge" style="--c:var(--accent)">${esc(C.short)}</span>
         <div class="c-tt"><h1 id="cTitle">${esc(C.name)}</h1><p class="sub">${esc([C.professor && C.professor + " 교수", C.meta, C.semester && C.semester.name].filter(Boolean).join(" · "))}</p></div></div>
-      <button class="enroll" id="enrollBtn" aria-pressed="false"></button>
+      <div class="c-acts"><span class="exam" id="exam"></span><button class="enroll" id="enrollBtn" aria-pressed="false"></button></div>
     </header>
     <div class="crumb" id="crumb" hidden></div>
     <nav class="tabs" role="tablist" id="tabsNav" hidden>
@@ -97,9 +98,14 @@ export async function mountCourse(view, route, ctx) {
   const mq = matchMedia("(prefers-color-scheme: dark)"); const onScheme = () => { paint(); }; mq.addEventListener("change", onScheme);
   const offTheme = ctx.onTheme(paint);
 
+  function renderExam() {   // 시험일: 누르면 날짜 고르기. 정해 두면 D-day
+    const n = dday(cid), d = S.exam[cid];
+    $("#exam", view).innerHTML = `<button class="enroll ex-b ${n !== null && n <= 7 ? "soon" : ""}" id="examBtn" aria-label="시험일 ${d ? d + " 바꾸기" : "정하기"}"><span class="st" aria-hidden="true">📅</span>${n !== null ? `시험 <b>${ddText(n)}</b>` : "시험일 정하기"}</button>
+      <input type="date" id="examIn" class="ex-in" value="${esc(d || "")}" tabindex="-1" aria-hidden="true">${d ? `<button class="ex-x" id="examX" aria-label="시험일 지우기">✕</button>` : ""}`;
+  }
   function renderEnroll() {
     const on = isEnrolled(cid); const b = $("#enrollBtn", view);
-    b.setAttribute("aria-pressed", on); b.innerHTML = `<span class="st">${on ? "★" : "☆"}</span>${on ? "내 강의실에 있음" : "내 강의실에 담기"}`;
+    b.setAttribute("aria-pressed", on); b.innerHTML = `<span class="st">${on ? "✓" : "＋"}</span>${on ? "내 강의실에 있음" : "내 강의실에 담기"}`;
   }
 
   // ───────── 범위 ─────────
@@ -107,6 +113,7 @@ export async function mountCourse(view, route, ctx) {
     const ch = CHS.find(c => c.key === key);
     if (ch) return { key, title: ch.title, f: p => p.chapter_id === ch.id };
     if (key === "NOTE") return { key, title: "전체 오답노트", f: () => true };
+    if (key === "REVIEW") { revIds ||= new Set(P.filter(due).map(p => p.id)); return { key, title: "복습할 오답", f: p => revIds.has(p.id) }; }
     if (key === "SAVED") return { key, title: "나중에 볼 문제", f: p => isSaved(p.id) || unsaved.has(p.id) };   // 이 화면에서 뺀 문제는 나갈 때까지 남겨 둔다
     if (/^Q:/.test(key || "")) {                       // 학습 리포트가 고른 문제 묶음: 적힌 순서대로
       const ids = key.slice(2).split(".").map(Number).filter(id => BYID[id]).slice(0, 12), order = new Map(ids.map((id, i) => [id, i]));
@@ -122,6 +129,8 @@ export async function mountCourse(view, route, ctx) {
       : is(d.next && d.next.pids) ? "지금 풀면 좋은 문제" : ids.length === 1 ? "다시 풀기 · " + (BYID[ids[0]].no || BYID[ids[0]].ext_id) : "추천 문제");
   }
   const isQ = () => /^Q:/.test(set || "");
+  let revIds = null;
+  const due = p => { const pr = prog(p.id); return pr.status === "wrong" && Date.now() - Date.parse(pr.updated_at || 0) >= REVIEW_AFTER; };
   const scopeLog = () => isQ() ? "Q" : set;           // 기록에는 Q: 문제 번호 목록을 다 싣지 않는다 (기록 한 줄이 길어져 잘리지 않게)
   const scoped = () => { const sc = scopeOf(set), l = P.filter(sc.f); return sc.order ? l.sort((a, b) => sc.order.get(a.id) - sc.order.get(b.id)) : l; };
   const scopeKey = () => `${cid}|${set}|${tab}`;
@@ -256,7 +265,7 @@ export async function mountCourse(view, route, ctx) {
     // 접혀 있을 때 유형 필터가 걸려 있으면 알약 하나로 보여 주고, 누르면 풀린다. 리포트가 고른 문제(Q:)는 보기 줄 없음
     const kindOn = !ui.more && !isQ() && kinds.length > 1 && ui.kind !== "all" && kinds.includes(ui.kind)
       ? `<button class="chip on-x" data-g="kind" data-v="all" aria-label="${KIND[ui.kind]}만 보기 해제">${KIND[ui.kind]}만 <span aria-hidden="true">✕</span></button>` : "";
-    const showRow = isQ() ? "" : `<div class="chips">${ui.more ? `<span class="lab">보기</span>` : ""}${chip("show", "all", "전체")}${chip("show", "todo", "안 푼 문제")}${chip("show", "wrong", "틀린 문제")}${starBtn}${kindOn}</div>`;
+    const showRow = isQ() || set === "REVIEW" ? "" : `<div class="chips">${ui.more ? `<span class="lab">보기</span>` : ""}${chip("show", "all", "전체")}${chip("show", "todo", "안 푼 문제")}${chip("show", "wrong", "틀린 문제")}${starBtn}${kindOn}</div>`;
     tb.innerHTML = ui.more ? kindRow + resetRow + showRow : showRow;
   }
 
@@ -283,8 +292,9 @@ export async function mountCourse(view, route, ctx) {
     }).join("")}</ul>` : "";
     return `<div class="sol">${head}${aiHead}${ans}${full}${pts}<div>${p.s || ""}</div>${srcHTML(p)}</div>`;
   }
+  const bmIcon = on => `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5h8v11l-4-2.8-4 2.8z" fill="${on ? "currentColor" : "none"}" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>`;   // 나중에 볼 문제 = 책갈피 (★는 "중요" 표시에만 쓴다)
   const saveBtn = p => { const on = isSaved(p.id);
-    return `<button class="savep" data-save="${p.id}" aria-pressed="${on}" title="${on ? "나중에 볼 문제에서 빼기" : "나중에 볼 문제에 담기"}" aria-label="${on ? "나중에 볼 문제에서 빼기" : "나중에 볼 문제에 담기"}">${on ? "★" : "☆"}</button>`; };
+    return `<button class="savep" data-save="${p.id}" aria-pressed="${on}" title="${on ? "나중에 볼 문제에서 빼기" : "나중에 볼 문제에 담기"}" aria-label="${on ? "나중에 볼 문제에서 빼기" : "나중에 볼 문제에 담기"}">${bmIcon(on)}</button>`; };
   function card(p) {
     const pr = prog(p.id); const st = pr.status || "";
     const stLabel = { correct: "맞힘", wrong: "오답", resolved: "해결됨" }[st] || "";
@@ -312,13 +322,19 @@ export async function mountCourse(view, route, ctx) {
     }
     // 집중 모드에서 채점한 뒤: 해설 아래에서 바로 다음 문제로 (목록 모드에서는 CSS로 숨김). 마지막 문제면 fixNext()가 글자를 바꾼다
     const next = st && shown ? `<div class="nextrow"><button class="btn pri lg" data-next="${p.id}"><span class="nl">다음 문제</span><span aria-hidden="true">→</span></button><span class="kbd-hint"><kbd>Enter</kbd></span></div>` : "";
-    const tools = `<div class="btns tools">${st ? `<button class="btn ghost" data-reset="${p.id}">기록 지우고 다시 풀기</button>` : ""}<button class="btn ghost rep" data-report="${p.id}">오류 제보</button></div>`;
     const ch = chOf(p);
+    // 자주 안 쓰는 것은 ⋯ 메뉴 하나로 (휴대폰에서 윗줄이 빽빽하지 않게)
+    const info = [ch.short, pr.wrong_count ? `틀린 횟수 ${pr.wrong_count}` : ""].filter(Boolean).join(" · ");
+    const menu = `<details class="pmenu"><summary aria-label="문제 메뉴">⋯</summary><div class="pm">
+      ${info ? `<p class="pm-i">${esc(info)}</p>` : ""}
+      <button class="pm-b" data-copy="${p.id}" title="문제·정답·해설을 Markdown으로 복사해서 AI에게 바로 물어보기"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>AI 질문용 복사</button>
+      <button class="pm-b rep" data-report="${p.id}">오류 제보</button>
+      ${st ? `<button class="pm-b" data-reset="${p.id}">기록 지우고 다시 풀기</button>` : ""}</div></details>`;
     const exams = Array.isArray(p.exams) && p.exams.length ? `<span class="exb">기출 ${esc(p.exams.join(", "))}</span>` : "";
     return `<article class="card ${st ? "st-" + st : ""}" id="c-${p.id}">
-      <div class="meta"><span class="no">${esc(p.no || p.ext_id)}</span><span class="kindtag">${KIND[p.kind]}</span>${p.star ? '<span class="star">★ 중요</span>' : ""}${exams}<span>${esc(ch.short || "")}</span>${pr.wrong_count ? `<span>틀린 횟수 ${pr.wrong_count}</span>` : ""}<span class="stt ${st}">${stLabel}</span>${saveBtn(p)}<button class="cpy" data-copy="${p.id}" title="문제·정답·해설을 Markdown으로 복사해서 AI에게 바로 물어보기"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="1.5"/><path d="M11 5V3.5A1.5 1.5 0 0 0 9.5 2h-6A1.5 1.5 0 0 0 2 3.5v6A1.5 1.5 0 0 0 3.5 11H5"/></svg>AI 질문용 복사</button></div>
+      <div class="meta"><span class="no">${esc(p.no || p.ext_id)}</span><span class="kindtag">${KIND[p.kind]}</span>${p.star ? '<span class="star">★ 중요</span>' : ""}${exams}<span class="stt ${st}">${stLabel}</span>${saveBtn(p)}${menu}</div>
       <div class="q">${fmt(p.q)}${sub(p.q_sub)}</div>
-      ${body}${shown ? solHTML(p, st) : ""}${next}${tools}</article>`;
+      ${body}${shown ? solHTML(p, st) : ""}${next}</article>`;
   }
 
   // ───────── AI 질문용 Markdown 복사 ─────────
@@ -413,7 +429,7 @@ export async function mountCourse(view, route, ctx) {
   function filtered() {
     // 유형 줄이 안 보이는 범위(유형이 하나뿐, 예: 서술형 모음)나 그 유형이 없는 범위에서는 저장된 유형 필터를 쓰지 않는다
     const sc = scoped(), kinds = new Set(sc.map(p => p.kind));
-    if (isQ()) return sc;                               // 리포트가 고른 문제는 필터 없이 전부 (유형·보기 줄도 숨김)
+    if (isQ() || set === "REVIEW") return sc;          // 리포트가 고른 문제·복습할 오답은 필터 없이 전부 (유형·보기 줄도 숨김)
     const kind = kinds.size > 1 && kinds.has(ui.kind) ? ui.kind : "all";
     return sc.filter(p => (kind === "all" || p.kind === kind) && (!ui.star || p.star || set === "STAR")
       && (ui.show === "all" || (ui.show === "todo" && (!S.progress[p.id] || keep.has(p.id))) || (ui.show === "wrong" && (prog(p.id).status === "wrong" || keep.has(p.id)))));
@@ -425,8 +441,9 @@ export async function mountCourse(view, route, ctx) {
   }
   function renderSolve() {
     const list = filtered();
-    const none = set === "SAVED" && !scoped().length
-      ? `<div class="empty">아직 담은 문제가 없어요. 문제 카드 오른쪽 위 <b>☆</b>를 누르면 여기에 모여요.</div>`
+    const none = set === "REVIEW" && !scoped().length ? `<div class="empty">지금 복습할 오답이 없어요. 틀린 문제는 하루가 지나면 여기에 다시 나와요.</div>`
+      : set === "SAVED" && !scoped().length
+      ? `<div class="empty">아직 담은 문제가 없어요. 문제 카드 오른쪽 위 <b>책갈피</b>를 누르면 여기에 모여요.</div>`
       : `<div class="empty">조건에 맞는 문제가 없어요. 위에서 유형이나 보기를 바꿔 보세요.</div>`;
     main.innerHTML = list.length ? withHeads(list) : none;
   }
@@ -454,6 +471,10 @@ export async function mountCourse(view, route, ctx) {
       const sc = scopeOf(last.set), k = counts(P.filter(sc.f));
       if (k.done < k.all) return { key: last.set, icon: "↻", t: "이어 풀기", s: `${sc.title} · ${k.done}/${k.all} 풀이` };
     }
+    const dn = dday(cid), stars = P.filter(p => p.star), sl = stars.filter(p => !S.progress[p.id]).length;
+    if (dn !== null && dn <= 7 && sl) return { key: "STAR", icon: "📅", t: `시험 ${ddText(dn)} · 중요 문제부터 풀기`, s: `중요 문제 ${stars.length}개 중 ${sl}개가 남았어요` };
+    const rv = P.filter(due).length;
+    if (rv) return { key: "REVIEW", icon: "↺", t: `복습할 오답 ${rv}개`, s: "틀린 지 하루가 지났어요. 지금 다시 풀면 오래 기억나요" };
     const w = P.filter(p => prog(p.id).status === "wrong").length;
     if (w) return { key: "NOTE", icon: "✕", t: `틀린 문제 ${w}개 다시 풀기`, s: "틀린 문제를 다시 풀어 보면 오래 기억나요" };
     const ch = CHS.find(c => P.some(p => p.chapter_id === c.id && !S.progress[p.id]));
@@ -484,7 +505,7 @@ export async function mountCourse(view, route, ctx) {
     const big = SPECIAL.filter(sp => !sp.key.startsWith("K:") && P.some(sp.f));
     const kinds = SPECIAL.filter(sp => sp.key.startsWith("K:") && P.some(sp.f));
     h += `<div class="hubh">시험 대비</div><div class="hubgrid">${big.map(sp => hubCard(sp.key, sp.hn, sp.title, P.filter(sp.f), true, sp.note)).join("")}
-      ${hubCard("SAVED", "☆ 나중에", "나중에 볼 문제", P.filter(p => isSaved(p.id)), true, "카드의 ☆로 담기")}
+      ${hubCard("SAVED", "나중에", "나중에 볼 문제", P.filter(p => isSaved(p.id)), true, "카드의 책갈피로 담기")}
       <button class="hc sp" data-open="NOTE"><span class="hc-top"><span class="hn">오답노트</span></span><span class="ht">전체 오답노트</span><span class="hm"><span class="${openW ? "w" : ""}">못 고친 오답 <b>${openW}</b></span><span>모든 범위 모아보기</span></span></button>
       ${insOn ? `<button class="hc sp" data-open="INSIGHT"><span class="hc-top"><span class="hn">리포트</span></span><span class="ht">학습 리포트</span><span class="hm" id="insMeta">${insMeta()}</span></button>` : ""}</div>`;
     if (kinds.length > 1) h += `<div class="kindrow"><span class="lab">유형별로 풀기</span>${kinds.map(sp => {
@@ -598,8 +619,8 @@ export async function mountCourse(view, route, ctx) {
     const crumb = $("#crumb", view);
     crumb.hidden = hub; $("#tabsNav", view).hidden = hub; $("#stats", view).hidden = hub; $("#toolbar", view).hidden = hub;
     view.classList.toggle("in-set", !hub);
-    renderEnroll();
-    if (hub) { renderHub(); document.title = C.short + " · 문제노트"; }
+    renderEnroll(); renderExam();
+    if (hub) { revIds = null; renderHub(); document.title = C.short + " · 문제노트"; }
     else {
       const sc = scopeOf(set);
       document.title = sc.title + " · " + C.short;
@@ -684,11 +705,16 @@ export async function mountCourse(view, route, ctx) {
     finally { aiBusy.delete(id); renderCard(id); }
   }
 
+  function onExam(e) { if (e.target.id === "examIn") { setExam(cid, e.target.value || null); const n = dday(cid); toast(n !== null ? `시험까지 ${ddText(n)}! 중요 문제부터 챙겨요` : "시험일을 정했어요"); } }
   function onInput(e) { const t = e.target; if (t.id && t.id.startsWith("in-")) { const id = +t.id.slice(3); drafts[id] = t.value; firstKey[id] ||= { t: Date.now(), h: hiddenMs() }; } }
   function onKey(e) { const t = e.target; if (e.key === "Enter" && t.tagName === "INPUT" && t.id && t.id.startsWith("in-")) { e.preventDefault(); checkShort(+t.id.slice(3)); } }
   function onClick(e) {
+    $$("details.pmenu[open]", view).forEach(m => { if (!m.contains(e.target)) m.open = false; });
     const b = e.target.closest("button"); if (!b || !view.contains(b)) return;
     const d = b.dataset;
+    const pm = b.closest("details.pmenu"); if (pm) setTimeout(() => { pm.open = false; }, d.copy ? 1200 : 0);
+    if (b.id === "examBtn") { const i = $("#examIn", view); try { i.showPicker(); } catch { i.focus(); i.click(); } return; }
+    if (b.id === "examX") { setExam(cid, null); toast("시험일을 지웠어요"); return; }
     if (b.id === "enrollBtn") { toggleEnroll(cid); renderEnroll(); toast(isEnrolled(cid) ? `${C.short}을(를) 내 강의실에 담았어요` : "내 강의실에서 뺐어요"); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); return; }
     if (d.copy) {
       track("ai_copy", { problem_id: +d.copy, version: BYID[+d.copy].v, st: prog(+d.copy).status || "new" });   // 헷갈려서 도움을 찾는 신호
@@ -743,13 +769,14 @@ export async function mountCourse(view, route, ctx) {
     if (d.ai) { aiGrade(+d.ai); return; }
     if (d.reset) { resetOne(+d.reset); return; }
   }
-  view.addEventListener("click", onClick); view.addEventListener("input", onInput); view.addEventListener("keydown", onKey);
+  view.addEventListener("click", onClick); view.addEventListener("input", onInput); view.addEventListener("change", onExam); view.addEventListener("keydown", onKey);
   document.addEventListener("visibilitychange", onHide);
   const off = onChange(what => {
-    if (what === "saved") { if (set) { $$("[data-save]", main).forEach(b => { const id = +b.dataset.save, on = isSaved(id); b.setAttribute("aria-pressed", on); b.textContent = on ? "★" : "☆"; b.title = b.ariaLabel = on ? "나중에 볼 문제에서 빼기" : "나중에 볼 문제에 담기"; }); } else render(); return; }
+    if (what === "saved") { if (set) { $$("[data-save]", main).forEach(b => { const id = +b.dataset.save, on = isSaved(id); b.setAttribute("aria-pressed", on); b.innerHTML = bmIcon(on); b.title = b.ariaLabel = on ? "나중에 볼 문제에서 빼기" : "나중에 볼 문제에 담기"; }); } else render(); return; }
     if (what === "progress") { const only = keep.size === 1 ? [...keep][0] : null; only && set ? renderCard(only) : render(); }
     else if (what === "all") render();
     else if (what === "enroll") renderEnroll();
+    else if (what === "exam") { renderExam(); if (!set) renderHub(); }
   });
 
   render();
@@ -769,7 +796,7 @@ export async function mountCourse(view, route, ctx) {
       gone = true; dwellEnd(); if (ins) { ins.destroy(); ins = null; } document.removeEventListener("visibilitychange", onHide);
       clearMath(main); if (mio) mio.disconnect();
       focus.destroy(); off(); offTheme(); document.removeEventListener("keydown", onDocKey); mq.removeEventListener("change", onScheme); if (io) io.disconnect();
-      view.removeEventListener("click", onClick); view.removeEventListener("input", onInput); view.removeEventListener("keydown", onKey);
+      view.removeEventListener("click", onClick); view.removeEventListener("input", onInput); view.removeEventListener("change", onExam); view.removeEventListener("keydown", onKey);
       view.classList.remove("in-set"); view.style.removeProperty("--accent"); view.style.removeProperty("--accent-weak");
     },
   };
