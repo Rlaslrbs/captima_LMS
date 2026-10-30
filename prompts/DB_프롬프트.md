@@ -3,7 +3,7 @@
 ## 새 채팅 첫 메시지 (복사해서 붙여넣기)
 
 ```
-~/Desktop/2026강의/문제노트_플랫폼/prompts/DB_프롬프트.md 를 읽고, DB 담당으로 일해 줘.
+prompts/DB_프롬프트.md 를 읽고, DB 담당으로 일해 줘.
 이번에 할 일: <할 일>
 ```
 
@@ -21,7 +21,7 @@
 - 작업이 끝나면 `인수인계.md` 맨 아래에 한 줄을 추가한다.
 
 ## 1. 먼저 읽을 것
-1. `~/Desktop/2026강의/문제노트_플랫폼/인수인계.md`
+1. `인수인계.md`
 2. `설계서.md` 3장(DB 구조), `README.md`(백업)
 3. `server/schema.sql`, `server/db.js` 전체
 4. `과목추가_프롬프트.md` 2장(문제 세트 형식 format: 1)
@@ -130,12 +130,12 @@
 ## 4. 안전하게 일하는 법
 - **백업** (서버가 켜져 있어도 됨)
   ```bash
-  curl -s -X POST http://127.0.0.1:4000/$(cat ~/Desktop/2026강의/문제노트_플랫폼/data/admin_path.txt)/api/backups
+  curl -s -X POST http://127.0.0.1:4000/$(cat data/admin_path.txt)/api/backups
   ```
   서버가 꺼져 있으면 `db.js`의 `backup()`을 부르거나 `data/app.db`를 복사한다(서버를 끈 뒤).
 - **복사본으로 시험**
   ```bash
-  cd ~/Desktop/2026강의/문제노트_플랫폼 && node -e 'const {DatabaseSync}=require("node:sqlite");new DatabaseSync("data/app.db",{readOnly:true}).exec("VACUUM INTO '"'"'<스크래치>/test.db'"'"'")'
+  node -e 'const {DatabaseSync}=require("node:sqlite");new DatabaseSync("data/app.db",{readOnly:true}).exec("VACUUM INTO '"'"'<스크래치>/test.db'"'"'")'
   DB_PATH=<스크래치>/test.db PORT=4001 node server/server.js
   ```
 - 다른 프로그램으로 실제 DB를 고쳐도 서버는 `PRAGMA data_version`으로 알아채 캐시를 새로 만든다. 재시작은 필요 없다. 다만 `schema.sql`·`db.js` 코드를 바꿨으면 서버를 다시 켜야 반영된다.
