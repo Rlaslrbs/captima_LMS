@@ -1,7 +1,10 @@
 // Gemini 채팅에 손으로 붙여 넣고 받은 답을 들여온다 (data/export/course<id>/ 묶음과 짝).
 //   node server/insight/manual-import.js --course 4 [--stage tag|second|third|family|verify] [--dry] [--export <묶음 폴더>] <답 파일…>
 //   답 파일 이름: <묶음 파일 이름>_answer.json (예: second_2.3_b01_answer.json). 코드 울타리(```)나 앞말이 있어도 첫 JSON 객체만 읽는다.
-//   --stage를 빼면 묶음 파일의 stage를 따른다. 한 번에 한 단계만. 순서: tag → second → third → verify → family
+//   --stage를 빼면 묶음 파일의 stage를 따른다. 한 번에 한 단계만. 순서: (vocab → merge → 관리자 어휘 확인) → tag → second → third → verify → family
+// - vocab: vocab_<단원>_bNN_answer.json → 단원 초안 insight_meta vocab_draft:<cid>:<단원> (tagger runVocab과 같은 검사, 글은 자르지 않고 길이 넘침은 참고로)
+// - merge: merge_bNN_answer.json → kc·facet(status draft)·misc(status auto)·kc_support·facet_support·vocab_pending (tagger runMerge와 같은 규칙).
+//     --keep-thin: 근거 2문항 미만 세부 포인트도 따로 남긴다 (tagger는 같은 개념의 첫 세부 포인트에 합침). 초안은 DB(vocab 실제 쓰기 뒤)에서 읽는다. --dry에서는 같이 준 vocab 답으로 초안을 만들어 미리 볼 수 있다. 확인(활성화)은 관리자 진단 탭 "어휘 확인"으로만
 // - third (세 번째 판단, 다수결): third_*_answer.json과 second2_*_answer.json을 함께 준다. 문제마다 A = 첫 태그(묶음 current), B = second2, C = third
 //     1) C가 A나 B와 facet·depth 모두 같으면 그 값, conf 2 (근거가 해설·바른 진술이면 3; second와 같은 규칙)
 //     2) 아니고 facet이 셋 중 둘 이상 같으면 그 facet, depth는 그 facet을 고른 판단들 중 다수 (없으면 둘이면 낮은 쪽, 셋이면 가운데), conf 1
@@ -15,9 +18,9 @@
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, basename, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { db, ROOT, J, now, tx, meta, bumpMeta, bodyHash, facetsOf, miscOf, DEPTH_WHY, DELTA_TYPES, BACKUP_DIR } from "../db.js";
+import { db, ROOT, J, now, tx, meta, bumpMeta, bodyHash, facetsOf, miscOf, DEPTH_WHY, DELTA_TYPES, FACET_KINDS, BACKUP_DIR } from "../db.js";
 
-const LET = "ABCDEFGH", MODEL = "gemini-chat(manual)", STAGES = ["tag", "second", "third", "family", "verify"];
+const LET = "ABCDEFGH", MODEL = "gemini-chat(manual)", STAGES = ["vocab", "merge", "tag", "second", "third", "family", "verify"];
 const cut = (s, n) => (s = String(s ?? "").trim(), s.length > n ? s.slice(0, n - 1) + "…" : s);
 const stageOf = batch => (String(batch.stage || "").startsWith("tag_") ? "tag" : batch.stage);
 /** 쓰기 전 백업 (VACUUM INTO) → 파일 경로 */
@@ -66,7 +69,7 @@ function check(x, it, V) {
   let d = depth; const cf = { facet: 2, depth: 2, mis: 2 };
   if (why && +why[1] !== d) { d = Math.min(d, +why[1]); cf.depth = 1; }        // tagger와 같은 규칙: 깊이와 규칙 id가 어긋나면 낮은 쪽
   const notes = [];
-  const mOf = m => { if (m == null || m === "none") return null; if (m === "new") { notes.push("new 오개념은 넣지 않음"); return null; } if (V.miscs.has(m)) return m; throw `misc ${m} 이 확인된 46개에 없음`; };
+  const mOf = m => { if (m == null || m === "none") return null; if (m === "new") { notes.push("new 오개념은 넣지 않음"); return null; } if (V.miscs.has(m)) return m; throw `misc ${m} 이 확인된 오개념(ok)에 없음`; };
   const b = it.body, diag = { facets2: f2.filter(f => f !== x.facet).slice(0, 2), depth_why: why, cf, manual: true };
   try {
     if (it.kind === "mc") {
@@ -94,11 +97,11 @@ function check(x, it, V) {
 }
 
 /** 답 파일들을 검사하고 (dry가 아니면) 쓴다 → 요약. stage를 빼면 첫 묶음 파일의 단계 */
-export function importAnswers(cid, files, { dry = true, exportDir = join(ROOT, "data/export/course" + cid), stage = null } = {}) {
+export function importAnswers(cid, files, { dry = true, exportDir = join(ROOT, "data/export/course" + cid), stage = null, keepThin = false, chapters = null } = {}) {
   if (!stage) { const st = files.map(x => join(exportDir, basename(x).replace(/_answer\.json$/i, ".json"))).filter(existsSync).map(f => stageOf(JSON.parse(readFileSync(f, "utf8"))));
-    stage = st.includes("third") ? "third" : st[0] || "tag"; }
+    stage = files.some(x => /^merge_/i.test(basename(x))) ? "merge" : st.includes("third") ? "third" : st[0] || "tag"; }
   if (!STAGES.includes(stage)) throw new Error(`단계는 ${STAGES.join(" · ")} 중 하나예요`);
-  const R = { tag: importTag, second: importSecond, third: importThird, family: importFamily, verify: importVerify }[stage](cid, files, { dry, exportDir });
+  const R = { vocab: importVocab, merge: importMerge, tag: importTag, second: importSecond, third: importThird, family: importFamily, verify: importVerify }[stage](cid, files, { dry, exportDir, keepThin, chapters });
   R.stage = stage; return R;
 }
 
@@ -391,17 +394,220 @@ function importThird(cid, files, { dry, exportDir }) {
   return report;
 }
 
+// ───────── A. 단원 어휘 (tagger runVocab) · B. 과목 합치기 (tagger runMerge) ─────────
+const tri = s => { const t = String(s).normalize("NFKC").replace(/\s+/g, ""), o = new Set(); for (let i = 0; i < t.length - 2; i++) o.add(t.slice(i, i + 3)); return o; };
+const jac = (a, b) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n / Math.max(1, a.size + b.size - n); };
+const dedupe = (L, key) => { const out = []; for (const x of L) { const t = tri(key(x)); if (!out.some(y => jac(t, tri(key(y))) >= 0.6)) out.push(x); } return out; };
+const maxNum = (rows, re) => rows.reduce((m, x) => Math.max(m, +((re.exec(x.code) || [0, 0])[1])), 0);
+// tagger가 자르던 길이. 손 답은 자르지 않고(잘린 문장이 리포트에 나오지 않게) 넘으면 참고로만 알린다
+const LIM = { name: 20, definition: 200, boundary: 160, statement: 90, belief: 70, truth: 90, contrast: 200, cue: 50 };
+const txt = (v, k, warn, where) => { const s = String(v ?? "").trim(); if (LIM[k] && s.length > LIM[k]) warn(`${where} ${k} ${s.length}자 (권장 ≤ ${LIM[k]})`); return s; };
+function courseInfo(cid) {
+  const c = db.prepare("SELECT id, name, info FROM course WHERE id = ?").get(cid); if (!c) throw new Error("없는 과목");
+  const info = J(c.info), topics = info.topics && typeof info.topics === "object" ? info.topics : {};
+  const items = db.prepare(`SELECT p.id pid, p.status, ch.key ch, pv.body FROM problem p JOIN chapter ch ON ch.id = p.chapter_id
+      JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version WHERE p.course_id = ?`).all(cid).map(r => ({ ...r, body: J(r.body) }));
+  const pub = items.filter(i => i.status === "published"), topicMode = pub.length > 0 && pub.filter(i => i.body.topic).length / pub.length >= 0.8;
+  const chapters = db.prepare("SELECT key, title FROM chapter WHERE course_id = ? ORDER BY sort, id").all(cid);
+  return { cid, name: c.name, topics, topicMode, chapters, byPid: new Map(items.map(i => [i.pid, i])) };
+}
+const vocabDone = cid => !!meta("vocab_ok:" + cid) || !!db.prepare("SELECT 1 FROM facet WHERE course_id = ? AND status = 'active'").get(cid);
+// --chapters: 확인된 어휘(저자 팩 등)가 있는 과목에서도, 활성 개념이 없는 단원에만 초안을 더한다
+const activeKcs = cid => db.prepare("SELECT code, name, definition, chapter_keys FROM kc WHERE course_id = ? AND status = 'active'").all(cid).map(k => ({ ...k, chapter_keys: J(k.chapter_keys, []) }));
+function chapterGuard(cid, chapters, report) {
+  if (!chapters) { if (vocabDone(cid)) { report.error = "이 과목은 어휘가 이미 확인됐어요. 활성 개념이 없는 단원만 더하려면 --chapters를 주세요"; return false; } return true; }
+  const busy = chapters.filter(ch => activeKcs(cid).some(k => k.chapter_keys.includes(ch)));
+  if (busy.length) { report.error = `단원 ${busy.join(", ")} 에는 이미 활성 개념이 있어요 (덮어쓰지 않음)`; return false; }
+  return true;
+}
+
+/** vocab 답 파일들 → { drafts: Map(단원 → 초안), report } (쓰지 않음) */
+function vocabDrafts(cid, files, exportDir, report, chapters = null) {
+  const C = courseInfo(cid), drafts = new Map();
+  for (const file of files) {
+    const { B, batch, ans } = load(file, exportDir, "vocab", report); if (B.error) continue;
+    const warn = n => report.notes.push({ ref: B.batch, note: n }), fail = failer(B, report, B.batch);
+    const ch = C.chapters.find(c => c.key === batch.chapter); if (!ch) { B.error = `단원 ${batch.chapter} 이 과목에 없음`; continue; }
+    if (chapters && !chapters.includes(ch.key)) { B.error = `단원 ${ch.key} 은 --chapters 밖이라 건너뜀`; continue; }
+    if (drafts.has(ch.key)) { B.error = `단원 ${ch.key} 이 두 번`; continue; }
+    const ref2pid = new Map((batch.refs || []).map((r, i) => [r, (batch.problem_ids || [])[i]]));
+    const badPid = [...ref2pid.values()].find(p => !C.byPid.has(p)); if (badPid) { B.error = `문제 ${badPid} 이 과목에 없음, 다시 내보내 주세요`; continue; }
+    if (!ans || !Array.isArray(ans.kcs)) { B.error = "답에서 {kcs:[…], miscs:[…]} JSON을 찾지 못함"; continue; }
+    const allowed = C.topicMode ? [...new Set([...ref2pid.values()].map(p => C.byPid.get(p).body.topic).filter(Boolean))] : ["k1", "k2", "k3", "k4", "k5", "k6"];
+    const sup = (L, where) => { const out = []; for (const r of Array.isArray(L) ? L : []) { const p = ref2pid.get(r); if (p) out.push(p); else warn(`${where} support ${r} 이 묶음에 없어 뺌`); } return out; };
+    const draft = { ch: ch.key, title: ch.title, kcs: [], miscs: [], manual: true };
+    if (ans.kcs.length > 6) warn(`개념 ${ans.kcs.length}개 중 앞 6개만 (tagger와 같음)`);
+    for (const k of ans.kcs.slice(0, 6)) {
+      const ref = String(k && k.ref || "");
+      if (!allowed.includes(ref)) { fail(ref || "-", `개념 ref ${ref || "-"} 이 목록(${allowed.join(",")})에 없음`); continue; }
+      if (draft.kcs.some(x => x.ref === ref)) { fail(ref, "같은 개념 ref가 두 번"); continue; }
+      const w = `${ch.key}:${ref}`, fs = Array.isArray(k.facets) ? k.facets : [];
+      if (fs.length > 5) warn(`${w} 세부 포인트 ${fs.length}개 중 앞 5개만`);
+      const facets = [];
+      fs.slice(0, 5).forEach((f, i) => { const fr = String(f.ref || "f" + (i + 1));
+        if (facets.some(x => x.ref === fr)) { warn(`${w}.${fr} 같은 ref가 두 번이라 뺌`); return; }
+        if (!String(f.statement || "").trim()) { warn(`${w}.${fr} statement가 없어 뺌`); return; }
+        if (!FACET_KINDS.includes(f.kind)) warn(`${w}.${fr} kind ${f.kind ?? "-"} → property`);
+        facets.push({ ref: fr, name: txt(f.name, "name", warn, `${w}.${fr}`), statement: txt(f.statement, "statement", warn, `${w}.${fr}`),
+          kind: FACET_KINDS.includes(f.kind) ? f.kind : "property", support: sup(f.support, `${w}.${fr}`) }); });
+      draft.kcs.push({ ref, name: txt(k.name || C.topics[ref] || ref, "name", warn, w), definition: txt(k.definition, "definition", warn, w), boundary: txt(k.boundary, "boundary", warn, w),
+        support: sup(k.support, w), facets });
+      B.passed++;
+    }
+    const ms = Array.isArray(ans.miscs) ? ans.miscs : [];
+    if (ms.length > 12) warn(`오개념 ${ms.length}개 중 앞 12개만 (tagger와 같음)`);
+    for (const [i, m] of ms.slice(0, 12).entries()) {
+      const w = `${ch.key}:m${i + 1}`, ev = sup(m.evidence, w);
+      if (!ev.length || !String(m.belief || "").trim()) { warn(`${w} 근거 문항이나 belief가 없어 뺌`); continue; }
+      if (!draft.kcs.some(k => k.ref === String(m.kc || ""))) warn(`${w} kc ${m.kc ?? "-"} 이 이 단원 개념에 없음 (합치기에서 빠짐)`);
+      draft.miscs.push({ evidence: ev, kc: String(m.kc || ""), facet: String(m.facet || ""), cw: m.confused_with && m.confused_with !== "none" ? String(m.confused_with) : null,
+        belief: txt(m.belief, "belief", warn, w), truth: txt(m.truth, "truth", warn, w), contrast: txt(m.contrast, "contrast", warn, w), cue: txt(m.cue, "cue", warn, w) });
+    }
+    const n0 = draft.miscs.length; draft.miscs = dedupe(draft.miscs, x => x.belief); if (draft.miscs.length < n0) warn(`${ch.key} 같은 뜻 오개념 ${n0 - draft.miscs.length}개 합침`);
+    B.summary = `개념 ${draft.kcs.length} · 세부 포인트 ${draft.kcs.reduce((n, k) => n + k.facets.length, 0)} · 오개념 ${draft.miscs.length}`;
+    drafts.set(ch.key, draft);
+  }
+  return { C, drafts };
+}
+
+function importVocab(cid, files, { dry, exportDir, chapters = null }) {
+  const report = newReport();
+  if (!chapterGuard(cid, chapters, report)) return report;
+  const { drafts } = vocabDrafts(cid, files, exportDir, report, chapters);
+  for (const [ch] of drafts) if (meta(`vocab_draft:${cid}:${ch}`)) report.notes.push({ ref: ch, note: "DB의 예전 단원 초안을 바꿈" });
+  report.done = [...drafts.keys()];
+  report.summary = [...drafts.values()].map(d => `${d.ch}: 개념 ${d.kcs.length} · 세부 ${d.kcs.reduce((n, k) => n + k.facets.length, 0)} · 오개념 ${d.miscs.length}`).join(" | ");
+  if (!dry && drafts.size) {
+    report.backup = backup("vocab");
+    tx(() => { for (const [ch, d] of drafts) meta(`vocab_draft:${cid}:${ch}`, JSON.stringify(d)); });
+    report.written = drafts.size;
+  }
+  return report;
+}
+
+function importMerge(cid, files, { dry, exportDir, keepThin = false, chapters = null }) {
+  const report = newReport();
+  if (!chapterGuard(cid, chapters, report)) return report;
+  const mf = files.filter(f => /^merge_/i.test(basename(f))), vf = files.filter(f => !/^merge_/i.test(basename(f)));
+  if (mf.length !== 1) { report.error = "merge_bNN_answer.json을 하나만 주세요"; return report; }
+  let C, drafts;
+  if (vf.length) {
+    if (!dry) { report.error = "실제 쓰기에서는 vocab 답을 주지 마세요. --stage vocab으로 먼저 쓰고, merge는 DB 초안을 써요"; return report; }
+    ({ C, drafts } = vocabDrafts(cid, vf, exportDir, report, chapters)); report.notes.push({ ref: "-", note: "미리보기: 같이 준 vocab 답으로 만든 초안을 씀" });
+  } else {
+    C = courseInfo(cid); drafts = new Map(C.chapters.filter(c => !chapters || chapters.includes(c.key)).map(c => [c.key, J(meta(`vocab_draft:${cid}:${c.key}`), null)]).filter(([, d]) => d));
+  }
+  const B = { file: basename(mf[0]), batch: "merge", passed: 0, failed: {}, missing: 0 }; report.batches.push(B);
+  const warn = n => report.notes.push({ ref: "merge", note: n }), fail = failer(B, report, "merge");
+  if (!drafts.size) { B.error = "단원 초안이 없어요 (--stage vocab을 먼저)"; return report; }
+  const out = firstJson(readFileSync(mf[0], "utf8")), groups = out && Array.isArray(out.groups) ? out.groups : null;
+  if (!groups) { B.error = "답에서 {groups:[…]} JSON을 찾지 못함"; return report; }
+  const D = [...drafts.values()], sup = new Map(), fsup = new Map(), fInfo = new Map();
+  for (const d of D) for (const k of d.kcs) { sup.set(`${d.ch}:${k.ref}`, k.support); for (const f of k.facets) { fsup.set(`${d.ch}:${k.ref}.${f.ref}`, f.support); fInfo.set(`${d.ch}:${k.ref}.${f.ref}`, f); } }
+  // 검사: 모르는 ref는 빼고, 두 묶음에 든 ref·어느 묶음에도 없는 개념을 알린다
+  const usedK = new Map(), usedF = new Map();
+  // --chapters: 다른 단원 ref는 묶음에서 빼고(초안에 없으니 아래에서 빠짐), 확인된 개념과 겹치는 묶음은 통째로 버린다
+  const AK = chapters ? activeKcs(cid) : [];
+  const clash = g => AK.find(k => jac(tri(k.name), tri(g.name || "")) >= 0.5 || (k.definition && g.definition && jac(tri(k.definition), tri(g.definition)) >= 0.6));
+  const outside = new Set();
+  for (const [gi, g] of groups.entries()) {
+    for (const r of g.from || []) if (!sup.has(r) && chapters && !chapters.includes(String(r).split(":")[0])) outside.add(r);
+    const c = (g.from || []).some(r => sup.has(r)) && clash(g);
+    if (c) { warn(`묶음 ${gi + 1} "${g.name}"이 확인된 개념 ${c.code}(${c.name})와 겹쳐 버림`); g.from = []; }
+  }
+  if (outside.size) warn(`--chapters 밖 단원 ref ${outside.size}개는 뺌 (${[...outside].slice(0, 8).join(", ")}${outside.size > 8 ? " …" : ""})`);
+  for (const [gi, g] of groups.entries()) {
+    for (const r of g.from || []) { if (!sup.has(r)) { if (!outside.has(r)) warn(`묶음 ${gi + 1} from ${r} 이 초안에 없어 뺌`); } else if (usedK.has(r)) warn(`${r} 이 묶음 ${usedK.get(r)}와 ${gi + 1}에 둘 다 (뒤의 것을 씀)`); else usedK.set(r, gi + 1); }
+    for (const f of g.facets || []) for (const r of f.from || []) { if (!fInfo.has(r)) { if (!outside.has(r.split(".")[0])) warn(`묶음 ${gi + 1} 세부 포인트 from ${r} 이 초안에 없어 뺌`); } else usedF.set(r, gi + 1); }
+  }
+  const lostK = [...sup.keys()].filter(r => !usedK.has(r)); if (lostK.length) warn(`어느 묶음에도 없는 단원 개념 ${lostK.length}개 (그 세부 포인트·오개념은 빠짐): ${lostK.join(", ")}`);
+  const lostF = [...fInfo.keys()].filter(r => !usedF.has(r) && usedK.has(r.split(".")[0]));
+  const v = +(meta("vocab_ver:" + cid) || 0) + 1, t = now(), cnt = { kc: 0, facet: 0, misc: 0, misc_dup: 0, misc_nokc: 0, facet_merged: 0, facet_thin: 0 };
+  const W = (k, where) => s => txt(s, k, warn, where);
+  if (!dry) report.backup = backup("merge");
+  db.exec("BEGIN");                                                       // --dry도 같은 쓰기를 해 보고 되돌린다 (세는 값이 실제와 같게)
+  try {
+    const oldK = db.prepare("SELECT code, status FROM kc WHERE course_id = ?").all(cid);
+    const oldSup = new Map(oldK.filter(k => k.status !== "retired").map(k => [k.code, new Set(J(meta(`kc_support:${cid}:${k.code}`), []))]));
+    let kn = oldK.filter(k => /^c\d+$/.test(k.code)).reduce((m, k) => Math.max(m, +k.code.slice(1)), 0);
+    const mapK = new Map(), mapF = new Map();
+    const kcUp = db.prepare(`INSERT INTO kc(course_id, code, chapter_keys, name, definition, boundary, confusable, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,?,?, 'draft', ?, ?)
+        ON CONFLICT(course_id, code) DO UPDATE SET chapter_keys = excluded.chapter_keys, name = CASE WHEN kc.source = 'admin' THEN kc.name ELSE excluded.name END,
+        definition = excluded.definition, boundary = excluded.boundary, vocab_ver = excluded.vocab_ver, updated_at = excluded.updated_at
+        WHERE kc.source NOT IN ('author', 'admin') AND kc.status != 'retired'`);
+    const fUp = db.prepare(`INSERT INTO facet(course_id, code, kc, name, statement, kind, confusable, sort, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,'[]',?, 'llm', 'draft', ?, ?)
+        ON CONFLICT(course_id, code) DO UPDATE SET name = CASE WHEN facet.source = 'admin' THEN facet.name ELSE excluded.name END,
+        statement = CASE WHEN facet.source = 'admin' THEN facet.statement ELSE excluded.statement END, vocab_ver = excluded.vocab_ver, updated_at = excluded.updated_at
+        WHERE facet.source NOT IN ('author', 'admin') AND facet.status != 'retired'`);
+    for (const g of groups) {
+      const from = (g.from || []).filter(r => sup.has(r)); if (!from.length) continue;
+      const pids = new Set(from.flatMap(r => sup.get(r)));
+      let code = C.topicMode ? from[0].split(":")[1] : null;
+      if (!code) for (const [c, S] of oldSup) { let n = 0; for (const p of pids) if (S.has(p)) n++; if (S.size && n / Math.min(S.size, pids.size) >= 0.5) { code = c; break; } }
+      code ||= "c" + String(++kn).padStart(2, "0");
+      for (const r of from) mapK.set(r, code);
+      const chs = [...new Set(from.map(r => r.split(":")[0]))], w = `개념 ${code}`;
+      cnt.kc += Number(kcUp.run(cid, code, JSON.stringify(chs), W("name", w)(g.name || C.topics[code] || code), W("definition", w)(g.definition), W("boundary", w)(g.boundary), "[]", C.topicMode ? "topic" : "llm", v, t).changes);
+      meta(`kc_support:${cid}:${code}`, JSON.stringify([...pids]));
+      const fs = Array.isArray(g.facets) && g.facets.length ? g.facets.map(f => ({ from: (f.from || []).filter(r => fInfo.has(r)), name: f.name, statement: f.statement, kind: f.kind }))
+        : from.flatMap(r => [...fInfo.keys()].filter(x => x.startsWith(r + ".")).map(x => ({ from: [x], ...fInfo.get(x) })));
+      const fall = db.prepare("SELECT code, status FROM facet WHERE course_id = ? AND kc = ?").all(cid, code), exist = fall.filter(r => r.status !== "retired").map(r => r.code);
+      let fn = maxNum(fall, /\.f(\d+)$/), firstF = null;
+      for (const f of fs) {
+        if (!String(f.statement || "").trim()) { warn(`${w}의 세부 포인트 statement가 없어 뺌`); continue; }
+        const fp = new Set(f.from.flatMap(r => fsup.get(r) || []));
+        if (fp.size < 2 && firstF && !keepThin) { for (const r of f.from) mapF.set(r, firstF); cnt.facet_merged++; warn(`${w}: 근거 2문항 미만 세부 포인트 "${f.name}"를 ${firstF}에 합침 (tagger 규칙)`); continue; }
+        let fcode = null;
+        for (const c of exist) { const S = new Set(J(meta(`facet_support:${cid}:${c}`), [])); let n = 0; for (const p of fp) if (S.has(p)) n++; if (S.size && fp.size && n / Math.min(S.size, fp.size) >= 0.5) { fcode = c; break; } }
+        fcode ||= `${code}.f${++fn}`; firstF ||= fcode; if (fp.size < 2) cnt.facet_thin++;
+        for (const r of f.from) mapF.set(r, fcode);
+        if (!FACET_KINDS.includes(f.kind)) warn(`${fcode} kind ${f.kind ?? "-"} → property`);
+        cnt.facet += Number(fUp.run(cid, fcode, code, W("name", fcode)(f.name), W("statement", fcode)(f.statement), FACET_KINDS.includes(f.kind) ? f.kind : "property", fn, v, t).changes);
+        meta(`facet_support:${cid}:${fcode}`, JSON.stringify([...fp]));
+      }
+      B.passed++;
+    }
+    const kcCw = db.prepare("UPDATE kc SET confusable = ? WHERE course_id = ? AND code = ? AND source NOT IN ('author', 'admin')");
+    for (const g of groups) {
+      const a = mapK.get((g.from || []).find(r => mapK.has(r))); if (!a) continue;
+      const bad = (g.confusable || []).filter(r => !mapK.has(r)); if (bad.length) warn(`개념 ${a} confusable ${bad.join(", ")} 이 묶음에 없어 뺌`);
+      kcCw.run(JSON.stringify([...new Set((g.confusable || []).map(r => mapK.get(r)).filter(x => x && x !== a))].slice(0, 3)), cid, a);
+    }
+    const have = miscOf(cid, null, { all: true }).filter(x => x.status !== "rejected");
+    let mn = maxNum(miscOf(cid, null, { all: true }), /^m(\d+)$/);
+    const mIns = db.prepare(`INSERT OR IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?,?,?,?,?,?,?,?, 'llm', 'auto', ?, ?, ?)`);
+    for (const d of D) for (const m of d.miscs) {
+      const k = mapK.get(`${d.ch}:${m.kc}`) || (C.topicMode ? m.kc : null);
+      const fref = m.facet ? `${d.ch}:${m.kc}.${m.facet}` : null, f = (fref && mapF.get(fref)) || null;
+      if (!k) { cnt.misc_nokc++; continue; }
+      if (have.find(x => jac(tri(x.belief), tri(m.belief)) >= 0.6)) { cnt.misc_dup++; continue; }
+      const code = "m" + String(++mn).padStart(3, "0");
+      cnt.misc += Number(mIns.run(cid, code, d.ch, k, m.cw ? mapK.get(`${d.ch}:${m.cw}`) || null : null, m.belief, m.truth, m.contrast, m.cue, v, t, f).changes);
+      have.push({ code, belief: m.belief });
+    }
+    meta("vocab_pending:" + cid, String(v));                              // 관리자가 "확인"을 누르면 vocab_ver가 이 판이 된다 (자동 확인 없음)
+    if (lostF.length) warn(`합치기 답에 없는 단원 세부 포인트 ${lostF.length}개 (그 묶음에 facets가 있어 빠짐): ${lostF.slice(0, 20).join(", ")}${lostF.length > 20 ? " …" : ""}`);
+    db.exec(dry ? "ROLLBACK" : "COMMIT");
+  } catch (e) { db.exec("ROLLBACK"); throw e; }
+  report.done = [...usedK.keys()];
+  report.summary = `개념 ${cnt.kc} · 세부 포인트 ${cnt.facet}${keepThin ? " (근거 1문항도 따로: " + cnt.facet_thin + ")" : ` (근거 부족으로 합친 것 ${cnt.facet_merged})`} · 오개념 ${cnt.misc} (같은 뜻 ${cnt.misc_dup}, 개념 없음 ${cnt.misc_nokc} 뺌) · 모두 draft/auto, vocab_pending ${v}`;
+  if (!dry) report.written = cnt.kc + cnt.facet + cnt.misc;
+  return report;
+}
+
 // ───────── CLI ─────────
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const a = process.argv.slice(2), opt = k => { const i = a.indexOf("--" + k); return i >= 0 ? a.splice(i, 2)[1] : null; };
-  const cid = +opt("course"), exp = opt("export"), stage = opt("stage"), dry = a.includes("--dry"), files = a.filter(x => x !== "--dry");
-  if (!cid || !files.length) { console.log("사용법: node server/insight/manual-import.js --course 4 [--stage tag|second|third|family|verify] [--dry] [--export data/export/course4] <…_answer.json …>"); process.exit(0); }
-  const R = importAnswers(cid, files, { dry, stage, ...(exp ? { exportDir: exp } : {}) });
+  const chs = opt("chapters"), chapters = chs ? chs.split(",").map(x => x.trim()).filter(Boolean) : null;
+  const cid = +opt("course"), exp = opt("export"), stage = opt("stage"), dry = a.includes("--dry"), keepThin = a.includes("--keep-thin"), files = a.filter(x => x !== "--dry" && x !== "--keep-thin");
+  if (!cid || !files.length) { console.log("사용법: node server/insight/manual-import.js --course <id> [--stage vocab|merge|tag|second|third|family|verify] [--dry] [--keep-thin] [--chapters CH1,CH2] [--export data/export/course4] <…_answer.json …>"); process.exit(0); }
+  const R = importAnswers(cid, files, { dry, stage, keepThin, chapters, ...(exp ? { exportDir: exp } : {}) });
   console.log(`[${R.stage}] ` + (dry ? "[미리보기: 쓰지 않음]" : `[썼음: ${R.written || 0}행 · 백업 ${R.backup || "-"}]`));
+  if (R.error) console.log("멈춤: " + R.error);
   if (R.summary) console.log(R.summary);
-  for (const B of R.batches) console.log(`${B.batch}: 통과 ${B.passed} · 실패 ${Object.values(B.failed).reduce((s, n) => s + n, 0)}${Object.keys(B.failed).length ? " (" + Object.entries(B.failed).map(([k, n]) => k + " " + n).join(", ") + ")" : ""} · 빠짐 ${B.missing}${B.error ? " · " + B.error : ""}`);
+  for (const B of R.batches) console.log(`${B.batch}: 통과 ${B.passed} · 실패 ${Object.values(B.failed).reduce((s, n) => s + n, 0)}${Object.keys(B.failed).length ? " (" + Object.entries(B.failed).map(([k, n]) => k + " " + n).join(", ") + ")" : ""} · 빠짐 ${B.missing}${B.summary ? " · " + B.summary : ""}${B.error ? " · " + B.error : ""}`);
   console.log(`\n끝난 ref ${R.done.length}개`);
   if (R.missing.length) console.log(`답이 없는 ref ${R.missing.length}개 (다시 붙여 넣기): ${R.missing.join(", ")}`);
   if (R.failed.length) { console.log(`실패 ${R.failed.length}개:`); for (const f of R.failed) console.log(`  ${f.ref} [${f.batch}] ${f.why}`); }
-  if (R.notes.length) console.log(`참고: ${R.notes.map(n => n.ref + " " + n.note).join(" · ")}`);
+  if (R.notes.length) { console.log(`참고 ${R.notes.length}개:`); for (const n of R.notes) console.log(`  ${n.ref} ${n.note}`); }
 }
