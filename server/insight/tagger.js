@@ -279,6 +279,29 @@ export function confirmVocab(cid) {
   return { ver: v, approved: true };
 }
 
+/**
+ * 관리자 단원별 "확인": 고른 단원의 초안만 활성으로. 개념은 chapter_keys가 모두 확인된 단원 안에 있을 때 켠다.
+ * 확인된 단원은 vocab_ch_ok:<cid>에 모은다. 초안이 하나도 안 남으면 confirmVocab처럼 어휘 판을 마무리한다 (vocab_ok · vocab_ver · pending 지움)
+ */
+export function confirmVocabChapters(cid, chapters) {
+  const v = Math.max(vocabVer(cid), +(meta("vocab_pending:" + cid) || 0), 1), t = now();
+  const ok = new Set([...J(meta("vocab_ch_ok:" + cid), []), ...chapters.map(String)]);
+  const drafts = st("kcDraft", "SELECT code, chapter_keys FROM kc WHERE course_id = ? AND status = 'draft'").all(cid).map(k => ({ code: k.code, chs: J(k.chapter_keys, []) }));
+  const on = drafts.filter(k => k.chs.length && k.chs.every(c => ok.has(c))).map(k => k.code), wait = drafts.filter(k => !on.includes(k.code));
+  let facets = 0, miscs = 0;
+  tx(() => {
+    for (const code of on) {
+      st("kcAct1", "UPDATE kc SET status = 'active', vocab_ver = ?, updated_at = ? WHERE course_id = ? AND code = ? AND status = 'draft'").run(v, t, cid, code);
+      facets += Number(st("fAct1", "UPDATE facet SET status = 'active', vocab_ver = ?, updated_at = ? WHERE course_id = ? AND kc = ? AND status = 'draft'").run(v, t, cid, code).changes);
+      miscs += Number(st("mAct1", "UPDATE misc SET status = 'ok' WHERE course_id = ? AND kc = ? AND status = 'auto'").run(cid, code).changes);
+    }
+    const left = st("leftD", "SELECT (SELECT COUNT(*) FROM kc WHERE course_id = ?1 AND status = 'draft') + (SELECT COUNT(*) FROM facet WHERE course_id = ?1 AND status = 'draft') n").get(cid).n;
+    if (!left) { meta("vocab_ver:" + cid, String(v)); meta("vocab_ok:" + cid, String(v)); meta("vocab_pending:" + cid, null); meta("vocab_ch_ok:" + cid, null); }
+    else meta("vocab_ch_ok:" + cid, JSON.stringify([...ok]));
+  });
+  return { ver: v, confirmed: on, facets, miscs, waiting: wait.map(k => ({ code: k.code, chapters: k.chs.filter(c => !ok.has(c)) })), approved: vocabApproved(cid) };
+}
+
 // ───────── C. 문제 태깅: 세부 포인트 + 깊이 + 보기마다 오개념 ─────────
 function facetRefs(cid, ch) {
   // 이 단원의 세부 포인트 + 그 개념의 헷갈리는 개념에 딸린 세부 포인트 (≤ 20, 지역 ref f1…)

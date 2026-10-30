@@ -58,17 +58,22 @@ function vocab(cid) {
     (byF.get(it.facet) || byF.set(it.facet, []).get(it.facet)).push(it);
     for (const m of offered(it.diag)) byM.set(m, (byM.get(m) || 0) + 1);
   }
-  const kcs = st("kcAll", "SELECT code, name, definition, status, merged_into, source FROM kc WHERE course_id = ? ORDER BY code").all(cid);
+  const kcs = st("kcAll", "SELECT code, name, definition, status, merged_into, source, chapter_keys FROM kc WHERE course_id = ? ORDER BY code").all(cid);
   const facets = facetsOf(cid, { all: true }), miscs = miscOf(cid, null, { all: true });
   const fac = f => ({ code: f.code, name: f.name, statement: f.statement, kind: f.kind, confusable: f.confusable, status: f.status, merged_into: f.merged_into, source: f.source,
     n_items: (byF.get(f.code) || []).length, examples: (byF.get(f.code) || []).slice(0, 2).map(brief),
     misc: miscs.filter(m => m.facet === f.code).map(m => ({ code: m.code, belief: m.belief, truth: m.truth, cue: m.cue, cw: m.cw, status: m.status, src: m.src, n_items: byM.get(m.code) || 0 })) });
-  const out = kcs.map(k => ({ code: k.code, name: k.name, definition: k.definition, status: k.status, merged_into: k.merged_into, source: k.source, facets: facets.filter(f => f.kc === k.code).map(fac) }));
+  const out = kcs.map(k => ({ code: k.code, name: k.name, definition: k.definition, status: k.status, merged_into: k.merged_into, source: k.source, chapters: J(k.chapter_keys, []), facets: facets.filter(f => f.kc === k.code).map(fac) }));
   // kc 표에 없는 개념의 세부 포인트 (저자 팩의 topic 개념 등)
   const known = new Set(kcs.map(k => k.code)), orphan = [...new Set(facets.filter(f => !known.has(f.kc)).map(f => f.kc))];
   for (const k of orphan) out.push({ code: k, name: k, definition: "", status: "active", merged_into: null, source: "topic", facets: facets.filter(f => f.kc === k).map(fac) });
   const loose = miscs.filter(m => !m.facet).map(m => ({ code: m.code, belief: m.belief, truth: m.truth, cue: m.cue, cw: m.cw, status: m.status, src: m.src, n_items: byM.get(m.code) || 0 }));
-  return { ver: +(meta("vocab_ver:" + cid) || 0), approved: tagger.vocabApproved(cid), pending: !!meta("vocab_pending:" + cid), kcs: out, misc_unassigned: loose };
+  // 단원별 확인용: 초안 개념이 있는 단원 (확인된 단원은 vocab_ch_ok)
+  const dch = new Map(); for (const k of out) if (k.status === "draft") for (const c of k.chapters || []) dch.set(c, (dch.get(c) || 0) + 1);
+  const chs = st("chT", "SELECT key, title FROM chapter WHERE course_id = ? ORDER BY sort, id").all(cid);
+  const draft_chapters = chs.filter(c => dch.has(c.key)).map(c => ({ key: c.key, title: c.title, kcs: dch.get(c.key) }));
+  return { ver: +(meta("vocab_ver:" + cid) || 0), approved: tagger.vocabApproved(cid), pending: !!meta("vocab_pending:" + cid), kcs: out, misc_unassigned: loose,
+    draft_chapters, chapters_ok: J(meta("vocab_ch_ok:" + cid), []) };
 }
 const EDIT = { kc: ["name", "definition"], facet: ["name", "statement"], misc: ["belief", "truth", "cue"] };
 const LIM = { name: 20, definition: 200, statement: 90, belief: 70, truth: 90, cue: 50 };
@@ -212,7 +217,9 @@ export const insightAdmin = {
   "GET /api/insight/courses": () => courses(),
   "GET /api/insight/vocab/:cid": C_(cid => vocab(cid)),
   "PATCH /api/insight/vocab/:cid": C_((cid, b) => vocabPatch(cid, b.ops)),
-  "POST /api/insight/vocab/:cid/confirm": C_(cid => { const r = tagger.confirmVocab(cid); bumpMeta("tag_rev:" + cid); tagger.gateCheck(cid); return r; }),
+  "POST /api/insight/vocab/:cid/confirm": C_((cid, b) => {                     // body { chapters: ["CH1", …] }면 그 단원 초안만 (단원별 확인)
+    const chs = Array.isArray(b && b.chapters) ? b.chapters.map(String).filter(Boolean) : null;
+    const r = chs && chs.length ? tagger.confirmVocabChapters(cid, chs) : tagger.confirmVocab(cid); bumpMeta("tag_rev:" + cid); tagger.gateCheck(cid); return r; }),
   "GET /api/insight/tagcheck/:cid": C_(cid => tagcheck(cid)),
   "POST /api/insight/tagcheck/:pid": (req, m, body) => tagcheckPost(+m.pid, body),
   "GET /api/insight/coverage/:cid": C_(cid => coverageOf(cid)),
