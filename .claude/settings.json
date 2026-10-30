@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./data/gemini_key.txt)",
+      "Read(./data/admin_path.txt)",
+      "Read(./data/app.db)"
+    ]
+  }
+}

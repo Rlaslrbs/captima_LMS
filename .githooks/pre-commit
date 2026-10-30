@@ -1,0 +1,13 @@
+#!/bin/sh
+# 커밋 전 검사: 비밀(키, .env, 관리자 경로)과 개인 기록(DB, 백업)이 올라가지 않게 막는다.
+# 설치: npm run setup (git config core.hooksPath .githooks). 우회(--no-verify)하지 않는다.
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+bad=$(printf '%s\n' "$staged" | grep -E '(^|/)(\.env|gemini_key\.txt|admin_path\.txt)$|\.db$|\.db-(wal|shm)$|^data/backups/|\.log$')
+if [ -n "$bad" ]; then
+  echo "커밋을 막았어요. 올리면 안 되는 파일이 들어 있어요:"; printf '  %s\n' $bad; exit 1
+fi
+leak=$(git diff --cached -U0 | grep -E '^\+' | grep -E 'AIza[0-9A-Za-z_-]{30,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|sk-[A-Za-z0-9]{30,}')
+if [ -n "$leak" ]; then
+  echo "커밋을 막았어요. API 키처럼 보이는 글자가 들어 있어요. 키는 .env에만 두세요."; exit 1
+fi
+exit 0

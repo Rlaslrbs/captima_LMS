@@ -7,7 +7,8 @@
     "start": "node server/server.js",
     "import": "node server/import.js",
     "test": "node --test \"server/insight/test/*.test.mjs\"",
-    "dev": "node --env-file-if-exists=.env server/server.js"
+    "dev": "node --env-file-if-exists=.env server/server.js",
+    "setup": "node tools/setup.mjs"
   },
   "engines": {
     "node": ">=22.13"

@@ -1,10 +1,16 @@
 # 팀 개발 시작하기 (GitHub에서 내려받은 뒤)
-1. Node 24 이상을 설치해요. npm 설치는 필요 없어요 (내장 기능만 써요).
-2. `.env.example`을 `.env`로 복사하고 `GEMINI_API_KEY`를 채워요. 키는 git에 올리지 않아요 (`.gitignore`가 `.env`를 막아요).
-3. 문제 세트를 넣어요: `node server/import.js` (`data/import/*.json`을 읽어 `data/app.db`를 만들어요).
-4. 켜요: `npm run dev` (`.env`를 읽어요) 또는 `GEMINI_API_KEY=... node server/server.js`. 사용자 웹은 http://127.0.0.1:4000 이에요. 관리자 주소는 터미널에 나와요.
-- `data/app.db`(학습자 기록), 백업, 키, 관리자 경로는 저장소에 없어요. 각자 로컬에서 새로 만들어져요.
-- 일부 테스트(`server/insight/test`)는 실제 운영 DB 사본이 있어야 돌아가요. 데이터 없이는 실패할 수 있어요.
+```bash
+git clone https://github.com/Rlaslrbs/captima_LMS.git && cd captima_LMS
+node tools/setup.mjs        # 또는 npm run setup: Node 확인, .env 만들기, DB 만들기, 커밋 검사 켜기
+# .env의 GEMINI_API_KEY를 채운 뒤
+npm run dev                 # http://127.0.0.1:4000
+```
+- **Node 24** (`.nvmrc`). npm 패키지 설치는 없어요 (Node 내장 기능만).
+- **Claude와 같은 환경으로 일하기:** 이 폴더에서 Claude Code를 열면 `CLAUDE.md`(공통 규칙)와 `.claude/settings.json`(키·DB 파일 읽기 금지)이 적용돼요. 역할별 첫 메시지는 `prompts/README.md`.
+- **커밋 검사(.githooks/pre-commit):** 키, `.env`, DB 파일, 백업, 로그가 올라가려 하면 막아요. 우회(`--no-verify`)하지 않아요.
+- 처음 만든 DB는 학습자 기록 없는 빈 DB예요(문제만 있어요). 실제 베타 기록은 저장소에 없어요.
+- 일부 테스트(`npm test`)는 운영 DB 사본이 있어야 돌아가요.
+- PR은 `.github/pull_request_template.md` 체크리스트를 따라요.
 
 # 문제노트 플랫폼 (베타, 맥에서 실행)
 
