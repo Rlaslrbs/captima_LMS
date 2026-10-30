@@ -1,0 +1,136 @@
+{
+ "items": [
+  {
+   "ref": "p903",
+   "rationale": "기능 시스템은 판매·재무·제조·인사 등 특정 한 기능 안에서 쓰이고, 여러 프로세스를 통합하는 것은 기능간 시스템이다. 두 개념의 설명이 뒤바뀐 거짓 진술이다.",
+   "facet": "c07.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m015",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "기능 시스템 → (정답은) 기능간 시스템이 여러 프로세스를 통합"
+   }
+  },
+  {
+   "ref": "p904",
+   "rationale": "좁은 의미의 MIS는 TPS 자료를 받아 사전 정의된 일상 질문에 요약·비교로 답하므로 유연성과 분석력이 약하다. 배운 설명 그대로의 참인 진술이다.",
+   "facet": "c06.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p905",
+   "rationale": "고위 관리층의 전략 판단을 위해 중역의 특성을 고려해 설계된 것은 ESS이고, DSS는 분석 모델·DB로 비일상 질문을 지원하며 분석가·지식근로자가 쓴다.",
+   "facet": "c06.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m013",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "DSS → (정답은) ESS"
+   },
+   "facets2": [
+    "c06.f3"
+   ]
+  },
+  {
+   "ref": "p906",
+   "rationale": "TPS를 효과적으로 쓰려면 가용성·최신성·정확성을 유지해야 한다. 배운 문장 그대로의 참인 진술이다.",
+   "facet": "c07.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p907",
+   "rationale": "조직 구성원만 접근하는 내부 정보시스템은 인트라넷이고, 엑스트라넷은 권한을 받은 협력업체도 접근할 수 있다. 두 개념이 뒤바뀐 거짓 진술이다.",
+   "facet": "c10.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "none",
+    "d": "0",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "엑스트라넷 → (정답은) 인트라넷"
+   }
+  },
+  {
+   "ref": "p908",
+   "rationale": "지식은 물리적 자산과 달리 공유될수록 조직 차원의 가치가 커진다. 배운 문장 그대로의 참인 진술이다.",
+   "facet": "c08.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "m018"
+   }
+  },
+  {
+   "ref": "p909",
+   "rationale": "CAD·시뮬레이션·VR/AR은 지식작업시스템이며 일반 생산성 도구와 달리 활용에 높은 전문성이 필요하다. 해설의 KWS 구성 요건과 부합하는 참인 진술이다.",
+   "facet": "c08.f4",
+   "depth": "2",
+   "depth_why": "D2b",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p910",
+   "rationale": "시스템 분석가는 조직 요구를 정보시스템 요구사항으로 변환하며 정보시스템 부서와 다른 조직을 잇는 연결고리이다. 배운 문장 그대로의 참인 진술이다.",
+   "facet": "c10.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p913",
+   "rationale": "협업 역량에는 협업 기술뿐 아니라 협력적 문화와 비즈니스 프로세스(보완적 자산)가 필요하다. 배운 문장 그대로의 참인 진술이다.",
+   "facet": "c09.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  }
+ ]
+}

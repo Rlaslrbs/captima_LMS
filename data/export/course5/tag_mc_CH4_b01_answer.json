@@ -1,0 +1,175 @@
+{
+ "items": [
+  {
+   "ref": "p1088",
+   "rationale": "데이터 3법은 개인정보보호법, 정보통신망법, 신용정보법이며 전자상거래법은 포함되지 않는다.",
+   "facet": "c13.f5",
+   "depth": "4",
+   "depth_why": "D4a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "개인정보보호법은 데이터 3법이 아니라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "정보통신망법은 데이터 3법이 아니라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "신용정보법은 데이터 3법이 아니라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    }
+   ]
+  },
+  {
+   "ref": "p1091",
+   "rationale": "위험 기피 원칙은 실패 확률이 낮아도 비용이 큰 행동(재해 취약 지역 데이터센터)을 경계하라는 원칙이다. 나머지는 이웃 원칙들의 예이다.",
+   "facet": "c11.f3",
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "소액이 점점 커지는 상황이 위험 기피 원칙의 경계 대상이라고 생각함(미끄러운 경사길과 혼동)",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "이해관계자 전체의 효용 최대화가 위험 기피 원칙의 내용이라고 생각함",
+     "misc": "m026",
+     "d": "2",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "공짜 점심 법칙의 가정이 위험 기피 원칙의 경계 상황이라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    }
+   ],
+   "facets2": [
+    "c11.f4"
+   ]
+  },
+  {
+   "ref": "p1158",
+   "rationale": "결정한 사람이 그 결정의 비용과 의무를 스스로 감수하는 것은 책임이며, 책무성은 추적 메커니즘, 법적 책임은 배상 주체를 정하는 체계이다.",
+   "facet": "c12.f2",
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "결정의 의무를 감수하는 것이 책무성이라고 생각함",
+     "misc": "none",
+     "d": "2",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "결정에 따른 부담을 지는 것이 법적 책임이라고 생각함",
+     "misc": "none",
+     "d": "2",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "결정 부담을 감수하는 개념이 적법 절차라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "explanation",
+     "err": "weak_distractor"
+    }
+   ]
+  },
+  {
+   "ref": "p1159",
+   "rationale": "실패 비용이 큰 행동을 피하라는 것은 위험 기피 원칙의 내용이며 공리 원칙의 비판이 아니다.",
+   "facet": "c11.f3",
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "피해자 의견 무시는 공리주의 비판이 아니라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "장기 피해 무시는 공리주의 비판이 아니라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "가치 산정의 어려움은 공리주의 비판이 아니라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "recall"
+    }
+   ],
+   "facets2": [
+    "c11.f2"
+   ]
+  },
+  {
+   "ref": "p1160",
+   "rationale": "충돌하는 가치(안전 vs 실적)를 정의하고 상위 가치를 확인하는 것은 윤리 분석의 2단계이다.",
+   "facet": "c11.f1",
+   "depth": "2",
+   "depth_why": "D2a",
+   "options": [
+    {
+     "idx": 1,
+     "belief_if_chosen": "가치 충돌 정리를 사실관계 확인(1단계)으로 봄",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "condition_misread"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "안전과 실적 양쪽이 이해관계자 확인(3단계)이라고 봄",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "condition_misread"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "공개하면/숨기면 서술을 선택의 결과 확인(5단계)으로 봄",
+     "misc": "none",
+     "d": "2",
+     "src": "explanation",
+     "err": "condition_misread"
+    }
+   ]
+  }
+ ]
+}

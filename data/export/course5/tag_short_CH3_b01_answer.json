@@ -1,0 +1,39 @@
+{
+  "items": [
+    {"ref": "p931", "rationale": "예상 가능한 상황에 대응하는 규칙·절차를 루틴(SOP)이라 하고, 루틴의 집합이 비즈니스 프로세스다.", "facet": "culture.def", "facets2": [], "depth": "1", "depth_why": "D1c",
+     "short_errors": [
+       {"pattern": "루틴을 조직문화로 씀", "examples": ["조직문화", "문화"], "misc": "none", "d": "2", "err": "concept_confusion"},
+       {"pattern": "루틴의 집합인 비즈니스 프로세스로 씀", "examples": ["비즈니스 프로세스", "프로세스"], "misc": "none", "d": "2", "err": "concept_confusion"}
+     ]},
+    {"ref": "p933", "rationale": "독립 기업들이 정보기술로 각자의 가치사슬을 조정하는 비선형·고객 주도 집합이 가치웹이다.", "facet": "value_chain.activities", "facets2": [], "depth": "1", "depth_why": "D1c",
+     "short_errors": [
+       {"pattern": "가치사슬로 씀", "examples": ["가치사슬", "밸류체인"], "misc": "none", "d": "2", "err": "concept_confusion"},
+       {"pattern": "네트워크 경제로 씀", "examples": ["네트워크 경제", "네트워크 효과"], "misc": "none", "d": "1", "err": "partial"}
+     ]},
+    {"ref": "p934", "rationale": "경쟁우위를 위한 고유한 능력으로 오랜 실무 경험에 의존하는 것은 핵심역량이다.", "facet": "value_chain.activities", "facets2": [], "depth": "1", "depth_why": "D1c",
+     "short_errors": [
+       {"pattern": "결과인 경쟁우위로 씀", "examples": ["경쟁우위", "경쟁력"], "misc": "none", "d": "1", "err": "partial"},
+       {"pattern": "가치사슬 분석 도구 이름으로 씀", "examples": ["벤치마킹", "가치사슬"], "misc": "none", "d": "1", "err": "concept_confusion"}
+     ]},
+    {"ref": "p936", "rationale": "네트워크로 사람·자산·아이디어를 연결하고 조직 경계에 얽매이지 않는 기업 모형은 가상기업이다.", "facet": "tcost.boundary", "facets2": [], "depth": "1", "depth_why": "D1c",
+     "short_errors": [
+       {"pattern": "가치웹으로 씀", "examples": ["가치웹"], "misc": "none", "d": "2", "err": "concept_confusion"},
+       {"pattern": "아웃소싱 기업으로 씀", "examples": ["아웃소싱", "네트워크 조직"], "misc": "none", "d": "1", "err": "partial"}
+     ]},
+    {"ref": "p1074", "rationale": "기술수용모형에서 사용자가 갖는 두 핵심 인식은 인지된 유용성과 인지된 사용 용이성이다.", "facet": "culture.def", "facets2": [], "depth": "1", "depth_why": "D1a",
+     "short_errors": [
+       {"pattern": "사용 의도·태도를 핵심 인식으로 씀", "examples": ["사용 의도, 태도", "태도와 의도"], "misc": "none", "d": "2", "err": "partial"},
+       {"pattern": "둘 중 하나만 씀", "examples": ["인지된 유용성", "사용 용이성"], "misc": "none", "d": "1", "err": "partial"}
+     ]},
+    {"ref": "p1077", "rationale": "오프라인과 온라인 채널의 고객 경험을 연결하는 전략은 옴니채널 전략이다.", "facet": "value_chain.activities", "facets2": [], "depth": "1", "depth_why": "D1c",
+     "short_errors": [
+       {"pattern": "멀티채널로 씀", "examples": ["멀티채널", "크로스채널"], "misc": "none", "d": "2", "err": "concept_confusion"},
+       {"pattern": "O2O로 씀", "examples": ["O2O", "온오프라인 연계"], "misc": "none", "d": "1", "err": "partial"}
+     ]},
+    {"ref": "p1151", "rationale": "우수한 타 기업의 프로세스를 목표로 삼아 자사와 비교·측정하는 것은 벤치마킹이다.", "facet": "value_chain.activities", "facets2": [], "depth": "1", "depth_why": "D1c",
+     "short_errors": [
+       {"pattern": "그 결과인 베스트 프랙티스로 씀", "examples": ["베스트 프랙티스", "best practice"], "misc": "none", "d": "2", "err": "concept_confusion"},
+       {"pattern": "핵심역량으로 씀", "examples": ["핵심역량"], "misc": "none", "d": "1", "err": "concept_confusion"}
+     ]}
+  ]
+}

@@ -1,0 +1,165 @@
+{
+ "items": [
+  {
+   "ref": "p980",
+   "rationale": "에지 컴퓨팅은 네트워크 말단에서 데이터의 일부를 처리하는 방식이지 모두 중앙으로 보내는 것이 아니다.",
+   "facet": "c19.f3",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "네트워크 말단에서 일부 처리 -> 모든 데이터를 중앙 데이터센터로 전송",
+    "misc": "m040",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p981",
+   "rationale": "그린 컴퓨팅은 설계·제조·사용·폐기 전 과정의 에너지와 환경 영향을 고려한다.",
+   "facet": "c19.f4",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "전 과정 고려 -> 사용 단계 에너지만 고려",
+    "misc": "none",
+    "d": "2",
+    "err": "partial",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p982",
+   "rationale": "XML이 데이터의 구조와 의미를, HTML이 웹페이지 표현을 담당하는데 진술은 둘을 바꿨다.",
+   "facet": "c21.f3",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "XML과 HTML의 역할을 서로 바꿈",
+    "misc": "m041",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p983",
+   "rationale": "TCO에서 하드웨어·소프트웨어 구매 비용은 대체로 20% 내외라는 배운 내용 그대로다.",
+   "facet": "c21.f2",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p988",
+   "rationale": "IaaS·PaaS·SaaS의 S는 System이 아니라 Service이다.",
+   "facet": "c18.f3",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "Service -> System",
+    "misc": "m042",
+    "d": "3",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1102",
+   "rationale": "황의 법칙은 반도체 메모리 용량이 약 1년마다 2배가 된다는 법칙이다.",
+   "facet": "c17.f2",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1104",
+   "rationale": "실제 PC·서버 같은 장치는 물리적 자원이며, 논리적 자원은 가상화로 재정의된 것이다. 구체적 장치를 물리/논리로 분류하는 문제다.",
+   "facet": "c19.f1",
+   "depth": "3",
+   "depth_why": "D3a",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "물리적 자원의 예 -> 논리적 자원의 예",
+    "misc": "m044",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1105",
+   "rationale": "99% 약속은 720시간의 1%인 약 7.2시간 미달을 허용하며 이는 위반이 아니다. 배운 계산 그대로 적용한다.",
+   "facet": "c18.f5",
+   "depth": "2",
+   "depth_why": "D2a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1164",
+   "rationale": "클라이언트/서버에서 공유 데이터 처리·저장과 네트워크 관리는 서버가 맡고 클라이언트는 간단한 작업을 한다. 진술은 역할이 뒤바뀌었다.",
+   "facet": "c16.f5",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "서버 <-> 클라이언트 역할 뒤바꿈",
+    "misc": "m045",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1165",
+   "rationale": "가상화는 하나의 물리 자원을 여러 논리 자원으로도, 여러 물리 자원을 하나의 논리 자원으로도 보이게 한다.",
+   "facet": "c19.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "양방향 가능 -> 여러 물리를 하나의 논리로는 불가",
+    "misc": "none",
+    "d": "2",
+    "err": "partial",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1166",
+   "rationale": "무어의 법칙으로 컴퓨팅 접근성이 개선되었다는 점과 최근 개선이 둔화되었다는 점을 서술한 진술이다.",
+   "facet": "c17.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  }
+ ]
+}

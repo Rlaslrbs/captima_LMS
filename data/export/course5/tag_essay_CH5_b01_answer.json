@@ -1,0 +1,140 @@
+{
+ "items": [
+  {
+   "ref": "p995",
+   "rationale": "클라우드의 사용량 기반 지불·유지보수 감소 같은 장점과 보안·성능·신뢰성 단점, TCO 기반 rent-or-buy 판단을 설명해야 한다.",
+   "facet": "c18.f4",
+   "facets2": [
+    "c21.f2"
+   ],
+   "depth": "3",
+   "depth_why": "D3b",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c18.f4",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c18.f4",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c18.f4",
+     "misc": "m039"
+    },
+    {
+     "i": 3,
+     "facet": "c18.f4",
+     "misc": "none"
+    },
+    {
+     "i": 4,
+     "facet": "c18.f4",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p996",
+   "rationale": "BYOD의 효율·만족 장점과 통제권 상실에 따른 보안 위험, MDM·원격 삭제 같은 도입 조건과 사례를 서술한다.",
+   "facet": "c20.f3",
+   "depth": "2",
+   "depth_why": "D2a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c20.f3",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c20.f3",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c20.f3",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c20.f3",
+     "misc": "none"
+    },
+    {
+     "i": 4,
+     "facet": "c20.f3",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p1117",
+   "rationale": "확장성, 관리·거버넌스, 투자(rent-or-buy와 TCO)의 세 도전과제를 각각의 고려 사항과 함께 설명한다. 거버넌스·투자 딜레마를 직접 다루는 세부 포인트는 없어 가장 가까운 것을 골랐다.",
+   "facet": "c16.f4",
+   "facets2": [
+    "c21.f2",
+    "c18.f4"
+   ],
+   "depth": "4",
+   "depth_why": "D4d",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c16.f4",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c16.f4",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c21.f2",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c21.f2",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p1171",
+   "rationale": "인프라 발전 단계를 중앙집중과 분산 관점으로 설명하고, 메인프레임은 공급자 교섭력이 높고 전사적 컴퓨팅은 표준으로 낮아졌음을 비교한다.",
+   "facet": "c16.f2",
+   "facets2": [
+    "c16.f1"
+   ],
+   "depth": "3",
+   "depth_why": "D3a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c16.f2",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c16.f5",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c16.f2",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c16.f1",
+     "misc": "none"
+    }
+   ]
+  }
+ ]
+}
