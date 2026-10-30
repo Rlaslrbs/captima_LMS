@@ -1,0 +1,319 @@
+{
+ "items": [
+  {
+   "ref": "p986",
+   "rationale": "마이크로프로세서 성능이 약 2년마다 2배가 된다는 법칙은 무어의 법칙이다.",
+   "facet": "c17.f1",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 법칙인 황의 법칙과 혼동",
+     "examples": [
+      "황의 법칙"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "멧칼프·저장 법칙과 혼동",
+     "examples": [
+      "멧칼프의 법칙",
+      "대용량 디지털 저장 법칙"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p987",
+   "rationale": "서버·저장공간 같은 기반 자원을 제공하는 클라우드 유형은 IaaS이다.",
+   "facet": "c18.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "PaaS와 혼동",
+     "examples": [
+      "PaaS"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "SaaS와 혼동",
+     "examples": [
+      "SaaS"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p989",
+   "rationale": "서로 다른 응용을 통합하는 소프트웨어는 미들웨어이다.",
+   "facet": "c16.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "레거시 시스템과 혼동",
+     "examples": [
+      "레거시 시스템"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "통합 대상이 되는 다른 소프트웨어 이름을 댐",
+     "examples": [
+      "ERP",
+      "API"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p990",
+   "rationale": "오래되어 새 환경에 맞지 않지만 쓰이는 시스템은 레거시 시스템이다.",
+   "facet": "c16.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "미들웨어와 혼동",
+     "examples": [
+      "미들웨어"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "독립형·구형 시스템으로 풀어 씀",
+     "examples": [
+      "독립형 시스템",
+      "구형 시스템"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p991",
+   "rationale": "기업 변화 중에도 시스템 중단 없이 서비스를 제공하는 능력은 확장성이다.",
+   "facet": "c16.f4",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "탄력성 등 이웃 용어로 답함",
+     "examples": [
+      "탄력성",
+      "유연성"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "호환성·안정성 등 다른 속성을 댐",
+     "examples": [
+      "호환성",
+      "안정성"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p992",
+   "rationale": "IT 인프라 7개 구성요소를 모두 나열해야 한다. 인프라 구성요소 자체를 다루는 세부 포인트가 목록에 없어 가장 가까운 인프라 포인트를 골랐다.",
+   "facet": "c16.f1",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "일부 구성요소만 쓰거나 개수가 부족함",
+     "examples": [
+      "하드웨어, 운영체제, 네트워크"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "구성요소 대신 비슷한 기술 이름을 섞어 씀",
+     "examples": [
+      "클라우드, 가상화, 보안"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p993",
+   "rationale": "서비스 수준과 위반 시 보상을 명시한 계약서의 약자는 SLA이다.",
+   "facet": "c18.f5",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "비슷한 약자로 답함",
+     "examples": [
+      "SLM",
+      "SLO"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "recall"
+    },
+    {
+     "pattern": "MDM·NDA 등 다른 약자를 댐",
+     "examples": [
+      "MDM",
+      "NDA"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p994",
+   "rationale": "모바일 장치를 관리·보호하고 원격 삭제하는 소프트웨어는 MDM이다.",
+   "facet": "c20.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "BYOD와 혼동",
+     "examples": [
+      "BYOD"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "다른 약자로 답함",
+     "examples": [
+      "MMS",
+      "MIS"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "recall"
+    }
+   ]
+  },
+  {
+   "ref": "p1112",
+   "rationale": "디지털 정보량은 약 3년마다 2배가 된다.",
+   "facet": "c17.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "short_errors": [
+    {
+     "pattern": "매년 2배로 기억함",
+     "examples": [
+      "1"
+     ],
+     "misc": "m038",
+     "d": "2",
+     "err": "recall"
+    },
+    {
+     "pattern": "무어의 법칙의 2년으로 혼동",
+     "examples": [
+      "2"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "필기의 18개월 등 다른 수치",
+     "examples": [
+      "1.5"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "recall"
+    }
+   ]
+  },
+  {
+   "ref": "p1115",
+   "rationale": "다양한 환경에서 Java 코드를 해석해 'Write once, run anywhere'를 가능하게 하는 것은 JVM이다.",
+   "facet": "c21.f1",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "관련 Java 도구 이름을 댐",
+     "examples": [
+      "JDK",
+      "JRE"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "컴파일러로 답함",
+     "examples": [
+      "자바 컴파일러"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1170",
+   "rationale": "애플리케이션 개발·실행 플랫폼을 제공하는 유형은 PaaS이다.",
+   "facet": "c18.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "기반 자원을 주는 IaaS와 혼동",
+     "examples": [
+      "IaaS"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "완성된 응용을 주는 SaaS와 혼동",
+     "examples": [
+      "SaaS"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  }
+ ]
+}

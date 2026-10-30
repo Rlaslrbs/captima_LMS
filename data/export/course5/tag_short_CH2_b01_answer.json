@@ -1,0 +1,313 @@
+{
+ "items": [
+  {
+   "ref": "p914",
+   "rationale": "가치 있는 제품·서비스를 만들기 위해 요구되는 활동의 집합은 비즈니스 프로세스이다. 해설은 기업을 비즈니스 프로세스의 집합체로 볼 수 있다고 설명한다.",
+   "facet": "c05.f1",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "비즈니스 모델과 혼동",
+     "examples": [
+      "비즈니스 모델",
+      "business model"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "가치사슬 등 이웃 개념으로 답함",
+     "examples": [
+      "가치사슬",
+      "value chain"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "활동 집합을 뜻하는 일반 용어로 답함",
+     "examples": [
+      "업무 프로세스",
+      "워크플로"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p915",
+   "rationale": "문서화되기 어려워 사람에게 내재된 지식은 암묵지이고 반대는 명시지이다.",
+   "facet": "c08.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "암묵지와 명시지를 뒤바꿔 답함",
+     "examples": [
+      "명시지",
+      "explicit knowledge",
+      "형식지"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "내재된 지식이라는 표현만 보고 답함",
+     "examples": [
+      "내재지",
+      "내재적 지식"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "지식관리 같은 상위 개념으로 답함",
+     "examples": [
+      "지식관리",
+      "지식경영"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "overgeneralize"
+    }
+   ]
+  },
+  {
+   "ref": "p916",
+   "rationale": "같은 시간·장소 협업 여부로 협업 도구를 고르게 하는 분석 틀은 시공간 매트릭스이다. 협업 도구 선택 6단계의 1단계에서 쓰인다.",
+   "facet": "c09.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "6단계 절차 자체를 답함",
+     "examples": [
+      "협업 도구 선택 6단계",
+      "6단계 절차"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "분석 틀을 뜻하는 다른 용어로 답함",
+     "examples": [
+      "SWOT",
+      "협업 매트릭스"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "recall"
+    }
+   ]
+  },
+  {
+   "ref": "p917",
+   "rationale": "통합 저장소에 정형·비정형 콘텐츠를 두고 분류체계와 태깅으로 관리하는 전사적 지식관리시스템은 ECM이다.",
+   "facet": "c08.f5",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "상위 개념인 지식관리시스템으로 답함",
+     "examples": [
+      "KMS",
+      "지식관리시스템"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "overgeneralize"
+    },
+    {
+     "pattern": "같은 전사적 KMS 범주의 이웃 시스템으로 답함",
+     "examples": [
+      "LMS",
+      "학습관리시스템"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "콘텐츠 관리만 떠올려 부분 답함",
+     "examples": [
+      "CMS",
+      "콘텐츠 관리 시스템"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p1055",
+   "rationale": "급여 TPS에서 기업의 모든 거래를 기록·관리하는 것은 총계정원장이다.",
+   "facet": "c07.f4",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "회계 문서 중 다른 장부로 답함",
+     "examples": [
+      "재무제표",
+      "분개장"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "급여 관련 문서로 답함",
+     "examples": [
+      "급여대장",
+      "급여명세서"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "데이터 저장소로 답함",
+     "examples": [
+      "데이터베이스",
+      "DB"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "overgeneralize"
+    }
+   ]
+  },
+  {
+   "ref": "p1056",
+   "rationale": "특정 목적을 위해 전문가로 구성된 주로 단기 운영 팀은 태스크포스(TF)이다.",
+   "facet": "mintzberg.types",
+   "facets2": [
+    "c09.f5"
+   ],
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "조직 구조 이름인 애드호크라시로 답함",
+     "examples": [
+      "애드호크라시",
+      "adhocracy"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "일반적인 팀 용어로 답함",
+     "examples": [
+      "프로젝트팀",
+      "팀",
+      "전문가팀"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "위원회 등 다른 조직 형태로 답함",
+     "examples": [
+      "위원회",
+      "태스크 팀"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1058",
+   "rationale": "서버 장애 등 상황에서도 끊김 없이 서비스하는 것은 연속성이고, 지속성은 장기적 유지보수·발전이다. 두 용어를 구분해야 한다.",
+   "facet": "c09.f4",
+   "depth": "3",
+   "depth_why": "D3a",
+   "short_errors": [
+    {
+     "pattern": "지속성과 혼동함",
+     "examples": [
+      "지속성"
+     ],
+     "misc": "none",
+     "d": "3",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "가용성·안정성 등 비슷한 말로 답함",
+     "examples": [
+      "안정성",
+      "가용성",
+      "신뢰성"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "이웃 차별점인 보안성으로 답함",
+     "examples": [
+      "보안성"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1142",
+   "rationale": "정보시스템 부서 밖의 생산·마케팅·재무·인사 부서 등의 사용자는 최종 사용자이다.",
+   "facet": "c10.f2",
+   "facets2": [
+    "c10.f1"
+   ],
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "요구사항을 변환하는 시스템 분석가로 답함",
+     "examples": [
+      "시스템 분석가",
+      "분석가"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "개발 담당자로 답함",
+     "examples": [
+      "프로그래머",
+      "개발자"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "고객으로 답함",
+     "examples": [
+      "고객",
+      "이해관계자"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "overgeneralize"
+    }
+   ]
+  }
+ ]
+}

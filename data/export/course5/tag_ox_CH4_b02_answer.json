@@ -1,0 +1,164 @@
+{
+ "items": [
+  {
+   "ref": "p953",
+   "rationale": "Do Not Track은 추적 금지 요청을 보낼 뿐 강제력이 없어 실제 추적이 금지되지 않는다. 설정 기능만으로 보호된다고 믿는 통제 감각과 연결된다.",
+   "facet": "c15.f5",
+   "depth": "4",
+   "depth_why": "D4a",
+   "ox": {
+    "statement_true": false,
+    "misc": "m031",
+    "d": "2",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "DNT 설정이 실제 추적을 금지한다고 함"
+   }
+  },
+  {
+   "ref": "p954",
+   "rationale": "특허는 공개의 대가로 출원 후 20년 독점, 영업비밀은 비공개 유지하며 기간 제한 없이 독점한다.",
+   "facet": "c14.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p955",
+   "rationale": "저작권은 표현만 보호하고 이면의 아이디어는 보호하지 않는다.",
+   "facet": "c14.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m035",
+    "d": "3",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "저작권이 아이디어까지 보호한다"
+   }
+  },
+  {
+   "ref": "p956",
+   "rationale": "시스템 품질 저하는 입력 데이터의 낮은 품질에서 가장 널리 생긴다.",
+   "facet": "c15.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1081",
+   "rationale": "시스템 의존·장애 취약은 컴퓨팅 성능 증가의 이슈이고, 네트워킹 발전은 무단 복사와 원격 접속 통제의 어려움이다.",
+   "facet": "c15.f2",
+   "depth": "3",
+   "depth_why": "D3c",
+   "ox": {
+    "statement_true": false,
+    "misc": "m032",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "네트워킹 발전의 이슈에 컴퓨팅 성능 증가의 이슈를 붙임"
+   }
+  },
+  {
+   "ref": "p1083",
+   "rationale": "FIP 5원칙 중 공지/인식과 선택/동의가 핵심이다. 핵심 원칙 구분은 배운 세부 포인트에 직접 없다.",
+   "facet": "c13.f5",
+   "depth": "4",
+   "depth_why": "D4a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1086",
+   "rationale": "특허 기간은 등록일이 아니라 출원일 이후 20년이다.",
+   "facet": "c14.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m034",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "20년의 기산점을 출원이 아니라 등록으로 바꿈"
+   }
+  },
+  {
+   "ref": "p1154",
+   "rationale": "수신거부(opt-out)는 거부가 없으면 수집이 허용되는 방식이다.",
+   "facet": "c13.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "m027"
+   }
+  },
+  {
+   "ref": "p1155",
+   "rationale": "사전동의는 필요한 사실을 모두 알고 한 동의여야 하며 버튼 클릭만으로 성립하지 않는다.",
+   "facet": "c13.f4",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m029",
+    "d": "3",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "동의 버튼을 누른 사실만으로 사전동의가 성립한다"
+   }
+  },
+  {
+   "ref": "p1156",
+   "rationale": "영업비밀은 비공개를 유지하는 한 기간 제한 없이 독점한다.",
+   "facet": "c14.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1157",
+   "rationale": "상표권은 생산자의 노력을 보호하며 소비자도 보호한다.",
+   "facet": "c14.f4",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "none",
+    "d": "1",
+    "err": "partial",
+    "reverse_misc": "none",
+    "planted_error": "상표권이 소비자 보호와 무관하다"
+   }
+  }
+ ]
+}
