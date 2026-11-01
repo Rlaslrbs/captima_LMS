@@ -1,5 +1,5 @@
 // DB 접속, 문제 세트 가져오기, 통계 계산
-// MySQL 판: 표는 server/mysql/schema.sql로 미리 만든다 (서버는 표를 만들거나 바꾸지 않는다). 접속 정보는 .env의 DB_HOST · DB_PORT · DB_USER · DB_PASSWORD · DB_NAME
+// MySQL 판: 표는 server/mysql/schema.sql로 미리 만든다 (서버는 표를 만들거나 바꾸지 않는다). 접속 정보는 .env의 MYSQL_HOST · MYSQL_PORT · MYSQL_USER · MYSQL_PASSWORD · MYSQL_DATABASE (예전 이름 DB_HOST … DB_NAME도 읽음)
 import { createHash } from "node:crypto";
 import { mkdirSync, existsSync, readdirSync, unlinkSync, statSync, openSync, closeSync } from "node:fs";
 import { spawnSync } from "node:child_process";
@@ -13,8 +13,10 @@ export const DATA = join(ROOT, "data");
 mkdirSync(DATA, { recursive: true });
 
 const E = process.env;
-if (!E.DB_USER || !E.DB_NAME) throw new Error("MySQL 접속 정보가 없어요: .env에 DB_HOST · DB_PORT · DB_USER · DB_PASSWORD · DB_NAME을 넣고 --env-file로 켜 주세요");
-const DB_CFG = { host: E.DB_HOST || "127.0.0.1", port: +E.DB_PORT || 3306, user: E.DB_USER, password: E.DB_PASSWORD || "", database: E.DB_NAME };
+const env = (a, b, d) => E[a] || E[b] || d;
+const DB_CFG = { host: env("MYSQL_HOST", "DB_HOST", "127.0.0.1"), port: +env("MYSQL_PORT", "DB_PORT", 3306), user: env("MYSQL_USER", "DB_USER"),
+  password: env("MYSQL_PASSWORD", "DB_PASSWORD", ""), database: env("MYSQL_DATABASE", "DB_NAME", "problem_solving_site") };
+if (!DB_CFG.user) throw new Error("MySQL 접속 정보가 없어요: .env에 MYSQL_HOST · MYSQL_USER · MYSQL_PASSWORD · MYSQL_DATABASE를 넣고 npm run dev(또는 node --env-file=.env …)로 켜 주세요");
 export const BACKUP_DIR = E.BACKUP_DIR || join(DATA, "backups");
 export const db = openMySQL(DB_CFG);
 { const r = db.prepare("SELECT COUNT(*) n FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'event' AND column_name = 'seq'").get();
@@ -660,7 +662,7 @@ export function listBackups() {
 export function dumpTo(file) {
   const fd = openSync(file, "w");
   try {
-    const r = spawnSync(E.MYSQLDUMP_BIN || "mysqldump", ["--single-transaction", "--no-tablespaces", "--set-gtid-purged=OFF", "--default-character-set=utf8mb4", "--routines",
+    const r = spawnSync(E.MYSQLDUMP_BIN || "mysqldump", ["--single-transaction", "--no-tablespaces", "--set-gtid-purged=OFF", "--default-character-set=utf8mb4",
       "-h", DB_CFG.host, "-P", String(DB_CFG.port), "-u", DB_CFG.user, DB_CFG.database],
       { stdio: ["ignore", fd, "pipe"], env: { ...process.env, MYSQL_PWD: DB_CFG.password }, windowsHide: true });
     if (r.error || r.status !== 0) throw new Error("mysqldump 실패: " + (r.error?.message || String(r.stderr || "").replace(/.*Using a password.*\n?/g, "").trim()));
