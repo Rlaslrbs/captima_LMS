@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS course (
   name        VARCHAR(100) NOT NULL,
   professor   VARCHAR(50)  NOT NULL DEFAULT '',
   meta        VARCHAR(300) NOT NULL DEFAULT '',        -- 어떤 자료로 만들었는지
-  info        JSON         NOT NULL,                   -- color, lang, math, files, concepts, topics
+  info        JSON         NOT NULL DEFAULT (JSON_OBJECT()),                -- color, lang, math, files, concepts, topics
   sort        INT          NOT NULL DEFAULT 0,
   visible     BOOLEAN      NOT NULL DEFAULT TRUE,
   created_at  DATETIME(3)  NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS chapter (
   title       VARCHAR(200) NOT NULL,
   short       VARCHAR(50)  NOT NULL DEFAULT '',
   grp         VARCHAR(50)  NOT NULL DEFAULT '',        -- 단원 묶음
-  info        JSON         NOT NULL,
+  info        JSON         NOT NULL DEFAULT (JSON_OBJECT()),
   sort        INT          NOT NULL DEFAULT 0,
   PRIMARY KEY (chapter_id),
   UNIQUE KEY uq_chapter_key (course_id, chapter_key),
@@ -124,8 +124,8 @@ CREATE TABLE IF NOT EXISTS problem_version (
 -- (학습 리포트 엔진 · 관리자 통계는 event의 행동 정보 vis · away · seen · rd · len … 를 읽는다)
 CREATE TABLE IF NOT EXISTS submission (
   submission_id BIGINT UNSIGNED  NOT NULL AUTO_INCREMENT,
-  client_id     VARCHAR(40)      NOT NULL,             -- = event.event_id (같은 풀이 이벤트와 1:1). 같은 제출이 두 번 와도 한 줄만
-  session_id    VARCHAR(40)      NOT NULL DEFAULT '',  -- = event.session_id
+  client_id     VARCHAR(64)      NOT NULL,             -- = event.event_id (같은 풀이 이벤트와 1:1). 같은 제출이 두 번 와도 한 줄만
+  session_id    VARCHAR(64)      NOT NULL DEFAULT '',  -- = event.session_id
   mode          VARCHAR(8)       NULL,                 -- focus 한 문제씩 | list 목록 (모르면 비움)
   device_id     VARCHAR(64)      NOT NULL,
   user_id       BIGINT UNSIGNED  NULL,                 -- 로그인했을 때만
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS progress (
   status      VARCHAR(10)       NOT NULL,              -- correct 한 번에 맞힘 | wrong 오답 | resolved 다시 풀어 해결
   attempts    SMALLINT UNSIGNED NOT NULL DEFAULT 1,
   wrong_count SMALLINT UNSIGNED NOT NULL DEFAULT 0,
-  last_answer TEXT              NOT NULL,
+  last_answer TEXT              NOT NULL DEFAULT (''),
   updated_at  DATETIME(3)       NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   PRIMARY KEY (device_id, problem_id),
   KEY ix_progress_recent (device_id, status, updated_at),   -- 복습할 오답 (틀린 지 하루 지난 문제)
@@ -286,9 +286,10 @@ CREATE TABLE IF NOT EXISTS exam_date (
 -- 풀이 이벤트(answer_submit · idk)도 여기에 그대로 쌓는다: 학습 리포트 엔진 · 관리자 통계가 행동 정보를 여기서 읽는다.
 -- submission은 같은 풀이를 통계용으로 정리한 사본 (submission.client_id = event_id)
 CREATE TABLE IF NOT EXISTS event (
-  event_id   VARCHAR(40)     NOT NULL,                 -- 브라우저가 만든 번호 (중복 전송 방지)
+  event_id   VARCHAR(64)     NOT NULL,                 -- 브라우저가 만든 번호 (중복 전송 방지)
+  seq        BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,  -- 들어온 순서 (SQLite rowid 대신). 학습 리포트가 "마지막으로 본 이벤트 뒤로 몇 개"를 센다
   device_id  VARCHAR(64)     NOT NULL,
-  session_id VARCHAR(40)     NOT NULL DEFAULT '',
+  session_id VARCHAR(64)     NOT NULL DEFAULT '',
   problem_id BIGINT UNSIGNED NULL,
   version    INT UNSIGNED    NULL,
   type       VARCHAR(30)     NOT NULL,
@@ -296,6 +297,7 @@ CREATE TABLE IF NOT EXISTS event (
   server_ts  DATETIME(3)     NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   payload    JSON            NOT NULL DEFAULT (JSON_OBJECT()),
   PRIMARY KEY (event_id),
+  UNIQUE KEY uq_event_seq (seq),
   KEY ix_event_problem (problem_id, version, type),
   KEY ix_event_time (server_ts),
   KEY ix_event_device (device_id, type, problem_id)
@@ -309,9 +311,9 @@ CREATE TABLE IF NOT EXISTS report (
   problem_id  BIGINT UNSIGNED NOT NULL,
   version     INT UNSIGNED    NOT NULL,
   category    VARCHAR(12)     NOT NULL,                -- answer 정답 | explanation 해설 | typo 오타 | other
-  message     TEXT            NOT NULL,
+  message     TEXT            NOT NULL DEFAULT (''),
   status      VARCHAR(10)     NOT NULL DEFAULT 'open', -- open | fixed | rejected
-  admin_note  TEXT            NOT NULL,
+  admin_note  TEXT            NOT NULL DEFAULT (''),
   created_at  DATETIME(3)     NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
   resolved_at DATETIME(3)     NULL,
   PRIMARY KEY (report_id),
@@ -401,8 +403,8 @@ CREATE TABLE IF NOT EXISTS kc (
   parent       VARCHAR(64)  NULL,                      -- 상위 개념
   chapter_keys JSON         NOT NULL DEFAULT (JSON_ARRAY()),
   name         VARCHAR(100) NOT NULL,
-  definition   TEXT         NOT NULL,
-  boundary     TEXT         NOT NULL,                  -- 어디까지가 이 개념인지
+  definition   TEXT         NOT NULL DEFAULT (''),
+  boundary     TEXT         NOT NULL DEFAULT (''),                  -- 어디까지가 이 개념인지
   confusable   JSON         NOT NULL DEFAULT (JSON_ARRAY()),   -- 헷갈리는 개념 코드
   source       VARCHAR(10)  NOT NULL,                  -- topic | author | llm | admin
   status       VARCHAR(10)  NOT NULL DEFAULT 'draft',  -- draft | active | retired
@@ -627,4 +629,21 @@ ALTER TABLE insight_meta  MODIFY value MEDIUMTEXT NOT NULL;
 -- 고침 (2026-11-01): 문제 내용 지문은 sha1 16진수 40자 (처음엔 20자 지문 함수만 보고 24자로 잡았다)
 ALTER TABLE item_tag      MODIFY body_hash VARCHAR(64) NOT NULL;
 ALTER TABLE family_member MODIFY body_hash VARCHAR(64) NOT NULL;
+-- 고침 (2026-11-01): 서버가 받는 이벤트 번호 · 세션 번호는 64자까지 (isId 16~64자, session_id 64자)
+ALTER TABLE event      MODIFY event_id VARCHAR(64) NOT NULL, MODIFY session_id VARCHAR(64) NOT NULL DEFAULT '';
+ALTER TABLE submission MODIFY client_id VARCHAR(64) NOT NULL, MODIFY session_id VARCHAR(64) NOT NULL DEFAULT '';
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- 고침 (2026-11-01): 이벤트가 들어온 순서 seq (SQLite rowid 대신). 학습 리포트가 이 번호로 "새 풀이가 몇 개 쌓였나"를 센다
+-- 이미 있는 event 표에만 더한다 (없을 때만 실행, 다시 실행해도 안전)
+SET @q = (SELECT IF(COUNT(*) = 0, 'ALTER TABLE event ADD COLUMN seq BIGINT UNSIGNED NOT NULL AUTO_INCREMENT AFTER event_id, ADD UNIQUE KEY uq_event_seq (seq)', 'DO 0')
+          FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'event' AND column_name = 'seq');
+PREPARE st FROM @q; EXECUTE st; DEALLOCATE PREPARE st;
+
+-- 고침 (2026-11-01): SQLite에서 기본값이 있던 칸은 MySQL에서도 같은 기본값 (서버 코드가 이 칸을 빼고 넣는 곳이 있다: report.admin_note, kc.boundary)
+-- 글자(TEXT) · JSON 칸은 식 기본값 ('') · (JSON_OBJECT())로 준다 (MySQL 8.0.13 이상). 같은 정의로 다시 실행해도 안전
+ALTER TABLE course   MODIFY info JSON NOT NULL DEFAULT (JSON_OBJECT());
+ALTER TABLE chapter  MODIFY info JSON NOT NULL DEFAULT (JSON_OBJECT());
+ALTER TABLE progress MODIFY last_answer TEXT NOT NULL DEFAULT ('');
+ALTER TABLE report   MODIFY message TEXT NOT NULL DEFAULT (''), MODIFY admin_note TEXT NOT NULL DEFAULT ('');
+ALTER TABLE kc       MODIFY definition TEXT NOT NULL DEFAULT (''), MODIFY boundary TEXT NOT NULL DEFAULT ('');

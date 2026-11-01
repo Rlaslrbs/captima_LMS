@@ -1,39 +1,42 @@
 // DB 접속, 문제 세트 가져오기, 통계 계산
-import { DatabaseSync } from "node:sqlite";
+// MySQL 판: 표는 server/mysql/schema.sql로 미리 만든다 (서버는 표를 만들거나 바꾸지 않는다). 접속 정보는 .env의 DB_HOST · DB_PORT · DB_USER · DB_PASSWORD · DB_NAME
 import { createHash } from "node:crypto";
-import { readFileSync, mkdirSync, existsSync, readdirSync, unlinkSync, statSync } from "node:fs";
+import { mkdirSync, existsSync, readdirSync, unlinkSync, statSync, openSync, closeSync } from "node:fs";
+import { spawnSync } from "node:child_process";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { openMySQL } from "./mysql/sync.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 export const ROOT = dirname(HERE);
 export const DATA = join(ROOT, "data");
 mkdirSync(DATA, { recursive: true });
 
-export const DB_FILE = process.env.DB_PATH || join(DATA, "app.db");
-export const BACKUP_DIR = join(dirname(DB_FILE), "backups");
-export const db = new DatabaseSync(DB_FILE);
-db.exec("PRAGMA journal_mode = WAL; PRAGMA busy_timeout = 3000;");
-db.exec(readFileSync(join(HERE, "schema.sql"), "utf8"));
-
-// 이미 있는 표에 새 열 더하기 (CREATE TABLE IF NOT EXISTS는 열을 더하지 않는다)
-function addColumns(table, cols) {
-  const have = new Set(db.prepare(`PRAGMA table_info(${table})`).all().map(c => c.name));
-  for (const [name, def] of cols) if (!have.has(name)) db.exec(`ALTER TABLE ${table} ADD COLUMN ${name} ${def}`);
-}
-addColumns("misc", [["facet", "TEXT"]]);
-addColumns("item_tag", [["facet", "TEXT"], ["depth", "INTEGER"], ["src", "TEXT NOT NULL DEFAULT 'llm'"], ["conf", "INTEGER NOT NULL DEFAULT 2"]]);
-db.exec("CREATE INDEX IF NOT EXISTS item_tag_facet ON item_tag(facet)");
+const E = process.env;
+if (!E.DB_USER || !E.DB_NAME) throw new Error("MySQL 접속 정보가 없어요: .env에 DB_HOST · DB_PORT · DB_USER · DB_PASSWORD · DB_NAME을 넣고 --env-file로 켜 주세요");
+const DB_CFG = { host: E.DB_HOST || "127.0.0.1", port: +E.DB_PORT || 3306, user: E.DB_USER, password: E.DB_PASSWORD || "", database: E.DB_NAME };
+export const BACKUP_DIR = E.BACKUP_DIR || join(DATA, "backups");
+export const db = openMySQL(DB_CFG);
+{ const r = db.prepare("SELECT COUNT(*) n FROM information_schema.columns WHERE table_schema = DATABASE() AND table_name = 'event' AND column_name = 'seq'").get();
+  if (!r.n) throw new Error("MySQL 표가 아직 없거나 옛 판이에요: server/mysql/schema.sql을 먼저 실행해 주세요"); }
 
 export const now = () => new Date().toISOString();
 export const J = (s, d = {}) => { try { return s ? JSON.parse(s) : d; } catch { return d; } };
 
-/** 묶어서 실행: 중간에 실패하면 전부 되돌린다 */
+/** 묶어서 실행: 중간에 실패하면 전부 되돌린다. MySQL은 BEGIN 안의 BEGIN이 앞 묶음을 확정해 버리므로, 이미 묶음 안이면 그대로 실행만 한다 */
+let txDepth = 0;
 export function tx(fn) {
-  db.exec("BEGIN");
+  if (txDepth) return fn();
+  db.exec("START TRANSACTION"); txDepth++;
   try { const r = fn(); db.exec("COMMIT"); return r; }
   catch (e) { db.exec("ROLLBACK"); throw e; }
+  finally { txDepth--; }
 }
+
+/** 다른 프로그램(import.js 등)이 내용 표를 고쳤는지 알아보는 값 (SQLite PRAGMA data_version 대신). 내용 표의 마지막 고친 시각 */
+const CONTENT_TABLES = "'semester','course','chapter','problem','problem_version','kc','facet','misc','item_tag','family','family_member'";
+export const dataVersion = () => db.prepare(`SELECT COALESCE(UNIX_TIMESTAMP(MAX(update_time)), 0) v FROM information_schema.tables
+    WHERE table_schema = DATABASE() AND table_name IN (${CONTENT_TABLES})`).get().v;
 
 // ───────── 문제 세트(JSON) 가져오기 ─────────
 const BODY_KEYS = ["no", "q", "q_sub", "stem", "ox", "opts", "opts_sub", "ans", "a", "accept", "strict", "num", "tol", "ph",
@@ -251,7 +254,7 @@ function checkDx(pack, errs, W) {
 }
 
 const bodyOf = p => { const b = {}; for (const k of BODY_KEYS) if (p[k] !== undefined && p[k] !== null && p[k] !== "") b[k] = p[k]; return b; };
-const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+const same = (a, b) => canon(a) === canon(b);        // MySQL JSON 칸은 키 순서를 바꿔 저장한다 → 키를 정렬해 비교
 
 /**
  * 문제 세트를 DB에 넣는다. dry=true면 실제로 넣어 본 뒤 되돌려, 무엇이 바뀔지만 센다.
@@ -268,7 +271,7 @@ export function importPack(pack, { dry = false, note = "가져오기", hidden = 
   const plan = { semester: "existing", course: "existing", chapters: { add: 0, update: 0 }, problems: { add: 0, changed: 0, same: 0, hidden: 0 } };
   const run = () => {
     const t = now(); const S = pack.semester, C = pack.course;
-    let sem = db.prepare("SELECT * FROM semester WHERE code = ?").get(S.code);
+    let sem = db.prepare("SELECT *, semester_id id FROM semester WHERE code = ?").get(S.code);
     if (!sem) {
       plan.semester = "new";
       const r = db.prepare("INSERT INTO semester(code, name, sort) VALUES (?, ?, ?)").run(S.code, S.name || S.code, -Date.now() / 1e3 | 0); sem = { id: Number(r.lastInsertRowid) };
@@ -276,7 +279,7 @@ export function importPack(pack, { dry = false, note = "가져오기", hidden = 
     // 화면·엔진(ctx.js)은 topics를 {코드: 이름}으로 읽는다. 세부 포인트는 facet 표에 따로 둔다.
     const topics = C.topics ? Object.fromEntries(Object.entries(C.topics).map(([k, v]) => [k, typeof v === "string" ? v : v.name])) : null;
     const info = JSON.stringify({ color: C.color || {}, lang: C.lang || "ko", math: !!C.math, files: C.files || {}, concepts: C.concepts || {}, ...(topics ? { topics } : {}) });
-    let course = db.prepare("SELECT * FROM course WHERE semester_id = ? AND code = ?").get(sem.id, C.code);
+    let course = db.prepare("SELECT *, course_id id FROM course WHERE semester_id = ? AND code = ?").get(sem.id, C.code);
     if (!course) {
       plan.course = "new";
       const n = db.prepare("SELECT COUNT(*) n FROM course WHERE semester_id = ?").get(sem.id).n;
@@ -284,19 +287,19 @@ export function importPack(pack, { dry = false, note = "가져오기", hidden = 
         .run(sem.id, C.code, C.short || C.code, C.name, C.professor || "", C.meta || "", info, n, t);
       course = { id: Number(r.lastInsertRowid) };
     } else {
-      db.prepare("UPDATE course SET short=?, name=?, professor=?, meta=?, info=? WHERE id=?").run(C.short || C.code, C.name, C.professor || "", C.meta || "", info, course.id);
+      db.prepare("UPDATE course SET short=?, name=?, professor=?, meta=?, info=? WHERE course_id=?").run(C.short || C.code, C.name, C.professor || "", C.meta || "", info, course.id);
     }
     const chId = {};
     pack.chapters.forEach((ch, i) => {
-      const old = db.prepare("SELECT * FROM chapter WHERE course_id = ? AND key = ?").get(course.id, ch.key);
+      const old = db.prepare("SELECT *, chapter_id id FROM chapter WHERE course_id = ? AND chapter_key = ?").get(course.id, ch.key);
       const cinfo = JSON.stringify({ sections: ch.sections || [] });
-      if (!old) { plan.chapters.add++; chId[ch.key] = Number(db.prepare("INSERT INTO chapter(course_id, key, title, short, grp, info, sort) VALUES (?,?,?,?,?,?,?)").run(course.id, ch.key, ch.title, ch.short || ch.key, ch.group || "", cinfo, i).lastInsertRowid); }
-      else { chId[ch.key] = old.id; if (old.title !== ch.title || old.sort !== i) plan.chapters.update++; db.prepare("UPDATE chapter SET title=?, short=?, grp=?, info=?, sort=? WHERE id=?").run(ch.title, ch.short || ch.key, ch.group || "", cinfo, i, old.id); }
+      if (!old) { plan.chapters.add++; chId[ch.key] = Number(db.prepare("INSERT INTO chapter(course_id, chapter_key, title, short, grp, info, sort) VALUES (?,?,?,?,?,?,?)").run(course.id, ch.key, ch.title, ch.short || ch.key, ch.group || "", cinfo, i).lastInsertRowid); }
+      else { chId[ch.key] = old.id; if (old.title !== ch.title || old.sort !== i) plan.chapters.update++; db.prepare("UPDATE chapter SET title=?, short=?, grp=?, info=?, sort=? WHERE chapter_id=?").run(ch.title, ch.short || ch.key, ch.group || "", cinfo, i, old.id); }
     });
     const cur = new Map();                          // ext_id → { pid, version, kind, body }
     pack.problems.forEach((p, i) => {
       const body = bodyOf(p);
-      const old = db.prepare("SELECT * FROM problem WHERE course_id = ? AND ext_id = ?").get(course.id, p.ext_id);
+      const old = db.prepare("SELECT *, problem_id id FROM problem WHERE course_id = ? AND ext_id = ?").get(course.id, p.ext_id);
       if (!old) {
         const st = p.publish === false ? "hidden" : status;            // 문제 하나만 숨김으로 넣을 때: "publish": false (본문에는 안 들어감)
         plan.problems.add++; if (st === "hidden") plan.problems.hidden++;
@@ -308,12 +311,12 @@ export function importPack(pack, { dry = false, note = "가져오기", hidden = 
       const prev = db.prepare("SELECT * FROM problem_version WHERE problem_id = ? AND version = ?").get(old.id, old.current_version);
       const changed = !prev || prev.kind !== p.kind || !!prev.star !== !!p.star || !same(J(prev.body), body);
       if (changed) plan.problems.changed++; else plan.problems.same++;
-      db.prepare("UPDATE problem SET chapter_id=?, sort=? WHERE id=?").run(chId[p.chapter], i, old.id);
+      db.prepare("UPDATE problem SET chapter_id=?, sort=? WHERE problem_id=?").run(chId[p.chapter], i, old.id);
       let v = old.current_version;
       if (changed) {
         v = old.current_version + 1;
         db.prepare("INSERT INTO problem_version(problem_id, version, kind, star, body, note, created_at) VALUES (?,?,?,?,?,?,?)").run(old.id, v, p.kind, p.star ? 1 : 0, JSON.stringify(body), note, t);
-        db.prepare("UPDATE problem SET current_version=? WHERE id=?").run(v, old.id);
+        db.prepare("UPDATE problem SET current_version=? WHERE problem_id=?").run(v, old.id);
         if (!p.dx) carryTags(old.id, old.current_version, v);
       }
       cur.set(p.ext_id, { pid: old.id, version: v, kind: p.kind, body });
@@ -323,7 +326,7 @@ export function importPack(pack, { dry = false, note = "가져오기", hidden = 
     return course.id;
   };
   try {
-    if (dry) { db.exec("BEGIN"); try { run(); } finally { db.exec("ROLLBACK"); } return { ok: true, dry: true, plan, count: pack.problems.length, warnings }; }
+    if (dry) { db.exec("START TRANSACTION"); txDepth++; try { run(); } finally { db.exec("ROLLBACK"); txDepth--; } return { ok: true, dry: true, plan, count: pack.problems.length, warnings }; }
     const courseId = tx(run);
     return { ok: true, plan, courseId, count: pack.problems.length, warnings };
   } catch (e) {
@@ -447,16 +450,16 @@ function importDx(cid, pack, cur, t) {
   for (const [code, ps] of fams) {
     const base = ps.find(p => p.dx.role === "base"), bpid = cur.get(base.ext_id).pid;
     const old = db.prepare("SELECT source, principle FROM family WHERE course_id = ? AND code = ?").get(cid, code);
-    if (old?.source !== "admin") db.prepare(`INSERT INTO family(course_id, code, facet, base_problem_id, principle, source, status, updated_at) VALUES (?,?,?,?,?,'author','ok',?)
-        ON CONFLICT(course_id, code) DO UPDATE SET facet=excluded.facet, base_problem_id=excluded.base_problem_id, principle=excluded.principle, source='author', status='ok', updated_at=excluded.updated_at`)
+    if (old?.source !== "admin") db.prepare(`INSERT INTO family(course_id, code, facet, base_problem_id, principle, source, status, updated_at) VALUES (?,?,?,?,?,'author','ok',?) AS n
+        ON DUPLICATE KEY UPDATE facet=n.facet, base_problem_id=n.base_problem_id, principle=n.principle, source='author', status='ok', updated_at=n.updated_at`)
       .run(cid, code, base.dx.facet, bpid, base.dx.principle ?? old?.principle ?? "", t);
     out.families++;
     for (const p of ps) {
       const c = cur.get(p.ext_id);
       if (db.prepare("SELECT source FROM family_member WHERE problem_id = ?").get(c.pid)?.source === "admin") continue;
-      db.prepare(`INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?,'author',3,?)
-          ON CONFLICT(problem_id) DO UPDATE SET course_id=excluded.course_id, family=excluded.family, role=excluded.role, delta_type=excluded.delta_type, delta=excluded.delta,
-          body_hash=excluded.body_hash, source='author', conf=3, updated_at=excluded.updated_at`)
+      db.prepare(`INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?,'author',3,?) AS n
+          ON DUPLICATE KEY UPDATE course_id=n.course_id, family=n.family, role=n.role, delta_type=n.delta_type, delta=n.delta,
+          body_hash=n.body_hash, source='author', conf=3, updated_at=n.updated_at`)
         .run(c.pid, cid, code, p.dx.role, p.dx.delta?.[0] ?? null, p.dx.delta?.[1] ?? "", bodyHash(c.kind, c.body), t);
       out.members++;
     }
@@ -499,7 +502,7 @@ function authorDiag(kind, body, dx) {
  * 관리자 태그(src 'admin')는 src='admin'으로 부를 때만 바꾼다. → "set" | "same" | "admin" | "missing"
  */
 export function putAuthorTags(pid, version, dx, { src = "author" } = {}) {
-  const r = db.prepare("SELECT p.course_id, pv.kind, pv.body FROM problem p JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = ? WHERE p.id = ?").get(version, pid);
+  const r = db.prepare("SELECT p.course_id, pv.kind, pv.body FROM problem p JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = ? WHERE p.problem_id = ?").get(version, pid);
   if (!r || !dx?.facet) return "missing";
   const old = db.prepare("SELECT * FROM item_tag WHERE problem_id = ? AND version = ?").get(pid, version);
   if (old?.src === "admin" && src !== "admin") return "admin";
@@ -510,12 +513,14 @@ export function putAuthorTags(pid, version, dx, { src = "author" } = {}) {
   if (dx.check) qa.solver = { ok: !!dx.check.ok, picked: dx.check.picked ?? null, note: String(dx.check.note || ""), model: String(dx.check.model || "") };
   const row = { body_hash: bodyHash(r.kind, body), vocab_ver: Number(meta(`vocab_ver:${r.course_id}`) || 0), kcs: JSON.stringify(kcs),
     diag: JSON.stringify(authorDiag(r.kind, body, dx)), qa: JSON.stringify(qa), facet: dx.facet, depth: dx.depth ?? null };
-  if (old && old.src === src && old.review === "accepted" && old.conf === 3 && ["body_hash", "vocab_ver", "kcs", "diag", "qa", "facet", "depth"].every(k => (old[k] ?? null) === row[k])) return "same";
-  db.prepare(`INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf)
-      VALUES (?,?,?,?,0,?,?,?,?,'accepted',?,?,?,?,3)
-      ON CONFLICT(problem_id, version) DO UPDATE SET body_hash=excluded.body_hash, vocab_ver=excluded.vocab_ver, prompt_ver=0, model=excluded.model, kcs=excluded.kcs,
-      diag=excluded.diag, qa=excluded.qa, review='accepted', updated_at=excluded.updated_at, facet=excluded.facet, depth=excluded.depth, src=excluded.src, conf=3`)
-    .run(pid, version, row.body_hash, row.vocab_ver, src, row.kcs, row.diag, row.qa, now(), row.facet, row.depth, src);
+  if (old && old.src === src && old.review === "accepted" && old.conf === 3 && ["body_hash", "vocab_ver", "facet", "depth"].every(k => (old[k] ?? null) === row[k])
+    && ["kcs", "diag", "qa"].every(k => canon(J(old[k], null)) === canon(J(row[k], null)))) return "same";     // JSON 칸은 키 순서와 상관없이 비교
+  db.prepare(`INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf, course_id)
+      -- course_id: MySQL에서 더한 칸 (과목별로 빨리 찾기). SQLite 판에는 없던 칸이라 여기서 넣는다
+      VALUES (?,?,?,?,0,?,?,?,?,'accepted',?,?,?,?,3,?) AS n
+      ON DUPLICATE KEY UPDATE body_hash=n.body_hash, vocab_ver=n.vocab_ver, prompt_ver=0, model=n.model, kcs=n.kcs,
+      diag=n.diag, qa=n.qa, review='accepted', updated_at=n.updated_at, facet=n.facet, depth=n.depth, src=n.src, conf=3`)
+    .run(pid, version, row.body_hash, row.vocab_ver, src, row.kcs, row.diag, row.qa, now(), row.facet, row.depth, src, r.course_id);
   return "set";
 }
 
@@ -531,20 +536,20 @@ export function carryTags(pid, fromV, toV) {
   const tag = db.prepare("SELECT * FROM item_tag WHERE problem_id = ? AND version = ? AND src IN ('author', 'admin')").get(pid, fromV);
   if (!tag) return false;
   const h = bodyHash(b.kind, bb);
-  db.prepare(`INSERT OR REPLACE INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf)
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(pid, toV, h, tag.vocab_ver, tag.prompt_ver, tag.model, tag.kcs, tag.diag, tag.qa, tag.review, now(), tag.facet, tag.depth, tag.src, tag.conf);
+  db.prepare(`REPLACE INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf, course_id)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(pid, toV, h, tag.vocab_ver, tag.prompt_ver, tag.model, tag.kcs, tag.diag, tag.qa, tag.review, now(), tag.facet, tag.depth, tag.src, tag.conf, tag.course_id);
   db.prepare("UPDATE family_member SET body_hash = ? WHERE problem_id = ? AND body_hash = ?").run(h, pid, bodyHash(a.kind, ba));
   return true;
 }
 
 // ───────── 문제 읽기 ─────────
 export function coursePayload(id) {
-  const c = db.prepare("SELECT c.*, s.code semester_code, s.name semester_name FROM course c JOIN semester s ON s.id = c.semester_id WHERE c.id = ?").get(id);
+  const c = db.prepare("SELECT c.*, c.course_id id, s.code semester_code, s.name semester_name FROM course c JOIN semester s ON s.semester_id = c.semester_id WHERE c.course_id = ?").get(id);
   if (!c) return null;
-  const chapters = db.prepare("SELECT id, key, title, short, grp, info FROM chapter WHERE course_id = ? ORDER BY sort").all(id)
+  const chapters = db.prepare("SELECT chapter_id id, chapter_key `key`, title, short, grp, info FROM chapter WHERE course_id = ? ORDER BY sort").all(id)
     .map(ch => ({ id: ch.id, key: ch.key, title: ch.title, short: ch.short, group: ch.grp, ...J(ch.info) }));
-  const problems = db.prepare(`SELECT p.id, p.ext_id, p.chapter_id, p.current_version v, pv.kind, pv.star, pv.body
-      FROM problem p JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version
+  const problems = db.prepare(`SELECT p.problem_id id, p.ext_id, p.chapter_id, p.current_version v, pv.kind, pv.star, pv.body
+      FROM problem p JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version
       WHERE p.course_id = ? AND p.status = 'published' ORDER BY p.sort`).all(id)
     .map(r => ({ id: r.id, ext_id: r.ext_id, chapter_id: r.chapter_id, v: r.v, kind: r.kind, star: !!r.star, ...J(r.body) }));
   return { id: c.id, code: c.code, short: c.short, name: c.name, professor: c.professor, meta: c.meta,
@@ -558,14 +563,14 @@ const median = a => { if (!a.length) return null; const s = [...a].sort((x, y) =
 export function problemStats({ courseId = null, since = null } = {}) {
   const where = [], args = [];
   if (courseId) { where.push("p.course_id = ?"); args.push(courseId); }
-  const probs = db.prepare(`SELECT p.id, p.ext_id, p.course_id, p.current_version v, p.status, pv.kind, pv.star, pv.body, ch.id chapter_id, ch.title chapter, c.short course
-      FROM problem p JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version
-      JOIN chapter ch ON ch.id = p.chapter_id JOIN course c ON c.id = p.course_id
+  const probs = db.prepare(`SELECT p.problem_id id, p.ext_id, p.course_id, p.current_version v, p.status, pv.kind, pv.star, pv.body, ch.chapter_id, ch.title chapter, c.short course
+      FROM problem p JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version
+      JOIN chapter ch ON ch.chapter_id = p.chapter_id JOIN course c ON c.course_id = p.course_id
       ${where.length ? "WHERE " + where.join(" AND ") : ""} ORDER BY c.sort, p.sort`).all(...args);
   const evArgs = []; let evWhere = "type IN ('answer_submit','idk','problem_shown')";
   if (since) { evWhere += " AND server_ts >= ?"; evArgs.push(since); }
-  if (courseId) { evWhere += " AND problem_id IN (SELECT id FROM problem WHERE course_id = ?)"; evArgs.push(courseId); }
-  const rows = db.prepare(`SELECT device_id, problem_id, version, type, payload FROM event WHERE ${evWhere} ORDER BY client_ts`).all(...evArgs);
+  if (courseId) { evWhere += " AND problem_id IN (SELECT problem_id FROM problem WHERE course_id = ?)"; evArgs.push(courseId); }
+  const rows = db.prepare(`SELECT device_id, problem_id, version, type, payload FROM event WHERE ${evWhere} ORDER BY client_ts, seq`).all(...evArgs);
   const acc = new Map();
   const get = (pid, v) => { const k = pid + ":" + v; if (!acc.has(k)) acc.set(k, { shown: new Set(), first: new Map(), times: [], idk: 0, answers: new Map(), devices: new Set() }); return acc.get(k); };
   for (const r of rows) {
@@ -606,14 +611,14 @@ export function overview() {
     answers_day: one("SELECT COUNT(*) n FROM event WHERE type = 'answer_submit' AND server_ts >= ?", day).n,
     answers_week: one("SELECT COUNT(*) n FROM event WHERE type = 'answer_submit' AND server_ts >= ?", week).n,
     open_reports: one("SELECT COUNT(*) n FROM report WHERE status = 'open'").n,
-    courses: db.prepare(`SELECT c.id, c.short, c.name, s.code semester, (SELECT COUNT(*) FROM problem WHERE course_id = c.id AND status = 'published') problems,
-        (SELECT COUNT(*) FROM enrollment WHERE course_id = c.id) enrolled FROM course c JOIN semester s ON s.id = c.semester_id ORDER BY s.sort, c.sort`).all(),
+    courses: db.prepare(`SELECT c.course_id id, c.short, c.name, s.code semester, (SELECT COUNT(*) FROM problem WHERE course_id = c.course_id AND status = 'published') problems,
+        (SELECT COUNT(*) FROM enrollment WHERE course_id = c.course_id) enrolled FROM course c JOIN semester s ON s.semester_id = c.semester_id ORDER BY s.sort, c.sort`).all(),
   };
 }
 
 /** 한 문제의 버전별 첫 시도 정답률·풀이 시간 (수정 전후 비교) */
 export function versionStats(problemId) {
-  const rows = db.prepare("SELECT device_id, version, type, payload FROM event WHERE problem_id = ? AND type IN ('answer_submit','idk') ORDER BY client_ts").all(problemId);
+  const rows = db.prepare("SELECT device_id, version, type, payload FROM event WHERE problem_id = ? AND type IN ('answer_submit','idk') ORDER BY client_ts, seq").all(problemId);
   const by = new Map();
   for (const r of rows) {
     if (!by.has(r.version)) by.set(r.version, { first: new Map(), times: [] });
@@ -631,7 +636,7 @@ export function versionStats(problemId) {
 /** 최근 며칠의 날짜별 사용자 수·풀이 수 (한국 시간 기준) */
 export function activity(days = 14) {
   const since = new Date(Date.now() - days * 864e5).toISOString();
-  const rows = db.prepare(`SELECT substr(datetime(server_ts, '+9 hours'), 1, 10) d, COUNT(DISTINCT device_id) users,
+  const rows = db.prepare(`SELECT DATE_FORMAT(server_ts + INTERVAL 9 HOUR, '%Y-%m-%d') d, COUNT(DISTINCT device_id) users,
       SUM(type = 'answer_submit') answers FROM event WHERE server_ts >= ? GROUP BY d ORDER BY d`).all(since);
   const map = new Map(rows.map(r => [r.d, r]));
   const out = [];
@@ -643,18 +648,31 @@ export function activity(days = 14) {
 }
 
 // ───────── 백업 ─────────
-// 서버를 끄지 않고도 일관된 복사본을 만든다 (SQLite VACUUM INTO). 최근 keep개만 남긴다.
+// 서버를 끄지 않고도 일관된 복사본을 만든다 (mysqldump --single-transaction → SQL 파일). 최근 keep개만 남긴다.
+// RDS로 옮기면 자동 스냅샷이 있어 이 백업은 보조용이다. mysqldump 위치는 MYSQLDUMP_BIN (없으면 PATH의 mysqldump)
+export const BACKUP_RE = /^app-\d{8}-\d{4}\.sql$/;
 export function listBackups() {
   if (!existsSync(BACKUP_DIR)) return [];
-  return readdirSync(BACKUP_DIR).filter(f => /^app-\d{8}-\d{4}\.db$/.test(f)).sort().reverse()
+  return readdirSync(BACKUP_DIR).filter(f => BACKUP_RE.test(f)).sort().reverse()
     .map(f => { const s = statSync(join(BACKUP_DIR, f)); return { name: f, size: s.size, at: s.mtime.toISOString() }; });
+}
+/** DB 전체를 SQL 파일 하나로 (비밀번호는 명령줄이 아니라 자식 프로세스 환경 변수로만 넘긴다) */
+export function dumpTo(file) {
+  const fd = openSync(file, "w");
+  try {
+    const r = spawnSync(E.MYSQLDUMP_BIN || "mysqldump", ["--single-transaction", "--no-tablespaces", "--set-gtid-purged=OFF", "--default-character-set=utf8mb4", "--routines",
+      "-h", DB_CFG.host, "-P", String(DB_CFG.port), "-u", DB_CFG.user, DB_CFG.database],
+      { stdio: ["ignore", fd, "pipe"], env: { ...process.env, MYSQL_PWD: DB_CFG.password }, windowsHide: true });
+    if (r.error || r.status !== 0) throw new Error("mysqldump 실패: " + (r.error?.message || String(r.stderr || "").replace(/.*Using a password.*\n?/g, "").trim()));
+  } catch (e) { closeSync(fd); unlinkSync(file); throw e; }
+  closeSync(fd);
 }
 export function backup({ keep = 7 } = {}) {
   mkdirSync(BACKUP_DIR, { recursive: true });
   const k = new Date(Date.now() + 9 * 36e5).toISOString();          // 한국 시간으로 파일 이름
-  const name = `app-${k.slice(0, 10).replace(/-/g, "")}-${k.slice(11, 16).replace(":", "")}.db`;
+  const name = `app-${k.slice(0, 10).replace(/-/g, "")}-${k.slice(11, 16).replace(":", "")}.sql`;
   const file = join(BACKUP_DIR, name);
-  if (!existsSync(file)) db.exec(`VACUUM INTO '${file.replace(/'/g, "''")}'`);
+  if (!existsSync(file)) dumpTo(file);
   listBackups().slice(keep).forEach(b => unlinkSync(join(BACKUP_DIR, b.name)));
   return listBackups()[0];
 }
@@ -666,7 +684,7 @@ export function aiSave({ deviceId, problemId, version, answer, result, model, ms
 }
 /** 사용자가 마지막에 "맞았어요/틀렸어요"를 누르면 그 판정을 붙인다 (자기 기기의 기록만) */
 export function aiSetUserVerdict(id, deviceId, verdict) {
-  return db.prepare("UPDATE ai_grade SET user_verdict = ? WHERE id = ? AND device_id = ?").run(verdict, id, deviceId).changes;
+  return db.prepare("UPDATE ai_grade SET user_verdict = ? WHERE ai_grade_id = ? AND device_id = ?").run(verdict, id, deviceId).changes;
 }
 /** 관리자 대시보드: 사용 수, 사용자 판정과의 일치율 (AI가 '맞음'이면 correct, '부분'·'틀림'이면 wrong으로 본다) */
 export function aiStats() {
@@ -687,13 +705,16 @@ export function aiStats() {
 // ───────── 학습 리포트: 메타 값 · AI 사용량 · 막힌 모델 ─────────
 /** insight_meta 값 (없으면 null). value를 주면 저장하고, null이면 지운다 */
 export function meta(key, value) {
-  if (value === null) { db.prepare("DELETE FROM insight_meta WHERE key = ?").run(key); return null; }
-  if (value !== undefined) { db.prepare("INSERT INTO insight_meta(key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value").run(key, String(value)); return String(value); }
-  return db.prepare("SELECT value FROM insight_meta WHERE key = ?").get(key)?.value ?? null;
+  if (value === null) { db.prepare("DELETE FROM insight_meta WHERE meta_key = ?").run(key); return null; }
+  if (value !== undefined) { db.prepare("INSERT INTO insight_meta(meta_key, value) VALUES (?, ?) AS n ON DUPLICATE KEY UPDATE value = n.value").run(key, String(value)); return String(value); }
+  return db.prepare("SELECT value FROM insight_meta WHERE meta_key = ?").get(key)?.value ?? null;
 }
 /** 숫자 메타 값(tag_rev:<cid> 등)을 1 올리고 새 값을 돌려준다 */
-export const bumpMeta = key => Number(db.prepare(`INSERT INTO insight_meta(key, value) VALUES (?, '1')
-  ON CONFLICT(key) DO UPDATE SET value = CAST(CAST(value AS INTEGER) + 1 AS TEXT) RETURNING value`).get(key).value);
+// MySQL에는 RETURNING이 없다 → 올리고 나서 읽는다 (연결 하나로 한 번에 한 쿼리씩이라 사이에 끼어드는 쓰기가 없다)
+export const bumpMeta = key => {
+  db.prepare("INSERT INTO insight_meta(meta_key, value) VALUES (?, '1') ON DUPLICATE KEY UPDATE value = CAST(CAST(value AS SIGNED) + 1 AS CHAR)").run(key);
+  return Number(db.prepare("SELECT value FROM insight_meta WHERE meta_key = ?").get(key).value);
+};
 
 // Gemini 무료 한도는 태평양 시간 자정에 풀리므로 사용량도 태평양 날짜로 센다
 const PT_DAY = new Intl.DateTimeFormat("en-CA", { timeZone: "America/Los_Angeles", year: "numeric", month: "2-digit", day: "2-digit" });
@@ -701,9 +722,9 @@ export const dayPT = (t = Date.now()) => PT_DAY.format(t);          // "2026-10-
 const tok = x => Math.max(0, Math.round(Number(x) || 0));
 /** 성공한 호출 하나를 그날 사용량에 더한다. usage = { tok_in, tok_out, tok_think } */
 export function budgetAdd(day, model, purpose, usage = {}) {
-  db.prepare(`INSERT INTO ai_budget(day, model, purpose, calls, tok_in, tok_out, tok_think) VALUES (?,?,?,1,?,?,?)
-      ON CONFLICT(day, model, purpose) DO UPDATE SET calls = calls + 1, tok_in = tok_in + excluded.tok_in,
-      tok_out = tok_out + excluded.tok_out, tok_think = tok_think + excluded.tok_think`)
+  db.prepare(`INSERT INTO ai_budget(day, model, purpose, calls, tok_in, tok_out, tok_think) VALUES (?,?,?,1,?,?,?) AS n
+      ON DUPLICATE KEY UPDATE calls = ai_budget.calls + 1, tok_in = ai_budget.tok_in + n.tok_in,
+      tok_out = ai_budget.tok_out + n.tok_out, tok_think = ai_budget.tok_think + n.tok_think`)
     .run(day, model, purpose, tok(usage.tok_in), tok(usage.tok_out), tok(usage.tok_think));
 }
 /** 오늘(태평양 날짜) 사용량 합계. model이 null이면 모든 모델, purpose를 주면 그 용도만 → { calls, tok_in, tok_out, tok_think } */
@@ -714,15 +735,15 @@ export function budgetToday(model = null, purpose = null) {
 /** 모델을 until까지 쓰지 않는다 (하루 한도 429 → 태평양 자정, 404 → 24시간). 저장한 시각(ISO)을 돌려준다 */
 export function blockModel(model, until, why) {
   const u = new Date(until).toISOString();
-  db.prepare("INSERT INTO ai_block(model, until, why) VALUES (?,?,?) ON CONFLICT(model) DO UPDATE SET until = excluded.until, why = excluded.why").run(model, u, String(why || ""));
+  db.prepare("INSERT INTO ai_block(model, blocked_until, why) VALUES (?,?,?) AS n ON DUPLICATE KEY UPDATE blocked_until = n.blocked_until, why = n.why").run(model, u, String(why || ""));
   return u;
 }
 /** 막혀 있으면 풀리는 시각(ISO), 아니면 null. 시간이 지난 차단은 지운다 */
 export function blocked(model) {
-  const r = db.prepare("SELECT until FROM ai_block WHERE model = ?").get(model);
+  const r = db.prepare("SELECT blocked_until `until` FROM ai_block WHERE model = ?").get(model);
   if (!r) return null;
   const t = now(); if (r.until > t) return r.until;
-  db.prepare("DELETE FROM ai_block WHERE model = ? AND until <= ?").run(model, t);
+  db.prepare("DELETE FROM ai_block WHERE model = ? AND blocked_until <= ?").run(model, t);
   return null;
 }
 
@@ -745,8 +766,8 @@ export function miscOf(courseId, facet = null, { all = false } = {}) {
 
 /** 문제별 현재 버전 지문 → Map(pid → { hash, kind, body, status, version, star }) */
 function currentItems(courseId) {
-  return new Map(db.prepare(`SELECT p.id, p.status, p.current_version v, pv.kind, pv.star, pv.body FROM problem p
-      JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version WHERE p.course_id = ?`).all(courseId)
+  return new Map(db.prepare(`SELECT p.problem_id id, p.status, p.current_version v, pv.kind, pv.star, pv.body FROM problem p
+      JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version WHERE p.course_id = ?`).all(courseId)
     .map(r => { const body = J(r.body); return [r.id, { hash: bodyHash(r.kind, body), kind: r.kind, body, status: r.status, version: r.v, star: !!r.star }]; }));
 }
 
@@ -786,7 +807,7 @@ function offeredMisc(diag) {
  */
 export function coverage(courseId) {
   const items = currentItems(courseId);
-  const tags = db.prepare("SELECT t.* FROM item_tag t JOIN problem p ON p.id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?").all(courseId);
+  const tags = db.prepare("SELECT t.* FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?").all(courseId);
   const fm = new Map(db.prepare("SELECT problem_id, role, delta_type FROM family_member WHERE course_id = ?").all(courseId).map(r => [r.problem_id, r]));
   const blank = () => ({ n: 0, d12: 0, d34: 0, deltaTypes: [], miscOffers: {} });
   const per = new Map(facetsOf(courseId).map(f => [f.code, { facet: f.code, kc: f.kc, name: f.name, status: f.status, ...blank(), star: false, exam: false, pending: 0, all: blank() }]));
@@ -822,7 +843,7 @@ export function coverage(courseId) {
 /** 공개 문제 중 믿을 만한 태그(conf ≥ 2 또는 사람이 확인)가 있는 비율 — v2 관문(≥ 90%)용 → { items, tagged, share } */
 export function tagSummary(courseId) {
   const items = currentItems(courseId);
-  const tags = new Map(db.prepare("SELECT t.* FROM item_tag t JOIN problem p ON p.id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?").all(courseId).map(t => [t.problem_id, t]));
+  const tags = new Map(db.prepare("SELECT t.* FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?").all(courseId).map(t => [t.problem_id, t]));
   let n = 0, ok = 0;
   for (const [pid, it] of items) if (it.status === "published") { n++; if (tagUsable(tags.get(pid), it)) ok++; }
   return { items: n, tagged: ok, share: n ? ok / n : 0 };

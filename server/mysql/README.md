@@ -1,10 +1,11 @@
 # MySQL 스키마와 옮기기 도구
 
-SQLite(`data/app.db`)에서 MySQL로 옮기기 위한 파일이에요. **지금 서버는 아직 SQLite를 써요.** 전환 계획은 [`docs/db/MYSQL_전환_계획.md`](../../docs/db/MYSQL_전환_계획.md)를 보세요.
+SQLite(`data/app.db`)에서 MySQL로 옮기기 위한 파일과, 서버가 MySQL을 쓰게 하는 연결부예요. 전환 계획은 [`docs/db/MYSQL_전환_계획.md`](../../docs/db/MYSQL_전환_계획.md), 서버 전환 방법과 확인 결과는 [`docs/db/MYSQL_서버전환_가이드.md`](../../docs/db/MYSQL_서버전환_가이드.md)를 보세요.
 
 ## 파일
 | 파일 | 내용 | 다시 실행 |
 |---|---|---|
+| `sync.js` · `worker.js` | 서버의 DB 연결부. `node:sqlite`와 같은 모양(`prepare().get/all/run`)으로 MySQL을 쓴다 (`mysql2`) | - |
 | `schema.sql` | 표 31개 + 뷰 3개. 기존 SQLite 구조 전체 + 회원 · 제출 · 커리큘럼 · 시험일 | 안전 (`IF NOT EXISTS`, `CREATE OR REPLACE`, 고침 구역은 이미 된 건 건너뜀) |
 | `curriculum.sql` | 산업경영공학과 커리큘럼 41칸 · 선수 관계 10개 · 과목 연결 4개 (실제 데이터, `web/js/curriculum.js`와 같은 내용) | 안전 |
 | `migrate_from_sqlite.py` | SQLite → MySQL 옮기기 (`make`) · 대조 (`verify`). Python 기본 기능만 사용 | 안전 (지우는 명령 없음) |
