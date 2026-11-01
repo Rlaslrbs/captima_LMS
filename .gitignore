@@ -11,5 +11,9 @@ tools/bin/
 *.log
 .DS_Store
 
+# MySQL 접속 파일(비밀번호), 옮기기 도구가 만든 SQL
+.my.cnf
+server/mysql/migrate_data.sql
+
 # Claude Code 개인 설정
 .claude/settings.local.json
