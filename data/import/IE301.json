@@ -956,7 +956,7 @@
    },
    "m_lin_coef_swap": {
     "facet": "lin_struct.parts",
-    "belief": "목적함수 계수와 자원 소비량 계수를 서로 바꿔 씀",
+    "belief": "목적함수 계수와 자원 소비량 계수를 서로 바꿔 쓴다고 생각함",
     "truth": "c_j는 활동 1단위당 Z 증가분, a_ij는 활동 1단위가 쓰는 자원량"
    },
    "m_lin_dv_count": {
@@ -966,12 +966,12 @@
    },
    "m_lin_prop_as_add": {
     "facet": "lin_assume.propadd",
-    "belief": "수준에 비례하지 않는 기여(고정비 등)를 가합성 문제로 착각함",
+    "belief": "수준에 비례하지 않는 기여(고정비 등)도 가합성 문제라고 생각함",
     "truth": "기여가 x_j에 비례하지 않으면(고정 준비비·할인) 비례성 위반"
    },
    "m_lin_add_as_prop": {
     "facet": "lin_assume.propadd",
-    "belief": "활동 간 영향으로 합이 안 되는 경우를 비례성 문제로 착각함",
+    "belief": "활동 간 영향으로 합이 안 되는 경우도 비례성 문제라고 생각함",
     "truth": "활동 기여가 서로 영향을 주어 합이 되지 않으면 가합성 위반"
    },
    "m_lin_div_int": {
@@ -981,12 +981,12 @@
    },
    "m_lin_div_as_cert": {
     "facet": "lin_assume.divcert",
-    "belief": "정수 제한이 없다는 가분성을 확실성과 같은 뜻으로 봄",
+    "belief": "정수 제한이 없다는 가분성을 확실성과 같은 뜻이라고 생각함",
     "truth": "확실성은 매개변수가 알려진 상수라는 가정, 가분성은 정수 제한이 없다는 가정"
    },
    "m_lin_cert_as_div": {
     "facet": "lin_assume.divcert",
-    "belief": "매개변수가 알려진 상수라는 확실성을 가분성과 같은 뜻으로 봄",
+    "belief": "매개변수가 알려진 상수라는 확실성을 가분성과 같은 뜻이라고 생각함",
     "truth": "확실성은 a_ij, b_i, c_j가 알려진 상수라는 가정이고 정수와 무관"
    },
    "m_lin_corner_greedy": {
@@ -1016,12 +1016,12 @@
    },
    "m_lin_std_signflip": {
     "facet": "lin_forms.std",
-    "belief": "min→max, ≥→≤ 변환에서 부호 바꾸기를 하나만 함",
+    "belief": "min→max, ≥→≤ 변환에서 부호 바꾸기는 하나만 하면 된다고 생각함",
     "truth": "min f는 max(−f)로, a·x ≥ b는 −a·x ≤ −b로 바꾼다"
    },
    "m_lin_kind_inf_unb": {
     "facet": "lin_solkind.kinds",
-    "belief": "가능해 없음과 목적값 무한을 같은 것으로 봄",
+    "belief": "가능해 없음과 목적값 무한을 같은 것이라고 생각함",
     "truth": "가능해 없음은 가능영역이 공집합, 무한 최적값은 가능영역에서 목적이 끝없이 개선"
    },
    "m_lin_kind_unbdd_region": {
@@ -1036,7 +1036,7 @@
    },
    "m_lin_mm_dir": {
     "facet": "lin_nonlin.minmax",
-    "belief": "Min-Max·Max-Min 선형화에서 부등호·목적 방향을 거꾸로 씀",
+    "belief": "Min-Max·Max-Min 선형화에서 부등호·목적 방향을 거꾸로 써도 된다고 생각함",
     "truth": "Min-Max는 min y, y≥f_i 이고 Max-Min은 max y, y≤f_i 이다"
    },
    "m_lin_mm_samedir": {
@@ -1051,7 +1051,7 @@
    },
    "m_lin_pwl_dir": {
     "facet": "lin_nonlin.pwl",
-    "belief": "절댓값 선형화에서 y를 묶는 부등호·목적 방향을 거꾸로 씀",
+    "belief": "절댓값 선형화에서 y를 묶는 부등호·목적 방향을 거꾸로 써도 된다고 생각함",
     "truth": "min |x|는 min y, x ≤ y, −x ≤ y 로 쓴다"
    },
    "m_lin_pwl_nonconvex": {
@@ -1061,17 +1061,17 @@
    },
    "m_lin_pwl_sign": {
     "facet": "lin_nonlin.pwl",
-    "belief": "절댓값 항의 부호·목적 방향을 따지지 않고 가능 여부를 판단함",
+    "belief": "절댓값 항의 부호·목적 방향을 따지지 않아도 가능 여부가 정해진다고 생각함",
     "truth": "min에서 +|u|, max에서 −|u|는 가능하고 그 반대(max |u|, min −|u|)는 불가능"
    },
    "m_lin_cons_cover": {
     "facet": "lin_cases.cons",
-    "belief": "그 시간대를 덮지 않는 근무조까지 합쳐서 제약을 씀",
+    "belief": "그 시간대를 덮지 않는 근무조까지 합쳐서 제약을 쓰면 된다고 생각함",
     "truth": "시간대 제약에는 그 시간대를 덮는 근무조만 더한다"
    },
    "m_lin_cons_flow": {
     "facet": "lin_cases.cons",
-    "belief": "흐름 보존식의 유입·유출 부호나 공급·수요 부호를 어긋나게 씀",
+    "belief": "흐름 보존식의 유입·유출 부호를 어긋나게 써도 된다고 생각함",
     "truth": "(나가는 흐름 − 들어오는 흐름) = 공급량(수요 노드는 −수요량)"
    },
    "m_lin_cons_ratio": {
@@ -1589,7 +1589,7 @@
     "belief": "목적행의 원래 변수 열이 −c를 뺀 c_B B⁻¹A라고 생각함",
     "truth": "목적행의 원래 변수 열은 c_B B⁻¹A − c이다"
    },
-   "m_rsm_anystep_slackI": {
+   "m_rsm_anystep_slack_i": {
     "facet": "rsm_anystep.slack",
     "belief": "슬랙 열은 계속 I로 남고 B⁻¹은 다른 곳에 있다고 생각함",
     "truth": "초기 슬랙 열 I에 B⁻¹이 곱해져 슬랙 열이 B⁻¹이 된다"
@@ -1716,7 +1716,7 @@
    },
    "m_dual_theory_dir": {
     "facet": "dual_theory.weak",
-    "belief": "최대화 문제의 가능해 값이 쌍대 값보다 크다고 생각함(방향 반대)",
+    "belief": "최대화 문제의 가능해 값이 쌍대 값보다 크다고 생각함",
     "truth": "cx ≤ yb: 쌍대 가능해 값이 상한, 원문제 가능해 값이 하한"
    },
    "m_dual_theory_optonly": {
@@ -1871,7 +1871,7 @@
    },
    "m_sens_cj_sign": {
     "facet": "sens_range.cj",
-    "belief": "기저변수의 c_j를 올리면 0행 계수가 줄어든다고 부호를 둠",
+    "belief": "기저변수의 c_j를 올리면 0행 계수가 줄어든다고 생각함",
     "truth": "피봇팅 후 0행 계수는 원래 값 + Δ×(해당 행 계수)이다"
    },
    "m_ds_leave_row0": {
@@ -2197,12 +2197,12 @@
    },
    "m_nwc_vogel": {
     "facet": "tp_init.nwc_min",
-    "belief": "북서모서리법을 보겔 근사법과 혼동함",
+    "belief": "북서모서리법을 보겔 근사법과 같은 방법이라고 생각함",
     "truth": "북서모서리법에는 벌점(비용 차이) 계산이 없다"
    },
    "m_nwc_russell": {
     "facet": "tp_init.nwc_min",
-    "belief": "북서모서리법을 러셀 근사법과 혼동함",
+    "belief": "북서모서리법을 러셀 근사법과 같은 방법이라고 생각함",
     "truth": "북서모서리법은 c−u−v를 계산하지 않는다"
    },
    "m_vogel_small": {
@@ -2232,7 +2232,7 @@
    },
    "m_russell_vogel": {
     "facet": "tp_init.russell",
-    "belief": "러셀 근사법을 보겔 근사법과 혼동함",
+    "belief": "러셀 근사법을 보겔 근사법과 같은 방법이라고 생각함",
     "truth": "러셀은 최대 비용 기준 c−u−v, 보겔은 최소·둘째 최소 비용의 차이를 쓴다"
    },
    "m_russell_as_min": {
@@ -2242,7 +2242,7 @@
    },
    "m_uv_sign": {
     "facet": "tp_simplex.uv",
-    "belief": "c−u−v가 0 이하이면 최적이라고 생각함(부호를 반대로 앎)",
+    "belief": "c−u−v가 0 이하이면 최적이라고 생각함",
     "truth": "비용 최소화에서는 비기저 칸이 모두 0 이상일 때 최적이다"
    },
    "m_uv_basic": {
@@ -10719,7 +10719,7 @@
      "읽는 곳 고르기 → 진술 O/X"
     ],
     "mis": {
-     "mr": "m_rsm_anystep_slackI"
+     "mr": "m_rsm_anystep_slack_i"
     },
     "check": {
      "ok": true,
@@ -18623,7 +18623,6 @@
      "repr",
      "복원 방법 → 부분 경로 성질 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -19051,7 +19050,6 @@
    "dx": {
     "facet": "maxflow_aug.aug",
     "depth": 1,
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -19310,7 +19308,6 @@
     "depth": 1,
     "family": "c9_cut_thm",
     "role": "base",
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -19579,7 +19576,6 @@
     "depth": 1,
     "family": "c9_mcf_sum",
     "role": "base",
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -19698,7 +19694,6 @@
    "dx": {
     "facet": "mcf_prop.prop",
     "depth": 1,
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -19965,7 +19960,6 @@
      "repr",
      "기저변수 개수 → 값을 정하는 방법"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
