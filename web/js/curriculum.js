@@ -19,7 +19,7 @@ export const CURRICULUM = [
       { id: "em1", name: "공학수학 1", kind: "base" },
       { id: "ds1", name: "데이터사이언스 1", kind: "opt", pre: ["prog"] },
       { id: "pdms", name: "제품개발및제조시스템", kind: "opt" },
-      { id: "expstat", name: "실험통계학", kind: "base" },
+      { id: "expstat", name: "실험통계학", kind: "base", codes: ["IE207"] },
       { id: "db", name: "데이터베이스", kind: "opt" },
       { id: "econ", name: "경제성공학", kind: "opt" },
       { id: "ergo", name: "인간공학", kind: "opt" },
@@ -35,7 +35,7 @@ export const CURRICULUM = [
   ] },
   { year: 3, terms: [
     [
-      { id: "ms1", name: "경영과학 1", kind: "req" },
+      { id: "ms1", name: "경영과학 1", kind: "req", codes: ["IE301"] },
       { id: "dm1", name: "데이터마이닝 1", kind: "opt", pre: ["ds2"] },
       { id: "scm", name: "공급사슬관리", kind: "opt" },
       { id: "qe", name: "품질공학", kind: "opt", pre: ["appstat"] },
@@ -43,7 +43,7 @@ export const CURRICULUM = [
       { id: "mot", name: "기술경영", kind: "opt" },
     ],
     [
-      { id: "ms2", name: "경영과학 2", kind: "opt" },
+      { id: "ms2", name: "경영과학 2", kind: "opt", codes: ["IE302"] },
       { id: "dm2", name: "데이터마이닝 2", kind: "opt", pre: ["dm1"] },
       { id: "isdd", name: "정보시스템설계및개발", kind: "opt", pre: ["prog"] },
       { id: "logi", name: "물류관리", kind: "opt" },
