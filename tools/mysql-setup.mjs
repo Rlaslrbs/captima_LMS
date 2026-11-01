@@ -237,7 +237,7 @@ async function verify() {
         else if (a == null || b == null) same = a == null && b == null;
         else if (typeof a === "number" || typeof a === "bigint" || typeof b === "number") same = Number(a) === Number(b);
         else same = String(a) === String(b);
-        if (!same) { diff++; if (ex.length < 3) ex.push(`${mc}: ${String(a).slice(0, 40)} ≠ ${String(b).slice(0, 40)}`); }
+        if (!same) { diff++; const show = v => (v && typeof v === "object" ? JSON.stringify(v) : String(v)).slice(0, 40); if (ex.length < 3) ex.push(`${mc}: ${show(a)} ≠ ${show(b)}`); }
       }
     }
     const ok = !diff && !missing && sq.length === my.length;
@@ -259,6 +259,10 @@ async function pkOf(c, t) {
   return r.map(x => x.c);
 }
 
-const STEPS = { check, schema, copy, verify, all: async () => { await check(); await schema(); await copy(); await verify(); } };
+const STEPS = { check, schema, copy, verify, all: async () => {
+  await check(); await schema();
+  if (!existsSync(FROM)) { log(`\nSQLite 원본(${FROM})이 없어 복사 · 대조는 건너뛰어요. 문제는 npm run import로 넣어요`); return; }
+  await copy(); await verify();
+} };
 if (!STEPS[step]) { log(readFileSync(fileURLToPath(import.meta.url), "utf8").split("\n").slice(0, 10).join("\n").replace(/^\/\/ ?/gm, "")); process.exit(0); }
 await STEPS[step]();

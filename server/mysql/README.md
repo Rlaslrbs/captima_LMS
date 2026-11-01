@@ -8,39 +8,25 @@ SQLite(`data/app.db`)에서 MySQL로 옮기기 위한 파일과, 서버가 MySQL
 | `sync.js` · `worker.js` | 서버의 DB 연결부. `node:sqlite`와 같은 모양(`prepare().get/all/run`)으로 MySQL을 쓴다 (`mysql2`) | - |
 | `schema.sql` | 표 31개 + 뷰 3개. 기존 SQLite 구조 전체 + 회원 · 제출 · 커리큘럼 · 시험일 | 안전 (`IF NOT EXISTS`, `CREATE OR REPLACE`, 고침 구역은 이미 된 건 건너뜀) |
 | `curriculum.sql` | 산업경영공학과 커리큘럼 41칸 · 선수 관계 10개 · 과목 연결 4개 (실제 데이터, `web/js/curriculum.js`와 같은 내용) | 안전 |
-| `migrate_from_sqlite.py` | SQLite → MySQL 옮기기 (`make`) · 대조 (`verify`). Python 기본 기능만 사용 | 안전 (지우는 명령 없음) |
+| `migrate_from_sqlite.py` | (예전) 문제 · 진단 태그만 옮기기 · 대조. 번호가 새로 매겨져 운영 전환에는 안 씀 → `tools/mysql-setup.mjs` | 안전 (지우는 명령 없음) |
 | `samples/seed*.sql` | 시험용 샘플 (회원 5 · 문제 10 · 제출 30 …). 실제 사람 기록이 아니에요 | **한 번만** |
 | `samples/reset_samples.sql` | 위 샘플만 지우기 (샘플 표시가 있는 줄만). ⚠ DELETE가 들어 있어요 | 안전 |
 | `queries/stats*.sql` | 통계 · 화면용 조회 예시 (읽기만) | 안전 |
 
-## 처음 만들기
-1. MySQL 8 이상에 DB `problem_solving_site`(utf8mb4)와 계정을 만들어요.
-2. 저장소 맨 위 폴더에 접속 파일 `.my.cnf`를 만들어요. **비밀번호가 들어 있으니 올리지 않아요** (`.gitignore`, 커밋 검사가 막아요).
-   ```ini
-   [client]
-   user=<계정>
-   password=<비밀번호>
-   host=<호스트>
-   port=3306
-   database=problem_solving_site
-   ```
-3. 저장소 맨 위 폴더에서:
-   ```bash
-   mysql --defaults-extra-file=.my.cnf --default-character-set=utf8mb4 < server/mysql/schema.sql
-   mysql --defaults-extra-file=.my.cnf --default-character-set=utf8mb4 < server/mysql/curriculum.sql
-   ```
-   Windows PowerShell은 `Get-Content server/mysql/schema.sql -Encoding UTF8 | & "<mysql.exe 경로>" --defaults-extra-file=.my.cnf --default-character-set=utf8mb4` 처럼 넘겨요.
-
-## SQLite 데이터 옮기기
+## 처음 만들기 (한 번에)
 ```bash
-python server/mysql/migrate_from_sqlite.py make            # server/mysql/migrate_data.sql 생성 (올리지 않음)
-mysql --defaults-extra-file=.my.cnf --default-character-set=utf8mb4 < server/mysql/migrate_data.sql
-python server/mysql/migrate_from_sqlite.py verify          # 표 11개를 한 줄 · 한 칸씩 대조
+npm run setup                                                   # mysql2 설치, .env 만들기
+# .env에 MYSQL_HOST · MYSQL_PORT · MYSQL_USER · MYSQL_PASSWORD · MYSQL_DATABASE
+node --env-file=.env tools/mysql-setup.mjs all --content-only    # 연결 확인 → 표 만들기 → data/app.db 복사(번호 그대로) → 대조
 ```
-- 옮기는 것: 학기 · 과목 · 단원 · 문제 · 문제 버전 + 진단 태그(개념 · 세부 포인트 · 착각 · 문제 태그 · 변형 묶음)
-- **아직 옮기지 않는 것: 학습자 기록**(기기 · 풀이 · 이벤트 · 제보 …). 운영 전환 때 더해요 (계획 문서 D단계)
-- 바뀌지 않는 값(학기 코드 · 과목 코드 · 단원 키 · 문제 번호 · 버전 · 진단 코드)으로 같은 줄을 찾아 있으면 고치고 없으면 더해요. MySQL에서만 정하는 값(난이도 · 작성자)은 덮어쓰지 않아요.
-- 다른 DB 파일을 쓰려면 `make <app.db 경로>`. mysql 프로그램 위치는 `MYSQL_BIN`, 접속 파일은 `MYSQL_CNF` 환경 변수로 바꿀 수 있어요.
+- 학습자 기록(기기 · 풀이 · 진도 · 제보 · 리포트)까지 옮기려면 `--with-learners`. 둘 중 하나를 꼭 골라요.
+- 단계별로: `check` · `schema` · `copy` · `verify`. `--from <app.db 경로>`로 다른 SQLite 파일.
+- 복사는 MySQL 표가 **비어 있을 때만** 해요(지우는 명령 없음). 이미 옮겼으면 `verify`로 확인.
+- 표 만들기 권한이 없는 서버 계정이면 `MYSQL_ADMIN_USER`(·`MYSQL_ADMIN_PASSWORD`)를 그 명령에만 붙여요.
+- 서버 담당의 운영 전환 절차: [`docs/db/MySQL_서버연결_프롬프트.md`](../../docs/db/MySQL_서버연결_프롬프트.md)
+
+### 예전 도구: `migrate_from_sqlite.py`
+문제 · 진단 태그만 옮기고 **번호(id)를 새로 매겨요.** 운영 전환에는 쓰지 않아요 (브라우저에 저장된 진도 · 책갈피가 다른 문제를 가리키게 됨). 기록용으로 남겨 둬요.
 
 ## SQLite와 다른 점 (서버 코드를 바꿀 때 주의)
 - 이름이 바뀐 칸: `chapter.key` → `chapter_key`, `insight_meta.key` → `meta_key`, `ai_block.until` → `blocked_until` (MySQL 예약어)
