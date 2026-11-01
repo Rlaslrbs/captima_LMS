@@ -1,0 +1,34 @@
+{
+ "items": [
+  {
+   "ref": "p1139",
+   "facet": "c06.f2",
+   "depth_why": "D3a",
+   "depth": "3"
+  },
+  {
+   "ref": "p1140",
+   "facet": "c08.f2",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p1141",
+   "facet": "c09.f3",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1142",
+   "facet": "c10.f2",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1143",
+   "facet": "c07.f2",
+   "depth_why": "D2b",
+   "depth": "2"
+  }
+ ]
+}

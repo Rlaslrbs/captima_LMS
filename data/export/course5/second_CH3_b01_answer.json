@@ -1,0 +1,184 @@
+{
+ "items": [
+  {
+   "ref": "p921",
+   "facet": "org_def.tech_beh",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p924",
+   "facet": "agency.cost",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p925",
+   "facet": "mintzberg.types",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p927",
+   "facet": "five_forces.forces",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p929",
+   "facet": "five_forces.forces",
+   "depth_why": "D4c",
+   "depth": "4"
+  },
+  {
+   "ref": "p930",
+   "facet": "culture.def",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p931",
+   "facet": "culture.def",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p933",
+   "facet": "value_chain.activities",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p934",
+   "facet": "value_chain.activities",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p936",
+   "facet": "tcost.boundary",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p937",
+   "facet": "tcost.boundary",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p938",
+   "facet": "five_forces.forces",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p939",
+   "facet": "value_chain.activities",
+   "depth_why": "D2a",
+   "depth": "2"
+  },
+  {
+   "ref": "p940",
+   "facet": "culture.def",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1066",
+   "facet": "tcost.boundary",
+   "depth_why": "D3a",
+   "depth": "3"
+  },
+  {
+   "ref": "p1067",
+   "facet": "culture.def",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1069",
+   "facet": "value_chain.activities",
+   "depth_why": "D3a",
+   "depth": "3"
+  },
+  {
+   "ref": "p1070",
+   "facet": "five_forces.forces",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1074",
+   "facet": "c04.f1",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1077",
+   "facet": "c05.f1",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1078",
+   "facet": "c05.f3",
+   "depth_why": "D4a",
+   "depth": "4"
+  },
+  {
+   "ref": "p1079",
+   "facet": "five_forces.forces",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p1144",
+   "facet": "tcost.boundary",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1146",
+   "facet": "org_def.tech_beh",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1147",
+   "facet": "disrupt.def",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1148",
+   "facet": "five_forces.forces",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1149",
+   "facet": "five_forces.forces",
+   "depth_why": "D3a",
+   "depth": "3"
+  },
+  {
+   "ref": "p1150",
+   "facet": "value_chain.activities",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p1151",
+   "facet": "value_chain.activities",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1152",
+   "facet": "culture.def",
+   "depth_why": "D4d",
+   "depth": "4"
+  }
+ ]
+}

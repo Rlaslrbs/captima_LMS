@@ -1,0 +1,184 @@
+{
+ "items": [
+  {
+   "ref": "p903",
+   "facet": "c07.f2",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p904",
+   "facet": "c06.f1",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p905",
+   "facet": "c06.f2",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p906",
+   "facet": "c07.f1",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p907",
+   "facet": "c07.f2",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p908",
+   "facet": "c08.f1",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p909",
+   "facet": "c08.f4",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p910",
+   "facet": "c10.f1",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p913",
+   "facet": "c09.f1",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p914",
+   "facet": "c07.f2",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p915",
+   "facet": "c08.f2",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p916",
+   "facet": "c09.f2",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p917",
+   "facet": "c08.f5",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p918",
+   "facet": "c06.f1",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p919",
+   "facet": "c09.f3",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p920",
+   "facet": "c09.f1",
+   "depth_why": "D2b",
+   "depth": "2"
+  },
+  {
+   "ref": "p1044",
+   "facet": "c07.f3",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1045",
+   "facet": "c09.f5",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1046",
+   "facet": "c09.f1",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1047",
+   "facet": "c08.f3",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1048",
+   "facet": "c08.f4",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1051",
+   "facet": "c08.f5",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1055",
+   "facet": "c07.f4",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1056",
+   "facet": "c09.f5",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1058",
+   "facet": "c09.f4",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1059",
+   "facet": "c08.f3",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p1135",
+   "facet": "c06.f1",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p1136",
+   "facet": "c06.f3",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1137",
+   "facet": "c07.f1",
+   "depth_why": "D3c",
+   "depth": "3"
+  },
+  {
+   "ref": "p1138",
+   "facet": "c06.f4",
+   "depth_why": "D1a",
+   "depth": "1"
+  }
+ ]
+}

@@ -4,8 +4,8 @@
    "ref": "p885",
    "rationale": "IS는 기존 비즈니스의 효율화뿐 아니라 새로운 비즈니스 창출에도 기여한다. '효율화에만'이라는 한정이 거짓이다.",
    "facet": "c05.f3",
-   "depth": "4",
-   "depth_why": "D4c",
+   "depth": "1",
+   "depth_why": "D1b",
    "ox": {
     "statement_true": false,
     "misc": "none",

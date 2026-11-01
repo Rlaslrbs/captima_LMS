@@ -4,8 +4,8 @@
    "ref": "p1051",
    "rationale": "LMS의 일반 기능에 학습 효과 측정이 포함되므로 '측정할 수 없다'는 기업 LMS의 차이가 아니다. 기업 LMS의 차이는 일과 학습 병행, 가변적 일정, 지리적 분산이다.",
    "facet": "c08.f5",
-   "depth": "4",
-   "depth_why": "D4a",
+   "depth": "1",
+   "depth_why": "D1a",
    "options": [
     {
      "idx": 0,

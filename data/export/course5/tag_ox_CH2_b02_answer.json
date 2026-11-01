@@ -34,8 +34,8 @@
    "ref": "p1046",
    "rationale": "소셜 비즈니스는 의견과 사실이 간섭 없이 공유되는 정보 투명성이 요구된다는 참인 진술이다. 협력적 문화가 필요하다는 협업 역량의 취지와 맞닿는다.",
    "facet": "c09.f1",
-   "depth": "4",
-   "depth_why": "D4a",
+   "depth": "1",
+   "depth_why": "D1a",
    "ox": {
     "statement_true": true,
     "misc": "none",
