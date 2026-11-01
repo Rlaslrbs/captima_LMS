@@ -63,7 +63,8 @@ JOIN curriculum_item b ON b.program_code = 'IE' AND b.item_code = e.pre;
 INSERT IGNORE INTO curriculum_course (item_id, course_code)
 SELECT i.item_id, e.code
 FROM (SELECT 'em2' item, 'LA2' code UNION ALL SELECT 'pom', 'IE216'
-      UNION ALL SELECT 'appstat', 'IE208' UNION ALL SELECT 'mis', 'MIS') e
+      UNION ALL SELECT 'appstat', 'IE208' UNION ALL SELECT 'mis', 'MIS'
+      UNION ALL SELECT 'expstat', 'IE207' UNION ALL SELECT 'ms1', 'IE301' UNION ALL SELECT 'ms2', 'IE302') e
 JOIN curriculum_item i ON i.program_code = 'IE' AND i.item_code = e.item;
 
 COMMIT;
