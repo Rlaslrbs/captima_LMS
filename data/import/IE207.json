@@ -1,0 +1,5565 @@
+{
+ "format": 1,
+ "semester": {
+  "code": "26-1",
+  "name": "2026학년 1학기"
+ },
+ "course": {
+  "code": "IE207",
+  "short": "실험통계",
+  "name": "실험통계학",
+  "professor": "전현우",
+  "meta": "Ch1~7 PPT · O/X + 강의 Exercise 숫자 변경 예제",
+  "lang": "en",
+  "color": {
+   "light": "#6b3fa0",
+   "dark": "#c3a3f0"
+  },
+  "math": false,
+  "files": {
+   "C1": "Ch1 PPT (Ch1 Probability Theory.pdf)",
+   "C2": "Ch2 PPT (Ch2 Random Variable.pdf)",
+   "C3": "Ch3 PPT (Ch3 Discrete Probability Distributions.pdf)",
+   "C4": "Ch4 PPT (Ch4 Continuous Probability Distributions.pdf)",
+   "C5": "Ch5 PPT (Ch5 Normal Distribution.pdf)",
+   "C6": "Ch6 PPT (Ch6 Descriptive Statistics.pdf)",
+   "C7": "Ch7 PPT (Ch7 Statistical Estimation and Sampling Distributions 1.pdf)"
+  },
+  "topics": {
+   "prob_basic": {
+    "name": "확률의 기초",
+    "facets": {
+     "values": {
+      "name": "확률값과 여사건",
+      "kind": "property",
+      "statement": "각 결과의 확률은 0과 1 사이이고 표본공간 전체의 합은 1이며, P(A) + P(A′) = 1이다"
+     }
+    }
+   },
+   "event_ops": {
+    "name": "사건의 결합",
+    "facets": {
+     "union": {
+      "name": "합집합의 확률",
+      "kind": "property",
+      "statement": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B)이며, 상호배타적일 때만 P(A) + P(B)로 줄어든다"
+     },
+     "demorgan": {
+      "name": "여사건과 드모르간",
+      "kind": "property",
+      "statement": "(A ∪ B)′ = A′ ∩ B′, (A ∩ B)′ = A′ ∪ B′이고 P(A ∩ B) + P(A ∩ B′) = P(A)다"
+     },
+     "partition": {
+      "name": "표본공간의 분할",
+      "kind": "def",
+      "statement": "분할은 상호배타적이고 합집합이 표본공간인 사건들이며, 각 결과는 정확히 하나의 사건에 속한다"
+     }
+    }
+   },
+   "cond": {
+    "name": "조건부확률",
+    "facets": {
+     "def": {
+      "name": "조건부확률의 정의",
+      "kind": "def",
+      "statement": "P(A|B) = P(A ∩ B)/P(B) (P(B) > 0)이며, 일반적으로 P(A|B)와 P(B|A)는 다르다"
+     },
+     "compl": {
+      "name": "조건부확률의 합",
+      "kind": "property",
+      "statement": "P(A|B) + P(A′|B) = 1이지만 P(A|B)와 P(A|B′) 사이에는 일반적 관계가 없다"
+     }
+    },
+    "confusable": [
+     "indep"
+    ]
+   },
+   "indep": {
+    "name": "독립과 곱셈법칙",
+    "facets": {
+     "def": {
+      "name": "독립의 정의",
+      "kind": "def",
+      "statement": "P(A|B) = P(A), P(B|A) = P(B), P(A ∩ B) = P(A)P(B) 중 하나가 성립하면 나머지도 성립한다"
+     },
+     "vs_mutex": {
+      "name": "독립과 상호배타의 구별",
+      "kind": "distinction",
+      "statement": "확률이 양수인 두 상호배타적 사건은 P(A|B) = 0 ≠ P(A)이므로 독립이 아니다"
+     }
+    },
+    "confusable": [
+     "cond"
+    ]
+   },
+   "bayes": {
+    "name": "전확률과 베이즈 정리",
+    "facets": {
+     "total": {
+      "name": "전확률 공식",
+      "kind": "condition",
+      "statement": "A1,…,An이 표본공간의 분할일 때 P(B) = ΣP(Ai)P(B|Ai)이다"
+     },
+     "posterior": {
+      "name": "사후확률",
+      "kind": "relation",
+      "statement": "사후확률 P(Ai|B)는 새 정보 B로 사전확률을 고친 값이며, 사건에 따라 커지거나 작아진다"
+     }
+    }
+   },
+   "counting": {
+    "name": "경우의 수",
+    "facets": {
+     "perm_comb": {
+      "name": "순열과 조합",
+      "kind": "distinction",
+      "statement": "순열 n!/(n−k)!은 순서를 세고, 조합 n!/((n−k)!k!)은 순서를 세지 않으므로 순열 = 조합 × k!이다"
+     }
+    }
+   },
+   "rv_dist": {
+    "name": "확률변수와 분포함수",
+    "facets": {
+     "pdf": {
+      "name": "확률밀도함수",
+      "kind": "property",
+      "statement": "f(x) ≥ 0, 전체 적분 1이고 확률은 구간의 넓이다. 한 점의 확률은 0이며 f(x)는 1보다 클 수 있다"
+     },
+     "cdf": {
+      "name": "누적분포함수",
+      "kind": "property",
+      "statement": "F(x) = P(X ≤ x)는 증가함수이고 P(a ≤ X ≤ b) = F(b) − F(a), f(x) = dF(x)/dx이다"
+     }
+    }
+   },
+   "expect": {
+    "name": "기대값과 중앙값",
+    "facets": {
+     "mean": {
+      "name": "기대값과 대칭",
+      "kind": "property",
+      "statement": "E(X) = Σp·x 또는 ∫x f(x)dx이며, 밀도함수가 μ에 대해 대칭이면 E(X) = μ다"
+     },
+     "median": {
+      "name": "중앙값과 평균의 차이",
+      "kind": "distinction",
+      "statement": "중앙값은 F(x) = 0.5인 값이고, 오른쪽 꼬리가 길면 평균이 중앙값보다 크다"
+     }
+    }
+   },
+   "variance": {
+    "name": "분산과 퍼짐",
+    "facets": {
+     "def": {
+      "name": "분산의 정의",
+      "kind": "def",
+      "statement": "Var(X) = E((X − E(X))²) = E(X²) − (E(X))²이며, 평균이 같아도 분산은 다를 수 있다"
+     },
+     "chebyshev": {
+      "name": "체비셰프 부등식",
+      "kind": "condition",
+      "statement": "분포와 상관없이 P(μ − cσ ≤ X ≤ μ + cσ) ≥ 1 − 1/c²이며, 정확한 값이 아니라 하한이다"
+     },
+     "iqr": {
+      "name": "사분위수와 사분위범위",
+      "kind": "def",
+      "statement": "상위 사분위수는 75백분위수, 하위 사분위수는 25백분위수이고 사분위범위는 그 차이다"
+     }
+    }
+   },
+   "joint": {
+    "name": "결합분포와 공분산",
+    "facets": {
+     "marginal": {
+      "name": "주변분포",
+      "kind": "property",
+      "statement": "주변분포는 결합분포를 다른 변수에 대해 더하거나 적분해 얻으며, 주변분포만으로 결합분포가 정해지지 않는다"
+     },
+     "cov": {
+      "name": "공분산과 상관계수",
+      "kind": "property",
+      "statement": "독립이면 공분산과 상관계수가 0이고, 상관계수는 −1과 1 사이의 값이다"
+     }
+    }
+   },
+   "lincomb": {
+    "name": "확률변수의 선형결합",
+    "facets": {
+     "linear": {
+      "name": "선형변환과 합의 분산",
+      "kind": "property",
+      "statement": "Var(aX + b) = a²Var(X)이고, 독립이면 Var(X1 ± X2) = Var(X1) + Var(X2)다"
+     },
+     "average": {
+      "name": "평균의 분산",
+      "kind": "property",
+      "statement": "독립·동일 분산 σ²인 n개의 평균은 E(X̄) = μ, Var(X̄) = σ²/n으로 퍼짐이 줄어든다"
+     },
+     "nonlinear": {
+      "name": "비선형 함수",
+      "kind": "condition",
+      "statement": "비선형 함수 g에 대해서는 E(g(X))와 g(E(X))를 잇는 일반적인 결과가 없다"
+     }
+    }
+   },
+   "binom": {
+    "name": "이항분포",
+    "facets": {
+     "cond": {
+      "name": "이항분포의 조건",
+      "kind": "condition",
+      "statement": "n번의 독립 베르누이 시행에서 성공 확률 p가 일정할 때 성공 횟수가 B(n, p)를 따른다"
+     },
+     "shape": {
+      "name": "이항분포의 모양과 비율",
+      "kind": "property",
+      "statement": "B(n, 0.5)만 n/2에 대해 대칭이고, 성공 비율 X/n의 분산 p(1 − p)/n은 n이 커지면 줄어든다"
+     }
+    },
+    "confusable": [
+     "geom",
+     "hyper"
+    ]
+   },
+   "geom": {
+    "name": "기하·음이항분포",
+    "facets": {
+     "def": {
+      "name": "기하·음이항분포",
+      "kind": "def",
+      "statement": "기하분포는 첫 성공까지, 음이항분포는 r번째 성공까지의 시행 횟수이며 기대값은 각각 1/p, r/p다"
+     }
+    },
+    "confusable": [
+     "binom"
+    ]
+   },
+   "hyper": {
+    "name": "초기하분포",
+    "facets": {
+     "def": {
+      "name": "초기하분포",
+      "kind": "condition",
+      "statement": "비복원 추출의 특별 품목 수는 초기하분포를 따르며 E(X) = nr/N, 분산은 (N − n)/(N − 1)배만큼 작다"
+     },
+     "approx": {
+      "name": "이항분포 근사",
+      "kind": "condition",
+      "statement": "모집단 N이 표본 n보다 매우 크면 초기하분포를 B(n, r/N)으로 근사할 수 있다"
+     }
+    },
+    "confusable": [
+     "binom"
+    ]
+   },
+   "poisson": {
+    "name": "포아송분포",
+    "facets": {
+     "def": {
+      "name": "포아송분포",
+      "kind": "def",
+      "statement": "단위 시간·공간당 사건 수를 모델링하며 평균과 분산이 모두 λ이고, 단위가 바뀌면 λ도 비례해 바뀐다"
+     }
+    }
+   },
+   "multinom": {
+    "name": "다항분포",
+    "facets": {
+     "def": {
+      "name": "다항분포",
+      "kind": "property",
+      "statement": "각 Xi는 주변분포가 B(n, pi)이지만, 합이 n으로 고정되어 X1, …, Xk는 독립이 아니다"
+     }
+    }
+   },
+   "unif": {
+    "name": "균일분포",
+    "facets": {
+     "def": {
+      "name": "균일분포",
+      "kind": "def",
+      "statement": "U(a, b)는 밀도 1/(b − a), E(X) = (a + b)/2, Var(X) = (b − a)²/12이고 길이 δ 구간의 확률은 δ/(b − a)다"
+     }
+    }
+   },
+   "expo": {
+    "name": "지수분포",
+    "facets": {
+     "def": {
+      "name": "지수분포",
+      "kind": "def",
+      "statement": "f(x) = λe^(−λx), F(x) = 1 − e^(−λx)이고 E(X) = 1/λ, Var(X) = 1/λ²라 평균과 표준편차가 같다"
+     },
+     "memoryless": {
+      "name": "무기억성",
+      "kind": "property",
+      "statement": "지수분포는 이미 지난 시간과 상관없이 남은 시간의 분포가 같으며, 이런 연속분포는 지수분포뿐이다"
+     }
+    },
+    "confusable": [
+     "gamma"
+    ]
+   },
+   "pproc": {
+    "name": "포아송 과정",
+    "facets": {
+     "link": {
+      "name": "포아송 과정의 두 얼굴",
+      "kind": "relation",
+      "statement": "사건 간격은 독립 Exp(λ)이고 평균 간격은 1/λ, 길이 t 구간의 사건 수는 P(λt)를 따른다"
+     }
+    },
+    "confusable": [
+     "poisson"
+    ]
+   },
+   "gamma": {
+    "name": "감마분포",
+    "facets": {
+     "def": {
+      "name": "감마분포",
+      "kind": "def",
+      "statement": "E(X) = k/λ, Var(X) = k/λ²이고, 독립 Exp(λ) k개의 합으로 포아송 과정의 k번째 사건까지 시간이다"
+     }
+    },
+    "confusable": [
+     "expo"
+    ]
+   },
+   "weibull": {
+    "name": "와이블분포",
+    "facets": {
+     "def": {
+      "name": "와이블분포",
+      "kind": "def",
+      "statement": "F(x) = 1 − e^(−(λx)^a)에서 a는 모양, λ는 척도 모수이고 a = 1이면 지수분포다"
+     }
+    }
+   },
+   "beta": {
+    "name": "베타분포",
+    "facets": {
+     "def": {
+      "name": "베타분포",
+      "kind": "def",
+      "statement": "베타분포는 0 ≤ x ≤ 1에서 정의되어 비율을 모델링하며 E(X) = a/(a + b)다"
+     }
+    }
+   },
+   "norm": {
+    "name": "정규분포",
+    "facets": {
+     "std": {
+      "name": "표준화와 대칭",
+      "kind": "property",
+      "statement": "Z = (X − μ)/σ ~ N(0, 1)이고 Φ(−x) = 1 − Φ(x)이며, 평균을 바꾸면 위치가, 분산을 바꾸면 퍼짐이 바뀐다"
+     },
+     "rule": {
+      "name": "1·2·3 표준편차 규칙",
+      "kind": "property",
+      "statement": "정규확률변수가 평균에서 1, 2, 3 표준편차 안에 있을 확률은 약 68%, 95%, 99.7%다"
+     },
+     "crit": {
+      "name": "임계점 z_α",
+      "kind": "def",
+      "statement": "z_α는 P(Z ≥ z_α) = α인 값이고 P(|Z| ≤ z_α/2) = 1 − α다"
+     }
+    }
+   },
+   "nlin": {
+    "name": "정규확률변수의 선형결합",
+    "facets": {
+     "lin": {
+      "name": "선형함수와 합",
+      "kind": "property",
+      "statement": "aX + b ~ N(aμ + b, a²σ²)이고 독립이면 X1 ± X2 ~ N(μ1 ± μ2, σ1² + σ2²)다"
+     },
+     "avg": {
+      "name": "독립 정규변수의 평균",
+      "kind": "property",
+      "statement": "Xi ~ N(μ, σ²)가 독립이면 X̄ ~ N(μ, σ²/n)으로 n이 클수록 분산이 줄어든다"
+     }
+    },
+    "confusable": [
+     "clt"
+    ]
+   },
+   "napprox": {
+    "name": "이항분포의 정규근사",
+    "facets": {
+     "cc": {
+      "name": "연속성 보정",
+      "kind": "condition",
+      "statement": "B(n, p)를 N(np, np(1 − p))로 근사하고 P(X ≤ x)는 x + 0.5, P(X ≥ x)는 x − 0.5로 계산한다"
+     },
+     "cond": {
+      "name": "근사의 조건",
+      "kind": "condition",
+      "statement": "정규근사는 np ≥ 5이고 n(1 − p) ≥ 5일 때 잘 맞는다"
+     }
+    },
+    "confusable": [
+     "clt"
+    ]
+   },
+   "clt": {
+    "name": "중심극한정리",
+    "facets": {
+     "def": {
+      "name": "중심극한정리",
+      "kind": "def",
+      "statement": "평균 μ, 분산 σ²인 iid 변수의 평균은 원래 분포와 상관없이 근사적으로 N(μ, σ²/n), 합은 N(nμ, nσ²)다"
+     },
+     "n30": {
+      "name": "표본 크기 규칙",
+      "kind": "condition",
+      "statement": "일반적으로 n ≥ 30이면 근사가 적절하고, 원래 분포가 종 모양에 가까우면 더 작은 n도 된다"
+     }
+    },
+    "confusable": [
+     "nlin"
+    ]
+   },
+   "lognorm": {
+    "name": "로그정규분포",
+    "facets": {
+     "def": {
+      "name": "로그정규분포",
+      "kind": "def",
+      "statement": "ln X ~ N(μ, σ²)이면 X는 로그정규이고 E(X) = e^(μ + σ²/2), 중앙값은 e^μ다"
+     }
+    }
+   },
+   "chisq": {
+    "name": "카이제곱분포",
+    "facets": {
+     "def": {
+      "name": "카이제곱분포",
+      "kind": "def",
+      "statement": "독립 N(0, 1) ν개의 제곱합이며 λ = 1/2, k = ν/2인 감마분포로, 평균 ν, 분산 2ν다"
+     }
+    }
+   },
+   "tdist": {
+    "name": "t분포",
+    "facets": {
+     "def": {
+      "name": "t분포",
+      "kind": "def",
+      "statement": "t_ν = N(0, 1)/√(χ²_ν/ν)이며 0에 대칭이고 표준정규보다 납작하며 ν → ∞이면 N(0, 1)이 된다"
+     },
+     "crit": {
+      "name": "t 임계점",
+      "kind": "property",
+      "statement": "고정된 α에서 t_α,ν는 ν가 커질수록 작아져 z_α에 가까워진다"
+     }
+    },
+    "confusable": [
+     "norm"
+    ]
+   },
+   "fdist": {
+    "name": "F분포",
+    "facets": {
+     "def": {
+      "name": "F분포",
+      "kind": "def",
+      "statement": "F = (χ²_ν1/ν1)/(χ²_ν2/ν2)는 x ≥ 0에서 정의되고, 일반적으로 F_ν1,ν2와 F_ν2,ν1은 다른 분포다"
+     },
+     "recip": {
+      "name": "F 임계점의 역수 관계",
+      "kind": "property",
+      "statement": "F_1−α,ν1,ν2 = 1/F_α,ν2,ν1이다"
+     }
+    }
+   },
+   "popsamp": {
+    "name": "모집단과 표본",
+    "facets": {
+     "def": {
+      "name": "모집단·표본·무작위 표본",
+      "kind": "def",
+      "statement": "표본은 모집단의 특정 부분집합이고, 무작위 표본은 표본이 모집단을 대표하도록 원소를 무작위로 뽑는다"
+     },
+     "vartype": {
+      "name": "연속형과 범주형 자료",
+      "kind": "def",
+      "statement": "수익처럼 수치로 기록되는 자료는 연속형, '불만족/보통/만족' 같은 등급은 범주형으로 분석한다"
+     }
+    }
+   },
+   "datapres": {
+    "name": "자료의 표현",
+    "facets": {
+     "bar": {
+      "name": "막대그래프와 축 절단",
+      "kind": "property",
+      "statement": "빈도축을 0이 아닌 값에서 자르면 막대 높이가 빈도에 비례하지 않아 차이가 과장되어 보인다"
+     },
+     "pareto": {
+      "name": "파레토 차트",
+      "kind": "def",
+      "statement": "범주를 빈도가 큰 순서로 늘어놓은 막대그래프에 누적 백분율 선을 함께 그린다"
+     },
+     "hist": {
+      "name": "히스토그램과 구간 폭",
+      "kind": "property",
+      "statement": "같은 자료라도 구간 폭(bin size)을 바꾸면 히스토그램의 모양이 달라 보인다"
+     }
+    }
+   },
+   "outlier": {
+    "name": "이상치",
+    "facets": {
+     "deal": {
+      "name": "이상치 처리",
+      "kind": "condition",
+      "statement": "이상치를 지울지에 대한 단순한 규칙은 없고, 조사해서 기록 오류인지 특수 조건인지 확인한다"
+     }
+    }
+   },
+   "loc_stat": {
+    "name": "중심 위치의 측도",
+    "facets": {
+     "median": {
+      "name": "표본 중앙값",
+      "kind": "def",
+      "statement": "정렬된 자료의 가운데 값으로, n이 짝수이면 가운데 두 값의 평균을 쓴다"
+     },
+     "skew": {
+      "name": "왜도와 평균·중앙값",
+      "kind": "property",
+      "statement": "양의 왜도(오른쪽 꼬리)면 평균 > 중앙값, 음의 왜도면 평균 < 중앙값, 대칭이면 거의 같다"
+     },
+     "trim": {
+      "name": "절사평균",
+      "kind": "def",
+      "statement": "10% 절사평균은 위·아래 10%씩 제거한 뒤 평균을 내며, 이상치에 둔감한 로버스트 추정량이다"
+     },
+     "mode": {
+      "name": "표본 최빈값",
+      "kind": "def",
+      "statement": "범주형·이산형 자료에서 빈도가 가장 큰 값으로, 확률이 가장 큰 범주/값을 추정한다"
+     }
+    },
+    "confusable": [
+     "spread_stat"
+    ]
+   },
+   "spread_stat": {
+    "name": "산포의 측도",
+    "facets": {
+     "var": {
+      "name": "표본분산",
+      "kind": "def",
+      "statement": "s² = Σ(xi − x̄)²/(n − 1) = (Σxi² − nx̄²)/(n − 1)이고 s는 표본표준편차다"
+     },
+     "quant": {
+      "name": "표본 분위수와 IQR",
+      "kind": "def",
+      "statement": "중앙값은 50번째 백분위수, 사분위수는 25·75번째 백분위수이고 IQR은 두 사분위수의 차다"
+     },
+     "cv": {
+      "name": "변동계수",
+      "kind": "def",
+      "statement": "CV = s/x̄는 단위 없는 양으로 평균 대비 변동을 비교하며, 분포에서는 σ/μ(지수분포는 1)다"
+     }
+    },
+    "confusable": [
+     "loc_stat"
+    ]
+   },
+   "pointest": {
+    "name": "모수와 통계량",
+    "facets": {
+     "param": {
+      "name": "모수",
+      "kind": "def",
+      "statement": "모수 θ는 모집단 확률분포의 성질(μ, σ², 분위수, 범주 확률 등)이며 실제로는 알려져 있지 않다"
+     },
+     "stat": {
+      "name": "통계량과 점추정",
+      "kind": "def",
+      "statement": "통계량은 데이터의 함수로 자체 확률분포를 갖는 확률변수의 관측값이고, 점추정 θ̂는 θ의 최선의 추측이다"
+     }
+    }
+   },
+   "unbias": {
+    "name": "불편추정량",
+    "facets": {
+     "def": {
+      "name": "불편성과 편향",
+      "kind": "def",
+      "statement": "E(θ̂) = θ이면 불편이고 bias = E(θ̂) − θ이며, 다른 조건이 같다면 |bias|가 작을수록 좋다"
+     },
+     "s2": {
+      "name": "표본분산의 분모 n − 1",
+      "kind": "property",
+      "statement": "X̄, p̂ = X/n, S² = Σ(Xi − X̄)²/(n − 1)은 불편이고, 분모로 n을 쓰면 bias = −σ²/n이다"
+     }
+    },
+    "confusable": [
+     "mse"
+    ]
+   },
+   "releff": {
+    "name": "최소분산과 상대효율",
+    "facets": {
+     "def": {
+      "name": "상대효율",
+      "kind": "def",
+      "statement": "불편추정량 θ̂1의 θ̂2에 대한 상대효율은 Var(θ̂2)/Var(θ̂1)이며 분산이 작은 쪽이 더 좋다"
+     },
+     "comb": {
+      "name": "불편추정량의 결합",
+      "kind": "property",
+      "statement": "a + b = 1이면 aĈA + bĈB도 불편이고, 분산이 최소가 되도록 가중치를 고른다"
+     }
+    }
+   },
+   "mse": {
+    "name": "평균제곱오차와 일치성",
+    "facets": {
+     "def": {
+      "name": "평균제곱오차",
+      "kind": "def",
+      "statement": "MSE(θ̂) = E((θ̂ − θ)²) = Var(θ̂) + bias²이고, 불편추정량이면 MSE = Var(θ̂)다"
+     },
+     "consist": {
+      "name": "일치추정량",
+      "kind": "def",
+      "statement": "n이 커질 때 분산이 0으로 가고 불편이거나 편향도 0으로 가면 일치(consistent) 추정량이다"
+     }
+    },
+    "confusable": [
+     "unbias"
+    ]
+   },
+   "sd_prop": {
+    "name": "표본비율의 분포",
+    "facets": {
+     "dist": {
+      "name": "표본비율의 근사분포",
+      "kind": "property",
+      "statement": "X ~ B(n, p)이면 표본비율 p̂ = X/n은 근사적으로 N(p, p(1 − p)/n)을 따른다"
+     },
+     "se": {
+      "name": "표준오차",
+      "kind": "def",
+      "statement": "표준오차는 통계량의 표준편차로 s.e.(p̂) = √(p(1 − p)/n)이고, p 대신 p̂를 넣어 추정한다"
+     }
+    },
+    "confusable": [
+     "napprox"
+    ]
+   },
+   "sd_mean": {
+    "name": "표본평균의 분포",
+    "facets": {
+     "dist": {
+      "name": "표본평균의 근사분포",
+      "kind": "property",
+      "statement": "평균 μ, 분산 σ²인 모집단에서 중심극한정리에 의해 X̄ ≈ N(μ, σ²/n)이다"
+     },
+     "se": {
+      "name": "표본평균의 표준오차",
+      "kind": "property",
+      "statement": "s.e.(X̄) = σ/√n(실제로는 s/√n)이라 표준오차를 절반으로 줄이려면 n을 4배로 해야 한다"
+     }
+    },
+    "confusable": [
+     "clt",
+     "nlin"
+    ]
+   },
+   "sd_var": {
+    "name": "표본분산의 분포",
+    "facets": {
+     "dist": {
+      "name": "척도화된 카이제곱",
+      "kind": "property",
+      "statement": "정규 표본이면 S² ~ σ²χ²_{n−1}/(n − 1)로, 자유도는 n − 1이다"
+     }
+    },
+    "confusable": [
+     "chisq"
+    ]
+   },
+   "tstat": {
+    "name": "t-통계량",
+    "facets": {
+     "def": {
+      "name": "t-통계량",
+      "kind": "def",
+      "statement": "정규 표본이면 √n(X̄ − μ)/S ~ t_{n−1}이므로 σ를 몰라도 μ에 대해 추론할 수 있다"
+     }
+    },
+    "confusable": [
+     "tdist"
+    ]
+   },
+   "mom": {
+    "name": "적률법",
+    "facets": {
+     "one": {
+      "name": "모수 1개 적률법",
+      "kind": "def",
+      "statement": "x̄ = E(X)를 풀어 θ̂를 구한다(예: 포아송 λ̂ = x̄, s.e.(λ̂) = √(λ̂/n))"
+     },
+     "two": {
+      "name": "모수 2개 적률법",
+      "kind": "def",
+      "statement": "x̄ = E(X), s² = Var(X)를 연립해 두 모수를 구한다(예: 베타분포의 a, b)"
+     }
+    },
+    "confusable": [
+     "mle"
+    ]
+   },
+   "mle": {
+    "name": "최대우도추정",
+    "facets": {
+     "def": {
+      "name": "최대우도추정",
+      "kind": "def",
+      "statement": "우도 L = f(x1, θ) × ⋯ × f(xn, θ)를 최대화하는 θ이며, 보통 ln L을 미분해 0으로 놓는다"
+     },
+     "norm": {
+      "name": "정규분포의 MLE",
+      "kind": "property",
+      "statement": "정규분포의 MLE는 μ̂ = x̄, σ̂² = Σ(xi − x̄)²/n으로, 분산 추정의 분모가 n이다"
+     }
+    },
+    "confusable": [
+     "mom"
+    ]
+   }
+  },
+  "misconceptions": {
+   "m_union_always_add": {
+    "facet": "event_ops.union",
+    "belief": "두 사건의 합집합 확률은 언제나 두 확률을 더하면 된다고 생각함",
+    "truth": "겹치는 부분 P(A ∩ B)를 빼야 하며, 더하기만 하는 건 상호배타일 때뿐이다"
+   },
+   "m_demorgan_same_op": {
+    "facet": "event_ops.demorgan",
+    "belief": "여사건을 씌워도 ∪, ∩ 기호는 그대로 둔다고 생각함",
+    "truth": "(A ∪ B)′ = A′ ∩ B′처럼 여사건을 씌우면 ∪와 ∩가 바뀐다"
+   },
+   "m_cond_compl_wrong": {
+    "facet": "cond.compl",
+    "belief": "P(A|B) + P(A|B′) = 1이라고 생각함",
+    "truth": "합이 1인 것은 같은 조건의 P(A|B) + P(A′|B)이다"
+   },
+   "m_cond_symmetric": {
+    "facet": "cond.def",
+    "belief": "P(A|B)와 P(B|A)는 항상 같다고 생각함",
+    "truth": "분모가 각각 P(B), P(A)라서 일반적으로 다르다"
+   },
+   "m_mutex_is_indep": {
+    "facet": "indep.vs_mutex",
+    "belief": "상호배타적인 사건은 서로 영향을 주지 않으니 독립이라고 생각함",
+    "truth": "하나가 일어나면 다른 하나는 일어날 수 없으므로 강하게 종속된다"
+   },
+   "m_norepl_indep": {
+    "facet": "indep.def",
+    "belief": "비복원 추출에서도 앞뒤 추출 결과가 독립이라고 생각함",
+    "truth": "비복원 추출에서는 첫 결과가 두 번째 확률을 바꾸므로 독립이 아니다"
+   },
+   "m_total_any_events": {
+    "facet": "bayes.total",
+    "belief": "전확률 공식은 아무 사건들로 나눠도 쓸 수 있다고 생각함",
+    "truth": "사건들이 상호배타적이고 합집합이 표본공간인 분할이어야 한다"
+   },
+   "m_posterior_all_up": {
+    "facet": "bayes.posterior",
+    "belief": "새 정보가 생기면 모든 원인의 사후확률이 커진다고 생각함",
+    "truth": "사후확률의 합도 1이므로 어떤 원인은 커지고 어떤 원인은 작아진다"
+   },
+   "m_perm_comb_swap": {
+    "facet": "counting.perm_comb",
+    "belief": "순열과 조합의 공식을 서로 바꿔 알고 있다고 생각함",
+    "truth": "순열은 n!/(n−k)!, 조합은 n!/((n−k)!k!)이다"
+   },
+   "m_pdf_is_prob": {
+    "facet": "rv_dist.pdf",
+    "belief": "확률밀도 f(x)도 확률이라 1을 넘을 수 없다고 생각함",
+    "truth": "f(x)는 밀도라 1보다 클 수 있고, 확률은 구간의 넓이다"
+   },
+   "m_sym_needs_unimodal": {
+    "facet": "expect.mean",
+    "belief": "대칭이어도 봉우리가 하나일 때만 평균이 대칭점이라고 생각함",
+    "truth": "밀도가 μ에 대해 대칭이기만 하면 봉우리 수와 상관없이 E(X) = μ다"
+   },
+   "m_mean_is_median": {
+    "facet": "expect.median",
+    "belief": "평균보다 작은 값과 큰 값이 늘 반반이라고 생각함",
+    "truth": "반반으로 나누는 값은 중앙값이며, 꼬리가 긴 분포에서는 평균과 다르다"
+   },
+   "m_same_mean_same_var": {
+    "facet": "variance.def",
+    "belief": "평균이 같으면 퍼짐(분산)도 같다고 생각함",
+    "truth": "평균은 위치, 분산은 퍼짐이라 서로 독립적으로 달라질 수 있다"
+   },
+   "m_cheb_exact": {
+    "facet": "variance.chebyshev",
+    "belief": "체비셰프 부등식이 그 구간의 정확한 확률을 준다고 생각함",
+    "truth": "체비셰프 부등식은 어떤 분포든 성립하는 하한(최소 확률)이다"
+   },
+   "m_marginal_determines": {
+    "facet": "joint.marginal",
+    "belief": "주변분포를 알면 결합분포도 정해진다고 생각함",
+    "truth": "같은 주변분포를 갖는 결합분포가 여러 개일 수 있다"
+   },
+   "m_diff_var_subtract": {
+    "facet": "nlin.lin",
+    "belief": "X1 − X2의 분산은 σ1² − σ2²로 빼야 한다고 생각함",
+    "truth": "독립이면 차의 분산도 σ1² + σ2²로 더한다"
+   },
+   "m_scale_vs_sum": {
+    "facet": "lincomb.linear",
+    "belief": "3X1과 X1 + X2 + X3은 분산도 같다고 생각함",
+    "truth": "Var(3X1) = 9σ²이고, 독립인 세 변수의 합은 3σ²다"
+   },
+   "m_nonlinear_plugin": {
+    "facet": "lincomb.nonlinear",
+    "belief": "E(g(X)) = g(E(X))가 항상 성립한다고 생각함",
+    "truth": "선형 함수에서만 성립하며, 예로 E(X²) − (E(X))² = Var(X) ≥ 0이다"
+   },
+   "m_binom_varying_p": {
+    "facet": "binom.cond",
+    "belief": "시행이 독립이면 성공 확률이 달라도 이항분포라고 생각함",
+    "truth": "이항분포는 성공 확률 p가 모든 시행에서 같아야 한다"
+   },
+   "m_binom_always_sym": {
+    "facet": "binom.shape",
+    "belief": "이항분포는 p와 상관없이 n/2에 대해 대칭이라고 생각함",
+    "truth": "n/2에 대해 대칭인 것은 p = 0.5일 때뿐이다"
+   },
+   "m_geom_counts_successes": {
+    "facet": "geom.def",
+    "belief": "기하분포도 정해진 횟수 안의 성공 횟수를 센다고 생각함",
+    "truth": "기하분포는 첫 성공까지의 시행 횟수를 센다(성공 횟수는 이항분포)"
+   },
+   "m_negbin_mean_rp": {
+    "facet": "geom.def",
+    "belief": "음이항분포의 기대 시행 횟수가 r × p라고 생각함",
+    "truth": "r번째 성공까지 평균 r/p번의 시행이 필요하다"
+   },
+   "m_hyper_with_repl": {
+    "facet": "hyper.def",
+    "belief": "초기하분포는 복원 추출일 때 쓰는 분포라고 생각함",
+    "truth": "복원 추출이면 B(n, r/N), 비복원 추출이면 초기하분포다"
+   },
+   "m_hyper_var_larger": {
+    "facet": "hyper.def",
+    "belief": "비복원 추출이 더 불확실해서 분산이 이항분포보다 크다고 생각함",
+    "truth": "보정계수 (N − n)/(N − 1) ≤ 1이라 분산이 같거나 더 작다"
+   },
+   "m_poisson_rate_unit": {
+    "facet": "poisson.def",
+    "belief": "단위 시간이 바뀌어도 포아송 모수 λ를 그대로 쓴다고 생각함",
+    "truth": "λ는 단위당 평균이므로 주 47명이면 하루 λ = 47/7이다"
+   },
+   "m_multinom_indep": {
+    "facet": "multinom.def",
+    "belief": "다항분포의 각 범주 개수는 서로 독립이라고 생각함",
+    "truth": "합이 n으로 고정되어 한 범주가 많으면 다른 범주는 적어지므로 독립이 아니다"
+   },
+   "m_unif_var_linear": {
+    "facet": "unif.def",
+    "belief": "균일분포의 분산은 구간 길이에 비례해 (b − a)/12라고 생각함",
+    "truth": "분산은 길이의 제곱에 비례하는 (b − a)²/12이다"
+   },
+   "m_expo_mean_lambda": {
+    "facet": "expo.def",
+    "belief": "지수분포의 평균이 λ라고 생각함",
+    "truth": "λ는 단위당 발생률이라 평균 대기시간은 1/λ다"
+   },
+   "m_used_worse": {
+    "facet": "expo.memoryless",
+    "belief": "지수분포에서도 오래 쓴 부품이 앞으로 더 빨리 고장 난다고 생각함",
+    "truth": "무기억성 때문에 지금까지 쓴 시간과 상관없이 남은 수명의 분포가 같다"
+   },
+   "m_gamma_memoryless": {
+    "facet": "expo.memoryless",
+    "belief": "지수분포를 일반화한 감마·와이블도 무기억성이 있다고 생각함",
+    "truth": "무기억성을 가진 연속분포는 지수분포뿐이다"
+   },
+   "m_pproc_mean_not_scaled": {
+    "facet": "pproc.link",
+    "belief": "길이 t 구간의 사건 수 평균도 λ 그대로라고 생각함",
+    "truth": "길이 t 구간의 사건 수는 평균 λt인 포아송분포다"
+   },
+   "m_gamma_var": {
+    "facet": "gamma.def",
+    "belief": "감마분포의 분산이 평균과 같은 k/λ라고 생각함",
+    "truth": "감마분포의 분산은 k/λ²이다"
+   },
+   "m_weibull_param_swap": {
+    "facet": "weibull.def",
+    "belief": "와이블분포에서 λ가 모양, a가 척도 모수라고 생각함",
+    "truth": "a가 모양(shape), λ가 척도(scale) 모수다"
+   },
+   "m_beta_support": {
+    "facet": "beta.def",
+    "belief": "베타분포도 0 이상 전체에서 정의되어 대기시간에 쓴다고 생각함",
+    "truth": "베타분포는 0과 1 사이에서 정의되어 비율을 모델링한다"
+   },
+   "m_var_shifts_center": {
+    "facet": "norm.std",
+    "belief": "정규분포의 분산을 키우면 밀도곡선이 오른쪽으로 이동한다고 생각함",
+    "truth": "분산은 퍼짐만 바꾸고 위치(중심)는 평균이 정한다"
+   },
+   "m_rule_997_two": {
+    "facet": "norm.rule",
+    "belief": "평균 ± 2 표준편차 안에 들어갈 확률이 약 99.7%라고 생각함",
+    "truth": "±2σ는 약 95%, ±3σ가 약 99.7%다"
+   },
+   "m_crit_center_alpha": {
+    "facet": "norm.crit",
+    "belief": "P(|Z| ≤ z_α/2) = α라고 생각함",
+    "truth": "가운데 넓이는 1 − α이고 양쪽 꼬리가 각각 α/2다"
+   },
+   "m_lin_var_a": {
+    "facet": "nlin.lin",
+    "belief": "aX + b의 분산이 aσ²이라고 생각함",
+    "truth": "상수 a는 제곱되어 Var(aX + b) = a²σ²이고 b는 분산에 영향이 없다"
+   },
+   "m_cc_wrong_dir": {
+    "facet": "napprox.cc",
+    "belief": "P(X ≥ x)를 근사할 때도 x + 0.5를 쓴다고 생각함",
+    "truth": "P(X ≥ x)는 x − 0.5부터 넓이를 잡아야 x를 포함한다"
+   },
+   "m_napprox_n_only": {
+    "facet": "napprox.cond",
+    "belief": "n만 크면 p와 상관없이 이항분포를 정규근사할 수 있다고 생각함",
+    "truth": "np ≥ 5, n(1 − p) ≥ 5를 함께 만족해야 근사가 잘 맞는다"
+   },
+   "m_clt_needs_normal": {
+    "facet": "clt.def",
+    "belief": "중심극한정리는 각 Xi가 정규분포일 때만 성립한다고 생각함",
+    "truth": "중심극한정리는 원래 분포와 상관없이 성립한다"
+   },
+   "m_lognorm_mean_emu": {
+    "facet": "lognorm.def",
+    "belief": "로그정규분포의 기대값이 e^μ라고 생각함",
+    "truth": "e^μ는 중앙값이고 기대값은 e^(μ + σ²/2)다"
+   },
+   "m_chisq_var_nu": {
+    "facet": "chisq.def",
+    "belief": "카이제곱분포의 분산도 평균처럼 ν라고 생각함",
+    "truth": "χ²_ν의 평균은 ν, 분산은 2ν다"
+   },
+   "m_t_crit_grows": {
+    "facet": "tdist.crit",
+    "belief": "자유도가 커지면 t 임계점도 커진다고 생각함",
+    "truth": "자유도가 커질수록 t_α,ν는 작아져 z_α에 가까워진다"
+   },
+   "m_f_symmetric_df": {
+    "facet": "fdist.def",
+    "belief": "F_ν1,ν2와 F_ν2,ν1은 같은 분포라고 생각함",
+    "truth": "분자·분모 자유도 순서를 바꾸면 일반적으로 다른 분포다"
+   },
+   "m_d6_rating_continuous": {
+    "facet": "popsamp.vartype",
+    "belief": "순서가 있는 등급 응답은 연속형 변수로 분석해야 한다고 생각함",
+    "truth": "'불만족/보통/만족' 같은 등급은 범주 중 하나를 고르는 자료라 범주형으로 분석한다"
+   },
+   "m_d6_outlier_always_drop": {
+    "facet": "outlier.deal",
+    "belief": "이상치는 오류이므로 조사 없이 항상 지워야 한다고 생각함",
+    "truth": "단순한 규칙은 없고, 조사해서 기록 오류는 고치고 실제 변동인지 외부 영향인지 판단한다"
+   },
+   "m_d6_median_even_single": {
+    "facet": "loc_stat.median",
+    "belief": "n이 짝수일 때도 중앙값은 가운데 한 개의 관측값이라고 생각함",
+    "truth": "n이 짝수이면 가운데 두 값(n = 30이면 15번째와 16번째)의 평균을 쓴다"
+   },
+   "m_d6_skew_direction": {
+    "facet": "loc_stat.skew",
+    "belief": "양의 왜도인 자료에서는 평균이 중앙값보다 작다고 생각함",
+    "truth": "양의 왜도면 큰 값 쪽 꼬리가 평균을 끌어올려 평균 > 중앙값이다"
+   },
+   "m_d6_mode_estimates_mean": {
+    "facet": "loc_stat.mode",
+    "belief": "표본 최빈값은 기대값을 추정한다고 생각함",
+    "truth": "최빈값은 확률이 가장 큰 범주/값을 추정하고, 기대값의 추정은 표본평균이다"
+   },
+   "m_d6_var_divide_n": {
+    "facet": "spread_stat.var",
+    "belief": "표본분산은 편차제곱합을 n으로 나눈다고 생각함",
+    "truth": "표본분산의 분모는 n − 1이다(자유도). n이 크면 n과 n − 1의 차이는 작다"
+   },
+   "m_d6_iqr_is_range": {
+    "facet": "spread_stat.quant",
+    "belief": "IQR은 최댓값과 최솟값의 차이라고 생각함",
+    "truth": "IQR은 위 사분위수(75%)와 아래 사분위수(25%)의 차이다"
+   },
+   "m_d6_cv_bigger_s": {
+    "facet": "spread_stat.cv",
+    "belief": "표준편차가 더 큰 자료는 변동계수도 항상 더 크다고 생각함",
+    "truth": "CV = s/x̄라 평균 대비로 비교한다. 코끼리(s = 150)보다 쥐(s = 1.67)의 CV가 더 크다"
+   },
+   "m_d7_stat_no_dist": {
+    "facet": "pointest.stat",
+    "belief": "통계량은 관측값이 정해져 있으니 확률분포가 없는 상수라고 생각함",
+    "truth": "통계량은 확률변수의 관측값이며 자체 확률분포(표본분포)를 가진다"
+   },
+   "m_d7_ndenom_over": {
+    "facet": "unbias.s2",
+    "belief": "분모를 n으로 쓴 분산 추정량이 σ²를 과대추정한다고 생각함",
+    "truth": "E(σ̂²) = (n − 1)σ²/n < σ²라 bias = −σ²/n으로 과소추정한다"
+   },
+   "m_d7_releff_dir": {
+    "facet": "releff.def",
+    "belief": "상대효율 Var(θ̂2)/Var(θ̂1)이 1보다 작으면 θ̂1이 더 좋다고 생각함",
+    "truth": "비율이 1보다 작으면 Var(θ̂2)가 더 작으므로 θ̂2가 더 좋은 추정량이다"
+   },
+   "m_d7_mse_bias_nosq": {
+    "facet": "mse.def",
+    "belief": "MSE = Var(θ̂) + bias로 편향을 제곱하지 않는다고 생각함",
+    "truth": "MSE = Var(θ̂) + bias²로 편향은 제곱해서 더한다"
+   },
+   "m_d7_unbiased_always": {
+    "facet": "mse.def",
+    "belief": "MSE 기준에서 불편추정량이 편향 추정량보다 항상 낫다고 생각함",
+    "truth": "편향이 있어도 분산이 충분히 작으면 MSE가 더 작아 선호될 수 있다"
+   },
+   "m_d7_se_double_halve": {
+    "facet": "sd_mean.se",
+    "belief": "표준오차를 절반으로 줄이려면 표본 크기를 2배로 하면 된다고 생각함",
+    "truth": "s.e. ∝ 1/√n이므로 n을 2배로 하면 0.71배, 절반으로 하려면 4배가 필요하다"
+   },
+   "m_d7_s2_df_n": {
+    "facet": "sd_var.dist",
+    "belief": "정규 표본의 S²가 자유도 n인 카이제곱으로 표현된다고 생각함",
+    "truth": "S² ~ σ²χ²_{n−1}/(n − 1)로 자유도는 n − 1이다"
+   },
+   "m_d7_mle_var_n1": {
+    "facet": "mle.norm",
+    "belief": "정규분포 σ²의 MLE가 분모 n − 1인 표본분산 s²라고 생각함",
+    "truth": "MLE는 σ̂² = Σ(xi − x̄)²/n으로 분모가 n이다"
+   }
+  }
+ },
+ "chapters": [
+  {
+   "key": "C1",
+   "title": "Ch1 · Probability Theory",
+   "short": "Ch1",
+   "group": ""
+  },
+  {
+   "key": "C2",
+   "title": "Ch2 · Random Variables",
+   "short": "Ch2",
+   "group": ""
+  },
+  {
+   "key": "C3",
+   "title": "Ch3 · Discrete Probability Distributions",
+   "short": "Ch3",
+   "group": ""
+  },
+  {
+   "key": "C4",
+   "title": "Ch4 · Continuous Probability Distributions",
+   "short": "Ch4",
+   "group": ""
+  },
+  {
+   "key": "C5",
+   "title": "Ch5 · Normal Distribution",
+   "short": "Ch5",
+   "group": ""
+  },
+  {
+   "key": "C6",
+   "title": "Ch6 · Descriptive Statistics",
+   "short": "Ch6",
+   "group": ""
+  },
+  {
+   "key": "C7",
+   "title": "Ch7 · Statistical Estimation and Sampling Distributions 1",
+   "short": "Ch7",
+   "group": ""
+  }
+ ],
+ "problems": [
+  {
+   "ext_id": "1-1",
+   "no": "1-1",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "For any event A, P(A) + P(A′) = 1.",
+   "q_sub": "어떤 사건 A든 P(A) + P(A′) = 1이다.",
+   "ox": true,
+   "s": "<p>여사건 A′은 표본공간에서 A에 들어 있지 않은 모든 결과이므로, 둘의 확률을 더하면 표본공간 전체의 확률 1이 됩니다.</p>",
+   "src": [
+    [
+     "C1",
+     "15"
+    ]
+   ],
+   "topic": "prob_basic",
+   "dx": {
+    "facet": "prob_basic.values",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "1-2",
+   "no": "1-2",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "P(A ∪ B) = P(A) + P(B) holds for any two events A and B.",
+   "q_sub": "임의의 두 사건 A, B에 대해 P(A ∪ B) = P(A) + P(B)가 성립한다.",
+   "ox": false,
+   "s": "<p>일반적으로 P(A ∪ B) = P(A) + P(B) − P(A ∩ B)입니다. 두 확률을 더하기만 하면 겹친 부분 A ∩ B가 두 번 세어집니다. P(A) + P(B)로 줄어드는 것은 A와 B가 상호배타적(P(A ∩ B) = 0)일 때뿐입니다.</p><p>함정: 'for any two events'라는 한정어를 놓치기 쉽습니다.</p>",
+   "src": [
+    [
+     "C1",
+     "25"
+    ]
+   ],
+   "topic": "event_ops",
+   "dx": {
+    "facet": "event_ops.union",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_union_always_add"
+   },
+   "fix": "상호배타적일 때만 성립; 일반적으로는 − P(A ∩ B)"
+  },
+  {
+   "ext_id": "1-3",
+   "no": "1-3",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "For any events A and B, P(A ∩ B) + P(A ∩ B′) = P(A).",
+   "q_sub": "임의의 사건 A, B에 대해 P(A ∩ B) + P(A ∩ B′) = P(A)이다.",
+   "ox": true,
+   "s": "<p>A를 'B에도 속하는 부분(A ∩ B)'과 'B에 속하지 않는 부분(A ∩ B′)'으로 나누면, 두 부분은 겹치지 않고 합치면 A가 됩니다. 강의 예: 0.26 + 0.01 = 0.27 = P(A).</p>",
+   "src": [
+    [
+     "C1",
+     "23"
+    ]
+   ],
+   "topic": "event_ops",
+   "dx": {
+    "facet": "event_ops.demorgan",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "1-4",
+   "no": "1-4",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "The complement of the union of A and B satisfies (A ∪ B)′ = A′ ∪ B′.",
+   "q_sub": "A와 B의 합집합의 여사건은 (A ∪ B)′ = A′ ∪ B′를 만족한다.",
+   "ox": false,
+   "s": "<p>A ∪ B에 속하지 않는다는 것은 A에도, B에도 속하지 않는다는 뜻이므로 (A ∪ B)′ = A′ ∩ B′입니다. 반대로 (A ∩ B)′ = A′ ∪ B′입니다.</p><p>함정: 여사건을 씌우면 ∪와 ∩가 서로 바뀝니다.</p>",
+   "src": [
+    [
+     "C1",
+     "26"
+    ]
+   ],
+   "topic": "event_ops",
+   "dx": {
+    "facet": "event_ops.demorgan",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_demorgan_same_op"
+   },
+   "fix": "(A ∪ B)′ = A′ ∩ B′"
+  },
+  {
+   "ext_id": "1-5",
+   "no": "1-5",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "If A1, …, An form a partition of the sample space, each outcome in the sample space is contained in one and only one of the events Ai.",
+   "q_sub": "A1, …, An이 표본공간의 분할이면, 표본공간의 각 결과는 Ai 중 정확히 하나에만 속한다.",
+   "ox": true,
+   "s": "<p>분할은 상호배타적인 사건들이면서 합집합이 표본공간 전체인 경우입니다. 그래서 각 결과는 빠짐없이, 그리고 중복 없이 정확히 하나의 Ai에 속합니다.</p>",
+   "src": [
+    [
+     "C1",
+     "31"
+    ]
+   ],
+   "topic": "event_ops",
+   "dx": {
+    "facet": "event_ops.partition",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "1-6",
+   "no": "1-6",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "If A and B are mutually exclusive and P(B) > 0, then P(A|B) = 0.",
+   "q_sub": "A와 B가 상호배타적이고 P(B) > 0이면 P(A|B) = 0이다.",
+   "ox": true,
+   "s": "<p>A ∩ B = ∅이므로 P(A|B) = P(A ∩ B)/P(B) = 0/P(B) = 0입니다. B가 일어났다는 것을 알면 A는 일어날 수 없습니다.</p>",
+   "src": [
+    [
+     "C1",
+     "37"
+    ]
+   ],
+   "topic": "cond",
+   "dx": {
+    "facet": "cond.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "1-7",
+   "no": "1-7",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "For any events A and B with 0 < P(B) < 1, P(A|B) + P(A|B′) = 1.",
+   "q_sub": "0 < P(B) < 1인 임의의 사건 A, B에 대해 P(A|B) + P(A|B′) = 1이다.",
+   "ox": false,
+   "s": "<p>합이 1이 되는 것은 조건이 같은 P(A|B) + P(A′|B) = 1입니다. 강의 슬라이드는 'P(A|B)와 P(A|B′) 사이에는 일반적인 관계가 없다'고 분명히 말합니다. 예: 강의 그림에서 P(A|B) = 0.464, P(A|B′) = 0.023으로 합이 1이 아닙니다.</p><p>함정: 조건(|B)을 바꾸는 것과 사건(A)을 바꾸는 것을 헷갈리기 쉽습니다.</p>",
+   "src": [
+    [
+     "C1",
+     "39"
+    ]
+   ],
+   "topic": "cond",
+   "dx": {
+    "facet": "cond.compl",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_cond_compl_wrong"
+   },
+   "fix": "합이 1인 것은 P(A|B) + P(A′|B)"
+  },
+  {
+   "ext_id": "1-8",
+   "no": "1-8",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "P(A|B) = P(B|A) for any events A and B with positive probabilities.",
+   "q_sub": "확률이 양수인 임의의 사건 A, B에 대해 P(A|B) = P(B|A)이다.",
+   "ox": false,
+   "s": "<p>P(A|B) = P(A ∩ B)/P(B), P(B|A) = P(A ∩ B)/P(A)로 분자는 같지만 분모가 다릅니다. 둘이 같아지는 것은 P(A) = P(B)일 때뿐입니다. 예: 하트 카드 예제에서 P(B|A) = 3/13이지만 P(A|B) = (3/52)/(3/13) = 1/4입니다.</p>",
+   "src": [
+    [
+     "C1",
+     "37"
+    ],
+    [
+     "C1",
+     "43"
+    ]
+   ],
+   "topic": "cond",
+   "dx": {
+    "facet": "cond.def",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_cond_symmetric"
+   },
+   "fix": "분모가 달라 일반적으로 다름 (P(A) = P(B)일 때만 같음)"
+  },
+  {
+   "ext_id": "1-9",
+   "no": "1-9",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "If P(A|B) = P(A), then it also follows that P(B|A) = P(B) and P(A ∩ B) = P(A)P(B).",
+   "q_sub": "P(A|B) = P(A)이면 P(B|A) = P(B)이고 P(A ∩ B) = P(A)P(B)도 성립한다.",
+   "ox": true,
+   "s": "<p>독립의 세 조건 P(A|B) = P(A), P(B|A) = P(B), P(A ∩ B) = P(A)P(B)는 서로 동치입니다. 하나가 성립하면 나머지 둘도 성립합니다. 해석: 한 사건에 대한 정보가 다른 사건의 확률을 바꾸지 않습니다.</p>",
+   "src": [
+    [
+     "C1",
+     "49"
+    ]
+   ],
+   "topic": "indep",
+   "dx": {
+    "facet": "indep.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "1-10",
+   "no": "1-10",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": true,
+   "q": "Two mutually exclusive events A and B with P(A) > 0 and P(B) > 0 are independent.",
+   "q_sub": "P(A) > 0, P(B) > 0인 두 상호배타적 사건 A, B는 서로 독립이다.",
+   "ox": false,
+   "s": "<p>상호배타적이면 P(A|B) = 0입니다. 그런데 P(A) > 0이므로 P(A|B) ≠ P(A)라서 독립이 아닙니다. 오히려 B가 일어나면 A는 절대 일어나지 않으므로 강하게 종속되어 있습니다. P(A ∩ B) = 0 ≠ P(A)P(B)로도 확인할 수 있습니다.</p><p>함정: '겹치지 않는다(상호배타)'와 '영향을 주지 않는다(독립)'는 다른 개념입니다.</p>",
+   "src": [
+    [
+     "C1",
+     "24"
+    ],
+    [
+     "C1",
+     "37"
+    ],
+    [
+     "C1",
+     "49"
+    ]
+   ],
+   "topic": "indep",
+   "dx": {
+    "facet": "indep.vs_mutex",
+    "depth": 4,
+    "depth_why": "D4d",
+    "mis": "m_mutex_is_indep"
+   },
+   "fix": "P(A|B) = 0 ≠ P(A)이므로 독립이 아님 (종속)"
+  },
+  {
+   "ext_id": "1-11",
+   "no": "1-11",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "When two cards are drawn without replacement from a pack of 52 cards, the events 'the first card is a heart' and 'the second card is a heart' are independent.",
+   "q_sub": "52장 카드에서 비복원으로 두 장을 뽑을 때, '첫 장이 하트'와 '둘째 장이 하트'는 독립이다.",
+   "ox": false,
+   "s": "<p>첫 장이 하트면 남은 51장 중 하트는 12장이므로 P(B|A) = 12/51입니다. 반면 P(B) = 1/4입니다. 12/51 ≠ 1/4이라 독립이 아닙니다. 그래서 일반 곱셈법칙 P(A ∩ B) = P(A)P(B|A) = (13/52)(12/51) = 3/51로 계산합니다.</p><p>함정: 비복원 추출에서는 첫 결과가 두 번째 확률을 바꿉니다.</p>",
+   "src": [
+    [
+     "C1",
+     "48"
+    ],
+    [
+     "C1",
+     "49"
+    ]
+   ],
+   "topic": "indep",
+   "dx": {
+    "facet": "indep.def",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_norepl_indep"
+   },
+   "fix": "P(B|A) = 12/51 ≠ 1/4이므로 독립이 아님"
+  },
+  {
+   "ext_id": "1-12",
+   "no": "1-12",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "The law of total probability, P(B) = P(A1)P(B|A1) + ⋯ + P(An)P(B|An), can be applied with any events A1, …, An, even if they overlap.",
+   "q_sub": "전확률 공식 P(B) = P(A1)P(B|A1) + ⋯ + P(An)P(B|An)은 A1, …, An이 서로 겹쳐도 어떤 사건이든 쓸 수 있다.",
+   "ox": false,
+   "s": "<p>전확률 공식은 A1, …, An이 표본공간의 분할(상호배타적이고 합집합이 표본공간)일 때 성립합니다. 사건이 겹치면 겹친 부분이 두 번 더해지고, 표본공간을 다 덮지 않으면 일부가 빠집니다.</p>",
+   "src": [
+    [
+     "C1",
+     "31"
+    ],
+    [
+     "C1",
+     "58"
+    ]
+   ],
+   "topic": "bayes",
+   "dx": {
+    "facet": "bayes.total",
+    "depth": 3,
+    "depth_why": "D3b",
+    "mis": "m_total_any_events"
+   },
+   "fix": "A1, …, An이 표본공간의 분할일 때만 성립"
+  },
+  {
+   "ext_id": "1-13",
+   "no": "1-13",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "In the car warranty example, once a claim is made, the posterior probability of every plant becomes larger than its prior probability.",
+   "q_sub": "자동차 보증 예제에서 보증 청구가 들어오면, 모든 공장의 사후확률이 사전확률보다 커진다.",
+   "ox": false,
+   "s": "<p>사후확률도 합이 1이므로 모두 커질 수는 없습니다. 강의 예제에서 청구율이 높은 공장 II는 0.24 → 0.384로 커지지만, 청구율이 가장 낮은 공장 III은 0.25 → 0.109로 작아집니다. 청구율이 평균(0.0687)보다 높은 공장은 커지고 낮은 공장은 작아집니다.</p><p>함정: '새 정보 → 확률 증가'로 단순하게 기억하기 쉽습니다.</p>",
+   "src": [
+    [
+     "C1",
+     "61"
+    ],
+    [
+     "C1",
+     "62"
+    ]
+   ],
+   "topic": "bayes",
+   "dx": {
+    "facet": "bayes.posterior",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_posterior_all_up"
+   },
+   "fix": "청구율이 낮은 공장(III)은 사후확률이 작아짐"
+  },
+  {
+   "ext_id": "1-14",
+   "no": "1-14",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "The number of permutations of k objects chosen from n objects is n! / ((n − k)! k!).",
+   "q_sub": "n개 중 k개를 고르는 순열의 수는 n! / ((n − k)! k!)이다.",
+   "ox": false,
+   "s": "<p>n! / ((n − k)! k!)은 순서를 세지 않는 조합의 수입니다. 순서를 세는 순열의 수는 n! / (n − k)! = n(n − 1)⋯(n − k + 1)입니다.</p>",
+   "src": [
+    [
+     "C1",
+     "69"
+    ]
+   ],
+   "topic": "counting",
+   "dx": {
+    "facet": "counting.perm_comb",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_perm_comb_swap"
+   },
+   "fix": "순열은 n!/(n − k)!; 주어진 식은 조합"
+  },
+  {
+   "ext_id": "1-15",
+   "no": "1-15",
+   "chapter": "C1",
+   "kind": "ox",
+   "star": false,
+   "q": "For the same n and k, the number of permutations of k objects from n objects equals k! times the number of combinations.",
+   "q_sub": "같은 n, k에서 n개 중 k개의 순열의 수는 조합의 수의 k!배이다.",
+   "ox": true,
+   "s": "<p>n!/(n − k)! = [n!/((n − k)! k!)] × k!입니다. 하나의 조합(고른 k개)을 줄 세우는 방법이 k!가지이므로 순열 = 조합 × k!입니다.</p>",
+   "src": [
+    [
+     "C1",
+     "69"
+    ]
+   ],
+   "topic": "counting",
+   "dx": {
+    "facet": "counting.perm_comb",
+    "depth": 4,
+    "depth_why": "D4a"
+   }
+  },
+  {
+   "ext_id": "1-16",
+   "no": "1-16",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "An experiment has three outcomes, I, II, and III. If outcome I is three times as likely as outcome II, and outcome II is twice as likely as outcome III, what is P(I)? (Round to 4 decimal places.)",
+   "q_sub": "결과 I, II, III이 있는 실험에서 I은 II의 3배, II는 III의 2배만큼 일어나기 쉽다. P(I)은? (소수 넷째 자리)",
+   "a": "0.6667",
+   "strict": false,
+   "num": 0.6667,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>P(III) = p라 하면 P(II) = 2p, P(I) = 3 × 2p = 6p입니다. 확률의 합이 1이므로 p + 2p + 6p = 9p = 1 → p = 1/9.</p><p>P(I) = 6/9 = 0.6667</p>",
+   "src": [
+    [
+     "C1",
+     "12"
+    ]
+   ],
+   "topic": "prob_basic",
+   "dx": {
+    "facet": "prob_basic.values",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-17",
+   "no": "1-17",
+   "chapter": "C1",
+   "kind": "short",
+   "star": true,
+   "q": "A company's revenue is considerably below expectation with probability 0.10, slightly below with probability 0.17, exactly meets expectation with probability 0.30, is slightly above with probability 0.31, and considerably above with probability 0.12. If revenue is not below expectation, what is the probability that it exactly meets expectation? (Round to 4 decimal places.)",
+   "q_sub": "매출이 기대보다 크게 낮을 확률 0.10, 조금 낮을 0.17, 정확히 맞을 0.30, 조금 높을 0.31, 크게 높을 0.12이다. 매출이 기대보다 낮지 않을 때 정확히 맞을 확률은? (소수 넷째 자리)",
+   "a": "0.4110",
+   "strict": false,
+   "num": 0.411,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>B = 기대보다 낮지 않음 = {정확히 맞음, 조금 높음, 크게 높음} → P(B) = 0.30 + 0.31 + 0.12 = 0.73.</p><p>A = 정확히 맞음은 B에 포함되므로 P(A ∩ B) = 0.30.</p><p>P(A|B) = 0.30 / 0.73 = 0.4110</p>",
+   "src": [
+    [
+     "C1",
+     "44"
+    ]
+   ],
+   "topic": "cond",
+   "dx": {
+    "facet": "cond.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-18",
+   "no": "1-18",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "In a reliability test there is a 35% probability that a computer chip survives more than 500 temperature cycles. If a chip does not survive more than 500 cycles, there is a 68% probability that it was manufactured by company A. What is the probability that a chip is not manufactured by company A and does not survive more than 500 cycles? (Round to 4 decimal places.)",
+   "q_sub": "칩이 500회 넘게 버틸 확률은 35%이다. 500회 넘게 버티지 못한 칩이 A사 제품일 확률은 68%이다. A사 제품이 아니면서 500회 넘게 버티지 못할 확률은? (소수 넷째 자리)",
+   "a": "0.2080",
+   "strict": false,
+   "num": 0.208,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>S′ = 500회 넘게 버티지 못함: P(S′) = 1 − 0.35 = 0.65.</p><p>P(A′|S′) = 1 − 0.68 = 0.32.</p><p>곱셈법칙: P(A′ ∩ S′) = P(S′)P(A′|S′) = 0.65 × 0.32 = 0.2080</p><p>함정: 조건부확률의 여사건은 같은 조건 안에서 1에서 뺍니다.</p>",
+   "src": [
+    [
+     "C1",
+     "44"
+    ],
+    [
+     "C1",
+     "48"
+    ]
+   ],
+   "topic": "indep",
+   "dx": {
+    "facet": "indep.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-19",
+   "no": "1-19",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "A bag contains 40 red balls, 50 blue balls, and 60 green balls, and 2 balls are chosen at random without replacement. What is the probability that the 2 balls chosen have different colors? (Round to 4 decimal places.)",
+   "q_sub": "빨강 40, 파랑 50, 초록 60개가 든 주머니에서 공 2개를 비복원으로 뽑는다. 두 공의 색이 다를 확률은? (소수 넷째 자리)",
+   "a": "0.6622",
+   "strict": false,
+   "num": 0.6622,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>같은 색일 확률을 먼저 구합니다(전체 150개).</p><p>P(둘 다 빨강) = 40/150 × 39/149, P(둘 다 파랑) = 50/150 × 49/149, P(둘 다 초록) = 60/150 × 59/149</p><p>합 = (1560 + 2450 + 3540) / 22350 = 7550/22350 = 0.3378</p><p>P(색이 다름) = 1 − 0.3378 = 0.6622</p><p>함정: 비복원이라 두 번째 분모는 149입니다.</p>",
+   "src": [
+    [
+     "C1",
+     "48"
+    ],
+    [
+     "C1",
+     "56"
+    ]
+   ],
+   "topic": "indep",
+   "dx": {
+    "facet": "indep.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-20",
+   "no": "1-20",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "For each of two companies, revenue is considerably below expectation with probability 0.10, slightly below with 0.17, exactly meets with 0.30, slightly above with 0.31, and considerably above with 0.12. The revenues of the two companies are independent. What is the probability that neither company has a revenue below expectation? (Round to 4 decimal places.)",
+   "q_sub": "두 회사의 매출이 각각 위와 같은 확률(0.10, 0.17, 0.30, 0.31, 0.12)을 가지며 서로 독립이다. 두 회사 모두 매출이 기대보다 낮지 않을 확률은? (소수 넷째 자리)",
+   "a": "0.5329",
+   "strict": false,
+   "num": 0.5329,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>한 회사가 기대보다 낮지 않을 확률 = 0.30 + 0.31 + 0.12 = 0.73.</p><p>독립이므로 P(둘 다 낮지 않음) = 0.73 × 0.73 = 0.5329</p>",
+   "src": [
+    [
+     "C1",
+     "49"
+    ],
+    [
+     "C1",
+     "56"
+    ]
+   ],
+   "topic": "indep",
+   "dx": {
+    "facet": "indep.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-21",
+   "no": "1-21",
+   "chapter": "C1",
+   "kind": "short",
+   "star": true,
+   "q": "After production, a circuit is given a quality score of A, B, C, or D: 70% get A, 15% get B, 10% get C, and 5% get D. The failure rates are 3% for A, 8% for B, 15% for C, and 20% for D. If a circuit failed, what is the probability that it had received a quality score of either C or D? (Round to 4 decimal places.)",
+   "q_sub": "회로의 품질 점수가 A 70%, B 15%, C 10%, D 5%이고 고장률은 각각 3%, 8%, 15%, 20%이다. 고장 난 회로가 C 또는 D 점수였을 확률은? (소수 넷째 자리)",
+   "a": "0.4310",
+   "strict": false,
+   "num": 0.431,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>전확률: P(F) = 0.70×0.03 + 0.15×0.08 + 0.10×0.15 + 0.05×0.20 = 0.021 + 0.012 + 0.015 + 0.010 = 0.058</p><p>베이즈: P(C 또는 D | F) = (0.015 + 0.010) / 0.058 = 0.025 / 0.058 = 0.4310</p><p>함정: 분모에는 네 등급 전체의 고장 확률(전확률)이 들어갑니다.</p>",
+   "src": [
+    [
+     "C1",
+     "58"
+    ],
+    [
+     "C1",
+     "60"
+    ],
+    [
+     "C1",
+     "63"
+    ]
+   ],
+   "topic": "bayes",
+   "dx": {
+    "facet": "bayes.posterior",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-22",
+   "no": "1-22",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "A company's revenue is considerably below expectation with probability 0.10 (the CEO receives a bonus with probability 0.05), slightly below with 0.20 (bonus probability 0.10), exactly meets with 0.25 (bonus probability 0.55), slightly above with 0.33 (bonus probability 0.80), and considerably above with 0.12 (bonus probability 0.95). What is the probability that the CEO receives a bonus? (Round to 4 decimal places.)",
+   "q_sub": "매출이 크게 낮음 0.10(보너스 0.05), 조금 낮음 0.20(0.10), 정확히 맞음 0.25(0.55), 조금 높음 0.33(0.80), 크게 높음 0.12(0.95)일 때 CEO가 보너스를 받을 확률은? (소수 넷째 자리)",
+   "a": "0.5405",
+   "strict": false,
+   "num": 0.5405,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>다섯 경우는 표본공간의 분할이므로 전확률 공식을 씁니다.</p><p>P(bonus) = 0.10×0.05 + 0.20×0.10 + 0.25×0.55 + 0.33×0.80 + 0.12×0.95</p><p>= 0.005 + 0.020 + 0.1375 + 0.264 + 0.114 = 0.5405</p>",
+   "src": [
+    [
+     "C1",
+     "58"
+    ],
+    [
+     "C1",
+     "65"
+    ]
+   ],
+   "topic": "bayes",
+   "dx": {
+    "facet": "bayes.total",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "1-23",
+   "no": "1-23",
+   "chapter": "C1",
+   "kind": "short",
+   "star": false,
+   "q": "A box contains 50 batteries: 6 have low lifetimes, 36 have average lifetimes, and 8 have high lifetimes. A consumer randomly selects 8 batteries from the box. What is the probability that there are exactly 2 low, 4 average, and 2 high lifetime batteries among them? (Round to 4 decimal places.)",
+   "q_sub": "배터리 50개(수명 낮음 6, 보통 36, 높음 8) 중 8개를 무작위로 고른다. 낮음 2개, 보통 4개, 높음 2개일 확률은? (소수 넷째 자리)",
+   "a": "0.0461",
+   "strict": false,
+   "num": 0.0461,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>순서가 상관없으므로 조합을 씁니다.</p><p>P = C(6,2) × C(36,4) × C(8,2) / C(50,8) = 15 × 58905 × 28 / 536878650 = 0.0461</p><p>함정: 분모는 50개 중 8개를 고르는 전체 경우의 수 C(50,8)입니다.</p>",
+   "src": [
+    [
+     "C1",
+     "69"
+    ],
+    [
+     "C1",
+     "70"
+    ],
+    [
+     "C1",
+     "71"
+    ]
+   ],
+   "topic": "counting",
+   "dx": {
+    "facet": "counting.perm_comb",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-1",
+   "no": "2-1",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "Since f(x) gives a probability, a probability density function can never take a value greater than 1.",
+   "q_sub": "f(x)는 확률이므로 확률밀도함수는 1보다 큰 값을 가질 수 없다.",
+   "ox": false,
+   "s": "<p>연속확률변수의 확률은 f(x) 아래의 넓이(적분)이고, f(x) 자체는 밀도라서 확률이 아닙니다. 그래서 1보다 클 수 있습니다. 강의 예: 배터리 고장 시간 f(x) = 2/(x + 1)³은 x = 0에서 2, 금속 실린더 f(x) = 1.5 − 6(x − 50)²은 최댓값이 1.5입니다. 한 점의 확률 P(X = x)는 0입니다.</p><p>함정: 'f(x) ≥ 0'과 '전체 적분 = 1'이 조건이고, f(x) ≤ 1은 조건이 아닙니다.</p>",
+   "src": [
+    [
+     "C2",
+     "21"
+    ],
+    [
+     "C2",
+     "22"
+    ],
+    [
+     "C2",
+     "26"
+    ]
+   ],
+   "topic": "rv_dist",
+   "dx": {
+    "facet": "rv_dist.pdf",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_pdf_is_prob"
+   },
+   "fix": "f(x)는 밀도라 1보다 클 수 있음 (확률은 넓이)"
+  },
+  {
+   "ext_id": "2-2",
+   "no": "2-2",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "For a continuous random variable X, P(a ≤ X ≤ b) = P(a < X < b) = F(b) − F(a).",
+   "q_sub": "연속확률변수 X에서 P(a ≤ X ≤ b) = P(a < X < b) = F(b) − F(a)이다.",
+   "ox": true,
+   "s": "<p>연속확률변수는 한 점의 확률이 0이므로 끝점을 넣든 빼든 확률이 같습니다. 그리고 P(a ≤ X ≤ b) = F(b) − F(a)입니다. 이산확률변수에서는 끝점의 확률이 0이 아닐 수 있어서 이렇게 쓸 수 없습니다.</p>",
+   "src": [
+    [
+     "C2",
+     "21"
+    ],
+    [
+     "C2",
+     "24"
+    ]
+   ],
+   "topic": "rv_dist",
+   "dx": {
+    "facet": "rv_dist.cdf",
+    "depth": 3,
+    "depth_why": "D3b"
+   }
+  },
+  {
+   "ext_id": "2-3",
+   "no": "2-3",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "If the probability density function is known, the cumulative distribution function can be obtained by integration, and conversely the probability density function can be obtained by differentiating the cumulative distribution function.",
+   "q_sub": "확률밀도함수를 알면 적분으로 누적분포함수를 구할 수 있고, 반대로 누적분포함수를 미분하면 확률밀도함수가 된다.",
+   "ox": true,
+   "s": "<p>F(x) = ∫ f(y)dy (아래 끝부터 x까지)이고 f(x) = dF(x)/dx입니다. 둘 중 하나를 알면 다른 하나를 만들 수 있습니다.</p>",
+   "src": [
+    [
+     "C2",
+     "24"
+    ]
+   ],
+   "topic": "rv_dist",
+   "dx": {
+    "facet": "rv_dist.cdf",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "2-4",
+   "no": "2-4",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "If a probability density function is symmetric about a point μ, then E(X) = μ only when the distribution has a single peak at μ.",
+   "q_sub": "확률밀도함수가 점 μ에 대해 대칭이면, 분포가 μ에서 봉우리 하나를 가질 때에만 E(X) = μ이다.",
+   "ox": false,
+   "s": "<p>강의 정의: f(μ + x) = f(μ − x)가 모든 x에서 성립하면 E(X) = μ입니다. 봉우리가 하나든 둘이든(uni-modal, bi-modal) 상관없고, 평균에서 밀도가 가장 높을 필요도 없습니다.</p><p>함정: '대칭 = 가운데가 가장 높다'로 기억하기 쉽습니다.</p>",
+   "src": [
+    [
+     "C2",
+     "35"
+    ]
+   ],
+   "topic": "expect",
+   "dx": {
+    "facet": "expect.mean",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_sym_needs_unimodal"
+   },
+   "fix": "대칭이기만 하면 봉우리 수와 상관없이 E(X) = μ"
+  },
+  {
+   "ext_id": "2-5",
+   "no": "2-5",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "In the battery failure time example, the expected failure time is 1 hour, so half of the batteries fail before 1 hour.",
+   "q_sub": "배터리 고장 시간 예제에서 기대 고장 시간이 1시간이므로, 배터리의 절반은 1시간 전에 고장 난다.",
+   "ox": false,
+   "s": "<p>절반이 고장 나는 시점은 평균이 아니라 중앙값입니다. F(x) = 1 − 1/(x + 1)² = 0.5를 풀면 x = √2 − 1 = 0.414시간(약 25분)입니다. 오래 버티는 배터리가 일부 있어서(오른쪽 꼬리) 평균 1시간이 중앙값보다 훨씬 큽니다.</p><p>함정: 평균과 중앙값을 같은 것으로 보기 쉽습니다.</p>",
+   "src": [
+    [
+     "C2",
+     "36"
+    ],
+    [
+     "C2",
+     "39"
+    ],
+    [
+     "C2",
+     "40"
+    ]
+   ],
+   "topic": "expect",
+   "dx": {
+    "facet": "expect.median",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_mean_is_median"
+   },
+   "fix": "절반이 고장 나는 시점은 중앙값 0.414시간"
+  },
+  {
+   "ext_id": "2-6",
+   "no": "2-6",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "When a distribution has a long tail to the right (toward large values), its mean tends to be larger than its median.",
+   "q_sub": "분포가 오른쪽(큰 값 쪽)으로 꼬리가 길면, 평균이 중앙값보다 큰 경향이 있다.",
+   "ox": true,
+   "s": "<p>평균은 큰 값들에 끌려가지만 중앙값은 순서상 가운데 값이라 덜 움직입니다. 강의의 배터리 예(평균 1 > 중앙값 0.414)와 콘크리트 예(평균 134.1 > 중앙값 133.9)가 이 경우입니다.</p>",
+   "src": [
+    [
+     "C2",
+     "39"
+    ],
+    [
+     "C2",
+     "40"
+    ]
+   ],
+   "topic": "expect",
+   "dx": {
+    "facet": "expect.median",
+    "depth": 4,
+    "depth_why": "D4a"
+   }
+  },
+  {
+   "ext_id": "2-7",
+   "no": "2-7",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "Two distributions with the same mean must also have the same variance.",
+   "q_sub": "평균이 같은 두 분포는 분산도 반드시 같다.",
+   "ox": false,
+   "s": "<p>평균은 분포의 위치, 분산은 평균 주위의 퍼짐을 나타냅니다. 강의 그림처럼 평균은 같지만 분산이 다른 분포, 평균은 다르지만 분산이 같은 분포가 모두 가능합니다.</p>",
+   "src": [
+    [
+     "C2",
+     "44"
+    ],
+    [
+     "C2",
+     "45"
+    ]
+   ],
+   "topic": "variance",
+   "dx": {
+    "facet": "variance.def",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_same_mean_same_var"
+   },
+   "fix": "평균이 같아도 분산은 다를 수 있음"
+  },
+  {
+   "ext_id": "2-8",
+   "no": "2-8",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "Chebyshev's inequality guarantees that, whatever the distribution of X, P(μ − 2σ ≤ X ≤ μ + 2σ) ≥ 0.75.",
+   "q_sub": "체비셰프 부등식에 따르면 X의 분포와 상관없이 P(μ − 2σ ≤ X ≤ μ + 2σ) ≥ 0.75이다.",
+   "ox": true,
+   "s": "<p>P(μ − cσ ≤ X ≤ μ + cσ) ≥ 1 − 1/c²에서 c = 2이면 1 − 1/4 = 0.75입니다. c = 3이면 0.89입니다. 분포의 모양을 몰라도 쓸 수 있습니다.</p>",
+   "src": [
+    [
+     "C2",
+     "50"
+    ],
+    [
+     "C2",
+     "51"
+    ]
+   ],
+   "topic": "variance",
+   "dx": {
+    "facet": "variance.chebyshev",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "2-9",
+   "no": "2-9",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "Chebyshev's inequality gives the exact probability that X lies within c standard deviations of its mean.",
+   "q_sub": "체비셰프 부등식은 X가 평균에서 c 표준편차 안에 있을 정확한 확률을 준다.",
+   "ox": false,
+   "s": "<p>체비셰프 부등식은 '최소한 1 − 1/c²'이라는 하한(lower bound)만 줍니다. 어떤 분포에도 성립하도록 만든 보수적인 값이라, 실제 확률은 보통 더 큽니다. 예: 정규분포에서 2σ 안의 확률은 약 0.95로 0.75보다 큽니다.</p>",
+   "src": [
+    [
+     "C2",
+     "50"
+    ],
+    [
+     "C2",
+     "51"
+    ]
+   ],
+   "topic": "variance",
+   "dx": {
+    "facet": "variance.chebyshev",
+    "depth": 3,
+    "depth_why": "D3b",
+    "mis": "m_cheb_exact"
+   },
+   "fix": "정확한 값이 아니라 하한(≥ 1 − 1/c²)"
+  },
+  {
+   "ext_id": "2-10",
+   "no": "2-10",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "If the marginal distributions of X and Y are known, their joint distribution is uniquely determined.",
+   "q_sub": "X와 Y의 주변분포를 알면 둘의 결합분포가 하나로 정해진다.",
+   "ox": false,
+   "s": "<p>강의: 'the marginal distribution of X and the marginal distribution of Y do not uniquely determine their joint distribution.' 주변분포는 결합분포를 더하거나 적분해 얻지만, 거꾸로는 안 됩니다. 독립일 때만 p_ij = p_i+ × p_+j로 결합분포가 정해집니다.</p>",
+   "src": [
+    [
+     "C2",
+     "68"
+    ],
+    [
+     "C2",
+     "76"
+    ]
+   ],
+   "topic": "joint",
+   "dx": {
+    "facet": "joint.marginal",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_marginal_determines"
+   },
+   "fix": "주변분포만으로는 결합분포가 정해지지 않음"
+  },
+  {
+   "ext_id": "2-11",
+   "no": "2-11",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "If X and Y are independent random variables, then Cov(X, Y) = 0 and Corr(X, Y) = 0.",
+   "q_sub": "X와 Y가 독립이면 Cov(X, Y) = 0이고 Corr(X, Y) = 0이다.",
+   "ox": true,
+   "s": "<p>독립이면 E(XY) = E(X)E(Y)이므로 Cov(X, Y) = E(XY) − E(X)E(Y) = 0이고, 상관계수도 0입니다. 강의: 'independent random variables have a covariance of 0', 'a correlation of 0'.</p>",
+   "src": [
+    [
+     "C2",
+     "77"
+    ]
+   ],
+   "topic": "joint",
+   "dx": {
+    "facet": "joint.cov",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "2-12",
+   "no": "2-12",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "If X1 and X2 are independent random variables, then Var(X1 − X2) = Var(X1) − Var(X2).",
+   "q_sub": "X1과 X2가 독립이면 Var(X1 − X2) = Var(X1) − Var(X2)이다.",
+   "ox": false,
+   "s": "<p>Var(X1 + (−1)X2) = Var(X1) + (−1)²Var(X2) = Var(X1) + Var(X2)입니다. 강의 예: 합과 차의 분산이 모두 2σ²입니다. 강의 요점: 'Adding or subtracting independent random variables increases variability.'</p><p>함정: 기대값은 E(X1 − X2) = E(X1) − E(X2)로 빼지만, 분산은 계수를 제곱하므로 더합니다.</p>",
+   "src": [
+    [
+     "C2",
+     "84"
+    ],
+    [
+     "C2",
+     "86"
+    ],
+    [
+     "C2",
+     "87"
+    ]
+   ],
+   "topic": "lincomb",
+   "dx": {
+    "facet": "lincomb.linear",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_diff_var_subtract"
+   },
+   "fix": "Var(X1 − X2) = Var(X1) + Var(X2)"
+  },
+  {
+   "ext_id": "2-13",
+   "no": "2-13",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "If X1, …, Xn are independent with expectation μ and variance σ², their average X̄ has expectation μ and variance σ²/n.",
+   "q_sub": "X1, …, Xn이 기대값 μ, 분산 σ²로 서로 독립이면 평균 X̄의 기대값은 μ, 분산은 σ²/n이다.",
+   "ox": true,
+   "s": "<p>E(X̄) = (1/n)(μ + ⋯ + μ) = μ, Var(X̄) = (1/n)²(σ² + ⋯ + σ²) = σ²/n입니다. 강의 요점: 'Averaging independent random variables reduces variability.'</p>",
+   "src": [
+    [
+     "C2",
+     "85"
+    ],
+    [
+     "C2",
+     "87"
+    ],
+    [
+     "C2",
+     "88"
+    ]
+   ],
+   "topic": "lincomb",
+   "dx": {
+    "facet": "lincomb.average",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "2-14",
+   "no": "2-14",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "If X1, X2, and X3 are independent, each with mean μ and variance σ², then Y = 3X1 and Z = X1 + X2 + X3 have the same variance.",
+   "q_sub": "X1, X2, X3이 평균 μ, 분산 σ²로 서로 독립이면, Y = 3X1과 Z = X1 + X2 + X3은 분산이 같다.",
+   "ox": false,
+   "s": "<p>평균은 둘 다 3μ로 같습니다. 하지만 Var(3X1) = 3²σ² = 9σ²이고, Var(X1 + X2 + X3) = 3σ²입니다. 같은 변수를 3배 하는 것과 독립인 세 변수를 더하는 것은 퍼짐이 다릅니다.</p>",
+   "src": [
+    [
+     "C2",
+     "82"
+    ],
+    [
+     "C2",
+     "84"
+    ],
+    [
+     "C2",
+     "92"
+    ]
+   ],
+   "topic": "lincomb",
+   "dx": {
+    "facet": "lincomb.linear",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_scale_vs_sum"
+   },
+   "fix": "Var(Y) = 9σ², Var(Z) = 3σ² (평균만 3μ로 같음)"
+  },
+  {
+   "ext_id": "2-15",
+   "no": "2-15",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": false,
+   "q": "For any function g, E(g(X)) = g(E(X)); for example, E(X²) = (E(X))².",
+   "q_sub": "어떤 함수 g든 E(g(X)) = g(E(X))이다. 예를 들어 E(X²) = (E(X))²이다.",
+   "ox": false,
+   "s": "<p>강의: 비선형 함수 Y = g(X)에 대해서는 'no general results that relate the expectation and variance'입니다. 선형일 때만 E(aX + b) = aE(X) + b입니다. 예: E(X²) − (E(X))² = Var(X)이므로 분산이 0이 아니면 E(X²) > (E(X))²입니다.</p>",
+   "src": [
+    [
+     "C2",
+     "44"
+    ],
+    [
+     "C2",
+     "82"
+    ],
+    [
+     "C2",
+     "90"
+    ]
+   ],
+   "topic": "lincomb",
+   "dx": {
+    "facet": "lincomb.nonlinear",
+    "depth": 4,
+    "depth_why": "D4d",
+    "mis": "m_nonlinear_plugin"
+   },
+   "fix": "선형 함수에서만 성립; E(X²) − (E(X))² = Var(X)"
+  },
+  {
+   "ext_id": "2-16",
+   "no": "2-16",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "Four cards are labeled $1, $2, $4, and $5. A player pays $5, selects two cards at random without replacement, and receives the sum of the amounts on the two cards. What is the probability that the net winnings (winnings minus the $5 payment) are positive? (Round to 4 decimal places.)",
+   "q_sub": "$1, $2, $4, $5가 적힌 카드 4장이 있다. $5를 내고 2장을 무작위로 뽑아 적힌 금액의 합을 받는다. 순이익(받은 돈 − 5)이 양수일 확률은? (소수 넷째 자리)",
+   "a": "0.6667",
+   "strict": false,
+   "num": 0.6667,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>두 장을 고르는 경우는 C(4,2) = 6가지로 모두 같은 확률입니다.</p><p>합: 1+2=3, 1+4=5, 1+5=6, 2+4=6, 2+5=7, 4+5=9 → 순이익: −2, 0, 1, 1, 2, 4</p><p>양수인 경우는 4가지 → 4/6 = 0.6667</p><p>함정: 순이익이 0인 경우(1+4)는 양수가 아닙니다.</p>",
+   "src": [
+    [
+     "C2",
+     "17"
+    ]
+   ],
+   "topic": "expect",
+   "dx": {
+    "facet": "expect.mean",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-17",
+   "no": "2-17",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "A random variable X takes values between 0 and 5 with a cumulative distribution function F(x) = x²/25 for 0 ≤ x ≤ 5. What is P(1 ≤ X ≤ 3)? (Round to 4 decimal places.)",
+   "q_sub": "X의 누적분포함수가 0 ≤ x ≤ 5에서 F(x) = x²/25이다. P(1 ≤ X ≤ 3)은? (소수 넷째 자리)",
+   "a": "0.3200",
+   "strict": false,
+   "num": 0.32,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>P(1 ≤ X ≤ 3) = F(3) − F(1) = 9/25 − 1/25 = 8/25 = 0.3200</p>",
+   "src": [
+    [
+     "C2",
+     "24"
+    ],
+    [
+     "C2",
+     "27"
+    ]
+   ],
+   "topic": "rv_dist",
+   "dx": {
+    "facet": "rv_dist.cdf",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-18",
+   "no": "2-18",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "A random variable X has the cumulative distribution function F(x) = x²/25 for 0 ≤ x ≤ 5. What is E(X)? (Round to 4 decimal places.)",
+   "q_sub": "X의 누적분포함수가 0 ≤ x ≤ 5에서 F(x) = x²/25이다. E(X)는? (소수 넷째 자리)",
+   "a": "3.3333",
+   "strict": false,
+   "num": 3.3333,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>먼저 미분해 밀도를 구합니다: f(x) = F′(x) = 2x/25 (0 ≤ x ≤ 5).</p><p>E(X) = ∫₀⁵ x · (2x/25) dx = (2/25)[x³/3]₀⁵ = (2/25)(125/3) = 10/3 = 3.3333</p><p>함정: F(x)에 x를 곱해 적분하면 안 되고, 밀도 f(x)를 써야 합니다.</p>",
+   "src": [
+    [
+     "C2",
+     "24"
+    ],
+    [
+     "C2",
+     "33"
+    ],
+    [
+     "C2",
+     "41"
+    ]
+   ],
+   "topic": "expect",
+   "dx": {
+    "facet": "expect.mean",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-19",
+   "no": "2-19",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "A random variable X has the cumulative distribution function F(x) = x²/25 for 0 ≤ x ≤ 5. What is the interquartile range of X? (Round to 4 decimal places.)",
+   "q_sub": "X의 누적분포함수가 0 ≤ x ≤ 5에서 F(x) = x²/25이다. X의 사분위범위는? (소수 넷째 자리)",
+   "a": "1.8301",
+   "strict": false,
+   "num": 1.8301,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>상위 사분위수: F(x) = 0.75 → x² = 18.75 → x = 4.3301</p><p>하위 사분위수: F(x) = 0.25 → x² = 6.25 → x = 2.5</p><p>사분위범위 = 4.3301 − 2.5 = 1.8301</p>",
+   "src": [
+    [
+     "C2",
+     "55"
+    ],
+    [
+     "C2",
+     "57"
+    ],
+    [
+     "C2",
+     "59"
+    ]
+   ],
+   "topic": "variance",
+   "dx": {
+    "facet": "variance.iqr",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-20",
+   "no": "2-20",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "A random variable X takes the values −1, 2, 3, and 7 with probabilities 1/4, 1/4, 1/3, and 1/6, respectively. What is Var(X)? (Round to 4 decimal places.)",
+   "q_sub": "X가 −1, 2, 3, 7을 각각 확률 1/4, 1/4, 1/3, 1/6로 가진다. Var(X)는? (소수 넷째 자리)",
+   "a": "6.5764",
+   "strict": false,
+   "num": 6.5764,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>E(X) = (−1)(1/4) + 2(1/4) + 3(1/3) + 7(1/6) = 2.4167</p><p>E(X²) = 1(1/4) + 4(1/4) + 9(1/3) + 49(1/6) = 12.4167</p><p>Var(X) = E(X²) − (E(X))² = 12.4167 − 2.4167² = 6.5764</p><p>함정: 반올림한 2.42를 제곱하면 오차가 커지니 분수로 계산하세요.</p>",
+   "src": [
+    [
+     "C2",
+     "44"
+    ],
+    [
+     "C2",
+     "58"
+    ]
+   ],
+   "topic": "variance",
+   "dx": {
+    "facet": "variance.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-21",
+   "no": "2-21",
+   "chapter": "C2",
+   "kind": "short",
+   "star": false,
+   "q": "A random variable has a probability density function f(x) = A(x − 1) over the state space 2 ≤ x ≤ 4. What is the median of the random variable? (Round to 4 decimal places.)",
+   "q_sub": "확률밀도함수가 2 ≤ x ≤ 4에서 f(x) = A(x − 1)이다. 이 확률변수의 중앙값은? (소수 넷째 자리)",
+   "a": "3.2361",
+   "strict": false,
+   "num": 3.2361,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>① A: ∫₂⁴ (x − 1)dx = [x²/2 − x]₂⁴ = 4 − 0 = 4 → A = 1/4</p><p>② F(x) = (1/4)(x²/2 − x) (2 ≤ x ≤ 4, F(2) = 0)</p><p>③ 중앙값: F(x) = 0.5 → x²/2 − x = 2 → x² − 2x − 4 = 0 → x = 1 + √5 = 3.2361 (상태공간 안의 해)</p>",
+   "src": [
+    [
+     "C2",
+     "21"
+    ],
+    [
+     "C2",
+     "39"
+    ],
+    [
+     "C2",
+     "42"
+    ]
+   ],
+   "topic": "expect",
+   "dx": {
+    "facet": "expect.median",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "2-22",
+   "no": "2-22",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "In a relay race each team has four runners. The runners on team A take times with an expectation of 33.5 seconds and a standard deviation of 1.2 seconds, while the runners on team B take times with an expectation of 33.1 seconds and a standard deviation of 1.5 seconds. All eight times are independent. What is the standard deviation of (total time of team A) − (total time of team B)? (Round to 4 decimal places.)",
+   "q_sub": "계주에서 팀마다 4명이 달린다. A팀 주자의 기록은 기대값 33.5초, 표준편차 1.2초, B팀은 33.1초, 1.5초이며 8명 모두 독립이다. (A팀 총시간) − (B팀 총시간)의 표준편차는? (소수 넷째 자리)",
+   "a": "3.8419",
+   "strict": false,
+   "num": 3.8419,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>독립이므로 분산을 더합니다(빼는 쪽도 계수가 (−1)² = 1).</p><p>Var(A 총시간) = 4 × 1.2² = 5.76, Var(B 총시간) = 4 × 1.5² = 9.00</p><p>Var(차) = 5.76 + 9.00 = 14.76 → 표준편차 = √14.76 = 3.8419</p><p>함정: 표준편차끼리 더하거나 빼면 안 되고, 분산으로 바꿔서 더합니다.</p>",
+   "src": [
+    [
+     "C2",
+     "84"
+    ],
+    [
+     "C2",
+     "93"
+    ]
+   ],
+   "topic": "lincomb",
+   "dx": {
+    "facet": "lincomb.linear",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-1",
+   "no": "3-1",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "The number of successes in n independent trials has a binomial distribution even if the success probability changes from trial to trial.",
+   "q_sub": "n번의 독립 시행에서 성공 확률이 시행마다 달라도 성공 횟수는 이항분포를 따른다.",
+   "ox": false,
+   "s": "<p>이항분포의 세 조건은 ① n번의 베르누이 시행 ② 시행끼리 독립 ③ 성공 확률 p가 일정입니다. p가 시행마다 다르면 P(X = x) = C(n, x)p^x(1 − p)^(n−x) 공식을 쓸 수 없습니다.</p><p>함정: 독립만 확인하고 '일정한 p' 조건을 빠뜨리기 쉽습니다.</p>",
+   "src": [
+    [
+     "C3",
+     "4"
+    ],
+    [
+     "C3",
+     "8"
+    ]
+   ],
+   "topic": "binom",
+   "dx": {
+    "facet": "binom.cond",
+    "depth": 3,
+    "depth_why": "D3b",
+    "mis": "m_binom_varying_p"
+   },
+   "fix": "성공 확률 p가 모든 시행에서 같아야 함"
+  },
+  {
+   "ext_id": "3-2",
+   "no": "3-2",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "A B(n, p) distribution is symmetric about n/2 for any value of p.",
+   "q_sub": "B(n, p)는 p 값과 상관없이 n/2에 대해 대칭이다.",
+   "ox": false,
+   "s": "<p>강의: B(n, 0.5)는 어떤 n이든 기대값 n/2에 대해 대칭입니다. 하지만 p ≠ 0.5이면 대칭이 아닙니다. 예: B(8, 1/3)은 왼쪽으로, B(8, 2/3)은 오른쪽으로 치우칩니다. 두 분포는 서로를 거울에 비친 모양입니다.</p>",
+   "src": [
+    [
+     "C3",
+     "10"
+    ],
+    [
+     "C3",
+     "11"
+    ]
+   ],
+   "topic": "binom",
+   "dx": {
+    "facet": "binom.shape",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_binom_always_sym"
+   },
+   "fix": "n/2에 대해 대칭인 것은 p = 0.5일 때뿐"
+  },
+  {
+   "ext_id": "3-3",
+   "no": "3-3",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "If X ~ B(n, p) and Y = X/n is the proportion of successes, then Var(Y) = p(1 − p)/n, so the proportion tends to get closer to p as n increases.",
+   "q_sub": "X ~ B(n, p)이고 성공 비율이 Y = X/n이면 Var(Y) = p(1 − p)/n이므로, n이 커질수록 비율은 p에 가까워지는 경향이 있다.",
+   "ox": true,
+   "s": "<p>E(Y) = E(X)/n = p, Var(Y) = Var(X)/n² = np(1 − p)/n² = p(1 − p)/n입니다. n이 커지면 분산이 줄어 비율이 p 근처에 모입니다. 강의의 동전 80번 던지기 그래프가 이 모습입니다(큰 수의 법칙).</p>",
+   "src": [
+    [
+     "C3",
+     "15"
+    ]
+   ],
+   "topic": "binom",
+   "dx": {
+    "facet": "binom.shape",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "3-4",
+   "no": "3-4",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "A geometric random variable counts the number of successes obtained in a fixed number of independent Bernoulli trials.",
+   "q_sub": "기하확률변수는 정해진 횟수의 독립 베르누이 시행에서 얻은 성공 횟수를 센다.",
+   "ox": false,
+   "s": "<p>정해진 n번 안의 성공 횟수는 이항분포입니다. 기하분포는 첫 번째 성공이 나올 때까지의 시행 횟수(첫 성공 포함)를 세고, P(X = x) = (1 − p)^(x−1)p (x = 1, 2, …)입니다. 강의 메모: 이항(X = 성공 횟수, n = 시행 횟수) → 기하·음이항(r = 성공 횟수, X = 시행 횟수).</p>",
+   "src": [
+    [
+     "C3",
+     "19"
+    ],
+    [
+     "C3",
+     "20"
+    ],
+    [
+     "C3",
+     "21"
+    ]
+   ],
+   "topic": "geom",
+   "dx": {
+    "facet": "geom.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_geom_counts_successes"
+   },
+   "fix": "기하분포는 첫 성공까지의 시행 횟수를 셈 (성공 횟수는 이항분포)"
+  },
+  {
+   "ext_id": "3-5",
+   "no": "3-5",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "If X has a geometric distribution with parameter p, then P(X ≤ x) = 1 − (1 − p)^x.",
+   "q_sub": "X가 모수 p인 기하분포를 따르면 P(X ≤ x) = 1 − (1 − p)^x이다.",
+   "ox": true,
+   "s": "<p>P(X ≤ x) = Σ(1 − p)^(i−1)p (i = 1부터 x까지)인 등비수열의 합이라 1 − (1 − p)^x가 됩니다. 다르게 보면 '처음 x번이 모두 실패'의 여사건입니다.</p>",
+   "src": [
+    [
+     "C3",
+     "20"
+    ],
+    [
+     "C3",
+     "22"
+    ]
+   ],
+   "topic": "geom",
+   "dx": {
+    "facet": "geom.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "3-6",
+   "no": "3-6",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "For a negative binomial distribution with parameters p and r, the expected number of trials up to and including the rth success is r × p.",
+   "q_sub": "모수가 p, r인 음이항분포에서 r번째 성공까지(포함)의 기대 시행 횟수는 r × p이다.",
+   "ox": false,
+   "s": "<p>음이항분포의 기대값은 E(X) = r/p, 분산은 r(1 − p)/p²입니다. 성공 확률이 작을수록 시행이 많이 필요하므로 p로 나눕니다. 예: p = 0.2, r = 3이면 평균 15번입니다.</p><p>함정: 이항분포의 E(X) = np와 섞기 쉽습니다.</p>",
+   "src": [
+    [
+     "C3",
+     "24"
+    ]
+   ],
+   "topic": "geom",
+   "dx": {
+    "facet": "geom.def",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_negbin_mean_rp"
+   },
+   "fix": "E(X) = r/p"
+  },
+  {
+   "ext_id": "3-7",
+   "no": "3-7",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "The geometric distribution is the special case of the negative binomial distribution with r = 1.",
+   "q_sub": "기하분포는 음이항분포에서 r = 1인 특수한 경우이다.",
+   "ox": true,
+   "s": "<p>음이항분포 P(X = x) = C(x − 1, r − 1)(1 − p)^(x−r)p^r에 r = 1을 넣으면 C(x − 1, 0)(1 − p)^(x−1)p = (1 − p)^(x−1)p로 기하분포가 됩니다. 기대값도 r/p = 1/p로 같습니다. 강의: 'The geometric distribution can be generalized to … the rth success.'</p>",
+   "src": [
+    [
+     "C3",
+     "20"
+    ],
+    [
+     "C3",
+     "25"
+    ]
+   ],
+   "topic": "geom",
+   "dx": {
+    "facet": "geom.def",
+    "depth": 4,
+    "depth_why": "D4d"
+   }
+  },
+  {
+   "ext_id": "3-8",
+   "no": "3-8",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "The hypergeometric distribution is the appropriate distribution for the number of special items when n items are chosen with replacement from N items.",
+   "q_sub": "N개 중 n개를 복원 추출할 때 특별 품목의 개수는 초기하분포를 따른다.",
+   "ox": false,
+   "s": "<p>복원 추출이면 매번 특별 품목일 확률이 r/N으로 일정하므로 B(n, r/N)입니다. 비복원 추출이면 성공 확률이 매번 바뀌어 이항분포를 쓸 수 없고, 이때 초기하분포를 씁니다.</p><p>함정: 복원(이항)과 비복원(초기하)을 반대로 기억하기 쉽습니다.</p>",
+   "src": [
+    [
+     "C3",
+     "33"
+    ],
+    [
+     "C3",
+     "34"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_hyper_with_repl"
+   },
+   "fix": "복원 추출이면 B(n, r/N); 초기하분포는 비복원 추출"
+  },
+  {
+   "ext_id": "3-9",
+   "no": "3-9",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "When n items are drawn without replacement from N items of which r are special, the expected number of special items drawn is nr/N, which equals the expectation of the B(n, r/N) distribution.",
+   "q_sub": "특별 품목이 r개인 N개에서 n개를 비복원 추출할 때 뽑힌 특별 품목 수의 기대값은 nr/N이며, 이는 B(n, r/N)의 기대값과 같다.",
+   "ox": true,
+   "s": "<p>초기하분포 E(X) = nr/N이고, B(n, p = r/N)의 기대값 np = n(r/N)과 같습니다. 두 분포는 평균은 같고 분산만 다릅니다.</p>",
+   "src": [
+    [
+     "C3",
+     "8"
+    ],
+    [
+     "C3",
+     "33"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 4,
+    "depth_why": "D4d"
+   }
+  },
+  {
+   "ext_id": "3-10",
+   "no": "3-10",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "For a sample size n ≥ 2, the factor (N − n)/(N − 1) makes the variance of a hypergeometric distribution larger than the variance np(1 − p) of the corresponding binomial distribution with p = r/N.",
+   "q_sub": "표본 크기 n ≥ 2이면 (N − n)/(N − 1)이라는 인수 때문에 초기하분포의 분산이 p = r/N인 이항분포의 분산 np(1 − p)보다 커진다.",
+   "ox": false,
+   "s": "<p>Var(X) = [(N − n)/(N − 1)] × n × (r/N) × (1 − r/N)입니다. n ≥ 1이면 (N − n)/(N − 1) ≤ 1이라 분산은 이항분포보다 같거나 작습니다(n = 1이면 같음). 비복원 추출은 뽑은 정보가 남은 모집단을 알려 주므로 변동이 줄어듭니다.</p>",
+   "src": [
+    [
+     "C3",
+     "33"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_hyper_var_larger"
+   },
+   "fix": "(N − n)/(N − 1) ≤ 1이라 분산은 같거나 더 작음"
+  },
+  {
+   "ext_id": "3-11",
+   "no": "3-11",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "When the population size N is very large compared with the sample size n, a hypergeometric distribution can be approximated by the binomial distribution B(n, r/N).",
+   "q_sub": "모집단 크기 N이 표본 크기 n보다 매우 크면 초기하분포를 이항분포 B(n, r/N)으로 근사할 수 있다.",
+   "ox": true,
+   "s": "<p>강의 예: 물고기 5000마리 중 80마리에 표시가 있고 8마리를 잡으면, 비복원이지만 거의 영향이 없어 B(8, 80/5000 = 0.016)으로 근사합니다. 강의 메모: '초기하 → 이항 근사 가능, 조건: N이 커야 함'.</p>",
+   "src": [
+    [
+     "C3",
+     "37"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.approx",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "3-12",
+   "no": "3-12",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "If a hospital emergency room receives an average of 47 bone fracture patients per week, the number of such patients arriving on a given day can be modeled as a Poisson random variable with λ = 47.",
+   "q_sub": "응급실에 뼈 골절 환자가 일주일에 평균 47명 오면, 하루에 오는 골절 환자 수는 λ = 47인 포아송 확률변수로 모델링할 수 있다.",
+   "ox": false,
+   "s": "<p>λ는 '정한 단위(하루)당 평균 사건 수'입니다. 일주일 47명이 매일 고르게 생긴다고 보면 하루 평균은 47/7 = 6.71명이므로 λ = 6.71입니다.</p><p>함정: 문제의 단위(주)와 묻는 단위(일)가 다른지 확인해야 합니다.</p>",
+   "src": [
+    [
+     "C3",
+     "40"
+    ],
+    [
+     "C3",
+     "43"
+    ]
+   ],
+   "topic": "poisson",
+   "dx": {
+    "facet": "poisson.def",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_poisson_rate_unit"
+   },
+   "fix": "하루 단위이므로 λ = 47/7 = 6.71"
+  },
+  {
+   "ext_id": "3-13",
+   "no": "3-13",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "In a multinomial distribution, the counts X1, …, Xk are independent random variables because the individual trials are independent.",
+   "q_sub": "다항분포에서 각 시행이 독립이므로 개수 X1, …, Xk도 서로 독립인 확률변수이다.",
+   "ox": false,
+   "s": "<p>강의: X1, …, Xk의 기대값은 npi, 분산은 npi(1 − pi)이지만 'they are not independent'입니다. X1 + ⋯ + Xk = n으로 고정되어 있어서, 한 범주의 개수가 많으면 나머지는 적어집니다.</p><p>함정: 시행이 독립인 것과 범주별 개수가 독립인 것은 다릅니다.</p>",
+   "src": [
+    [
+     "C3",
+     "46"
+    ],
+    [
+     "C3",
+     "47"
+    ]
+   ],
+   "topic": "multinom",
+   "dx": {
+    "facet": "multinom.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_multinom_indep"
+   },
+   "fix": "합이 n으로 고정되어 X1, …, Xk는 독립이 아님"
+  },
+  {
+   "ext_id": "3-14",
+   "no": "3-14",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": false,
+   "q": "In a multinomial distribution with n trials and outcome probabilities p1, …, pk, the marginal distribution of each count Xi is B(n, pi).",
+   "q_sub": "시행 n번, 결과 확률 p1, …, pk인 다항분포에서 각 개수 Xi의 주변분포는 B(n, pi)이다.",
+   "ox": true,
+   "s": "<p>Xi는 n번의 시행 중 결과 i가 나온 횟수입니다. 각 시행에서 '결과 i인가 아닌가'만 보면 성공 확률 pi의 베르누이 시행이므로 Xi ~ B(n, pi)이고 E(Xi) = npi입니다.</p>",
+   "src": [
+    [
+     "C3",
+     "47"
+    ]
+   ],
+   "topic": "multinom",
+   "dx": {
+    "facet": "multinom.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "3-15",
+   "no": "3-15",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "An archer hits a bull's-eye with a probability of 0.12, and the results of different attempts are independent. If the archer shoots eight arrows, what is the probability that at least two arrows score bull's-eyes? (Round to 4 decimal places.)",
+   "q_sub": "궁수가 과녁 중앙을 맞힐 확률은 0.12이고 시도는 서로 독립이다. 8발을 쏠 때 적어도 2발이 중앙에 맞을 확률은? (소수 넷째 자리)",
+   "a": "0.2480",
+   "strict": false,
+   "num": 0.248,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>X ~ B(8, 0.12)입니다.</p><p>P(X ≥ 2) = 1 − P(X = 0) − P(X = 1) = 1 − 0.88⁸ − 8(0.12)(0.88⁷) = 1 − 0.3596 − 0.3923 = 0.2480</p><p>함정: '적어도'는 여사건으로 계산하면 빠릅니다.</p>",
+   "src": [
+    [
+     "C3",
+     "8"
+    ],
+    [
+     "C3",
+     "17"
+    ]
+   ],
+   "topic": "binom",
+   "dx": {
+    "facet": "binom.cond",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-16",
+   "no": "3-16",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "An archer hits a bull's-eye with a probability of 0.12, and attempts are independent. What is the probability that the third bull's-eye is scored with the ninth arrow? (Round to 4 decimal places.)",
+   "q_sub": "중앙 적중 확률이 0.12이고 시도는 독립이다. 세 번째 중앙 적중이 9번째 화살에서 나올 확률은? (소수 넷째 자리)",
+   "a": "0.0225",
+   "strict": false,
+   "num": 0.0225,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>음이항분포(r = 3, p = 0.12), x = 9:</p><p>P(X = 9) = C(8, 2)(0.88)⁶(0.12)³ = 28 × 0.4644 × 0.001728 = 0.0225</p><p>의미: 앞의 8발 중 정확히 2발 적중 × 9번째 적중</p><p>함정: 조합은 C(9, 3)이 아니라 C(x − 1, r − 1) = C(8, 2)입니다.</p>",
+   "src": [
+    [
+     "C3",
+     "24"
+    ],
+    [
+     "C3",
+     "25"
+    ],
+    [
+     "C3",
+     "30"
+    ]
+   ],
+   "topic": "geom",
+   "dx": {
+    "facet": "geom.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-17",
+   "no": "3-17",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "A supply container dropped from an aircraft hits a target with a probability of 0.40. Hits from three containers are required to provide sufficient supplies. What is the probability that sufficient supplies are provided by eight container drops? (Round to 4 decimal places.)",
+   "q_sub": "투하한 보급 상자가 목표에 맞을 확률은 0.40이고, 3개가 맞아야 보급이 충분하다. 8번 투하 안에 보급이 충분해질 확률은? (소수 넷째 자리)",
+   "a": "0.6846",
+   "strict": false,
+   "num": 0.6846,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>'8번 안에 3번째 적중' = '8번 중 적중이 3번 이상'입니다. Y ~ B(8, 0.4)로 계산합니다.</p><p>P(Y ≥ 3) = 1 − [P(0) + P(1) + P(2)] = 1 − [0.0168 + 0.0896 + 0.2090] = 0.6846</p><p>(음이항 확률 P(X = 3) + ⋯ + P(X = 8)을 더해도 같습니다.)</p>",
+   "src": [
+    [
+     "C3",
+     "24"
+    ],
+    [
+     "C3",
+     "31"
+    ],
+    [
+     "C3",
+     "32"
+    ]
+   ],
+   "topic": "geom",
+   "dx": {
+    "facet": "geom.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-18",
+   "no": "3-18",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "A plate has 16 cupcakes on it, of which 10 are chocolate and 6 are strawberry. A child randomly selects 5 of the cupcakes and eats them. What is the probability that the number of chocolate cupcakes remaining on the plate is between 6 and 8 inclusive? (Round to 4 decimal places.)",
+   "q_sub": "컵케이크 16개(초콜릿 10, 딸기 6) 중 아이가 5개를 무작위로 골라 먹는다. 접시에 남은 초콜릿 컵케이크가 6개 이상 8개 이하일 확률은? (소수 넷째 자리)",
+   "a": "0.9066",
+   "strict": false,
+   "num": 0.9066,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>먹은 초콜릿 수 X ~ 초기하(N = 16, r = 10, n = 5)입니다. 남은 초콜릿 = 10 − X가 6~8이려면 X = 2, 3, 4입니다.</p><p>P = [C(10,2)C(6,3) + C(10,3)C(6,2) + C(10,4)C(6,1)] / C(16,5) = (900 + 1800 + 1260)/4368 = 0.9066</p><p>함정: '남은 개수'를 '먹은 개수'로 바꿔 범위를 다시 잡아야 합니다.</p>",
+   "src": [
+    [
+     "C3",
+     "33"
+    ],
+    [
+     "C3",
+     "38"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-19",
+   "no": "3-19",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "If X ~ P(2.6), calculate P(X = 1 | X ≤ 2). (Round to 4 decimal places.)",
+   "q_sub": "X ~ P(2.6)일 때 P(X = 1 | X ≤ 2)를 구하시오. (소수 넷째 자리)",
+   "a": "0.3725",
+   "strict": false,
+   "num": 0.3725,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>P(X = k) = e^(−2.6) 2.6^k / k!</p><p>P(0) = 0.0743, P(1) = 0.1931, P(2) = 0.2510</p><p>P(X = 1 | X ≤ 2) = P(1)/[P(0) + P(1) + P(2)] = 0.1931/0.5184 = 0.3725 (e^(−2.6)은 약분돼 1/(1 + 2.6 + 3.38)로 계산해도 같음)</p>",
+   "src": [
+    [
+     "C3",
+     "41"
+    ],
+    [
+     "C3",
+     "44"
+    ]
+   ],
+   "topic": "poisson",
+   "dx": {
+    "facet": "poisson.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-20",
+   "no": "3-20",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "A box contains 600 electrical switches, each of which has a probability of 0.004 of being defective. Use the Poisson approximation to calculate the probability that the box contains no more than 3 defective switches. (Round to 4 decimal places.)",
+   "q_sub": "스위치 600개가 든 상자에서 각 스위치가 불량일 확률은 0.004이다. 포아송 근사로 불량이 3개 이하일 확률을 구하시오. (소수 넷째 자리)",
+   "a": "0.7787",
+   "strict": false,
+   "num": 0.7787,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>n이 크고 p가 작으므로 λ = np = 600 × 0.004 = 2.4인 포아송으로 근사합니다.</p><p>P(X ≤ 3) = e^(−2.4)(1 + 2.4 + 2.4²/2 + 2.4³/6) = 0.0907 × 8.584 = 0.7787</p><p>(이항분포로 정확히 계산하면 0.7790으로 거의 같습니다.)</p>",
+   "src": [
+    [
+     "C3",
+     "44"
+    ]
+   ],
+   "topic": "poisson",
+   "dx": {
+    "facet": "poisson.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "3-21",
+   "no": "3-21",
+   "chapter": "C3",
+   "kind": "short",
+   "star": false,
+   "q": "A garage sells three types of tires: a customer purchases type A with probability 0.25, type B with probability 0.45, and type C with probability 0.30. What is the probability that the next 10 customers purchase three sets of type A, five sets of type B, and two sets of type C? (Round to 4 decimal places.)",
+   "q_sub": "타이어 A, B, C를 살 확률이 각각 0.25, 0.45, 0.30이다. 다음 고객 10명이 A 3세트, B 5세트, C 2세트를 살 확률은? (소수 넷째 자리)",
+   "a": "0.0654",
+   "strict": false,
+   "num": 0.0654,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>다항분포: P = 10!/(3! 5! 2!) × 0.25³ × 0.45⁵ × 0.30² = 2520 × 0.015625 × 0.018453 × 0.09 = 0.0654</p>",
+   "src": [
+    [
+     "C3",
+     "46"
+    ],
+    [
+     "C3",
+     "51"
+    ]
+   ],
+   "topic": "multinom",
+   "dx": {
+    "facet": "multinom.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-1",
+   "no": "4-1",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "If X ~ U(a, b), then Var(X) = (b − a)/12.",
+   "q_sub": "X ~ U(a, b)이면 Var(X) = (b − a)/12이다.",
+   "ox": false,
+   "s": "<p>Var(X) = E(X²) − (E(X))² = (a² + ab + b²)/3 − (a + b)²/4 = (b − a)²/12입니다. 분산은 구간 길이의 제곱에 비례합니다. 강의 예: U(0, 10)이면 분산 100/12 = 8.33, 표준편차 2.89입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "3"
+    ],
+    [
+     "C4",
+     "6"
+    ],
+    [
+     "C4",
+     "7"
+    ]
+   ],
+   "topic": "unif",
+   "dx": {
+    "facet": "unif.def",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_unif_var_linear"
+   },
+   "fix": "Var(X) = (b − a)²/12"
+  },
+  {
+   "ext_id": "4-2",
+   "no": "4-2",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "If X ~ U(a, b), the probability that X falls within any interval of length δ contained in [a, b] is δ/(b − a), wherever the interval is located.",
+   "q_sub": "X ~ U(a, b)이면 [a, b] 안에 있는 길이 δ인 어느 구간에 X가 들어갈 확률은 구간의 위치와 상관없이 δ/(b − a)이다.",
+   "ox": true,
+   "s": "<p>밀도가 1/(b − a)로 평평하므로 확률(넓이) = 높이 × 길이 = δ/(b − a)입니다. 강의: X는 a와 b 사이 어디든 'equally likely'합니다.</p>",
+   "src": [
+    [
+     "C4",
+     "5"
+    ]
+   ],
+   "topic": "unif",
+   "dx": {
+    "facet": "unif.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "4-3",
+   "no": "4-3",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "For an exponential distribution with parameter λ, the expectation is λ and the variance is λ².",
+   "q_sub": "모수 λ인 지수분포의 기대값은 λ, 분산은 λ²이다.",
+   "ox": false,
+   "s": "<p>E(X) = 1/λ, Var(X) = 1/λ²입니다. λ는 단위 시간당 사건 발생률이라, 발생률이 클수록 기다리는 시간은 짧아집니다. 예: 평균 20일 걸리면 λ = 1/20 = 0.05입니다.</p><p>함정: 포아송분포는 평균이 λ지만, 지수분포는 평균이 1/λ입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "11"
+    ],
+    [
+     "C4",
+     "12"
+    ],
+    [
+     "C4",
+     "19"
+    ]
+   ],
+   "topic": "expo",
+   "dx": {
+    "facet": "expo.def",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_expo_mean_lambda"
+   },
+   "fix": "E(X) = 1/λ, Var(X) = 1/λ²"
+  },
+  {
+   "ext_id": "4-4",
+   "no": "4-4",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "For an exponential distribution, the expectation and the standard deviation are equal.",
+   "q_sub": "지수분포에서는 기대값과 표준편차가 같다.",
+   "ox": true,
+   "s": "<p>E(X) = 1/λ이고 표준편차 = √(1/λ²) = 1/λ이라 둘이 같습니다. 그래서 변동계수(CV = σ/μ)가 1입니다(강의 필기).</p>",
+   "src": [
+    [
+     "C4",
+     "11"
+    ],
+    [
+     "C4",
+     "12"
+    ]
+   ],
+   "topic": "expo",
+   "dx": {
+    "facet": "expo.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "4-5",
+   "no": "4-5",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "Suppose the lifetime of a component has an exponential distribution. If the component has already worked for 100 hours, the probability that it lasts at least another 50 hours is smaller than the probability that a brand-new component lasts at least 50 hours.",
+   "q_sub": "부품 수명이 지수분포를 따른다. 이미 100시간 작동한 부품이 앞으로 50시간 이상 버틸 확률은 새 부품이 50시간 이상 버틸 확률보다 작다.",
+   "ox": false,
+   "s": "<p>무기억성: P(X ≥ 100 + 50 | X ≥ 100) = e^(−λ·150)/e^(−λ·100) = e^(−λ·50) = P(X ≥ 50)입니다. 지수분포는 이미 지난 시간을 '잊고' 새것처럼 다시 시작하므로 두 확률은 같습니다.</p><p>함정: 실제 마모되는 부품을 떠올리면 '오래 쓰면 더 빨리 고장'이라고 생각하기 쉽지만, 지수분포 모델에서는 그렇지 않습니다.</p>",
+   "src": [
+    [
+     "C4",
+     "14"
+    ],
+    [
+     "C4",
+     "15"
+    ]
+   ],
+   "topic": "expo",
+   "dx": {
+    "facet": "expo.memoryless",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_used_worse"
+   },
+   "fix": "무기억성 때문에 두 확률은 같음 (e^(−50λ))"
+  },
+  {
+   "ext_id": "4-6",
+   "no": "4-6",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "Since the gamma and Weibull distributions are generalizations of the exponential distribution, they also possess the memoryless property.",
+   "q_sub": "감마분포와 와이블분포는 지수분포를 일반화한 것이므로 무기억성도 가진다.",
+   "ox": false,
+   "s": "<p>강의: 감마분포와 와이블분포는 지수분포의 일반화지만 'do not possess this memoryless property'입니다. 무기억성을 가진 연속분포는 지수분포뿐입니다. 그래서 무기억성이 맞지 않는 대기시간에는 감마·와이블이 더 적합할 수 있습니다.</p>",
+   "src": [
+    [
+     "C4",
+     "15"
+    ]
+   ],
+   "topic": "expo",
+   "dx": {
+    "facet": "expo.memoryless",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_gamma_memoryless"
+   },
+   "fix": "무기억성을 가진 연속분포는 지수분포뿐"
+  },
+  {
+   "ext_id": "4-7",
+   "no": "4-7",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "In a Poisson process with parameter λ, the number of events occurring in a time interval of length t has a Poisson distribution with mean λ.",
+   "q_sub": "모수 λ인 포아송 과정에서 길이 t인 시간 구간에 일어나는 사건 수는 평균 λ인 포아송분포를 따른다.",
+   "ox": false,
+   "s": "<p>길이 t 구간의 사건 수는 X ~ P(λt)입니다. 단위 길이당 평균이 λ이므로 길이 t면 평균 λt입니다. 강의 예: 균열이 1m당 λ = 4.3이면 25cm 구간의 균열 수는 P(4.3 × 0.25 = 1.075)입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "17"
+    ],
+    [
+     "C4",
+     "18"
+    ],
+    [
+     "C4",
+     "23"
+    ]
+   ],
+   "topic": "pproc",
+   "dx": {
+    "facet": "pproc.link",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_pproc_mean_not_scaled"
+   },
+   "fix": "평균 λt인 포아송분포 P(λt)"
+  },
+  {
+   "ext_id": "4-8",
+   "no": "4-8",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "In a Poisson process with parameter λ, the times between successive events are independent exponential random variables with parameter λ, so the expected waiting time between two events is 1/λ.",
+   "q_sub": "모수 λ인 포아송 과정에서 연속된 사건 사이의 시간은 모수 λ인 독립 지수확률변수이므로, 두 사건 사이의 기대 대기시간은 1/λ이다.",
+   "ox": true,
+   "s": "<p>포아송 과정은 사건 간격이 독립이고 동일한 Exp(λ) 분포를 따르는 과정으로 정의됩니다. 그래서 평균 간격은 1/λ입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "16"
+    ],
+    [
+     "C4",
+     "18"
+    ]
+   ],
+   "topic": "pproc",
+   "dx": {
+    "facet": "pproc.link",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "4-9",
+   "no": "4-9",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "In a Poisson process with parameter λ, the time taken until the kth event occurs has a gamma distribution with parameters k and λ.",
+   "q_sub": "모수 λ인 포아송 과정에서 k번째 사건이 일어날 때까지 걸린 시간은 모수가 k, λ인 감마분포를 따른다.",
+   "ox": true,
+   "s": "<p>k번째 사건까지의 시간은 첫 사건까지의 시간과 그 뒤 k − 1개 간격의 합, 즉 독립 Exp(λ) k개의 합입니다. 강의: 정수 k에 대해 X1 + ⋯ + Xk는 감마(k, λ) 분포를 따릅니다. 예: 다섯 번째 균열까지의 거리 ~ Gamma(k = 5, λ = 4.3).</p>",
+   "src": [
+    [
+     "C4",
+     "31"
+    ],
+    [
+     "C4",
+     "35"
+    ]
+   ],
+   "topic": "gamma",
+   "dx": {
+    "facet": "gamma.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "4-10",
+   "no": "4-10",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "If X has a gamma distribution with parameters k and λ, then E(X) = k/λ and Var(X) = k/λ, so the mean and the variance are equal.",
+   "q_sub": "X가 모수 k, λ인 감마분포를 따르면 E(X) = k/λ, Var(X) = k/λ로 평균과 분산이 같다.",
+   "ox": false,
+   "s": "<p>감마분포는 E(X) = k/λ, Var(X) = k/λ²입니다. 독립 Exp(λ) k개의 합으로 보면 평균 k × (1/λ), 분산 k × (1/λ²)입니다.</p><p>함정: 평균과 분산이 같은 것은 포아송분포입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "29"
+    ]
+   ],
+   "topic": "gamma",
+   "dx": {
+    "facet": "gamma.def",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_gamma_var"
+   },
+   "fix": "Var(X) = k/λ²"
+  },
+  {
+   "ext_id": "4-11",
+   "no": "4-11",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "A Weibull distribution with shape parameter a = 1 is an exponential distribution with parameter λ.",
+   "q_sub": "모양 모수 a = 1인 와이블분포는 모수 λ인 지수분포이다.",
+   "ox": true,
+   "s": "<p>F(x) = 1 − e^(−(λx)^a)에 a = 1을 넣으면 1 − e^(−λx)로 지수분포의 CDF가 됩니다. 강의: 'taking a = 1 gives the exponential distribution as a special case.'</p>",
+   "src": [
+    [
+     "C4",
+     "39"
+    ],
+    [
+     "C4",
+     "40"
+    ]
+   ],
+   "topic": "weibull",
+   "dx": {
+    "facet": "weibull.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "4-12",
+   "no": "4-12",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "In the Weibull distribution with parameters a and λ, λ is the shape parameter and a is the scale parameter.",
+   "q_sub": "모수가 a, λ인 와이블분포에서 λ는 모양 모수, a는 척도 모수이다.",
+   "ox": false,
+   "s": "<p>강의: 'λ is called the scale parameter of the distribution, and a is called the shape parameter.' a를 바꾸면 밀도함수의 모양이 크게 달라지고, λ는 가로축의 척도를 바꿉니다.</p>",
+   "src": [
+    [
+     "C4",
+     "39"
+    ],
+    [
+     "C4",
+     "41"
+    ]
+   ],
+   "topic": "weibull",
+   "dx": {
+    "facet": "weibull.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_weibull_param_swap"
+   },
+   "fix": "a가 모양(shape), λ가 척도(scale) 모수"
+  },
+  {
+   "ext_id": "4-13",
+   "no": "4-13",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "The beta distribution is defined for all x ≥ 0 and is mainly used to model waiting times and failure times.",
+   "q_sub": "베타분포는 x ≥ 0 전체에서 정의되며 주로 대기시간과 고장 시간을 모델링하는 데 쓴다.",
+   "ox": false,
+   "s": "<p>베타분포는 0 ≤ x ≤ 1에서 정의되어 비율(proportion)을 모델링하는 데 유용합니다. 0 이상 전체에서 대기·고장 시간을 모델링하는 것은 지수·감마·와이블분포입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "46"
+    ]
+   ],
+   "topic": "beta",
+   "dx": {
+    "facet": "beta.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_beta_support"
+   },
+   "fix": "베타분포는 0 ≤ x ≤ 1에서 정의되어 비율을 모델링"
+  },
+  {
+   "ext_id": "4-14",
+   "no": "4-14",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": false,
+   "q": "A beta distribution with parameters a = b has expectation 1/2.",
+   "q_sub": "모수가 a = b인 베타분포의 기대값은 1/2이다.",
+   "ox": true,
+   "s": "<p>E(X) = a/(a + b) = a/(2a) = 1/2입니다. a = b이면 밀도함수가 1/2에 대해 대칭이기도 합니다(강의 그림의 a = b = 2, a = b = 0.5).</p>",
+   "src": [
+    [
+     "C4",
+     "46"
+    ],
+    [
+     "C4",
+     "49"
+    ]
+   ],
+   "topic": "beta",
+   "dx": {
+    "facet": "beta.def",
+    "depth": 4,
+    "depth_why": "D4a"
+   }
+  },
+  {
+   "ext_id": "4-15",
+   "no": "4-15",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "A metal pin has a diameter that is uniformly distributed between 4.181 mm and 4.186 mm. Given that a pin fits into a hole with a diameter of 4.184 mm (i.e., the pin diameter is at most 4.184 mm), what is the conditional probability that the difference between the diameter of the hole and the diameter of the pin is less than 0.0005 mm? (Round to 4 decimal places.)",
+   "q_sub": "핀의 지름이 4.181mm와 4.186mm 사이의 균일분포를 따른다. 핀이 지름 4.184mm 구멍에 들어간다는 조건(핀 지름 ≤ 4.184mm)에서 구멍과 핀의 지름 차이가 0.0005mm보다 작을 확률은? (소수 넷째 자리)",
+   "a": "0.1667",
+   "strict": false,
+   "num": 0.1667,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>들어감 = X ≤ 4.184: P = (4.184 − 4.181)/0.005 = 0.6</p><p>차이 < 0.0005 이고 들어감 = 4.1835 < X ≤ 4.184: P = 0.0005/0.005 = 0.1</p><p>조건부확률 = 0.1/0.6 = 0.1667 (길이의 비 0.0005/0.003과 같음)</p>",
+   "src": [
+    [
+     "C4",
+     "5"
+    ],
+    [
+     "C4",
+     "8"
+    ]
+   ],
+   "topic": "unif",
+   "dx": {
+    "facet": "unif.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-16",
+   "no": "4-16",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "Employees' evaluation scores are independent and uniformly distributed between 50 and 100. If eight employees take the evaluation, what is the probability that half of them score more than 80 and half less? (Round to 4 decimal places.)",
+   "q_sub": "평가 점수가 50과 100 사이의 균일분포를 따르고 서로 독립이다. 8명이 평가를 받을 때 절반은 80점 초과, 절반은 미만일 확률은? (소수 넷째 자리)",
+   "a": "0.2322",
+   "strict": false,
+   "num": 0.2322,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>한 명이 80점 초과일 확률 p = (100 − 80)/50 = 0.4</p><p>80점 초과 인원 ~ B(8, 0.4) → P(4명) = C(8,4)(0.4)⁴(0.6)⁴ = 70 × 0.0256 × 0.1296 = 0.2322</p>",
+   "src": [
+    [
+     "C4",
+     "5"
+    ],
+    [
+     "C4",
+     "9"
+    ]
+   ],
+   "topic": "unif",
+   "dx": {
+    "facet": "unif.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-17",
+   "no": "4-17",
+   "chapter": "C4",
+   "kind": "short",
+   "star": true,
+   "q": "Imperfections in an optical fiber occur according to a Poisson process, and the distance between imperfections has an exponential distribution with parameter λ = 1.5 per meter. What is the probability that a 2-meter stretch of fiber has no more than three imperfections? (Round to 4 decimal places.)",
+   "q_sub": "광섬유의 결함은 포아송 과정을 따르고 결함 사이 거리는 λ = 1.5/m인 지수분포다. 2m 구간에 결함이 3개 이하일 확률은? (소수 넷째 자리)",
+   "a": "0.6472",
+   "strict": false,
+   "num": 0.6472,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>2m 구간의 결함 수 ~ P(λt) = P(1.5 × 2 = 3)</p><p>P(X ≤ 3) = e^(−3)(1 + 3 + 9/2 + 27/6) = e^(−3) × 13 = 0.6472</p><p>함정: 평균은 λ = 1.5가 아니라 λt = 3입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "18"
+    ],
+    [
+     "C4",
+     "25"
+    ]
+   ],
+   "topic": "pproc",
+   "dx": {
+    "facet": "pproc.link",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-18",
+   "no": "4-18",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "Components have independent failure times that follow an exponential distribution with λ = 0.005 per day. If a box contains twelve components, what is the probability that at least ten of them last longer than 120 days? (Round to 4 decimal places.)",
+   "q_sub": "부품 고장 시간이 λ = 0.005/일인 지수분포를 따르고 서로 독립이다. 상자 안 12개 중 적어도 10개가 120일보다 오래 버틸 확률은? (소수 넷째 자리)",
+   "a": "0.0414",
+   "strict": false,
+   "num": 0.0414,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>한 부품이 120일보다 오래 버틸 확률 p = e^(−0.005 × 120) = e^(−0.6) = 0.5488</p><p>오래 버티는 개수 ~ B(12, 0.5488)</p><p>P(≥ 10) = P(10) + P(11) + P(12) = 0.0414</p><p>함정: 지수분포로 p를 구한 뒤 이항분포로 넘어가는 두 단계 문제입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "11"
+    ],
+    [
+     "C4",
+     "26"
+    ]
+   ],
+   "topic": "expo",
+   "dx": {
+    "facet": "expo.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-19",
+   "no": "4-19",
+   "chapter": "C4",
+   "kind": "short",
+   "star": true,
+   "q": "Workers arrive at a factory first-aid room according to a Poisson process with an average of 2.0 per hour. What is the probability that the time between the first arrival of the day and the fourth arrival is longer than 2 hours? (Round to 4 decimal places.)",
+   "q_sub": "응급실 도착이 시간당 평균 2.0명인 포아송 과정을 따른다. 그날 첫 도착과 네 번째 도착 사이의 시간이 2시간보다 길 확률은? (소수 넷째 자리)",
+   "a": "0.2381",
+   "strict": false,
+   "num": 0.2381,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>첫 도착과 네 번째 도착 사이에는 간격이 3개 → 시간 T ~ Gamma(k = 3, λ = 2)</p><p>T > 2 ⇔ 2시간 동안 도착이 2명 이하 → N ~ P(2 × 2 = 4)</p><p>P(T > 2) = P(N ≤ 2) = e^(−4)(1 + 4 + 8) = 0.2381</p><p>함정: 1번→4번 사이는 k = 4가 아니라 간격 3개(k = 3)입니다.</p>",
+   "src": [
+    [
+     "C4",
+     "31"
+    ],
+    [
+     "C4",
+     "37"
+    ]
+   ],
+   "topic": "gamma",
+   "dx": {
+    "facet": "gamma.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-20",
+   "no": "4-20",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "Suppose that X has a Weibull distribution with parameters a = 2.0 and λ = 1.5. Find P(0.5 ≤ X ≤ 1.0). (Round to 4 decimal places.)",
+   "q_sub": "X가 모수 a = 2.0, λ = 1.5인 와이블분포를 따른다. P(0.5 ≤ X ≤ 1.0)을 구하시오. (소수 넷째 자리)",
+   "a": "0.4644",
+   "strict": false,
+   "num": 0.4644,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>F(x) = 1 − e^(−(λx)^a)</p><p>P = F(1.0) − F(0.5) = e^(−(0.75)²) − e^(−(1.5)²) = e^(−0.5625) − e^(−2.25) = 0.5698 − 0.1054 = 0.4644</p><p>함정: (λx)^a에서 λ를 x에 먼저 곱한 뒤 a제곱합니다.</p>",
+   "src": [
+    [
+     "C4",
+     "39"
+    ],
+    [
+     "C4",
+     "44"
+    ]
+   ],
+   "topic": "weibull",
+   "dx": {
+    "facet": "weibull.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "4-21",
+   "no": "4-21",
+   "chapter": "C4",
+   "kind": "short",
+   "star": false,
+   "q": "The proportion of tin in a metal alloy has a beta distribution with parameters a = 6.5 and b = 10.5. What is the standard deviation of the proportion of tin in the alloy? (Round to 4 decimal places.)",
+   "q_sub": "합금의 주석 비율이 a = 6.5, b = 10.5인 베타분포를 따른다. 주석 비율의 표준편차는? (소수 넷째 자리)",
+   "a": "0.1145",
+   "strict": false,
+   "num": 0.1145,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>Var(X) = ab/[(a + b)²(a + b + 1)] = 6.5 × 10.5 / (17² × 18) = 68.25/5202 = 0.01312</p><p>표준편차 = √0.01312 = 0.1145 (참고: E(X) = 6.5/17 = 0.3824)</p>",
+   "src": [
+    [
+     "C4",
+     "46"
+    ],
+    [
+     "C4",
+     "51"
+    ]
+   ],
+   "topic": "beta",
+   "dx": {
+    "facet": "beta.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-1",
+   "no": "5-1",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "If Z has a standard normal distribution, then Φ(−x) = 1 − Φ(x) for any x.",
+   "q_sub": "Z가 표준정규분포를 따르면 모든 x에 대해 Φ(−x) = 1 − Φ(x)이다.",
+   "ox": true,
+   "s": "<p>표준정규분포는 0에 대해 대칭이라 1 − Φ(x) = P(Z ≥ x) = P(Z ≤ −x) = Φ(−x)입니다. 그래서 Φ(x) + Φ(−x) = 1입니다. 예: P(Z ≥ 1.05) = 1 − 0.8531 = 0.1469.</p>",
+   "src": [
+    [
+     "C5",
+     "7"
+    ],
+    [
+     "C5",
+     "9"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.std",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "5-2",
+   "no": "5-2",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "Increasing the variance of a normal distribution shifts its probability density function to the right.",
+   "q_sub": "정규분포의 분산을 키우면 확률밀도함수가 오른쪽으로 이동한다.",
+   "ox": false,
+   "s": "<p>강의 p.4: 평균을 바꾸면 곡선의 위치가 이동하고, 분산을 바꾸면 곡선이 더 넓고 낮게(또는 좁고 높게) 퍼집니다. 중심은 그대로 μ입니다.</p>",
+   "src": [
+    [
+     "C5",
+     "4"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.std",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_var_shifts_center"
+   },
+   "fix": "분산은 퍼짐만 바꾸고, 위치 이동은 평균을 바꿀 때"
+  },
+  {
+   "ext_id": "5-3",
+   "no": "5-3",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "There is a probability of about 95% that a normal random variable takes a value within two standard deviations of its mean.",
+   "q_sub": "정규확률변수가 평균에서 2 표준편차 안의 값을 가질 확률은 약 95%이다.",
+   "ox": true,
+   "s": "<p>강의 p.16: 1, 2, 3 표준편차 안에 있을 확률은 각각 약 68%, 95%, 99.7%입니다. P(μ − cσ ≤ X ≤ μ + cσ) = P(−c ≤ Z ≤ c)라 μ, σ에 상관없이 같습니다.</p>",
+   "src": [
+    [
+     "C5",
+     "16"
+    ],
+    [
+     "C5",
+     "17"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.rule",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "5-4",
+   "no": "5-4",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "For the normal distribution, the probability of lying within two standard deviations of the mean is about 99.7%.",
+   "q_sub": "정규분포에서 평균으로부터 2 표준편차 안에 있을 확률은 약 99.7%이다.",
+   "ox": false,
+   "s": "<p>±2σ는 약 95%이고, 약 99.7%는 ±3σ입니다(±1σ는 약 68%).</p>",
+   "src": [
+    [
+     "C5",
+     "16"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.rule",
+    "depth": 2,
+    "depth_why": "D2b",
+    "mis": "m_rule_997_two"
+   },
+   "fix": "±2σ는 약 95%, ±3σ가 약 99.7%"
+  },
+  {
+   "ext_id": "5-5",
+   "no": "5-5",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "The critical point z_{α/2} of the standard normal distribution satisfies P(|Z| ≤ z_{α/2}) = α.",
+   "q_sub": "표준정규분포의 임계점 z_{α/2}는 P(|Z| ≤ z_{α/2}) = α를 만족한다.",
+   "ox": false,
+   "s": "<p>z_α는 오른쪽 꼬리 넓이가 α인 점: P(Z ≥ z_α) = α. 따라서 P(|Z| ≤ z_{α/2}) = Φ(z_{α/2}) − Φ(−z_{α/2}) = (1 − α/2) − α/2 = 1 − α입니다. 양쪽 꼬리가 각각 α/2입니다.</p>",
+   "src": [
+    [
+     "C5",
+     "10"
+    ],
+    [
+     "C5",
+     "11"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.crit",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_crit_center_alpha"
+   },
+   "fix": "P(|Z| ≤ z_{α/2}) = 1 − α"
+  },
+  {
+   "ext_id": "5-6",
+   "no": "5-6",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "If X ~ N(μ, σ²) and Y = aX + b, then Y ~ N(aμ + b, aσ²).",
+   "q_sub": "X ~ N(μ, σ²)이고 Y = aX + b이면 Y ~ N(aμ + b, aσ²)이다.",
+   "ox": false,
+   "s": "<p>정규확률변수의 선형함수도 정규분포이고 Y ~ N(aμ + b, a²σ²)입니다. 표준편차는 |a|σ입니다(강의 p.26 그림). b는 위치만 옮기므로 분산에 영향이 없습니다.</p>",
+   "src": [
+    [
+     "C5",
+     "26"
+    ]
+   ],
+   "topic": "nlin",
+   "dx": {
+    "facet": "nlin.lin",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_lin_var_a"
+   },
+   "fix": "Y ~ N(aμ + b, a²σ²)"
+  },
+  {
+   "ext_id": "5-7",
+   "no": "5-7",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "If X1 ~ N(μ1, σ1²) and X2 ~ N(μ2, σ2²) are independent, then X1 − X2 ~ N(μ1 − μ2, σ1² − σ2²).",
+   "q_sub": "X1 ~ N(μ1, σ1²)과 X2 ~ N(μ2, σ2²)가 독립이면 X1 − X2 ~ N(μ1 − μ2, σ1² − σ2²)이다.",
+   "ox": false,
+   "s": "<p>강의 p.27 필기: Y = X1 − X2 ~ N(μ1 − μ2, σ1² + σ2²). 계수 −1이 제곱되어 (−1)²σ2² = σ2²이므로 차의 분산도 더합니다. 예: 피스톤 간격 Y = X2 − X1의 분산 = 0.05² + 0.06² = 0.0061.</p>",
+   "src": [
+    [
+     "C5",
+     "27"
+    ],
+    [
+     "C5",
+     "29"
+    ],
+    [
+     "C5",
+     "31"
+    ]
+   ],
+   "topic": "nlin",
+   "dx": {
+    "facet": "nlin.lin",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_diff_var_subtract"
+   },
+   "fix": "X1 − X2 ~ N(μ1 − μ2, σ1² + σ2²)"
+  },
+  {
+   "ext_id": "5-8",
+   "no": "5-8",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "If X1, …, Xn are independent N(μ, σ²) random variables, then their average X̄ has a N(μ, σ²/n) distribution.",
+   "q_sub": "X1, …, Xn이 독립인 N(μ, σ²) 확률변수이면 평균 X̄는 N(μ, σ²/n) 분포를 따른다.",
+   "ox": true,
+   "s": "<p>선형결합 공식에서 ai = 1/n으로 두면 평균 μ, 분산 n × σ²/n² = σ²/n입니다(강의 p.30). n이 클수록 X̄는 μ 근처에 모입니다.</p>",
+   "src": [
+    [
+     "C5",
+     "29"
+    ],
+    [
+     "C5",
+     "30"
+    ]
+   ],
+   "topic": "nlin",
+   "dx": {
+    "facet": "nlin.avg",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "5-9",
+   "no": "5-9",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "When a B(n, p) distribution is approximated by a normal distribution, P(X ≥ x) ≈ 1 − Φ((x + 0.5 − np)/√(np(1 − p))).",
+   "q_sub": "B(n, p)를 정규분포로 근사할 때 P(X ≥ x) ≈ 1 − Φ((x + 0.5 − np)/√(np(1 − p)))이다.",
+   "ox": false,
+   "s": "<p>연속성 보정: P(X ≤ x) ≈ Φ((x + 0.5 − np)/√(np(1 − p))), P(X ≥ x) ≈ 1 − Φ((x − 0.5 − np)/√(np(1 − p))). 정수 x를 포함하도록 막대 x의 왼쪽 끝 x − 0.5부터 넓이를 잡습니다. 강의 예: P(X ≥ 150) ≈ P(Y ≥ 149.5).</p>",
+   "src": [
+    [
+     "C5",
+     "41"
+    ],
+    [
+     "C5",
+     "46"
+    ]
+   ],
+   "topic": "napprox",
+   "dx": {
+    "facet": "napprox.cc",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_cc_wrong_dir"
+   },
+   "fix": "P(X ≥ x)는 x − 0.5를 사용"
+  },
+  {
+   "ext_id": "5-10",
+   "no": "5-10",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "Since n = 40 is large, a B(40, 0.05) distribution is well approximated by a normal distribution.",
+   "q_sub": "n = 40이 크므로 B(40, 0.05) 분포는 정규분포로 잘 근사된다.",
+   "ox": false,
+   "s": "<p>강의 p.41: 근사는 np ≥ 5이고 n(1 − p) ≥ 5일 때 잘 맞습니다. 여기서는 np = 40 × 0.05 = 2 < 5라 조건을 만족하지 않습니다. p가 0이나 1에 가까우면 분포가 치우쳐 있어 n이 더 커야 합니다.</p>",
+   "src": [
+    [
+     "C5",
+     "41"
+    ]
+   ],
+   "topic": "napprox",
+   "dx": {
+    "facet": "napprox.cond",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_napprox_n_only"
+   },
+   "fix": "np = 2 < 5라 조건 불충족"
+  },
+  {
+   "ext_id": "5-11",
+   "no": "5-11",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "The central limit theorem applies only when the random variables X1, …, Xn are themselves normally distributed.",
+   "q_sub": "중심극한정리는 확률변수 X1, …, Xn 자체가 정규분포를 따를 때만 적용된다.",
+   "ox": false,
+   "s": "<p>중심극한정리: 평균 μ, 분산 σ²인 iid 확률변수라면 원래 분포와 상관없이 X̄는 근사적으로 N(μ, σ²/n)입니다(강의 필기: 'X가 어떤 확률분포이던 성립'). Xi가 정규라면 근사가 아니라 정확히 N(μ, σ²/n)입니다. 예: 포아송인 유리판 결함 수의 평균도 정규로 근사합니다.</p>",
+   "src": [
+    [
+     "C5",
+     "42"
+    ],
+    [
+     "C5",
+     "43"
+    ],
+    [
+     "C5",
+     "49"
+    ]
+   ],
+   "topic": "clt",
+   "dx": {
+    "facet": "clt.def",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_clt_needs_normal"
+   },
+   "fix": "원래 분포와 상관없이 성립"
+  },
+  {
+   "ext_id": "5-12",
+   "no": "5-12",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "By the central limit theorem, the sum X1 + ⋯ + Xn of independent identically distributed random variables with mean μ and variance σ² can be approximated by a N(nμ, nσ²) distribution.",
+   "q_sub": "중심극한정리에 따르면 평균 μ, 분산 σ²인 독립·동일분포 확률변수의 합 X1 + ⋯ + Xn은 N(nμ, nσ²)으로 근사할 수 있다.",
+   "ox": true,
+   "s": "<p>강의 p.42: 평균은 N(μ, σ²/n), 합은 N(nμ, nσ²)으로 근사합니다. 예: λ = 0.5 포아송 결함 100장의 합 ~ N(50, 50).</p>",
+   "src": [
+    [
+     "C5",
+     "42"
+    ],
+    [
+     "C5",
+     "48"
+    ]
+   ],
+   "topic": "clt",
+   "dx": {
+    "facet": "clt.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-13",
+   "no": "5-13",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "A general rule is that the normal approximation given by the central limit theorem is adequate as long as n ≥ 30, although it is often good for much smaller n when the distribution of the Xi is close to a bell shape.",
+   "q_sub": "중심극한정리의 정규근사는 일반적으로 n ≥ 30이면 적절하며, Xi의 분포가 종 모양에 가까우면 훨씬 작은 n에서도 잘 맞는 경우가 많다.",
+   "ox": true,
+   "s": "<p>강의 p.43 그대로입니다: 'adequate as long as n ≥ 30, although the approximation is often good for much smaller values of n, particularly if the distribution … reasonably similar to the normal bell-shaped curve.'</p>",
+   "src": [
+    [
+     "C5",
+     "43"
+    ]
+   ],
+   "topic": "clt",
+   "dx": {
+    "facet": "clt.n30",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "5-14",
+   "no": "5-14",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "If X has a lognormal distribution with parameters μ and σ², then E(X) = e^μ.",
+   "q_sub": "X가 모수 μ, σ²인 로그정규분포를 따르면 E(X) = e^μ이다.",
+   "ox": false,
+   "s": "<p>E(X) = e^(μ + σ²/2)이고 Var(X) = e^(2μ + σ²)(e^(σ²) − 1)입니다. e^μ는 중앙값입니다(강의 예: 반응시간 μ = −0.35, σ = 0.2 → 평균 0.719, 중앙값 e^(−0.35) = 0.705). μ, σ²는 ln X의 평균·분산이지 X의 평균·분산이 아닙니다.</p>",
+   "src": [
+    [
+     "C5",
+     "56"
+    ],
+    [
+     "C5",
+     "58"
+    ]
+   ],
+   "topic": "lognorm",
+   "dx": {
+    "facet": "lognorm.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_lognorm_mean_emu"
+   },
+   "fix": "E(X) = e^(μ + σ²/2), e^μ는 중앙값"
+  },
+  {
+   "ext_id": "5-15",
+   "no": "5-15",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "A chi-square distribution with ν degrees of freedom has expectation ν and variance ν.",
+   "q_sub": "자유도 ν인 카이제곱분포는 기대값 ν, 분산 ν를 가진다.",
+   "ox": false,
+   "s": "<p>χ²_ν는 λ = 1/2, k = ν/2인 감마분포라 E = k/λ = ν, Var = k/λ² = 2ν입니다(강의 p.60).</p><p>함정: 평균과 분산이 같은 건 포아송분포입니다.</p>",
+   "src": [
+    [
+     "C5",
+     "60"
+    ],
+    [
+     "C5",
+     "61"
+    ]
+   ],
+   "topic": "chisq",
+   "dx": {
+    "facet": "chisq.def",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_chisq_var_nu"
+   },
+   "fix": "분산은 2ν"
+  },
+  {
+   "ext_id": "5-16",
+   "no": "5-16",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "If X1 ~ χ²_{ν1} and X2 ~ χ²_{ν2} are independent, then X1 + X2 ~ χ²_{ν1+ν2}.",
+   "q_sub": "X1 ~ χ²_{ν1}과 X2 ~ χ²_{ν2}가 독립이면 X1 + X2 ~ χ²_{ν1+ν2}이다.",
+   "ox": true,
+   "s": "<p>카이제곱은 독립 표준정규의 제곱합이므로 두 합을 이어 붙이면 ν1 + ν2개의 제곱합이 됩니다(강의 p.61).</p>",
+   "src": [
+    [
+     "C5",
+     "60"
+    ],
+    [
+     "C5",
+     "61"
+    ]
+   ],
+   "topic": "chisq",
+   "dx": {
+    "facet": "chisq.def",
+    "depth": 2,
+    "depth_why": "D2b"
+   }
+  },
+  {
+   "ext_id": "5-17",
+   "no": "5-17",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "The t-distribution is symmetric about 0 and a little flatter than the standard normal distribution, and it tends to the standard normal distribution as the degrees of freedom ν → ∞.",
+   "q_sub": "t분포는 0에 대해 대칭이고 표준정규분포보다 약간 납작하며, 자유도 ν → ∞이면 표준정규분포에 가까워진다.",
+   "ox": true,
+   "s": "<p>강의 p.63–64: 'similar to a standard normal distribution but is a little flatter. As ν → ∞, the t-distribution tends to a standard normal distribution.'</p>",
+   "src": [
+    [
+     "C5",
+     "63"
+    ],
+    [
+     "C5",
+     "64"
+    ]
+   ],
+   "topic": "tdist",
+   "dx": {
+    "facet": "tdist.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "5-18",
+   "no": "5-18",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "For a fixed value of α, the critical point t_{α,ν} increases as the degrees of freedom ν increase.",
+   "q_sub": "고정된 α에서 임계점 t_{α,ν}는 자유도 ν가 커질수록 커진다.",
+   "ox": false,
+   "s": "<p>t분포는 꼬리가 두꺼워서 같은 α라도 임계점이 z_α보다 큽니다. ν가 커지면 표준정규에 가까워지므로 임계점은 작아져 z_α로 갑니다. 강의 p.65: t_0.05,5 = 2.015, t_0.05,10 = 1.812, t_0.05,25 = 1.708, t_0.05,∞ = z_0.05 = 1.645.</p>",
+   "src": [
+    [
+     "C5",
+     "65"
+    ]
+   ],
+   "topic": "tdist",
+   "dx": {
+    "facet": "tdist.crit",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_t_crit_grows"
+   },
+   "fix": "ν가 커질수록 t_{α,ν}는 작아져 z_α에 가까워짐"
+  },
+  {
+   "ext_id": "5-19",
+   "no": "5-19",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "An F_{ν1,ν2} distribution is the same as an F_{ν2,ν1} distribution, since both are ratios of the same two chi-square random variables.",
+   "q_sub": "F_{ν1,ν2} 분포와 F_{ν2,ν1} 분포는 같은 두 카이제곱 확률변수의 비이므로 같은 분포이다.",
+   "ox": false,
+   "s": "<p>F_{ν1,ν2} = (χ²_{ν1}/ν1)/(χ²_{ν2}/ν2)에서 ν1은 분자, ν2는 분모 자유도입니다. 강의 p.68: 'in general an F_{ν1,ν2} distribution is not the same as an F_{ν2,ν1} distribution.'</p>",
+   "src": [
+    [
+     "C5",
+     "67"
+    ],
+    [
+     "C5",
+     "68"
+    ]
+   ],
+   "topic": "fdist",
+   "dx": {
+    "facet": "fdist.def",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_f_symmetric_df"
+   },
+   "fix": "일반적으로 F_{ν1,ν2} ≠ F_{ν2,ν1}"
+  },
+  {
+   "ext_id": "5-20",
+   "no": "5-20",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": false,
+   "q": "The critical points of F-distributions satisfy F_{1−α,ν1,ν2} = 1/F_{α,ν2,ν1}.",
+   "q_sub": "F분포의 임계점은 F_{1−α,ν1,ν2} = 1/F_{α,ν2,ν1}을 만족한다.",
+   "ox": true,
+   "s": "<p>강의 p.69: X ~ F_{ν1,ν2}이면 1/X ~ F_{ν2,ν1}이므로 아래쪽 임계점은 자유도 순서를 바꾼 위쪽 임계점의 역수입니다. 그래서 표에 α = 0.10, 0.05, 0.01만 있어도 0.90, 0.95, 0.99를 구할 수 있습니다.</p>",
+   "src": [
+    [
+     "C5",
+     "69"
+    ]
+   ],
+   "topic": "fdist",
+   "dx": {
+    "facet": "fdist.recip",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-21",
+   "no": "5-21",
+   "chapter": "C5",
+   "kind": "short",
+   "star": true,
+   "q": "Suppose that X ~ N(20, 2.5²). Find P(18.6 ≤ X ≤ 23.1). (Round to 4 decimal places.)",
+   "q_sub": "X ~ N(20, 2.5²)일 때 P(18.6 ≤ X ≤ 23.1)을 구하시오. (소수 넷째 자리)",
+   "a": "0.6048",
+   "strict": false,
+   "num": 0.6048,
+   "tol": 0.0005,
+   "ph": "숫자만 입력",
+   "s": "<p>P = Φ((23.1 − 20)/2.5) − Φ((18.6 − 20)/2.5) = Φ(1.24) − Φ(−0.56) = 0.8925 − 0.2877 = 0.6048</p><p>Excel: =NORM.DIST(23.1,20,2.5,TRUE) − NORM.DIST(18.6,20,2.5,TRUE)</p>",
+   "src": [
+    [
+     "C5",
+     "14"
+    ],
+    [
+     "C5",
+     "22"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.std",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-22",
+   "no": "5-22",
+   "chapter": "C5",
+   "kind": "short",
+   "star": false,
+   "q": "Suppose that X ~ N(20, 2.5²). Find the value of x for which P(X ≥ x) = 0.06. (Round to 2 decimal places.)",
+   "q_sub": "X ~ N(20, 2.5²)일 때 P(X ≥ x) = 0.06인 x를 구하시오. (소수 둘째 자리)",
+   "a": "23.89",
+   "strict": false,
+   "num": 23.89,
+   "tol": 0.02,
+   "ph": "숫자만 입력",
+   "s": "<p>P(X ≥ x) = 0.06 ⇔ Φ((x − 20)/2.5) = 0.94 ⇔ (x − 20)/2.5 = z_0.06 = 1.555</p><p>x = 20 + 2.5 × 1.555 = 23.89</p><p>Excel: =NORM.INV(0.94,20,2.5)</p>",
+   "src": [
+    [
+     "C5",
+     "11"
+    ],
+    [
+     "C5",
+     "22"
+    ]
+   ],
+   "topic": "norm",
+   "dx": {
+    "facet": "norm.crit",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-23",
+   "no": "5-23",
+   "chapter": "C5",
+   "kind": "short",
+   "star": true,
+   "q": "Components of type A have heights that are independently normally distributed with mean 188 and standard deviation 10. Components of type B have heights that are independently normally distributed with mean 148 and standard deviation 8. What is the probability that a stack of four type A components is taller than a stack of five type B components? (Round to 4 decimal places.)",
+   "q_sub": "A형 부품 높이는 평균 188, 표준편차 10, B형은 평균 148, 표준편차 8인 정규분포를 따르며 모두 독립이다. A형 4개를 쌓은 높이가 B형 5개를 쌓은 높이보다 클 확률은? (소수 넷째 자리)",
+   "a": "0.6726",
+   "strict": false,
+   "num": 0.6726,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>D = (A1 + ⋯ + A4) − (B1 + ⋯ + B5)</p><p>E(D) = 4 × 188 − 5 × 148 = 752 − 740 = 12</p><p>Var(D) = 4 × 10² + 5 × 8² = 400 + 320 = 720</p><p>P(D > 0) = 1 − Φ((0 − 12)/√720) = 1 − Φ(−0.447) = 0.6726</p><p>함정: 4개 합의 분산은 4σ²입니다(4A의 분산 16σ²이 아님).</p>",
+   "src": [
+    [
+     "C5",
+     "29"
+    ],
+    [
+     "C5",
+     "35"
+    ]
+   ],
+   "topic": "nlin",
+   "dx": {
+    "facet": "nlin.lin",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-24",
+   "no": "5-24",
+   "chapter": "C5",
+   "kind": "short",
+   "star": false,
+   "q": "The strength of a chemical solution has a beta distribution with parameters a = 16 and b = 9. Using the central limit theorem, estimate the probability that the average strength of 25 independently produced solutions is between 0.62 and 0.66. (Round to 4 decimal places.)",
+   "q_sub": "화학 용액의 강도가 a = 16, b = 9인 베타분포를 따른다. 중심극한정리로, 독립적으로 만든 25개 용액의 평균 강도가 0.62와 0.66 사이일 확률을 구하시오. (소수 넷째 자리)",
+   "a": "0.7119",
+   "strict": false,
+   "num": 0.7119,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>베타: μ = a/(a + b) = 16/25 = 0.64, σ² = ab/[(a + b)²(a + b + 1)] = 144/(625 × 26) = 0.008862</p><p>X̄ ≈ N(0.64, 0.008862/25 = 0.0003545), 표준편차 0.01883</p><p>P = Φ(0.02/0.01883) − Φ(−0.02/0.01883) = Φ(1.062) − Φ(−1.062) = 0.7119</p>",
+   "src": [
+    [
+     "C5",
+     "42"
+    ],
+    [
+     "C5",
+     "53"
+    ]
+   ],
+   "topic": "clt",
+   "dx": {
+    "facet": "clt.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-25",
+   "no": "5-25",
+   "chapter": "C5",
+   "kind": "short",
+   "star": true,
+   "q": "The lifetimes of batteries are independent and exponentially distributed with a mean of 80 days. A random selection of 300 batteries is made. Using a normal approximation with continuity correction, what is the probability that at least 50 of the batteries have lifetimes between 60 and 100 days? (Round to 4 decimal places.)",
+   "q_sub": "배터리 수명이 평균 80일인 지수분포를 따르고 서로 독립이다. 300개를 뽑을 때, 수명이 60일과 100일 사이인 배터리가 적어도 50개일 확률을 연속성 보정을 한 정규근사로 구하시오. (소수 넷째 자리)",
+   "a": "0.8235",
+   "strict": false,
+   "num": 0.8235,
+   "tol": 0.002,
+   "ph": "숫자만 입력",
+   "s": "<p>한 개가 60~100일일 확률 p = e^(−60/80) − e^(−100/80) = 0.4724 − 0.2865 = 0.1859</p><p>개수 X ~ B(300, 0.1859): np = 55.76, np(1 − p) = 45.40</p><p>P(X ≥ 50) ≈ 1 − Φ((49.5 − 55.76)/√45.40) = 1 − Φ(−0.929) = 0.8235</p><p>함정: λ = 1/80입니다. P(X ≥ 50)은 49.5에서 시작합니다.</p>",
+   "src": [
+    [
+     "C5",
+     "41"
+    ],
+    [
+     "C5",
+     "53"
+    ]
+   ],
+   "topic": "napprox",
+   "dx": {
+    "facet": "napprox.cc",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-26",
+   "no": "5-26",
+   "chapter": "C5",
+   "kind": "short",
+   "star": false,
+   "q": "X ~ B(20, 0.35). Use a normal approximation with continuity correction to calculate P(5 ≤ X ≤ 9). (Round to 4 decimal places.)",
+   "q_sub": "X ~ B(20, 0.35)일 때 연속성 보정을 한 정규근사로 P(5 ≤ X ≤ 9)를 구하시오. (소수 넷째 자리)",
+   "a": "0.7588",
+   "strict": false,
+   "num": 0.7588,
+   "tol": 0.002,
+   "ph": "숫자만 입력",
+   "s": "<p>np = 7, np(1 − p) = 4.55 (np ≥ 5, n(1 − p) = 13 ≥ 5라 근사 가능)</p><p>P(5 ≤ X ≤ 9) ≈ P(4.5 ≤ Y ≤ 9.5) = Φ((9.5 − 7)/√4.55) − Φ((4.5 − 7)/√4.55) = Φ(1.172) − Φ(−1.172) = 0.7588</p><p>(정확한 값 0.7600)</p>",
+   "src": [
+    [
+     "C5",
+     "41"
+    ],
+    [
+     "C5",
+     "54"
+    ]
+   ],
+   "topic": "napprox",
+   "dx": {
+    "facet": "napprox.cc",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-27",
+   "no": "5-27",
+   "chapter": "C5",
+   "kind": "short",
+   "star": false,
+   "q": "Suppose that X has a lognormal distribution with parameter values μ = −0.2 and σ = 0.9. Find P(0.2 ≤ X ≤ 5.0). (Round to 4 decimal places.)",
+   "q_sub": "X가 μ = −0.2, σ = 0.9인 로그정규분포를 따른다. P(0.2 ≤ X ≤ 5.0)을 구하시오. (소수 넷째 자리)",
+   "a": "0.9191",
+   "strict": false,
+   "num": 0.9191,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>P(X ≤ x) = Φ((ln x − μ)/σ)</p><p>P = Φ((ln 5 + 0.2)/0.9) − Φ((ln 0.2 + 0.2)/0.9) = Φ(2.010) − Φ(−1.566) = 0.9778 − 0.0587 = 0.9191</p><p>Excel: =LOGNORM.DIST(5,−0.2,0.9,TRUE) − LOGNORM.DIST(0.2,−0.2,0.9,TRUE)</p>",
+   "src": [
+    [
+     "C5",
+     "57"
+    ],
+    [
+     "C5",
+     "71"
+    ]
+   ],
+   "topic": "lognorm",
+   "dx": {
+    "facet": "lognorm.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "5-28",
+   "no": "5-28",
+   "chapter": "C5",
+   "kind": "short",
+   "star": false,
+   "q": "Find P(−1.2 ≤ t_24 ≤ 2.6), where t_24 has a t-distribution with 24 degrees of freedom. (Round to 4 decimal places.)",
+   "q_sub": "t_24가 자유도 24인 t분포를 따를 때 P(−1.2 ≤ t_24 ≤ 2.6)을 구하시오. (소수 넷째 자리)",
+   "a": "0.8712",
+   "strict": false,
+   "num": 0.8712,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>Excel: =T.DIST(2.6,24,TRUE) − T.DIST(−1.2,24,TRUE) = 0.9921 − 0.1209 = 0.8712</p>",
+   "src": [
+    [
+     "C5",
+     "66"
+    ],
+    [
+     "C5",
+     "72"
+    ]
+   ],
+   "topic": "tdist",
+   "dx": {
+    "facet": "tdist.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-1",
+   "no": "6-1",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "A sample is a particular subset of the population, and choosing a random sample is often used to ensure that the sample is representative of the population.",
+   "q_sub": "표본은 모집단의 특정 부분집합이며, 표본이 모집단을 대표하도록 하기 위해 무작위 표본을 뽑는 방법이 흔히 쓰인다.",
+   "ox": true,
+   "s": "<p>강의 p.4: 모집단은 특정 확률분포에서 얻을 수 있는 모든 관측값의 모임, 표본은 그 특정 부분집합입니다. 무작위 표본은 모집단에서 원소를 무작위로 골라 표본이 대표성(representative)을 갖도록 합니다.</p>",
+   "src": [
+    [
+     "C6",
+     "4"
+    ]
+   ],
+   "topic": "popsamp",
+   "dx": {
+    "facet": "popsamp.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "6-2",
+   "no": "6-2",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "When consumers rate a new product as \"definitely undesirable,\" \"mixed feelings,\" or \"definitely desirable,\" the ratings should be analyzed as a continuous variable.",
+   "q_sub": "소비자가 신제품을 \"definitely undesirable\", \"mixed feelings\", \"definitely desirable\" 중 하나로 평가할 때, 이 평가는 연속형 변수로 분석해야 한다.",
+   "ox": false,
+   "s": "<p>강의 Exercise 6.1: 각 응답은 세 범주 중 하나를 취하므로 범주형(categorical) 변수입니다. 기계 고장 원인 {electrical, mechanical, misuse}과 같은 형태입니다. 반면 $1.378 million처럼 수치로 기록되는 월 수익은 연속형으로 분석합니다.</p>",
+   "src": [
+    [
+     "C6",
+     "5"
+    ],
+    [
+     "C6",
+     "7"
+    ]
+   ],
+   "topic": "popsamp",
+   "dx": {
+    "facet": "popsamp.vartype",
+    "depth": 2,
+    "depth_why": "D2b",
+    "mis": "m_d6_rating_continuous"
+   },
+   "fix": "범주형(categorical) 변수로 분석"
+  },
+  {
+   "ext_id": "6-3",
+   "no": "6-3",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "In a bar chart with a truncated frequency axis, the differences between the bar heights can look much larger than the actual differences between the frequencies.",
+   "q_sub": "빈도축이 절단된(truncated) 막대그래프에서는 막대 높이의 차이가 실제 빈도 차이보다 훨씬 크게 보일 수 있다.",
+   "ox": true,
+   "s": "<p>강의 p.10: 같은 자료(A, B는 85~88 정도, C는 100)를 빈도축을 80에서 자르면 C가 A의 2배 이상처럼 보이지만, 0부터 그리면 세 막대가 비슷합니다. 축을 자르면 막대 높이가 빈도에 비례하지 않기 때문입니다.</p>",
+   "src": [
+    [
+     "C6",
+     "10"
+    ]
+   ],
+   "topic": "datapres",
+   "dx": {
+    "facet": "datapres.bar",
+    "depth": 3,
+    "depth_why": "D3c"
+   }
+  },
+  {
+   "ext_id": "6-4",
+   "no": "6-4",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "In a Pareto chart, the categories are arranged in decreasing order of frequency, and a line showing the cumulative percentage is added.",
+   "q_sub": "파레토 차트에서는 범주를 빈도가 큰 순서대로 늘어놓고, 누적 백분율을 나타내는 선을 함께 그린다.",
+   "ox": true,
+   "s": "<p>강의 p.11: 고객 불만 자료를 Late delivery(481) → Damaged product(134) → Wrong product(83) → Billing error(44) → Other(21) 순으로 놓고, 누적 % 63.0 → 80.6 → 91.5 → 97.2 → 100.0을 선으로 그립니다. 원자료 표의 순서(Billing error가 Wrong product보다 앞)와 다르게 정렬한다는 점에 주의하세요.</p>",
+   "src": [
+    [
+     "C6",
+     "11"
+    ],
+    [
+     "C6",
+     "19"
+    ]
+   ],
+   "topic": "datapres",
+   "dx": {
+    "facet": "datapres.pareto",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "6-5",
+   "no": "6-5",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "For the same data set, histograms drawn with different bandwidths (bin sizes) can look quite different.",
+   "q_sub": "같은 자료라도 서로 다른 구간 폭(bin size)으로 그린 히스토그램은 상당히 다르게 보일 수 있다.",
+   "ox": true,
+   "s": "<p>강의 p.13: 금속 실린더 지름 자료를 넓은 구간으로 그리면 매끈한 종 모양, 좁은 구간으로 그리면 들쭉날쭉한 모양이 됩니다. 자료는 같고 bin size만 다릅니다.</p>",
+   "src": [
+    [
+     "C6",
+     "13"
+    ],
+    [
+     "C6",
+     "14"
+    ]
+   ],
+   "topic": "datapres",
+   "dx": {
+    "facet": "datapres.hist",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-6",
+   "no": "6-6",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "Since outliers are caused by recording errors, they should be deleted from a data set without further investigation.",
+   "q_sub": "이상치는 기록 오류로 생긴 것이므로 추가 조사 없이 자료에서 삭제해야 한다.",
+   "ox": false,
+   "s": "<p>강의 p.17–18: 이상치를 지울지에 대한 단순한 규칙은 없습니다(No simple rule!). 실험자는 이상치를 조사해야 하며, 잘못 기록된 값이면 수정할 수 있고, 다른 자료를 모을 때와 다른 특수 조건에서 나온 값일 수도 있습니다. 핵심은 이상치가 모집단의 실제 변동인지 '외부' 영향인지입니다.</p>",
+   "src": [
+    [
+     "C6",
+     "17"
+    ],
+    [
+     "C6",
+     "18"
+    ]
+   ],
+   "topic": "outlier",
+   "dx": {
+    "facet": "outlier.deal",
+    "depth": 3,
+    "depth_why": "D3b",
+    "mis": "m_d6_outlier_always_drop"
+   },
+   "fix": "단순한 규칙은 없고, 조사해서 수정·판단해야 함"
+  },
+  {
+   "ext_id": "6-7",
+   "no": "6-7",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "If a data set consists of 30 observations, the sample median is taken to be the 15th largest data point.",
+   "q_sub": "자료가 30개의 관측값으로 이루어져 있으면 표본 중앙값은 15번째로 큰 관측값으로 정한다.",
+   "ox": false,
+   "s": "<p>강의 p.22: n = 31이면 16번째 값이 중앙값이지만, n = 30이면 보통 15번째와 16번째 값의 평균을 중앙값으로 씁니다. n이 짝수이면 가운데 값이 두 개이기 때문입니다.</p>",
+   "src": [
+    [
+     "C6",
+     "22"
+    ]
+   ],
+   "topic": "loc_stat",
+   "dx": {
+    "facet": "loc_stat.median",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_d6_median_even_single"
+   },
+   "fix": "15번째와 16번째 값의 평균"
+  },
+  {
+   "ext_id": "6-8",
+   "no": "6-8",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "A sample with positive skewness has a sample mean smaller than the sample median.",
+   "q_sub": "양의 왜도를 가진 표본은 표본평균이 표본 중앙값보다 작다.",
+   "ox": false,
+   "s": "<p>강의 p.22, p.25: 양의 왜도(오른쪽으로 긴 꼬리)면 큰 값들이 평균을 끌어올려 평균 > 중앙값이고, 음의 왜도면 평균 < 중앙값입니다. 대칭이면 둘이 거의 같습니다. 절사평균은 그 사이에 위치합니다(p.25 그림).</p>",
+   "src": [
+    [
+     "C6",
+     "22"
+    ],
+    [
+     "C6",
+     "25"
+    ]
+   ],
+   "topic": "loc_stat",
+   "dx": {
+    "facet": "loc_stat.skew",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_d6_skew_direction"
+   },
+   "fix": "양의 왜도면 평균이 중앙값보다 큼"
+  },
+  {
+   "ext_id": "6-9",
+   "no": "6-9",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "If a data set contains an outlier, the outlier affects the sample mean but does not affect a trimmed mean, which is why a trimmed mean is called a robust estimator.",
+   "q_sub": "자료에 이상치가 있으면 이상치는 표본평균에는 영향을 주지만 절사평균에는 영향을 주지 않으며, 그래서 절사평균을 로버스트 추정량이라고 부른다.",
+   "ox": true,
+   "s": "<p>강의 p.23: 이상치는 제거되는 가장 큰(작은) 점 중 하나이므로 절사평균에 영향을 주지 않습니다. 가장 큰·작은 원소에 민감하지 않아 robust estimator라 합니다. 단점: 꼬리가 유효한 자료라면 그 점들을 쓰지 않아 '낭비(wasteful)'입니다.</p>",
+   "src": [
+    [
+     "C6",
+     "23"
+    ]
+   ],
+   "topic": "loc_stat",
+   "dx": {
+    "facet": "loc_stat.trim",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-10",
+   "no": "6-10",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "The sample mode can be thought of as estimating the expectation of the unknown underlying probability distribution.",
+   "q_sub": "표본 최빈값은 미지의 모집단 확률분포의 기대값을 추정하는 것으로 볼 수 있다.",
+   "ox": false,
+   "s": "<p>강의 p.24: 최빈값은 범주형·이산형 자료에서 빈도가 가장 큰 범주/값이고, 확률이 가장 큰 범주/값을 추정합니다. 기대값의 추정은 표본평균(p.21)입니다. 예: 칩 자료는 최빈값 2인데 평균은 3.075입니다.</p>",
+   "src": [
+    [
+     "C6",
+     "21"
+    ],
+    [
+     "C6",
+     "24"
+    ],
+    [
+     "C6",
+     "33"
+    ]
+   ],
+   "topic": "loc_stat",
+   "dx": {
+    "facet": "loc_stat.mode",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_d6_mode_estimates_mean"
+   },
+   "fix": "확률이 가장 큰 범주/값을 추정"
+  },
+  {
+   "ext_id": "6-11",
+   "no": "6-11",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "The sample variance of x1, …, xn is defined as s² = Σ(xi − x̄)²/n.",
+   "q_sub": "x1, …, xn의 표본분산은 s² = Σ(xi − x̄)²/n으로 정의된다.",
+   "ox": false,
+   "s": "<p>강의 p.26: s² = Σ(xi − x̄)²/(n − 1)이며 분모는 n이 아니라 n − 1입니다(필기: 분산 = 제곱합/자유도). n이 꽤 크면 n − 1과 n의 차이는 매우 작습니다. 계산 공식: s² = (Σxi² − nx̄²)/(n − 1).</p>",
+   "src": [
+    [
+     "C6",
+     "26"
+    ],
+    [
+     "C6",
+     "27"
+    ]
+   ],
+   "topic": "spread_stat",
+   "dx": {
+    "facet": "spread_stat.var",
+    "depth": 1,
+    "depth_why": "D1b",
+    "mis": "m_d6_var_divide_n"
+   },
+   "fix": "분모는 n − 1"
+  },
+  {
+   "ext_id": "6-12",
+   "no": "6-12",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "The sample interquartile range is the difference between the largest and smallest data observations.",
+   "q_sub": "표본 사분위범위(IQR)는 가장 큰 관측값과 가장 작은 관측값의 차이이다.",
+   "ox": false,
+   "s": "<p>강의 p.28: 위 사분위수는 75번째, 아래 사분위수는 25번째 백분위수이고 IQR은 두 사분위수의 차이입니다. 최댓값 − 최솟값은 범위(range)입니다. 상자그림에서 상자의 양 끝이 두 사분위수, 수염 끝이 최댓값·최솟값입니다(p.29).</p>",
+   "src": [
+    [
+     "C6",
+     "28"
+    ],
+    [
+     "C6",
+     "29"
+    ]
+   ],
+   "topic": "spread_stat",
+   "dx": {
+    "facet": "spread_stat.quant",
+    "depth": 2,
+    "depth_why": "D2b",
+    "mis": "m_d6_iqr_is_range"
+   },
+   "fix": "위 사분위수 − 아래 사분위수"
+  },
+  {
+   "ext_id": "6-13",
+   "no": "6-13",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": true,
+   "q": "Of two data sets, the one with the larger sample standard deviation has the larger coefficient of variation.",
+   "q_sub": "두 자료 중 표본표준편차가 더 큰 자료가 변동계수도 더 크다.",
+   "ox": false,
+   "s": "<p>CV = s/x̄는 평균 대비 변동입니다. 강의 p.31: 코끼리 s = 150 kg, x̄ = 4550 kg → CV = 0.033, 쥐 s = 1.67 g, x̄ = 30 g → CV = 0.056. 표준편차는 코끼리가 훨씬 크지만 평균 대비 변동은 쥐가 더 큽니다.</p>",
+   "src": [
+    [
+     "C6",
+     "30"
+    ],
+    [
+     "C6",
+     "31"
+    ]
+   ],
+   "topic": "spread_stat",
+   "dx": {
+    "facet": "spread_stat.cv",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_d6_cv_bigger_s"
+   },
+   "fix": "평균 대비로 비교하므로 s가 커도 CV가 작을 수 있음"
+  },
+  {
+   "ext_id": "6-14",
+   "no": "6-14",
+   "chapter": "C6",
+   "kind": "ox",
+   "star": false,
+   "q": "When the coefficient of variation is applied to probability distributions as σ/μ, it takes the value 1 for every exponential distribution, regardless of λ.",
+   "q_sub": "변동계수를 확률분포에 σ/μ로 적용하면, 지수분포는 λ와 상관없이 항상 1이다.",
+   "ox": true,
+   "s": "<p>지수분포는 μ = 1/λ, σ = 1/λ이므로 CV = σ/μ = 1입니다(강의 p.30). 참고로 이항분포 √((1 − p)/(np)), 포아송 1/√λ, 감마 1/√k입니다.</p>",
+   "src": [
+    [
+     "C6",
+     "30"
+    ]
+   ],
+   "topic": "spread_stat",
+   "dx": {
+    "facet": "spread_stat.cv",
+    "depth": 4,
+    "depth_why": "D4d"
+   }
+  },
+  {
+   "ext_id": "6-15",
+   "no": "6-15",
+   "chapter": "C6",
+   "kind": "short",
+   "star": true,
+   "q": "Find the sample median of the following data set: 7.2, 3.5, 9.1, 4.8, 6.0, 5.5, 8.3, 4.1, 6.7, 12.9, 5.9, 7.6. (Round to 2 decimal places.)",
+   "q_sub": "다음 자료의 표본 중앙값을 구하시오: 7.2, 3.5, 9.1, 4.8, 6.0, 5.5, 8.3, 4.1, 6.7, 12.9, 5.9, 7.6 (소수 둘째 자리)",
+   "a": "6.35",
+   "strict": false,
+   "num": 6.35,
+   "tol": 0.005,
+   "ph": "숫자만 입력",
+   "s": "<p>정렬: 3.5, 4.1, 4.8, 5.5, 5.9, 6.0, 6.7, 7.2, 7.6, 8.3, 9.1, 12.9</p><p>n = 12(짝수)이므로 6번째와 7번째 값의 평균: (6.0 + 6.7)/2 = 6.35</p><p>(참고: 표본평균 6.80 > 중앙값 → 12.9 쪽 꼬리로 양의 왜도)</p><p>함정: 정렬하지 않거나 한 값만 고르면 틀립니다.</p>",
+   "src": [
+    [
+     "C6",
+     "22"
+    ]
+   ],
+   "topic": "loc_stat",
+   "dx": {
+    "facet": "loc_stat.median",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-16",
+   "no": "6-16",
+   "chapter": "C6",
+   "kind": "short",
+   "star": true,
+   "q": "Find the 10% trimmed mean of the following data set: 52, 47, 55, 49, 51, 120, 50, 48, 53, 46. (Round to 3 decimal places.)",
+   "q_sub": "다음 자료의 10% 절사평균을 구하시오: 52, 47, 55, 49, 51, 120, 50, 48, 53, 46 (소수 셋째 자리)",
+   "a": "50.625",
+   "strict": false,
+   "num": 50.625,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>n = 10이므로 위 10%(1개)와 아래 10%(1개)를 제거합니다: 120과 46 제거</p><p>남은 8개: 47, 48, 49, 50, 51, 52, 53, 55 → 합 405</p><p>절사평균 = 405/8 = 50.625</p><p>비교: 표본평균은 57.1로 이상치 120의 영향을 크게 받습니다.</p>",
+   "src": [
+    [
+     "C6",
+     "23"
+    ]
+   ],
+   "topic": "loc_stat",
+   "dx": {
+    "facet": "loc_stat.trim",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-17",
+   "no": "6-17",
+   "chapter": "C6",
+   "kind": "short",
+   "star": true,
+   "q": "A data set of n = 16 observations has Σxi = 59.2 and Σxi² = 238.4. Find the sample standard deviation s. (Round to 3 decimal places.)",
+   "q_sub": "n = 16개의 관측값에서 Σxi = 59.2, Σxi² = 238.4이다. 표본표준편차 s를 구하시오. (소수 셋째 자리)",
+   "a": "1.136",
+   "strict": false,
+   "num": 1.136,
+   "tol": 0.002,
+   "ph": "숫자만 입력",
+   "s": "<p>x̄ = 59.2/16 = 3.7</p><p>s² = (Σxi² − nx̄²)/(n − 1) = (238.4 − 16 × 3.7²)/15 = (238.4 − 219.04)/15 = 19.36/15 = 1.2907</p><p>s = √1.2907 = 1.136</p><p>함정: n으로 나누면 1.100이 됩니다.</p>",
+   "src": [
+    [
+     "C6",
+     "26"
+    ],
+    [
+     "C6",
+     "27"
+    ]
+   ],
+   "topic": "spread_stat",
+   "dx": {
+    "facet": "spread_stat.var",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-18",
+   "no": "6-18",
+   "chapter": "C6",
+   "kind": "short",
+   "star": false,
+   "q": "Find the coefficient of variation of the data set 12.1, 11.8, 12.6, 12.3, 11.7, 12.5. (Round to 4 decimal places.)",
+   "q_sub": "자료 12.1, 11.8, 12.6, 12.3, 11.7, 12.5의 변동계수를 구하시오. (소수 넷째 자리)",
+   "a": "0.0302",
+   "strict": false,
+   "num": 0.0302,
+   "tol": 0.0005,
+   "ph": "숫자만 입력",
+   "s": "<p>x̄ = 73.0/6 = 12.1667</p><p>Σxi² = 888.84 → s² = (888.84 − 73.0²/6)/5 = (888.84 − 888.1667)/5 = 0.13467, s = 0.3670</p><p>CV = s/x̄ = 0.3670/12.1667 = 0.0302</p>",
+   "src": [
+    [
+     "C6",
+     "26"
+    ],
+    [
+     "C6",
+     "30"
+    ]
+   ],
+   "topic": "spread_stat",
+   "dx": {
+    "facet": "spread_stat.cv",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "6-19",
+   "no": "6-19",
+   "chapter": "C6",
+   "kind": "short",
+   "star": false,
+   "q": "The causes of customer complaints have frequencies: late delivery 412, damaged product 158, billing error 37, other 18, wrong product 95 (total 720). In a Pareto chart of these data (bars ordered by decreasing frequency), what is the cumulative percentage at the third bar? (Round to 1 decimal place.)",
+   "q_sub": "고객 불만 원인의 빈도가 배송 지연 412, 제품 파손 158, 청구 오류 37, 기타 18, 오배송 95(합계 720)이다. 이 자료의 파레토 차트(막대는 빈도 내림차순)에서 세 번째 막대까지의 누적 백분율(%)은? (소수 첫째 자리)",
+   "a": "92.4",
+   "strict": false,
+   "num": 92.4,
+   "tol": 0.1,
+   "ph": "숫자만 입력",
+   "s": "<p>파레토 차트는 빈도가 큰 순서로 정렬: 412(배송 지연), 158(파손), 95(오배송), 37(청구 오류), 18(기타)</p><p>누적 %: 57.2 → 79.2 → 92.4 → 97.5 → 100.0</p><p>세 번째 막대: (412 + 158 + 95)/720 = 665/720 = 92.4%</p><p>함정: 주어진 순서대로 더하면 (412 + 158 + 37)/720 = 84.3%가 됩니다.</p>",
+   "src": [
+    [
+     "C6",
+     "11"
+    ],
+    [
+     "C6",
+     "19"
+    ]
+   ],
+   "topic": "datapres",
+   "dx": {
+    "facet": "datapres.pareto",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-1",
+   "no": "7-1",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "Because statistics take observed values and can be thought of as known, a statistic such as the sample mean X̄ does not have a probability distribution.",
+   "q_sub": "통계량은 관측값을 가지며 알려진 것으로 볼 수 있으므로, 표본평균 X̄ 같은 통계량은 확률분포를 갖지 않는다.",
+   "ox": false,
+   "s": "<p>강의 p.5: 통계량은 관측값을 가지므로 알려진 것으로 볼 수 있지만, 'statistics are actually observations of random variables with their own probability distributions'입니다. 표본을 새로 뽑으면 값이 달라지기 때문입니다.</p><p>예: X̄ ~ N(μ, σ²/n)(p.36). 통계량의 이런 분포가 7.3절 Sampling Distributions의 주제입니다.</p>",
+   "src": [
+    [
+     "C7",
+     "5"
+    ],
+    [
+     "C7",
+     "31"
+    ],
+    [
+     "C7",
+     "36"
+    ]
+   ],
+   "topic": "pointest",
+   "dx": {
+    "facet": "pointest.stat",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_d7_stat_no_dist"
+   },
+   "fix": "통계량은 확률변수의 관측값으로 자체 확률분포를 가짐"
+  },
+  {
+   "ext_id": "7-2",
+   "no": "7-2",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "A point estimate θ̂ of a parameter θ is said to be unbiased if E(θ̂) = θ; otherwise its bias is defined to be E(θ̂) − θ.",
+   "q_sub": "모수 θ의 점추정 θ̂는 E(θ̂) = θ이면 불편(unbiased)이라 하고, 그렇지 않으면 편향(bias)을 E(θ̂) − θ로 정의한다.",
+   "ox": true,
+   "s": "<p>강의 p.13 정의 그대로입니다(필기: E(θ̂) = θ → bias = 0). 다른 조건이 같다면 |bias|가 작을수록 좋은 점추정입니다. 예: p̂ = X/n은 E(p̂) = np/n = p라 불편입니다(p.15).</p>",
+   "src": [
+    [
+     "C7",
+     "13"
+    ],
+    [
+     "C7",
+     "14"
+    ],
+    [
+     "C7",
+     "15"
+    ]
+   ],
+   "topic": "unbias",
+   "dx": {
+    "facet": "unbias.def",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "7-3",
+   "no": "7-3",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "If the denominator n is used instead of n − 1, the variance estimate σ̂² = Σ(Xi − X̄)²/n has a positive bias of σ²/n.",
+   "q_sub": "분모로 n − 1 대신 n을 쓰면 분산 추정량 σ̂² = Σ(Xi − X̄)²/n은 σ²/n만큼의 양(+)의 편향을 가진다.",
+   "ox": false,
+   "s": "<p>강의 p.21: E(σ̂²) = ((n − 1)/n)σ²이므로 bias = E(σ̂²) − σ² = −σ²/n입니다. 음의 편향, 즉 σ²를 과소추정합니다.</p><p>n이 커지면 편향은 0으로 가서 큰 표본에서는 n이든 n − 1이든 차이가 거의 없지만(필기), 불편성 때문에 S²의 분모는 n − 1을 씁니다.</p>",
+   "src": [
+    [
+     "C7",
+     "18"
+    ],
+    [
+     "C7",
+     "20"
+    ],
+    [
+     "C7",
+     "21"
+    ]
+   ],
+   "topic": "unbias",
+   "dx": {
+    "facet": "unbias.s2",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_d7_ndenom_over"
+   },
+   "fix": "bias = −σ²/n (σ²를 과소추정)"
+  },
+  {
+   "ext_id": "7-4",
+   "no": "7-4",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "Let θ̂1 and θ̂2 be unbiased point estimates of θ. If the relative efficiency of θ̂1 to θ̂2, Var(θ̂2)/Var(θ̂1), equals 0.55, then θ̂1 is the better point estimate.",
+   "q_sub": "θ̂1과 θ̂2가 θ의 불편 점추정일 때, θ̂1의 θ̂2에 대한 상대효율 Var(θ̂2)/Var(θ̂1)이 0.55이면 θ̂1이 더 좋은 점추정이다.",
+   "ox": false,
+   "s": "<p>Var(θ̂2)/Var(θ̂1) = 0.55 < 1이면 Var(θ̂2) < Var(θ̂1)입니다. 불편추정량끼리는 분산이 작은 쪽이 더 좋으므로(p.22 필기: 변동성이 더 낮은게 좋다) θ̂2가 더 좋습니다.</p><p>강의 예 p.24: ĈA의 ĈB에 대한 상대효율 = Var(ĈB)/Var(ĈA) = 1.62/2.97 = 0.55 → ĈB가 더 좋은 점추정입니다.</p>",
+   "src": [
+    [
+     "C7",
+     "22"
+    ],
+    [
+     "C7",
+     "23"
+    ],
+    [
+     "C7",
+     "24"
+    ]
+   ],
+   "topic": "releff",
+   "dx": {
+    "facet": "releff.def",
+    "depth": 4,
+    "depth_why": "D4a",
+    "mis": "m_d7_releff_dir"
+   },
+   "fix": "Var(θ̂2)가 더 작으므로 θ̂2가 더 좋음"
+  },
+  {
+   "ext_id": "7-5",
+   "no": "7-5",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "If ĈA and ĈB are unbiased point estimates of C, then Ĉ = aĈA + bĈB is also an unbiased point estimate of C whenever a + b = 1.",
+   "q_sub": "ĈA와 ĈB가 C의 불편 점추정이면, a + b = 1일 때 Ĉ = aĈA + bĈB도 C의 불편 점추정이다.",
+   "ox": true,
+   "s": "<p>강의 p.25: E(Ĉ) = aE(ĈA) + bE(ĈB) = (a + b)C이므로 a + b = 1이면 불편입니다. a = p, b = 1 − p로 두고 독립이면 Var(Ĉ) = p²Var(ĈA) + (1 − p)²Var(ĈB)를 최소화하는 p를 고릅니다(필기). 강의 예: p = 0.35 → Var(Ĉ) = 1.05로 ĈB(1.62)보다 좋습니다.</p>",
+   "src": [
+    [
+     "C7",
+     "25"
+    ]
+   ],
+   "topic": "releff",
+   "dx": {
+    "facet": "releff.comb",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-6",
+   "no": "7-6",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "The mean square error of a point estimate satisfies MSE(θ̂) = Var(θ̂) + bias(θ̂).",
+   "q_sub": "점추정의 평균제곱오차는 MSE(θ̂) = Var(θ̂) + bias(θ̂)를 만족한다.",
+   "ox": false,
+   "s": "<p>강의 p.27: MSE(θ̂) = E((θ̂ − θ)²) = E((θ̂ − E(θ̂))²) + (E(θ̂) − θ)² = Var(θ̂) + bias²입니다(교차항은 E(θ̂ − E(θ̂)) = 0이라 사라짐). 불편이면 MSE = Var(θ̂).</p><p>예: θ̂ ~ N(1.1θ, 0.04θ²) → MSE = 0.04θ² + (0.1θ)² = 0.05θ².</p>",
+   "src": [
+    [
+     "C7",
+     "26"
+    ],
+    [
+     "C7",
+     "27"
+    ]
+   ],
+   "topic": "mse",
+   "dx": {
+    "facet": "mse.def",
+    "depth": 2,
+    "depth_why": "D2b",
+    "mis": "m_d7_mse_bias_nosq"
+   },
+   "fix": "MSE(θ̂) = Var(θ̂) + bias²"
+  },
+  {
+   "ext_id": "7-7",
+   "no": "7-7",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "Under the mean square error criterion, an unbiased point estimate is always preferred to a biased point estimate.",
+   "q_sub": "평균제곱오차 기준에서는 불편 점추정이 편향된 점추정보다 항상 선호된다.",
+   "ox": false,
+   "s": "<p>MSE = Var + bias²이므로 편향이 있어도 분산이 충분히 작으면 MSE가 더 작을 수 있습니다(p.26: 기대값과 분산이 모두 다른 두 추정량은 MSE가 작은 쪽을 선호).</p><p>예: θ̂a ~ N(θ, 0.07θ²)는 불편이고 MSE = 0.07θ². θ̂b ~ N(1.13θ, 0.02θ²)는 편향이지만 MSE = 0.02θ² + (0.13θ)² = 0.0369θ²라 θ̂b가 선호됩니다(p.30 Quiz 형식).</p>",
+   "src": [
+    [
+     "C7",
+     "26"
+    ],
+    [
+     "C7",
+     "27"
+    ],
+    [
+     "C7",
+     "30"
+    ]
+   ],
+   "topic": "mse",
+   "dx": {
+    "facet": "mse.def",
+    "depth": 4,
+    "depth_why": "D4c",
+    "mis": "m_d7_unbiased_always"
+   },
+   "fix": "분산이 충분히 작으면 편향 추정량의 MSE가 더 작을 수 있음"
+  },
+  {
+   "ext_id": "7-8",
+   "no": "7-8",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "If θ̂ ~ N(1.2θ, 0.03θ²), then MSE(θ̂) = 0.07θ².",
+   "q_sub": "θ̂ ~ N(1.2θ, 0.03θ²)이면 MSE(θ̂) = 0.07θ²이다.",
+   "ox": true,
+   "s": "<p>bias = E(θ̂) − θ = 1.2θ − θ = 0.2θ, bias² = 0.04θ²</p><p>MSE = Var + bias² = 0.03θ² + 0.04θ² = 0.07θ² (강의 p.27, p.30 필기와 같은 계산)</p><p>함정: 0.2θ를 제곱하지 않고 더하면 안 됩니다.</p>",
+   "src": [
+    [
+     "C7",
+     "27"
+    ],
+    [
+     "C7",
+     "30"
+    ]
+   ],
+   "topic": "mse",
+   "dx": {
+    "facet": "mse.def",
+    "depth": 3,
+    "depth_why": "D3b"
+   }
+  },
+  {
+   "ext_id": "7-9",
+   "no": "7-9",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "A point estimate is said to be consistent if, as the sample size n increases, its variance tends to 0 and it is either unbiased or has a bias that also tends to 0.",
+   "q_sub": "표본 크기 n이 커질 때 분산이 0으로 가고, 불편이거나 편향도 0으로 가는 점추정을 일치(consistent) 추정량이라 한다.",
+   "ox": true,
+   "s": "<p>강의 p.28: 이런 추정량은 표본을 충분히 크게 하면 원하는 만큼 정확하게 만들 수 있어 바람직합니다. 합리적인 점추정의 분산은 n이 커질수록 줄어듭니다. 예: 분모 n인 σ̂²는 편향 −σ²/n이 있지만 n → ∞에서 0으로 갑니다(p.21).</p>",
+   "src": [
+    [
+     "C7",
+     "28"
+    ],
+    [
+     "C7",
+     "21"
+    ]
+   ],
+   "topic": "mse",
+   "dx": {
+    "facet": "mse.consist",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-10",
+   "no": "7-10",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "The standard error of a point estimate is the standard deviation of that statistic; for the sample proportion, s.e.(p̂) = √(p(1 − p)/n).",
+   "q_sub": "점추정의 표준오차는 그 통계량의 표준편차이며, 표본비율의 경우 s.e.(p̂) = √(p(1 − p)/n)이다.",
+   "ox": true,
+   "s": "<p>강의 p.33: 'The standard deviation of p̂ is referred to as its standard error'(필기: 통계량의 표준편차). Var(p̂) = Var(X)/n² = p(1 − p)/n(p.32).</p><p>p를 모르므로 실제로는 p̂로 대체: s.e.(p̂) = √(p̂(1 − p̂)/n) = (1/n)√(x(n − x)/n). 예: 13/46 → 0.066(p.34).</p>",
+   "src": [
+    [
+     "C7",
+     "32"
+    ],
+    [
+     "C7",
+     "33"
+    ],
+    [
+     "C7",
+     "34"
+    ]
+   ],
+   "topic": "sd_prop",
+   "dx": {
+    "facet": "sd_prop.se",
+    "depth": 1,
+    "depth_why": "D1a"
+   }
+  },
+  {
+   "ext_id": "7-11",
+   "no": "7-11",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "Since s.e.(X̄) = σ/√n, doubling the sample size halves the standard error of the sample mean.",
+   "q_sub": "s.e.(X̄) = σ/√n이므로 표본 크기를 2배로 하면 표본평균의 표준오차가 절반이 된다.",
+   "ox": false,
+   "s": "<p>강의 p.36: 표준오차는 √n에 반비례하므로 n을 2배로 하면 1/√2 = 0.71배가 되고, 절반으로 줄이려면 n을 4배로 해야 합니다.</p><p>같은 이유로 n = 20 → 40이면 P(|X̄ − μ| ≤ σ/4)가 0.7372 → 0.8858로 커집니다(p.37).</p>",
+   "src": [
+    [
+     "C7",
+     "36"
+    ],
+    [
+     "C7",
+     "37"
+    ],
+    [
+     "C7",
+     "38"
+    ]
+   ],
+   "topic": "sd_mean",
+   "dx": {
+    "facet": "sd_mean.se",
+    "depth": 2,
+    "depth_why": "D2b",
+    "mis": "m_d7_se_double_halve"
+   },
+   "fix": "n을 2배로 하면 0.71배, 절반으로 하려면 4배"
+  },
+  {
+   "ext_id": "7-12",
+   "no": "7-12",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": false,
+   "q": "If X1, …, Xn are normally distributed with variance σ², then the sample variance has the distribution S² ~ σ²χ²_n/n.",
+   "q_sub": "X1, …, Xn이 분산 σ²인 정규분포를 따르면 표본분산은 S² ~ σ²χ²_n/n 분포를 따른다.",
+   "ox": false,
+   "s": "<p>강의 p.39: S² ~ σ²χ²_{n−1}/(n − 1). 척도 σ²/(n − 1)을 곱한 'scaled chi-square'이고 자유도는 n − 1입니다(한 개 적음).</p><p>확인: E(S²) = σ²(n − 1)/(n − 1) = σ²로 S²의 불편성과 일치합니다.</p>",
+   "src": [
+    [
+     "C7",
+     "39"
+    ],
+    [
+     "C7",
+     "40"
+    ]
+   ],
+   "topic": "sd_var",
+   "dx": {
+    "facet": "sd_var.dist",
+    "depth": 3,
+    "depth_why": "D3a",
+    "mis": "m_d7_s2_df_n"
+   },
+   "fix": "S² ~ σ²χ²_{n−1}/(n − 1) (자유도 n − 1)"
+  },
+  {
+   "ext_id": "7-13",
+   "no": "7-13",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "If X1, …, Xn are normally distributed with mean μ, then √n(X̄ − μ)/S has a t-distribution with n − 1 degrees of freedom, which allows inferences about μ without knowing σ.",
+   "q_sub": "X1, …, Xn이 평균 μ인 정규분포를 따르면 √n(X̄ − μ)/S는 자유도 n − 1인 t분포를 따르며, 이를 이용하면 σ를 몰라도 μ에 대해 추론할 수 있다.",
+   "ox": true,
+   "s": "<p>강의 p.40–41: √n(X̄ − μ)/σ ~ N(0, 1)은 미지의 σ를 포함합니다. S/σ ~ √(χ²_{n−1}/(n − 1))로 나누면 σ가 약분되어 √n(X̄ − μ)/S ~ t_{n−1}이 됩니다.</p><p>실험자는 n, x̄, s를 알므로 미지수는 μ뿐입니다(필기: σ 없이 μ로만 추정!). 자유도는 표본 크기보다 하나 적은 n − 1입니다.</p>",
+   "src": [
+    [
+     "C7",
+     "40"
+    ],
+    [
+     "C7",
+     "41"
+    ]
+   ],
+   "topic": "tstat",
+   "dx": {
+    "facet": "tstat.def",
+    "depth": 3,
+    "depth_why": "D3c"
+   }
+  },
+  {
+   "ext_id": "7-14",
+   "no": "7-14",
+   "chapter": "C7",
+   "kind": "ox",
+   "star": true,
+   "q": "For a sample from a normal distribution, the maximum likelihood estimate of σ² is the sample variance s² = Σ(xi − x̄)²/(n − 1).",
+   "q_sub": "정규분포 표본에서 σ²의 최대우도추정치는 표본분산 s² = Σ(xi − x̄)²/(n − 1)이다.",
+   "ox": false,
+   "s": "<p>강의 p.52: d ln(L)/dμ = 0 → μ̂ = x̄, d ln(L)/dσ² = 0 → σ̂² = Σ(xi − x̄)²/n. MLE는 분모가 n이고 표본분산 s²는 분모가 n − 1입니다(필기).</p><p>그래서 MLE σ̂²는 E(σ̂²) = (n − 1)σ²/n인 편향 추정량입니다(p.21).</p>",
+   "src": [
+    [
+     "C7",
+     "51"
+    ],
+    [
+     "C7",
+     "52"
+    ],
+    [
+     "C7",
+     "21"
+    ]
+   ],
+   "topic": "mle",
+   "dx": {
+    "facet": "mle.norm",
+    "depth": 3,
+    "depth_why": "D3c",
+    "mis": "m_d7_mle_var_n1"
+   },
+   "fix": "MLE는 σ̂² = Σ(xi − x̄)²/n (분모 n)"
+  },
+  {
+   "ext_id": "7-15",
+   "no": "7-15",
+   "chapter": "C7",
+   "kind": "short",
+   "star": true,
+   "q": "Suppose that X1 and X2 are independent with E(X1) = E(X2) = μ, Var(X1) = 12 and Var(X2) = 20, and consider the point estimate μ̂ = X1/4 + X2/2 + 3. Calculate the mean square error of μ̂ when μ = 8. (Round to 2 decimal places.)",
+   "q_sub": "X1, X2가 독립이고 E(X1) = E(X2) = μ, Var(X1) = 12, Var(X2) = 20이다. 점추정 μ̂ = X1/4 + X2/2 + 3의 평균제곱오차를 μ = 8일 때 구하시오. (소수 둘째 자리)",
+   "a": "6.75",
+   "strict": false,
+   "num": 6.75,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>E(μ̂) = μ/4 + μ/2 + 3 = 0.75μ + 3 → bias = 3 − 0.25μ = 3 − 2 = 1</p><p>Var(μ̂) = 12/16 + 20/4 = 0.75 + 5 = 5.75</p><p>MSE = Var + bias² = 5.75 + 1 = 6.75</p><p>참고: X1/2 + X2/2는 불편이지만 MSE = Var = 8, X1/4 + 3X2/4도 불편이지만 MSE = 12/16 + 9 × 20/16 = 12라, μ = 8에서는 편향된 μ̂의 MSE가 가장 작습니다.</p>",
+   "src": [
+    [
+     "C7",
+     "29"
+    ],
+    [
+     "C7",
+     "27"
+    ]
+   ],
+   "topic": "mse",
+   "dx": {
+    "facet": "mse.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-16",
+   "no": "7-16",
+   "chapter": "C7",
+   "kind": "short",
+   "star": true,
+   "q": "Suppose that θ̂1 ~ N(1.08θ, 0.035θ²), θ̂2 ~ N(0.97θ, 0.05θ²) and θ̂3 ~ N(1.15θ, 0.012θ²). The preferred point estimate is the one with the smallest mean square error. Writing its mean square error as cθ², find c. (Round to 4 decimal places.)",
+   "q_sub": "θ̂1 ~ N(1.08θ, 0.035θ²), θ̂2 ~ N(0.97θ, 0.05θ²), θ̂3 ~ N(1.15θ, 0.012θ²)이다. 평균제곱오차가 가장 작은 점추정을 선호할 때, 그 평균제곱오차를 cθ²로 쓰면 c는? (소수 넷째 자리)",
+   "a": "0.0345",
+   "strict": false,
+   "num": 0.0345,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "s": "<p>MSE = Var + bias²</p><p>θ̂1: 0.035θ² + (0.08θ)² = 0.0414θ²</p><p>θ̂2: 0.05θ² + (−0.03θ)² = 0.0509θ²</p><p>θ̂3: 0.012θ² + (0.15θ)² = 0.0345θ²</p><p>→ θ̂3 선호, c = 0.0345 (편향이 가장 커도 분산이 작아 MSE가 가장 작음, 강의 p.30 Quiz와 같은 풀이)</p>",
+   "src": [
+    [
+     "C7",
+     "30"
+    ],
+    [
+     "C7",
+     "27"
+    ]
+   ],
+   "topic": "mse",
+   "dx": {
+    "facet": "mse.def",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-17",
+   "no": "7-17",
+   "chapter": "C7",
+   "kind": "short",
+   "star": false,
+   "q": "The pH levels of food items prepared in a certain way are normally distributed with a standard deviation of σ = 0.75. An experimenter estimates the mean pH level by averaging the pH levels of a random sample of n = 8 items. What is the probability that the experimenter's estimate is within 0.4 of the true mean value? (Round to 4 decimal places.)",
+   "q_sub": "어떤 방식으로 만든 음식의 pH가 표준편차 σ = 0.75인 정규분포를 따른다. 실험자가 n = 8개 표본의 평균으로 평균 pH를 추정할 때, 추정치가 참 평균에서 0.4 이내일 확률은? (소수 넷째 자리)",
+   "a": "0.8686",
+   "strict": false,
+   "num": 0.8686,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>X̄ ~ N(μ, σ²/n), s.e.(X̄) = 0.75/√8 = 0.2652</p><p>P(|X̄ − μ| ≤ 0.4) = P(|Z| ≤ 0.4√8/0.75) = P(|Z| ≤ 1.508) = 2Φ(1.508) − 1 = 2 × 0.9343 − 1 = 0.8686</p>",
+   "src": [
+    [
+     "C7",
+     "36"
+    ],
+    [
+     "C7",
+     "37"
+    ],
+    [
+     "C7",
+     "42"
+    ]
+   ],
+   "topic": "sd_mean",
+   "dx": {
+    "facet": "sd_mean.dist",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-18",
+   "no": "7-18",
+   "chapter": "C7",
+   "kind": "short",
+   "star": false,
+   "q": "The pH levels of food items are normally distributed with a standard deviation of σ = 0.75. What is the smallest sample size n needed to ensure that there is a probability of at least 99% that the sample mean is within 0.4 of the true mean value?",
+   "q_sub": "음식의 pH가 표준편차 σ = 0.75인 정규분포를 따른다. 표본평균이 참 평균에서 0.4 이내일 확률이 적어도 99%가 되도록 하는 최소 표본 크기 n은?",
+   "a": "24",
+   "strict": false,
+   "num": 24,
+   "tol": 0.4,
+   "ph": "숫자만 입력",
+   "s": "<p>2Φ(0.4√n/0.75) − 1 ≥ 0.99 ⇔ Φ(0.4√n/0.75) ≥ 0.995 ⇔ 0.4√n/0.75 ≥ z_0.005 = 2.576</p><p>n ≥ (2.576 × 0.75/0.4)² = 23.33 → n = 24</p><p>확인: n = 23이면 0.9895, n = 24이면 0.9910</p>",
+   "src": [
+    [
+     "C7",
+     "36"
+    ],
+    [
+     "C7",
+     "42"
+    ]
+   ],
+   "topic": "sd_mean",
+   "dx": {
+    "facet": "sd_mean.se",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-19",
+   "no": "7-19",
+   "chapter": "C7",
+   "kind": "short",
+   "star": true,
+   "q": "Unknown to an experimenter, the failure time of a component has an exponential distribution with parameter λ = 0.025 per minute. The experimenter takes 120 components and finds out how many of them last longer than one hour, in order to estimate the probability that a component lasts longer than one hour. What is the probability that the experimenter's estimate is within 0.05 of the correct answer? (Round to 4 decimal places.)",
+   "q_sub": "실험자는 모르지만 부품 고장시간은 λ = 0.025(/분)인 지수분포를 따른다. 실험자가 부품 120개 중 1시간 넘게 견딘 개수로 '1시간 넘게 견딜 확률'을 추정한다. 추정치가 참값에서 0.05 이내일 확률은? (소수 넷째 자리)",
+   "a": "0.8117",
+   "strict": false,
+   "num": 0.8117,
+   "tol": 0.002,
+   "ph": "숫자만 입력",
+   "s": "<p>참값 p = P(T > 60) = e^(−0.025 × 60) = e^(−1.5) = 0.2231</p><p>p̂ ≈ N(p, p(1 − p)/n), s.e. = √(0.2231 × 0.7769/120) = 0.03801</p><p>P(|p̂ − p| ≤ 0.05) = P(|Z| ≤ 0.05/0.03801) = P(|Z| ≤ 1.316) = 2Φ(1.316) − 1 = 0.8117</p><p>함정: 시간 단위를 분으로 맞춰 60분을 써야 합니다.</p>",
+   "src": [
+    [
+     "C7",
+     "32"
+    ],
+    [
+     "C7",
+     "33"
+    ],
+    [
+     "C7",
+     "43"
+    ]
+   ],
+   "topic": "sd_prop",
+   "dx": {
+    "facet": "sd_prop.dist",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-20",
+   "no": "7-20",
+   "chapter": "C7",
+   "kind": "short",
+   "star": false,
+   "q": "Suppose that 30 observations are collected from a Poisson distribution, and the sample average is x̄ = 4.27. Construct a point estimate of the parameter λ and calculate its standard error. Enter the standard error. (Round to 4 decimal places.)",
+   "q_sub": "포아송분포에서 30개의 관측값을 얻었고 표본평균이 x̄ = 4.27이다. 모수 λ의 점추정을 구하고 그 표준오차를 계산하시오. 표준오차를 입력하시오. (소수 넷째 자리)",
+   "a": "0.3773",
+   "strict": false,
+   "num": 0.3773,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>E(X) = λ이므로 적률법 λ̂ = x̄ = 4.27 (최대우도추정도 같은 값, 강의 p.53–54)</p><p>Var(X̄) = λ/n → s.e.(λ̂) = √(λ̂/n) = √(4.27/30) = 0.3773</p>",
+   "src": [
+    [
+     "C7",
+     "53"
+    ],
+    [
+     "C7",
+     "54"
+    ],
+    [
+     "C7",
+     "57"
+    ]
+   ],
+   "topic": "mom",
+   "dx": {
+    "facet": "mom.one",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  },
+  {
+   "ext_id": "7-21",
+   "no": "7-21",
+   "chapter": "C7",
+   "kind": "short",
+   "star": true,
+   "q": "Suppose that a set of observations is collected from a beta distribution, with an average of x̄ = 0.64 and a variance of s² = 0.012. Obtain the method of moments point estimate of the parameter a. (Round to 2 decimal places.)",
+   "q_sub": "베타분포에서 얻은 관측값의 평균이 x̄ = 0.64, 분산이 s² = 0.012이다. 적률법으로 모수 a의 점추정을 구하시오. (소수 둘째 자리)",
+   "a": "11.65",
+   "strict": false,
+   "num": 11.65,
+   "tol": 0.02,
+   "ph": "숫자만 입력",
+   "s": "<p>a/(a + b) = 0.64, ab/((a + b)²(a + b + 1)) = 0.012</p><p>ab/(a + b)² = x̄(1 − x̄) = 0.2304이므로 0.2304/(a + b + 1) = 0.012 → a + b + 1 = 19.2 → a + b = 18.2</p><p>â = 0.64 × 18.2 = 11.65, b̂ = 18.2 − 11.65 = 6.55</p>",
+   "src": [
+    [
+     "C7",
+     "46"
+    ],
+    [
+     "C7",
+     "56"
+    ],
+    [
+     "C7",
+     "57"
+    ]
+   ],
+   "topic": "mom",
+   "dx": {
+    "facet": "mom.two",
+    "depth": 2,
+    "depth_why": "D2a"
+   }
+  }
+ ]
+}
