@@ -1,0 +1,6418 @@
+{
+ "format": 1,
+ "publish": false,
+ "semester": {
+  "code": "27-1",
+  "name": "2027년 1학기"
+ },
+ "course": {
+  "code": "IE201",
+  "short": "경공",
+  "name": "경제성공학",
+  "professor": "",
+  "meta": "2024 강의 슬라이드 1~9·12강 + 22년 중간·기말",
+  "lang": "ko",
+  "color": {
+   "light": "#8c6d00",
+   "dark": "#e8c54f"
+  },
+  "math": false,
+  "files": {
+   "L1": "1강 슬라이드 (lec01)",
+   "L2": "2강 슬라이드 (lec02)",
+   "L3": "3강 슬라이드 (lec03)",
+   "L4": "4강 슬라이드 (lec04)",
+   "L5": "5강 슬라이드 (lec05)",
+   "L6": "6강 슬라이드 (lec06)",
+   "L7": "7강 슬라이드 (lec07)",
+   "L8": "8강 슬라이드 (lec08)",
+   "L9": "9강 슬라이드 (lec09)",
+   "L12": "12강 슬라이드 (lec12)"
+  },
+  "topics": {
+   "tvm": {
+    "name": "화폐의 시간가치와 현금흐름",
+    "facets": {
+     "simple_comp": {
+      "name": "단리·복리와 경제적 등가",
+      "kind": "distinction",
+      "statement": "단리는 원금에만, 복리는 이자에도 이자가 붙고 다른 시점의 금액은 이자율로 환산해 비교한다"
+     },
+     "cashflow": {
+      "name": "현금흐름의 방향과 관점",
+      "kind": "property",
+      "statement": "현금흐름은 기간 말에 일어나고 유입은 +, 유출은 −이며 같은 시점은 순현금흐름으로 합친다"
+     },
+     "interest": {
+      "name": "이자와 이자율·수익률의 정의",
+      "kind": "def",
+      "statement": "이자는 현재 금액에서 원금을 뺀 값이고, 이자율은 이자를 원금으로 나눈 비율이다"
+     }
+    }
+   },
+   "single": {
+    "name": "단일 금액 계수",
+    "confusable": [
+     "gradient"
+    ],
+    "facets": {
+     "fp_notation": {
+      "name": "단일 금액 계수와 계수 표기",
+      "kind": "def",
+      "statement": "(F/P,i,n)=(1+i)^n이고 P/F는 그 역수이며, (X/Y,i,n)은 Y가 주어졌을 때 X를 구하는 계수다"
+     }
+    }
+   },
+   "gradient": {
+    "name": "경사급수 계수",
+    "confusable": [
+     "single",
+     "combine"
+    ],
+    "facets": {
+     "geo_grad": {
+      "name": "기하 경사급수 계수",
+      "kind": "property",
+      "statement": "(P/A,g,i,n)은 A₁을 t=1로 보고 g의 부호와 관계없이 증가·감소 급수에 쓰며 g=i는 별도 식이다"
+     }
+    }
+   },
+   "combine": {
+    "name": "계수 조합",
+    "confusable": [
+     "gradient"
+    ],
+    "facets": {
+     "decompose": {
+      "name": "복합 현금흐름의 분해와 환산",
+      "kind": "procedure",
+      "statement": "복합 현금흐름은 균등·경사·단일 금액으로 나눠 같은 시점의 값으로 옮긴 뒤 합한다"
+     },
+     "shifted_g": {
+      "name": "이동된 경사급수의 n과 기준 시점",
+      "kind": "condition",
+      "statement": "경사가 0인 해를 기간 1로 다시 세어 n을 정하고, P/G 값은 그 한 기간 앞에 놓인다"
+     }
+    }
+   },
+   "eff_rate": {
+    "name": "명목·유효이자율",
+    "confusable": [
+     "cp_pp",
+     "continuous"
+    ],
+    "facets": {
+     "nom_eff": {
+      "name": "명목이자율과 유효이자율의 구별",
+      "kind": "distinction",
+      "statement": "명목이율은 복리를 반영하지 않는 (기간당 이율×기간 수)이고, 유효이율은 복리를 반영한다"
+     }
+    }
+   },
+   "cp_pp": {
+    "name": "결제기간과 복리기간",
+    "confusable": [
+     "eff_rate"
+    ],
+    "facets": {
+     "cp_pp_i": {
+      "name": "결제기간과 복리기간에 맞춘 i와 n",
+      "kind": "procedure",
+      "statement": "결제기간(PP)과 복리기간(CP)이 다르면 PP당 유효이율을 구하고 n은 PP의 개수로 센다"
+     }
+    }
+   },
+   "continuous": {
+    "name": "연속복리",
+    "confusable": [
+     "eff_rate"
+    ],
+    "facets": {
+     "cont": {
+      "name": "연속복리",
+      "kind": "property",
+      "statement": "연속복리는 복리 횟수가 무한대일 때의 극한이며 유효 연이율은 e^r−1이다"
+     }
+    }
+   },
+   "life": {
+    "name": "수명이 다른 대안 비교",
+    "confusable": [
+     "pw_rule"
+    ],
+    "facets": {
+     "lcm": {
+      "name": "수명이 다를 때 LCM이 필요한 경우",
+      "kind": "condition",
+      "statement": "수명이 다른 상호배타 대안의 PW는 LCM 기간으로 비교하고, 독립 프로젝트는 LCM이 필요 없다"
+     },
+     "study": {
+      "name": "연구기간 분석",
+      "kind": "procedure",
+      "statement": "연구기간 분석은 기간 안의 현금흐름만 쓰고 기간 이후는 무시하므로 LCM 결과와 달라질 수 있다"
+     }
+    }
+   },
+   "pw_rule": {
+    "name": "PW 선택 규칙과 자본화비용",
+    "confusable": [
+     "life",
+     "aw"
+    ],
+    "facets": {
+     "cc": {
+      "name": "자본화비용(CC)",
+      "kind": "property",
+      "statement": "CC는 무한 수명 프로젝트의 PW로 A/i이며, 주기적 비용은 한 주기의 연 금액으로 바꿔 더한다"
+     },
+     "rule": {
+      "name": "PW 선택 규칙: 상호배타·독립·DN",
+      "kind": "procedure",
+      "statement": "상호배타 대안은 PW 최대 하나, 독립 프로젝트는 PW≥0인 것 모두를 고르며 DN의 PW는 0이다"
+     }
+    }
+   },
+   "aw": {
+    "name": "연등가(AW)",
+    "confusable": [
+     "pw_rule"
+    ],
+    "facets": {
+     "pw_fw_aw": {
+      "name": "PW·FW·AW의 관계",
+      "kind": "relation",
+      "statement": "AW=PW(A/P,i,n)=FW(A/F,i,n)이며 같은 가정에서 세 방법은 같은 대안을 고른다"
+     }
+    }
+   },
+   "lcc": {
+    "name": "생애주기비용",
+    "facets": {
+     "lcc": {
+      "name": "생애주기비용(LCC) 분석",
+      "kind": "def",
+      "statement": "LCC는 취득·운영·폐기 단계의 직접·간접 비용을 모두 보며 운영·유지비 비중이 클 때 효과적이다"
+     }
+    }
+   },
+   "ror": {
+    "name": "수익률(ROR)",
+    "confusable": [
+     "marr",
+     "mirr"
+    ],
+    "facets": {
+     "balance": {
+      "name": "회수되지 않은 잔액에 대한 수익률",
+      "kind": "def",
+      "statement": "ROR은 처음 금액이 아니라 회수되지 않은 잔액에 붙는 이율이며 −100%≤i≤∞이다"
+     },
+     "relative": {
+      "name": "ROR은 상대 측정치",
+      "kind": "distinction",
+      "statement": "ROR은 현금흐름만으로 정해지는 상대 측정치이고 PW·AW는 금액으로 나오는 절대 측정치다"
+     }
+    }
+   },
+   "marr": {
+    "name": "MARR과 자본비용",
+    "confusable": [
+     "ror"
+    ],
+    "facets": {
+     "marr": {
+      "name": "MARR의 정의와 WACC",
+      "kind": "def",
+      "statement": "MARR은 계산하는 값이 아니라 정해 두는 기준이며 보통 WACC 이상으로 잡는다"
+     }
+    }
+   },
+   "multi_ror": {
+    "name": "다중 i* 판별",
+    "confusable": [
+     "mirr"
+    ],
+    "facets": {
+     "cum_sign": {
+      "name": "누적 현금흐름 부호 검사",
+      "kind": "condition",
+      "statement": "누적 현금흐름이 음수로 시작해 부호가 한 번만 바뀌면 양의 i*는 하나뿐이다"
+     }
+    }
+   },
+   "mirr": {
+    "name": "수정 ROR(MIRR)",
+    "confusable": [
+     "multi_ror",
+     "ror"
+    ],
+    "facets": {
+     "mirr": {
+      "name": "수정 ROR(MIRR)",
+      "kind": "procedure",
+      "statement": "MIRR은 음의 흐름을 차입률로 t=0에, 양의 흐름을 투자율로 t=n에 모아 단일 이율을 구한다"
+     }
+    }
+   },
+   "ror_calc": {
+    "name": "ROR 계산 방법",
+    "facets": {
+     "trial": {
+      "name": "ROR 시행착오와 첫 시도",
+      "kind": "procedure",
+      "statement": "ROR 식을 세워 시간가치를 무시한 첫 i를 구하고, PW 부호를 보며 i를 바꾸고 선형 보간으로 좁힌다"
+     },
+     "excel": {
+      "name": "엑셀 RATE·IRR 함수 선택",
+      "kind": "condition",
+      "statement": "균등한 A 계열이면 RATE(n,A,P,F), 해마다 다르면 IRR(범위)을 쓰며 IRR은 모든 경우에 쓸 수 있다"
+     }
+    }
+   },
+   "inc_ror": {
+    "name": "증분 ROR 분석",
+    "confusable": [
+     "ror"
+    ],
+    "facets": {
+     "vs_indiv": {
+      "name": "개별 i* 비교의 한계",
+      "kind": "distinction",
+      "statement": "개별 i*가 큰 대안이 최선이 아닐 수 있어 상호배타 대안은 증분 ROR로 비교한다"
+     },
+     "inc_cf": {
+      "name": "증분 현금흐름의 구성",
+      "kind": "procedure",
+      "statement": "증분 현금흐름은 (초기투자가 큰 대안)−(작은 대안)이며 수명이 다르면 LCM이나 연구기간으로 맞춘다"
+     },
+     "defender": {
+      "name": "방어자·도전자 순차 비교",
+      "kind": "procedure",
+      "statement": "여러 대안은 방어자와 도전자를 한 쌍씩 비교하며, 비용만 있는 대안은 DN 없이 증분만 비교한다"
+     }
+    }
+   },
+   "bc": {
+    "name": "편익/비용 분석",
+    "confusable": [
+     "cer",
+     "public"
+    ],
+    "facets": {
+     "bc_rule": {
+      "name": "B/C 비율의 계산 규칙과 판정",
+      "kind": "procedure",
+      "statement": "B/C는 비용을 +로 두고 잔존가치·정부 수입은 분모에서 빼며 B/C≥1.0이면 정당화된다"
+     }
+    }
+   },
+   "public": {
+    "name": "공공 부문 경제성",
+    "confusable": [
+     "bc"
+    ],
+    "facets": {
+     "pub_proj": {
+      "name": "공공 부문 프로젝트의 특성",
+      "kind": "def",
+      "statement": "공공 프로젝트는 시민이 소유하고 이윤 없이 서비스를 제공하며 자금은 세금·채권·사용료에서 온다"
+     }
+    }
+   },
+   "cer": {
+    "name": "비용효과분석",
+    "confusable": [
+     "bc"
+    ],
+    "facets": {
+     "cer": {
+      "name": "비용효과분석(CER)",
+      "kind": "def",
+      "statement": "CER은 총비용을 효과 측정치로 나눈 값이며 작을수록 바람직하다"
+     }
+    }
+   },
+   "budget": {
+    "name": "자본예산",
+    "confusable": [
+     "proj_rel"
+    ],
+    "facets": {
+     "bundle": {
+      "name": "예산 제약 하의 묶음 선택",
+      "kind": "procedure",
+      "statement": "예산 한도 안의 가능한 묶음(최대 2^m개) 중 PW가 가장 큰 묶음을 고른다"
+     },
+     "reinvest": {
+      "name": "자본예산 PW의 재투자 가정",
+      "kind": "condition",
+      "statement": "자본예산 PW는 양의 NCF를 가장 긴 수명 끝까지 MARR로 재투자한다고 가정한다"
+     },
+     "ilp": {
+      "name": "자본예산 ILP 정식화",
+      "kind": "procedure",
+      "statement": "ILP는 PW 합을 최대화하고 초기투자 합이 예산 b 이하이며 x는 0 또는 1이다"
+     }
+    }
+   },
+   "proj_rel": {
+    "name": "프로젝트 관계",
+    "confusable": [
+     "budget"
+    ],
+    "facets": {
+     "rel": {
+      "name": "독립·조건부·종속 프로젝트",
+      "kind": "distinction",
+      "statement": "독립은 서로 영향이 없고, 조건부는 채택에 조건이 붙으며, 종속은 다른 프로젝트 결정에 따라 정해진다"
+     }
+    }
+   }
+  },
+  "misconceptions": {
+   "m_tvm_comp_yr1": {
+    "facet": "tvm.simple_comp",
+    "belief": "만기가 1년이어도 복리가 단리보다 크다고 생각함",
+    "truth": "만기 1년에서는 단리와 복리의 금액이 같고, 2년 이상부터 복리가 더 크다"
+   },
+   "m_tvm_cf_begin": {
+    "facet": "tvm.cashflow",
+    "belief": "현금흐름이 이자 기간 초에 발생한다고 생각함",
+    "truth": "현금흐름은 이자 기간 말에 발생하며, 연 단위면 t=1은 1년 차 말이다"
+   },
+   "m_tvm_net_reverse": {
+    "facet": "tvm.cashflow",
+    "belief": "순현금흐름을 지출에서 수입을 뺀 값으로 계산한다고 생각함",
+    "truth": "순현금흐름은 유입에서 유출을 뺀 값이다 (유입 +, 유출 −)"
+   },
+   "m_tvm_net_nonet": {
+    "facet": "tvm.cashflow",
+    "belief": "같은 시점의 유입과 유출을 부호 없이 더한다고 생각함",
+    "truth": "같은 시점의 유입과 유출은 부호를 달리해 순현금흐름 하나로 합친다"
+   },
+   "m_tvm_net_allout": {
+    "facet": "tvm.cashflow",
+    "belief": "같은 시점의 수입도 지출로 센다고 생각함",
+    "truth": "수입은 유입(+)이므로 같은 시점의 지출(−)과 상쇄해 순현금흐름으로 합친다"
+   },
+   "m_tvm_rate_unit": {
+    "facet": "tvm.interest",
+    "belief": "기간 단위 없는 이자율은 월 이자율이라고 생각함",
+    "truth": "기간 단위가 명시되지 않은 이자율은 보통 연 단위 값이다"
+   },
+   "m_tvm_int_base_now": {
+    "facet": "tvm.interest",
+    "belief": "이자의 기준을 처음 원금이 아니라 지금 금액으로 잡는다고 생각함",
+    "truth": "이자율은 이자를 처음 원금으로 나눈 비율이다 (지금 금액은 원금 + 이자)"
+   },
+   "m_tvm_time_reverse": {
+    "facet": "tvm.interest",
+    "belief": "지금 금액에서 이자를 더해 처음 금액을 구한다고 생각함",
+    "truth": "지금 금액은 원금과 이자의 합이므로 원금 = 지금 금액/(1+i)이다"
+   },
+   "m_tvm_yield_paid": {
+    "facet": "tvm.interest",
+    "belief": "수익률과 빌릴 때 내는 이자율은 구별할 필요 없다고 생각함",
+    "truth": "빌려 쓰며 내는 비율은 이자율, 빌려주거나 투자해 얻는 비율은 수익률이다"
+   },
+   "m_tvm_yield_nominal": {
+    "facet": "tvm.interest",
+    "belief": "수익률이 명목이자율과 같은 말이라고 생각함",
+    "truth": "수익률은 투자로 얻은 이자의 비율이고, 명목이자율은 복리를 반영하지 않은 환산 이율이다"
+   },
+   "m_tvm_amt_ratio": {
+    "facet": "tvm.interest",
+    "belief": "이자 금액과 이자율(비율)이 같은 것이라고 생각함",
+    "truth": "이자는 금액(달러)이고, 이자율·수익률은 원금에 대한 비율(%)이다"
+   },
+   "m_rel_indep_dep": {
+    "facet": "proj_rel.rel",
+    "belief": "독립 프로젝트도 한쪽 선택이 다른 쪽 결정에 영향을 준다고 생각함",
+    "truth": "독립 프로젝트는 한 프로젝트의 선택이 다른 프로젝트의 결정에 영향을 주지 않는다"
+   },
+   "m_rel_to_indep": {
+    "facet": "proj_rel.rel",
+    "belief": "서로 영향을 주는 관계도 독립 관계라고 생각함",
+    "truth": "독립은 서로 영향이 없는 관계이고, 조건부·종속은 채택 여부가 서로 얽힌 관계다"
+   },
+   "m_rel_dep_cont": {
+    "facet": "proj_rel.rel",
+    "belief": "조건부 관계와 종속 관계가 같은 것이라고 생각함",
+    "truth": "조건부는 A가 B 채택 때만 가능한 관계, 종속은 다른 프로젝트 결정에 따라 정해지는 관계다"
+   },
+   "m_rel_budget": {
+    "facet": "proj_rel.rel",
+    "belief": "예산 제약이 프로젝트 사이의 관계라고 생각함",
+    "truth": "예산 한도는 프로젝트 관계가 아니라 선택 전체에 거는 제약이다"
+   },
+   "m_rel_mutex": {
+    "facet": "proj_rel.rel",
+    "belief": "조건부·종속 관계를 상호배타 관계라고 생각함",
+    "truth": "조건부·종속은 채택 여부가 다른 프로젝트 결정에 달린 관계로 상호배타와 다르다"
+   },
+   "m_budget_partial": {
+    "facet": "budget.bundle",
+    "belief": "프로젝트의 일부만 선택하거나 투자할 수 있다고 생각함",
+    "truth": "프로젝트는 전부 선택하거나 전부 선택하지 않으며 x_k는 0 또는 1이다"
+   },
+   "m_budget_ignore_limit": {
+    "facet": "budget.bundle",
+    "belief": "예산 한도를 따지지 않고 프로젝트를 고른다고 생각함",
+    "truth": "예산 한도 안에서 가능한 묶음만 비교해 PW가 가장 큰 묶음을 고른다"
+   },
+   "m_budget_use_max": {
+    "facet": "budget.bundle",
+    "belief": "예산을 가장 많이 쓰는 묶음이 좋다고 생각함",
+    "truth": "목표는 예산 사용량이 아니라 한도 안에서 PW 합을 최대로 하는 것이다"
+   },
+   "m_reinv_none": {
+    "facet": "budget.reinvest",
+    "belief": "프로젝트가 끝나면 그 이후의 현금흐름은 사라진다고 생각함",
+    "truth": "자본예산 PW는 양의 NCF를 가장 긴 수명 끝까지 MARR로 재투자한다고 가정한다"
+   },
+   "m_reinv_istar": {
+    "facet": "budget.reinvest",
+    "belief": "재투자 이율이 각 프로젝트의 i*라고 생각함",
+    "truth": "자본예산 PW가 가정하는 재투자 이율은 i*가 아니라 MARR이다"
+   },
+   "m_reinv_short": {
+    "facet": "budget.reinvest",
+    "belief": "재투자가 수명이 가장 짧은 프로젝트의 끝까지만 이어진다고 생각함",
+    "truth": "재투자는 프로젝트 종료 시점부터 가장 긴 수명 프로젝트가 끝날 때까지 이어진다"
+   },
+   "m_reinv_keep": {
+    "facet": "budget.reinvest",
+    "belief": "재투자 가정이 비현실적이어도 같은 PW 분석을 쓴다고 생각함",
+    "truth": "재투자 가정이 비현실적이면 모든 프로젝트 수명의 LCM 기간으로 PW 분석을 한다"
+   },
+   "m_ilp_swap": {
+    "facet": "budget.ilp",
+    "belief": "PW 합을 제약으로, 투자비 합을 목적으로 둔다고 생각함",
+    "truth": "목적함수는 PW 합의 최대화, 제약은 초기투자 합 ≤ 예산 b이다"
+   },
+   "m_ilp_min_cost": {
+    "facet": "budget.ilp",
+    "belief": "목적을 투자비 합의 최소화로 둔다고 생각함",
+    "truth": "목적함수는 투자비 최소화가 아니라 PW 합의 최대화이다"
+   },
+   "m_ilp_lcm": {
+    "facet": "budget.ilp",
+    "belief": "정수계획의 PW_k도 LCM 기간으로 구해야 한다고 생각함",
+    "truth": "정수계획의 PW_k는 LCM으로 맞추지 않고 각 프로젝트의 수명 동안 MARR로 구한다"
+   },
+   "m_ilp_sum_all": {
+    "facet": "budget.ilp",
+    "belief": "선택하지 않은 프로젝트(x=0)의 투자비도 더한다고 생각함",
+    "truth": "예산 제약식 좌변에는 x_k = 1인 프로젝트의 투자비만 더한다"
+   },
+   "m_single_pf_gt1": {
+    "facet": "single.fp_notation",
+    "belief": "P/F 값이 1보다 크다고 생각함",
+    "truth": "i가 0보다 크면 (P/F,i,n)=1/(1+i)^n은 1보다 작다"
+   },
+   "m_single_simple": {
+    "facet": "single.fp_notation",
+    "belief": "복리 계수 대신 단리 식으로 현재가치를 구한다고 생각함",
+    "truth": "(P/F,i,n)은 복리로 할인하는 계수이며 단리처럼 i·n만큼 빼지 않는다"
+   },
+   "m_single_dir": {
+    "facet": "single.fp_notation",
+    "belief": "F/P와 P/F의 방향을 서로 바꿔 쓴다고 생각함",
+    "truth": "F/P는 현재 P를 미래 F로, P/F는 미래 F를 현재 P로 옮긴다 (X/Y는 Y가 주어지고 X를 구함)"
+   },
+   "m_single_mix": {
+    "facet": "single.fp_notation",
+    "belief": "F/P를 F/A나 A/P 같은 다른 계수와 같다고 생각함",
+    "truth": "(F/P,i,n)은 단일 금액 P를 n기 뒤의 F로 옮기는 계수로 F/A·A/P와 다르다"
+   },
+   "m_single_prod": {
+    "facet": "single.fp_notation",
+    "belief": "i가 크면 F/P와 P/F의 곱이 1이 아니라고 생각함",
+    "truth": "(F/P,i,n)과 (P/F,i,n)은 역수라서 i와 상관없이 곱이 항상 1이다"
+   },
+   "m_geo_as_arith": {
+    "facet": "gradient.geo_grad",
+    "belief": "기하 경사도 매년 일정한 금액씩 변하는 등차 경사처럼 본다고 생각함",
+    "truth": "기하 경사는 일정한 금액이 아니라 일정한 비율 g로 변하므로 기본액 분리 없이 한 계수로 푼다"
+   },
+   "m_geo_ignore_g": {
+    "facet": "gradient.geo_grad",
+    "belief": "증가율 g를 무시하고 일반 P/A 계수로 계산한다고 생각함",
+    "truth": "증가율 g가 있으면 (P/A,g,i,n)처럼 g와 i를 따로 넣어 계산한다"
+   },
+   "m_geo_no_decr": {
+    "facet": "gradient.geo_grad",
+    "belief": "기하 경사 계수는 감소하는 급수에 쓸 수 없다고 생각함",
+    "truth": "감소하는 급수에는 g를 음수로 넣어 같은 (P/A,g,i,n)을 쓴다"
+   },
+   "m_geo_sign": {
+    "facet": "gradient.geo_grad",
+    "belief": "감소하는 급수에도 g를 양수로 넣는다고 생각함",
+    "truth": "g는 증가면 +, 감소면 −로 넣는다 (g의 부호와 관계없이 같은 공식)"
+   },
+   "m_geo_g_lt_i": {
+    "facet": "gradient.geo_grad",
+    "belief": "g가 i보다 작을 때만 공식을 쓸 수 있다고 생각함",
+    "truth": "g=i일 때만 별도 식 P_g=n·A₁/(1+i)을 쓰고, g≠i이면 g>i여도 같은 공식이다"
+   },
+   "m_geo_count_end": {
+    "facet": "gradient.geo_grad",
+    "belief": "n과 할인 연수를 마지막 시점 번호로 센다고 생각함",
+    "truth": "n은 금액이 나오는 횟수이고, 값은 첫 금액의 한 기간 앞 시점에 놓인다"
+   },
+   "m_geo_arith_as_geo": {
+    "facet": "gradient.geo_grad",
+    "belief": "일정 금액씩 느는 등차 경사에도 기하 경사 계수를 쓴다고 생각함",
+    "truth": "금액 G만큼 느는 등차 경사는 P/G, 비율 g로 느는 기하 경사는 (P/A,g,i,n)을 쓴다"
+   },
+   "m_comb_sum_first": {
+    "facet": "combine.decompose",
+    "belief": "시점이 다른 금액을 환산하지 않고 한꺼번에 더하거나 할인한다고 생각함",
+    "truth": "각 부분을 같은 시점의 값으로 옮긴 뒤에 더한다 (시점이 다른 금액은 그대로 더할 수 없다)"
+   },
+   "m_comb_disc_off": {
+    "facet": "combine.decompose",
+    "belief": "단일 금액을 실제보다 한 기간 적게 할인한다고 생각함",
+    "truth": "4년 차 말 금액은 t=0까지 4년을 할인한다"
+   },
+   "m_comb_miss_base": {
+    "facet": "combine.decompose",
+    "belief": "경사급수의 기본액 부분을 빼고 경사분만 더한다고 생각함",
+    "truth": "경사급수는 기본액(균등급수)과 경사분을 나눠 각각 구해 둘 다 더한다"
+   },
+   "m_comb_count_idx": {
+    "facet": "combine.decompose",
+    "belief": "복리 연수를 기준 시점까지의 거리가 아니라 시점 번호로 센다고 생각함",
+    "truth": "FW를 구할 때 복리 연수는 그 금액에서 기준 시점까지 남은 기간 수이다"
+   },
+   "m_shg_n_year": {
+    "facet": "combine.shifted_g",
+    "belief": "경사 계수의 n에 마지막 연도 번호를 쓴다고 생각함",
+    "truth": "경사가 0인 해를 1로 다시 세어 n을 정한다 (마지막 연도 번호가 아니다)"
+   },
+   "m_shg_n_miscount": {
+    "facet": "combine.shifted_g",
+    "belief": "경사가 0인 해를 빼거나 앞 기간 수로 n을 센다고 생각함",
+    "truth": "n은 경사가 0인 해를 1로 놓고 마지막 해까지 센 값이다"
+   },
+   "m_shg_pos_late": {
+    "facet": "combine.shifted_g",
+    "belief": "급수 계수 값이 놓이는 시점을 첫 금액·경사 시점이나 그 뒤로 잡는다고 생각함",
+    "truth": "급수 계수로 구한 값은 첫 금액(P/G는 첫 경사)보다 한 기간 앞 시점에 놓인다"
+   },
+   "m_shg_no_shift": {
+    "facet": "combine.shifted_g",
+    "belief": "P/G 값이 놓이는 시점을 확인하지 않고 그대로 쓴다고 생각함",
+    "truth": "P/G 값은 t=0이 아니라 경사가 0인 해에 놓이므로 t=0까지 더 할인해야 한다"
+   },
+   "m_eff_nom_comp": {
+    "facet": "eff_rate.nom_eff",
+    "belief": "명목이자율에 이미 복리 효과가 들어 있다고 생각함",
+    "truth": "명목이자율은 기간당 이율×기간 수라 복리를 반영하지 않고, 유효이자율이 복리를 반영한다"
+   },
+   "m_eff_same_rate": {
+    "facet": "eff_rate.nom_eff",
+    "belief": "연 명목이자율을 그대로 연 유효이자율로 쓴다고 생각함",
+    "truth": "복리 횟수가 2회 이상이면 연 유효이자율 (1+r/m)^m−1이 명목이자율보다 크다"
+   },
+   "m_eff_unit_swap": {
+    "facet": "eff_rate.nom_eff",
+    "belief": "복리 한 기간의 이율과 연 이율을 서로 바꿔 쓴다고 생각함",
+    "truth": "r/m은 복리 한 기간의 유효이율이고, 연 유효이자율은 (1+r/m)^m−1이다"
+   },
+   "m_eff_no_div": {
+    "facet": "eff_rate.nom_eff",
+    "belief": "명목이자율을 복리 횟수로 나누지 않고 기간 이율로 쓴다고 생각함",
+    "truth": "복리 한 기간의 이율은 명목이자율을 연간 복리 횟수 m으로 나눈 r/m이다"
+   },
+   "m_eff_diff_always": {
+    "facet": "eff_rate.nom_eff",
+    "belief": "복리기간이 적혀 있지 않아도 명목과 유효가 다르다고 생각함",
+    "truth": "복리기간이 따로 없으면 연 복리로 보아 명목이자율과 유효이자율이 같다"
+   },
+   "m_cp_pp_same": {
+    "facet": "cp_pp.cp_pp_i",
+    "belief": "복리기간과 결제기간은 항상 같다고 생각함",
+    "truth": "결제기간(PP)과 복리기간(CP)은 다를 수 있으며 다를 때는 PP당 유효이율을 구한다"
+   },
+   "m_cp_half": {
+    "facet": "cp_pp.cp_pp_i",
+    "belief": "반년 이율을 명목 연이율의 절반으로 둔다고 생각함",
+    "truth": "PP(반년)당 유효이율은 분기 이율을 복리 두 번 계산한 (1+r/m)^2−1이다"
+   },
+   "m_cp_use_cp": {
+    "facet": "cp_pp.cp_pp_i",
+    "belief": "PP당 유효이율 대신 CP당 이율을 그대로 쓴다고 생각함",
+    "truth": "PP와 CP가 다르면 CP당 이율을 PP당 유효이율로 바꾸고 n은 PP의 개수로 센다"
+   },
+   "m_cp_use_annual": {
+    "facet": "cp_pp.cp_pp_i",
+    "belief": "연 이율을 결제기간이 짧은 계산에 그대로 쓴다고 생각함",
+    "truth": "결제기간이 연이 아니면 연 이율을 PP당 유효이율로 바꿔서 쓴다"
+   },
+   "m_cp_ignore_int": {
+    "facet": "cp_pp.cp_pp_i",
+    "belief": "이자를 무시하고 원금을 횟수로 나눈다고 생각함",
+    "truth": "상환액은 PP당 유효이율을 반영한 A/P 계수로 구하며 이자를 빼지 않는다"
+   },
+   "m_cont_daily": {
+    "facet": "continuous.cont",
+    "belief": "연속복리가 하루 단위(m=365) 복리라고 생각함",
+    "truth": "연속복리는 복리 횟수가 무한대로 커질 때의 극한이다"
+   },
+   "m_cont_annual": {
+    "facet": "continuous.cont",
+    "belief": "연속복리를 연복리처럼 (1+r)^t로 계산한다고 생각함",
+    "truth": "연속복리 지수는 r·t이며 F=P·e^(rt)이다"
+   },
+   "m_cont_less": {
+    "facet": "continuous.cont",
+    "belief": "연속복리의 유효이율이 월복리보다 작다고 생각함",
+    "truth": "복리 횟수가 많을수록 유효이율이 커지므로 연속복리가 가장 크다"
+   },
+   "m_cont_order_rev": {
+    "facet": "continuous.cont",
+    "belief": "복리 횟수가 많을수록 유효이율이 작아진다고 생각함",
+    "truth": "복리 횟수가 늘수록 유효이율이 커지고 연속복리에서 최대가 된다"
+   },
+   "m_lcm_no_repeat": {
+    "facet": "life.lcm",
+    "belief": "짧은 수명 대안의 반복(재구입)을 반영하지 않아도 된다고 생각함",
+    "truth": "LCM 기간 전체를 보며, 짧은 대안은 주기마다 초기 비용과 운영비가 반복된다"
+   },
+   "m_lcm_assume_miss": {
+    "facet": "life.lcm",
+    "belief": "LCM 방법의 가정(필요 기간·반복 가능·같은 현금흐름)을 가정이 아니라고 생각함",
+    "truth": "LCM 방법은 서비스가 LCM 기간 내내 필요하고 반복 가능하며 주기별 현금흐름이 같다고 가정한다"
+   },
+   "m_study_after": {
+    "facet": "life.study",
+    "belief": "연구기간 이후의 현금흐름도 PW에 포함한다고 생각함",
+    "truth": "연구기간 분석은 연구기간 안의 현금흐름만 쓰고 그 이후는 무시한다"
+   },
+   "m_study_same": {
+    "facet": "life.study",
+    "belief": "LCM 방법과 연구기간 방법은 항상 같은 대안을 고른다고 생각함",
+    "truth": "연구기간 분석은 기간 이후를 무시해 LCM 결과와 다른 대안을 고를 수 있다"
+   },
+   "m_study_salvage_keep": {
+    "facet": "life.study",
+    "belief": "연구기간 끝의 잔존가치로 수명 말의 값을 옮겨 쓴다고 생각함",
+    "truth": "연구기간 끝의 잔존가치는 그 시점의 추정 시장가치를 쓴다"
+   },
+   "m_study_salvage_zero": {
+    "facet": "life.study",
+    "belief": "연구기간이 수명보다 짧아도 잔존가치를 0으로 둔다고 생각함",
+    "truth": "수명 전에 연구기간이 끝나면 그 시점의 추정 시장가치를 잔존가치로 넣는다"
+   },
+   "m_cc_formula": {
+    "facet": "pw_rule.cc",
+    "belief": "CC와 A의 관계식에서 i를 곱하고 나누는 쪽을 거꾸로 쓴다고 생각함",
+    "truth": "CC = A/i 이고, 영구 인출 연 금액은 A = CC × i이다"
+   },
+   "m_cc_periodic_raw": {
+    "facet": "pw_rule.cc",
+    "belief": "주기적 비용을 연 금액으로 바꾸지 않고 그대로 더한다고 생각함",
+    "truth": "주기적 비용은 한 주기의 연 금액으로 바꾼 뒤 A/i로 자본화해 더한다"
+   },
+   "m_cc_af_ap": {
+    "facet": "pw_rule.cc",
+    "belief": "주기 비용을 연 금액으로 바꿀 때 A/F 대신 A/P를 쓴다고 생각함",
+    "truth": "주기 비용 F는 (A/F,i,주기)를 곱해 연 금액으로 바꾼다"
+   },
+   "m_cc_avg": {
+    "facet": "pw_rule.cc",
+    "belief": "주기 비용을 이자 없이 평균해 연 금액으로 쓴다고 생각함",
+    "truth": "주기 비용은 이자를 반영한 A/F 계수로 연 금액으로 바꾼다 (단순 평균이 아니다)"
+   },
+   "m_rule_indep_one": {
+    "facet": "pw_rule.rule",
+    "belief": "독립 프로젝트도 PW가 가장 큰 하나만 고른다고 생각함",
+    "truth": "독립 프로젝트는 각각 DN과 비교해 PW ≥ 0인 것을 모두 채택한다"
+   },
+   "m_rule_abs": {
+    "facet": "pw_rule.rule",
+    "belief": "PW의 부호를 무시하고 크기(절댓값)로 비교한다고 생각함",
+    "truth": "상호배타 비용 대안은 PW가 수치상 가장 큰(덜 음수인) 것을 고른다"
+   },
+   "m_rule_dn_cost": {
+    "facet": "pw_rule.rule",
+    "belief": "반드시 선택해야 하는 비용 대안에서도 DN을 고를 수 있다고 생각함",
+    "truth": "DN을 선택할 수 없으면 비용 대안 중 PW가 가장 큰 쪽을 반드시 고른다"
+   },
+   "m_rule_cost_equal": {
+    "facet": "pw_rule.rule",
+    "belief": "비용 대안은 어느 것을 골라도 같다고 생각함",
+    "truth": "비용 대안도 PW가 서로 다르므로 PW가 가장 큰 대안이 낫다"
+   },
+   "m_rule_zero_out": {
+    "facet": "pw_rule.rule",
+    "belief": "PW가 정확히 0인 독립 프로젝트는 채택하지 않는다고 생각함",
+    "truth": "PW = 0이면 MARR을 정확히 달성하므로 PW ≥ 0 기준으로 채택한다"
+   },
+   "m_rule_all": {
+    "facet": "pw_rule.rule",
+    "belief": "PW의 부호와 관계없이 독립 프로젝트를 모두 채택한다고 생각함",
+    "truth": "독립 프로젝트는 PW ≥ 0인 것만 채택하고 PW < 0이면 DN을 택한다"
+   },
+   "m_rule_dn_zero": {
+    "facet": "pw_rule.rule",
+    "belief": "DN은 MARR 달성과 관계없는 대안이라고 생각함",
+    "truth": "DN은 MARR을 정확히 달성하는 대안이며 DN의 PW는 0이다"
+   },
+   "m_rule_swap": {
+    "facet": "pw_rule.rule",
+    "belief": "상호배타와 독립의 선택 규칙을 서로 바꿔 쓴다고 생각함",
+    "truth": "상호배타는 PW가 가장 큰 하나, 독립은 PW ≥ 0인 것을 모두 고른다"
+   },
+   "m_rule_mutex_all": {
+    "facet": "pw_rule.rule",
+    "belief": "상호배타 대안도 PW ≥ 0이면 모두 채택한다고 생각함",
+    "truth": "상호배타 대안은 PW가 가장 큰 하나만 고른다"
+   },
+   "m_aw_accurate": {
+    "facet": "aw.pw_fw_aw",
+    "belief": "AW가 PW보다 더 정확하다고 생각함",
+    "truth": "AW와 PW는 가정이 사실상 같아 정확도 차이가 없다 (AW는 이해가 쉬울 뿐)"
+   },
+   "m_aw_no_int": {
+    "facet": "aw.pw_fw_aw",
+    "belief": "AW를 이자 없이 PW나 FW를 연수로 나눠 구한다고 생각함",
+    "truth": "AW = PW(A/P,i,n)이며 이자를 반영한 계수를 곱한다"
+   },
+   "m_aw_fw_ap": {
+    "facet": "aw.pw_fw_aw",
+    "belief": "FW에 A/P를 곱해 AW를 구한다고 생각함",
+    "truth": "FW에서 AW로 바꿀 때는 (A/F,i,n)을 곱한다 (AW = FW(A/F,i,n))"
+   },
+   "m_aw_pw_is_aw": {
+    "facet": "aw.pw_fw_aw",
+    "belief": "PW로 바꾼 값이 곧 AW라고 생각함",
+    "truth": "PW는 t=0의 일시 금액이고 AW는 매년 균등한 금액이다"
+   },
+   "m_aw_diff_pick": {
+    "facet": "aw.pw_fw_aw",
+    "belief": "PW·FW·AW로 비교하면 서로 다른 대안이 뽑힐 수 있다고 생각함",
+    "truth": "같은 MARR과 분석 기간에서는 PW·FW·AW가 서로 환산되어 항상 같은 대안을 고른다"
+   },
+   "m_lcc_acq_only": {
+    "facet": "lcc.lcc",
+    "belief": "LCC는 취득 비용만 본다고 생각함",
+    "truth": "LCC는 취득·운영·폐기 세 단계의 비용을 모두 추정한다"
+   },
+   "m_lcc_phase_wrong": {
+    "facet": "lcc.lcc",
+    "belief": "예비설계·요구 정의 비용이 취득 단계가 아닌 다른 단계에 속한다고 생각함",
+    "truth": "예비설계·요구 정의는 취득 단계의 활동이라 그 비용도 취득 단계에 속한다"
+   },
+   "m_lcc_direct_indirect": {
+    "facet": "lcc.lcc",
+    "belief": "직접 비용과 간접 비용의 분류를 거꾸로 한다고 생각함",
+    "truth": "직접 비용은 제품에 직접 드는 재료·인건비·설비, 간접 비용은 보증·보험 등이다"
+   },
+   "m_ror_initial": {
+    "facet": "ror.balance",
+    "belief": "ROR은 처음 투자금 전체에 대한 이율이라고 생각함",
+    "truth": "ROR은 해마다 아직 회수되지 않은 잔액에 붙는 이율이다"
+   },
+   "m_ror_no_int": {
+    "facet": "ror.balance",
+    "belief": "남은 잔액을 구할 때 이자를 빼고 상환액만 뺀다고 생각함",
+    "truth": "남은 잔액은 이자가 더해진 잔액에서 상환액을 뺀 값이다"
+   },
+   "m_ror_pay_int": {
+    "facet": "ror.balance",
+    "belief": "총 상환액을 이자로 센다고 생각함",
+    "truth": "이자는 총 상환액이 아니라 해마다 남은 잔액에 붙은 이자의 합이다"
+   },
+   "m_ror_zero_loss": {
+    "facet": "ror.balance",
+    "belief": "투자금을 전부 잃어도 ROR은 0%라고 생각함",
+    "truth": "투자금을 전부 잃으면 ROR은 −100%이다 (−100% ≤ i ≤ ∞)"
+   },
+   "m_ror_borrower": {
+    "facet": "ror.balance",
+    "belief": "차입자와 대여자의 ROR이 서로 다른 값이 된다고 생각함",
+    "truth": "같은 현금흐름이면 부호만 반대일 뿐 차입자와 대여자의 i*는 같다"
+   },
+   "m_ror_recovered": {
+    "facet": "ror.balance",
+    "belief": "이미 돌려받은 금액에 이율이 붙는다고 생각함",
+    "truth": "이율은 돌려받은 금액이 아니라 아직 회수되지 않은 금액에 붙는다"
+   },
+   "m_ror_avg": {
+    "facet": "ror.balance",
+    "belief": "해마다 받은 금액의 평균에 이율이 붙는다고 생각함",
+    "truth": "이율은 평균이 아니라 해마다의 회수되지 않은 잔액에 붙는다"
+   },
+   "m_ror_absolute": {
+    "facet": "ror.relative",
+    "belief": "ROR이 금액으로 나오는 절대 측정치라고 생각함",
+    "truth": "ROR은 현금흐름만으로 정해지는 상대 측정치이고 PW·AW가 절대 측정치다"
+   },
+   "m_ror_same_pw": {
+    "facet": "ror.relative",
+    "belief": "ROR이 같으면 PW도 같다고 생각함",
+    "truth": "ROR은 상대 측정치라 투자 규모가 다르면 같은 ROR이어도 PW가 다르다"
+   },
+   "m_ror_needs_marr": {
+    "facet": "ror.relative",
+    "belief": "i*를 구할 때 MARR이나 WACC가 필요하다고 생각함",
+    "truth": "i*는 프로젝트 현금흐름만으로 구하며 MARR·WACC는 구한 뒤 비교에 쓴다"
+   },
+   "m_ror_pw_sign": {
+    "facet": "ror.relative",
+    "belief": "i*가 MARR보다 커도 MARR에서의 PW가 양수가 아닐 수 있다고 생각함",
+    "truth": "투자 뒤 순수입만 있는 흐름에서 i* > MARR이면 MARR에서의 PW는 0보다 크다"
+   },
+   "m_marr_calc": {
+    "facet": "marr.marr",
+    "belief": "MARR을 프로젝트 현금흐름에 맞춰 계산하거나 바꾼다고 생각함",
+    "truth": "MARR은 계산하는 값이 아니라 평가 기준으로 미리 정해 두는 이율이다"
+   },
+   "m_marr_simple_avg": {
+    "facet": "marr.marr",
+    "belief": "WACC를 조달 비중 없이 이율의 단순평균으로 구한다고 생각함",
+    "truth": "WACC는 조달 비중을 곱한 가중평균이다"
+   },
+   "m_marr_below_wacc": {
+    "facet": "marr.marr",
+    "belief": "MARR이 WACC보다 낮아도 된다고 생각함",
+    "truth": "MARR은 보통 WACC와 같거나 높게 정한다 (ROR ≥ MARR > WACC)"
+   },
+   "m_marr_use_wacc": {
+    "facet": "marr.marr",
+    "belief": "채택 기준이 MARR이 아니라 WACC라고 생각함",
+    "truth": "프로젝트는 i*가 MARR 이상일 때 채택하며 WACC는 MARR의 하한일 뿐이다"
+   },
+   "m_marr_cost_same": {
+    "facet": "marr.marr",
+    "belief": "자본비용이 MARR이나 내부수익률 같은 수익률 기준과 같다고 생각함",
+    "truth": "자본비용은 자본을 조달하는 데 드는 이자의 비율이고 MARR·IRR과 다른 개념이다"
+   },
+   "m_marr_wacc_general": {
+    "facet": "marr.marr",
+    "belief": "WACC가 자본비용 일반을 가리키는 이름이라고 생각함",
+    "truth": "자본비용은 조달 비용 일반이고, WACC는 이를 비중으로 가중평균한 값이다"
+   },
+   "m_cum_two_roots": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "누적 부호 검사로 양의 i*가 두 개임을 알 수 있다고 생각함",
+    "truth": "누적값이 음수로 시작해 부호가 한 번 바뀌면 양의 i*는 하나뿐임을 확인하는 검사다"
+   },
+   "m_cum_count_root": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "부호 변화 횟수가 곧 실근 개수라고 생각함",
+    "truth": "부호 규칙은 변화 횟수가 실근 개수의 상한일 뿐 개수를 정하지 않는다"
+   },
+   "m_cum_test_mix": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "순현금흐름 검사와 누적 검사의 대상을 서로 바꿔 적용한다고 생각함",
+    "truth": "Test 1은 순현금흐름, Test 2는 누적 현금흐름의 부호 변화를 센다"
+   },
+   "m_cum_ncf_multi": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "순현금흐름 부호가 여러 번 바뀌면 누적 검사로도 i*를 확정할 수 없다고 생각함",
+    "truth": "순현금흐름 부호가 여러 번 바뀌어도 누적값이 한 번만 바뀌면 양의 i*는 하나뿐이다"
+   },
+   "m_cum_s0": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "누적값 S₀의 부호와 관계없이 한 번만 바뀌면 된다고 생각함",
+    "truth": "Test 2는 누적값이 음수(S₀ < 0)로 시작할 때 쓰는 검사이다"
+   },
+   "m_cum_no_count": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "누적값의 부호 변화를 세지 않고 양의 i*가 하나뿐이라고 본다고 생각함",
+    "truth": "누적값 부호 변화가 여러 번이면 양의 i*가 하나뿐이라고 단정할 수 없다"
+   },
+   "m_cum_none": {
+    "facet": "multi_ror.cum_sign",
+    "belief": "'하나뿐이라고 단정할 수 없다'를 i*가 없다는 뜻으로 읽는다고 생각함",
+    "truth": "단정할 수 없다는 것은 i*가 여러 개일 수도 있다는 뜻이지 없다는 뜻이 아니다"
+   },
+   "m_mirr_split": {
+    "facet": "mirr.mirr",
+    "belief": "MIRR도 시점별 유입·유출을 따로 계산한다고 생각함",
+    "truth": "MIRR은 각 시점의 순현금흐름(NCF)을 부호별로 모아 계산한다"
+   },
+   "m_mirr_rate_swap": {
+    "facet": "mirr.mirr",
+    "belief": "음의 흐름에 투자율, 양의 흐름에 차입률을 쓴다고 생각함",
+    "truth": "음의 흐름은 차입률로 t=0에, 양의 흐름은 투자율로 t=n에 모은다"
+   },
+   "m_mirr_use_marr": {
+    "facet": "mirr.mirr",
+    "belief": "MIRR 계산에 MARR을 모든 흐름의 이율로 쓴다고 생각함",
+    "truth": "MIRR은 MARR이 아니라 외부에서 정한 투자율과 차입률로 계산한다"
+   },
+   "m_mirr_is_istar": {
+    "facet": "mirr.mirr",
+    "belief": "MIRR이 PW=0이 되는 내부수익률 i*와 같은 개념이라고 생각함",
+    "truth": "MIRR은 외부 투자율·차입률로 구한 단일 값이고 i*는 현금흐름만으로 PW=0이 되는 이율이다"
+   },
+   "m_mirr_multi": {
+    "facet": "mirr.mirr",
+    "belief": "부호가 여러 번 바뀌는 흐름에서는 MIRR도 하나로 정해지지 않는다고 생각함",
+    "truth": "MIRR은 부호가 여러 번 바뀌어도 외부 이율로 하나의 값이 정해진다"
+   },
+   "m_trial_once": {
+    "facet": "ror_calc.trial",
+    "belief": "한 번 계산한 이율을 ROR로 확정한다고 생각함",
+    "truth": "시험 이율은 PW=0이 될 때까지 바꿔 가며 구하며, 첫 시도 값은 ROR이 아니다"
+   },
+   "m_trial_marr": {
+    "facet": "ror_calc.trial",
+    "belief": "시행착오의 시험 이율을 MARR로 정한다고 생각함",
+    "truth": "시험 이율은 PW=0이 될 때까지 바꾸는 값이며 MARR과 무관하다"
+   },
+   "m_trial_root": {
+    "facet": "ror_calc.trial",
+    "belief": "첫 시도 이율을 총수입/투자 − 1로 두고 연수는 반영하지 않는다고 생각함",
+    "truth": "(P/F,i,n)=투자/총수입이므로 i = (총수입/투자)^(1/n) − 1이다"
+   },
+   "m_trial_midpoint": {
+    "facet": "ror_calc.trial",
+    "belief": "선형 보간에서 두 이율의 중간값을 i*로 잡는다고 생각함",
+    "truth": "선형 보간은 두 PW의 크기 비로 가중해 i* ≈ r₁+(r₂−r₁)·PW₁/(PW₁−PW₂)로 구한다"
+   },
+   "m_trial_interp_wrong": {
+    "facet": "ror_calc.trial",
+    "belief": "보간식의 분자에 두 번째 PW를 넣는다고 생각함",
+    "truth": "보간식의 분자에는 첫 번째 이율의 PW₁을 넣는다"
+   },
+   "m_excel_rate_all": {
+    "facet": "ror_calc.excel",
+    "belief": "RATE 함수를 모든 현금흐름에 쓸 수 있다고 생각함",
+    "truth": "RATE는 균등한 A 계열일 때만, 해마다 다르면 IRR(범위)을 쓴다"
+   },
+   "m_excel_fn_mix": {
+    "facet": "ror_calc.excel",
+    "belief": "NPV나 PMT 함수로 i*를 구할 수 있다고 생각함",
+    "truth": "i*는 RATE나 IRR 함수로 구하며 NPV·PMT는 i*를 구하는 함수가 아니다"
+   },
+   "m_excel_af_merge": {
+    "facet": "ror_calc.excel",
+    "belief": "RATE에서 균등 수입 A와 일시 수입 F를 합쳐 A로 넣는다고 생각함",
+    "truth": "RATE(n,A,P,F)에는 균등 금액 A와 일시 금액 F를 따로 넣는다"
+   },
+   "m_excel_sign": {
+    "facet": "ror_calc.excel",
+    "belief": "RATE에 지출과 수입을 같은 부호로 넣는다고 생각함",
+    "truth": "RATE에는 지출(P)과 수입(A·F)을 서로 반대 부호로 넣는다"
+   },
+   "m_excel_drop_f": {
+    "facet": "ror_calc.excel",
+    "belief": "RATE에서 마지막 일시 수입 F는 빼도 된다고 생각함",
+    "truth": "RATE(n,A,P,F)에서 마지막 일시 수입은 F에 넣어야 i*에 반영된다"
+   },
+   "m_excel_irr_shift": {
+    "facet": "ror_calc.excel",
+    "belief": "IRR 셀에서 일시 수입을 균등 수입이 끝난 다음 해 칸에 둔다고 생각함",
+    "truth": "IRR 범위에서 마지막 해의 일시 수입은 그 해의 균등 수입과 합쳐 같은 칸에 넣는다"
+   },
+   "m_excel_irr_miss_a": {
+    "facet": "ror_calc.excel",
+    "belief": "IRR 마지막 칸에 일시 수입만 넣고 그해 균등 수입은 뺀다고 생각함",
+    "truth": "마지막 해 칸에는 균등 수입과 일시 수입을 더해 넣는다"
+   },
+   "m_excel_irr_t0": {
+    "facet": "ror_calc.excel",
+    "belief": "IRR 범위에서 t=0 지출 칸은 뺀다고 생각함",
+    "truth": "IRR 범위에는 t=0의 초기 지출(음수)부터 모든 시점을 포함한다"
+   },
+   "m_excel_avg": {
+    "facet": "ror_calc.excel",
+    "belief": "합계·평균이 같으면 RATE와 IRR 결과가 같다고 생각함",
+    "truth": "RATE는 매년 같은 금액일 때만 쓸 수 있고 시점이 다른 흐름은 IRR 결과와 다르다"
+   },
+   "m_excel_irr_uneven": {
+    "facet": "ror_calc.excel",
+    "belief": "IRR은 해마다 다른 흐름에만 쓸 수 있다고 생각함",
+    "truth": "IRR은 균등한 흐름을 포함해 모든 경우에 쓸 수 있다"
+   },
+   "m_excel_guess": {
+    "facet": "ror_calc.excel",
+    "belief": "다른 i*를 찾으려면 범위·함수·합계 칸을 바꿔야 한다고 생각함",
+    "truth": "IRR의 선택 인수 guess(탐색 시작값)를 바꿔야 다른 i*를 찾는다"
+   },
+   "m_inc_big_istar": {
+    "facet": "inc_ror.vs_indiv",
+    "belief": "개별 i*가 큰 대안이 가장 낫다고 생각함",
+    "truth": "개별 i*가 큰 대안이 최선이 아닐 수 있어 상호배타 대안은 증분 ROR로 비교한다"
+   },
+   "m_inc_dir": {
+    "facet": "inc_ror.vs_indiv",
+    "belief": "증분 ROR이 MARR 이상이면 투자가 작은 대안을 고른다고 생각함",
+    "truth": "Δi*가 MARR 이상이면 투자가 큰 대안, 미만이면 작은 대안을 고른다"
+   },
+   "m_inc_vs_indiv": {
+    "facet": "inc_ror.vs_indiv",
+    "belief": "증분 ROR을 MARR이 아니라 개별 ROR과 비교한다고 생각함",
+    "truth": "증분 ROR은 MARR과 비교해 큰 투자가 정당한지 판단한다"
+   },
+   "m_inc_indep": {
+    "facet": "inc_ror.vs_indiv",
+    "belief": "독립 프로젝트도 증분 ROR 분석이 필요하다고 생각함",
+    "truth": "독립 프로젝트는 각각 i*와 MARR을 비교하면 충분하다"
+   },
+   "m_incf_order": {
+    "facet": "inc_ror.inc_cf",
+    "belief": "증분 현금흐름을 작은 투자 대안에서 큰 투자 대안을 빼서 구한다고 생각함",
+    "truth": "증분 현금흐름은 (초기투자가 큰 대안) − (작은 대안)이다"
+   },
+   "m_incf_sum": {
+    "facet": "inc_ror.inc_cf",
+    "belief": "증분 현금흐름을 두 대안 값의 합으로 구한다고 생각함",
+    "truth": "증분은 합이 아니라 큰 투자 대안에서 작은 대안을 뺀 차이이다"
+   },
+   "m_incf_no_repeat": {
+    "facet": "inc_ror.inc_cf",
+    "belief": "수명이 다른 대안에서 짧은 쪽의 반복을 고려하지 않는다고 생각함",
+    "truth": "수명이 다르면 LCM이나 연구기간으로 맞춰 짧은 대안의 반복 구입도 반영한다"
+   },
+   "m_incf_cut": {
+    "facet": "inc_ror.inc_cf",
+    "belief": "수명이 긴 대안을 잘라 짧은 쪽 기간에 맞춘다고 생각함",
+    "truth": "비교 기간은 긴 대안을 자르지 않고 LCM이나 연구기간으로 정한다"
+   },
+   "m_incf_sum_life": {
+    "facet": "inc_ror.inc_cf",
+    "belief": "비교 기간을 두 대안 수명의 합으로 잡는다고 생각함",
+    "truth": "비교 기간은 수명의 합이 아니라 최소공배수(LCM)나 연구기간이다"
+   },
+   "m_incf_partial": {
+    "facet": "inc_ror.inc_cf",
+    "belief": "반복 구입 시점의 현금흐름을 일부만 반영한다고 생각함",
+    "truth": "반복 구입 시점에는 초기 투자와 그 해의 운영 현금흐름을 모두 더해 반영한다"
+   },
+   "m_def_all_at_once": {
+    "facet": "inc_ror.defender",
+    "belief": "여러 대안을 증분 ROR로 한꺼번에 비교한다고 생각함",
+    "truth": "여러 대안은 방어자와 도전자를 한 쌍씩 비교한다"
+   },
+   "m_def_loser_base": {
+    "facet": "inc_ror.defender",
+    "belief": "탈락한 도전자를 기준으로 다음 대안을 비교한다고 생각함",
+    "truth": "도전자가 탈락하면 방어자가 그대로 남아 다음 도전자와 비교된다"
+   },
+   "m_def_no_inc": {
+    "facet": "inc_ror.defender",
+    "belief": "대안 비교에 증분 ROR(Δi*)을 쓰지 않는다고 생각함",
+    "truth": "방어자와 도전자는 증분 ROR(Δi*)을 MARR과 비교해 선택한다"
+   },
+   "m_def_one_loss": {
+    "facet": "inc_ror.defender",
+    "belief": "도전자 하나가 탈락하면 그 뒤 대안도 모두 기각된다고 생각함",
+    "truth": "탈락한 것은 그 도전자뿐이며 방어자는 다음 도전자와 계속 비교한다"
+   },
+   "m_def_meaning": {
+    "facet": "inc_ror.defender",
+    "belief": "방어자를 도전자나 탈락한 대안의 뜻으로 안다고 생각함",
+    "truth": "방어자는 현재까지 선택된 대안이고 도전자는 그것을 이기려는 대안이다"
+   },
+   "m_def_biggest": {
+    "facet": "inc_ror.defender",
+    "belief": "방어자가 초기 투자가 가장 큰 대안이라고 생각함",
+    "truth": "방어자는 투자 규모와 상관없이 현재까지 선택되어 있는 대안이다"
+   },
+   "m_def_challenger_always": {
+    "facet": "inc_ror.defender",
+    "belief": "증분 ROR을 보지 않고 투자가 큰 도전자를 채택한다고 생각함",
+    "truth": "도전자는 Δi*가 MARR 이상일 때만 방어자를 대체한다"
+   },
+   "m_def_dn_cost": {
+    "facet": "inc_ror.defender",
+    "belief": "반드시 사야 하는 비용 대안에도 DN을 고를 수 있다고 생각함",
+    "truth": "비용만 있는 대안은 DN 없이 증분 ROR만 비교해 하나를 고른다"
+   },
+   "m_bc_add_num": {
+    "facet": "bc.bc_rule",
+    "belief": "잔존가치와 정부 수입을 분자의 편익에 더한다고 생각함",
+    "truth": "B/C는 비용을 +로 두고 잔존가치·정부 수입은 분모의 비용에서 뺀다"
+   },
+   "m_bc_skip_salv": {
+    "facet": "bc.bc_rule",
+    "belief": "B/C 계산에서 잔존가치를 반영하지 않아도 된다고 생각함",
+    "truth": "잔존가치는 분모의 비용에서 빼서 반영한다"
+   },
+   "m_bc_dis_cost": {
+    "facet": "bc.bc_rule",
+    "belief": "손해(disbenefit)를 비용에 더한다고 생각함",
+    "truth": "관습적 B/C에서 손해는 분자의 편익에서 빼고, 분모의 비용에 더하지 않는다"
+   },
+   "m_bc_skip_dis": {
+    "facet": "bc.bc_rule",
+    "belief": "손해(disbenefit)를 B/C 계산에 반영하지 않는다고 생각함",
+    "truth": "관습적 B/C는 손해를 분자의 편익에서 뺀다"
+   },
+   "m_bc_equal_one": {
+    "facet": "bc.bc_rule",
+    "belief": "B/C가 정확히 1.0이면 정당화되지 않는다고 생각함",
+    "truth": "B/C ≥ 1.0이면 정당화되며 1.0도 포함한다"
+   },
+   "m_bc_loose": {
+    "facet": "bc.bc_rule",
+    "belief": "B/C가 1보다 조금 작아도 정당화된다고 생각함",
+    "truth": "B/C가 1.0 미만이면 정당화되지 않는다"
+   },
+   "m_bc_indep_one": {
+    "facet": "bc.bc_rule",
+    "belief": "독립 프로젝트도 B/C가 가장 큰 하나만 고른다고 생각함",
+    "truth": "독립 프로젝트는 B/C ≥ 1.0인 것을 모두 정당화한다"
+   },
+   "m_bc_gov_ignore": {
+    "facet": "bc.bc_rule",
+    "belief": "정부의 추가 수입은 B/C 계산에 넣지 않는다고 생각함",
+    "truth": "정부의 추가 수입은 분모의 비용에서 뺀다"
+   },
+   "m_bc_gov_cost": {
+    "facet": "bc.bc_rule",
+    "belief": "정부 수입을 비용으로 처리한다고 생각함",
+    "truth": "정부 수입은 비용에 더하지 않고 분모의 비용에서 뺀다"
+   },
+   "m_pub_profit": {
+    "facet": "public.pub_proj",
+    "belief": "공공 프로젝트도 이윤이 목적이라고 생각함",
+    "truth": "공공 프로젝트는 이윤이 아니라 시민에게 필요한 서비스 제공이 목적이다"
+   },
+   "m_pub_private_fund": {
+    "facet": "public.pub_proj",
+    "belief": "공공 프로젝트도 주식·대출 같은 민간 자금으로 조달한다고 생각함",
+    "truth": "공공 프로젝트의 자금은 세금, 채권, 사용료에서 온다"
+   },
+   "m_pub_profit_fund": {
+    "facet": "public.pub_proj",
+    "belief": "프로젝트가 벌어들인 이윤이 공공 프로젝트의 자금원이라고 생각함",
+    "truth": "공공 프로젝트는 이윤 없이 세금·채권·사용료로 자금을 조달한다"
+   },
+   "m_pub_rate_private": {
+    "facet": "public.pub_proj",
+    "belief": "공공 분석의 이자율이 민간 MARR과 같거나 더 높다고 생각함",
+    "truth": "공공 분석의 이자율은 민간 MARR보다 낮은 편이며 흔히 할인율이라 부른다"
+   },
+   "m_pub_no_rate": {
+    "facet": "public.pub_proj",
+    "belief": "공공 프로젝트는 이윤이 없어 이자율을 쓰지 않는다고 생각함",
+    "truth": "공공 분석에도 할인율(이자율)을 써서 시간가치를 반영한다"
+   },
+   "m_pub_dis_known": {
+    "facet": "public.pub_proj",
+    "belief": "손해는 평가 시점에 이미 금액이 확정되어 있다고 생각함",
+    "truth": "손해는 평가 시점에 알려지지 않았을 수 있고 편익보다 추정하기 어렵다"
+   },
+   "m_cer_numer": {
+    "facet": "cer.cer",
+    "belief": "CER도 B/C처럼 효과를 분자에 둔다고 생각함",
+    "truth": "CER은 총비용을 효과 측정치로 나눈 값이며 작을수록 바람직하다"
+   },
+   "m_cer_sort_cost": {
+    "facet": "cer.cer",
+    "belief": "정렬 기준을 CER이나 효과가 아니라 총비용으로 둔다고 생각함",
+    "truth": "독립 프로젝트는 CER 순으로, 상호배타 대안은 효과 측정치 순으로 정렬한다"
+   },
+   "m_cer_budget_sum": {
+    "facet": "cer.cer",
+    "belief": "예산 안에서 누적 비용을 잘못 세어 프로그램을 고른다고 생각함",
+    "truth": "CER이 작은 순으로 누적 비용이 예산을 넘기 전까지만 담는다"
+   },
+   "m_cer_effect_sum": {
+    "facet": "cer.cer",
+    "belief": "CER 순서가 아니라 효과 합이 큰 조합을 고른다고 생각함",
+    "truth": "독립 프로그램은 CER이 작은 순서로 예산 한도까지 선택한다"
+   }
+  }
+ },
+ "chapters": [
+  {
+   "key": "C1",
+   "title": "Ch1 · Foundations of Engineering Economy (lec01)",
+   "short": "Ch1",
+   "group": ""
+  },
+  {
+   "key": "C2",
+   "title": "Ch2 · Factors: How Time and Interest Affect Money (lec02)",
+   "short": "Ch2",
+   "group": ""
+  },
+  {
+   "key": "C3",
+   "title": "Ch3 · Combining Factors (lec03)",
+   "short": "Ch3",
+   "group": ""
+  },
+  {
+   "key": "C4",
+   "title": "Ch4 · Nominal and Effective Interest Rates (lec04)",
+   "short": "Ch4",
+   "group": ""
+  },
+  {
+   "key": "C5",
+   "title": "Ch5 · Present Worth Analysis (lec05)",
+   "short": "Ch5",
+   "group": ""
+  },
+  {
+   "key": "C6",
+   "title": "Ch6 · Annual Worth Analysis (lec06)",
+   "short": "Ch6",
+   "group": ""
+  },
+  {
+   "key": "C7",
+   "title": "Ch7 · Rate of Return: One Project (lec07)",
+   "short": "Ch7",
+   "group": ""
+  },
+  {
+   "key": "C8",
+   "title": "Ch8 · Rate of Return: Multiple Alternatives (lec08)",
+   "short": "Ch8",
+   "group": ""
+  },
+  {
+   "key": "C9",
+   "title": "Ch9 · Benefit/Cost Analysis (lec09)",
+   "short": "Ch9",
+   "group": ""
+  },
+  {
+   "key": "C10",
+   "title": "Ch12 · Independent Projects with Budget Limitation (lec12)",
+   "short": "Ch12",
+   "group": ""
+  }
+ ],
+ "problems": [
+  {
+   "ext_id": "EE-051",
+   "no": "EE-051",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "원금과 이자율이 같을 때, 만기가 1년이면 단리(simple interest)와 복리(compound interest)의 만기 금액은 같고, 만기가 2년 이상이면 복리의 금액이 더 크다.",
+   "ox": true,
+   "s": "<p>만기 1년에서는 단리 P(1 + i)와 복리 P(1 + i)가 같다. 2년이면 단리는 P(1 + 2i), 복리는 P(1 + i)² = P(1 + 2i + i²)이므로 앞 기간 이자에 붙는 이자 P·i²만큼 복리가 크다.</p><p>함정: 복리가 처음 1년부터 더 크다고 보는 것.</p>",
+   "src": [
+    [
+     "L1",
+     "43-45"
+    ],
+    [
+     "L1",
+     "48"
+    ],
+    [
+     "L1",
+     "53"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.simple_comp",
+    "depth": 3,
+    "mis": {
+     "mr": "m_tvm_comp_yr1"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-052",
+   "no": "EE-052",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "이 강의에서 이자 기간이 '연'이면 현금흐름은 그 연도의 초에 발생한다고 가정하고, t = 1은 첫해 초를 뜻한다.",
+   "ox": false,
+   "fix": "현금흐름은 이자 기간의 말에 발생한다고 가정한다. 이자 기간이 연이면 t = 1은 첫해 말(1년 차 말)이다.",
+   "s": "<p>강의는 현금흐름이 이자 기간 말에 발생한다고 가정하고, 연 단위라면 1년 차 말, 2년 차 말 …에 일어난다고 설명한다. t = 0은 지금이고 t = 1은 한 기간 뒤이다.</p><p>함정: t = 1을 '1년 차 초'로 읽으면 모든 금액의 시점이 한 기간씩 어긋난다.</p>",
+   "src": [
+    [
+     "L1",
+     "28"
+    ],
+    [
+     "L1",
+     "32"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.cashflow",
+    "depth": 1,
+    "mis": "m_tvm_cf_begin"
+   }
+  },
+  {
+   "ext_id": "EE-053",
+   "no": "EE-053",
+   "chapter": "C1",
+   "kind": "mc",
+   "q": "이자 기간이 연일 때, 3년 차 말에 수입 $900과 지출 $1,250이 함께 발생한다. 이 시점의 순현금흐름(net cash flow)은?",
+   "opts": [
+    "+$350",
+    "−$350",
+    "+$2,150",
+    "−$2,150"
+   ],
+   "ans": 1,
+   "why": [
+    "순현금흐름은 지출에서 수입을 뺀 값이라고 생각함",
+    "",
+    "같은 시점의 금액은 부호 없이 더한다고 생각함",
+    "같은 시점의 지출과 수입을 모두 지출로 센다고 생각함"
+   ],
+   "s": "<p>같은 시점의 현금 유입과 유출은 순현금흐름 = 유입 − 유출로 합친다. 900 − 1,250 = −350이므로 이 시점은 350의 순유출이다.</p><p>함정: 순현금흐름 부호를 '큰 쪽'이 아니라 '유입 − 유출'로 정해야 한다.</p>",
+   "src": [
+    [
+     "L1",
+     "29"
+    ],
+    [
+     "L1",
+     "31"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.cashflow",
+    "depth": 2,
+    "mis": [
+     "m_tvm_net_reverse",
+     "",
+     "m_tvm_net_nonet",
+     "m_tvm_net_allout"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-054",
+   "no": "EE-054",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "이자율이 '5%'처럼 기간 단위 없이 주어지면, 이 강의에서는 월 단위 이자율로 읽는다.",
+   "ox": false,
+   "fix": "기간 단위가 명시되지 않은 이자율은 보통 연 단위 값으로 본다.",
+   "s": "<p>강의는 이자율을 '월 1%, 연 10%'처럼 특정 기간 단위로 표현하며, 단위를 적지 않으면 연 단위 값을 가정한다고 정리한다.</p><p>함정: 단위 없는 숫자를 기간 짧은 이율로 읽으면 이자가 한참 작게 계산된다.</p>",
+   "src": [
+    [
+     "L1",
+     "14-15"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.interest",
+    "depth": 1,
+    "mis": "m_tvm_rate_unit"
+   }
+  },
+  {
+   "ext_id": "EE-055",
+   "no": "EE-055",
+   "chapter": "C1",
+   "kind": "short",
+   "q": "$8,000을 빌려 정확히 1년 뒤에 $8,520을 갚았다. 이 거래의 이자율은 연 몇 %인가? (소수 첫째 자리)",
+   "a": "6.5",
+   "accept": [
+    "6.5",
+    "6.5%",
+    "0.065"
+   ],
+   "num": 6.5,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>이자 = 갚은 금액 − 원금 = 8,520 − 8,000 = 520이고, 이자율 = 이자 ÷ 원금 × 100% = 520/8,000 × 100% = 6.5% 이다. 예상 오답: 6.1(갚은 금액 8,520으로 나눔).</p><p>함정: 이자율의 분모는 처음 빌린 원금(principal)이다.</p>",
+   "src": [
+    [
+     "L1",
+     "11-12"
+    ],
+    [
+     "L1",
+     "14"
+    ],
+    [
+     "L1",
+     "16-17"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.interest",
+    "depth": 2,
+    "family": "f_ee055",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "이자의 기준을 처음 원금이 아니라 지금 금액으로 잡는다고 생각함",
+      "ex": [
+       "6.1"
+      ],
+      "m": "m_tvm_int_base_now"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-056",
+   "no": "EE-056",
+   "chapter": "C1",
+   "kind": "mc",
+   "q": "투자자가 $5,000을 1년 투자해 1년 뒤 $5,400을 받았다. 이 강의에서 이렇게 돈을 빌려주거나 투자해서 얻은 이자의 비율(8%)을 가리키는 용어는?",
+   "opts": [
+    "수익률(rate of return)",
+    "지불 이자율(interest rate paid)",
+    "명목이자율(nominal interest rate)",
+    "이자(interest) 금액"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "돈을 투자해 번 비율도 빌릴 때와 똑같이 부른다고 생각함",
+    "1년에 한 번 받은 8%는 모두 명목이자율이라 부른다고 생각함",
+    "비율이 아니라 받은 이자 금액 $400을 가리킨다고 생각함"
+   ],
+   "s": "<p>돈을 빌릴 때 이자에 해당하는 비율은 이자율(interest rate paid), 빌려주거나 투자해 이자를 얻을 때의 비율은 수익률(rate of return, ROR; ROI라고도 함)이라 부른다. 이 경우 (5,400 − 5,000)/5,000 = 8%는 수익률이다.</p><p>함정: 계산 식은 같아도 관점(빌린 쪽/번 쪽)에 따라 용어가 다르다.</p>",
+   "src": [
+    [
+     "L1",
+     "21"
+    ],
+    [
+     "L1",
+     "24"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.interest",
+    "depth": 3,
+    "family": "f_ee055",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "이자율(지불) → 수익률(수령)"
+    ],
+    "mis": [
+     "",
+     "m_tvm_yield_paid",
+     "m_tvm_yield_nominal",
+     "m_tvm_amt_ratio"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-057",
+   "no": "EE-057",
+   "chapter": "C1",
+   "kind": "mc",
+   "q": "연 5%의 이자를 받는 예금에 1년 전에 얼마를 넣었더니 지금 $1,000이 되었다. 처음 넣은 금액과 그동안의 이자를 바르게 짝지은 것은?",
+   "opts": [
+    "처음 금액 $950.00, 이자 $50.00",
+    "처음 금액 $952.38, 이자 $50.00",
+    "처음 금액 $1,050.00, 이자 $50.00",
+    "처음 금액 $952.38, 이자 $47.62"
+   ],
+   "ans": 3,
+   "why": [
+    "지금 금액에서 5%를 빼면 처음 금액이 된다고 생각함",
+    "이자는 지금 금액 $1,000의 5%라고 생각함",
+    "처음 금액이 지금 금액보다 크다고 생각함",
+    ""
+   ],
+   "s": "<p>처음 금액을 X라 하면 X(1 + 0.05) = 1,000이므로 X = 1,000/1.05 = 952.38이고, 이자 = 1,000 − 952.38 = 47.62이다. 이자율 5%는 처음 금액(원금)에 대한 비율이지 지금 금액에 대한 비율이 아니다.</p><p>함정: 5%를 지금 금액에서 빼서 950이라 하는 것.</p>",
+   "src": [
+    [
+     "L1",
+     "22-23"
+    ]
+   ],
+   "topic": "tvm",
+   "dx": {
+    "facet": "tvm.interest",
+    "depth": 2,
+    "mis": [
+     "m_tvm_int_base_now",
+     "m_tvm_int_base_now",
+     "m_tvm_time_reverse",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-162",
+   "no": "EE-162",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "예산이 모자라면 프로젝트의 일부(예: 70%)만 투자하고 그에 비례한 PW만 얻을 수도 있다.",
+   "star": true,
+   "ox": false,
+   "fix": "자본예산에서 각 프로젝트는 전부 선택하거나 전부 선택하지 않으며, 일부만 투자하는 것은 불가능하다.",
+   "s": "<p>강의는 자본예산의 특징으로 '각 프로젝트는 전체가 선택되거나 선택되지 않는다. 일부 투자는 불가능하다'를 든다. 그래서 선택은 0 또는 1이고, 가능한 묶음은 2^m개이다.</p><p>함정: 예산에 맞춰 투자 비율을 줄이는 것을 허용하는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "9"
+    ],
+    [
+     "L12",
+     "33"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.bundle",
+    "depth": 1,
+    "mis": "m_budget_partial"
+   }
+  },
+  {
+   "ext_id": "EE-163",
+   "no": "EE-163",
+   "chapter": "C10",
+   "kind": "mc",
+   "q": "예산이 $18,000인 독립 프로젝트 A, B, C가 있다. 초기 투자는 A $8,000, B $12,000, C $10,000이고 MARR에서의 단독 PW는 A +$5,000, B +$9,000, C −$2,000이다. 최선의 묶음은?",
+   "star": true,
+   "opts": [
+    "B만",
+    "A와 B",
+    "A와 C",
+    "A, B, C 모두"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "PW가 양수인 프로젝트를 모두 고른다고 생각함",
+    "예산을 꽉 채우는 묶음이 가장 좋다고 생각함",
+    "독립이므로 모두 고른다고 생각함"
+   ],
+   "s": "<p>예산 18,000 이하의 묶음은 A(PW 5,000), B(9,000), C(−2,000), AC(투자 18,000, PW 3,000)이다. AB는 투자 20,000으로 예산을 넘고 BC는 22,000이라 불가능하다. PW가 가장 큰 가능한 묶음은 B이다.</p><p>함정: PW가 양수인 A와 B를 함께 넣는 것(예산 초과)이나 예산을 꽉 채우는 묶음을 고르는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "15"
+    ],
+    [
+     "L12",
+     "17-19"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.bundle",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_budget_ignore_limit",
+     "m_budget_use_max",
+     "m_budget_ignore_limit"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-164",
+   "no": "EE-164",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "독립 프로젝트(independent projects)는 하나를 선택하면 다른 프로젝트의 선택 결정에 영향을 준다.",
+   "ox": false,
+   "fix": "독립 프로젝트는 한 프로젝트의 선택이 다른 프로젝트의 선택 결정에 영향을 주지 않는다. 이 점이 상호배타 대안과의 근본적인 차이이다.",
+   "s": "<p>독립 프로젝트는 프로젝트별로 채택·기각을 따로 평가하며 하나의 선택이 다른 선택에 영향을 주지 않는다. 한 프로젝트를 고르면 나머지를 버리는 것은 상호배타 대안이다.</p><p>함정: 독립을 '서로 관련 있다'로 읽는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "5"
+    ]
+   ],
+   "topic": "proj_rel",
+   "dx": {
+    "facet": "proj_rel.rel",
+    "depth": 1,
+    "family": "f_ee164",
+    "role": "base",
+    "mis": "m_rel_indep_dep"
+   }
+  },
+  {
+   "ext_id": "EE-165",
+   "no": "EE-165",
+   "chapter": "C10",
+   "kind": "mc",
+   "q": "다음 중 조건부(contingent) 프로젝트 관계를 나타내는 것은?",
+   "opts": [
+    "A는 B가 채택된 경우에만 채택할 수 있다",
+    "A와 B의 선택이 서로 전혀 영향을 주지 않는다",
+    "A와 C가 모두 채택되면 B도 반드시 채택해야 한다",
+    "총 투자액이 예산 한도를 넘지 않아야 한다"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "프로젝트마다 조건이 붙지 않는다고 생각함",
+    "한 프로젝트의 채택이 다른 프로젝트의 채택을 강제하는 관계도 조건부라고 생각함",
+    "예산 한도도 프로젝트 간의 조건이라고 생각함"
+   ],
+   "s": "<p>조건부 프로젝트는 채택·기각에 조건이 붙은 프로젝트이다. 예로 'A는 B가 채택되어야만 채택할 수 있다' 또는 'A를 B 대신 채택할 수 있지만 둘 다 필요하지는 않다'가 있다. 서로 영향이 없으면 독립이고, 다른 프로젝트 결정에 따라 채택 여부가 정해지는 것은 종속이다.</p><p>함정: 세 관계를 한 가지로 뭉뚱그리는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "5-7"
+    ]
+   ],
+   "topic": "proj_rel",
+   "dx": {
+    "facet": "proj_rel.rel",
+    "depth": 2,
+    "family": "f_ee165",
+    "role": "base",
+    "mis": [
+     "",
+     "m_rel_to_indep",
+     "m_rel_dep_cont",
+     "m_rel_budget"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-166",
+   "no": "EE-166",
+   "chapter": "C10",
+   "kind": "mc",
+   "q": "프로젝트 A와 C가 모두 채택되면 B를 반드시 채택해야 한다. 프로젝트 B가 가진 이 관계의 이름은?",
+   "opts": [
+    "독립(independent) 프로젝트",
+    "종속(dependent) 프로젝트",
+    "조건부(contingent) 프로젝트",
+    "상호배타(mutually exclusive) 대안"
+   ],
+   "ans": 1,
+   "why": [
+    "어떤 관계가 있어도 평가는 따로 하므로 독립이라고 생각함",
+    "",
+    "조건이 붙으면 모두 조건부라고 생각함",
+    "한쪽을 채택하면 다른 쪽이 강제되니 서로 배타적이라고 생각함"
+   ],
+   "s": "<p>종속 프로젝트는 다른 프로젝트(들)의 채택·기각 결정에 따라 채택 여부가 정해지는 프로젝트이다. 'A와 C가 모두 채택되면 B를 반드시 채택' 같은 경우가 이에 해당한다. 복잡한 관계는 관련 프로젝트를 묶은 패키지로 만들어 독립 프로젝트처럼 평가해서 피할 수 있다.</p><p>함정: 조건부와 종속을 같은 말로 쓰는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "6-7"
+    ]
+   ],
+   "topic": "proj_rel",
+   "dx": {
+    "facet": "proj_rel.rel",
+    "depth": 3,
+    "family": "f_ee165",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "조건부 관계 ↔ 종속 관계"
+    ],
+    "mis": [
+     "m_rel_to_indep",
+     "",
+     "m_rel_dep_cont",
+     "m_rel_mutex"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-167",
+   "no": "EE-167",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "A를 B 대신 채택할 수는 있지만 둘 다 필요하지는 않은 관계는 조건부(contingent) 관계의 한 예이다.",
+   "ox": true,
+   "s": "<p>강의는 조건부 프로젝트의 두 예로 'A는 B가 채택되어야만 채택할 수 있다'와 'A를 B 대신 채택할 수 있지만 둘 다 필요하지는 않다'를 든다. 두 경우 모두 채택·기각에 조건이 붙어 있다.</p><p>함정: 'B 대신 A'를 독립 관계로 보는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "6"
+    ]
+   ],
+   "topic": "proj_rel",
+   "dx": {
+    "facet": "proj_rel.rel",
+    "depth": 3,
+    "family": "f_ee164",
+    "role": "near",
+    "delta": [
+     "object",
+     "'A는 B가 있어야' → 'A는 B 대신'"
+    ],
+    "mis": {
+     "mr": "m_rel_to_indep"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-168",
+   "no": "EE-168",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "수명이 다른 독립 프로젝트를 자본예산 PW로 평가할 때, 수명이 짧은 프로젝트가 끝난 뒤의 양의 현금흐름은 재투자되지 않고 사라진다고 가정한다.",
+   "ox": false,
+   "fix": "자본예산 PW 분석은 양의 순현금흐름이 실현된 시점부터 가장 긴 수명의 프로젝트가 끝날 때까지 MARR로 재투자된다고 가정한다.",
+   "s": "<p>강의는 PW를 쓰는 자본예산의 암묵적 가정을 '모든 양의 NCF가 실현된 시점부터 가장 긴 수명 프로젝트가 끝나는 시점까지 MARR로 재투자된다'고 정리한다. 그래서 LCM으로 프로젝트를 반복하지 않아도 된다.</p><p>함정: 재투자를 아예 무시하는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "12"
+    ],
+    [
+     "L12",
+     "21"
+    ],
+    [
+     "L12",
+     "28"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.reinvest",
+    "depth": 1,
+    "family": "f_ee168",
+    "role": "base",
+    "mis": "m_reinv_none"
+   }
+  },
+  {
+   "ext_id": "EE-169",
+   "no": "EE-169",
+   "chapter": "C10",
+   "kind": "mc",
+   "q": "수명이 다른 독립 프로젝트의 자본예산 PW 분석에서 암묵적으로 가정하는 재투자 이율과 기간은?",
+   "opts": [
+    "각 프로젝트 자신의 i*, 프로젝트 종료 시점부터 가장 긴 수명의 프로젝트가 끝날 때까지",
+    "MARR, 각 프로젝트가 자신의 수명이 끝나는 시점까지만 (그 뒤 재투자 없음)",
+    "무위험 이자율, 프로젝트 종료 시점부터 가장 짧은 수명의 프로젝트가 끝날 때까지",
+    "MARR, 프로젝트 종료 시점부터 가장 긴 수명의 프로젝트가 끝날 때까지"
+   ],
+   "ans": 3,
+   "why": [
+    "자기 수익률로 계속 재투자한다고 생각함",
+    "재투자가 아예 필요 없다고 생각함",
+    "짧은 쪽 수명까지만 재투자한다고 생각함",
+    ""
+   ],
+   "s": "<p>자본예산 PW는 프로젝트 j의 PW를 자신의 수명 n_j 동안 MARR로 구한다. 이것은 양의 NCF를 n_j부터 n_L(가장 긴 수명)까지 MARR로 재투자하는 것과 같은 결과이다.</p><p>함정: 재투자율을 프로젝트의 i*로 보는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "21"
+    ],
+    [
+     "L12",
+     "24-28"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.reinvest",
+    "depth": 2,
+    "mis": [
+     "m_reinv_istar",
+     "m_reinv_none",
+     "m_reinv_short",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-170",
+   "no": "EE-170",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "자본예산에서 수명 n_A인 프로젝트 A의 PW는, A의 NCF를 n_A 시점의 미래가치로 모아 MARR로 가장 긴 수명 n_L까지 재투자한 뒤 t = 0으로 할인한 값과 같다.",
+   "ox": true,
+   "s": "<p>PW_A = NCF_A(F/A, MARR, n_A)(F/P, MARR, n_L − n_A)(P/F, MARR, n_L)인데, 이를 정리하면 NCF_A(P/A, MARR, n_A)로 줄어든다. 즉 n_A 동안의 PW를 구하는 것이 n_L까지 MARR로 재투자한 것과 같다.</p><p>함정: 재투자 효과가 PW 식에 반영되지 않는다고 보는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "24-30"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.reinvest",
+    "depth": 3,
+    "family": "f_ee168",
+    "role": "near",
+    "delta": [
+     "repr",
+     "PW 식 → 재투자 후 FW를 할인한 식"
+    ],
+    "mis": {
+     "mr": "m_reinv_none"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-171",
+   "no": "EE-171",
+   "chapter": "C10",
+   "kind": "mc",
+   "q": "수명이 다른 독립 프로젝트의 자본예산에서 'MARR로의 재투자' 가정이 현실적이지 않다고 판단될 때 강의가 제시하는 방법은?",
+   "opts": [
+    "재투자 가정을 그대로 두고 PW 분석을 한다",
+    "재투자 이율을 각 프로젝트의 i*로 바꾼다",
+    "모든 프로젝트 수명의 LCM 기간으로 PW 분석을 한다",
+    "수명이 가장 짧은 프로젝트에 모든 기간을 맞춘다"
+   ],
+   "ans": 2,
+   "why": [
+    "현실성과 관계없이 PW 분석을 한다고 생각함",
+    "프로젝트 수익률로 재투자해야 현실적이라고 생각함",
+    "",
+    "짧은 쪽에 맞추면 재투자가 필요 없다고 생각함"
+   ],
+   "s": "<p>재투자 가정이 현실적이지 않으면 PW 분석을 모든 프로젝트 수명의 LCM 기간으로 해야 한다고 강의는 정리한다. LCM에서는 짧은 수명의 프로젝트가 반복되므로 MARR 재투자 가정이 필요 없다.</p><p>함정: 가정이 비현실적인데도 같은 PW 식을 쓰는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "31"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.reinvest",
+    "depth": 3,
+    "family": "f_ee168",
+    "role": "near",
+    "delta": [
+     "condition",
+     "재투자율 = MARR → 비현실적인 경우"
+    ],
+    "mis": [
+     "m_reinv_keep",
+     "m_reinv_istar",
+     "",
+     "m_reinv_short"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-172",
+   "no": "EE-172",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "자본예산 문제를 정수계획으로 정식화할 때 변수 x_k는 0과 1 사이의 연속값을 가질 수 있어 프로젝트의 일부만 선택할 수도 있다.",
+   "star": true,
+   "ox": false,
+   "fix": "x_k는 0 또는 1의 정수 값만 가진다(0: 선택하지 않음, 1: 선택함). 프로젝트의 일부만 선택하는 것은 불가능하다.",
+   "s": "<p>강의의 정수선형계획(ILP) 모형에서 모든 관계식은 선형이고 변수 x_k는 정수 값, 구체적으로 0 또는 1만 가진다. 프로젝트 k를 전부 선택하면 1, 전혀 선택하지 않으면 0이다.</p><p>함정: 일반 선형계획처럼 연속 변수로 보는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "33-34"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.ilp",
+    "depth": 1,
+    "family": "f_ee172",
+    "role": "base",
+    "mis": "m_budget_partial"
+   }
+  },
+  {
+   "ext_id": "EE-173",
+   "no": "EE-173",
+   "chapter": "C10",
+   "kind": "mc",
+   "q": "프로젝트 k의 PW를 PW_k, 초기 투자를 I_k, 예산을 b, 선택 변수를 x_k로 둘 때 올바른 정수계획 정식화는?",
+   "star": true,
+   "opts": [
+    "최대화 Σ I_k·x_k, 제약 Σ PW_k·x_k ≤ b, x_k = 0 또는 1",
+    "최대화 Σ PW_k·x_k, 제약 Σ I_k·x_k ≤ b, x_k = 0 또는 1",
+    "최대화 Σ PW_k·x_k, 제약 Σ I_k·x_k ≤ b, 0 ≤ x_k ≤ 1인 연속값",
+    "최소화 Σ I_k·x_k, 제약 Σ PW_k·x_k ≥ b, x_k = 0 또는 1"
+   ],
+   "ans": 1,
+   "why": [
+    "목적함수는 투자 총액이고 PW는 한도라고 생각함",
+    "",
+    "변수는 연속 비율이라고 생각함",
+    "투자비를 최소화하는 문제라고 생각함"
+   ],
+   "s": "<p>강의의 정식화는 목적함수가 선택한 프로젝트의 PW 합 최대화, 제약이 초기 투자의 합 ≤ 예산 b, 변수는 0 또는 1이다. 목적은 PW(MARR에서의 가치)를 키우는 것이고 투자비는 한도이다.</p><p>함정: 목적함수와 제약식의 역할을 바꾸는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "33-34"
+    ],
+    [
+     "L12",
+     "37"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.ilp",
+    "depth": 2,
+    "mis": [
+     "m_ilp_swap",
+     "",
+     "m_budget_partial",
+     "m_ilp_min_cost"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-174",
+   "no": "EE-174",
+   "chapter": "C10",
+   "kind": "short",
+   "q": "네 프로젝트의 초기 투자가 $120, $200, $150, $90(천 달러)이고 예산은 b = $400(천 달러)이다. x₁ = 1, x₂ = 0, x₃ = 1, x₄ = 1로 둘 때 예산 제약식 Σ I_k·x_k의 좌변 값은 몇 천 달러인가?",
+   "star": true,
+   "a": "360",
+   "accept": [
+    "360",
+    "$360",
+    "360천",
+    "360000"
+   ],
+   "num": 360,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>좌변 = 120 × 1 + 200 × 0 + 150 × 1 + 90 × 1 = 360이다. 360 ≤ 400이므로 이 선택은 예산 제약을 만족한다. 예상 오답: 560(x₂도 더함).</p><p>함정: x_k = 0인 프로젝트의 투자비는 더하지 않는다.</p>",
+   "src": [
+    [
+     "L12",
+     "33-34"
+    ],
+    [
+     "L12",
+     "37"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.ilp",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "선택하지 않은 프로젝트(x=0)의 투자비도 더한다고 생각함",
+      "ex": [
+       "560"
+      ],
+      "m": "m_ilp_sum_all"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-177",
+   "no": "EE-177",
+   "chapter": "C10",
+   "kind": "ox",
+   "q": "정수계획의 목적함수에 쓰는 프로젝트별 PW_k는, 프로젝트의 수명이 서로 달라도 LCM으로 맞추지 않고 각 프로젝트의 수명 동안 MARR로 구한다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>자본예산에서는 프로젝트가 자신의 수명 이후로 반복되지 않으므로 LCM이 필요 없다. 각 프로젝트의 PW_k = Σ NCF_kt(P/F, i, t) − NCF_k0를 자신의 수명 n_k 동안 MARR로 계산한다.</p><p>함정: 수명이 다르면 LCM을 써야 한다고 보는 것.</p>",
+   "src": [
+    [
+     "L12",
+     "12"
+    ],
+    [
+     "L12",
+     "21"
+    ],
+    [
+     "L12",
+     "34"
+    ]
+   ],
+   "topic": "budget",
+   "dx": {
+    "facet": "budget.ilp",
+    "depth": 3,
+    "family": "f_ee172",
+    "role": "near",
+    "delta": [
+     "condition",
+     "수명이 같음 → 수명이 다름"
+    ],
+    "mis": {
+     "mr": "m_ilp_lcm"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-058",
+   "no": "EE-058",
+   "chapter": "C2",
+   "kind": "ox",
+   "q": "이자율 i가 0보다 크면 단일 금액 현재가치 계수 (P/F, i, n)의 값은 1보다 작다.",
+   "ox": true,
+   "s": "<p>(P/F, i, n) = 1/(1 + i)^n이고 i &gt; 0, n &gt; 0이면 분모가 1보다 크므로 값은 1보다 작다. 그래서 미래 금액의 현재가치는 항상 그 미래 금액보다 작다.</p><p>함정: F/P 계수(1보다 큼)와 P/F 계수(1보다 작음)를 섞는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "13"
+    ],
+    [
+     "L5",
+     "2"
+    ]
+   ],
+   "topic": "single",
+   "dx": {
+    "facet": "single.fp_notation",
+    "depth": 1,
+    "family": "f_ee058",
+    "role": "base",
+    "mis": {
+     "mr": "m_single_pf_gt1"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-059",
+   "no": "EE-059",
+   "chapter": "C2",
+   "kind": "short",
+   "q": "8년 뒤에 $15,000이 필요하다. 연 6% 복리 예금에 지금 얼마를 넣어야 하는가? (달러, 소수 둘째 자리)",
+   "a": "9,411.19",
+   "accept": [
+    "9411.19",
+    "9,411.19",
+    "$9,411.19"
+   ],
+   "num": 9411.19,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>P = F(P/F, 6%, 8) = 15,000 × 1.06^(−8) = 9,411.19이다. 예상 오답: 23,907.72(F/P를 곱함), 7,800.00(1 − 0.06×8만큼 빼서 계산).</p><p>함정: 미래 금액을 현재로 옮길 때는 곱하는 계수가 1보다 작아야 한다.</p>",
+   "src": [
+    [
+     "L2",
+     "11-13"
+    ],
+    [
+     "L2",
+     "17"
+    ]
+   ],
+   "topic": "single",
+   "dx": {
+    "facet": "single.fp_notation",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "F/P와 P/F의 방향을 서로 바꿔 쓴다고 생각함",
+      "ex": [
+       "23907.72"
+      ],
+      "m": "m_single_dir"
+     },
+     {
+      "pattern": "복리 계수 대신 단리 식으로 현재가치를 구한다고 생각함",
+      "ex": [
+       "7800.00"
+      ],
+      "m": "m_single_simple"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-060",
+   "no": "EE-060",
+   "chapter": "C2",
+   "kind": "mc",
+   "q": "계수 표기 (F/P, 6%, 20)이 뜻하는 것으로 옳은 것은?",
+   "opts": [
+    "미래 금액 F가 주어졌을 때 현재 금액 P를 구하는 계수",
+    "균등 금액 A가 주어졌을 때 20기 뒤의 F를 구하는 계수",
+    "현재 금액 P가 주어졌을 때 20기 뒤의 미래 금액 F를 구하는 계수",
+    "현재 금액 P가 주어졌을 때 20기 동안의 균등 금액 A를 구하는 계수"
+   ],
+   "ans": 2,
+   "why": [
+    "슬래시 앞이 주어진 값, 뒤가 구할 값이라고 생각함",
+    "F가 들어간 계수는 모두 균등급수에 쓴다고 생각함",
+    "",
+    "20기에 걸친 등가 연금을 구하는 계수라고 생각함"
+   ],
+   "s": "<p>강의의 (F/P, i, n) 표기는 'P가 주어졌을 때 F를 구하는 계수'이고 P에 곱해 F를 얻는다. (F/P, 6%, 20) = 1.06^20 ≈ 3.207이다. 반대로 F에서 P를 구하는 계수는 (P/F, i, n)이다.</p><p>함정: 슬래시 뒤가 주어진 값, 앞이 구할 값이다.</p>",
+   "src": [
+    [
+     "L2",
+     "15-17"
+    ]
+   ],
+   "topic": "single",
+   "dx": {
+    "facet": "single.fp_notation",
+    "depth": 3,
+    "family": "f_ee058",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "P/F의 뜻 → F/P의 뜻"
+    ],
+    "mis": [
+     "m_single_dir",
+     "m_single_mix",
+     "",
+     "m_single_mix"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-061",
+   "no": "EE-061",
+   "chapter": "C2",
+   "kind": "ox",
+   "q": "같은 i와 n에서 (F/P, i, n)과 (P/F, i, n)을 곱하면 이자율의 크기와 관계없이 항상 1이다.",
+   "ox": true,
+   "s": "<p>(F/P, i, n) = (1 + i)^n이고 (P/F, i, n) = (1 + i)^(−n)이므로 곱은 (1 + i)^0 = 1이다. 어떤 이자율이든 미래로 옮겼다가 같은 이자율로 되돌리면 원래 금액이 된다.</p><p>함정: 이자율이 크면 곱도 커진다고 보는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "10"
+    ],
+    [
+     "L2",
+     "13"
+    ]
+   ],
+   "topic": "single",
+   "dx": {
+    "facet": "single.fp_notation",
+    "depth": 3,
+    "family": "f_ee058",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "계수 하나 → 두 계수의 곱이 항상 1"
+    ],
+    "mis": {
+     "mr": "m_single_prod"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-062",
+   "no": "EE-062",
+   "chapter": "C2",
+   "kind": "ox",
+   "q": "기하 경사급수(geometric gradient series)는 매 기간 일정한 금액이 아니라 일정한 비율 g만큼 변하며, 첫 현금흐름 A₁은 t = 1에 발생한다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>강의는 기하 경사급수를 '현금흐름이 매 기간 일정한 비율(%)로 증가하거나 감소하는 급수'로 정의하고 첫해(t = 1)의 금액을 A₁이라 둔다. 등차경사처럼 1기 말 금액을 따로 떼어 내지 않고 A₁도 급수 안에 포함한다.</p><p>함정: 일정한 금액(G)씩 변하는 등차경사와 섞는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "79-81"
+    ]
+   ],
+   "topic": "gradient",
+   "dx": {
+    "facet": "gradient.geo_grad",
+    "depth": 1,
+    "family": "f_ee062",
+    "role": "base",
+    "mis": {
+     "mr": "m_geo_as_arith"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-063",
+   "no": "EE-063",
+   "chapter": "C2",
+   "kind": "short",
+   "q": "첫해 말 $1,000에서 시작해 이후 매년 4%씩 증가하는 수입이 8년 동안 이어진다. 이자율이 연 9%일 때 t = 0의 현재가치 P_g는 몇 달러인가? (소수 둘째 자리)",
+   "star": true,
+   "a": "6,263.23",
+   "accept": [
+    "6263.23",
+    "6,263.23",
+    "$6,263.23"
+   ],
+   "num": 6263.23,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>(P/A, g, i, n) = [1 − ((1 + g)/(1 + i))^n]/(i − g)이고 P_g = A₁(P/A, g, i, n) = 1,000 × [1 − (1.04/1.09)^8]/(0.09 − 0.04) = 6,263.23이다. 예상 오답: 5,534.82(증가율을 무시하고 P/A로 계산).</p><p>함정: 증가율 g를 이자율 i와 따로 넣어야 한다.</p>",
+   "src": [
+    [
+     "L2",
+     "80-83"
+    ]
+   ],
+   "topic": "gradient",
+   "dx": {
+    "facet": "gradient.geo_grad",
+    "depth": 2,
+    "family": "f_ee063",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "증가율 g를 무시하고 일반 P/A 계수로 계산한다고 생각함",
+      "ex": [
+       "5534.82"
+      ],
+      "m": "m_geo_ignore_g"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-064",
+   "no": "EE-064",
+   "chapter": "C2",
+   "kind": "mc",
+   "q": "첫해 말 $5,000에서 시작해 매년 6%씩 감소하는 비용이 10년 동안 발생한다. 이자율 연 8%에서 P_g를 구하는 방법으로 옳은 것은?",
+   "star": true,
+   "opts": [
+    "감소하는 급수에는 이 계수를 쓸 수 없어 등차경사 계수로 바꿔야 한다",
+    "g = +6%를 그대로 넣어 구한 값에서 5,000을 빼 준다",
+    "(P/A, g, i, n)에 g = −6%를 넣어 A₁ = 5,000에 곱한다",
+    "1년 차는 기본액으로 따로 구하고 감소분만 계수로 구한다"
+   ],
+   "ans": 2,
+   "why": [
+    "기하 경사 계수는 증가하는 급수에만 쓴다고 생각함",
+    "감소는 증가 값을 빼서 구한다고 생각함",
+    "",
+    "등차경사처럼 첫 금액을 기본액으로 떼어 낸다고 생각함"
+   ],
+   "s": "<p>강의의 (P/A, g, i, n)은 g가 + 또는 −인 경우 모두 쓰는 공식이다. 감소하면 g를 음수로 넣어 P_g = 5,000 × [1 − (0.94/1.08)^10]/(0.08 + 0.06) ≈ 26,804.18이 된다.</p><p>함정: 증가 급수에만 쓴다고 보거나 등차경사처럼 첫 금액을 떼어 내는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "80-83"
+    ]
+   ],
+   "topic": "gradient",
+   "dx": {
+    "facet": "gradient.geo_grad",
+    "depth": 3,
+    "family": "f_ee062",
+    "role": "near",
+    "delta": [
+     "condition",
+     "증가하는 급수 → 감소하는 급수"
+    ],
+    "mis": [
+     "m_geo_no_decr",
+     "m_geo_sign",
+     "",
+     "m_geo_as_arith"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-065",
+   "no": "EE-065",
+   "chapter": "C2",
+   "kind": "ox",
+   "q": "(P/A, g, i, n) 공식은 증가율 g가 이자율 i보다 작을 때만 쓸 수 있다.",
+   "star": true,
+   "ox": false,
+   "fix": "g가 i와 같을 때만 분모 i − g가 0이 되어 따로 P_g = n·A₁/(1 + i)로 구하며, g ≠ i이면 g가 i보다 커도 같은 공식을 쓴다.",
+   "s": "<p>공식은 i − g로 나누므로 g ≠ i이면 g &gt; i여도 쓸 수 있다(분자도 같이 음수가 되어 계수 값은 양수). g = i일 때만 P_g = n·A₁/(1 + i)라는 별도 식을 쓴다.</p><p>함정: g &lt; i를 공식의 사용 조건으로 외우는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "83"
+    ]
+   ],
+   "topic": "gradient",
+   "dx": {
+    "facet": "gradient.geo_grad",
+    "depth": 3,
+    "family": "f_ee062",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "g ≠ i이면 → g < i일 때만"
+    ],
+    "mis": "m_geo_g_lt_i"
+   }
+  },
+  {
+   "ext_id": "EE-066",
+   "no": "EE-066",
+   "chapter": "C2",
+   "kind": "mc",
+   "q": "첫 금액 $3,000이 4년 차 말에 처음 발생하고, 이후 매년 5%씩 증가해 9년 차 말까지(총 6회) 이어진다. 이자율 연 10%에서 t = 0의 현재가치를 바르게 나타낸 식은? (기하 경사 계수는 (P/A, g, i, n) 순서로 적는다)",
+   "star": true,
+   "opts": [
+    "3,000(P/A, 5%, 10%, 6)(P/F, 10%, 4)",
+    "3,000(P/A, 5%, 10%, 6)(P/F, 10%, 3)",
+    "3,000(P/A, 5%, 10%, 9)",
+    "3,000(P/A, 5%, 10%, 6)(P/F, 10%, 9)"
+   ],
+   "ans": 1,
+   "why": [
+    "첫 금액이 4년 차이므로 4년을 할인한다고 생각함",
+    "",
+    "t = 9까지의 전체 기간을 n으로 쓴다고 생각함",
+    "끝 시점으로 할인하면 된다고 생각함"
+   ],
+   "s": "<p>기하 경사 공식의 P_g는 첫 금액 A₁ 한 기간 전에 놓인다. 첫 금액이 t = 4이므로 P_g는 t = 3에 있고 n = 6이다. 이를 t = 0으로 옮기려면 3년을 할인한다: 3,000(P/A, 5%, 10%, 6)(P/F, 10%, 3) ≈ 10,979.01.</p><p>함정: 4년을 할인하거나 n을 9로 쓰는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "80-83"
+    ],
+    [
+     "L3",
+     "4-6"
+    ],
+    [
+     "L3",
+     "24-26"
+    ]
+   ],
+   "topic": "gradient",
+   "dx": {
+    "facet": "gradient.geo_grad",
+    "depth": 4,
+    "family": "f_ee063",
+    "role": "near",
+    "delta": [
+     "combine",
+     "기하경사 계수 + 시작 시점 이동"
+    ],
+    "mis": [
+     "m_shg_pos_late",
+     "",
+     "m_geo_count_end",
+     "m_geo_count_end"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-067",
+   "no": "EE-067",
+   "chapter": "C2",
+   "kind": "mc",
+   "q": "두 비용 급수에 쓸 계수를 바르게 짝지은 것은? (가) 매년 $300씩 늘어나는 비용 (나) 매년 8%씩 늘어나는 비용",
+   "star": true,
+   "opts": [
+    "(가) (P/A, g, i, n), (나) 등차경사 P/G와 기본액 P/A",
+    "(가), (나) 모두 P/G와 기본액 P/A",
+    "(가), (나) 모두 (P/A, g, i, n)",
+    "(가) 등차경사 P/G와 기본액 P/A, (나) 기하경사 (P/A, g, i, n)"
+   ],
+   "ans": 3,
+   "why": [
+    "일정 금액 증가가 기하경사라고 생각함",
+    "증가하는 급수는 모두 등차경사 계수로 구한다고 생각함",
+    "증가하는 급수는 모두 기하경사 계수로 구한다고 생각함",
+    ""
+   ],
+   "s": "<p>일정한 금액 G씩 변하면 등차경사라서 기본액(P/A)과 경사(P/G)로 나누어 구하고, 일정한 비율 g로 변하면 기하경사라서 (P/A, g, i, n) 하나로 구한다. 기하경사는 첫 금액도 급수 안에 들어간다.</p><p>함정: 두 경사의 계수를 서로 바꿔 쓰는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "56-58"
+    ],
+    [
+     "L2",
+     "79-83"
+    ]
+   ],
+   "topic": "gradient",
+   "dx": {
+    "facet": "gradient.geo_grad",
+    "depth": 3,
+    "family": "f_ee062",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "등차경사 ↔ 등비경사 계수 짝짓기"
+    ],
+    "mis": [
+     "m_geo_arith_as_geo",
+     "m_geo_as_arith",
+     "m_geo_arith_as_geo",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-068",
+   "no": "EE-068",
+   "chapter": "C3",
+   "kind": "ox",
+   "q": "시점이 서로 다른 균등급수, 경사급수, 단일 금액이 섞인 현금흐름은 금액을 전부 더한 뒤 한 번만 할인하면 총 현재가치를 얻는다.",
+   "ox": false,
+   "fix": "각 부분(균등급수, 경사급수, 단일 금액)을 같은 시점의 값으로 환산한 뒤에 더한다. 시점이 다른 금액은 그대로 더할 수 없다.",
+   "s": "<p>복합 현금흐름은 균등급수·경사급수·단일 금액으로 나누고, 각각 알고 있는 계수(P/F, P/A, P/G …)로 같은 시점의 PW(또는 FW)로 바꾼 뒤 합한다. 금액을 시점 무시하고 더하면 시간가치가 사라진다.</p><p>함정: 금액을 합친 뒤 한 번만 할인하는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "15"
+    ],
+    [
+     "L3",
+     "37"
+    ],
+    [
+     "L1",
+     "42"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.decompose",
+    "depth": 1,
+    "mis": "m_comb_sum_first"
+   }
+  },
+  {
+   "ext_id": "EE-069",
+   "no": "EE-069",
+   "chapter": "C3",
+   "kind": "short",
+   "q": "이자율 연 8%(연복리)에서 1~6년 차 말에 매년 $400의 수입이 있고, 이와 별도로 4년 차 말에 $1,500의 수입이 한 번 더 있다. t = 0 시점의 총 현재가치는 몇 달러인가? (소수 둘째 자리)",
+   "a": "2,951.70",
+   "accept": [
+    "2951.70",
+    "2,951.70",
+    "$2,951.70"
+   ],
+   "num": 2951.7,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>총 PW = 400(P/A, 8%, 6) + 1,500(P/F, 8%, 4) = 1,849.15 + 1,102.54 = 2,951.70이다. 예상 오답: 3,900.00(할인 없이 합산), 3,039.90(단일 금액을 3년만 할인).</p><p>함정: 4년 차 말 금액은 4년을 할인한다.</p>",
+   "src": [
+    [
+     "L3",
+     "15-18"
+    ],
+    [
+     "L2",
+     "30"
+    ],
+    [
+     "L2",
+     "13"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.decompose",
+    "depth": 2,
+    "family": "f_ee069",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "시점이 다른 금액을 환산하지 않고 한꺼번에 더하거나 할인한다고 생각함",
+      "ex": [
+       "3900.00"
+      ],
+      "m": "m_comb_sum_first"
+     },
+     {
+      "pattern": "단일 금액을 실제보다 한 기간 적게 할인한다고 생각함",
+      "ex": [
+       "3039.90"
+      ],
+      "m": "m_comb_disc_off"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-070",
+   "no": "EE-070",
+   "chapter": "C3",
+   "kind": "mc",
+   "q": "1~4년 차 말 비용은 매년 $100이고, 5~8년 차 말에는 $150, $200, $250, $300으로 매년 $50씩 늘어난다. 이자율 10%에서 t = 0의 총 PW를 바르게 나타낸 식은?",
+   "opts": [
+    "100(P/A, 10%, 4) + 50(P/G, 10%, 5)(P/F, 10%, 3)",
+    "100(P/A, 10%, 8) + 50(P/G, 10%, 5)(P/F, 10%, 4)",
+    "100(P/A, 10%, 8) + 50(P/G, 10%, 5)(P/F, 10%, 3)",
+    "100(P/A, 10%, 8) + 50(P/G, 10%, 8)"
+   ],
+   "ans": 2,
+   "why": [
+    "5~8년에는 기본액 $100이 없고 경사분만 있다고 생각함",
+    "경사 PW가 첫 경사 금액 시점인 t = 4에 놓인다고 생각함",
+    "",
+    "경사가 t = 1부터 시작한다고 보고 n = 8을 쓴다고 생각함"
+   ],
+   "s": "<p>기본액 $100은 8년 내내 있으므로 100(P/A, 10%, 8)이다. 경사 $50은 5년 차 말이 첫 금액이므로 경사 0에 해당하는 4년 차 말을 1로 다시 세면 n = 5이고, P_G는 t = 3에 놓여 3년을 더 할인한다. 합하면 ≈ 791.26.</p><p>함정: 후반 기본액 누락, P_G 위치 착오.</p>",
+   "src": [
+    [
+     "L3",
+     "19-23"
+    ],
+    [
+     "L2",
+     "72"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.decompose",
+    "depth": 3,
+    "family": "f_ee069",
+    "role": "near",
+    "delta": [
+     "object",
+     "균등+단일금액 → 균등+이동된 경사"
+    ],
+    "mis": [
+     "m_comb_miss_base",
+     "m_shg_pos_late",
+     "",
+     "m_shg_n_miscount"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-071",
+   "no": "EE-071",
+   "chapter": "C3",
+   "kind": "mc",
+   "q": "이자율 연 8%에서 1~10년 차 말에 매년 $200의 수입이 있고, 4년 차 말에 $1,000의 수입이 한 번 더 있다. t = 10 시점의 미래가치(FW)를 바르게 나타낸 식은?",
+   "opts": [
+    "200(F/A, 8%, 10) + 1,000(F/P, 8%, 4)",
+    "200(F/A, 8%, 10) + 1,000(P/F, 8%, 6)",
+    "200(F/A, 8%, 10) + 1,000",
+    "200(F/A, 8%, 10) + 1,000(F/P, 8%, 6)"
+   ],
+   "ans": 3,
+   "why": [
+    "4년 차 금액이므로 4년만 복리로 키운다고 생각함",
+    "미래가치를 구할 때도 먼저 할인해야 한다고 생각함",
+    "단일 금액은 이미 있는 값이라 그대로 더하면 된다고 생각함",
+    ""
+   ],
+   "s": "<p>FW는 모든 금액을 t = 10으로 옮긴다. 균등급수는 200(F/A, 8%, 10)이고, 4년 차 금액은 10 − 4 = 6년 동안 키워야 하므로 1,000(F/P, 8%, 6)이다. 합은 ≈ 4,484.19으로, 같은 현금흐름의 PW 2,077.05에 (F/P, 8%, 10)을 곱한 값과 같다.</p><p>함정: 복리 연수를 시점 번호(4)로 쓰는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "5"
+    ],
+    [
+     "L3",
+     "15"
+    ],
+    [
+     "L5",
+     "44"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.decompose",
+    "depth": 3,
+    "family": "f_ee069",
+    "role": "near",
+    "delta": [
+     "repr",
+     "t=0의 PW 구하기 → t=10의 FW 식 고르기"
+    ],
+    "mis": [
+     "m_comb_count_idx",
+     "m_single_dir",
+     "m_comb_sum_first",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-072",
+   "no": "EE-072",
+   "chapter": "C3",
+   "kind": "ox",
+   "q": "기본액이 8년 동안 이어지고 경사 G가 5년 차 말에 처음 나타나 8년 차 말까지 이어질 때, 경사분의 (P/G, i, n) 계수에는 n = 8을 넣는다.",
+   "ox": false,
+   "fix": "경사가 0인 4년 차 말을 1로 다시 세면 8년 차 말은 5이므로 n = 5이고, 구한 값은 3년 차 말(t = 3)에 놓인다.",
+   "s": "<p>경사 계수의 n은 연도 번호가 아니라, 경사가 0인 해를 기간 1로 놓고 다시 센 번호이다. 5~8년 차 경사이면 4년 차 말이 1이므로 n = 5이다. 구한 P_G는 기간 1의 한 기간 앞인 t = 3에 놓이므로 t = 0으로 가져오려면 (P/F, i, 3)을 더 곱한다.</p><p>함정: 연도 번호를 n에 그대로 쓰는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "19-23"
+    ],
+    [
+     "L2",
+     "72"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.shifted_g",
+    "depth": 1,
+    "mis": "m_shg_n_year"
+   }
+  },
+  {
+   "ext_id": "EE-073",
+   "no": "EE-073",
+   "chapter": "C3",
+   "kind": "short",
+   "q": "5년 차 말에 $50, 6년 차 말에 $100, 7년 차 말에 $150, 8년 차 말에 $200이 발생하는 경사 급수(4년 차 말에는 경사분이 0)가 있다. 이자율 10%에서 이 급수의 t = 0 현재가치는 몇 달러인가? (소수 둘째 자리)",
+   "a": "257.77",
+   "accept": [
+    "257.77",
+    "$257.77"
+   ],
+   "num": 257.77,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>경사 G = 50이고 4년 차 말을 기간 1로 다시 세면 n = 5이다. P_G = 50(P/G, 10%, 5) = 343.09은 t = 3의 값이므로 3년을 더 할인한다: 343.09 × (P/F, 10%, 3) = 257.77이다. 예상 오답: 343.09(t = 3의 값을 그대로 씀), 234.34(4년 할인).</p><p>함정: P/G 값이 놓이는 시점을 확인하지 않는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "19-23"
+    ],
+    [
+     "L2",
+     "67"
+    ],
+    [
+     "L2",
+     "72"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.shifted_g",
+    "depth": 2,
+    "family": "f_ee073",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "P/G 값이 놓이는 시점을 확인하지 않고 그대로 쓴다고 생각함",
+      "ex": [
+       "343.09"
+      ],
+      "m": "m_shg_no_shift"
+     },
+     {
+      "pattern": "급수 계수 값이 놓이는 시점을 첫 금액·경사 시점이나 그 뒤로 잡는다고 생각함",
+      "ex": [
+       "234.34"
+      ],
+      "m": "m_shg_pos_late"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-074",
+   "no": "EE-074",
+   "chapter": "C3",
+   "kind": "mc",
+   "q": "경사 G가 6년 차 말에 처음 나타나 10년 차 말까지 매년 늘어나는 등차경사 급수(5년 차 말에는 경사분이 0)이다. (P/G, i, n)으로 구한 값은 어느 시점의 값인가?",
+   "opts": [
+    "t = 5",
+    "t = 4",
+    "t = 6",
+    "t = 0"
+   ],
+   "ans": 1,
+   "why": [
+    "경사가 0인 해에 값이 놓인다고 생각함",
+    "",
+    "첫 경사 금액이 나오는 해에 값이 놓인다고 생각함",
+    "P/G 값은 항상 t = 0의 값이라고 생각함"
+   ],
+   "s": "<p>P/G 값은 경사가 0인 해(여기서는 5년 차 말)보다 한 기간 앞, 즉 t = 4에 놓인다. 따라서 t = 0으로 옮기려면 (P/F, i, 4)를 곱해야 한다.</p><p>함정: P/G 값을 t = 0의 값이나 경사가 0인 해의 값으로 읽는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "19-23"
+    ],
+    [
+     "L2",
+     "72"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.shifted_g",
+    "depth": 3,
+    "family": "f_ee073",
+    "role": "near",
+    "delta": [
+     "condition",
+     "경사 시작 5년 차 → 6년 차"
+    ],
+    "mis": [
+     "m_shg_pos_late",
+     "",
+     "m_shg_pos_late",
+     "m_shg_no_shift"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-075",
+   "no": "EE-075",
+   "chapter": "C3",
+   "kind": "mc",
+   "q": "경사 G가 6년 차 말에 처음 나타나 10년 차 말까지 이어지는 등차경사(5년 차 말에는 경사분이 0)이다. 경사분의 PW를 (P/G, i, n)으로 구할 때 n은?",
+   "opts": [
+    "10",
+    "5",
+    "4",
+    "6"
+   ],
+   "ans": 3,
+   "why": [
+    "경사 계수의 n은 마지막 연도 번호라고 생각함",
+    "경사가 나타나는 해의 개수(6~10년)가 n이라고 생각함",
+    "첫 경사가 나오기 전 연도의 수가 n이라고 생각함",
+    ""
+   ],
+   "s": "<p>경사가 0인 5년 차 말을 기간 1로 다시 세면 6~10년 차는 기간 2~6이다. 그래서 n = 6이다(경사 개수 5에 경사가 0인 해 1을 더한 값).</p><p>함정: 경사가 나타난 해의 수만 세어 5로 하는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "19-23"
+    ],
+    [
+     "L2",
+     "60"
+    ],
+    [
+     "L2",
+     "72"
+    ]
+   ],
+   "topic": "combine",
+   "dx": {
+    "facet": "combine.shifted_g",
+    "depth": 3,
+    "family": "f_ee073",
+    "role": "near",
+    "delta": [
+     "repr",
+     "P/G의 위치 묻기 → n 묻기"
+    ],
+    "mis": [
+     "m_shg_n_year",
+     "m_shg_n_miscount",
+     "m_shg_n_miscount",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-076",
+   "no": "EE-076",
+   "chapter": "C4",
+   "kind": "ox",
+   "q": "월 1.5%의 이자율에 대응하는 연 명목이자율은 1.5% × 12 = 18%이며, 이 18%는 월복리 효과를 이미 반영한 값이다.",
+   "ox": false,
+   "fix": "연 명목이자율 18%는 월 이자율에 12를 곱한 값일 뿐 복리 효과를 반영하지 않는다. 복리 효과까지 반영한 값은 유효이자율 (1.015)^12 − 1 ≈ 19.56%이다.",
+   "s": "<p>명목이자율은 '기간당 이자율 × 기간 수'로 단리처럼 계산하며 복리를 반영하지 않는다. 복리를 반영한 것은 유효이자율이다. 1.5% × 12 = 18%(명목)과 (1.015)^12 − 1 = 19.56%(유효 연이율)는 다르다.</p><p>함정: 명목 연이율을 이미 복리가 반영된 값으로 읽는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "8-10"
+    ],
+    [
+     "L4",
+     "11"
+    ]
+   ],
+   "topic": "eff_rate",
+   "dx": {
+    "facet": "eff_rate.nom_eff",
+    "depth": 1,
+    "family": "f_ee076",
+    "role": "base",
+    "mis": "m_eff_nom_comp"
+   }
+  },
+  {
+   "ext_id": "EE-077",
+   "no": "EE-077",
+   "chapter": "C4",
+   "kind": "short",
+   "q": "이자율이 월 1.25%일 때 이에 대응하는 연 명목이자율은 몇 %인가? (소수 둘째 자리)",
+   "a": "15.00",
+   "accept": [
+    "15.00",
+    "15",
+    "15%",
+    "0.15"
+   ],
+   "num": 15,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>명목이자율 = 기간당 이자율 × 기간 수 = 1.25% × 12 = 15.00%이다. 예상 오답: 16.08(복리를 반영한 연 유효이자율 (1.0125)^12 − 1).</p><p>함정: 명목 값을 구하는 데 복리를 쓰는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "8-10"
+    ]
+   ],
+   "topic": "eff_rate",
+   "dx": {
+    "facet": "eff_rate.nom_eff",
+    "depth": 2,
+    "family": "f_ee077",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "명목이자율에 이미 복리 효과가 들어 있다고 생각함",
+      "ex": [
+       "16.08"
+      ],
+      "m": "m_eff_nom_comp"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-078",
+   "no": "EE-078",
+   "chapter": "C4",
+   "kind": "mc",
+   "q": "연 8%, 분기복리(compounded quarterly)로 주어진 이자율에서 3개월당 유효이자율과 연 유효이자율을 바르게 짝지은 것은?",
+   "opts": [
+    "3개월당 2.00%, 연 8.24%",
+    "3개월당 2.00%, 연 8.00%",
+    "3개월당 8.24%, 연 2.00%",
+    "3개월당 8.00%, 연 8.24%"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "분기당 이율의 4배가 연 유효이자율이라고 생각함",
+    "연 유효이자율이 분기 값보다 작을 수 있다고 생각함",
+    "분기복리라도 3개월당 이율은 8%라고 생각함"
+   ],
+   "s": "<p>3개월이 복리기간(CP)이므로 3개월당 유효이자율 = r/m = 8%/4 = 2.00%이다. 이를 1년(4회) 복리하면 연 유효이자율 = (1.02)^4 − 1 ≈ 8.24%이다.</p><p>함정: 명목 8%를 그대로 유효 연이율로 쓰는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "17"
+    ],
+    [
+     "L4",
+     "27-28"
+    ]
+   ],
+   "topic": "eff_rate",
+   "dx": {
+    "facet": "eff_rate.nom_eff",
+    "depth": 3,
+    "family": "f_ee077",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "명목이자율 구하기 → 유효이자율 구하기"
+    ],
+    "mis": [
+     "",
+     "m_eff_same_rate",
+     "m_eff_unit_swap",
+     "m_eff_no_div"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-079",
+   "no": "EE-079",
+   "chapter": "C4",
+   "kind": "ox",
+   "q": "연 10%라고만 적혀 있고 복리기간이 따로 적혀 있지 않으면, 연 명목이자율과 연 유효이자율은 같다.",
+   "ox": true,
+   "s": "<p>복리기간(CP)을 적지 않으면 이자율을 표현한 기간(여기서는 1년)과 같다고 본다. 이때 복리 횟수 m = 1이므로 i = (1 + r/1)^1 − 1 = r이고 명목과 유효가 같다.</p><p>함정: 명목과 유효가 항상 다르다고 보는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "L4",
+     "16"
+    ]
+   ],
+   "topic": "eff_rate",
+   "dx": {
+    "facet": "eff_rate.nom_eff",
+    "depth": 3,
+    "family": "f_ee076",
+    "role": "near",
+    "delta": [
+     "condition",
+     "월복리로 적힌 이자율 → 복리기간 미표기"
+    ],
+    "mis": {
+     "mr": "m_eff_diff_always"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-080",
+   "no": "EE-080",
+   "chapter": "C4",
+   "kind": "ox",
+   "q": "결제기간(payment period, PP)은 현금흐름 사이의 시간 간격이고 복리기간(compounding period, CP)은 이자가 붙는 시간 간격이며, 둘은 언제나 같은 길이이다.",
+   "ox": false,
+   "fix": "PP와 CP는 서로 다를 수 있다. 예를 들어 연 8%, 분기복리(CP = 3개월)에서 반년마다 결제하면 PP = 6개월이다.",
+   "s": "<p>강의는 CP를 '복리가 적용되는 기간', PP를 '현금흐름이 실제로 발생하는 간격'으로 구별하고, CP = PP이면 그대로 계산하지만 CP &lt; PP이면 PP에 맞춰 이율을 바꿔야 한다고 설명한다.</p><p>함정: 두 기간을 같은 말로 읽는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "38-40"
+    ]
+   ],
+   "topic": "cp_pp",
+   "dx": {
+    "facet": "cp_pp.cp_pp_i",
+    "depth": 1,
+    "mis": "m_cp_pp_same"
+   }
+  },
+  {
+   "ext_id": "EE-081",
+   "no": "EE-081",
+   "chapter": "C4",
+   "kind": "short",
+   "q": "명목 연 8%, 분기복리이다. 반년마다 $1,000씩 3년 동안(총 6회) 받는 급수의 t = 0 현재가치는 몇 달러인가? (소수 둘째 자리)",
+   "a": "5,235.32",
+   "accept": [
+    "5235.32",
+    "5,235.32",
+    "$5,235.32"
+   ],
+   "num": 5235.32,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>PP는 6개월이므로 6개월당 유효이자율을 구한다. 분기당 2%이므로 i = (1.02)^2 − 1 = 4.04%이고 n = 6이다. P = 1,000(P/A, 4.04%, 6) = 5,235.32이다. 예상 오답: 5,242.14(8%/2 = 4%를 그대로 사용).</p><p>함정: 반년 이율을 명목 8%의 절반으로 놓는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "46-49"
+    ]
+   ],
+   "topic": "cp_pp",
+   "dx": {
+    "facet": "cp_pp.cp_pp_i",
+    "depth": 2,
+    "family": "f_ee081",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "반년 이율을 명목 연이율의 절반으로 둔다고 생각함",
+      "ex": [
+       "5242.14"
+      ],
+      "m": "m_cp_half"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-082",
+   "no": "EE-082",
+   "chapter": "C4",
+   "kind": "mc",
+   "q": "명목 연 12%, 월복리로 $10,000을 빌렸다. 분기 말마다 같은 금액 A를 4번 내어 1년 만에 모두 갚을 때, A에 가장 가까운 값은?",
+   "opts": [
+    "$2,562.81",
+    "$3,292.34",
+    "$2,692.21",
+    "$2,500.00"
+   ],
+   "ans": 2,
+   "why": [
+    "분기 지급이라도 월 이율 1%를 그대로 쓴다고 생각함",
+    "연 12%를 분기 급수의 이율로 그대로 쓴다고 생각함",
+    "",
+    "이자가 없다고 보고 원금을 4등분한다고 생각함"
+   ],
+   "s": "<p>분기(PP)당 유효이자율은 (1.01)^3 − 1 = 3.0301%이고 n = 4이다. A = 10,000(A/P, 3.0301%, 4) = 2,692.21이다. 월 1%를 그대로 쓰거나 연 12%를 쓰면 틀린다.</p><p>함정: 지급 간격(PP)에 맞는 이율을 구하지 않는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "46-48"
+    ],
+    [
+     "L2",
+     "31-33"
+    ]
+   ],
+   "topic": "cp_pp",
+   "dx": {
+    "facet": "cp_pp.cp_pp_i",
+    "depth": 3,
+    "family": "f_ee081",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "급수의 P 구하기 → 갚을 금액 A 구하기"
+    ],
+    "mis": [
+     "m_cp_use_cp",
+     "m_cp_use_annual",
+     "",
+     "m_cp_ignore_int"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-083",
+   "no": "EE-083",
+   "chapter": "C4",
+   "kind": "mc",
+   "q": "명목 연 6%, 월복리이다. 매년 말 $500씩 10년 동안 받는 급수의 현재가치를 P/A 계수로 구할 때 넣을 i와 n은?",
+   "opts": [
+    "i = 0.5%(월 유효이자율), n = 10",
+    "i = 6.17%(연 유효이자율), n = 10",
+    "i = 0.5%, n = 120",
+    "i = 6.00%, n = 10"
+   ],
+   "ans": 1,
+   "why": [
+    "월복리이므로 월 이율을 그대로 쓴다고 생각함",
+    "",
+    "월복리이므로 n도 개월 수로 센다고 생각함",
+    "명목 연이율을 그대로 연 이율로 쓴다고 생각함"
+   ],
+   "s": "<p>지급이 연 1회이므로 PP = 1년이다. PP당 유효이자율 = (1 + 0.06/12)^12 − 1 = 6.17%이고, n = 10(PP 수)이다. P = 500(P/A, 6.17%, 10) ≈ 3,650.97이다.</p><p>함정: 월 이율과 연 지급 횟수를 섞어 쓰는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "46-49"
+    ],
+    [
+     "L4",
+     "27-28"
+    ]
+   ],
+   "topic": "cp_pp",
+   "dx": {
+    "facet": "cp_pp.cp_pp_i",
+    "depth": 3,
+    "family": "f_ee081",
+    "role": "near",
+    "delta": [
+     "object",
+     "반년 지급 급수 → 연 1회 지급 급수"
+    ],
+    "mis": [
+     "m_cp_use_cp",
+     "",
+     "m_cp_use_cp",
+     "m_eff_same_rate"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-084",
+   "no": "EE-084",
+   "chapter": "C4",
+   "kind": "ox",
+   "q": "연속복리(continuous compounding)는 1년 안의 복리 횟수가 무한대로 커질 때의 극한이다.",
+   "ox": true,
+   "s": "<p>m번 복리하는 연 유효이율 (1 + r/m)^m − 1에서 m을 무한대로 보낸 극한이 e^r − 1이며, 이것이 연속복리이다.</p><p>함정: 연속복리를 일복리(m = 365)나 시복리처럼 정해진 큰 횟수로 읽는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "51-54"
+    ]
+   ],
+   "topic": "continuous",
+   "dx": {
+    "facet": "continuous.cont",
+    "depth": 1,
+    "family": "f_ee084",
+    "role": "base",
+    "mis": {
+     "mr": "m_cont_daily"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-085",
+   "no": "EE-085",
+   "chapter": "C4",
+   "kind": "short",
+   "q": "$5,000을 명목 연 6%, 연속복리로 4년 동안 예금하면 4년 뒤 금액은 몇 달러인가? (달러, 소수 둘째 자리)",
+   "a": "6,356.25",
+   "accept": [
+    "6356.25",
+    "6,356.25",
+    "$6,356.25"
+   ],
+   "num": 6356.25,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>연속복리에서는 F = P·e^(rt) = 5,000 × e^(0.06×4) = 6,356.25이다. 예상 오답: 6,312.38(연복리 5,000 × 1.06^4).</p><p>함정: 연속복리 지수는 r·t이다.</p>",
+   "src": [
+    [
+     "L4",
+     "54-57"
+    ]
+   ],
+   "topic": "continuous",
+   "dx": {
+    "facet": "continuous.cont",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "연속복리를 연복리처럼 (1+r)^t로 계산한다고 생각함",
+      "ex": [
+       "6312.38"
+      ],
+      "m": "m_cont_annual"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-086",
+   "no": "EE-086",
+   "chapter": "C4",
+   "kind": "mc",
+   "q": "명목 연 12%일 때 연 유효이자율이 큰 순서(큰 것 → 작은 것)로 옳은 것은?",
+   "opts": [
+    "월복리 &gt; 연속복리 &gt; 연복리",
+    "연복리 &gt; 월복리 &gt; 연속복리",
+    "연속복리 = 월복리 = 연복리",
+    "연속복리 &gt; 월복리 &gt; 연복리"
+   ],
+   "ans": 3,
+   "why": [
+    "복리 횟수가 많은 월복리가 연속복리보다 크다고 생각함",
+    "복리 횟수가 많을수록 오히려 작아진다고 생각함",
+    "명목이 같으면 모두 12%라고 생각함",
+    ""
+   ],
+   "s": "<p>명목이 같을 때 복리 횟수가 많을수록 유효 연이율이 커진다. 연복리 12.00%, 월복리 12.68%, 연속복리 e^0.12 − 1 = 12.75%이다. 연속복리가 복리 횟수의 극한이므로 가장 크다.</p><p>함정: 월복리를 연속복리와 같다고 보는 것.</p>",
+   "src": [
+    [
+     "L4",
+     "51-54"
+    ]
+   ],
+   "topic": "continuous",
+   "dx": {
+    "facet": "continuous.cont",
+    "depth": 3,
+    "family": "f_ee084",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "월복리 ↔ 연속복리 비교"
+    ],
+    "mis": [
+     "m_cont_less",
+     "m_cont_order_rev",
+     "m_eff_same_rate",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-088",
+   "no": "EE-088",
+   "chapter": "C5",
+   "kind": "short",
+   "q": "상호배타 대안 X의 초기 비용은 $12,000, 연 운영비는 $1,500, 수명은 2년이고 잔존가치는 없다. 대안 Y의 수명은 4년이다. 이자율 연 8%에서 두 대안을 PW로 비교하려고 LCM 기간으로 맞출 때, X의 PW(비용이므로 음수)는 몇 달러인가? (소수 둘째 자리)",
+   "star": true,
+   "a": "-27256.26",
+   "accept": [
+    "-27256.26",
+    "−27256.26",
+    "-27,256.26",
+    "−27,256.26"
+   ],
+   "num": -27256.26,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>LCM = 4년이므로 X를 두 번 구입한다. PW = −12,000 − 12,000(P/F, 8%, 2) − 1,500(P/A, 8%, 4) = -27,256.26이다. 예상 오답: -14,674.90(한 주기 2년만 계산), -16,968.19(재구입 비용 누락).</p><p>함정: LCM 기간 동안 초기 비용이 두 번 발생한다.</p>",
+   "src": [
+    [
+     "L5",
+     "28-32"
+    ],
+    [
+     "L5",
+     "34-36"
+    ]
+   ],
+   "topic": "life",
+   "dx": {
+    "facet": "life.lcm",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "짧은 수명 대안의 반복(재구입)을 반영하지 않아도 된다고 생각함",
+      "ex": [
+       "-14674.90",
+       "-16968.19"
+      ],
+      "m": "m_lcm_no_repeat"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-089",
+   "no": "EE-089",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "상호배타 대안을 LCM 방법으로 PW 비교할 때의 가정이 '아닌' 것은?",
+   "star": true,
+   "opts": [
+    "서비스가 LCM 기간 내내 필요하다",
+    "선택된 대안을 각 주기마다 반복할 수 있다",
+    "각 주기의 현금흐름 추정치가 같다",
+    "각 반복 주기마다 현금흐름이 물가 변동으로 달라진다"
+   ],
+   "ans": 3,
+   "why": [
+    "LCM은 가정이 하나도 필요 없다고 생각함",
+    "반복 구매는 LCM의 가정이 아니라 결과라고 생각함",
+    "주기마다 현금흐름을 다르게 둔다고 생각함",
+    ""
+   ],
+   "s": "<p>LCM 방법은 (1) 서비스가 LCM 기간 동안 필요하고, (2) 선택한 대안을 각 주기마다 반복할 수 있으며, (3) 현금흐름 추정치가 모든 주기에서 같다고 가정한다. 주기마다 값이 달라진다는 것은 가정이 아니라 가정을 깨는 경우이며, 이때는 연구기간을 정해 분석한다.</p><p>함정: 세 번째 가정을 빠뜨리는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "32-33"
+    ],
+    [
+     "L6",
+     "9-10"
+    ]
+   ],
+   "topic": "life",
+   "dx": {
+    "facet": "life.lcm",
+    "depth": 3,
+    "mis": [
+     "m_lcm_assume_miss",
+     "m_lcm_assume_miss",
+     "m_lcm_assume_miss",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-090",
+   "no": "EE-090",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "매년 같은 금액 A가 영원히 반복될 때 자본화비용(capitalized cost)은 CC = A/i로 구하며, 이자율이 클수록 같은 A의 CC는 작아진다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>P/A 계수에서 n을 무한대로 보내면 (1 + i)^n으로 나눈 항이 사라져 P = A/i가 된다. 예를 들어 A = 1,000, i = 5%이면 CC = 20,000이다. 이자율이 5%에서 10%로 오르면 같은 A의 CC는 절반(10,000)이 된다.</p><p>함정: A/i를 A × i로 바꿔 쓰는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "56-58"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.cc",
+    "depth": 1,
+    "mis": {
+     "mr": "m_cc_formula"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-091",
+   "no": "EE-091",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "공공 설비에 지금 $200,000을 투자하고, 매년 말 운영비 $10,000이 영원히 들며, 이와 별도로 5년마다(5년 차 말, 10년 차 말, …) $30,000의 개보수 비용이 영원히 든다. 이자율 8%에서 CC에 가장 가까운 값은?",
+   "star": true,
+   "opts": [
+    "$388,921",
+    "$700,000",
+    "$418,921",
+    "$400,000"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "5년마다 드는 비용도 매년 드는 것처럼 A/i로 구한다고 생각함",
+    "주기 비용을 연간 금액으로 바꿀 때 A/P를 쓴다고 생각함",
+    "5년마다 드는 $30,000을 5로 나누면 연 금액이 된다고 생각함"
+   ],
+   "s": "<p>일회성 $200,000은 그대로 두고, 연 $10,000은 10,000/0.08 = 125,000이다. 5년마다 $30,000은 먼저 한 주기(5년)의 연 금액 30,000(A/F, 8%, 5) = 5,113.69으로 바꾼 뒤 0.08로 나누면 63,921.17이다. 합계는 약 $388,921이다.</p><p>함정: 주기 비용을 연간 금액으로 바꾸지 않고 바로 나누는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "63-70"
+    ],
+    [
+     "L6",
+     "34-39"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.cc",
+    "depth": 4,
+    "mis": [
+     "",
+     "m_cc_periodic_raw",
+     "m_cc_af_ap",
+     "m_cc_avg"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-092",
+   "no": "EE-092",
+   "chapter": "C5",
+   "kind": "short",
+   "q": "연 5% 이자로 $400,000을 영구 투자하고 원금은 그대로 둔 채 이자만 매년 말에 인출하려 한다. 영원히 매년 인출할 수 있는 최대 금액은 몇 달러인가?",
+   "star": true,
+   "a": "20000",
+   "accept": [
+    "20000",
+    "20,000",
+    "$20,000",
+    "20000.00"
+   ],
+   "num": 20000,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>CC = A/i의 식을 A에 대해 풀면 A = CC × i = 400,000 × 0.05 = 20,000이다. 이자만 인출하면 원금이 줄지 않아 영원히 쓸 수 있다. 예상 오답: 8,000,000(A/i처럼 i로 나눔).</p><p>함정: A = CC × i로 바꿔 써야 한다.</p>",
+   "src": [
+    [
+     "L5",
+     "61-62"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.cc",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "CC와 A의 관계식에서 i를 곱하고 나누는 쪽을 거꾸로 쓴다고 생각함",
+      "ex": [
+       "8000000"
+      ],
+      "m": "m_cc_formula"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-093",
+   "no": "EE-093",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "독립 프로젝트(independent projects)를 PW로 평가할 때는 PW가 가장 큰 프로젝트 하나만 채택한다.",
+   "star": true,
+   "ox": false,
+   "fix": "독립 프로젝트는 각각 DN과 비교하며, MARR에서 PW ≥ 0인 프로젝트를 모두 채택한다. 하나만 고르는 것은 상호배타 대안의 규칙이다.",
+   "s": "<p>독립 프로젝트는 서로 비교하지 않고 각각 DN과 비교한다. 한 프로젝트의 선택이 다른 프로젝트의 선택에 영향을 주지 않으므로 MARR에서 PW ≥ 0인 것을 모두 고른다.</p><p>함정: 상호배타 대안의 '가장 큰 PW 하나' 규칙을 독립 프로젝트에 적용하는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "17"
+    ],
+    [
+     "L5",
+     "7"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.rule",
+    "depth": 1,
+    "family": "f_ee093",
+    "role": "base",
+    "mis": "m_rule_indep_one"
+   }
+  },
+  {
+   "ext_id": "EE-094",
+   "no": "EE-094",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "두 상호배타 대안은 모두 비용 대안이며 DN은 선택할 수 없다. 두 대안의 PW가 PW_A = −$850, PW_B = −$1,120일 때 선택은?",
+   "star": true,
+   "opts": [
+    "A: PW가 수치상 더 큰(덜 음수인) 값이다",
+    "B: 절댓값이 더 큰 비용을 쓰는 쪽이 낫다",
+    "DN: 두 PW가 모두 음수이므로 둘 다 기각한다",
+    "A와 B 중 아무거나: 둘 다 비용이므로 같다"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "PW 절댓값이 큰 대안이 더 좋다고 생각함",
+    "PW가 음수이면 무조건 기각한다고 생각함",
+    "비용 대안은 PW로 비교하지 않는다고 생각함"
+   ],
+   "s": "<p>상호배타 대안에서는 PW가 수치상 가장 큰(덜 음수이거나 더 양수인) 대안을 고른다. −850이 −1,120보다 크므로 A가 선택된다. DN이 불가능한 비용 대안은 음수여도 둘 중 하나를 골라야 한다.</p><p>함정: 부호를 무시하고 절댓값이 큰 쪽을 고르는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "16"
+    ],
+    [
+     "L5",
+     "18-19"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.rule",
+    "depth": 2,
+    "mis": [
+     "",
+     "m_rule_abs",
+     "m_rule_dn_cost",
+     "m_rule_cost_equal"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-095",
+   "no": "EE-095",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "독립 프로젝트 네 개의 MARR에서의 PW가 각각 +$80, $0, −$20, +$15이다. 채택되는 프로젝트는 몇 개인가?",
+   "star": true,
+   "opts": [
+    "2개",
+    "4개",
+    "3개",
+    "1개"
+   ],
+   "ans": 2,
+   "why": [
+    "PW가 0이면 MARR을 달성하지 못한다고 생각함",
+    "독립이면 PW와 관계없이 모두 채택한다고 생각함",
+    "",
+    "PW가 가장 큰 하나만 채택한다고 생각함"
+   ],
+   "s": "<p>독립 프로젝트는 PW ≥ 0이면 채택한다. PW = 0이면 정확히 MARR을 달성하므로 포함해 +80, 0, +15의 3개가 채택된다.</p><p>함정: PW = 0을 탈락시키거나, PW 음수인 것까지 모두 채택하는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "16-17"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.rule",
+    "depth": 3,
+    "family": "f_ee093",
+    "role": "near",
+    "delta": [
+     "condition",
+     "PW 양수·음수 → PW = 0인 경계"
+    ],
+    "mis": [
+     "m_rule_zero_out",
+     "m_rule_all",
+     "",
+     "m_rule_indep_one"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-096",
+   "no": "EE-096",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "MARR을 기준으로 평가할 때 DN(do-nothing)은 MARR을 정확히 달성하는 대안이다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>DN은 새로운 비용도 수입도 없는 현재 상태이므로 PW = 0이다. 그래서 어떤 대안의 PW ≥ 0이면 MARR 이상이고 DN보다 낫다.</p><p>함정: DN을 '아무 가치도 없어 비교할 수 없는 대안'으로 보는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "7"
+    ],
+    [
+     "L5",
+     "17"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.rule",
+    "depth": 1,
+    "mis": {
+     "mr": "m_rule_dn_zero"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-097",
+   "no": "EE-097",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "세 프로젝트의 MARR에서의 PW가 A = +$35, B = +$50, C = −$10이다. 이 프로젝트들이 (가) 상호배타 대안일 때와 (나) 독립 프로젝트일 때 각각의 선택은? (DN 가능)",
+   "star": true,
+   "opts": [
+    "(가) A와 B, (나) B만",
+    "(가) B만, (나) B만",
+    "(가) A와 B, (나) A와 B",
+    "(가) B만, (나) A와 B"
+   ],
+   "ans": 3,
+   "why": [
+    "상호배타일 때 PW ≥ 0인 것을 모두 고른다고 생각함",
+    "독립이어도 PW 최대인 것 하나만 고른다고 생각함",
+    "PW 양수인 대안은 두 경우 모두 채택한다고 생각함",
+    ""
+   ],
+   "s": "<p>상호배타 대안은 PW가 가장 큰 하나만(B) 채택한다. 독립 프로젝트는 PW ≥ 0인 것을 모두(A, B) 채택하고 C는 PW &lt; 0이므로 탈락한다.</p><p>함정: 상호배타 대안과 독립 프로젝트의 선택 규칙을 서로 바꾸는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "7-10"
+    ],
+    [
+     "L5",
+     "16-17"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.rule",
+    "depth": 3,
+    "family": "f_ee093",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "독립 프로젝트 ↔ 상호배타 대안"
+    ],
+    "mis": [
+     "m_rule_swap",
+     "m_rule_indep_one",
+     "m_rule_mutex_all",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-098",
+   "no": "EE-098",
+   "chapter": "C5",
+   "kind": "short",
+   "q": "독립 프로젝트 X는 초기 비용 $5,000이고 1~5년 차 말에 매년 $1,200의 순수입이 있으며 5년 차 말에 잔존가치 $500이 있다. MARR 10%에서 X의 PW는 몇 달러인가? (소수 둘째 자리, 음수는 − 표시)",
+   "star": true,
+   "a": "-140.60",
+   "accept": [
+    "-140.60",
+    "−140.60"
+   ],
+   "num": -140.6,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>PW = −5,000 + 1,200(P/A, 10%, 5) + 500(P/F, 10%, 5) = -140.60이다. PW &lt; 0이므로 X는 MARR을 달성하지 못해 채택하지 않는다. 예상 오답: +1,500.00(할인 없이 −5,000 + 6,000 + 500으로 합산).</p><p>함정: PW가 음수이면 DN과 비교해 불리하므로 기각한다.</p>",
+   "src": [
+    [
+     "L5",
+     "15-17"
+    ],
+    [
+     "L5",
+     "42"
+    ]
+   ],
+   "topic": "pw_rule",
+   "dx": {
+    "facet": "pw_rule.rule",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "시점이 다른 금액을 환산하지 않고 한꺼번에 더하거나 할인한다고 생각함",
+      "ex": [
+       "1500.00"
+      ],
+      "m": "m_comb_sum_first"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-099",
+   "no": "EE-099",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "연구기간(study period) 분석에서는 연구기간이 끝난 뒤에 발생하는 현금흐름도 모두 PW에 포함한다.",
+   "ox": false,
+   "fix": "연구기간 분석은 연구기간 안에 발생하는 현금흐름만 고려하고, 그 이후의 현금흐름은 모두 무시한다.",
+   "s": "<p>연구기간 분석은 분석 기간(n년)을 정하고 그 기간 안의 현금흐름만으로 PW를 비교한다. 기간 이후의 현금흐름은 무시한다. 수명이 연구기간보다 길면 연구기간 말의 잔존가치(추정 시장가치)를 넣는다.</p><p>함정: 수명 전체를 계산하는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "33"
+    ]
+   ],
+   "topic": "life",
+   "dx": {
+    "facet": "life.study",
+    "depth": 1,
+    "family": "f_ee099",
+    "role": "base",
+    "mis": "m_study_after"
+   }
+  },
+  {
+   "ext_id": "EE-100",
+   "no": "EE-100",
+   "chapter": "C5",
+   "kind": "short",
+   "q": "설비 P는 초기 비용 $20,000, 연 운영비 $4,000, 수명 8년이다. 연구기간을 5년으로 정했고 5년 차 말에 설비를 $8,000에 팔 수 있다고 추정한다. 이자율 10%에서 연구기간 5년 동안의 PW는 몇 달러인가? (소수 둘째 자리, 비용이므로 음수)",
+   "a": "-30195.78",
+   "accept": [
+    "-30195.78",
+    "−30195.78",
+    "-30,195.78",
+    "−30,195.78"
+   ],
+   "num": -30195.78,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>연구기간 5년 안의 현금흐름만 쓴다. PW = −20,000 − 4,000(P/A, 10%, 5) + 8,000(P/F, 10%, 5) = -30,195.78이다. 6~8년 차 운영비는 무시하고, 5년 차 말의 추정 처분가치를 잔존가치로 넣는다. 예상 오답: -41,339.70(수명 8년 전체의 운영비 포함).</p><p>함정: 수명 전체를 쓰는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "33"
+    ],
+    [
+     "L5",
+     "37-38"
+    ],
+    [
+     "L6",
+     "15"
+    ]
+   ],
+   "topic": "life",
+   "dx": {
+    "facet": "life.study",
+    "depth": 2,
+    "family": "f_ee100",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "연구기간 이후의 현금흐름도 PW에 포함한다고 생각함",
+      "ex": [
+       "-41339.70"
+      ],
+      "m": "m_study_after"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-101",
+   "no": "EE-101",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "같은 두 대안이라도 LCM 방법으로 비교한 결과와 연구기간 방법으로 비교한 결과가 서로 다른 대안을 가리킬 수 있다.",
+   "ox": true,
+   "s": "<p>강의 예제(벤더 A·B)는 LCM으로 비교하면 B의 비용이 더 낮지만, 연구기간 5년으로 비교하면 A가 선택된다. 두 방법이 분석하는 현금흐름 기간과 잔존가치 가정이 다르기 때문이다. 그래서 고정된 연구기간은 신중히 정해야 한다.</p><p>함정: 어느 방법을 써도 결과가 같다고 보는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "34-38"
+    ]
+   ],
+   "topic": "life",
+   "dx": {
+    "facet": "life.study",
+    "depth": 3,
+    "family": "f_ee099",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "LCM 기간 비교 ↔ 연구기간 비교"
+    ],
+    "mis": {
+     "mr": "m_study_same"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-102",
+   "no": "EE-102",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "수명이 10년인 설비를 연구기간 6년으로 PW 분석한다. 연구기간 PW에 넣어야 할 잔존가치는?",
+   "opts": [
+    "10년 차 말의 잔존가치를 그대로 6년 차 말에 넣는다",
+    "잔존가치는 0으로 둔다",
+    "10년 차 말 잔존가치를 4년만큼 할인해 6년 차에 넣는다",
+    "6년 차 말의 추정 시장가치"
+   ],
+   "ans": 3,
+   "why": [
+    "잔존가치는 수명 말의 값만 쓴다고 생각함",
+    "연구기간이 수명보다 짧으면 잔존가치가 없다고 생각함",
+    "수명 말의 값을 연구기간 말로 할인해 쓴다고 생각함",
+    ""
+   ],
+   "s": "<p>연구기간이 설비 수명보다 짧으면 연구기간 말에 설비를 처분한다고 보고, 그 시점의 추정 가치(시장가치)를 잔존가치로 쓴다. 강의 예제도 5년 연구기간 말의 설비 잔존가치를 따로 추정해 사용한다.</p><p>함정: 수명 말 잔존가치를 그대로 쓰거나 0으로 두는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "15"
+    ],
+    [
+     "L5",
+     "37"
+    ]
+   ],
+   "topic": "life",
+   "dx": {
+    "facet": "life.study",
+    "depth": 3,
+    "family": "f_ee100",
+    "role": "near",
+    "delta": [
+     "condition",
+     "연구기간 = 수명 → 연구기간 < 수명"
+    ],
+    "mis": [
+     "m_study_salvage_keep",
+     "m_study_salvage_zero",
+     "m_study_salvage_keep",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-103",
+   "no": "EE-103",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "AW 분석은 PW 분석보다 계산이 더 정확하기 때문에 상호배타 대안 비교에서 선호된다.",
+   "ox": false,
+   "fix": "AW와 PW는 가정이 사실상 같아서 정확도에 차이가 없다. AW는 연 단위 금액이라 이해하기 쉽고, 수명이 다른 대안도 한 주기만 계산하면 된다는 점 때문에 선호된다.",
+   "s": "<p>강의는 AW의 가정이 PW와 본질적으로 같다고 하며, AW의 장점을 이해하기 쉬운 '연 금액'이라는 점과 수명이 다른 대안을 한 주기의 AW만으로 비교할 수 있다는 점으로 든다. 정확도가 더 높아서가 아니다.</p><p>함정: 선호 이유를 정확도로 착각하는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "2-4"
+    ],
+    [
+     "L6",
+     "8"
+    ]
+   ],
+   "topic": "aw",
+   "dx": {
+    "facet": "aw.pw_fw_aw",
+    "depth": 1,
+    "family": "f_ee103",
+    "role": "base",
+    "mis": "m_aw_accurate"
+   }
+  },
+  {
+   "ext_id": "EE-104",
+   "no": "EE-104",
+   "chapter": "C6",
+   "kind": "short",
+   "q": "어떤 설비의 6년 수명 동안 현금흐름의 PW가 −$12,000이다. 이자율 8%에서 이 설비의 AW는 몇 달러인가? (소수 둘째 자리, 음수는 − 표시)",
+   "a": "-2595.78",
+   "accept": [
+    "-2595.78",
+    "−2595.78",
+    "-2,595.78",
+    "−2,595.78"
+   ],
+   "num": -2595.78,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>AW = PW(A/P, i, n) = −12,000(A/P, 8%, 6) = -2,595.78이다. 예상 오답: −2,000.00(이자를 무시하고 6으로 나눔).</p><p>함정: PW를 연 금액으로 바꿀 때는 A/P 계수를 곱한다.</p>",
+   "src": [
+    [
+     "L6",
+     "5"
+    ]
+   ],
+   "topic": "aw",
+   "dx": {
+    "facet": "aw.pw_fw_aw",
+    "depth": 2,
+    "family": "f_ee104",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "AW를 이자 없이 PW나 FW를 연수로 나눠 구한다고 생각함",
+      "ex": [
+       "-2000.00"
+      ],
+      "m": "m_aw_no_int"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-105",
+   "no": "EE-105",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "현금흐름의 FW(n = 5년 말 기준)가 −$30,000이다. 이자율 10%에서 같은 현금흐름의 AW에 가장 가까운 값은?",
+   "opts": [
+    "−$7,913.92",
+    "−$4,913.92",
+    "−$6,000.00",
+    "−$18,627.64"
+   ],
+   "ans": 1,
+   "why": [
+    "FW에도 PW와 같은 A/P를 곱한다고 생각함",
+    "",
+    "이자를 무시하고 5로 나눈다고 생각함",
+    "FW에 P/F를 곱하면 AW가 된다고 생각함"
+   ],
+   "s": "<p>AW = PW(A/P, i, n) = FW(A/F, i, n)이다. FW가 n년 말 값이므로 A/F를 곱해 AW = −30,000(A/F, 10%, 5) = -4,913.92이다. A/P를 곱하면 -7,913.92으로 PW용 계수를 잘못 쓴 값이다.</p><p>함정: 미래가치에는 A/F, 현재가치에는 A/P.</p>",
+   "src": [
+    [
+     "L6",
+     "5"
+    ]
+   ],
+   "topic": "aw",
+   "dx": {
+    "facet": "aw.pw_fw_aw",
+    "depth": 3,
+    "family": "f_ee104",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "PW → AW 변환 ↔ FW → AW 변환"
+    ],
+    "mis": [
+     "m_aw_fw_ap",
+     "",
+     "m_aw_no_int",
+     "m_aw_pw_is_aw"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-106",
+   "no": "EE-106",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "같은 MARR과 같은 분석 기간(동일 서비스)으로 상호배타 대안을 PW, FW, AW로 각각 비교하면 서로 다른 대안이 선택될 수 있다.",
+   "ox": false,
+   "fix": "같은 MARR과 같은 분석 기간이면 PW, FW, AW는 서로 환산된 값이어서 항상 같은 대안이 선택된다.",
+   "s": "<p>AW = PW(A/P, i, n) = FW(A/F, i, n)이고 FW = PW(F/P, i, n)이므로 세 값은 양수 계수를 곱한 환산 값이다. 부호와 순위가 바뀌지 않으므로 같은 가정에서는 같은 대안이 선택된다.</p><p>함정: 지표마다 선택이 달라진다고 보는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "2"
+    ],
+    [
+     "L6",
+     "5"
+    ],
+    [
+     "L5",
+     "44-45"
+    ]
+   ],
+   "topic": "aw",
+   "dx": {
+    "facet": "aw.pw_fw_aw",
+    "depth": 3,
+    "family": "f_ee103",
+    "role": "near",
+    "delta": [
+     "condition",
+     "PW만 비교 → PW·FW·AW 모두 비교"
+    ],
+    "mis": "m_aw_diff_pick"
+   }
+  },
+  {
+   "ext_id": "EE-107",
+   "no": "EE-107",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "생애주기비용(life-cycle cost, LCC) 분석은 시스템의 취득, 운영, 폐기 세 단계의 비용을 모두 추정한다.",
+   "ox": true,
+   "s": "<p>LCC는 취득 단계, 운영 단계, 폐기 단계로 비용을 나누어 전체 수명 동안의 직접·간접 비용을 모두 평가한다. 초기 투자에 비해 운영·유지 비용의 비중이 클 때 특히 효과적이다.</p><p>함정: LCC를 초기 구입비 비교로 좁게 읽는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "41-43"
+    ]
+   ],
+   "topic": "lcc",
+   "dx": {
+    "facet": "lcc.lcc",
+    "depth": 1,
+    "mis": {
+     "mr": "m_lcc_acq_only"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-108",
+   "no": "EE-108",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "LCC 분석에서 타당성 조사와 초기 계획을 세우는 '예비설계(preliminary design)' 활동의 비용이 속하는 LCC 단계(phase)는?",
+   "opts": [
+    "취득 단계(acquisition phase)",
+    "운영 단계(operation phase)",
+    "폐기 단계(phase-out and disposal)",
+    "모든 단계에 걸쳐 고르게 발생한다"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "설계 활동은 시스템이 가동되는 단계에서 한다고 생각함",
+    "계획 활동은 시스템을 정리하는 단계에서 한다고 생각함",
+    "설계 활동은 수명 내내 계속된다고 생각함"
+   ],
+   "s": "<p>취득 단계는 제품·서비스가 인도되기 전의 모든 활동으로 요구 정의, 예비설계(타당성 조사와 초기 계획), 상세설계 단계를 포함한다. 운영 단계는 구축·구현과 사용이고, 폐기 단계는 새 시스템으로의 전환과 기존 시스템의 철거·재활용·처분이다.</p><p>함정: 설계 활동을 운영 단계에 넣는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "43-45"
+    ]
+   ],
+   "topic": "lcc",
+   "dx": {
+    "facet": "lcc.lcc",
+    "depth": 2,
+    "family": "f_ee108",
+    "role": "base",
+    "mis": [
+     "",
+     "m_lcc_phase_wrong",
+     "m_lcc_phase_wrong",
+     "m_lcc_phase_wrong"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-109",
+   "no": "EE-109",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "LCC 분석에서 직접 비용(direct costs)이 아니라 간접 비용(indirect costs)으로 분류하는 것은?",
+   "opts": [
+    "제품에 직접 들어가는 재료비",
+    "제품을 만드는 작업자의 직접 인건비",
+    "제품을 만드는 데 쓰는 설비 비용",
+    "보증(warranty)과 보험(insurance) 비용"
+   ],
+   "ans": 3,
+   "why": [
+    "재료비는 회사 전체에 걸린 간접 비용이라고 생각함",
+    "사람에게 드는 비용은 모두 간접 비용이라고 생각함",
+    "설비는 제품과 직접 연결되지 않는다고 생각함",
+    ""
+   ],
+   "s": "<p>직접 비용은 제품·공정·시스템과 직접 관련된 재료, 인력, 설비, 소모품 등이다. 간접 비용은 세금, 경영, 법무, 보증, 품질, 인사, 보험 등이다.</p><p>함정: 직접 인건비나 설비를 간접 비용에 넣는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "42"
+    ]
+   ],
+   "topic": "lcc",
+   "dx": {
+    "facet": "lcc.lcc",
+    "depth": 3,
+    "family": "f_ee108",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "단계 구분 → 직접·간접 비용 구분"
+    ],
+    "mis": [
+     "m_lcc_direct_indirect",
+     "m_lcc_direct_indirect",
+     "m_lcc_direct_indirect",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-110",
+   "no": "EE-110",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "LCC 분석의 비용 추정에서 요구 정의(requirement definition) 단계에서 쓰는 비용은 운영 단계 비용에 속한다.",
+   "ox": false,
+   "fix": "요구 정의는 취득 단계의 첫 단계이므로 그 비용은 취득 단계 비용에 속한다. 운영 단계는 구축·구현과 사용 단계이다.",
+   "s": "<p>취득 단계(요구 정의, 예비설계, 상세설계), 운영 단계(구축·구현, 사용), 폐기 단계(전환, 철거·재활용·처분)의 순서이다. 요구 정의는 사용자·고객의 필요를 정하는 취득 단계의 활동이다.</p><p>함정: 단계의 이름만 보고 '정의 활동'을 운영 단계에 넣는 것.</p>",
+   "src": [
+    [
+     "L6",
+     "43-45"
+    ]
+   ],
+   "topic": "lcc",
+   "dx": {
+    "facet": "lcc.lcc",
+    "depth": 3,
+    "family": "f_ee108",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "활동의 단계 고르기 → 단계의 활동 판별"
+    ],
+    "mis": "m_lcc_phase_wrong"
+   }
+  },
+  {
+   "ext_id": "EE-111",
+   "no": "EE-111",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "ROR은 처음 투자한 금액 전체가 아니라, 해마다 아직 회수되지 않은 잔액(unrecovered balance)에 대해 계산한 이율이다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>강의는 ROR이 보통 회수되지 않은 금액을 기준으로 계산되며 이는 처음 금액과 다를 수 있다고 정리한다. 현금흐름이 들어올 때마다 회수된 만큼 잔액이 줄고, 다음 해 이자는 줄어든 잔액에 붙는다.</p><p>함정: ROR을 초기 투자금 전체에 매년 붙는 이율로 읽는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "4-5"
+    ],
+    [
+     "L7",
+     "6-9"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.balance",
+    "depth": 1,
+    "family": "f_ee111",
+    "role": "base",
+    "mis": {
+     "mr": "m_ror_initial"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-112",
+   "no": "EE-112",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "$1,000을 연 10%로 빌려 3년 동안 매년 말 같은 금액 A(= 402.11달러)씩 갚는다. 2년 차 말에 두 번째 상환을 한 직후 남은 잔액은 몇 달러인가? (소수 둘째 자리)",
+   "star": true,
+   "a": "365.56",
+   "accept": [
+    "365.56",
+    "365.6"
+   ],
+   "num": 365.56,
+   "tol": 0.1,
+   "ph": "숫자만 입력",
+   "s": "<p>1년 차 말 잔액 = 1,000 × 1.10 − 402.11 = 697.89, 2년 차 말 잔액 = 697.89 × 1.10 − 402.11 = 365.56이다(3년 차 말 상환 후 0). 예상 오답: 195.77(이자를 무시하고 원금에서 상환액만 뺌).</p><p>함정: 이자는 남은 잔액에 매년 붙는다.</p>",
+   "src": [
+    [
+     "L7",
+     "6-9"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.balance",
+    "depth": 2,
+    "family": "f_ee112",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "남은 잔액을 구할 때 이자를 빼고 상환액만 뺀다고 생각함",
+      "ex": [
+       "195.77"
+      ],
+      "m": "m_ror_no_int"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-113",
+   "no": "EE-113",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "$1,000을 연 10%로 빌려 3년 동안 매년 말 402.11달러씩 갚는다. 이자를 처음 금액 $1,000에 매년 10%로 계산하면 3년 이자 합이 $300.00이다. 실제로 남은 잔액을 기준으로 계산한 3년 이자 합은?",
+   "star": true,
+   "opts": [
+    "$206.34",
+    "$300.00",
+    "$1,206.34",
+    "$100.00"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "원금이 줄어도 이자는 처음 금액에 붙는다고 생각함",
+    "총 상환액이 곧 이자라고 생각함",
+    "이자는 첫해 한 번만 낸다고 생각함"
+   ],
+   "s": "<p>잔액 기준 이자는 1년 차 100.00, 2년 차 69.79, 3년 차 36.56이고 합은 206.34이다. 잔액이 매년 줄어드는 만큼 이자도 준다. 처음 금액 기준으로 계산하면 매년 100씩 300이 되어 실제보다 과대하게 계산된다.</p><p>함정: 회수되는 원금을 무시하고 초기 금액에 이율을 적용하는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "6-9"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.balance",
+    "depth": 3,
+    "family": "f_ee112",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "잔액 기준 이자 → 초기 금액 기준 이자"
+    ],
+    "mis": [
+     "",
+     "m_ror_initial",
+     "m_ror_pay_int",
+     "m_ror_no_int"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-114",
+   "no": "EE-114",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "투자한 금액을 전부 잃어 아무것도 회수하지 못한 경우의 ROR은 −100%이다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>강의는 ROR의 범위를 −100% ≤ i ≤ ∞로 두고, i = −100%는 투자한 금액 전체를 잃었음을 뜻한다고 설명한다. 0%는 원금만 회수하고 이자는 없는 경우이다.</p><p>함정: 0%를 '손실'로 읽는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "5"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.balance",
+    "depth": 1,
+    "mis": {
+     "mr": "m_ror_zero_loss"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-115",
+   "no": "EE-115",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "한 사람이 $1,000을 연 10%로 빌려 3년 동안 매년 말 402.11달러씩 갚는다. 빌린 사람(차입자)과 빌려준 사람(대여자)이 같은 현금흐름으로 각자 i*를 구하면 어떻게 되는가?",
+   "star": true,
+   "opts": [
+    "차입자는 −10%, 대여자는 +10%이다",
+    "대여자만 10%이고 차입자는 ROR을 구할 수 없다",
+    "차입자는 10%, 대여자는 0%이다",
+    "부호만 서로 반대일 뿐 두 사람 모두 i* = 10%이다"
+   ],
+   "ans": 3,
+   "why": [
+    "한쪽이 손해를 보면 ROR이 음수가 된다고 생각함",
+    "ROR은 투자하는 쪽에서만 정의된다고 생각함",
+    "한쪽이 낸 이자를 다른 쪽이 못 받는다고 생각함",
+    ""
+   ],
+   "s": "<p>강의는 ROR이 돈을 빌릴 때(미상환 잔액에 대한 이자율)와 빌려줄 때(미회수 잔액에 대한 수익률) 두 관점을 모두 설명한다고 한다. 두 사람의 현금흐름은 부호만 반대이므로 PW = 0이 되는 이자율은 같다.</p><p>함정: 차입자의 이율을 음수로 쓰는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "4"
+    ],
+    [
+     "L7",
+     "12"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.balance",
+    "depth": 4,
+    "family": "f_ee112",
+    "role": "near",
+    "delta": [
+     "object",
+     "차입자 관점 → 대여자 관점"
+    ],
+    "mis": [
+     "m_ror_borrower",
+     "m_ror_borrower",
+     "m_ror_borrower",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-116",
+   "no": "EE-116",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "친구에게 'ROR은 회수되지 않은 금액을 기준으로 계산된다'는 말을 쉽게 설명하려 한다. 가장 적절한 설명은?",
+   "star": true,
+   "opts": [
+    "처음 맡긴 돈 전체에 대해 해마다 같은 이율이 붙는다",
+    "이미 돌려받은 돈에 대해서만 이율이 붙는다",
+    "아직 돌려받지 못하고 남은 원금에 대해서만 해마다 이율이 붙는다",
+    "해마다 받은 돈의 평균값에 이율이 붙는다"
+   ],
+   "ans": 2,
+   "why": [
+    "이율은 항상 처음 금액에 붙는다고 생각함",
+    "회수된 금액이 수익을 만든다고 생각함",
+    "",
+    "평균 잔액에 단리를 적용한다고 생각함"
+   ],
+   "s": "<p>투자나 대출에서 해마다 일부가 회수되면 남은(미회수) 잔액이 줄어든다. ROR은 이 줄어든 잔액에 붙는 이율이므로, 회수된 부분에는 더 이상 이율이 붙지 않는다.</p><p>함정: 이율이 처음 금액 전체에 계속 붙는다고 설명하는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "4-9"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.balance",
+    "depth": 3,
+    "family": "f_ee111",
+    "role": "near",
+    "delta": [
+     "repr",
+     "용어 진술 → 쉬운 말 설명"
+    ],
+    "mis": [
+     "m_ror_initial",
+     "m_ror_recovered",
+     "",
+     "m_ror_avg"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-117",
+   "no": "EE-117",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "ROR은 절대 측정치(absolute measure)이고, PW와 AW는 상대 측정치(relative measure)이다.",
+   "ox": false,
+   "fix": "이 강의에서는 PW와 AW가 금액으로 나오는 절대 측정치이고, ROR은 현금흐름만으로 정해지는 이율, 즉 상대 측정치이다.",
+   "s": "<p>PW·AW는 MARR을 이용해 금액(달러)으로 계산하는 절대 측정치이다. 반면 ROR은 현금흐름 자체만 사용해 PW = 0이 되는 이율을 찾으므로 상대 측정치로 분류한다.</p><p>함정: 두 분류를 서로 바꿔 외우는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "11"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.relative",
+    "depth": 1,
+    "family": "f_ee117",
+    "role": "base",
+    "mis": "m_ror_absolute"
+   }
+  },
+  {
+   "ext_id": "EE-118",
+   "no": "EE-118",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "하나의 프로젝트에서 ROR(i*)을 구할 때 필요한 정보로 옳은 것은?",
+   "opts": [
+    "현금흐름과 MARR이 모두 있어야 계산할 수 있다",
+    "프로젝트의 현금흐름만 있으면 되고 MARR은 필요 없다",
+    "MARR만 있으면 현금흐름 없이도 구할 수 있다",
+    "현금흐름과 자본비용(WACC)이 있어야 계산할 수 있다"
+   ],
+   "ans": 1,
+   "why": [
+    "PW처럼 MARR을 넣어야 i*가 나온다고 생각함",
+    "",
+    "MARR이 곧 프로젝트의 수익률이라고 생각함",
+    "수익률을 구하려면 자본비용이 필요하다고 생각함"
+   ],
+   "s": "<p>i*는 PW(또는 AW)를 0으로 만드는 이자율로, 현금흐름만 사용해 구한다. MARR은 프로젝트와 무관하게 정해 둔 기준이며, i*를 구한 뒤 MARR과 비교하는 데만 쓴다.</p><p>함정: i*를 구하는 식에 MARR을 넣는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "11-14"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.relative",
+    "depth": 2,
+    "family": "f_ee118",
+    "role": "base",
+    "mis": [
+     "m_ror_needs_marr",
+     "",
+     "m_ror_needs_marr",
+     "m_ror_needs_marr"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-119",
+   "no": "EE-119",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "두 프로젝트의 ROR이 같더라도 투자 규모가 다르면 같은 MARR에서의 PW는 서로 다를 수 있다.",
+   "ox": true,
+   "s": "<p>예를 들어 $1,000을 투자해 1년 뒤 $1,200을 받는 프로젝트와 $10,000을 투자해 $12,000을 받는 프로젝트는 ROR이 모두 20%이다. MARR 10%에서 PW는 각각 90.91과 909.09로 다르다. ROR은 비율이고 PW는 금액이기 때문이다.</p><p>함정: ROR이 같으면 PW도 같다고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "11-14"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.relative",
+    "depth": 3,
+    "family": "f_ee117",
+    "role": "near",
+    "delta": [
+     "object",
+     "한 프로젝트 → 규모가 다른 두 프로젝트"
+    ],
+    "mis": {
+     "mr": "m_ror_same_pw"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-120",
+   "no": "EE-120",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "초기에 한 번 투자하고 이후 순수입만 있는 프로젝트(부호가 한 번만 바뀜)의 i*가 MARR보다 크다. 이 프로젝트의 MARR에서의 PW는?",
+   "opts": [
+    "0보다 크다",
+    "0보다 작다",
+    "정확히 0이다",
+    "알 수 없다. 투자 규모를 알아야 한다"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "수익률이 기준보다 높으면 PW는 음수가 된다고 생각함",
+    "i*가 MARR과 다르면 PW는 0이 아니어서 알 수 없다고 생각함",
+    "ROR이 상대 측정치라 PW는 따로 계산해야만 안다고 생각함"
+   ],
+   "s": "<p>단일 프로젝트에서는 PW &gt; 0이면 ROR &gt; MARR, PW = 0이면 ROR = MARR, PW &lt; 0이면 ROR &lt; MARR로 두 분석이 같은 결론을 낸다. 따라서 i* &gt; MARR이면 MARR에서의 PW는 0보다 크다. 크기(금액)는 모르지만 부호는 정해진다.</p><p>함정: 상대 측정치라서 PW의 부호까지 알 수 없다고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "14"
+    ],
+    [
+     "L8",
+     "38"
+    ]
+   ],
+   "topic": "ror",
+   "dx": {
+    "facet": "ror.relative",
+    "depth": 3,
+    "family": "f_ee118",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "i*를 구하는 일 ↔ MARR에서 PW 판정"
+    ],
+    "mis": [
+     "",
+     "m_ror_pw_sign",
+     "m_ror_pw_sign",
+     "m_ror_pw_sign"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-121",
+   "no": "EE-121",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "MARR은 주어진 현금흐름으로 계산해 내는 이율이 아니라, 대안을 평가하고 선택할 때 기준으로 정해 두는 이율이다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>강의는 MARR(minimum attractive rate of return)을 평가와 선택을 위해 설정한 합리적인 수익률(기준 이율)이라고 정의하고, 특정 현금흐름에서 계산되는 값이 아니라고 강조한다.</p><p>함정: MARR을 프로젝트의 i*처럼 현금흐름에서 구하는 값으로 보는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "14"
+    ],
+    [
+     "L7",
+     "57"
+    ]
+   ],
+   "topic": "marr",
+   "dx": {
+    "facet": "marr.marr",
+    "depth": 1,
+    "family": "f_ee121",
+    "role": "base",
+    "mis": {
+     "mr": "m_marr_calc"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-122",
+   "no": "EE-122",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "어떤 회사는 자본의 50%를 연 10%의 대출로, 30%를 연 6%의 채권으로, 20%를 연 12%의 자기자본으로 조달한다. 가중평균자본비용(WACC)은 연 몇 %인가? (소수 첫째 자리)",
+   "star": true,
+   "a": "9.2",
+   "accept": [
+    "9.2",
+    "9.20",
+    "9.2%",
+    "0.092"
+   ],
+   "num": 9.2,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>WACC는 각 자금원의 비용을 조달 비중으로 가중평균한 값이다. 0.5 × 10 + 0.3 × 6 + 0.2 × 12 = 5.0 + 1.8 + 2.4 = 9.2%이다. 예상 오답: 9.3(세 이율의 단순평균 (10 + 6 + 12)/3 = 9.33).</p><p>함정: 비중을 곱하지 않고 단순히 평균내는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "58-59"
+    ]
+   ],
+   "topic": "marr",
+   "dx": {
+    "facet": "marr.marr",
+    "depth": 2,
+    "family": "f_ee122",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "WACC를 조달 비중 없이 이율의 단순평균으로 구한다고 생각함",
+      "ex": [
+       "9.3"
+      ],
+      "m": "m_marr_simple_avg"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-123",
+   "no": "EE-123",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "MARR은 보통 기업이 자본을 조달하는 데 드는 WACC보다 낮게 정한다.",
+   "star": true,
+   "ox": false,
+   "fix": "MARR은 보통 WACC와 같거나 높게 정한다. 이 강의의 관계식은 ROR ≥ MARR &gt; WACC이다.",
+   "s": "<p>자본을 조달하면 반드시 이자 형태의 비용(자본비용)이 드므로, 기준 수익률 MARR이 WACC보다 낮으면 자본비용도 못 버는 투자를 허용하게 된다. 그래서 MARR은 보통 WACC와 같거나 높게 정한다.</p><p>함정: 기준을 낮추는 것을 보수적인 설정으로 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "58-60"
+    ]
+   ],
+   "topic": "marr",
+   "dx": {
+    "facet": "marr.marr",
+    "depth": 1,
+    "mis": "m_marr_below_wacc"
+   }
+  },
+  {
+   "ext_id": "EE-124",
+   "no": "EE-124",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "어떤 프로젝트의 i* = 9%이고, 회사의 WACC는 8%, MARR은 10%이다. 이 강의의 기준에 따른 판정은?",
+   "star": true,
+   "opts": [
+    "i*가 WACC보다 크므로 채택한다",
+    "i* = 9%가 MARR과 WACC의 사이이므로 판단을 보류한다",
+    "i* &lt; MARR이므로 채택하지 않는다",
+    "i*가 WACC보다 큰 만큼 MARR을 8%로 낮춘다"
+   ],
+   "ans": 2,
+   "why": [
+    "자본비용만 넘으면 충분하다고 생각함",
+    "두 기준 사이이면 어느 쪽이든 된다고 생각함",
+    "",
+    "프로젝트에 맞게 MARR을 조정한다고 생각함"
+   ],
+   "s": "<p>프로젝트의 채택 여부는 i*를 MARR과 비교해 정한다(i* ≥ MARR이면 채택). MARR은 WACC 이상으로 정한 기준이며, i* = 9%는 MARR 10% 미만이므로 WACC 8%를 넘더라도 채택하지 않는다.</p><p>함정: 자본비용(WACC)만 넘으면 된다고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "14"
+    ],
+    [
+     "L7",
+     "58-60"
+    ]
+   ],
+   "topic": "marr",
+   "dx": {
+    "facet": "marr.marr",
+    "depth": 3,
+    "family": "f_ee121",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "MARR 기준 ↔ WACC 기준"
+    ],
+    "mis": [
+     "m_marr_use_wacc",
+     "m_marr_use_wacc",
+     "",
+     "m_marr_calc"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-125",
+   "no": "EE-125",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "자본을 조달하기 위해 치러야 하는 이자를 연 몇 %의 비율로 나타낸 것을 가리키는 용어는?",
+   "star": true,
+   "opts": [
+    "MARR(최소 매력 수익률)",
+    "자본비용(cost of capital)",
+    "WACC(가중평균 자본비용)",
+    "내부수익률(IRR)"
+   ],
+   "ans": 1,
+   "why": [
+    "MARR과 자본비용은 같은 말이라고 생각함",
+    "",
+    "자본을 조달하는 모든 비용을 뜻하는 말이라고 생각함",
+    "자본 조달 이자도 내부수익률로 부른다고 생각함"
+   ],
+   "s": "<p>자본을 모으려면 대출이자처럼 돈이 드는데, 이를 연 %로 나타낸 것이 자본비용이다. 자본원이 여럿이면 이를 하나로 가중평균한 것이 WACC이고, MARR은 기준 수익률이다.</p><p>함정: 이 셋을 같은 말로 쓰는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "58-59"
+    ]
+   ],
+   "topic": "marr",
+   "dx": {
+    "facet": "marr.marr",
+    "depth": 1,
+    "mis": [
+     "m_marr_cost_same",
+     "",
+     "m_marr_wacc_general",
+     "m_marr_cost_same"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-126",
+   "no": "EE-126",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "어떤 회사는 자본의 20%를 연 10%의 대출로, 30%를 연 6%의 채권으로, 50%를 연 12%의 자기자본으로 조달한다. WACC는 연 몇 %인가? (소수 첫째 자리)",
+   "star": true,
+   "a": "9.8",
+   "accept": [
+    "9.8",
+    "9.80",
+    "9.8%",
+    "0.098"
+   ],
+   "num": 9.8,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>WACC = 0.2 × 10 + 0.3 × 6 + 0.5 × 12 = 2.0 + 1.8 + 6.0 = 9.8%이다. 비용이 높은 자기자본의 비중이 커져 WACC가 앞 문제보다 올라간다. 예상 오답: 9.3(단순평균).</p><p>함정: 비중을 곱하지 않는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "58-59"
+    ]
+   ],
+   "topic": "marr",
+   "dx": {
+    "facet": "marr.marr",
+    "depth": 2,
+    "family": "f_ee122",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "조달 비중 50/30/20 → 20/30/50"
+    ],
+    "mis": [
+     {
+      "pattern": "WACC를 조달 비중 없이 이율의 단순평균으로 구한다고 생각함",
+      "ex": [
+       "9.3"
+      ],
+      "m": "m_marr_simple_avg"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-127",
+   "no": "EE-127",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "누적 현금흐름 부호 검사(Test 2)는 양의 i*가 두 개 있다는 것을 확인하는 데 쓰인다.",
+   "star": true,
+   "ox": false,
+   "fix": "Test 2는 누적 현금흐름이 음수로 시작해 부호가 한 번만 바뀌면 양의 i*가 하나뿐임을 확인하는 데 쓴다.",
+   "s": "<p>Test 2는 순현금흐름의 누적합 S₀, S₁, …, Sₙ의 부호를 본다. S₀ &lt; 0이고 부호가 한 번만 바뀌면 단 하나의 양의 i*가 있다는 결론을 준다. 양의 근이 둘이라는 것을 알려 주는 검사가 아니다.</p><p>함정: 다중 i* 판별용이라고만 외우고 결론의 방향을 거꾸로 읽는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "41-42"
+    ],
+    [
+     "L7",
+     "45"
+    ]
+   ],
+   "topic": "multi_ror",
+   "dx": {
+    "facet": "multi_ror.cum_sign",
+    "depth": 1,
+    "family": "f_ee127",
+    "role": "base",
+    "mis": "m_cum_two_roots"
+   }
+  },
+  {
+   "ext_id": "EE-128",
+   "no": "EE-128",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "순현금흐름이 t = 0~4에서 −400, +100, +150, −50, +400이다. 누적 현금흐름 S₀, …, S₄에서 부호가 바뀌는 횟수는 몇 번인가?",
+   "star": true,
+   "a": "1",
+   "accept": [
+    "1",
+    "1번",
+    "한 번"
+   ],
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "s": "<p>누적값은 S₀ = −400, S₁ = −300, S₂ = −150, S₃ = −200, S₄ = +200이다. 음수에서 양수로 한 번(S₃ → S₄)만 바뀐다. 순현금흐름 자체는 −, +, +, −, +로 세 번 바뀌므로 두 값을 구별해야 한다.</p><p>함정: 누적값이 아닌 순현금흐름의 부호 변화(3번)를 세는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "41-42"
+    ]
+   ],
+   "topic": "multi_ror",
+   "dx": {
+    "facet": "multi_ror.cum_sign",
+    "depth": 2,
+    "family": "f_ee128",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EE-129",
+   "no": "EE-129",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "순현금흐름이 t = 0~4에서 −400, +100, +150, −50, +400이다. 두 검사(Test 1 부호 규칙, Test 2 누적 부호 검사)의 결론을 바르게 짝지은 것은?",
+   "star": true,
+   "opts": [
+    "Test 1: 실근이 정확히 3개, Test 2: 양의 i*는 하나뿐",
+    "Test 1: 실근이 최대 3개, Test 2: 양의 i*는 하나뿐",
+    "Test 1: 실근이 최대 1개, Test 2: 양의 i*가 최대 3개",
+    "Test 1: 실근이 최대 3개, Test 2: 결론을 내릴 수 없다"
+   ],
+   "ans": 1,
+   "why": [
+    "부호 변화 횟수만큼 근이 반드시 있다고 생각함",
+    "",
+    "두 검사가 세는 대상을 서로 바꿔 생각함",
+    "부호가 여러 번 바뀌면 어떤 검사로도 결론이 없다고 생각함"
+   ],
+   "s": "<p>순현금흐름 부호는 −, +, +, −, +로 세 번 바뀌므로 Test 1은 실근이 최대 3개라고 알려 준다. 누적값 −400, −300, −150, −200, +200은 S₀ &lt; 0이고 부호가 한 번만 바뀌므로 Test 2는 양의 i*가 하나뿐이라고 알려 준다.</p><p>함정: Test 1의 결론만 보고 양의 근이 여러 개일 수 있다고 하는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "40-42"
+    ],
+    [
+     "L7",
+     "45"
+    ]
+   ],
+   "topic": "multi_ror",
+   "dx": {
+    "facet": "multi_ror.cum_sign",
+    "depth": 3,
+    "family": "f_ee128",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "부호 규칙 ↔ 누적 부호 검사"
+    ],
+    "mis": [
+     "m_cum_count_root",
+     "",
+     "m_cum_test_mix",
+     "m_cum_ncf_multi"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-130",
+   "no": "EE-130",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "누적 현금흐름의 첫 값 S₀가 양수(S₀ &gt; 0)여도 이후 부호가 한 번만 바뀌면 양의 i*가 단 하나임이 보장된다.",
+   "star": true,
+   "ox": false,
+   "fix": "Test 2는 S₀ &lt; 0인 경우에 쓰는 검사이다. S₀ &gt; 0이면 부호가 한 번 바뀌어도 이 결론을 보장하지 못한다.",
+   "s": "<p>강의의 Test 2는 먼저 S₀의 부호를 관찰하고, S₀ &lt; 0이며 S₁, …, Sₙ에서 부호가 한 번만 바뀔 때 단일 양의 i*가 있다고 한다. S₀ 조건이 빠지면 결론이 성립하지 않는다.</p><p>함정: 부호가 한 번 바뀐다는 조건만 외우고 S₀ &lt; 0을 빠뜨리는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "42"
+    ]
+   ],
+   "topic": "multi_ror",
+   "dx": {
+    "facet": "multi_ror.cum_sign",
+    "depth": 3,
+    "family": "f_ee127",
+    "role": "near",
+    "delta": [
+     "condition",
+     "S₀ < 0 → S₀ > 0"
+    ],
+    "mis": "m_cum_s0"
+   }
+  },
+  {
+   "ext_id": "EE-131",
+   "no": "EE-131",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "순현금흐름이 t = 0~3에서 −100, +300, −250, +120이다. 누적값 S₀, …, S₃에 대한 Test 2의 결론으로 옳은 것은?",
+   "star": true,
+   "opts": [
+    "양의 i*가 하나뿐이다",
+    "양의 i*가 정확히 세 개이다",
+    "i*가 존재하지 않는다",
+    "양의 i*가 하나뿐이라고 단정할 수 없다"
+   ],
+   "ans": 3,
+   "why": [
+    "S₀ < 0이므로 항상 하나뿐이라고 생각함",
+    "부호 변화 횟수가 곧 근의 개수라고 생각함",
+    "부호가 여러 번 바뀌면 i*가 없다고 생각함",
+    ""
+   ],
+   "s": "<p>누적값은 −100, +200, −50, +70이고 S₀ &lt; 0이다. 부호가 −→+, +→−, −→+로 세 번 바뀌므로 '한 번만 바뀔 때'의 조건이 깨져 Test 2로는 양의 i*가 하나라고 단정할 수 없다(다른 방법으로 확인해야 한다).</p><p>함정: 단정 불가를 '근이 없다'나 '정확히 3개'로 읽는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "41-42"
+    ]
+   ],
+   "topic": "multi_ror",
+   "dx": {
+    "facet": "multi_ror.cum_sign",
+    "depth": 4,
+    "family": "f_ee128",
+    "role": "near",
+    "delta": [
+     "object",
+     "부호가 한 번 바뀌는 흐름 → 세 번 바뀌는 흐름"
+    ],
+    "mis": [
+     "m_cum_no_count",
+     "m_cum_count_root",
+     "m_cum_none",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-132",
+   "no": "EE-132",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "첫 현금흐름이 음수(투자)인 흐름에서 누적 현금흐름의 부호가 한 번만 바뀐다면, 순현금흐름 자체의 부호가 여러 번 바뀌었더라도 양의 i*는 하나뿐이다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>Test 2는 순현금흐름이 아니라 누적 현금흐름의 부호 변화를 센다. 순현금흐름의 부호가 세 번 바뀌는 흐름(−, +, +, −, +)이라도 누적값(−, −, −, −, +)이 한 번만 바뀌면 S₀ &lt; 0인 한 양의 i*는 하나이다. Test 1이 주는 '최대 근 개수'보다 더 강한 정보이다.</p><p>함정: 순현금흐름의 변화 횟수로만 판단하는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "41-42"
+    ],
+    [
+     "L7",
+     "45"
+    ]
+   ],
+   "topic": "multi_ror",
+   "dx": {
+    "facet": "multi_ror.cum_sign",
+    "depth": 3,
+    "family": "f_ee127",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "누적값 한 번 변화 → 순현금흐름은 여러 번 변화"
+    ],
+    "mis": {
+     "mr": "m_cum_ncf_multi"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-133",
+   "no": "EE-133",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "수정 ROR(MIRR)을 계산할 때는 각 시점의 순현금흐름(NCF)을 사용해야 한다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>MIRR의 첫 단계는 모든 음의 NCF를 차입률로 t = 0의 PW로, 모든 양의 NCF를 투자율로 t = n의 FW로 옮기는 것인데, 이때 각 시점의 유입과 유출을 먼저 합친 순현금흐름의 부호로 구분한다.</p><p>함정: 유입과 유출을 따로 보고 같은 시점에서도 서로 다른 이율로 옮기는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "63-66"
+    ]
+   ],
+   "topic": "mirr",
+   "dx": {
+    "facet": "mirr.mirr",
+    "depth": 1,
+    "family": "f_ee133",
+    "role": "base",
+    "mis": {
+     "mr": "m_mirr_split"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-134",
+   "no": "EE-134",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "MIRR 계산의 첫 단계에서 t = 0의 PW₀를 구할 때 쓰는 이율과 대상으로 옳은 것은?",
+   "star": true,
+   "opts": [
+    "음의 순현금흐름을 차입률 ib로 t = 0의 값으로 옮긴다",
+    "양의 순현금흐름을 차입률 ib로 t = 0의 값으로 옮긴다",
+    "음의 순현금흐름을 투자율 ii로 t = 0의 값으로 옮긴다",
+    "모든 순현금흐름을 MARR로 t = 0의 값으로 옮긴다"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "현금이 들어올 때도 빌린 돈의 이율로 할인한다고 생각함",
+    "지출도 투자 이율로 옮긴다고 생각함",
+    "MIRR도 MARR로 환산한다고 생각함"
+   ],
+   "s": "<p>MIRR은 외부에서 정한 두 이율을 쓴다. 음의 NCF는 돈을 빌려야 하는 시점이므로 차입률 ib로 t = 0의 PW₀로, 양의 NCF는 투자하는 돈이므로 투자율 ii로 t = n의 FWₙ으로 옮긴다. 그 뒤 FWₙ = PW₀(F/P, i', n)을 만족하는 i'가 MIRR이다.</p><p>함정: 두 이율을 바꿔 쓰는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "63-66"
+    ]
+   ],
+   "topic": "mirr",
+   "dx": {
+    "facet": "mirr.mirr",
+    "depth": 2,
+    "mis": [
+     "",
+     "m_mirr_rate_swap",
+     "m_mirr_rate_swap",
+     "m_mirr_use_marr"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-135",
+   "no": "EE-135",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "순현금흐름이 t = 0: −$6,000, t = 1: +$3,000, t = 2: −$2,000, t = 3: +$7,000인 프로젝트가 있다. 투자율 ii = 10%, 차입률 ib = 6%일 때 수정 ROR i'는 연 몇 %인가? (소수 둘째 자리)",
+   "star": true,
+   "a": "10.96",
+   "accept": [
+    "10.96",
+    "10.96%",
+    "0.1096",
+    "11.0"
+   ],
+   "num": 10.96,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>음의 NCF를 ib로 t = 0에 모으면 PW₀ = −6,000 − 2,000/1.06² = -7,779.99이다. 양의 NCF를 ii로 t = 3에 모으면 FW₃ = 3,000 × 1.10² + 7,000 = 10,630.00이다. FW₃ = |PW₀|(1 + i')³에서 i' = (10,630.00/7,779.99)^(1/3) − 1 = 10.96%이다. 예상 오답: 10.66(두 이율을 바꿔 적용).</p><p>함정: 음의 흐름에는 차입률, 양의 흐름에는 투자율이다.</p>",
+   "src": [
+    [
+     "L7",
+     "63-69"
+    ]
+   ],
+   "topic": "mirr",
+   "dx": {
+    "facet": "mirr.mirr",
+    "depth": 2,
+    "family": "f_ee135",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "음의 흐름에 투자율, 양의 흐름에 차입률을 쓴다고 생각함",
+      "ex": [
+       "10.66"
+      ],
+      "m": "m_mirr_rate_swap"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-136",
+   "no": "EE-136",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "수정 ROR(MIRR)이 내부수익률(i*)과 다른 점으로 옳은 것은?",
+   "star": true,
+   "opts": [
+    "MIRR은 현금흐름만으로 PW = 0이 되는 이율을 구한다",
+    "MIRR은 외부에서 정한 투자율·차입률을 써서 단일한 값을 구한다",
+    "MIRR은 i*와 달리 MARR을 계산식에 직접 넣어 구한다",
+    "MIRR은 순현금흐름 부호가 한 번만 바뀔 때만 쓸 수 있다"
+   ],
+   "ans": 1,
+   "why": [
+    "MIRR도 외부 이율 없이 PW = 0으로 구한다고 생각함",
+    "",
+    "MIRR은 MARR로 환산한다고 생각함",
+    "MIRR은 단순한 현금흐름 전용이라고 생각함"
+   ],
+   "s": "<p>i*는 현금흐름만으로 PW = 0이 되는 이율을 구하며 부호 변화가 여러 번이면 여러 값이 나올 수 있다. MIRR은 외부 이율 ii와 ib를 더해 음의 흐름과 양의 흐름을 한 값씩으로 모아 단일 이율을 구하는 외부수익률(EROR) 방법이다.</p><p>함정: MIRR도 내부수익률의 한 종류로 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "61-64"
+    ]
+   ],
+   "topic": "mirr",
+   "dx": {
+    "facet": "mirr.mirr",
+    "depth": 3,
+    "family": "f_ee135",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "MIRR ↔ 내부수익률 i*"
+    ],
+    "mis": [
+     "m_mirr_is_istar",
+     "",
+     "m_mirr_use_marr",
+     "m_mirr_multi"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-137",
+   "no": "EE-137",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "MIRR은 순현금흐름의 부호가 여러 번 바뀌어 i*가 여러 개일 때에도 하나의 값으로 정해진다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>MIRR은 음의 NCF를 모두 PW₀로, 양의 NCF를 모두 FWₙ으로 모아 두 값만 맞추므로, 결과 i'는 항상 하나로 정해진다. 그래서 다중 i*를 없애는 방법으로 소개된다. 대신 투자율과 차입률이라는 추가 정보가 필요하다.</p><p>함정: MIRR도 부호 변화 횟수만큼 값이 나온다고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "61-64"
+    ],
+    [
+     "L7",
+     "54"
+    ]
+   ],
+   "topic": "mirr",
+   "dx": {
+    "facet": "mirr.mirr",
+    "depth": 3,
+    "family": "f_ee133",
+    "role": "near",
+    "delta": [
+     "condition",
+     "부호 한 번 변화 → 부호 여러 번 변화"
+    ],
+    "mis": {
+     "mr": "m_mirr_multi"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-138",
+   "no": "EE-138",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "상호배타 대안을 비교할 때 개별 i*가 가장 큰 대안을 고르면 PW·AW 분석과 항상 같은 대안이 선택된다.",
+   "ox": false,
+   "fix": "개별 i*가 큰 대안이 PW·AW 분석의 선택과 다를 수 있다. 상호배타 대안은 증분 현금흐름의 ROR로 비교해야 한다.",
+   "s": "<p>강의 예제에서 대안 A의 i*가 35%로 B의 29%보다 크지만, 남는 자금을 MARR 16%로 운용한다고 보고 전체 자본의 수익률을 계산하면 B가 더 크고 PW·AW도 B를 고른다. i*만의 비교는 투자 규모가 다른 대안에서 틀린 선택을 낼 수 있다.</p><p>함정: ROR이 크면 항상 더 좋은 대안이라고 보는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "4-7"
+    ],
+    [
+     "L8",
+     "36-37"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.vs_indiv",
+    "depth": 1,
+    "family": "f_ee138",
+    "role": "base",
+    "mis": "m_inc_big_istar"
+   }
+  },
+  {
+   "ext_id": "EE-139",
+   "no": "EE-139",
+   "chapter": "C8",
+   "kind": "short",
+   "q": "자금 $100,000이 있고 MARR은 10%이다. 대안 A는 $40,000을 투자해 i*_A = 26%이고, 대안 B는 $90,000을 투자해 i*_B = 20%이다. 남는 자금을 MARR로 운용한다고 가정할 때, 대안 A를 선택한 경우 전체 자본($100,000)의 ROR은 몇 %인가? (소수 첫째 자리)",
+   "a": "16.4",
+   "accept": [
+    "16.4",
+    "16.40",
+    "16.4%",
+    "0.164"
+   ],
+   "num": 16.4,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>A의 전체 ROR은 가중평균 (40,000 × 0.26 + 60,000 × 0.10)/100,000 = 16.4%이다. 같은 방식으로 B는 (90,000 × 0.20 + 10,000 × 0.10)/100,000 = 19.0%이므로, i*는 A가 크지만 전체 자본 기준으로는 B가 더 높다. 예상 오답: 26.0(A의 i*를 그대로 답함).</p><p>함정: 남는 자금의 수익률을 무시하고 i*만 비교하는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "4-6"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.vs_indiv",
+    "depth": 2,
+    "family": "f_ee139",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "개별 i*가 큰 대안이 가장 낫다고 생각함",
+      "ex": [
+       "26.0"
+      ],
+      "m": "m_inc_big_istar"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-140",
+   "no": "EE-140",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "1년짜리 상호배타 투자이다. A는 $40,000을 넣어 1년 뒤 $50,400을, B는 $90,000을 넣어 1년 뒤 $108,000을 받는다(MARR 10%, 자금 $100,000, DN 가능). 어떤 판단이 옳은가?",
+   "opts": [
+    "A를 선택한다. 개별 ROR 26%가 B의 20%보다 크다",
+    "A를 선택한다. 증분 ROR 15.2%가 MARR을 넘으면 작은 투자안을 택한다",
+    "B를 선택한다. 증분 현금흐름의 ROR(15.2%)이 MARR보다 크다",
+    "DN을 선택한다. 증분 ROR 15.2%가 A의 개별 ROR 26%보다 낮다"
+   ],
+   "ans": 2,
+   "why": [
+    "ROR이 큰 대안이 이긴다고 생각함",
+    "증분 ROR이 MARR보다 크면 싼 쪽을 고른다고 생각함",
+    "",
+    "증분 ROR을 개별 ROR과 비교한다고 생각함"
+   ],
+   "s": "<p>B − A의 증분 현금흐름은 t = 0에 −50,000, t = 1에 +57,600이므로 Δi* = 57,600/50,000 − 1 = 15.2%이다. 추가 투자 $50,000이 MARR 10%를 넘는 수익을 내므로 큰 투자의 B를 선택한다. 개별 i*(A 26% &gt; B 20%)로 고르면 틀린다.</p><p>함정: 증분 ROR은 MARR과 비교하며, 클 때 큰 투자를 택한다.</p>",
+   "src": [
+    [
+     "L8",
+     "14-17"
+    ],
+    [
+     "L8",
+     "29"
+    ],
+    [
+     "L8",
+     "36-37"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.vs_indiv",
+    "depth": 3,
+    "family": "f_ee139",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "개별 i* 비교 → 증분 ROR 비교"
+    ],
+    "mis": [
+     "m_inc_big_istar",
+     "m_inc_dir",
+     "",
+     "m_inc_vs_indiv"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-141",
+   "no": "EE-141",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "독립 프로젝트를 평가할 때는 각 프로젝트의 개별 i*를 MARR과 비교하면 충분하며 증분 ROR 분석이 필요하지 않다.",
+   "ox": true,
+   "s": "<p>독립 프로젝트는 서로 비교하지 않고 각각 DN과 비교하므로 i* ≥ MARR인 것을 모두 채택하면 된다. 증분 분석이 필요한 것은 하나만 골라야 하는 상호배타 대안에서 개별 i*가 의미 있게 비교되지 않을 때이다.</p><p>함정: 독립 프로젝트에도 증분 분석을 해야 한다고 보는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "7"
+    ],
+    [
+     "L8",
+     "19"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.vs_indiv",
+    "depth": 3,
+    "family": "f_ee138",
+    "role": "near",
+    "delta": [
+     "condition",
+     "상호배타 대안 → 독립 프로젝트"
+    ],
+    "mis": {
+     "mr": "m_inc_indep"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-142",
+   "no": "EE-142",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "증분 현금흐름은 초기 투자가 작은 대안의 현금흐름에서 큰 대안의 현금흐름을 뺀 값(작은 대안 − 큰 대안)으로 정리한다.",
+   "ox": false,
+   "fix": "관례적으로 초기 투자가 큰 대안을 B, 작은 대안을 A로 두고 증분 현금흐름을 B − A로 정리한다.",
+   "s": "<p>강의는 계산 단순화를 위해 초기 투자가 큰 대안을 B로 두고 증분 현금흐름 = 현금흐름 B − 현금흐름 A로 정한다고 말한다. 그러면 t = 0의 증분은 추가 투자(음수)이고, 이후 증분은 추가 절감·수입(양수)이 되어 ROR 구조가 된다.</p><p>함정: 빼는 순서를 거꾸로 하면 부호가 뒤집혀 Δi*를 구할 수 없다.</p>",
+   "src": [
+    [
+     "L8",
+     "9-10"
+    ],
+    [
+     "L8",
+     "14"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.inc_cf",
+    "depth": 1,
+    "mis": "m_incf_order"
+   }
+  },
+  {
+   "ext_id": "EE-143",
+   "no": "EE-143",
+   "chapter": "C8",
+   "kind": "short",
+   "q": "두 대안 모두 수명이 10년이다. 대안 A는 t = 0에 −$20,000, 1~10년 차 말에 매년 −$3,000이고, 대안 B는 t = 0에 −$32,000, 1~10년 차 말에 매년 −$1,800이다. 증분 현금흐름(B − A)에서 1~10년 차 말의 매년 값은 몇 달러인가? (부호 포함)",
+   "a": "1200",
+   "accept": [
+    "1200",
+    "+1200",
+    "1,200",
+    "$1,200",
+    "+1,200"
+   ],
+   "num": 1200,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>B − A = (−1,800) − (−3,000) = +1,200이다. t = 0은 −32,000 − (−20,000) = −12,000이므로 증분 현금흐름은 −12,000에서 시작해 매년 +1,200이 된다. 예상 오답: −1,200(A − B로 뺌), 4,800(두 값의 합).</p><p>함정: 빼는 순서와 음수 부호.</p>",
+   "src": [
+    [
+     "L8",
+     "9-11"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.inc_cf",
+    "depth": 2,
+    "family": "f_ee143",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "증분 현금흐름을 작은 투자 대안에서 큰 투자 대안을 빼서 구한다고 생각함",
+      "ex": [
+       "-1200"
+      ],
+      "m": "m_incf_order"
+     },
+     {
+      "pattern": "증분 현금흐름을 두 대안 값의 합으로 구한다고 생각함",
+      "ex": [
+       "4800"
+      ],
+      "m": "m_incf_sum"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-144",
+   "no": "EE-144",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "대안 A의 수명은 4년, 대안 B의 수명은 6년이다. 두 대안의 증분 ROR 분석을 위해 증분 현금흐름을 만들 때 쓰는 비교 기간은?",
+   "opts": [
+    "긴 쪽의 수명인 6년",
+    "짧은 쪽의 수명인 4년",
+    "LCM인 12년(또는 연구기간을 따로 정함)",
+    "두 수명의 합인 10년"
+   ],
+   "ans": 2,
+   "why": [
+    "긴 쪽 수명만 맞추면 된다고 생각함",
+    "짧은 쪽에 맞추면 된다고 생각함",
+    "",
+    "두 기간을 합쳐서 본다고 생각함"
+   ],
+   "s": "<p>증분 ROR 분석도 동일한 서비스 기간이 필요하므로 PW 분석처럼 LCM(4와 6의 최소공배수 12년)으로 두 대안의 현금흐름을 반복해 증분 현금흐름을 만든다. 연구기간을 정해 비교해도 된다.</p><p>함정: 긴 쪽 수명이나 수명의 합을 쓰는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "9-10"
+    ],
+    [
+     "L8",
+     "21"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.inc_cf",
+    "depth": 3,
+    "family": "f_ee143",
+    "role": "near",
+    "delta": [
+     "condition",
+     "수명이 같음 → 수명이 다름"
+    ],
+    "mis": [
+     "m_incf_no_repeat",
+     "m_incf_cut",
+     "",
+     "m_incf_sum_life"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-145",
+   "no": "EE-145",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "A는 수명 2년(초기 −$10, 매년 운영비 −$5), B는 수명 4년(초기 −$18, 매년 운영비 −$3)이다. LCM 4년으로 맞출 때 증분 현금흐름(B − A)의 t = 2 값은? (A는 2년 차 말에 같은 조건으로 다시 구입)",
+   "opts": [
+    "+$2",
+    "+$12",
+    "−$12",
+    "+$7"
+   ],
+   "ans": 1,
+   "why": [
+    "A의 재구입 비용을 t = 2에 넣지 않는다고 생각함",
+    "",
+    "빼는 순서를 A − B로 한다고 생각함",
+    "A의 재구입과 운영비 중 한 가지만 반영한다고 생각함"
+   ],
+   "s": "<p>A는 t = 2에 재구입 −10과 운영비 −5로 −15이고, B는 운영비 −3만 있다. 증분(B − A) = −3 − (−15) = +12이다. 전체 증분은 t = 0: −8, t = 1: +2, t = 2: +12, t = 3: +2, t = 4: +2이다.</p><p>함정: LCM 기간의 재구입 비용을 t = 2에 넣지 않는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "10"
+    ],
+    [
+     "L8",
+     "12"
+    ],
+    [
+     "L5",
+     "31"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.inc_cf",
+    "depth": 4,
+    "family": "f_ee143",
+    "role": "near",
+    "delta": [
+     "combine",
+     "증분 구성 + LCM 반복 구입"
+    ],
+    "mis": [
+     "m_incf_no_repeat",
+     "",
+     "m_incf_order",
+     "m_incf_partial"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-146",
+   "no": "EE-146",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "여러 상호배타 대안을 증분 ROR로 비교할 때는 한 번에 두 대안씩만 비교한다.",
+   "ox": true,
+   "s": "<p>순차 비교에서는 현재 선택된 방어자(defender)와 이를 이기려는 도전자(challenger)를 한 쌍씩 비교한다. 도전자가 이기면 새 방어자가 되고, 지면 도전자가 탈락하며 방어자는 그대로이다.</p><p>함정: 모든 대안의 증분을 한꺼번에 구하는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "45"
+    ],
+    [
+     "L8",
+     "44"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.defender",
+    "depth": 1,
+    "mis": {
+     "mr": "m_def_all_at_once"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-147",
+   "no": "EE-147",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "A, B, C의 초기 투자가 A &lt; B &lt; C인 수입 대안이다. MARR 12%에서 DN과 A의 Δi* = 15%, A와 B의 Δi* = 9%, A와 C의 Δi* = 13%일 때 최종으로 선택되는 대안은?",
+   "opts": [
+    "A",
+    "B",
+    "DN",
+    "C"
+   ],
+   "ans": 3,
+   "why": [
+    "B가 탈락했으니 더 큰 투자인 C도 탈락한다고 생각함",
+    "중간 투자 규모의 대안이 균형 잡힌 선택이라고 생각함",
+    "Δi*가 낮은 비교가 있으면 모두 기각한다고 생각함",
+    ""
+   ],
+   "s": "<p>DN과 A 비교는 15% ≥ 12%이므로 A가 방어자가 된다. B는 9% &lt; 12%라서 탈락하고 A가 방어자로 남는다. 다음 도전자 C는 B가 아닌 방어자 A와 비교하며, 13% ≥ 12%이므로 C가 이겨 최종 선택된다.</p><p>함정: 탈락한 B와 C를 비교하거나 B의 탈락만으로 C를 버리는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "44-46"
+    ],
+    [
+     "L8",
+     "47-49"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.defender",
+    "depth": 2,
+    "family": "f_ee147",
+    "role": "base",
+    "mis": [
+     "m_def_loser_base",
+     "m_def_no_inc",
+     "m_def_one_loss",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-148",
+   "no": "EE-148",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "증분 ROR 순차 비교에서 '방어자(defender)'를 가장 잘 설명한 것은?",
+   "opts": [
+    "현재까지 선택되어 있는 대안",
+    "초기 투자가 가장 큰 대안",
+    "증분 ROR 분석에서 탈락한 대안",
+    "현재 방어자를 이기려고 도전하는 대안"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "방어자는 항상 가장 큰 투자 대안이라고 생각함",
+    "방어자는 도전에 진 쪽이라고 생각함",
+    "방어자는 새로 도전하는 쪽이라고 생각함"
+   ],
+   "s": "<p>방어자는 현재 선택되어 있는 대안이고 도전자(challenger)는 Δi*를 기준으로 방어자를 이기려는 대안이다. 매 비교에서 방어자와 도전자는 하나씩이며, 도전자가 이기면 방어자가 된다.</p><p>함정: 방어자와 도전자의 역할을 바꿔 외우는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "45"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.defender",
+    "depth": 1,
+    "mis": [
+     "",
+     "m_def_biggest",
+     "m_def_meaning",
+     "m_def_meaning"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-149",
+   "no": "EE-149",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "비용만 있는 세 기계(1 &lt; 2 &lt; 3 순으로 초기 비용이 큼) 중 반드시 하나를 사야 한다(DN 불가). MARR 10%에서 기계 2와 1의 Δi* = 14%, 기계 3과 2의 Δi* = 6%이다. 선택은?",
+   "opts": [
+    "기계 1",
+    "기계 3",
+    "기계 2",
+    "아무것도 사지 않는다"
+   ],
+   "ans": 2,
+   "why": [
+    "비용만 있으면 가장 싼 대안을 고른다고 생각함",
+    "마지막 도전자가 가장 큰 투자이므로 선택한다고 생각함",
+    "",
+    "Δi*가 낮은 비교가 있으면 DN을 고른다고 생각함"
+   ],
+   "s": "<p>비용만 있는 대안은 DN이 불가능하고 개별 i*가 의미 없으므로 가장 싼 기계 1을 첫 방어자로 두고 곧바로 증분 비교한다. 기계 2는 14% ≥ 10%로 이겨 새 방어자가 되고, 기계 3은 6% &lt; 10%라서 탈락한다.</p><p>함정: 비용 대안에서 DN과 비교하거나 처음부터 가장 큰 투자를 택하는 것.</p>",
+   "src": [
+    [
+     "L8",
+     "53-57"
+    ]
+   ],
+   "topic": "inc_ror",
+   "dx": {
+    "facet": "inc_ror.defender",
+    "depth": 3,
+    "family": "f_ee147",
+    "role": "near",
+    "delta": [
+     "condition",
+     "DN 있음 → DN 없음(비용 전용)"
+    ],
+    "mis": [
+     "m_def_no_inc",
+     "m_def_challenger_always",
+     "",
+     "m_def_dn_cost"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-150",
+   "no": "EE-150",
+   "chapter": "C9",
+   "kind": "ox",
+   "q": "B/C 분석에서 잔존가치(salvage value)는 분자의 편익에 더해 준다.",
+   "ox": false,
+   "fix": "B/C 분석은 비용을 양수로 두고, 잔존가치와 정부의 추가 수입은 분모의 비용에서 뺀다.",
+   "s": "<p>강의의 B/C 부호 규칙은 비용이 양수이고, 잔존가치와 정부에 들어오는 추가 수입은 분모의 비용에서 차감한다는 것이다. 분자는 편익(과 손해 처리)을 위한 자리이다.</p><p>함정: 잔존가치를 수입이라고 분자에 더하는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "16"
+    ]
+   ],
+   "topic": "bc",
+   "dx": {
+    "facet": "bc.bc_rule",
+    "depth": 1,
+    "mis": "m_bc_add_num"
+   }
+  },
+  {
+   "ext_id": "EE-151",
+   "no": "EE-151",
+   "chapter": "C9",
+   "kind": "short",
+   "q": "공공 프로젝트의 PW 기준 편익이 $12M, 손해(disbenefit)가 $2M, 비용이 $7M, 잔존가치가 $1M이다. 관습적(conventional) B/C 비율은 얼마인가? (소수 둘째 자리)",
+   "a": "1.67",
+   "accept": [
+    "1.67",
+    "1.7",
+    "1.667"
+   ],
+   "num": 1.67,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>관습적 B/C = (편익 − 손해)/(비용 − 잔존가치) = (12 − 2)/(7 − 1) = 1.67이다. 예상 오답: 1.43(잔존가치를 반영하지 않음 10/7), 1.50(손해를 비용에 더함 12/(7 + 2 − 1)), 2.00(손해를 반영하지 않음 12/6).</p><p>함정: 손해는 분자에서 빼고 잔존가치는 분모에서 뺀다.</p>",
+   "src": [
+    [
+     "L9",
+     "15-17"
+    ],
+    [
+     "L9",
+     "18"
+    ]
+   ],
+   "topic": "bc",
+   "dx": {
+    "facet": "bc.bc_rule",
+    "depth": 2,
+    "family": "f_ee151",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "B/C 계산에서 잔존가치를 반영하지 않아도 된다고 생각함",
+      "ex": [
+       "1.43"
+      ],
+      "m": "m_bc_skip_salv"
+     },
+     {
+      "pattern": "손해(disbenefit)를 비용에 더한다고 생각함",
+      "ex": [
+       "1.50"
+      ],
+      "m": "m_bc_dis_cost"
+     },
+     {
+      "pattern": "손해(disbenefit)를 B/C 계산에 반영하지 않는다고 생각함",
+      "ex": [
+       "2.00"
+      ],
+      "m": "m_bc_skip_dis"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-152",
+   "no": "EE-152",
+   "chapter": "C9",
+   "kind": "mc",
+   "q": "서로 독립인 세 공공 프로젝트의 B/C 비율이 각각 1.25, 1.00, 0.97이다. 경제적으로 정당화된다고 판단되는 프로젝트는?",
+   "opts": [
+    "1.25인 프로젝트만",
+    "1.25와 1.00인 프로젝트",
+    "세 프로젝트 모두",
+    "B/C가 가장 큰 1.25인 프로젝트 하나"
+   ],
+   "ans": 1,
+   "why": [
+    "정확히 1.0이면 정당화되지 않는다고 생각함",
+    "",
+    "B/C가 1.0에 가깝기만 하면 정당화된다고 생각함",
+    "독립 프로젝트도 가장 큰 것 하나만 고른다고 생각함"
+   ],
+   "s": "<p>B/C ≥ 1.0이면 경제적으로 정당화되고 B/C &lt; 1.0이면 정당화되지 않는다. 독립 프로젝트는 각각 기준을 넘으면 모두 채택하므로 1.25와 1.00이 채택되고 0.97은 기각된다. B/C가 1.0에 매우 가까우면 비경제적 요인이 결정에 영향을 줄 수 있다.</p><p>함정: 1.00을 탈락시키는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "16"
+    ]
+   ],
+   "topic": "bc",
+   "dx": {
+    "facet": "bc.bc_rule",
+    "depth": 2,
+    "mis": [
+     "m_bc_equal_one",
+     "",
+     "m_bc_loose",
+     "m_bc_indep_one"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-153",
+   "no": "EE-153",
+   "chapter": "C9",
+   "kind": "mc",
+   "q": "공공 프로젝트의 PW 기준 편익이 $10M, 비용이 $8M이고, 이 프로젝트가 정부에 가져오는 추가 수입이 $3M(손해는 없음)이다. 관습적 B/C 비율은?",
+   "opts": [
+    "1.63",
+    "1.25",
+    "0.91",
+    "2.00"
+   ],
+   "ans": 3,
+   "why": [
+    "정부 수입을 편익에 더한다고 생각함",
+    "정부 추가 수입은 B/C에 쓰지 않는다고 생각함",
+    "정부 수입도 비용에 더한다고 생각함",
+    ""
+   ],
+   "s": "<p>정부에 들어오는 추가 수입은 잔존가치처럼 분모의 비용에서 뺀다. B/C = 10/(8 − 3) = 2.00이다. 분자에 더하면 13/8 = 1.63, 무시하면 10/8 = 1.25, 비용에 더하면 10/11 = 0.91이 되어 틀린다.</p><p>함정: 분모에서 빼야 할 항목을 분자에 더하는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "16"
+    ]
+   ],
+   "topic": "bc",
+   "dx": {
+    "facet": "bc.bc_rule",
+    "depth": 3,
+    "family": "f_ee151",
+    "role": "near",
+    "delta": [
+     "object",
+     "잔존가치 → 정부 추가 수입"
+    ],
+    "mis": [
+     "m_bc_add_num",
+     "m_bc_gov_ignore",
+     "m_bc_gov_cost",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-154",
+   "no": "EE-154",
+   "chapter": "C9",
+   "kind": "ox",
+   "q": "공공 부문 프로젝트는 시민이 소유하며, 이윤(profit)을 내기보다 시민에게 필요한 서비스를 제공하는 것이 목적이다.",
+   "ox": true,
+   "s": "<p>강의는 공공 부문 프로젝트의 소유자를 시민으로 보고, 이익 없이(no profit) 필요한 서비스를 공공에 제공하는 것이 목적이라고 설명한다. 그래서 이윤 대신 시민에게 돌아가는 편익(benefit)을 평가한다.</p><p>함정: 민간 부문과 같이 이윤 극대화를 목적으로 보는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "6"
+    ],
+    [
+     "L9",
+     "8"
+    ]
+   ],
+   "topic": "public",
+   "dx": {
+    "facet": "public.pub_proj",
+    "depth": 1,
+    "family": "f_ee154",
+    "role": "base",
+    "mis": {
+     "mr": "m_pub_profit"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-155",
+   "no": "EE-155",
+   "chapter": "C9",
+   "kind": "mc",
+   "q": "공공 부문 프로젝트의 자본은 주로 어디에서 조달되는가?",
+   "opts": [
+    "세금, 채권, 사용료(수수료)",
+    "주식 발행과 기업 이익",
+    "대출 이자와 민간 기업의 투자 수익",
+    "프로젝트가 벌어들이는 이윤"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "공공도 주식시장에서 자본을 모은다고 생각함",
+    "민간 금융기관이 공공 프로젝트의 주된 투자자라고 생각함",
+    "공공 프로젝트도 이윤으로 재투자한다고 생각함"
+   ],
+   "s": "<p>강의는 공공 프로젝트의 자본이 세금(taxes), 채권(bonds), 사용료(fees)에서 조달된다고 정리한다. 공공 기관은 세금을 피하는 경우가 많고 대출 이자도 매우 낮아 이자율이 민간보다 낮은 편이다.</p><p>함정: 주식 발행이나 이윤을 자금원으로 보는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "11"
+    ]
+   ],
+   "topic": "public",
+   "dx": {
+    "facet": "public.pub_proj",
+    "depth": 2,
+    "family": "f_ee155",
+    "role": "base",
+    "mis": [
+     "",
+     "m_pub_private_fund",
+     "m_pub_private_fund",
+     "m_pub_profit_fund"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-156",
+   "no": "EE-156",
+   "chapter": "C9",
+   "kind": "mc",
+   "q": "공공 부문 분석의 이자율에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "민간 부문과 같은 방식으로 MARR로 정한다",
+    "민간 부문보다 높은 편이며 리스크 프리미엄을 더한다",
+    "민간 부문의 MARR보다 낮은 편이며 흔히 할인율(discount rate)이라 부른다",
+    "공공 프로젝트는 이윤이 없어 이자율을 쓰지 않는다"
+   ],
+   "ans": 2,
+   "why": [
+    "공공도 MARR을 쓴다고 생각함",
+    "공공 프로젝트는 위험이 커서 이율이 높다고 생각함",
+    "",
+    "시간가치를 따지지 않는다고 생각함"
+   ],
+   "s": "<p>공공 부문 프로젝트는 세금을 내지 않거나 매우 낮은 이자의 자금을 쓰기 때문에 보통 저금리로 분류된다. 이 이자율은 민간의 MARR과 다른 방식으로 정해지며 흔히 할인율이라 부른다. 이자율 결정은 민간의 MARR 결정만큼 중요하다.</p><p>함정: 민간의 MARR 개념을 그대로 적용하는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "11-12"
+    ]
+   ],
+   "topic": "public",
+   "dx": {
+    "facet": "public.pub_proj",
+    "depth": 3,
+    "family": "f_ee155",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "공공 부문 이자율 ↔ 민간 MARR"
+    ],
+    "mis": [
+     "m_pub_rate_private",
+     "m_pub_rate_private",
+     "",
+     "m_pub_no_rate"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-157",
+   "no": "EE-157",
+   "chapter": "C9",
+   "kind": "ox",
+   "q": "공공 프로젝트가 낳는 손해(disbenefit)는 평가 시점에 이미 금액이 정확히 알려져 있다.",
+   "ox": false,
+   "fix": "손해는 평가 시점에 알려지지 않았을 수 있고, 편익보다 추정하기 어려운 경우가 많다.",
+   "s": "<p>공공 프로젝트의 편익과 손해는 모두 금액으로 추정해야 하지만 합의하기 어렵고, 손해는 평가 시점에 아직 알려지지 않았을 수도 있어 더 어렵다. 그래도 가능한 한 정확히 금액으로 환산해 분석에 넣어야 한다.</p><p>함정: 손해를 추정이 쉬운 값으로 보는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "8-10"
+    ]
+   ],
+   "topic": "public",
+   "dx": {
+    "facet": "public.pub_proj",
+    "depth": 3,
+    "family": "f_ee154",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "추정하기 어렵다 → 이미 정확히 알려져 있다"
+    ],
+    "mis": "m_pub_dis_known"
+   }
+  },
+  {
+   "ext_id": "EE-158",
+   "no": "EE-158",
+   "chapter": "C9",
+   "kind": "ox",
+   "q": "비용효과비율(CER)은 B/C 비율처럼 효과 측정치를 분자에, 총비용을 분모에 둔 값이다.",
+   "ox": false,
+   "fix": "CER은 총비용의 PW 또는 AW를 분자에, 효과 측정치를 분모에 둔다. 그래서 CER은 작을수록 바람직하다.",
+   "s": "<p>CER = 등가 총비용 / 효과 측정치(C/E)이다. B/C 비율과 달리 비용이 분자에 있으므로 값이 작을수록 효과 한 단위를 얻는 비용이 작아 더 바람직하다.</p><p>함정: B/C처럼 클수록 좋다고 보는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "39"
+    ]
+   ],
+   "topic": "cer",
+   "dx": {
+    "facet": "cer.cer",
+    "depth": 1,
+    "family": "f_ee158",
+    "role": "base",
+    "mis": "m_cer_numer"
+   }
+  },
+  {
+   "ext_id": "EE-159",
+   "no": "EE-159",
+   "chapter": "C9",
+   "kind": "short",
+   "q": "어떤 안전 프로그램의 PW 총비용이 $1,800,000이고, 이 프로그램이 예방하는 사고는 총 450건이다. 이 프로그램의 CER은 사고 1건당 몇 달러인가?",
+   "a": "4000",
+   "accept": [
+    "4000",
+    "4,000",
+    "$4,000",
+    "4000.00"
+   ],
+   "num": 4000,
+   "tol": 0.5,
+   "ph": "숫자만 입력",
+   "s": "<p>CER = 등가 총비용/효과 측정치 = 1,800,000/450 = 4,000(달러/건)이다. 예상 오답: 0.00025(효과/비용으로 계산).</p><p>함정: 분자는 비용, 분모는 효과이다.</p>",
+   "src": [
+    [
+     "L9",
+     "38-39"
+    ]
+   ],
+   "topic": "cer",
+   "dx": {
+    "facet": "cer.cer",
+    "depth": 2,
+    "family": "f_ee159",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "CER도 B/C처럼 효과를 분자에 둔다고 생각함",
+      "ex": [
+       "0.00025"
+      ],
+      "m": "m_cer_numer"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-160",
+   "no": "EE-160",
+   "chapter": "C9",
+   "kind": "ox",
+   "q": "비용효과분석에서 상호배타 대안은 먼저 총비용이 작은 순서로 정렬한 뒤 증분 CER 분석을 한다.",
+   "ox": false,
+   "fix": "상호배타 대안은 먼저 효과 측정치(effectiveness measure) 기준으로 정렬한 뒤 증분 분석을 한다. CER 순 정렬은 독립 프로젝트의 규칙이다.",
+   "s": "<p>강의는 독립 프로젝트는 CER 값으로, 상호배타 대안은 효과 측정치로 먼저 정렬한다고 구별한다. 상호배타 대안에서는 이어서 증분 CER 분석을 하며, 증분 ROR·B/C 분석처럼 정렬이 핵심이다.</p><p>함정: 두 경우의 정렬 기준을 섞는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "40"
+    ],
+    [
+     "L9",
+     "44"
+    ]
+   ],
+   "topic": "cer",
+   "dx": {
+    "facet": "cer.cer",
+    "depth": 3,
+    "family": "f_ee158",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "독립 프로젝트 정렬 ↔ 상호배타 대안 정렬"
+    ],
+    "mis": "m_cer_sort_cost"
+   }
+  },
+  {
+   "ext_id": "EE-161",
+   "no": "EE-161",
+   "chapter": "C9",
+   "kind": "mc",
+   "q": "예산이 $1,000(천 달러)이고 독립 프로그램 A(비용 300, 효과 60), B(비용 500, 효과 80), C(비용 400, 효과 100), D(비용 350, 효과 50)가 있다. 이 강의의 절차(CER이 작은 순으로 정렬하고 누적 비용이 예산을 넘지 않게 선택)에 따라 선택되는 프로그램은?",
+   "opts": [
+    "C, A, D",
+    "C와 A",
+    "C와 B",
+    "A, B, C"
+   ],
+   "ans": 1,
+   "why": [
+    "누적 비용이 예산에 맞을 때까지 계속 추가한다고 생각함",
+    "",
+    "효과 합이 가장 큰 조합을 고른다고 생각함",
+    "비용이 작은 순서로 고른다고 생각함"
+   ],
+   "s": "<p>CER은 A 5,000, B 6,250, C 4,000, D 7,000이다. 작은 순으로 C(누적 400), A(누적 700)를 선택하고, 다음 B를 넣으면 누적 1,200이 되어 예산 1,000을 넘으므로 멈춘다. 그래서 선택은 C와 A이다.</p><p>함정: 비용이나 효과 합으로 조합을 고르거나 누적 비용을 확인하지 않는 것.</p>",
+   "src": [
+    [
+     "L9",
+     "40-43"
+    ]
+   ],
+   "topic": "cer",
+   "dx": {
+    "facet": "cer.cer",
+    "depth": 4,
+    "family": "f_ee159",
+    "role": "near",
+    "delta": [
+     "combine",
+     "CER 계산 + 예산 한도 선택"
+    ],
+    "mis": [
+     "m_cer_budget_sum",
+     "",
+     "m_cer_effect_sum",
+     "m_cer_sort_cost"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-178",
+   "no": "EE-178",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "ROR(i*)을 손으로 시행착오(trial-and-error)로 구하는 절차를 순서대로 옳게 나열한 것은?",
+   "opts": [
+    "시험용 i로 PW를 한 번 구함 → 현금흐름도 그리기 → 그 i를 ROR로 확정",
+    "현금흐름도 그리기 → ROR 식(PW=0) 세우기 → 식이 맞을 때까지 i를 바꿔 대입",
+    "ROR 식 세우기 → MARR을 대입해 PW 구하기 → PW가 양수면 그 MARR을 ROR로 확정",
+    "현금흐름도 그리기 → 계수표에서 i 하나 고르기 → 한 번만 계산하고 ROR로 확정"
+   ],
+   "ans": 1,
+   "why": [
+    "식도 세우지 않고 i를 정하면 ROR이 나온다고 생각함",
+    "",
+    "MARR을 한 번 넣어 보면 ROR이 정해진다고 생각함",
+    "시도는 한 번이면 되고 반복은 필요 없다고 생각함"
+   ],
+   "s": "<p>강의의 시행착오 절차는 (1) 현금흐름도를 그리고 (2) ROR 식(PW=0 꼴)을 세운 뒤 (3) 식이 균형을 이룰 때까지 i를 바꿔 가며 대입하는 것이다. 한 번의 계산으로 끝나지 않고, 식이 거의 맞을 때까지 반복해 i*에 접근한다.</p><p>함정: 시도하는 i를 MARR로 두거나 한 번 계산하고 끝내는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "19"
+    ],
+    [
+     "L7",
+     "21"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.trial",
+    "depth": 1,
+    "family": "f_ee178",
+    "role": "base",
+    "mis": [
+     "m_trial_once",
+     "",
+     "m_trial_marr",
+     "m_trial_once"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-179",
+   "no": "EE-179",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "$50,000을 지금 투자해 6년 동안 매년 말 $8,000씩 받고 6년 말에 $20,000을 한 번 더 받는 프로젝트가 있다. 시행착오의 첫 시도 이율을 구하려고, 시간가치를 무시하고 수입 전체를 6년 말의 단일 금액 F로 모은 뒤 P/F 식 50,000 = F(P/F, i, 6)을 푼다. 이때 i는 연 몇 %인가? (소수 둘째 자리)",
+   "a": "5.26",
+   "accept": [
+    "5.26",
+    "5.26%",
+    "0.0526",
+    "5.3"
+   ],
+   "num": 5.26,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>시간가치를 무시하고 수입을 모으면 F = 6×8,000 + 20,000 = 68,000이다. 50,000 = 68,000(P/F, i, 6)에서 (P/F, i, 6) = 0.7353이고, 1/(1+i)^6 = 0.7353이므로 i = (1/0.7353)^(1/6) − 1 = 5.26%이다. 이 값은 첫 시도용 추정치일 뿐 ROR이 아니다. 예상 오답: 36.00(6제곱근을 취하지 않고 68,000/50,000 − 1만 계산함).</p><p>함정: 첫 시도 i를 곧바로 i*로 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "20"
+    ],
+    [
+     "L7",
+     "28-29"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.trial",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "첫 시도 이율을 총수입/투자 − 1로 두고 연수는 반영하지 않는다고 생각함",
+      "ex": [
+       "36.00"
+      ],
+      "m": "m_trial_root"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-181",
+   "no": "EE-181",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "시행착오로 PW=0이 되는 이율을 찾던 중 i = 10%에서 PW = +$8,000, i = 14%에서 PW = −$4,000을 얻었다. 두 점을 직선으로 이어 PW=0이 되는 이율을 선형 보간(linear interpolation)으로 추정하면 연 몇 %인가? (소수 둘째 자리)",
+   "a": "12.67",
+   "accept": [
+    "12.67",
+    "12.67%",
+    "12.7"
+   ],
+   "num": 12.67,
+   "tol": 0.05,
+   "ph": "숫자만 입력",
+   "s": "<p>강의의 선형 보간식 r = r1 + (r2 − r1) × NPV1/(NPV1 − NPV2)에 r1 = 10, r2 = 14, NPV1 = 8,000, NPV2 = −4,000을 넣으면 r = 10 + 4 × 8,000/12,000 = 12.67%이다. PW 곡선은 완전한 직선이 아니므로 이 값은 i*의 추정치이다. 예상 오답: 12.00(두 이율의 중간으로 둠), 11.33(분자에 NPV2를 사용함).</p><p>함정: 두 PW의 크기 비로 가중하지 않고 중점을 잡는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "31-32"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.trial",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "선형 보간에서 두 이율의 중간값을 i*로 잡는다고 생각함",
+      "ex": [
+       "12.00"
+      ],
+      "m": "m_trial_midpoint"
+     },
+     {
+      "pattern": "보간식의 분자에 두 번째 PW를 넣는다고 생각함",
+      "ex": [
+       "11.33"
+      ],
+      "m": "m_trial_interp_wrong"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-183",
+   "no": "EE-183",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "ROR을 시행착오로 구할 때 PW 식에 대입하는 이율은 MARR로 정하며, PW가 0이 되도록 MARR을 맞춘 값이 곧 i*이다.",
+   "ox": false,
+   "fix": "대입하는 이율은 PW=0이 될 때까지 바꿔 가는 시험값이며 MARR과는 무관하다. PW=0이 된 i*를 구한 뒤에 MARR과 비교한다.",
+   "s": "<p>시행착오의 목적은 ROR 식(PW=0)을 만족하는 i*를 찾는 것이므로, 시험 이율은 PW의 부호를 보며 계속 바뀐다. MARR은 사용자가 정해 두는 기준이고, 구한 i*가 MARR 이상인지 비교할 때 쓴다.</p><p>함정: 시험 이율과 MARR을 같은 것으로 섞는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "14"
+    ],
+    [
+     "L7",
+     "19-21"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.trial",
+    "depth": 3,
+    "family": "f_ee178",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "시험 이율 → MARR"
+    ],
+    "mis": "m_trial_marr"
+   }
+  },
+  {
+   "ext_id": "EE-184",
+   "no": "EE-184",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "순현금흐름이 t=0: −100, t=1: 30, t=2: 50, t=3: 0, t=4: 0, t=5: 70처럼 해마다 다른 프로젝트의 i*를 엑셀로 구할 때 쓸 수 있는 함수는?",
+   "star": true,
+   "opts": [
+    "IRR 함수 (현금흐름 범위를 입력)",
+    "RATE 함수 (n, A, P, F를 입력)",
+    "NPV 함수 (이율과 범위를 입력)",
+    "PMT 함수 (이율, n, P를 입력)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "균등하지 않은 흐름에도 RATE를 쓸 수 있다고 생각함",
+    "NPV가 i*를 바로 준다고 생각함",
+    "PMT가 이율을 구해 준다고 생각함"
+   ],
+   "s": "<p>해마다 현금흐름이 다르면 매년 같은 A를 가정하는 RATE를 쓸 수 없고, 연도별 순현금흐름을 범위로 넣는 IRR을 쓴다. 강의 예제에서도 이 흐름은 RATE 불가, IRR(B2:B7)로 14.5%가 나온다. NPV는 정해진 이율에서의 PW를 줄 뿐 i*를 주지 않는다.</p><p>함정: 균등하지 않은 흐름에 RATE를 쓰는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "22"
+    ],
+    [
+     "L7",
+     "24"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.excel",
+    "depth": 1,
+    "family": "f_ee184",
+    "role": "base",
+    "mis": [
+     "",
+     "m_excel_rate_all",
+     "m_excel_fn_mix",
+     "m_excel_fn_mix"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-185",
+   "no": "EE-185",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "$80,000을 지금 지출하고 7년 동안 매년 말 $9,000씩 받으며 7년 말에 $40,000을 한 번 더 받는다. 강의의 입력 형식 = RATE(n, A, P, F)에 맞춰 i*를 구하는 식으로 옳은 것은?",
+   "star": true,
+   "opts": [
+    "=RATE(7,49000,−80000,0)",
+    "=RATE(7,9000,−80000,40000)",
+    "=RATE(7,9000,80000,40000)",
+    "=RATE(7,9000,−80000,0)"
+   ],
+   "ans": 1,
+   "why": [
+    "A와 일시 수입 F를 합쳐 A로 넣는다고 생각함",
+    "",
+    "지출 P도 양수로 넣는다고 생각함",
+    "일시 수입 F는 넣지 않아도 된다고 생각함"
+   ],
+   "s": "<p>RATE의 입력은 n, A, P, F 순서이며 강의 예제는 RATE(10,15000,−200000,300000)로 지출 P는 음수, 매년 수입 A와 마지막 일시 수입 F는 양수로 넣는다. 여기서는 n = 7, A = 9,000, P = −80,000, F = 40,000이다. A와 F를 합치거나 F를 빼면 다른 현금흐름이 되고, 지출과 수입의 부호가 같으면 i*를 찾지 못한다.</p><p>함정: 일시 수입을 A에 더하거나 부호를 맞추지 않는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "23"
+    ],
+    [
+     "L7",
+     "33"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.excel",
+    "depth": 2,
+    "family": "f_ee185",
+    "role": "base",
+    "mis": [
+     "m_excel_af_merge",
+     "",
+     "m_excel_sign",
+     "m_excel_drop_f"
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-186",
+   "no": "EE-186",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "$80,000을 지금 지출하고 7년 동안 매년 말 $9,000씩 받으며 7년 말에 $40,000을 한 번 더 받는다. 이를 RATE 대신 IRR 함수로 풀려고 연도별 순현금흐름을 셀에 적을 때 옳은 입력은?",
+   "star": true,
+   "opts": [
+    "t=0: −80,000, t=1~7: 9,000, t=8: 40,000",
+    "t=0: −80,000, t=1~6: 9,000, t=7: 40,000",
+    "t=1~6: 9,000, t=7: 49,000 (t=0 칸은 제외)",
+    "t=0: −80,000, t=1~6: 9,000, t=7: 49,000"
+   ],
+   "ans": 3,
+   "why": [
+    "일시 수입을 다음 해에 따로 적는다고 생각함",
+    "7년 말 순현금흐름에서 매년 수입 9,000을 빼먹음",
+    "초기 지출 칸은 범위에 넣지 않아도 된다고 생각함",
+    ""
+   ],
+   "s": "<p>IRR은 연도별 순현금흐름(NCF)을 범위로 받으므로 같은 시점의 금액은 합쳐 한 칸에 적는다. 7년 말에는 매년 수입 9,000과 일시 수입 40,000이 함께 생겨 49,000이고, t=0의 지출 −80,000도 범위의 첫 칸에 넣어야 한다. 강의 예제도 마지막 해를 15,000 + 300,000 = 315,000으로 적는다.</p><p>함정: 같은 해의 금액을 두 칸으로 나누거나 t=0을 빼는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "25"
+    ],
+    [
+     "L7",
+     "33-34"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.excel",
+    "depth": 3,
+    "family": "f_ee185",
+    "role": "near",
+    "delta": [
+     "repr",
+     "RATE 인수 → IRR용 연도별 셀"
+    ],
+    "mis": [
+     "m_excel_irr_shift",
+     "m_excel_irr_miss_a",
+     "m_excel_irr_t0",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EE-187",
+   "no": "EE-187",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "순현금흐름이 t=0: −100, t=1~5: 30, 50, 0, 0, 70일 때, 합계 150을 5년으로 나눈 평균 A = 30을 써서 =RATE(5,30,−100)을 구하면 =IRR(범위)과 같은 i*가 나온다.",
+   "star": true,
+   "ox": false,
+   "fix": "RATE는 매년 같은 금액일 때만 쓸 수 있다. 평균을 넣은 RATE는 15.2%이고 해마다 다른 흐름의 IRR은 14.5%로 서로 다르다.",
+   "s": "<p>RATE는 매년 같은 금액 A가 반복된다고 가정하므로, 해마다 다른 흐름을 평균으로 바꾸면 현금이 들어오는 시점이 달라져 i*도 달라진다. 강의 예제에서 균등한 30×5는 15.2%, 30·50·0·0·70은 IRR로 14.5%가 나온다. 합계가 같아도 시점이 다르면 i*가 다르다.</p><p>함정: 합계나 평균이 같으면 RATE로 대신 풀 수 있다고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "22-24"
+    ],
+    [
+     "L7",
+     "25"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.excel",
+    "depth": 4,
+    "family": "f_ee184",
+    "role": "near",
+    "delta": [
+     "condition",
+     "균등한 A 계열 → 합계만 같은 흐름"
+    ],
+    "mis": "m_excel_avg"
+   }
+  },
+  {
+   "ext_id": "EE-188",
+   "no": "EE-188",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "t=0: −100, t=1~5: 매년 30처럼 매년 같은 금액인 현금흐름은 RATE 함수 대신 IRR 함수를 써도 같은 i*가 나온다.",
+   "star": true,
+   "ox": true,
+   "s": "<p>강의 예제에서 =RATE(5,30,−100)과 =IRR(B2:B7) 모두 0.152가 나온다. IRR은 현금흐름이 어떤 모양이든 쓸 수 있고, 균등한 A 계열에서는 RATE가 입력이 간단할 뿐이다.</p><p>함정: IRR이 균등하지 않은 흐름에만 쓰는 함수라고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "23"
+    ],
+    [
+     "L7",
+     "25"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.excel",
+    "depth": 1,
+    "family": "f_ee184",
+    "role": "iso",
+    "delta": [
+     "repr",
+     "함수 이름 고르기 → O/X 진술"
+    ],
+    "mis": {
+     "mr": "m_excel_irr_uneven"
+    }
+   }
+  },
+  {
+   "ext_id": "EE-189",
+   "no": "EE-189",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "순현금흐름의 부호가 여러 번 바뀌어 i*가 둘 이상 있는 프로젝트에서, 엑셀 IRR 함수가 내놓은 값과 다른 i*를 찾으려 한다. 이때 바꿔서 시도하는 것으로 옳은 것은?",
+   "star": true,
+   "opts": [
+    "현금흐름 범위의 첫 칸 위치",
+    "RATE 함수의 n 값",
+    "IRR 함수의 선택 인수 guess (탐색 시작값)",
+    "현금흐름 범위의 합계 칸"
+   ],
+   "ans": 2,
+   "why": [
+    "범위를 옮기면 다른 i*가 나온다고 생각함",
+    "RATE로 바꾸면 여러 i*가 나온다고 생각함",
+    "",
+    "합계 칸을 넣으면 i*가 달라진다고 생각함"
+   ],
+   "s": "<p>강의는 IRR 함수의 guess 옵션으로 여러 i*를 찾을 수 있고, guess를 쓰지 않으면 시작점이 10%라고 정리한다. 함수는 시작값에서 출발해 i*를 찾으므로 시작값을 바꾸면 다른 i*에 도달할 수 있다. RATE는 균등한 A 계열 전용이어서 부호가 여러 번 바뀌는 흐름에는 쓰지 않는다.</p><p>함정: 범위를 바꾸거나 RATE를 쓰면 다른 i*가 나온다고 보는 것.</p>",
+   "src": [
+    [
+     "L7",
+     "25"
+    ],
+    [
+     "L7",
+     "53"
+    ]
+   ],
+   "topic": "ror_calc",
+   "dx": {
+    "facet": "ror_calc.excel",
+    "depth": 3,
+    "family": "f_ee184",
+    "role": "near",
+    "delta": [
+     "combine",
+     "함수 고르기 + 다중 i* 찾기"
+    ],
+    "mis": [
+     "m_excel_guess",
+     "m_excel_guess",
+     "",
+     "m_excel_guess"
+    ]
+   }
+  }
+ ]
+}
