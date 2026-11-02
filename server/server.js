@@ -1,4 +1,4 @@
-// 문제노트 플랫폼 서버.  실행: node server/server.js   (Node 24 내장 기능만 사용)
+// 문제노트 플랫폼 서버 (MySQL 판).  실행: node --env-file=.env server/server.js   (Node 24 + mysql2 패키지 하나)
 // 환경 변수: PORT(기본 4000), HOST(기본 127.0.0.1 — 같은 와이파이의 폰에서 쓰려면 0.0.0.0)
 import { createServer } from "node:http";
 import { networkInterfaces } from "node:os";
@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync, existsSync, statSync, createReadStream } f
 import { join, extname, normalize, basename } from "node:path";
 import { randomBytes, randomInt, createHash } from "node:crypto";
 import { gzipSync, brotliCompressSync, constants as Z } from "node:zlib";
-import { db, ROOT, DATA, now, J, tx, importPack, checkPack, coursePayload, problemStats, overview, versionStats, activity, backup, listBackups, BACKUP_DIR, aiSave, aiSetUserVerdict, aiStats, carryTags } from "./db.js";
+import { db, ROOT, DATA, now, J, tx, importPack, checkPack, coursePayload, problemStats, overview, versionStats, activity, backup, listBackups, BACKUP_DIR, BACKUP_RE, aiSave, aiSetUserVerdict, aiStats, carryTags, dataVersion } from "./db.js";
 import * as ai from "./ai.js";
 import { initInsight, getSnap, makeSnap, overview as insightOverview, courseVisible, warmUp } from "./insight/report.js";
 import { insightAdmin, initTagger } from "./insight/admin.js";
@@ -94,10 +94,9 @@ function sendPacked(req, res, pk, cache = "no-cache", extra = {}) {
 }
 
 // 과목 목록·과목 문제는 문제·과목이 바뀔 때까지 같은 응답을 쓴다.
-// 바뀌는 때: 관리자 웹에서 쓰기(contentVer), 다른 프로그램이 DB를 고침(import.js 등 → SQLite data_version)
+// 바뀌는 때: 관리자 웹에서 쓰기(contentVer), 다른 프로그램이 DB를 고침(import.js 등 → 내용 표의 마지막 고친 시각, db.js dataVersion)
 let contentVer = 1;
 const apiCache = new Map();
-const dataVersion = () => db.prepare("PRAGMA data_version").get().data_version;
 function cachedJson(key, make) {
   const k = contentVer + "." + dataVersion() + "|" + key;
   if (!apiCache.has(k)) {
@@ -129,19 +128,21 @@ async function readBody(req, limit) {
 }
 const str = (v, max) => String(v ?? "").slice(0, max);
 const isId = v => typeof v === "string" && /^[A-Za-z0-9_-]{16,64}$/.test(v);
+/** 브라우저가 보낸 시각 → ISO(UTC). MySQL DATETIME은 못 읽는 글자를 거절하므로 읽을 수 있는 시각만 그대로 쓴다 */
+const iso = (v, fallback) => { const t = Date.parse(str(v, 40)); return Number.isFinite(t) ? new Date(t).toISOString() : fallback; };
 
 /** 사용자 요청: 헤더 X-Device의 익명 ID로 기기를 찾는다. last_seen은 1분에 한 번만 DB에 쓴다 (메모리 디바운스 + DB 락 경합 방지) */
 const deviceSeen = new Map();
 function device(req) {
   const id = req.headers["x-device"];
   if (!isId(id)) return null;
-  const d = db.prepare("SELECT * FROM device WHERE id = ?").get(id);
+  const d = db.prepare("SELECT *, device_id id FROM device WHERE device_id = ?").get(id);
   if (d) {
     const t = Date.now(), last = deviceSeen.get(id) || 0;
     const ago = new Date(t - 6e4).toISOString();
     if (t - last > 6e4 && !(d.last_seen >= ago)) {
       deviceSeen.set(id, t);
-      db.prepare("UPDATE device SET last_seen = ? WHERE id = ? AND last_seen < ?").run(now(), id, ago);
+      db.prepare("UPDATE device SET last_seen = ? WHERE device_id = ? AND last_seen < ?").run(now(), id, ago);
     }
   }
   return d || null;
@@ -191,8 +192,8 @@ const user = {
   "POST /api/grade": async (req, m, body, d) => {
     if (!ai.enabled()) return { $status: 503, error: "AI 채점이 꺼져 있어요" };
     if (body.consent !== true) return { $status: 400, error: "AI 채점 동의가 필요해요" };
-    const p = db.prepare(`SELECT p.id, p.current_version v, p.status, pv.kind, pv.body FROM problem p
-        JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version WHERE p.id = ?`).get(+body.problem_id);
+    const p = db.prepare(`SELECT p.problem_id id, p.current_version v, p.status, pv.kind, pv.body FROM problem p
+        JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version WHERE p.problem_id = ?`).get(+body.problem_id);
     if (!p || p.status !== "published") return { $status: 404, error: "없는 문제예요" };
     if (p.kind !== "essay") return { $status: 400, error: "서술형 문제만 AI 채점을 할 수 있어요" };
     const answer = str(body.answer, 4000).trim();
@@ -210,9 +211,9 @@ const user = {
   },
 
   "GET /api/catalog": () => ({ $packed: cachedJson("catalog", () => {
-    const sems = db.prepare("SELECT id, code, name FROM semester WHERE visible = 1 ORDER BY sort, code DESC").all();
-    const courses = db.prepare(`SELECT c.id, c.semester_id, c.code, c.short, c.name, c.professor, c.meta, c.info,
-        (SELECT COUNT(*) FROM problem WHERE course_id = c.id AND status = 'published') problems
+    const sems = db.prepare("SELECT semester_id id, code, name FROM semester WHERE visible = 1 ORDER BY sort, code DESC").all();
+    const courses = db.prepare(`SELECT c.course_id id, c.semester_id, c.code, c.short, c.name, c.professor, c.meta, c.info,
+        (SELECT COUNT(*) FROM problem WHERE course_id = c.course_id AND status = 'published') problems
         FROM course c WHERE c.visible = 1 ORDER BY c.sort`).all();
     return { semesters: sems.map(s => ({ ...s, courses: courses.filter(c => c.semester_id === s.id).map(({ info, semester_id, ...c }) => {
       const i = J(info); return { ...c, color: i.color, lang: i.lang, math: i.math }; }) })) };
@@ -224,14 +225,14 @@ const user = {
 
   "POST /api/device": (req, m, body) => {
     const id = body.id; if (!isId(id)) return { $status: 400, error: "기기 ID가 잘못됐어요" };
-    const t = now(); const old = db.prepare("SELECT * FROM device WHERE id = ?").get(id);
-    if (!old) db.prepare("INSERT INTO device(id, nickname, consent, created_at, last_seen) VALUES (?,?,?,?,?)").run(id, str(body.nickname, 20), body.consent ? 1 : 0, t, t);
-    else db.prepare("UPDATE device SET nickname = COALESCE(?, nickname), consent = COALESCE(?, consent), last_seen = ? WHERE id = ?")
+    const t = now(); const old = db.prepare("SELECT * FROM device WHERE device_id = ?").get(id);
+    if (!old) db.prepare("INSERT INTO device(device_id, nickname, consent, created_at, last_seen) VALUES (?,?,?,?,?)").run(id, str(body.nickname, 20), body.consent ? 1 : 0, t, t);
+    else db.prepare("UPDATE device SET nickname = COALESCE(?, nickname), consent = COALESCE(?, consent), last_seen = ? WHERE device_id = ?")
       .run(body.nickname === undefined ? null : str(body.nickname, 20), body.consent === undefined ? null : (body.consent ? 1 : 0), t, id);
-    return db.prepare("SELECT id, nickname, consent, created_at FROM device WHERE id = ?").get(id);
+    return db.prepare("SELECT device_id id, nickname, consent, created_at FROM device WHERE device_id = ?").get(id);
   },
   "GET /api/me": (req, m, b, d) => {
-    const rows = db.prepare(`SELECT p.course_id, pr.status, COUNT(*) n, MAX(pr.updated_at) last FROM progress pr JOIN problem p ON p.id = pr.problem_id
+    const rows = db.prepare(`SELECT p.course_id, pr.status, COUNT(*) n, MAX(pr.updated_at) last FROM progress pr JOIN problem p ON p.problem_id = pr.problem_id
         WHERE pr.device_id = ? GROUP BY p.course_id, pr.status`).all(d.id);
     const by = {};
     for (const r of rows) { const c = by[r.course_id] ||= { correct: 0, wrong: 0, resolved: 0, last: "" }; c[r.status] = r.n; if (r.last > c.last) c.last = r.last; }
@@ -242,7 +243,7 @@ const user = {
     const ids = [...new Set((body.courses || []).map(Number).filter(Number.isInteger))].slice(0, 50);
     tx(() => {
       db.prepare("DELETE FROM enrollment WHERE device_id = ?").run(d.id);
-      const ins = db.prepare("INSERT INTO enrollment(device_id, course_id, sort, added_at) SELECT ?, id, ?, ? FROM course WHERE id = ?");
+      const ins = db.prepare("INSERT INTO enrollment(device_id, course_id, sort, added_at) SELECT ?, course_id, ?, ? FROM course WHERE course_id = ?");
       ids.forEach((cid, i) => ins.run(d.id, i, now(), cid));
     });
     return { courses: ids };
@@ -250,14 +251,16 @@ const user = {
   "GET /api/me/progress": (req, m, b, d, q) => {
     const cid = +q.get("course");
     const rows = db.prepare(`SELECT pr.problem_id, pr.version, pr.status, pr.attempts, pr.wrong_count, pr.last_answer, pr.updated_at
-        FROM progress pr JOIN problem p ON p.id = pr.problem_id WHERE pr.device_id = ? AND (? = 0 OR p.course_id = ?)`).all(d.id, cid || 0, cid || 0);
+        FROM progress pr JOIN problem p ON p.problem_id = pr.problem_id WHERE pr.device_id = ? AND (? = 0 OR p.course_id = ?)`).all(d.id, cid || 0, cid || 0);
     return { progress: rows };
   },
   "PUT /api/me/progress": (req, m, body, d) => {
     const items = (Array.isArray(body.items) ? body.items : [body]).slice(0, 500);
-    const up = db.prepare(`INSERT INTO progress(device_id, problem_id, version, status, attempts, wrong_count, last_answer, updated_at) VALUES (?,?,?,?,?,?,?,?)
-        ON CONFLICT(device_id, problem_id) DO UPDATE SET version=excluded.version, status=excluded.status, attempts=excluded.attempts,
-        wrong_count=excluded.wrong_count, last_answer=excluded.last_answer, updated_at=excluded.updated_at WHERE excluded.updated_at >= progress.updated_at`);
+    const up = db.prepare(`INSERT INTO progress(device_id, problem_id, version, status, attempts, wrong_count, last_answer, updated_at) VALUES (?,?,?,?,?,?,?,?) AS n
+        ON DUPLICATE KEY UPDATE version = IF(n.updated_at >= progress.updated_at, n.version, progress.version),
+        status = IF(n.updated_at >= progress.updated_at, n.status, progress.status), attempts = IF(n.updated_at >= progress.updated_at, n.attempts, progress.attempts),
+        wrong_count = IF(n.updated_at >= progress.updated_at, n.wrong_count, progress.wrong_count), last_answer = IF(n.updated_at >= progress.updated_at, n.last_answer, progress.last_answer),
+        updated_at = GREATEST(n.updated_at, progress.updated_at)`);      // MySQL에는 upsert의 WHERE가 없다 → 칸마다 IF (updated_at은 맨 끝에)
     const del = db.prepare("DELETE FROM progress WHERE device_id = ? AND problem_id = ?");
     let n = 0;
     const serverNow = now();
@@ -265,24 +268,25 @@ const user = {
       const pid = +it.problem_id; if (!Number.isInteger(pid)) return;
       if (it.delete) { del.run(d.id, pid); n++; return; }
       if (!["correct", "wrong", "resolved"].includes(it.status)) return;
-      let uat = str(it.updated_at, 40) || serverNow;
-      const tParsed = Date.parse(uat);
+      let uat = iso(it.updated_at, serverNow);
       // 클라이언트 시계가 5분 이상 앞선 경우 서버 시간으로 보정해 이후 정상 기록이 거부되는 결함 방지
-      if (!Number.isFinite(tParsed) || tParsed > Date.now() + 5 * 6e4) uat = serverNow;
-      up.run(d.id, pid, +it.version || 1, it.status, +it.attempts || 1, +it.wrong_count || 0, str(it.last_answer, 600), uat); n++;
+      if (Date.parse(uat) > Date.now() + 5 * 6e4) uat = serverNow;
+      const att = Math.max(1, +it.attempts || 1);
+      try { up.run(d.id, pid, +it.version || 1, it.status, att, Math.min(att, Math.max(0, +it.wrong_count || 0)), str(it.last_answer, 600), uat); n++; }
+      catch (e) { if (e.errno !== 1452) throw e; }       // 없는 문제 번호(외래 키)는 건너뛴다. SQLite는 외래 키 검사를 안 해서 그냥 들어갔다
     }));
     return { saved: n };
   },
   "GET /api/me/bookmarks": (req, m, b, d) => ({ bookmarks: db.prepare(`SELECT bm.problem_id, p.course_id, bm.added_at FROM bookmark bm
-      JOIN problem p ON p.id = bm.problem_id WHERE bm.device_id = ? ORDER BY bm.added_at DESC`).all(d.id) }),
+      JOIN problem p ON p.problem_id = bm.problem_id WHERE bm.device_id = ? ORDER BY bm.added_at DESC`).all(d.id) }),
   "PUT /api/me/bookmarks": (req, m, body, d) => {             // items: [{ problem_id, on, at }]
     const items = (Array.isArray(body.items) ? body.items : []).slice(0, 500);
-    const add = db.prepare("INSERT INTO bookmark(device_id, problem_id, added_at) SELECT ?, id, ? FROM problem WHERE id = ? ON CONFLICT DO NOTHING");
+    const add = db.prepare("INSERT IGNORE INTO bookmark(device_id, problem_id, added_at) SELECT ?, problem_id, ? FROM problem WHERE problem_id = ?");
     const del = db.prepare("DELETE FROM bookmark WHERE device_id = ? AND problem_id = ?");
     let n = 0;
     tx(() => items.forEach(it => {
       const pid = +it.problem_id; if (!Number.isInteger(pid)) return;
-      if (it.on) add.run(d.id, str(it.at, 40) || now(), pid); else del.run(d.id, pid);
+      if (it.on) add.run(d.id, iso(it.at, now()), pid); else del.run(d.id, pid);
       n++;
     }));
     return { saved: n };
@@ -290,8 +294,9 @@ const user = {
   "GET /api/me/resume": (req, m, b, d) => ({ resume: Object.fromEntries(db.prepare("SELECT scope_key, problem_id FROM resume WHERE device_id = ?").all(d.id).map(r => [r.scope_key, r.problem_id])) }),
   "PUT /api/me/resume": (req, m, body, d) => {
     if (!body.scope_key || !Number.isInteger(+body.problem_id)) return { $status: 400, error: "scope_key, problem_id가 필요해요" };
-    db.prepare(`INSERT INTO resume(device_id, scope_key, problem_id, updated_at) VALUES (?,?,?,?)
-        ON CONFLICT(device_id, scope_key) DO UPDATE SET problem_id=excluded.problem_id, updated_at=excluded.updated_at`).run(d.id, str(body.scope_key, 200), +body.problem_id, now());
+    db.prepare(`INSERT INTO resume(device_id, scope_key, problem_id, updated_at)
+        SELECT * FROM (SELECT ? device_id, ? scope_key, problem_id, ? updated_at FROM problem WHERE problem_id = ?) AS n
+        ON DUPLICATE KEY UPDATE problem_id = n.problem_id, updated_at = n.updated_at`).run(d.id, str(body.scope_key, 200), now(), +body.problem_id);
     return { ok: true };
   },
   // 학습 리포트 (server/insight/). 풀이 기록에 동의한 기기만. 보기(GET)는 저장한 것만, 뽑기(POST)만 계산한다 (결정 7)
@@ -302,16 +307,29 @@ const user = {
   "POST /api/events": (req, m, body, d) => {
     if (!d.consent) return { stored: 0, skipped: "동의하지 않은 기기는 기록을 모으지 않아요" };
     const evs = (body.events || []).slice(0, 200); const t = now(); let n = 0;
-    const ins = db.prepare("INSERT OR IGNORE INTO event(id, device_id, session_id, problem_id, version, type, client_ts, server_ts, payload) VALUES (?,?,?,?,?,?,?,?,?)");
+    const ins = db.prepare("INSERT IGNORE INTO event(event_id, device_id, session_id, problem_id, version, type, client_ts, server_ts, payload) VALUES (?,?,?,?,?,?,?,?,?)");
+    // 풀이(answer_submit · idk)는 통계용 정리본 submission에도 같은 묶음으로 쓴다 (client_id = event_id). 없는 문제 · 버전은 IGNORE가 건너뛴다
+    const sub = db.prepare(`INSERT IGNORE INTO submission(client_id, session_id, mode, device_id, problem_id, version, answer, is_correct, attempt, ms, is_idk, is_self, submitted_at)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)`);
+    const prior = db.prepare("SELECT COUNT(*) n FROM submission WHERE device_id = ? AND problem_id = ?");
     tx(() => evs.forEach(e => {
       if (!isId(e.id) || typeof e.type !== "string") return;
-      n += Number(ins.run(e.id, d.id, str(e.session_id, 64), Number.isInteger(+e.problem_id) && e.problem_id !== null ? +e.problem_id : null,
-        Number.isInteger(+e.version) ? +e.version : null, str(e.type, 32), str(e.client_ts, 40) || t, t, JSON.stringify(e.payload || {}).slice(0, 2000)).changes);
+      const pid = Number.isInteger(+e.problem_id) && e.problem_id !== null ? +e.problem_id : null, ver = Number.isInteger(+e.version) ? +e.version : null;
+      const p = e.payload && typeof e.payload === "object" ? e.payload : {}, sid = str(e.session_id, 64), cts = iso(e.client_ts, t);
+      let payload = JSON.stringify(p); if (payload.length > 2000) payload = JSON.stringify({ cut: true, ...Object.fromEntries(Object.entries(p).filter(([, v]) => typeof v !== "object")) }).slice(0, 2000);
+      const added = Number(ins.run(e.id, d.id, sid, pid, ver, str(e.type, 32), cts, t, payload.length > 2000 ? "{}" : payload).changes);
+      n += added;
+      if (added && pid && ver && (e.type === "answer_submit" || e.type === "idk")) {
+        const idk = e.type === "idk", ms = Number.isFinite(+p.ms) && +p.ms >= 0 ? Math.min(Math.round(+p.ms), 4e9) : null;
+        const attempt = Number.isInteger(p.attempt) && p.attempt >= 1 ? Math.min(p.attempt, 65535) : prior.get(d.id, pid).n + 1;
+        sub.run(e.id, sid, ["focus", "list"].includes(p.mode) ? p.mode : null, d.id, pid, ver, str(p.answer, 2000), !idk && !!p.correct ? 1 : 0,
+          attempt, ms, idk ? 1 : 0, p.self ? 1 : 0, cts);
+      }
     }));
     return { stored: n };
   },
   "POST /api/reports": (req, m, body, d) => {
-    const p = db.prepare("SELECT id, current_version FROM problem WHERE id = ?").get(+body.problem_id);
+    const p = db.prepare("SELECT problem_id id, current_version FROM problem WHERE problem_id = ?").get(+body.problem_id);
     if (!p) return { $status: 400, error: "없는 문제예요" };
     const cat = ["answer", "explanation", "typo", "other"].includes(body.category) ? body.category : "other";
     const msg = str(body.message, 1000).trim();
@@ -321,8 +339,8 @@ const user = {
     const r = db.prepare("INSERT INTO report(device_id, problem_id, version, category, message, created_at) VALUES (?,?,?,?,?,?)").run(d.id, p.id, p.current_version, cat, msg, now());
     return { id: Number(r.lastInsertRowid) };
   },
-  "GET /api/me/reports": (req, m, b, d) => ({ reports: db.prepare(`SELECT r.id, r.category, r.message, r.status, r.admin_note, r.created_at, r.resolved_at,
-      p.ext_id, c.short course, c.id course_id, p.id problem_id FROM report r JOIN problem p ON p.id = r.problem_id JOIN course c ON c.id = p.course_id
+  "GET /api/me/reports": (req, m, b, d) => ({ reports: db.prepare(`SELECT r.report_id id, r.category, r.message, r.status, r.admin_note, r.created_at, r.resolved_at,
+      p.ext_id, c.short course, c.course_id, p.problem_id FROM report r JOIN problem p ON p.problem_id = r.problem_id JOIN course c ON c.course_id = p.course_id
       WHERE r.device_id = ? ORDER BY r.created_at DESC`).all(d.id) }),
   "POST /api/transfer": (req, m, b, d) => {
     db.prepare("DELETE FROM transfer_code WHERE device_id = ? OR expires_at < ?").run(d.id, now());
@@ -335,7 +353,7 @@ const user = {
     // 기록 열쇠(= 기기 ID, 바뀌지 않음)를 넣으면 그 기기로 바로 이어 쓴다. 주소가 바뀌어 브라우저 저장소를 잃었을 때 되찾는 용도
     const key = String(body.key ?? "").trim();
     if (key) {
-      const dv = isId(key) && db.prepare("SELECT id FROM device WHERE id = ?").get(key);
+      const dv = isId(key) && db.prepare("SELECT device_id id FROM device WHERE device_id = ?").get(key);
       return dv ? { device_id: dv.id } : { $status: 404, error: "열쇠가 맞지 않아요" };
     }
     const code = str(body.code, 6);
@@ -354,69 +372,69 @@ const admin = {
   "GET /api/stats/problems": (req, m, b, d, q) => ({ problems: problemStats({ courseId: +q.get("course") || null, since: q.get("since") || null }) }),
   "GET /api/reports": (req, m, b, d, q) => {
     const st = q.get("status") || "open";
-    return { reports: db.prepare(`SELECT r.*, p.ext_id, p.current_version, c.short course, c.id course_id, d.nickname FROM report r
-        JOIN problem p ON p.id = r.problem_id JOIN course c ON c.id = p.course_id LEFT JOIN device d ON d.id = r.device_id
+    return { reports: db.prepare(`SELECT r.*, r.report_id id, p.ext_id, p.current_version, c.short course, c.course_id, d.nickname FROM report r
+        JOIN problem p ON p.problem_id = r.problem_id JOIN course c ON c.course_id = p.course_id LEFT JOIN device d ON d.device_id = r.device_id
         WHERE (? = 'all' OR r.status = ?) ORDER BY r.created_at DESC LIMIT 500`).all(st, st) };
   },
   "PATCH /api/reports/:id": (req, m, body) => {
     const st = ["open", "fixed", "rejected"].includes(body.status) ? body.status : null;
     if (!st) return { $status: 400, error: "status는 open/fixed/rejected" };
-    db.prepare("UPDATE report SET status = ?, admin_note = ?, resolved_at = ? WHERE id = ?").run(st, str(body.admin_note, 500), st === "open" ? null : now(), +m.id);
-    return db.prepare("SELECT * FROM report WHERE id = ?").get(+m.id);
+    db.prepare("UPDATE report SET status = ?, admin_note = ?, resolved_at = ? WHERE report_id = ?").run(st, str(body.admin_note, 500), st === "open" ? null : now(), +m.id);
+    return db.prepare("SELECT *, report_id id FROM report WHERE report_id = ?").get(+m.id);
   },
-  "GET /api/semesters": () => ({ semesters: db.prepare("SELECT * FROM semester ORDER BY sort, code DESC").all() }),
+  "GET /api/semesters": () => ({ semesters: db.prepare("SELECT *, semester_id id FROM semester ORDER BY sort, code DESC").all() }),
   "POST /api/semesters": (req, m, body) => {
     const code = str(body.code, 10).trim(); if (!/^\d{2}-(1|2|S|W)$/.test(code)) return { $status: 400, error: "학기 코드는 26-1, 26-2 같은 형식이에요 (계절학기는 26-S, 26-W)" };
     if (db.prepare("SELECT 1 FROM semester WHERE code = ?").get(code)) return { $status: 409, error: "이미 있는 학기예요" };
     const r = db.prepare("INSERT INTO semester(code, name, sort) VALUES (?,?,?)").run(code, str(body.name, 30) || code, -(+code.slice(0, 2) * 10 + ({ 1: 1, S: 2, 2: 3, W: 4 })[code[3]]));
-    return db.prepare("SELECT * FROM semester WHERE id = ?").get(Number(r.lastInsertRowid));
+    return db.prepare("SELECT *, semester_id id FROM semester WHERE semester_id = ?").get(Number(r.lastInsertRowid));
   },
   "PATCH /api/semesters/:id": (req, m, body) => {
-    if (body.visible !== undefined) db.prepare("UPDATE semester SET visible = ? WHERE id = ?").run(body.visible ? 1 : 0, +m.id);
-    if (body.name) db.prepare("UPDATE semester SET name = ? WHERE id = ?").run(str(body.name, 30), +m.id);
-    return db.prepare("SELECT * FROM semester WHERE id = ?").get(+m.id);
+    if (body.visible !== undefined) db.prepare("UPDATE semester SET visible = ? WHERE semester_id = ?").run(body.visible ? 1 : 0, +m.id);
+    if (body.name) db.prepare("UPDATE semester SET name = ? WHERE semester_id = ?").run(str(body.name, 30), +m.id);
+    return db.prepare("SELECT *, semester_id id FROM semester WHERE semester_id = ?").get(+m.id);
   },
-  "GET /api/courses": () => ({ courses: db.prepare(`SELECT c.id, c.semester_id, s.code semester, c.code, c.short, c.name, c.professor, c.meta, c.visible, c.sort,
-      (SELECT COUNT(*) FROM problem WHERE course_id = c.id) problems FROM course c JOIN semester s ON s.id = c.semester_id ORDER BY s.sort, c.sort`).all() }),
+  "GET /api/courses": () => ({ courses: db.prepare(`SELECT c.course_id id, c.semester_id, s.code semester, c.code, c.short, c.name, c.professor, c.meta, c.visible, c.sort,
+      (SELECT COUNT(*) FROM problem WHERE course_id = c.course_id) problems FROM course c JOIN semester s ON s.semester_id = c.semester_id ORDER BY s.sort, c.sort`).all() }),
   "PATCH /api/courses/:id": (req, m, body) => {
-    const c = db.prepare("SELECT * FROM course WHERE id = ?").get(+m.id); if (!c) return { $status: 404, error: "없는 과목" };
-    db.prepare("UPDATE course SET short=?, name=?, professor=?, meta=?, visible=?, sort=? WHERE id=?").run(
+    const c = db.prepare("SELECT *, course_id id FROM course WHERE course_id = ?").get(+m.id); if (!c) return { $status: 404, error: "없는 과목" };
+    db.prepare("UPDATE course SET short=?, name=?, professor=?, meta=?, visible=?, sort=? WHERE course_id=?").run(
       str(body.short ?? c.short, 20), str(body.name ?? c.name, 60), str(body.professor ?? c.professor, 30), str(body.meta ?? c.meta, 120),
       body.visible === undefined ? c.visible : (body.visible ? 1 : 0), Number.isInteger(body.sort) ? body.sort : c.sort, c.id);
-    return db.prepare("SELECT * FROM course WHERE id = ?").get(c.id);
+    return db.prepare("SELECT *, course_id id FROM course WHERE course_id = ?").get(c.id);
   },
   "POST /api/import": (req, m, body, d, q) => importPack(body, { dry: q.get("dry") === "1", note: "관리자 웹에서 올림" }),
   "GET /api/backups": () => ({ backups: listBackups(), dir: BACKUP_DIR }),
   "POST /api/backups": () => ({ made: backup(), backups: listBackups() }),
   "GET /api/course/:id": (req, m) => coursePayload(+m.id) || { $status: 404, error: "없는 과목" },
   "GET /api/problems/:id": (req, m) => {
-    const p = db.prepare("SELECT p.*, c.short course, ch.title chapter FROM problem p JOIN course c ON c.id = p.course_id JOIN chapter ch ON ch.id = p.chapter_id WHERE p.id = ?").get(+m.id);
+    const p = db.prepare("SELECT p.*, p.problem_id id, c.short course, ch.title chapter FROM problem p JOIN course c ON c.course_id = p.course_id JOIN chapter ch ON ch.chapter_id = p.chapter_id WHERE p.problem_id = ?").get(+m.id);
     if (!p) return { $status: 404, error: "없는 문제" };
     const versions = db.prepare("SELECT version, kind, star, body, note, created_at FROM problem_version WHERE problem_id = ? ORDER BY version DESC").all(p.id).map(v => ({ ...v, star: !!v.star, body: J(v.body) }));
     const stats = problemStats({ courseId: p.course_id }).find(s => s.id === p.id);
-    const reports = db.prepare("SELECT * FROM report WHERE problem_id = ? ORDER BY created_at DESC").all(p.id);
-    const info = J(db.prepare("SELECT info FROM course WHERE id = ?").get(p.course_id).info);
+    const reports = db.prepare("SELECT *, report_id id FROM report WHERE problem_id = ? ORDER BY created_at DESC").all(p.id);
+    const info = J(db.prepare("SELECT info FROM course WHERE course_id = ?").get(p.course_id).info);
     return { ...p, math: !!info.math, files: info.files || {}, versions, stats, version_stats: versionStats(p.id), reports };
   },
   "PUT /api/problems/:id": (req, m, body) => {
-    const p = db.prepare("SELECT * FROM problem WHERE id = ?").get(+m.id); if (!p) return { $status: 404, error: "없는 문제" };
+    const p = db.prepare("SELECT *, problem_id id FROM problem WHERE problem_id = ?").get(+m.id); if (!p) return { $status: 404, error: "없는 문제" };
     const cur = db.prepare("SELECT * FROM problem_version WHERE problem_id = ? AND version = ?").get(p.id, p.current_version);
     const kind = body.kind || cur.kind;
-    const cinfo = J(db.prepare("SELECT info FROM course WHERE id = ?").get(p.course_id).info);     // 수식 과목인지 (수식 검사)
+    const cinfo = J(db.prepare("SELECT info FROM course WHERE course_id = ?").get(p.course_id).info);     // 수식 과목인지 (수식 검사)
     const pk = { semester: { code: "x" }, course: { code: "x", name: "x", math: !!cinfo.math }, chapters: [{ key: "c" }], problems: [{ ...body.body, ext_id: p.ext_id, chapter: "c", kind }] };
     const errs = checkPack(pk); if (errs.length) return { $status: 400, error: errs.join(" / ") };
     const v = p.current_version + 1;
     tx(() => {
       db.prepare("INSERT INTO problem_version(problem_id, version, kind, star, body, note, created_at) VALUES (?,?,?,?,?,?,?)")
         .run(p.id, v, kind, body.star === undefined ? cur.star : (body.star ? 1 : 0), JSON.stringify(body.body), str(body.note, 200) || "관리자 수정", now());
-      db.prepare("UPDATE problem SET current_version = ? WHERE id = ?").run(v, p.id);
+      db.prepare("UPDATE problem SET current_version = ? WHERE problem_id = ?").run(v, p.id);
       carryTags(p.id, p.current_version, v);                     // 학습 리포트 v2: 해설·바른 진술만 고쳤으면 저자·관리자 태그를 이어받는다
     });
     return { id: p.id, version: v };
   },
   "PATCH /api/problems/:id": (req, m, body) => {
     if (!["published", "hidden"].includes(body.status)) return { $status: 400, error: "status는 published/hidden" };
-    db.prepare("UPDATE problem SET status = ? WHERE id = ?").run(body.status, +m.id); return { ok: true };
+    db.prepare("UPDATE problem SET status = ? WHERE problem_id = ?").run(body.status, +m.id); return { ok: true };
   },
   ...insightAdmin,                                               // 학습 리포트 v2 "진단" 탭 (server/insight/admin.js)
 };
@@ -490,7 +508,7 @@ const server = createServer(async (req, res) => {
       }
       if (rest.startsWith("/backup-file/")) {                                   // 백업 파일 내려받기
         const name = basename(rest.slice("/backup-file/".length));
-        if (!/^app-\d{8}-\d{4}\.db$/.test(name) || !existsSync(join(BACKUP_DIR, name))) return fail(res, 404, "없는 백업이에요");
+        if (!BACKUP_RE.test(name) || !existsSync(join(BACKUP_DIR, name))) return fail(res, 404, "없는 백업이에요");
         res.writeHead(200, { ...SEC, "Content-Type": "application/octet-stream", "Content-Disposition": `attachment; filename="${name}"`, "Cache-Control": "no-store" });
         return createReadStream(join(BACKUP_DIR, name)).pipe(res);
       }

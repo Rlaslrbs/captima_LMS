@@ -11,5 +11,8 @@ tools/bin/
 *.log
 .DS_Store
 
+# MySQL 접속 파일(비밀번호)
+.my.cnf
+
 # Claude Code 개인 설정
 .claude/settings.local.json

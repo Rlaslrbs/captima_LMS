@@ -11,20 +11,20 @@
 // - tag: item_tag (src 'llm' · model 'gemini-chat(manual)' · conf 1 · review auto · qa.manual = true). 자동 태깅과 같은 줄에 선다
 // - second·family·verify: tagger.js runSecond·runFamily·runVerify와 같은 규칙·같은 DB 효과 (conf · family 행 · 검증 표시)
 // - 문제 글·상태·학습자 기록은 건드리지 않는다. 저자·관리자 태그(src author/admin, review accepted/edited)는 덮어쓰지 않는다
-// - 실제로 쓰기 전에 data/backups/ 에 VACUUM INTO 백업을 만든다. --dry는 아무것도 쓰지 않는다
+// - 실제로 쓰기 전에 data/backups/ 에 mysqldump 백업(SQL 파일)을 만든다. --dry는 아무것도 쓰지 않는다
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, basename, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { db, ROOT, J, now, tx, meta, bumpMeta, bodyHash, facetsOf, miscOf, DEPTH_WHY, DELTA_TYPES, BACKUP_DIR } from "../db.js";
+import { db, ROOT, J, now, tx, meta, bumpMeta, bodyHash, facetsOf, miscOf, DEPTH_WHY, DELTA_TYPES, BACKUP_DIR, dumpTo } from "../db.js";
 
 const LET = "ABCDEFGH", MODEL = "gemini-chat(manual)", STAGES = ["tag", "second", "third", "family", "verify"];
 const cut = (s, n) => (s = String(s ?? "").trim(), s.length > n ? s.slice(0, n - 1) + "…" : s);
 const stageOf = batch => (String(batch.stage || "").startsWith("tag_") ? "tag" : batch.stage);
-/** 쓰기 전 백업 (VACUUM INTO) → 파일 경로 */
+/** 쓰기 전 백업 (mysqldump → SQL 파일) → 파일 경로 */
 function backup(stage) {
   mkdirSync(BACKUP_DIR, { recursive: true });
-  const bk = join(BACKUP_DIR, `app-before-manual-${stage === "tag" ? "tags" : stage}-${new Date().toISOString().replace(/[-:]/g, "").slice(0, 13)}.db`);
-  db.exec(`VACUUM INTO '${bk.replace(/'/g, "''")}'`); return bk;
+  const bk = join(BACKUP_DIR, `app-before-manual-${stage === "tag" ? "tags" : stage}-${new Date().toISOString().replace(/[-:]/g, "").slice(0, 13)}.sql`);
+  dumpTo(bk); return bk;
 }
 /** 답 파일 하나 → { B(요약 칸), batch, ans } 또는 B.error */
 function load(file, exportDir, stage, report) {
@@ -106,7 +106,7 @@ function importTag(cid, files, { dry, exportDir }) {
   const V ={ facets: new Set(facetsOf(cid).filter(f => f.status === "active").map(f => f.code)),
     miscs: new Set(miscOf(cid, null, { all: true }).filter(m => m.status === "ok").map(m => m.code)),
     kcOf: new Map(facetsOf(cid).map(f => [f.code, f.kc])) };
-  const cur = db.prepare(`SELECT p.id pid, p.current_version v, p.course_id cid, pv.kind, pv.body FROM problem p JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version WHERE p.id = ?`);
+  const cur = db.prepare(`SELECT p.problem_id pid, p.current_version v, p.course_id cid, pv.kind, pv.body FROM problem p JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version WHERE p.problem_id = ?`);
   const tagRow = db.prepare("SELECT src, review FROM item_tag WHERE problem_id = ? AND version = ?");
   const report = { batches: [], done: [], failed: [], missing: [], notes: [] }, writes = [];
   for (const file of files) {
@@ -143,12 +143,15 @@ function importTag(cid, files, { dry, exportDir }) {
   if (!dry && writes.length) {
     report.backup = backup("tag");
     const vv = +(meta("vocab_ver:" + cid) || 0), t = now();
-    const put = db.prepare(`INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf)
-        VALUES (?,?,?,?,?,?,?,?, '{"manual":true}', 'auto', ?, ?, ?, 'llm', 1)
-        ON CONFLICT(problem_id, version) DO UPDATE SET body_hash = excluded.body_hash, vocab_ver = excluded.vocab_ver, prompt_ver = excluded.prompt_ver, model = excluded.model,
-          kcs = excluded.kcs, diag = excluded.diag, qa = excluded.qa, updated_at = excluded.updated_at, facet = excluded.facet, depth = excluded.depth, src = 'llm', conf = 1, review = 'auto'
-        WHERE item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited')`);
-    tx(() => { for (const w of writes) put.run(w.it.pid, w.it.v, bodyHash(w.it.kind, w.it.body), vv, w.prompt_ver, MODEL, JSON.stringify(w.kcs), JSON.stringify(w.diag), t, w.facet, w.depth); });
+    const put = db.prepare(`INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf, course_id)
+        VALUES (?,?,?,?,?,?,?,?, '{"manual":true}', 'auto', ?, ?, ?, 'llm', 1, ?) AS n
+        ON DUPLICATE KEY UPDATE          -- MySQL에는 upsert의 WHERE가 없다 → 칸마다 IF(조건, 새 값, 그대로). src · conf · review는 조건 칸이라 맨 끝에
+          body_hash = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.body_hash, item_tag.body_hash), vocab_ver = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.vocab_ver, item_tag.vocab_ver),
+          prompt_ver = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.prompt_ver, item_tag.prompt_ver), model = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.model, item_tag.model), kcs = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.kcs, item_tag.kcs),
+          diag = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.diag, item_tag.diag), qa = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.qa, item_tag.qa), updated_at = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.updated_at, item_tag.updated_at),
+          facet = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.facet, item_tag.facet), depth = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.depth, item_tag.depth),
+          conf = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), 1, item_tag.conf), src = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), 'llm', item_tag.src), review = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), 'auto', item_tag.review)`);
+    tx(() => { for (const w of writes) put.run(w.it.pid, w.it.v, bodyHash(w.it.kind, w.it.body), vv, w.prompt_ver, MODEL, JSON.stringify(w.kcs), JSON.stringify(w.diag), t, w.facet, w.depth, w.it.cid); });
     bumpMeta("tag_rev:" + cid); report.written = writes.length;
   }
   return report;
@@ -156,7 +159,7 @@ function importTag(cid, files, { dry, exportDir }) {
 
 // 묶음의 current[ref] = 내보낼 때의 { problem_id, version, facet, depth, conf } → 지금 태그 행이 그대로인지
 const tagNow = () => db.prepare(`SELECT t.problem_id pid, t.version v, t.facet, t.depth, t.conf, t.src, t.review, t.diag, t.qa, p.course_id cid, p.current_version cv, p.status
-    FROM item_tag t JOIN problem p ON p.id = t.problem_id WHERE t.problem_id = ? AND t.version = ?`);
+    FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id WHERE t.problem_id = ? AND t.version = ?`);
 function sameTag(t, c, cid) {
   if (!t || t.cid !== cid) return "태그가 없음";
   if (t.cv !== c.version) return `문제가 고쳐짐 (묶음 v${c.version} → 지금 v${t.cv}), 다시 내보내 주세요`;
@@ -195,8 +198,8 @@ function importSecond(cid, files, { dry, exportDir }) {
   report.summary = `conf 3: ${conf[3]} · conf 2: ${conf[2]} · conf 1: ${conf[1]}`;
   if (!dry && writes.length) {
     report.backup = backup("second");
-    const put = db.prepare(`UPDATE item_tag SET conf = ?, depth = ?, review = 'auto', qa = json_set(qa, '$.second', json(?))
-        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND json_extract(qa, '$.second') IS NULL`);
+    const put = db.prepare(`UPDATE item_tag SET conf = ?, depth = ?, review = 'auto', qa = JSON_SET(qa, '$.second', CAST(? AS JSON))
+        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND JSON_EXTRACT(qa, '$.second') IS NULL`);
     let n = 0; tx(() => { for (const w of writes) n += Number(put.run(w.conf, w.depth, JSON.stringify(w.sec), w.pid, w.v).changes); });
     bumpMeta("tag_rev:" + cid); report.written = n;
   }
@@ -246,9 +249,11 @@ function importFamily(cid, files, { dry, exportDir }) {
     report.backup = backup("family");
     const t = now(), body = db.prepare("SELECT kind, body FROM problem_version WHERE problem_id = ? AND version = ?");
     const famIns = db.prepare("INSERT INTO family(course_id, code, facet, base_problem_id, principle, source, status, updated_at) VALUES (?,?,?,?,?, 'llm', 'auto', ?)");
-    const fmIns = db.prepare(`INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?, 'llm', 2, ?)
-        ON CONFLICT(problem_id) DO UPDATE SET family = excluded.family, role = excluded.role, delta_type = excluded.delta_type, delta = excluded.delta, body_hash = excluded.body_hash, conf = 2, updated_at = excluded.updated_at
-        WHERE family_member.source = 'llm'`);
+    const fmIns = db.prepare(`INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?, 'llm', 2, ?) AS n
+        ON DUPLICATE KEY UPDATE family = IF(family_member.source = 'llm', n.family, family_member.family), role = IF(family_member.source = 'llm', n.role, family_member.role),
+        delta_type = IF(family_member.source = 'llm', n.delta_type, family_member.delta_type), delta = IF(family_member.source = 'llm', n.delta, family_member.delta),
+        body_hash = IF(family_member.source = 'llm', n.body_hash, family_member.body_hash), conf = IF(family_member.source = 'llm', 2, family_member.conf),
+        updated_at = IF(family_member.source = 'llm', n.updated_at, family_member.updated_at)`);
     let rows = 0;
     tx(() => {
       let n = db.prepare("SELECT code FROM family WHERE course_id = ?").all(cid).reduce((m, x) => Math.max(m, +((/^F(\d+)$/.exec(x.code) || [0, 0])[1])), 0);
@@ -308,9 +313,9 @@ function importVerify(cid, files, { dry, exportDir }) {
   report.summary = `검증 ${writes.length}문제 · 오개념 증거를 낮춤 ${lowered}개 · 세부 포인트가 맞지 않음(fit no → conf 1) ${fitNo}문제`;
   if (!dry && writes.length) {
     report.backup = backup("verify");
-    const W = "WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND json_extract(qa, '$.verified') IS NULL";
-    const ok = db.prepare(`UPDATE item_tag SET diag = ?, qa = json_set(qa, '$.verified', 1, '$.manual_verify', json('true')) ${W}`);
-    const no = db.prepare(`UPDATE item_tag SET diag = ?, conf = 1, qa = json_set(qa, '$.verified', 1, '$.manual_verify', json('true'), '$.fit', 'no') ${W}`);
+    const W = "WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND JSON_EXTRACT(qa, '$.verified') IS NULL";
+    const ok = db.prepare(`UPDATE item_tag SET diag = ?, qa = JSON_SET(qa, '$.verified', 1, '$.manual_verify', CAST('true' AS JSON)) ${W}`);
+    const no = db.prepare(`UPDATE item_tag SET diag = ?, conf = 1, qa = JSON_SET(qa, '$.verified', 1, '$.manual_verify', CAST('true' AS JSON), '$.fit', 'no') ${W}`);
     let n = 0; tx(() => { for (const w of writes) n += Number((w.no ? no : ok).run(JSON.stringify(w.diag), w.pid, w.v).changes); });
     bumpMeta("tag_rev:" + cid); report.written = n;
   }
@@ -381,8 +386,8 @@ function importThird(cid, files, { dry, exportDir }) {
   if (!dry && writes.length) {
     report.backup = backup("third");
     const put = db.prepare(`UPDATE item_tag SET facet = ?, depth = ?, conf = ?, kcs = ?, diag = ?,
-        qa = json_set(CASE WHEN ? IS NULL THEN qa ELSE json_set(qa, '$.second', json(?)) END, '$.third', json(?)), updated_at = ?
-        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND json_extract(qa, '$.third') IS NULL AND json_extract(qa, '$.verified') IS NULL`);
+        qa = JSON_SET(CASE WHEN ? IS NULL THEN qa ELSE JSON_SET(qa, '$.second', CAST(? AS JSON)) END, '$.third', CAST(? AS JSON)), updated_at = ?
+        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND JSON_EXTRACT(qa, '$.third') IS NULL AND JSON_EXTRACT(qa, '$.verified') IS NULL`);
     const t = now(); let n = 0;
     tx(() => { for (const w of writes) { const sec = w.sec ? JSON.stringify(w.sec) : null;
       n += Number(put.run(w.facet, w.depth, w.conf, JSON.stringify(w.kcs), JSON.stringify(w.diag), sec, sec, JSON.stringify(w.third), t, w.pid, w.v).changes); } });

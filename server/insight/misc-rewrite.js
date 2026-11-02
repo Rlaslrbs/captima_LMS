@@ -3,11 +3,11 @@
 //   답: { items: [{ code, facet?, belief(≤ 70자), truth(≤ 90자), note }] } — 코드 울타리(```)나 앞말이 있어도 첫 JSON 객체만 읽는다
 // - misc_rewrite.json의 코드가 모두 있어야 하고, 그 밖의 코드는 받지 않는다. facet은 그대로(바꾸면 실패), 끝이 잘린 표시(… ...)·빈 문장은 실패
 // - 바꾸는 것: 그 코드들의 misc.belief · misc.truth · updated_at 만. 코드·facet·status('auto' 그대로, 관리자 검토는 나중)·태그는 건드리지 않는다
-// - 실제로 쓰기 전에 data/backups/ 에 VACUUM INTO 백업을 만든다. --dry는 아무것도 쓰지 않는다
+// - 실제로 쓰기 전에 data/backups/ 에 mysqldump 백업(SQL 파일)을 만든다. --dry는 아무것도 쓰지 않는다
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { db, ROOT, now, tx, BACKUP_DIR } from "../db.js";
+import { db, ROOT, now, tx, BACKUP_DIR, dumpTo } from "../db.js";
 import { firstJson } from "./manual-import.js";
 
 const MAX = { belief: 70, truth: 90 };
@@ -42,8 +42,8 @@ export function rewriteMisc(cid, file, { dry = true, exportDir = join(ROOT, "dat
   const complete = !report.failed.length && !report.missing.length && !report.extra.length;
   if (!dry && complete) {
     mkdirSync(BACKUP_DIR, { recursive: true });
-    const bk = join(BACKUP_DIR, `app-before-misc-rewrite-${new Date().toISOString().replace(/[-:]/g, "").slice(0, 13)}.db`);
-    db.exec(`VACUUM INTO '${bk.replace(/'/g, "''")}'`); report.backup = bk;
+    const bk = join(BACKUP_DIR, `app-before-misc-rewrite-${new Date().toISOString().replace(/[-:]/g, "").slice(0, 13)}.sql`);
+    dumpTo(bk); report.backup = bk;
     const put = db.prepare("UPDATE misc SET belief = ?, truth = ?, updated_at = ? WHERE course_id = ? AND code = ?"), at = now();
     let n = 0; tx(() => { for (const w of writes) n += Number(put.run(w.b, w.t, at, cid, w.code).changes); });
     report.written = n;
