@@ -175,7 +175,7 @@ function mountBrowse(r) {
     const sets = setsOf(it), c = sets[0];
     const col = c && c.color || { light: "#0066cc", dark: "#2997ff" };
     const on = sets.some(s => isEnrolled(s.id));
-    return `<button class="ctile ${c ? "" : "off"}" data-open="${it.id}" style="--c:${esc(col.light)};--cd:${esc(col.dark)}">
+    return `<button class="ctile ${c ? "" : "off"}${on ? " mine" : ""}" data-open="${it.id}" style="--c:${esc(col.light)};--cd:${esc(col.dark)}">
       <span class="kd k-${it.kind}">${KINDS[it.kind]}</span>
       <b>${esc(it.name)}</b>
       <small>${c ? `${sets.reduce((n, s) => n + s.problems, 0)}문제${on ? ` · <i class="on">✓ 담음</i>` : ""}` : "준비 중"}</small>
@@ -193,6 +193,8 @@ function mountBrowse(r) {
         : `<div class="empty">아직 올라온 교양 과목이 없어요.</div>`}
       </div>
     </div>`;
+    const yrs = view.querySelector(".years.from-r,.years.from-l");
+    if (yrs) yrs.addEventListener("animationend", e => e.target === yrs && yrs.classList.remove("from-r", "from-l"));   // 끝나면 타일 굴절을 다시 켠다 (glass.css)
     dir = 0;
   }
 
