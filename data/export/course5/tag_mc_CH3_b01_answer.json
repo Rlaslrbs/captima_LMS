@@ -1,0 +1,34 @@
+{
+  "items": [
+    {"ref": "p1069", "rationale": "설치·수리·고객 교육·유지보수는 서비스 활동이고, 산출물류는 완성품을 고객에게 전달하는 활동이다. 그래서 C가 틀린 연결이다.", "facet": "value_chain.activities", "facets2": [], "depth": "3", "depth_why": "D3a",
+     "options": [
+       {"idx": 0, "belief_if_chosen": "자재 주문과 재고 관리는 조달 같은 지원 활동이라 유입물류가 아니라고 생각함", "misc": "m_value_chain_inbound", "d": "2", "src": "inferred", "err": "concept_confusion"},
+       {"idx": 1, "belief_if_chosen": "생산·조립은 맞지만 설비 유지보수가 운영에 들어가지 않는다고 오해함", "misc": "none", "d": "0", "src": "inferred", "err": "weak_distractor"},
+       {"idx": 3, "belief_if_chosen": "공급업체 선정과 가격 협상은 유입물류에 속한다고 생각함", "misc": "m_value_chain_inbound", "d": "1", "src": "inferred", "err": "concept_confusion"}
+     ]},
+    {"ref": "p1070", "rationale": "제품 차별화가 어려울 때 고객의 교섭력이 강해진다. 차별화가 쉬운 것은 교섭력을 강하게 하는 조건이 아니다.", "facet": "five_forces.forces", "facets2": [], "depth": "3", "depth_why": "D3b",
+     "options": [
+       {"idx": 0, "belief_if_chosen": "고객 수가 적으면 오히려 교섭력이 약해진다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "condition_misread"},
+       {"idx": 1, "belief_if_chosen": "경쟁 제품으로 쉽게 옮길 수 있어도 교섭력과는 관계없다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "condition_misread"},
+       {"idx": 2, "belief_if_chosen": "정보를 쉽게 얻는 것은 교섭력을 키우지 않는다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "condition_misread"}
+     ]},
+    {"ref": "p1148", "rationale": "인터넷은 대체재의 출현을 활성화했다. 대체재 출현을 억제했다는 설명이 틀리다.", "facet": "five_forces.forces", "facets2": [], "depth": "2", "depth_why": "D2a",
+     "options": [
+       {"idx": 0, "belief_if_chosen": "인터넷은 기존 시장을 줄였다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "partial"},
+       {"idx": 1, "belief_if_chosen": "인터넷은 진입장벽을 높였다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "partial"},
+       {"idx": 2, "belief_if_chosen": "교섭력은 한 방향으로만 변한다고 생각함", "misc": "none", "d": "1", "src": "explanation", "err": "qualifier"}
+     ]},
+    {"ref": "p1149", "rationale": "고객 및 공급자 친밀성 전략은 고객 데이터로 맞춤 서비스를 제공해 전환 비용을 높인다.", "facet": "five_forces.forces", "facets2": [], "depth": "3", "depth_why": "D3a",
+     "options": [
+       {"idx": 1, "belief_if_chosen": "맞춤 서비스는 제품을 차별화하는 전략이라고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "concept_confusion"},
+       {"idx": 2, "belief_if_chosen": "고객 데이터 활용은 특정 시장 틈새에 집중하는 전략이라고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "concept_confusion"},
+       {"idx": 3, "belief_if_chosen": "고객이 떠나지 못하게 하는 것은 가격을 낮추는 전략이라고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "concept_confusion"}
+     ]},
+    {"ref": "p1150", "rationale": "단일 기업 내부 활동의 선형적 연결은 가치사슬이고, 가치웹은 독립 기업들이 IT로 가치사슬을 조정하는 비선형 구조다.", "facet": "value_chain.activities", "facets2": [], "depth": "3", "depth_why": "D3a",
+     "options": [
+       {"idx": 0, "belief_if_chosen": "가치웹도 한 기업의 가치사슬을 다룬다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "concept_confusion"},
+       {"idx": 2, "belief_if_chosen": "가치웹이 가치사슬보다 더 선형적이라고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "concept_confusion"},
+       {"idx": 3, "belief_if_chosen": "가치웹은 수요·공급 변화에 오히려 유연하지 않다고 생각함", "misc": "none", "d": "1", "src": "inferred", "err": "partial"}
+     ]}
+  ]
+}

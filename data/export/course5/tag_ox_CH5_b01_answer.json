@@ -1,0 +1,162 @@
+{
+ "items": [
+  {
+   "ref": "p969",
+   "rationale": "IT 인프라는 메인프레임, PC, 클라이언트/서버, 전사적 컴퓨팅, 클라우드·모바일 순으로 발전했다. 진술은 이 순서를 그대로 말한다.",
+   "facet": "c16.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p970",
+   "rationale": "전사적 컴퓨팅은 TCP/IP 같은 표준으로 여러 공급자 제품을 쓰게 해 공급자 교섭력을 낮췄다. 진술이 배운 내용 그대로다.",
+   "facet": "c16.f2",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p971",
+   "rationale": "무어의 법칙은 마이크로프로세서 성능이 약 2년마다 2배, 컴퓨팅 가격이 약 2년마다 절반이라는 것이다.",
+   "facet": "c17.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p972",
+   "rationale": "디지털 정보량은 매년이 아니라 약 3년마다 2배가 된다.",
+   "facet": "c17.f3",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "3년마다 약 2배 -> 매년 약 2배",
+    "misc": "m038",
+    "d": "2",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p973",
+   "rationale": "멧칼프의 법칙은 접속 인원 추가 비용은 선형, 네트워크 가치는 훨씬 빠르게 증가한다는 것이다.",
+   "facet": "c17.f4",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p974",
+   "rationale": "모바일 기기에는 x86 CISC가 아니라 ARM 기반 RISC 프로세서가 주로 쓰인다.",
+   "facet": "c20.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "ARM 기반 RISC -> x86 기반 CISC",
+    "misc": "m037",
+    "d": "2",
+    "err": "concept_confusion",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p975",
+   "rationale": "소비자화는 B2C에서 먼저 확산된 뒤 B2B로 넘어가는 현상이며 방향이 반대로 서술되었다.",
+   "facet": "c20.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "B2C -> B2B 방향 -> B2B -> B2C로 뒤집음",
+    "misc": "m036",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p976",
+   "rationale": "가상화로 한 물리 서버에서 여러 OS를 돌려 서버 가동률을 15~20%에서 70% 이상으로 높일 수 있다.",
+   "facet": "c19.f2",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p977",
+   "rationale": "NIST 클라우드는 위치 독립적 자원 풀링을 특징으로 하며 사용자는 자원 위치를 모른다.",
+   "facet": "c18.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p978",
+   "rationale": "사설은 보안·성능이 중요한 시스템, 공공은 처리량이 많은 시스템에 쓰고 둘을 섞은 것이 하이브리드 클라우드다.",
+   "facet": "c18.f2",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p979",
+   "rationale": "보안·성능·신뢰성은 클라우드의 장점이 아니라 우려되는 단점이며, 네트워크 연결 없이는 쓰기 어렵다.",
+   "facet": "c18.f4",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "planted_error": "클라우드의 보안성이 항상 높다 / 네트워크 없이도 사용 가능",
+    "misc": "m039",
+    "d": "3",
+    "err": "qualifier",
+    "reverse_misc": "none"
+   }
+  }
+ ]
+}

@@ -1,0 +1,136 @@
+{
+ "items": [
+  {
+   "ref": "p1108",
+   "rationale": "Office 365는 완성된 응용 소프트웨어를 제공하는 SaaS이고, 같은 회사 제품이라도 유형이 다르다(Lambda는 PaaS, OCI는 IaaS, Google Workspace는 SaaS).",
+   "facet": "c18.f3",
+   "depth": "2",
+   "depth_why": "D2a",
+   "options": [
+    {
+     "idx": 1,
+     "belief_if_chosen": "AWS는 IaaS 회사이므로 AWS 제품은 모두 IaaS라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "overgeneralize"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "OCI 같은 클라우드 플랫폼 이름이 붙으면 PaaS라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "Google Docs·Sheets처럼 인터넷으로 쓰는 서비스를 기반 자원(IaaS)으로 착각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1167",
+   "rationale": "수요 변화에 맞춰 자원이 더 혹은 덜 공급되는 것은 신속한 탄력성이다. 셀프서비스는 사용량 결정의 주체에 초점이 있다.",
+   "facet": "c18.f1",
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "수요에 따라 자원을 늘렸다 줄이는 것을 셀프서비스라고 생각함",
+     "misc": "m043",
+     "d": "3",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "여러 곳의 자원을 통합해 제공하는 풀링이 자원 증감과 같다고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "사용량에 따른 과금 방식이 자원 증감 특징이라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1168",
+   "rationale": "소비자화는 신기술이 B2C에서 먼저 퍼진 뒤 B2B로 넘어가는 현상이다. 메신저 앱이 소비자에게 먼저 퍼지고 기업이 도입한 사례가 해당한다.",
+   "facet": "c20.f1",
+   "depth": "2",
+   "depth_why": "D2a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "기술이 기업에서 먼저 나온 뒤 소비자에게 퍼지는 방향도 소비자화라고 생각함",
+     "misc": "m036",
+     "d": "3",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "회사가 직원에게 표준 기기를 지급해 통제하는 것도 소비자화라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "weak_distractor"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "기업이 클라우드로 옮기는 것처럼 새 IT 도입이면 소비자화라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1169",
+   "rationale": "무료 오픈소스가 시장에 공급되면 고객에게 대안이 생겨 독과점 공급자의 교섭력이 낮아진다. 네트워크 효과 강화와 전환 비용 증가는 오히려 교섭력을 높인다.",
+   "facet": "c20.f4",
+   "depth": "1",
+   "depth_why": "D1a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "오픈소스는 기존 공급자의 지위를 굳혀 준다고 생각함",
+     "misc": "m046",
+     "d": "3",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "전환 비용이 높아져야 공급자 교섭력이 낮아진다고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "공급자들이 서로 배타적으로 경쟁해야 교섭력이 낮아진다고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "weak_distractor"
+    }
+   ]
+  }
+ ]
+}
