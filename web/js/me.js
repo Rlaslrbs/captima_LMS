@@ -1,9 +1,12 @@
 // 마이페이지: 프로필(닉네임·동의·테마) / 학습 현황 / 내 강의실 관리 / 내 오류 제보 / 기기 이동
-import { $, esc, barHTML, pct, ago, toast, ask } from "./util.js";
+import { $, esc, barHTML, pct, ago, toast, ask, LS } from "./util.js";
 import { S, api, updateDevice, setEnroll, courseCounts, courseMeta, adoptDevice, onChange, flush } from "./store.js";
 
 const CAT = { answer: "정답 오류", explanation: "해설 오류", typo: "오타·표현", other: "기타" };
 const RST = { open: ["접수됨", ""], fixed: ["수정됨", "correct"], rejected: ["반려", "wrong"] };
+
+// Liquid Glass 테마(glass.css)가 켜져 있을 때만 불투명도 막대를 보인다
+const glassOn = () => !!getComputedStyle(document.documentElement).getPropertyValue("--lg-k").trim();
 
 export function mountMe(view, ctx) {
   let reports = null, code = null, timer = null, showKey = false;
@@ -21,6 +24,8 @@ export function mountMe(view, ctx) {
         <span class="sw"><input type="checkbox" id="consent" ${d.consent ? "checked" : ""}><i></i></span></label>
       <div class="kv"><span>화면</span><div class="seg sm" role="radiogroup" aria-label="화면 테마">${[["auto", "자동"], ["light", "라이트"], ["dark", "다크"]].map(([v, l]) =>
         `<label><input type="radio" name="theme" value="${v}" ${th === v ? "checked" : ""}><span>${l}</span></label>`).join("")}</div></div>
+      <div class="kv"><span>소개 화면</span><button type="button" class="btn sm" id="btnReplayOnboarding">다시 보기</button></div>
+      ${glassOn() ? `<div class="kv"><span>유리 불투명도</span><label class="glass-r">맑게<input type="range" id="glassR" min="0" max="100" step="1" value="${LS.get("glass", 50)}" aria-label="유리 불투명도">불투명</label></div>` : ""}
     </section>`;
   }
 
@@ -110,6 +115,12 @@ export function mountMe(view, ctx) {
 
   async function onClick(e) {
     const b = e.target.closest("button"); if (!b) return;
+    if (b.id === "btnReplayOnboarding") {
+      if (typeof window.openShowcaseOnboarding === "function") {
+        window.openShowcaseOnboarding();
+      }
+      return;
+    }
     if (b.dataset.mv !== undefined) {
       const i = +b.dataset.mv, j = i + +b.dataset.d; const a = [...S.enroll]; [a[i], a[j]] = [a[j], a[i]]; setEnroll(a); render(); return;
     }
@@ -160,12 +171,15 @@ export function mountMe(view, ctx) {
       catch { t.checked = !v; toast("바꾸지 못했어요. 인터넷 연결을 확인해 주세요", "bad"); }
     }
     if (t.name === "theme") ctx.setTheme(t.value);
+    if (t.id === "glassR") LS.set("glass", +t.value);
   }
-  view.addEventListener("click", onClick); view.addEventListener("submit", onSubmit); view.addEventListener("change", onChangeEv);
+  // 유리 불투명도: 막대를 끄는 동안 바로 화면에 보이게 (저장은 손을 뗄 때 change에서)
+  const onInput = e => { if (e.target.id === "glassR") document.documentElement.style.setProperty("--lg-v", e.target.value); };
+  view.addEventListener("click", onClick); view.addEventListener("submit", onSubmit); view.addEventListener("change", onChangeEv); view.addEventListener("input", onInput);
   const off = onChange(w => { if (w !== "online") render(); });
   document.title = "마이페이지 · 문제노트";
   render(); loadReports(); loadIns();
   return {
-    destroy() { clearInterval(timer); off(); view.removeEventListener("click", onClick); view.removeEventListener("submit", onSubmit); view.removeEventListener("change", onChangeEv); },
+    destroy() { clearInterval(timer); off(); view.removeEventListener("click", onClick); view.removeEventListener("submit", onSubmit); view.removeEventListener("change", onChangeEv); view.removeEventListener("input", onInput); },
   };
 }

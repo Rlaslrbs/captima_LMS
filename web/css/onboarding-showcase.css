@@ -1,0 +1,316 @@
+/* 문제노트 첫 소개 화면 (onboarding-showcase.js)
+   애플 제품 페이지처럼: 검정 바탕, 큰 글자, 회색 타일, 파란 버튼. 빛 번짐 · 그라데이션 글자 · 이모지는 쓰지 않는다. */
+
+.onb-showcase {
+  --k-ink: #f5f5f7;
+  --k-mute: #86868b;
+  --k-tile: #1c1c1e;
+  --k-fill: #2c2c2e;
+  --k-line: rgba(255, 255, 255, 0.12);
+  --k-blue: #2997ff;
+  --k-btn: #0071e3;
+  --k-ok: #30d158;
+  --k-bad: #ff453a;
+  --k-warn: #ff9f0a;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #000;
+  color: var(--k-ink);
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, "Pretendard Variable", sans-serif);
+  letter-spacing: -0.011em;
+  word-break: keep-all;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-user-select: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s var(--ease, ease), visibility 0.5s;
+  -webkit-font-smoothing: antialiased;
+}
+.onb-showcase input { user-select: text; -webkit-user-select: text; }
+.onb-showcase.is-active { opacity: 1; visibility: visible; }
+html.onb-lock { overflow: hidden; }
+.onb-showcase button { font: inherit; color: inherit; }
+.onb-showcase button:focus-visible,
+.onb-showcase input:focus-visible,
+.onb-showcase summary:focus-visible { outline: 2px solid var(--k-blue); outline-offset: 3px; }
+
+/* ── 배경 글자 격자 ── */
+.onb-scramble-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+
+/* ── 위쪽 바 ── */
+.onb-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(16px, 4vw, 40px);
+  background: rgba(0, 0, 0, 0.72);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--k-line);
+}
+.onb-logo-text { font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.onb-header-actions { display: flex; align-items: center; gap: 10px; }
+.onb-skip-btn {
+  appearance: none; border: 0; background: transparent; cursor: pointer;
+  font-size: 14px; color: var(--k-mute); padding: 6px 12px; border-radius: 980px;
+  transition: color 0.2s, background 0.2s;
+}
+.onb-skip-btn:hover { color: var(--k-ink); background: rgba(255, 255, 255, 0.08); }
+.onb-direct-start-btn {
+  appearance: none; border: 0; cursor: pointer;
+  font-size: 14px; font-weight: 500; color: #fff; background: var(--k-btn);
+  padding: 6px 16px; border-radius: 980px; transition: background 0.2s;
+}
+.onb-direct-start-btn:hover { background: #0077ed; }
+
+/* ── 오른쪽 목차 점 ── */
+.onb-scroll-nav { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 12px; }
+.onb-nav-dot {
+  width: 8px; height: 8px; border-radius: 50%; border: 0; padding: 0; cursor: pointer; position: relative;
+  background: rgba(255, 255, 255, 0.25);
+  transition: height 0.3s var(--spring, ease), background 0.3s, border-radius 0.3s;
+}
+.onb-nav-dot::before {
+  content: attr(data-label); position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+  font-size: 12px; color: var(--k-ink); background: var(--k-fill); padding: 4px 10px; border-radius: 8px;
+  white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+}
+.onb-nav-dot:hover::before { opacity: 1; }
+.onb-nav-dot.is-active { background: var(--k-ink); height: 22px; border-radius: 4px; }
+@media (max-width: 768px) { .onb-scroll-nav { display: none; } }
+
+/* ── 본문 ── */
+.onb-content { position: relative; z-index: 10; max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 40px); }
+.onb-section {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: clamp(40px, 7vh, 72px) 0; box-sizing: border-box; position: relative;
+}
+
+/* 떠오르며 나타나기 */
+.onb-rv { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease, ease) var(--d, 0ms), transform 0.9s var(--spring, ease) var(--d, 0ms); }
+.onb-rv.in { opacity: 1; transform: none; }
+
+.onb-eyebrow { margin: 0; font-size: clamp(15px, 1.6vw, 19px); font-weight: 600; color: var(--k-mute); }
+
+/* ── 첫 화면 ── */
+.onb-hero { text-align: center; min-height: 100vh; padding-top: 120px; }
+.onb-hero .onb-eyebrow { margin-bottom: 14px; color: var(--k-ink); }
+.onb-hero-title { font-size: clamp(40px, 7vw, 80px); font-weight: 700; line-height: 1.05; letter-spacing: -0.035em; margin: 0 0 22px; }
+.onb-hero-sub { font-size: clamp(17px, 2vw, 21px); font-weight: 500; line-height: 1.45; color: var(--k-mute); max-width: 640px; margin: 0 auto 34px; }
+.onb-hero-ctas { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.onb-btn-primary, .onb-btn-secondary {
+  appearance: none; cursor: pointer; font-size: 17px; font-weight: 500; padding: 13px 28px; border-radius: 980px;
+  transition: background 0.2s, transform 0.3s var(--spring, ease);
+}
+.onb-btn-primary { border: 0; background: var(--k-btn); color: #fff; }
+.onb-btn-primary:hover { background: #0077ed; transform: scale(1.03); }
+.onb-btn-secondary { border: 1px solid var(--k-line); background: transparent; color: var(--k-blue); }
+.onb-btn-secondary:hover { background: rgba(41, 151, 255, 0.1); }
+.onb-scroll-hint { margin: 56px 0 0; font-size: 14px; color: var(--k-mute); }
+.onb-drag-hint { display: none; }
+@media (hover: hover) and (pointer: fine) { .onb-drag-hint { display: inline; } }
+
+/* ── 두 칸 배치 ── */
+.onb-feature-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; width: 100%; }
+.onb-feature-grid.reverse { grid-template-columns: 1.1fr 1fr; }
+@media (max-width: 900px) { .onb-feature-grid, .onb-feature-grid.reverse { grid-template-columns: 1fr; gap: 32px; } }
+.onb-feature-info { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.onb-feature-title { font-size: clamp(30px, 4.2vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.035em; margin: 0; }
+.onb-feature-desc { font-size: clamp(16px, 1.8vw, 19px); line-height: 1.5; color: var(--k-mute); margin: 0; }
+.onb-feature-bullets { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-direction: column; gap: 10px; }
+.onb-feature-bullets li { position: relative; padding-left: 18px; font-size: 16px; line-height: 1.5; color: #d2d2d7; }
+.onb-feature-bullets li::before { content: ""; position: absolute; left: 2px; top: 0.7em; width: 5px; height: 5px; border-radius: 50%; background: var(--k-mute); }
+
+/* ── 회색 타일 ── */
+.onb-tile { background: var(--k-tile); border-radius: 28px; padding: clamp(22px, 3vw, 36px); min-width: 0; }
+.onb-tile-cap { margin: 0 0 14px; font-size: 13px; font-weight: 600; color: var(--k-mute); }
+.onb-tile-h { margin: 0 0 16px; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+
+/* 과목 목록 */
+.onb-subjects { display: flex; flex-direction: column; gap: 2px; margin-top: 12px; }
+.onb-subj {
+  appearance: none; border: 0; background: transparent; cursor: pointer; text-align: left;
+  display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; transition: background 0.2s;
+}
+.onb-subj:hover { background: rgba(255, 255, 255, 0.05); }
+.onb-subj[aria-selected="true"] { background: rgba(255, 255, 255, 0.1); }
+.onb-subj-dot { flex: none; width: 10px; height: 10px; border-radius: 50%; }
+.onb-subj-name { flex: 1; min-width: 0; font-size: 17px; font-weight: 600; letter-spacing: -0.02em; }
+.onb-subj-n { font-size: 14px; color: var(--k-mute); font-variant-numeric: tabular-nums; }
+
+/* 문제 예시 */
+.onb-q { margin: 0 0 18px; font-size: clamp(18px, 2vw, 22px); font-weight: 600; line-height: 1.45; letter-spacing: -0.02em; }
+.onb-opts { display: flex; flex-direction: column; gap: 8px; }
+.onb-opts.ox { flex-direction: row; }
+.onb-opt {
+  appearance: none; border: 0; cursor: pointer; text-align: left; background: var(--k-fill); color: var(--k-ink);
+  font-size: 16px; line-height: 1.45; padding: 14px 16px; border-radius: 14px; box-shadow: inset 0 0 0 1.5px transparent;
+  transition: background 0.2s, box-shadow 0.25s;
+}
+.onb-opts.ox .onb-opt { flex: 1; text-align: center; font-size: 22px; font-weight: 600; padding: 18px; }
+.onb-opt:hover:not(:disabled) { background: #3a3a3c; }
+.onb-opt:disabled { cursor: default; opacity: 0.55; }
+.onb-opt.good { opacity: 1; background: rgba(48, 209, 88, 0.14); box-shadow: inset 0 0 0 1.5px var(--k-ok); }
+.onb-opt.bad { opacity: 1; background: rgba(255, 69, 58, 0.14); box-shadow: inset 0 0 0 1.5px var(--k-bad); }
+.onb-why { margin-top: 14px; padding: 14px 16px; border-radius: 14px; background: var(--k-fill); box-shadow: inset 3px 0 0 var(--k-blue); animation: onb-fade 0.4s var(--ease, ease); }
+.onb-why[hidden] { display: none; }
+.onb-why b { display: block; margin-bottom: 4px; font-size: 14px; }
+.onb-why p { margin: 0; font-size: 14.5px; line-height: 1.55; color: #d2d2d7; }
+@keyframes onb-fade { from { opacity: 0; transform: translateY(6px); } }
+
+/* 복습 목록 */
+.onb-rv-row { display: flex; align-items: center; gap: 12px; padding: 13px 16px; margin-bottom: 8px; border-radius: 14px; background: var(--k-fill); font-size: 15px; line-height: 1.4; }
+.onb-pill { flex: none; font-size: 12px; font-weight: 600; border-radius: 980px; padding: 2px 10px; }
+.onb-pill-w { background: rgba(255, 69, 58, 0.18); color: #ff6961; }
+.onb-pill-s { background: rgba(255, 159, 10, 0.18); color: #ffb340; }
+.onb-pill-ok { background: rgba(48, 209, 88, 0.16); color: var(--k-ok); }
+.onb-rv-foot { display: flex; justify-content: space-between; margin: 14px 2px 8px; font-size: 13px; color: var(--k-mute); }
+.onb-rv-foot b { color: var(--k-ink); font-variant-numeric: tabular-nums; }
+
+/* 막대: 화면에 들어오면 차오른다 */
+.onb-track { height: 6px; border-radius: 980px; background: rgba(255, 255, 255, 0.1); overflow: hidden; }
+.onb-track i { display: block; height: 100%; width: 0; border-radius: inherit; background: var(--k-blue); transition: width 1s var(--ease, ease) 0.3s; }
+.onb-rv.in .onb-track i { width: var(--w); }
+
+/* 학습 리포트 예시 */
+.onb-lv { display: grid; grid-template-columns: 4.2em 1fr 3.4em; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 14px; }
+.onb-lv em { font-style: normal; font-size: 13px; color: var(--k-mute); text-align: right; }
+.onb-note { margin-top: 20px; padding: 16px 18px; border-radius: 16px; background: var(--k-fill); box-shadow: inset 3px 0 0 var(--k-warn); display: flex; flex-direction: column; gap: 4px; }
+.onb-note small { font-size: 12px; font-weight: 600; color: var(--k-warn); }
+.onb-note b { font-size: 16px; font-weight: 600; line-height: 1.4; }
+
+/* 기기 이어 풀기 예시 */
+.onb-sync-visual { display: flex; align-items: center; gap: 12px; padding: 8px 0 22px; }
+.onb-device { flex: none; width: 112px; padding: 18px 10px; border-radius: 16px; background: var(--k-fill); text-align: center; display: flex; flex-direction: column; gap: 4px; }
+.onb-device b { font-size: 16px; }
+.onb-device small { font-size: 12px; color: var(--k-mute); }
+.onb-sync-line { flex: 1; height: 1px; background: repeating-linear-gradient(90deg, var(--k-mute) 0 6px, transparent 6px 12px); }
+.onb-code { display: flex; justify-content: center; gap: 8px; }
+.onb-code span { width: 40px; height: 52px; display: grid; place-items: center; border-radius: 12px; background: var(--k-fill); font: 600 22px/1 ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+
+/* ── 시작 ── */
+.onb-final-section { text-align: center; padding-bottom: 120px; }
+
+/* 정답을 맞히면 화면이 초록으로 두 번 깜박인다 */
+.onb-flash { position: fixed; inset: 0; z-index: 50; pointer-events: none; background: rgba(48, 209, 88, 0.16); animation: onb-blink 0.7s ease-out forwards; }
+@keyframes onb-blink { 0% { opacity: 0; } 15% { opacity: 1; } 35% { opacity: 0.1; } 55% { opacity: 0.8; } 100% { opacity: 0; } }
+.onb-final-title { font-size: clamp(32px, 5vw, 52px); margin-bottom: 14px; }
+.onb-final-section .onb-hero-sub { margin-bottom: 32px; }
+.onb-card-final { max-width: 560px; width: 100%; margin: 0 auto; text-align: left; }
+.onb-form-group { margin-bottom: 22px; }
+.onb-form-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+.onb-form-label small { font-size: 12px; font-weight: 400; color: var(--k-mute); margin-left: 6px; }
+.onb-grade-seg { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: var(--k-fill); padding: 3px; border-radius: 12px; }
+.onb-grade-seg label { position: relative; cursor: pointer; text-align: center; }
+.onb-grade-seg input { position: absolute; opacity: 0; pointer-events: none; }
+.onb-grade-seg span { display: block; padding: 9px 2px; border-radius: 9px; font-size: 13.5px; font-weight: 500; color: var(--k-mute); transition: background 0.2s, color 0.2s; }
+.onb-grade-seg input:checked + span { background: #636366; color: #fff; }
+.onb-grade-seg input:focus-visible + span { outline: 2px solid var(--k-blue); }
+.onb-input-text { width: 100%; box-sizing: border-box; background: var(--k-fill); border: 0; border-radius: 12px; padding: 13px 16px; font-size: 16px; color: var(--k-ink); outline: none; transition: box-shadow 0.2s; }
+.onb-input-text::placeholder { color: #636366; }
+.onb-input-text:focus { box-shadow: 0 0 0 2px var(--k-blue); }
+.onb-privacy-box { background: var(--k-fill); border-radius: 12px; padding: 12px 16px; font-size: 13.5px; color: var(--k-mute); line-height: 1.55; }
+.onb-privacy-box summary { cursor: pointer; font-weight: 600; color: var(--k-ink); }
+.onb-privacy-box p { margin: 8px 0 0; }
+.onb-privacy-box b { color: var(--k-ink); margin-right: 6px; }
+.onb-action-stack { display: flex; flex-direction: column; gap: 8px; margin-top: 26px; }
+.onb-submit-btn { width: 100%; appearance: none; border: 0; cursor: pointer; background: var(--k-btn); color: #fff; font-size: 17px; font-weight: 500; padding: 14px; border-radius: 980px; transition: background 0.2s, transform 0.3s var(--spring, ease); }
+.onb-submit-btn:hover:not(:disabled) { background: #0077ed; }
+.onb-submit-btn:active:not(:disabled) { transform: scale(0.98); }
+.onb-submit-btn:disabled, .onb-local-btn:disabled { opacity: 0.5; cursor: default; }
+.onb-local-btn { width: 100%; appearance: none; border: 0; cursor: pointer; background: transparent; color: var(--k-blue); font-size: 15px; padding: 10px; border-radius: 980px; text-align: center; transition: background 0.2s; }
+.onb-local-btn:hover:not(:disabled) { background: rgba(41, 151, 255, 0.1); }
+.onb-local-btn small { display: block; font-size: 12px; color: var(--k-mute); margin-top: 2px; }
+.onb-restore-link { text-align: center; margin-top: 16px; }
+.onb-restore-toggle { appearance: none; border: 0; background: transparent; cursor: pointer; color: var(--k-blue); font-size: 13.5px; }
+.onb-restore-toggle:hover { text-decoration: underline; text-underline-offset: 3px; }
+.onb-restore-form { margin-top: 12px; display: flex; gap: 8px; }
+.onb-restore-form[hidden] { display: none; }
+.onb-restore-btn { appearance: none; border: 0; cursor: pointer; background: var(--k-fill); color: var(--k-ink); padding: 0 18px; border-radius: 12px; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.onb-restore-btn:hover { background: #3a3a3c; }
+
+
+/* 서술형 채점 예시 */
+.onb-ess-lab { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: var(--k-mute); }
+.onb-ess-ans { margin: 0 0 16px; padding: 14px 16px; border-radius: 14px; background: var(--k-fill); font-size: 15px; line-height: 1.6; color: #d2d2d7; }
+.onb-ess-btn { appearance: none; border: 0; cursor: pointer; background: var(--k-btn); color: #fff; font-size: 14.5px; font-weight: 500; padding: 9px 18px; border-radius: 980px; transition: background 0.2s, opacity 0.2s; }
+.onb-ess-btn:hover:not(:disabled) { background: #0077ed; }
+.onb-ess-btn:disabled { opacity: 0.6; cursor: default; }
+.onb-ess-pts { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.onb-ess-pts li { display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 12px; background: var(--k-fill); font-size: 14px; opacity: 0.35; transition: opacity 0.4s var(--ease, ease); }
+.onb-ess-pts li.on { opacity: 1; }
+.onb-ess-pts li span:nth-child(2) { flex: 1; min-width: 0; }
+.onb-ess-pts em { font-style: normal; font-size: 12px; font-weight: 600; color: var(--k-mute); }
+.onb-ess-mark { flex: none; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; font-size: 12px; font-weight: 700; background: rgba(255, 255, 255, 0.1); color: var(--k-mute); transition: background 0.3s, color 0.3s; }
+.onb-ess-pts li.on[data-v="covered"] .onb-ess-mark { background: rgba(48, 209, 88, 0.18); color: var(--k-ok); }
+.onb-ess-pts li.on[data-v="covered"] em { color: var(--k-ok); }
+.onb-ess-pts li.on[data-v="partial"] .onb-ess-mark { background: rgba(255, 159, 10, 0.18); color: var(--k-warn); }
+.onb-ess-pts li.on[data-v="partial"] em { color: var(--k-warn); }
+.onb-ess-pts li.on[data-v="missing"] .onb-ess-mark { background: rgba(255, 69, 58, 0.18); color: var(--k-bad); }
+.onb-ess-pts li.on[data-v="missing"] em { color: var(--k-bad); }
+.onb-ess-res { margin-top: 14px; padding: 14px 16px; border-radius: 14px; background: var(--k-fill); box-shadow: inset 3px 0 0 var(--k-warn); display: flex; flex-direction: column; gap: 4px; animation: onb-fade 0.4s var(--ease, ease); }
+.onb-ess-res[hidden] { display: none; }
+.onb-ess-res b { font-size: 15px; color: var(--k-warn); }
+.onb-ess-res small { font-size: 12px; color: var(--k-mute); }
+.onb-ess-res p { margin: 6px 0 0; font-size: 14.5px; line-height: 1.55; color: #d2d2d7; }
+
+/* ── 리퀴드 글라스 (앱 본 화면의 glass.css와 같은 결): 위쪽 바와 큰 타일은 뒤의 글자 격자를 흐리고 휘게 하고, 작은 것은 테두리 빛만 ── */
+.onb-showcase {
+  --g-spec: linear-gradient(160deg, rgba(255, 255, 255, 0.14), transparent 38%);
+  --g-rim: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --g-edge: 0 0 0 0.5px rgba(0, 0, 0, 0.5);
+  --g-tile: rgba(255, 255, 255, min(1, calc(0.075 * var(--lg-k, 1))));      /* 마이페이지의 유리 불투명도 막대(--lg-k)를 따른다 */
+  --g-chrome: rgba(40, 40, 48, min(1, calc(0.36 * var(--lg-k, 1))));
+  --g-fill: rgba(255, 255, 255, 0.08);
+}
+.onb-header {
+  top: 10px; left: 12px; right: 12px; max-width: 1040px; margin-inline: auto; border: 0; border-radius: 26px;
+  background: var(--g-spec), var(--g-chrome);
+  -webkit-backdrop-filter: blur(22px) saturate(190%); backdrop-filter: blur(22px) saturate(190%);
+  box-shadow: var(--g-rim), var(--g-edge), 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+.onb-tile {
+  background: var(--g-spec), var(--g-tile);
+  -webkit-backdrop-filter: blur(18px) saturate(180%); backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: var(--g-rim), var(--g-edge), 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+/* 빛의 굴절: index.html의 #lg-refract 필터. 크롬 계열만 되고, 나머지는 위의 보통 유리로 남는다. 마우스 쓰는 큰 화면에서만 */
+@media (hover: hover) and (pointer: fine) {
+  .onb-tile { backdrop-filter: url(#lg-refract) blur(5px) saturate(180%) brightness(1.05); }
+}
+.onb-nav-dot::before { background: var(--g-chrome); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: var(--g-rim); }
+/* 타일 안과 작은 단추: 흐림 없이 반투명 + 테두리 빛 */
+.onb-opt, .onb-rv-row, .onb-ess-ans, .onb-ess-pts li, .onb-why, .onb-ess-res, .onb-note, .onb-device, .onb-code span,
+.onb-grade-seg, .onb-input-text, .onb-privacy-box, .onb-restore-btn { background: var(--g-fill); box-shadow: var(--g-rim); }
+.onb-opt:hover:not(:disabled), .onb-restore-btn:hover { background: rgba(255, 255, 255, 0.14); }
+.onb-why { box-shadow: var(--g-rim), inset 3px 0 0 var(--k-blue); }
+.onb-note { box-shadow: var(--g-rim), inset 3px 0 0 var(--k-warn); }
+.onb-ess-res { box-shadow: var(--g-rim), inset 3px 0 0 var(--k-warn); }
+.onb-input-text:focus { box-shadow: var(--g-rim), 0 0 0 2px var(--k-blue); }
+.onb-grade-seg input:checked + span { background: rgba(255, 255, 255, 0.22); box-shadow: var(--g-rim); }
+.onb-skip-btn, .onb-btn-secondary { background: var(--g-fill); box-shadow: var(--g-rim); }
+.onb-skip-btn:hover, .onb-btn-secondary:hover { background: rgba(255, 255, 255, 0.14); }
+.onb-btn-secondary { border: 0; color: var(--k-ink); }
+/* 파란 단추: 위는 밝고 아래는 진하게 + 위 가장자리 빛 */
+.onb-btn-primary, .onb-direct-start-btn, .onb-submit-btn, .onb-ess-btn {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--k-btn) 78%, #fff), var(--k-btn) 55%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+.onb-btn-primary:hover, .onb-direct-start-btn:hover, .onb-submit-btn:hover:not(:disabled), .onb-ess-btn:hover:not(:disabled) {
+  background: linear-gradient(180deg, color-mix(in srgb, #0077ed 72%, #fff), #0077ed 55%);
+}
+/* 한 줄 걸러 오른쪽 · 왼쪽: 글 칸과 타일 자리를 바꾼다 (넓은 화면만. 좁은 화면은 늘 글이 먼저) */
+@media (min-width: 901px) { .onb-feature-grid.flip > :first-child { order: 2; } }
+@media (prefers-reduced-transparency: reduce) {
+  .onb-header, .onb-tile, .onb-nav-dot::before { background: var(--k-tile); -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onb-showcase { scroll-behavior: auto; }
+  .onb-rv { transform: none; transition-duration: 0.01ms; }
+  .onb-track i, .onb-why { transition-duration: 0.01ms; animation: none; }
+  .onb-flash { display: none; }
+}
