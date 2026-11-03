@@ -520,7 +520,7 @@
      "nstep": {
       "name": "n단계 전이행렬",
       "kind": "procedure",
-      "statement": "n단계 전이확률은 중간 상태 k에 대한 \\(p^{(m)}_{ik}p^{(n-m)}_{kj}\\)의 합이고 \\(\\mathbf P^{(n)}=\\mathbf P^n\\)이다"
+      "statement": "n단계 전이확률은 \\(p^{(m)}_{ik}p^{(n-m)}_{kj}\\)의 합이고 \\(\\mathbf P^{(n)}=\\mathbf P^n\\)이다"
      }
     }
    },
@@ -611,7 +611,7 @@
      "rate": {
       "name": "전이율과 안정상태",
       "kind": "relation",
-      "statement": "\\(q_i=\\sum_{j\\ne i}q_{ij}\\), \\(p_{ij}=q_{ij}/q_i\\), 안정상태는 \\(\\pi_jq_j=\\sum_{i\\ne j}\\pi_iq_{ij}\\)이다"
+      "statement": "\\(q_i=\\sum_{j\\ne i}q_{ij}\\), \\(p_{ij}=q_{ij}/q_i\\), \\(\\pi_jq_j=\\sum_{i\\ne j}\\pi_iq_{ij}\\)"
      }
     }
    },
@@ -786,7 +786,7 @@
    },
    "m_dpdet_myopic": {
     "facet": "dpdet.alloc",
-    "belief": "남은 자원을 한 곳에 몰아주면 최선이라고 생각함 (이후 단계 몫 무시)",
+    "belief": "남은 자원을 한 곳에 몰아주면 최선이라고 생각함",
     "truth": "기여와 이후 최적값 f*_{n+1}(남은 자원)을 합쳐 모든 배분을 비교한다"
    },
    "m_dpdet_even": {
@@ -812,12 +812,12 @@
    },
    "m_dpprob_expval": {
     "facet": "dpprob.expect",
-    "belief": "기대값 대신 한 결과(최빈·최악)만 보거나 이후 최적값을 빼고 평가함",
+    "belief": "기대값 대신 최빈·최악 결과 하나만 보면 된다고 생각함",
     "truth": "결정마다 Σp_i[C_i+f*_{n+1}(i)]을 계산하고 그중 최선을 고른다"
    },
    "m_dpprob_probread": {
     "facet": "dpprob.calc",
-    "belief": "확률과 결과(비용)의 짝을 바꿔 읽거나 확률을 무시함",
+    "belief": "확률과 결과(비용)의 짝을 바꿔 읽어도 된다고 생각함",
     "truth": "각 결과의 비용에 그 결과가 일어날 확률을 곱해 더한다"
    },
    "m_dpprob_fixed": {
@@ -827,7 +827,7 @@
    },
    "m_dpprob_stage": {
     "facet": "dpprob.calc",
-    "belief": "단계가 여러 개여도 한 단계의 값만 보고 답함",
+    "belief": "단계가 여러 개여도 한 단계의 값만 보면 된다고 생각함",
     "truth": "후방으로 단계마다 f*를 구해 앞 단계의 계산에 이어 쓴다"
    },
    "m_dpeff_other": {
@@ -837,7 +837,7 @@
    },
    "m_dpeff_count": {
     "facet": "dpeff.cost",
-    "belief": "열거할 경로 수를 단계마다 곱하지 않고 더하거나 한 단계 빼서 셈",
+    "belief": "열거할 경로 수를 단계마다 더하면 된다고 생각함",
     "truth": "경로 수 = (단계당 노드 수)^(단계 수)"
    },
    "m_bipmodel_exact": {
@@ -868,7 +868,7 @@
    "m_bipmodel_or_and": {
     "facet": "bipmodel.logic",
     "belief": "'또는'도 여러 프로젝트를 모두 요구하는 식으로 쓴다고 생각함",
-    "truth": "하나 이상은 x<sub>4</sub> ≤ x<sub>1</sub> + x<sub>3</sub>, 모두는 2x<sub>4</sub> ≤ x<sub>1</sub> + x<sub>3</sub>"
+    "truth": "하나 이상은 x₄ ≤ x₁+x₃, 모두는 2x₄ ≤ x₁+x₃"
    },
    "m_bipmodel_ignore_cond": {
     "facet": "bipmodel.logic",
@@ -1355,7 +1355,7 @@
     "belief": "수용 확률의 지수를 좋아지는 방향으로 계산해 1보다 큰 값도 쓴다고 생각함",
     "truth": "나빠진 만큼을 T로 나눈 음수 지수이고 확률은 1을 넘지 않는다"
    },
-   "m_mhsa_noT": {
+   "m_mhsa_no_t": {
     "facet": "mh_sa.accept",
     "belief": "수용 확률의 지수를 온도로 나누지 않고 차이만 쓴다고 생각함",
     "truth": "지수는 (나빠진 폭)/T이다"
@@ -1365,32 +1365,32 @@
     "belief": "\"이상\" 조건에서 기준 확률과 같은 후보는 뺀다고 생각함",
     "truth": "이상이면 같은 경우도 포함한다"
    },
-   "m_mhsa_T_up": {
+   "m_mhsa_t_up": {
     "facet": "mh_sa.temp",
     "belief": "탐색이 진행될수록 온도를 올린다고 생각함",
     "truth": "큰 온도에서 시작해 점점 감소시킨다"
    },
-   "m_mhsa_T_const": {
+   "m_mhsa_t_const": {
     "facet": "mh_sa.temp",
     "belief": "온도를 끝까지 같은 값으로 둔다고 생각함",
     "truth": "온도표에 따라 단계적으로 낮춘다"
    },
-   "m_mhsa_T_high_low": {
+   "m_mhsa_t_high_low": {
     "facet": "mh_sa.temp",
     "belief": "온도가 높을수록 나쁜 해를 받아들일 확률이 작다고 생각함",
     "truth": "온도가 높을수록 수용 확률이 크다"
    },
-   "m_mhsa_T_ignore": {
+   "m_mhsa_t_ignore": {
     "facet": "mh_sa.temp",
     "belief": "같은 손해라면 온도와 상관없이 수용 확률이 같다고 생각함",
     "truth": "수용 확률은 온도 T에 따라 달라진다"
    },
-   "m_mhsa_T_always": {
+   "m_mhsa_t_always": {
     "facet": "mh_sa.temp",
     "belief": "높은 온도에서는 나빠도 항상 받아들인다고 생각함",
     "truth": "확률은 1이 아니라 e^(-손해/T)이다"
    },
-   "m_mhsa_T_never": {
+   "m_mhsa_t_never": {
     "facet": "mh_sa.temp",
     "belief": "온도가 낮아지면 나쁜 해를 절대 받아들이지 않는다고 생각함",
     "truth": "T가 0이 아니면 확률이 작아도 0은 아니다"
@@ -1732,7 +1732,7 @@
    },
    "m_qbasic_pos": {
     "facet": "qbasic.kendall",
-    "belief": "켄달 표기의 자리 순서를 바꿔 읽음",
+    "belief": "켄달 표기의 자리 순서를 바꿔 읽어도 된다고 생각함",
     "truth": "A/B/C/D = 도착간격 분포 / 서비스시간 분포 / 서버 수 / 시스템 크기"
    },
    "m_qbasic_dist": {
@@ -1772,7 +1772,7 @@
    },
    "m_qbd_idx": {
     "facet": "qbd.balance",
-    "belief": "λ와 μ를 같은 번호끼리(λn/μn) 짝지음",
+    "belief": "λ와 μ를 같은 번호끼리 짝지어 써도 된다고 생각함",
     "truth": "Cn은 λ(n-1)/μn 꼴의 비를 곱한다"
    },
    "m_qbd_chain": {
@@ -1797,7 +1797,7 @@
    },
    "m_qbd_inv": {
     "facet": "qbd.stable",
-    "belief": "안정 조건을 μ/λ<1로 거꾸로 씀",
+    "belief": "안정 조건을 μ/λ<1로 거꾸로 써도 된다고 생각함",
     "truth": "ρ=λ/μ<1 (도착률 < 서비스율)"
    },
    "m_qbd_dir": {
@@ -1812,12 +1812,12 @@
    },
    "m_qbd_s": {
     "facet": "qbd.stable",
-    "belief": "M/M/s도 λ/μ<1로 판단해 서버 수를 무시함",
+    "belief": "M/M/s도 λ/μ<1만 보면 된다고 생각함",
     "truth": "M/M/s의 안정 조건은 λ/(sμ)<1"
    },
    "m_qbd_rec": {
     "facet": "qbd.stable",
-    "belief": "귀무재귀·양재귀·일시를 구별하는 기준을 섞음",
+    "belief": "귀무재귀·양재귀·일시를 구별 없이 같게 본다고 생각함",
     "truth": "복귀 확률 1 미만=일시, 1이고 기대시간 유한=양재귀, 무한=귀무재귀"
    },
    "m_qbd_irred": {
@@ -1832,7 +1832,7 @@
    },
    "m_qmm1_lq": {
     "facet": "qmm1.geom",
-    "belief": "Lq도 ρ/(1-ρ)라고 생각함 (L과 혼동)",
+    "belief": "Lq도 ρ/(1-ρ)라고 생각함",
     "truth": "Lq=L-ρ=ρ²/(1-ρ)"
    },
    "m_qmm1_expn": {
@@ -1842,12 +1842,12 @@
    },
    "m_qmm1_ge": {
     "facet": "qmm1.geom",
-    "belief": "'n명 이상' 확률을 정확히 n명의 확률로 구함",
+    "belief": "'n명 이상' 확률도 정확히 n명일 확률이라고 생각함",
     "truth": "P(N≥n)=ρⁿ"
    },
    "m_qmm1_k": {
     "facet": "qmm1.geom",
-    "belief": "P(N≤k)를 1-ρᵏ로 계산함",
+    "belief": "P(N≤k)도 1-ρᵏ라고 생각함",
     "truth": "P(N≤k)=1-ρ^(k+1) (항이 k+1개)"
    },
    "m_qwait_mu": {
@@ -1857,17 +1857,17 @@
    },
    "m_qwait_unc": {
     "facet": "qmm1.wait",
-    "belief": "대기시간 분포에서 대기한다는 조건을 구별하지 않음",
+    "belief": "대기시간 분포에서 대기한다는 조건은 따로 볼 필요가 없다고 생각함",
     "truth": "P(Tq>t)=ρe^-(μ-λ)t, 대기 조건부 P(Tq>t|Tq>0)=e^-(μ-λ)t"
    },
    "m_qwait_busy": {
     "facet": "qmm1.wait",
-    "belief": "바로 서비스받을 확률을 ρ로 착각함",
+    "belief": "바로 서비스받을 확률도 ρ라고 생각함",
     "truth": "P(Tq=0)=P0=1-ρ (ρ는 서버가 바쁠 확률)"
    },
    "m_qwait_cond": {
     "facet": "qmm1.wait",
-    "belief": "대기하는 고객의 평균 대기시간을 전체 평균 Wq로 착각함",
+    "belief": "대기하는 고객의 평균 대기시간도 전체 평균 Wq라고 생각함",
     "truth": "대기 조건부 평균은 1/(μ-λ), 전체 평균 Wq=ρ/(μ-λ)"
    },
    "m_qmms_rate": {
@@ -1882,7 +1882,7 @@
    },
    "m_qmms_rho": {
     "facet": "qmms.multi",
-    "belief": "M/M/s의 ρ를 λ/μ로 계산함",
+    "belief": "M/M/s의 ρ도 λ/μ라고 생각함",
     "truth": "M/M/s에서 ρ=λ/(sμ)"
    },
    "m_qmms_p0": {
@@ -1892,7 +1892,7 @@
    },
    "m_qmms_mu": {
     "facet": "qmms.multi",
-    "belief": "대기시간 지수의 모수를 μ-λ로 씀",
+    "belief": "대기시간 지수의 모수도 μ-λ라고 생각함",
     "truth": "M/M/s에서는 sμ-λ"
    },
    "m_qmms_pool": {
@@ -1917,7 +1917,7 @@
    },
    "m_qfin_lq": {
     "facet": "qfin.cap",
-    "belief": "M/M/∞의 L=λ/μ를 대기행렬 길이로 착각함",
+    "belief": "M/M/∞의 L=λ/μ를 대기행렬 길이라고 생각함",
     "truth": "M/M/∞에서 Lq=0 (λ/μ는 서비스 중인 평균 고객 수)"
    },
    "m_qfin_mm1": {
@@ -1937,7 +1937,7 @@
    },
    "m_qpop_working": {
     "facet": "qfin.pop",
-    "belief": "수리 중 평균 기계 수 L을 가동 중 평균 수로 착각함",
+    "belief": "수리 중 평균 기계 수 L을 가동 중 평균 수라고 생각함",
     "truth": "가동 중 평균 기계 수는 N-L"
    },
    "m_qpk_mm1": {
@@ -2074,7 +2074,6 @@
      "repr",
      "설명 고르기 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -2402,7 +2401,6 @@
      "reverse",
      "하위 최적 → 상위 최적 (역방향)"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -2718,7 +2716,6 @@
      "repr",
      "짝 고르기 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -3583,7 +3580,6 @@
      "repr",
      "설명 고르기 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -4158,7 +4154,6 @@
      "repr",
      "말 설명 → 상태 조합 수 n³"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -5219,8 +5214,8 @@
     "family": "c11_fathom",
     "role": "near",
     "delta": [
-     "surface",
-     "강의 예제 첫 하위 문제 상황"
+     "condition",
+     "Z*=−∞인 첫 하위 문제 상황"
     ],
     "mis": [
      null,
@@ -6375,7 +6370,7 @@
     "family": "c11_tight",
     "role": "near",
     "delta": [
-     "surface",
+     "object",
      "최종 식 → 한 단계의 새 우변"
     ],
     "mis": [
@@ -9156,7 +9151,6 @@
      "reverse",
      "\"지역→전역\" 방향을 \"전역→지역\"으로"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -9242,7 +9236,6 @@
      "repr",
      "객관식 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -9486,7 +9479,10 @@
     "family": "c13_rev",
     "role": "base",
     "mis": [
-     "m_mhtsp_pair"
+     {
+      "pattern": "삭제한 두 호의 끝점을 아무렇게나 이어 붙인다",
+      "m": "m_mhtsp_pair"
+     }
     ],
     "check": {
      "ok": true,
@@ -9529,7 +9525,10 @@
      "3-4 구간 → 2-3 구간"
     ],
     "mis": [
-     "m_mhtsp_pair"
+     {
+      "pattern": "삭제한 두 호의 끝점을 아무렇게나 이어 붙인다",
+      "m": "m_mhtsp_pair"
+     }
     ],
     "check": {
      "ok": true,
@@ -9688,7 +9687,10 @@
      "가장 좋은 이웃 → 개선되는 이웃 모두"
     ],
     "mis": [
-     "m_mhtsp_tie"
+     {
+      "pattern": "거리가 같은 이웃해도 개선으로 센다",
+      "m": "m_mhtsp_tie"
+     }
     ],
     "check": {
      "ok": true,
@@ -9727,8 +9729,14 @@
      "5도시 → 6도시 이웃해 개수"
     ],
     "mis": [
-     "m_mhtsp_count_full",
-     "m_mhtsp_adjacent"
+     {
+      "pattern": "전체 경로의 역순도 이웃해로 센다",
+      "m": "m_mhtsp_count_full"
+     },
+     {
+      "pattern": "이웃해는 인접한 두 도시를 뒤집은 것뿐",
+      "m": "m_mhtsp_adjacent"
+     }
     ],
     "check": {
      "ok": true,
@@ -9819,7 +9827,6 @@
      "repr",
      "다음 해 고르기 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -10083,7 +10090,6 @@
      "repr",
      "객관식 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -10220,7 +10226,10 @@
     "family": "c13_acc",
     "role": "base",
     "mis": [
-     "m_mhsa_sign"
+     {
+      "pattern": "수용 확률의 지수를 좋아지는 방향으로 계산해 1보다 큰 값도 쓴다",
+      "m": "m_mhsa_sign"
+     }
     ],
     "check": {
      "ok": true,
@@ -10263,7 +10272,10 @@
      "숫자만 바꿈 (50, 55, 10)"
     ],
     "mis": [
-     "m_mhsa_sign"
+     {
+      "pattern": "수용 확률의 지수를 좋아지는 방향으로 계산해 1보다 큰 값도 쓴다",
+      "m": "m_mhsa_sign"
+     }
     ],
     "check": {
      "ok": true,
@@ -10313,7 +10325,7 @@
      "",
      "m_mhsa_improve_prob",
      "m_mhsa_sign",
-     "m_mhsa_noT"
+     "m_mhsa_no_t"
     ],
     "check": {
      "ok": true,
@@ -10366,10 +10378,10 @@
      "확률 계산 → 식 고르기"
     ],
     "mis": [
-     "m_mhsa_noT",
+     "m_mhsa_no_t",
      "",
      "m_mhsa_sign",
-     "m_mhsa_T_always"
+     "m_mhsa_t_always"
     ],
     "check": {
      "ok": true,
@@ -10402,7 +10414,6 @@
     "depth": 1,
     "family": "c13_accq",
     "role": "base",
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -10444,7 +10455,10 @@
      "확률 구하기 → 확률 조건으로 후보 찾기"
     ],
     "mis": [
-     "m_mhsa_boundary"
+     {
+      "pattern": "\"이상\" 조건에서 기준 확률과 같은 후보는 뺀다",
+      "m": "m_mhsa_boundary"
+     }
     ],
     "check": {
      "ok": true,
@@ -10491,10 +10505,10 @@
     "family": "c13_temp",
     "role": "base",
     "mis": [
-     "m_mhsa_T_up",
-     "m_mhsa_T_const",
+     "m_mhsa_t_up",
+     "m_mhsa_t_const",
      "",
-     "m_mhsa_T_up"
+     "m_mhsa_t_up"
     ],
     "check": {
      "ok": true,
@@ -10535,7 +10549,6 @@
      "repr",
      "객관식 → O/X 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -10574,7 +10587,7 @@
      "qualifier",
      "\"확률이 낮아진다\" → \"절대 선택 안 함\""
     ],
-    "mis": "m_mhsa_T_never",
+    "mis": "m_mhsa_t_never",
     "check": {
      "ok": true,
      "picked": false,
@@ -10624,9 +10637,9 @@
      "수용 확률 계산과 온도 비교를 결합"
     ],
     "mis": [
-     "m_mhsa_T_high_low",
-     "m_mhsa_T_ignore",
-     "m_mhsa_T_always",
+     "m_mhsa_t_high_low",
+     "m_mhsa_t_ignore",
+     "m_mhsa_t_always",
      ""
     ],
     "check": {
@@ -10666,7 +10679,10 @@
     "family": "c13_xover",
     "role": "base",
     "mis": [
-     "m_mhga_cut_wrong"
+     {
+      "pattern": "교차점 뒤가 아니라 지시와 다른 부분을 서로 바꾼다",
+      "m": "m_mhga_cut_wrong"
+     }
     ],
     "check": {
      "ok": true,
@@ -10707,7 +10723,10 @@
      "숫자·교차점·길이만 바꿈"
     ],
     "mis": [
-     "m_mhga_cut_wrong"
+     {
+      "pattern": "교차점 뒤가 아니라 지시와 다른 부분을 서로 바꾼다",
+      "m": "m_mhga_cut_wrong"
+     }
     ],
     "check": {
      "ok": true,
@@ -10748,7 +10767,10 @@
      "1점 교차 → 동일 교배(uniform)"
     ],
     "mis": [
-     "m_mhga_onepoint"
+     {
+      "pattern": "동일 교배도 한 지점을 자르는 1점 교차",
+      "m": "m_mhga_onepoint"
+     }
     ],
     "check": {
      "ok": true,
@@ -13609,10 +13631,10 @@
     "facet": "ck_eq.nstep",
     "depth": 2,
     "family": "c16_nstep",
-    "role": "iso",
+    "role": "near",
     "delta": [
-     "surface",
-     "행렬 숫자·묻는 원소 변경"
+     "repr",
+     "공식 고르기 → 숫자로 계산"
     ],
     "mis": [
      "m_ck_sum",
@@ -14485,10 +14507,10 @@
     "facet": "steady_prob.cost",
     "depth": 2,
     "family": "c16_cost",
-    "role": "iso",
+    "role": "near",
     "delta": [
-     "surface",
-     "확률·비용 숫자 변경"
+     "repr",
+     "공식 고르기 → 숫자로 계산"
     ],
     "mis": [
      "m_cost_avg",
@@ -16463,7 +16485,6 @@
      "condition",
      "ρ<1 → ρ=1 경계"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -17845,7 +17866,6 @@
      "neighbour",
      "무한 모집단 ρ<1 조건 → 유한 모집단"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,
@@ -18035,7 +18055,6 @@
      "repr",
      "공식 → 말로 된 비교 진술"
     ],
-    "mis": "mr",
     "check": {
      "ok": true,
      "picked": true,

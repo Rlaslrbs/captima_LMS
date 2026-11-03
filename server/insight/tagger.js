@@ -6,7 +6,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { db, J, now, tx, meta, bumpMeta, budgetToday, blocked, bodyHash, facetsOf, miscOf, tagSummary, v2Ready, FACET_KINDS, DELTA_TYPES, DEPTH_WHY } from "../db.js";
+import { db, J, now, tx, meta, bumpMeta, budgetToday, blocked, bodyHash, facetsOf, miscOf, tagSummary, v2Ready, dxSkip, FACET_KINDS, DELTA_TYPES, DEPTH_WHY } from "../db.js";
 import * as ai from "../ai.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -74,10 +74,11 @@ function itemText(ref, it) {
 // ───────── 과목 자료 ─────────
 function courseOf(cid) {
   const c = st("c", "SELECT course_id id, name, short, info FROM course WHERE course_id = ?").get(cid); if (!c) return null;
-  const info = J(c.info), chapters = st("chs", "SELECT chapter_id id, chapter_key `key`, title FROM chapter WHERE course_id = ? ORDER BY sort, chapter_id").all(cid);
+  const skip = dxSkip(cid);                                                  // 진단 제외 단원(약어 암기 등)은 태깅하지 않는다
+  const info = J(c.info), chapters = st("chs", "SELECT chapter_id id, chapter_key `key`, title FROM chapter WHERE course_id = ? ORDER BY sort, chapter_id").all(cid).filter(ch => !skip.has(ch.key));
   const items = st("its", `SELECT p.problem_id pid, p.ext_id ext, p.status, p.current_version v, ch.chapter_key ch, pv.kind, pv.star, pv.body FROM problem p
       JOIN chapter ch ON ch.chapter_id = p.chapter_id JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version
-      WHERE p.course_id = ? ORDER BY p.sort, p.problem_id`).all(cid).map(r => ({ ...r, body: J(r.body) }));
+      WHERE p.course_id = ? ORDER BY p.sort, p.problem_id`).all(cid).filter(r => !skip.has(r.ch)).map(r => ({ ...r, body: J(r.body) }));
   const conc = k => { const v = (info.concepts || {})[k]; return cut(T(typeof v === "string" ? v : (v && v.html) || ""), 1500); };
   const topics = info.topics && typeof info.topics === "object" ? info.topics : {};
   const pub = items.filter(i => i.status === "published");
@@ -277,6 +278,29 @@ export function confirmVocab(cid) {
     meta("vocab_ver:" + cid, String(v)); meta("vocab_ok:" + cid, String(v)); meta("vocab_pending:" + cid, null);
   });
   return { ver: v, approved: true };
+}
+
+/**
+ * 관리자 단원별 "확인": 고른 단원의 초안만 활성으로. 개념은 chapter_keys가 모두 확인된 단원 안에 있을 때 켠다.
+ * 확인된 단원은 vocab_ch_ok:<cid>에 모은다. 초안이 하나도 안 남으면 confirmVocab처럼 어휘 판을 마무리한다 (vocab_ok · vocab_ver · pending 지움)
+ */
+export function confirmVocabChapters(cid, chapters) {
+  const v = Math.max(vocabVer(cid), +(meta("vocab_pending:" + cid) || 0), 1), t = now();
+  const ok = new Set([...J(meta("vocab_ch_ok:" + cid), []), ...chapters.map(String)]);
+  const drafts = st("kcDraft", "SELECT code, chapter_keys FROM kc WHERE course_id = ? AND status = 'draft'").all(cid).map(k => ({ code: k.code, chs: J(k.chapter_keys, []) }));
+  const on = drafts.filter(k => k.chs.length && k.chs.every(c => ok.has(c))).map(k => k.code), wait = drafts.filter(k => !on.includes(k.code));
+  let facets = 0, miscs = 0;
+  tx(() => {
+    for (const code of on) {
+      st("kcAct1", "UPDATE kc SET status = 'active', vocab_ver = ?, updated_at = ? WHERE course_id = ? AND code = ? AND status = 'draft'").run(v, t, cid, code);
+      facets += Number(st("fAct1", "UPDATE facet SET status = 'active', vocab_ver = ?, updated_at = ? WHERE course_id = ? AND kc = ? AND status = 'draft'").run(v, t, cid, code).changes);
+      miscs += Number(st("mAct1", "UPDATE misc SET status = 'ok' WHERE course_id = ? AND kc = ? AND status = 'auto'").run(cid, code).changes);
+    }
+    const left = st("leftD", "SELECT (SELECT COUNT(*) FROM kc WHERE course_id = ? AND status = 'draft') + (SELECT COUNT(*) FROM facet WHERE course_id = ? AND status = 'draft') n").get(cid, cid).n;
+    if (!left) { meta("vocab_ver:" + cid, String(v)); meta("vocab_ok:" + cid, String(v)); meta("vocab_pending:" + cid, null); meta("vocab_ch_ok:" + cid, null); }
+    else meta("vocab_ch_ok:" + cid, JSON.stringify([...ok]));
+  });
+  return { ver: v, confirmed: on, facets, miscs, waiting: wait.map(k => ({ code: k.code, chapters: k.chs.filter(c => !ok.has(c)) })), approved: vocabApproved(cid) };
 }
 
 // ───────── C. 문제 태깅: 세부 포인트 + 깊이 + 보기마다 오개념 ─────────
