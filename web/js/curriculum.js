@@ -6,7 +6,7 @@ export const KINDS = { base: "전공기초", req: "전공필수", opt: "전공�
 export const CURRICULUM = [
   { year: 1, terms: [
     [
-      { id: "calc", name: "미분적분학", kind: "base" },
+      { id: "calc", name: "미분적분학", kind: "base", codes: ["CAL"] },
       { id: "ieintro", name: "산업경영공학의 이해", kind: "base" },
     ],
     [

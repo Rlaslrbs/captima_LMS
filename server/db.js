@@ -842,12 +842,20 @@ export function coverage(courseId) {
   });
 }
 
-/** 공개 문제 중 믿을 만한 태그(conf ≥ 2 또는 사람이 확인)가 있는 비율 — v2 관문(≥ 90%)용 → { items, tagged, share } */
+/** 진단에서 빼는 단원 키 (insight_meta dx_skip:<cid> = ["ABBR"]). 약어 철자 같은 암기 단원: 풀이는 그대로, 태깅·태그 비율에서만 뺀다 */
+export const dxSkip = courseId => new Set(J(meta(`dx_skip:${courseId}`), []));
+/** dxSkip 단원에 든 문제 id */
+export function dxSkipPids(courseId) {
+  const ks = [...dxSkip(courseId)]; if (!ks.length) return new Set();
+  return new Set(db.prepare(`SELECT p.problem_id id FROM problem p JOIN chapter c ON c.chapter_id = p.chapter_id WHERE p.course_id = ? AND c.chapter_key IN (${ks.map(() => "?").join(",")})`).all(courseId, ...ks).map(r => r.id));
+}
+
+/** 공개 문제 중 믿을 만한 태그(conf ≥ 2 또는 사람이 확인)가 있는 비율 — v2 관문(≥ 90%)용 → { items, tagged, share } (진단 제외 단원은 빼고) */
 export function tagSummary(courseId) {
-  const items = currentItems(courseId);
+  const items = currentItems(courseId), skip = dxSkipPids(courseId);
   const tags = new Map(db.prepare("SELECT t.* FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?").all(courseId).map(t => [t.problem_id, t]));
   let n = 0, ok = 0;
-  for (const [pid, it] of items) if (it.status === "published") { n++; if (tagUsable(tags.get(pid), it)) ok++; }
+  for (const [pid, it] of items) if (it.status === "published" && !skip.has(pid)) { n++; if (tagUsable(tags.get(pid), it)) ok++; }
   return { items: n, tagged: ok, share: n ? ok / n : 0 };
 }
 
