@@ -6,7 +6,7 @@
 | 파일 | 내용 | 다시 실행 |
 |---|---|---|
 | `schema.sql` | 표 31개 + 뷰 3개. 기존 SQLite 구조 전체 + 회원 · 제출 · 커리큘럼 · 시험일 · 통계 뷰 | 안전 (`IF NOT EXISTS`, `CREATE OR REPLACE`, 고침 구역은 이미 된 건 건너뜀) |
-| `curriculum.sql` | 산업경영공학과 커리큘럼 41칸 · 선수 관계 10개 · 과목 연결 7개 (`web/js/curriculum.js`와 같은 내용) | 안전 |
+| `curriculum.sql` | 산업경영공학과 커리큘럼 41칸 · 선수 관계 10개 · 과목 연결 8개 (`web/js/curriculum.js`와 같은 내용) | 안전 |
 | `sync.js` · `worker.js` | 서버의 DB 연결부. `node:sqlite`와 같은 모양(`prepare().get/all/run`)으로 MySQL을 쓴다 (`mysql2`) | - |
 
 ## 처음 만들기 (한 번에)
