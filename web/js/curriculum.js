@@ -40,7 +40,7 @@ export const CURRICULUM = [
       { id: "scm", name: "공급사슬관리", kind: "opt" },
       { id: "qe", name: "품질공학", kind: "opt", pre: ["appstat"] },
       { id: "fe", name: "금융공학", kind: "opt" },
-      { id: "mot", name: "기술경영", kind: "opt" },
+      { id: "mot", name: "기술경영", kind: "opt", codes: ["IE304"] },
     ],
     [
       { id: "ms2", name: "경영과학 2", kind: "opt", codes: ["IE302"] },
