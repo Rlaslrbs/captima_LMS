@@ -38,7 +38,7 @@ export const CURRICULUM = [
       { id: "ms1", name: "경영과학 1", kind: "req", codes: ["IE301"] },
       { id: "dm1", name: "데이터마이닝 1", kind: "opt", pre: ["ds2"] },
       { id: "scm", name: "공급사슬관리", kind: "opt" },
-      { id: "qe", name: "품질공학", kind: "opt", pre: ["appstat"] },
+      { id: "qe", name: "품질공학", kind: "opt", codes: ["IE312"], pre: ["appstat"] },
       { id: "fe", name: "금융공학", kind: "opt" },
       { id: "mot", name: "기술경영", kind: "opt" },
     ],
