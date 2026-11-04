@@ -7,6 +7,7 @@
     "start": "node --env-file-if-exists=.env server/server.js",
     "import": "node --env-file-if-exists=.env server/import.js",
     "test": "node --test server/insight/test/engine.test.mjs server/insight/test/sim.test.mjs",
+    "test:mysql": "node --env-file-if-exists=.env --test server/mysql/sync.test.mjs",
     "dev": "node --env-file-if-exists=.env server/server.js",
     "setup": "node tools/setup.mjs"
   },
