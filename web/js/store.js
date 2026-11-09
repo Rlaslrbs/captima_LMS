@@ -14,6 +14,7 @@ export const S = {
   resume: LS.get("resume", {}),            // scope_key → problem_id
   saved: LS.get("saved", {}),              // 나중에 볼 문제: problem_id → { cid, at }
   last: LS.get("last", {}),                // course_id → { set, at }  (홈의 "이어 풀기")
+  exam: LS.get("exam", {}),                // course_id → "YYYY-MM-DD" 시험일 (이 기기에만 저장)
   catalog: null,                           // GET /api/catalog
   online: navigator.onLine,
 };
@@ -123,7 +124,21 @@ export function setResume(key, pid) {
   S.resume[key] = pid; LS.set("resume", S.resume);
   if (synced()) { pending.resume[key] = pid; savePending(); flushSoon(2000); }
 }
-// ───────── 나중에 볼 문제 (문제 카드의 ☆) ─────────
+// ───────── 시험일 · D-day ─────────
+export function setExam(cid, date) {
+  if (date) S.exam[cid] = date; else delete S.exam[cid];
+  LS.set("exam", S.exam); emit("exam");
+}
+/** 시험까지 남은 날 (오늘 = 0). 시험일이 없거나 지났으면 null */
+export function dday(cid) {
+  const d = S.exam[cid]; if (!d) return null;
+  const t = new Date(), today = Date.UTC(t.getFullYear(), t.getMonth(), t.getDate());
+  const [y, m, dd] = d.split("-").map(Number), n = Math.round((Date.UTC(y, m - 1, dd) - today) / 864e5);
+  return n >= 0 ? n : null;
+}
+export const ddText = n => n === 0 ? "D-day" : "D-" + n;
+
+// ───────── 나중에 볼 문제 (문제 카드의 책갈피) ─────────
 export const isSaved = pid => !!S.saved[pid];
 export function toggleSaved(pid, cid) {
   const on = !S.saved[pid], at = new Date().toISOString();

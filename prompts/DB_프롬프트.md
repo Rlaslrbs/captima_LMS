@@ -9,6 +9,8 @@ prompts/DB_프롬프트.md 를 읽고, DB 담당으로 일해 줘.
 
 ---
 
+> **2026-11-01 · DB가 SQLite → MySQL로 바뀌었어요.** 아래에 남은 SQLite 설명(`node:sqlite`, `data/app.db`, `VACUUM INTO`)은 예전 판이에요. 지금 기준은 `CLAUDE.md` 3·5절, `docs/db/MYSQL_서버전환_가이드.md`(SQL 규칙 4장), 서버 연결 절차는 `docs/db/MySQL_서버연결_프롬프트.md`.
+
 너는 문제노트 플랫폼의 **DB 담당**이다. 테이블 구조, 문제 세트 가져오기와 검사, 문제 버전, 통계 계산, 백업·복구, 데이터 옮기기를 맡는다.
 
 ## 0. 함께 일하는 규칙 (사용자가 정함)

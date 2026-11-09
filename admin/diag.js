@@ -102,7 +102,8 @@ async function vocabTab(box, cid) {
     box.innerHTML = `<div class="box"><div class="hd"><h2>어휘 ${V.ver ? `<small>v${V.ver}</small>` : ""}</h2><small>개념 ${kcs.length} · 세부 포인트 ${nf} · 오개념 ${nm}</small></div>
       <p class="muted" style="margin:0 0 12px">AI가 만든 초안이에요. 이름이 어색하거나 겹치는 것만 고치고 [확인]을 눌러 주세요. 뺀 것은 지워지지 않고 '뺌'으로만 남아요.</p>
       <div class="bar"><button class="btn pri" data-confirm ${V.approved && !V.pending ? "disabled" : ""}>${V.approved && !V.pending ? "확인했어요" : "이대로 확인"}</button>${V.pending ? `<span class="tag hl">합친 초안이 확인을 기다려요</span>` : ""}</div>
-      ${kcs.map(k => `<details class="dx-kc" data-kc="${esc(k.code)}" ${open === k.code ? "open" : ""}><summary><b>${esc(k.name)}</b><small class="muted">${(k.facets || []).filter(live).length}개 포인트</small>
+      ${(V.draft_chapters || []).length ? `<div class="bar"><small class="muted">단원별로 확인</small>${V.draft_chapters.map(c => `<button class="btn sm" data-confirm-ch="${esc(c.key)}" title="${esc(c.title)}">${esc(c.key)} 확인 <small>개념 ${c.kcs}</small></button>`).join("")}</div>` : ""}
+      ${kcs.map(k => `<details class="dx-kc" data-kc="${esc(k.code)}" ${open === k.code ? "open" : ""}><summary><b>${esc(k.name)}</b><small class="muted">${(k.facets || []).filter(live).length}개 포인트${k.status === "draft" ? ` · 초안 ${esc((k.chapters || []).join(", "))}` : ""}</small>
         <button class="btn sm" data-edit="kc" data-code="${esc(k.code)}">이름 고치기</button></summary><ul class="dx-fl">${(k.facets || []).map(f => facetHTML(f, k)).join("")}</ul></details>`).join("")}
       ${(V.misc_unassigned || []).length ? `<details class="dx-kc"><summary><b>포인트가 없는 오개념</b><small class="muted">${V.misc_unassigned.length}개</small></summary><ul class="dx-ml">${V.misc_unassigned.map(miscHTML).join("")}</ul></details>` : ""}</div>`;
   }
@@ -132,6 +133,10 @@ async function vocabTab(box, cid) {
       if (!others.length) { toast("같은 개념 안에 합칠 포인트가 없어요"); return; }
       const r = await ask({ title: "어느 포인트로 합칠까요?", body: `<select class="dx-into">${others.map(f => `<option value="${esc(f.code)}">${esc(f.name)}</option>`).join("")}</select>`, ok: "합치기" }); if (!r) return;
       const into = document.querySelector(".dialog .dx-into")?.value; if (into) await patch({ op: "merge", type: "facet", from: d.code, into }).catch(err => toast(err.message, "bad"));
+    } else if (d.confirmCh) {
+      const r = await api("POST", "/insight/vocab/" + cid + "/confirm", { chapters: [d.confirmCh] });
+      V = await api("GET", "/insight/vocab/" + cid); render();
+      toast(`${d.confirmCh} 확인: 개념 ${r.confirmed.length} · 포인트 ${r.facets} · 오개념 ${r.miscs}${r.waiting.length ? ` (다른 단원과 걸친 개념 ${r.waiting.length}개는 그 단원도 확인하면 켜져요)` : ""}`);
     } else if (d.confirm !== undefined) {
       const r = await api("POST", "/insight/vocab/" + cid + "/confirm"); V = { ...V, ...r }; render(); toast("어휘를 확인했어요");
     }

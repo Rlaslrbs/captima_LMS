@@ -11,13 +11,13 @@ const Q = {}, st = (k, sql) => Q[k] ||= db.prepare(sql);
 const T = h => ai.text(h), cut = (s, n) => (s = String(s ?? "").trim(), s.length > n ? s.slice(0, n - 1) + "…" : s);
 const ORDER = ["생경론", "공학수학", "경정시", "진인본", "응용통계"];     // 켜는 순서 (DECISIONS)
 const bad = (error, status = 400) => ({ $status: status, error });
-const courseOk = cid => Number.isInteger(cid) && cid > 0 && !!st("c", "SELECT 1 FROM course WHERE id = ?").get(cid);
+const courseOk = cid => Number.isInteger(cid) && cid > 0 && !!st("c", "SELECT 1 FROM course WHERE course_id = ?").get(cid);
 
 /** 문제별 지금 버전의 태그 행들 → Map(pid → row + kind/body/ext/status) */
 function current(cid) {
-  return new Map(st("cur", `SELECT p.id pid, p.ext_id ext, p.status, p.current_version v, pv.kind, pv.body, t.facet, t.depth, t.diag, t.qa, t.conf, t.src, t.review
-      FROM problem p JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version
-      LEFT JOIN item_tag t ON t.problem_id = p.id AND t.version = p.current_version WHERE p.course_id = ? ORDER BY p.sort, p.id`).all(cid)
+  return new Map(st("cur", `SELECT p.problem_id pid, p.ext_id ext, p.status, p.current_version v, pv.kind, pv.body, t.facet, t.depth, t.diag, t.qa, t.conf, t.src, t.review
+      FROM problem p JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version
+      LEFT JOIN item_tag t ON t.problem_id = p.problem_id AND t.version = p.current_version WHERE p.course_id = ? ORDER BY p.sort, p.problem_id`).all(cid)
     .map(r => [r.pid, { ...r, body: J(r.body), diag: J(r.diag), qa: J(r.qa) }]));
 }
 /** 한 문제가 고를 수 있게 내놓는 오개념 코드 (d ≥ 2) */
@@ -33,10 +33,10 @@ const brief = it => ({ pid: it.pid, ext: it.ext, kind: it.kind, q: cut(T(it.body
 
 // ───────── 1) 과목 현황 ─────────
 function courses() {
-  const L = st("cs", "SELECT c.id cid, c.short, c.name FROM course c JOIN semester s ON s.id = c.semester_id ORDER BY s.code DESC, c.sort, c.id").all();
+  const L = st("cs", "SELECT c.course_id cid, c.short, c.name FROM course c JOIN semester s ON s.semester_id = c.semester_id ORDER BY s.code DESC, c.sort, c.course_id").all();
   const out = L.map(c => {
     const t = st("tagN", `SELECT COUNT(*) published, SUM(t.facet IS NOT NULL) tagged, SUM(t.conf >= 2) conf2, SUM(t.conf = 1) conf1, SUM(t.review IN ('accepted','edited')) reviewed
-        FROM problem p LEFT JOIN item_tag t ON t.problem_id = p.id AND t.version = p.current_version WHERE p.course_id = ? AND p.status = 'published'`).get(c.cid);
+        FROM problem p LEFT JOIN item_tag t ON t.problem_id = p.problem_id AND t.version = p.current_version WHERE p.course_id = ? AND p.status = 'published'`).get(c.cid);
     const S = tagSummary(c.cid), g = J(meta("gold:" + c.cid), null), gate = tagger.gateCheck(c.cid), J2 = tagger.jobsOf(c.cid);
     const sum = k => J2.stages.reduce((s, x) => s + x[k], 0);
     const o = ORDER.findIndex(n => c.short.includes(n) || c.name.includes(n));
@@ -58,17 +58,22 @@ function vocab(cid) {
     (byF.get(it.facet) || byF.set(it.facet, []).get(it.facet)).push(it);
     for (const m of offered(it.diag)) byM.set(m, (byM.get(m) || 0) + 1);
   }
-  const kcs = st("kcAll", "SELECT code, name, definition, status, merged_into, source FROM kc WHERE course_id = ? ORDER BY code").all(cid);
+  const kcs = st("kcAll", "SELECT code, name, definition, status, merged_into, source, chapter_keys FROM kc WHERE course_id = ? ORDER BY code").all(cid);
   const facets = facetsOf(cid, { all: true }), miscs = miscOf(cid, null, { all: true });
   const fac = f => ({ code: f.code, name: f.name, statement: f.statement, kind: f.kind, confusable: f.confusable, status: f.status, merged_into: f.merged_into, source: f.source,
     n_items: (byF.get(f.code) || []).length, examples: (byF.get(f.code) || []).slice(0, 2).map(brief),
     misc: miscs.filter(m => m.facet === f.code).map(m => ({ code: m.code, belief: m.belief, truth: m.truth, cue: m.cue, cw: m.cw, status: m.status, src: m.src, n_items: byM.get(m.code) || 0 })) });
-  const out = kcs.map(k => ({ code: k.code, name: k.name, definition: k.definition, status: k.status, merged_into: k.merged_into, source: k.source, facets: facets.filter(f => f.kc === k.code).map(fac) }));
+  const out = kcs.map(k => ({ code: k.code, name: k.name, definition: k.definition, status: k.status, merged_into: k.merged_into, source: k.source, chapters: J(k.chapter_keys, []), facets: facets.filter(f => f.kc === k.code).map(fac) }));
   // kc 표에 없는 개념의 세부 포인트 (저자 팩의 topic 개념 등)
   const known = new Set(kcs.map(k => k.code)), orphan = [...new Set(facets.filter(f => !known.has(f.kc)).map(f => f.kc))];
   for (const k of orphan) out.push({ code: k, name: k, definition: "", status: "active", merged_into: null, source: "topic", facets: facets.filter(f => f.kc === k).map(fac) });
   const loose = miscs.filter(m => !m.facet).map(m => ({ code: m.code, belief: m.belief, truth: m.truth, cue: m.cue, cw: m.cw, status: m.status, src: m.src, n_items: byM.get(m.code) || 0 }));
-  return { ver: +(meta("vocab_ver:" + cid) || 0), approved: tagger.vocabApproved(cid), pending: !!meta("vocab_pending:" + cid), kcs: out, misc_unassigned: loose };
+  // 단원별 확인용: 초안 개념이 있는 단원 (확인된 단원은 vocab_ch_ok)
+  const dch = new Map(); for (const k of out) if (k.status === "draft") for (const c of k.chapters || []) dch.set(c, (dch.get(c) || 0) + 1);
+  const chs = st("chT", "SELECT chapter_key `key`, title FROM chapter WHERE course_id = ? ORDER BY sort, chapter_id").all(cid);
+  const draft_chapters = chs.filter(c => dch.has(c.key)).map(c => ({ key: c.key, title: c.title, kcs: dch.get(c.key) }));
+  return { ver: +(meta("vocab_ver:" + cid) || 0), approved: tagger.vocabApproved(cid), pending: !!meta("vocab_pending:" + cid), kcs: out, misc_unassigned: loose,
+    draft_chapters, chapters_ok: J(meta("vocab_ch_ok:" + cid), []) };
 }
 const EDIT = { kc: ["name", "definition"], facet: ["name", "statement"], misc: ["belief", "truth", "cue"] };
 const LIM = { name: 20, definition: 200, statement: 90, belief: 70, truth: 90, cue: 50 };
@@ -89,7 +94,7 @@ function vocabPatch(cid, ops) {
       } else if (o.op === "merge") {
         if (!has(t, o.from) || !has(t, o.into) || o.from === o.into) { errs.push(`합치기: ${o.from} → ${o.into}`); continue; }
         if (t === "facet") {                                          // 태그·오개념이 가리키던 세부 포인트를 새 쪽으로 (문제 태그는 사용자 기록이 아님)
-          db.prepare("UPDATE item_tag SET facet = ?, updated_at = ? WHERE facet = ? AND problem_id IN (SELECT id FROM problem WHERE course_id = ?)").run(o.into, now(), o.from, cid);
+          db.prepare("UPDATE item_tag SET facet = ?, updated_at = ? WHERE facet = ? AND problem_id IN (SELECT problem_id FROM problem WHERE course_id = ?)").run(o.into, now(), o.from, cid);
           db.prepare("UPDATE misc SET facet = ? WHERE course_id = ? AND facet = ?").run(o.into, cid, o.from);
           retireVocab(cid, "facet", o.from, o.into);
         } else if (t === "kc") {
@@ -97,7 +102,7 @@ function vocabPatch(cid, ops) {
           db.prepare("UPDATE misc SET kc = ? WHERE course_id = ? AND kc = ?").run(o.into, cid, o.from);
           retireVocab(cid, "kc", o.from, o.into);
         } else {                                                      // 같은 뜻의 오개념: 문제 진단이 가리키던 코드를 새 쪽으로
-          for (const r of db.prepare("SELECT t.problem_id, t.version, t.diag FROM item_tag t JOIN problem p ON p.id = t.problem_id WHERE p.course_id = ? AND t.diag LIKE ?").all(cid, `%"${o.from}"%`)) {
+          for (const r of db.prepare("SELECT t.problem_id, t.version, t.diag FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id WHERE p.course_id = ? AND CAST(t.diag AS CHAR) LIKE ?").all(cid, `%"${o.from}"%`)) {
             const dg = JSON.parse(JSON.stringify(J(r.diag)), (k, v) => (v === o.from && (k === "m" || k === "mr") ? o.into : v));
             db.prepare("UPDATE item_tag SET diag = ? WHERE problem_id = ? AND version = ?").run(JSON.stringify(dg), r.problem_id, r.version);
           }
@@ -106,7 +111,7 @@ function vocabPatch(cid, ops) {
       } else if (o.op === "drop") {
         if (!has(t, o.code)) { errs.push(`없는 코드 ${o.code}`); continue; }
         retireVocab(cid, t, o.code);
-        if (t === "facet") db.prepare("UPDATE item_tag SET review = 'stale' WHERE facet = ? AND src = 'llm' AND problem_id IN (SELECT id FROM problem WHERE course_id = ?)").run(o.code, cid);   // 다음 작업 때 다시 태깅
+        if (t === "facet") db.prepare("UPDATE item_tag SET review = 'stale' WHERE facet = ? AND src = 'llm' AND problem_id IN (SELECT problem_id FROM problem WHERE course_id = ?)").run(o.code, cid);   // 다음 작업 때 다시 태깅
       } else errs.push("op는 edit · merge · drop");
     }
   });
@@ -118,7 +123,7 @@ function vocabPatch(cid, ops) {
 // ───────── 3) 태그 확인: conf 1이면서 실제로 풀린 문제, 푼 기기가 많은 순서 ≤ 20장 ─────────
 function tagcheck(cid) {
   const C = current(cid), fName = new Map(facetsOf(cid, { all: true }).map(f => [f.code, f.name]));
-  const n = new Map(st("solvedBy", `SELECT e.problem_id pid, COUNT(DISTINCT e.device_id) n FROM event e JOIN problem p ON p.id = e.problem_id
+  const n = new Map(st("solvedBy", `SELECT e.problem_id pid, COUNT(DISTINCT e.device_id) n FROM event e JOIN problem p ON p.problem_id = e.problem_id
       WHERE p.course_id = ? AND e.type IN ('answer_submit','idk') GROUP BY e.problem_id`).all(cid).map(r => [r.pid, r.n]));
   const L = [...C.values()].filter(it => it.facet && it.conf === 1 && it.src === "llm" && it.review === "auto" && it.status === "published" && n.get(it.pid))
     .sort((a, b) => n.get(b.pid) - n.get(a.pid) || a.pid - b.pid);
@@ -138,7 +143,7 @@ function tagcheck(cid) {
   return { cards, left: Math.max(0, L.length - cards.length) };
 }
 function tagcheckPost(pid, body) {
-  const p = st("pOf", "SELECT id, course_id cid, current_version v FROM problem WHERE id = ?").get(pid); if (!p) return bad("없는 문제", 404);
+  const p = st("pOf", "SELECT problem_id id, course_id cid, current_version v FROM problem WHERE problem_id = ?").get(pid); if (!p) return bad("없는 문제", 404);
   const t = st("tOf", "SELECT facet, depth FROM item_tag WHERE problem_id = ? AND version = ?").get(p.id, p.v); if (!t) return bad("태그가 없는 문제예요", 404);
   let facet = t.facet, depth = t.depth, review = "accepted";
   if (body.action === "fix") {
@@ -182,9 +187,9 @@ function pendingPost(body) {
   if (!["publish", "reject"].includes(body.action)) return bad("action은 publish · reject");
   let done = 0; const cids = new Set();
   tx(() => { for (const pid of pids) {
-    const p = st("pOf", "SELECT id, course_id cid, current_version v FROM problem WHERE id = ?").get(pid); if (!p) continue;
-    if (body.action === "publish") done += st("pub", "UPDATE problem SET status = 'published' WHERE id = ? AND status = 'hidden'").run(pid).changes;
-    else done += st("rej", "UPDATE item_tag SET qa = json_set(qa, '$.pending', 'rejected') WHERE problem_id = ? AND version = ?").run(pid, p.v).changes;   // 숨긴 채로 두고 목록에서만 뺀다
+    const p = st("pOf", "SELECT problem_id id, course_id cid, current_version v FROM problem WHERE problem_id = ?").get(pid); if (!p) continue;
+    if (body.action === "publish") done += st("pub", "UPDATE problem SET status = 'published' WHERE problem_id = ? AND status = 'hidden'").run(pid).changes;
+    else done += st("rej", "UPDATE item_tag SET qa = JSON_SET(qa, '$.pending', 'rejected') WHERE problem_id = ? AND version = ?").run(pid, p.v).changes;   // 숨긴 채로 두고 목록에서만 뺀다
     cids.add(p.cid);
   } });
   for (const c of cids) { bumpMeta("tag_rev:" + c); tagger.gateCheck(c); }
@@ -212,7 +217,9 @@ export const insightAdmin = {
   "GET /api/insight/courses": () => courses(),
   "GET /api/insight/vocab/:cid": C_(cid => vocab(cid)),
   "PATCH /api/insight/vocab/:cid": C_((cid, b) => vocabPatch(cid, b.ops)),
-  "POST /api/insight/vocab/:cid/confirm": C_(cid => { const r = tagger.confirmVocab(cid); bumpMeta("tag_rev:" + cid); tagger.gateCheck(cid); return r; }),
+  "POST /api/insight/vocab/:cid/confirm": C_((cid, b) => {                     // body { chapters: ["CH1", …] }면 그 단원 초안만 (단원별 확인)
+    const chs = Array.isArray(b && b.chapters) ? b.chapters.map(String).filter(Boolean) : null;
+    const r = chs && chs.length ? tagger.confirmVocabChapters(cid, chs) : tagger.confirmVocab(cid); bumpMeta("tag_rev:" + cid); tagger.gateCheck(cid); return r; }),
   "GET /api/insight/tagcheck/:cid": C_(cid => tagcheck(cid)),
   "POST /api/insight/tagcheck/:pid": (req, m, body) => tagcheckPost(+m.pid, body),
   "GET /api/insight/coverage/:cid": C_(cid => coverageOf(cid)),
@@ -229,12 +236,12 @@ export const insightAdmin = {
   },
   "GET /api/insight/preview/:cid": C_((cid, b, q) => {
     const dev = q && q.get ? q.get("device") : null; if (!dev) return bad("device가 필요해요");
-    if (!st("dev", "SELECT 1 FROM device WHERE id = ?").get(dev)) return bad("없는 기기", 404);
+    if (!st("dev", "SELECT 1 FROM device WHERE device_id = ?").get(dev)) return bad("없는 기기", 404);
     return buildDoc(dev, cid) || bad("없는 과목이거나 숨긴 과목이에요", 404);   // 저장하지 않는다
   }),
 };
 
 /** 서버가 켜질 때: INSIGHT_TAGGER=1 이거나 관리자가 켜 둔 과목이 있으면 15초 tick을 돈다 */
 export function initTagger() {
-  if (process.env.INSIGHT_TAGGER === "1" || db.prepare("SELECT 1 FROM insight_meta WHERE key LIKE 'tag_run:%' AND value = '1' LIMIT 1").get()) tagger.startLoop();
+  if (process.env.INSIGHT_TAGGER === "1" || db.prepare("SELECT 1 FROM insight_meta WHERE meta_key LIKE 'tag_run:%' AND value = '1' LIMIT 1").get()) tagger.startLoop();
 }

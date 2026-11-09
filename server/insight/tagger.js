@@ -6,7 +6,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { db, J, now, tx, meta, bumpMeta, budgetToday, blocked, bodyHash, facetsOf, miscOf, tagSummary, v2Ready, FACET_KINDS, DELTA_TYPES, DEPTH_WHY } from "../db.js";
+import { db, J, now, tx, meta, bumpMeta, budgetToday, blocked, bodyHash, facetsOf, miscOf, tagSummary, v2Ready, dxSkip, FACET_KINDS, DELTA_TYPES, DEPTH_WHY } from "../db.js";
 import * as ai from "../ai.js";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -73,11 +73,12 @@ function itemText(ref, it) {
 
 // ───────── 과목 자료 ─────────
 function courseOf(cid) {
-  const c = st("c", "SELECT id, name, short, info FROM course WHERE id = ?").get(cid); if (!c) return null;
-  const info = J(c.info), chapters = st("chs", "SELECT id, key, title FROM chapter WHERE course_id = ? ORDER BY sort, id").all(cid);
-  const items = st("its", `SELECT p.id pid, p.ext_id ext, p.status, p.current_version v, ch.key ch, pv.kind, pv.star, pv.body FROM problem p
-      JOIN chapter ch ON ch.id = p.chapter_id JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version
-      WHERE p.course_id = ? ORDER BY p.sort, p.id`).all(cid).map(r => ({ ...r, body: J(r.body) }));
+  const c = st("c", "SELECT course_id id, name, short, info FROM course WHERE course_id = ?").get(cid); if (!c) return null;
+  const skip = dxSkip(cid);                                                  // 진단 제외 단원(약어 암기 등)은 태깅하지 않는다
+  const info = J(c.info), chapters = st("chs", "SELECT chapter_id id, chapter_key `key`, title FROM chapter WHERE course_id = ? ORDER BY sort, chapter_id").all(cid).filter(ch => !skip.has(ch.key));
+  const items = st("its", `SELECT p.problem_id pid, p.ext_id ext, p.status, p.current_version v, ch.chapter_key ch, pv.kind, pv.star, pv.body FROM problem p
+      JOIN chapter ch ON ch.chapter_id = p.chapter_id JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version
+      WHERE p.course_id = ? ORDER BY p.sort, p.problem_id`).all(cid).filter(r => !skip.has(r.ch)).map(r => ({ ...r, body: J(r.body) }));
   const conc = k => { const v = (info.concepts || {})[k]; return cut(T(typeof v === "string" ? v : (v && v.html) || ""), 1500); };
   const topics = info.topics && typeof info.topics === "object" ? info.topics : {};
   const pub = items.filter(i => i.status === "published");
@@ -98,8 +99,8 @@ export function vocabApproved(cid) {
 /** 수요 순서 (SPEC §8.4): 첫 풀이를 틀린 기기 ×3 + 푼 기기 ×2 + 객관식 + ★ ½ + 기출 ½ */
 function prio(cid) {
   const m = new Map();
-  for (const r of st("dem", `SELECT e.problem_id pid, COUNT(DISTINCT e.device_id) n, COUNT(DISTINCT CASE WHEN json_extract(e.payload, '$.correct') = 0 OR e.type = 'idk' THEN e.device_id END) w
-      FROM event e JOIN problem p ON p.id = e.problem_id WHERE p.course_id = ? AND e.type IN ('answer_submit','idk') GROUP BY e.problem_id`).all(cid)) m.set(r.pid, 3 * r.w + 2 * r.n);
+  for (const r of st("dem", `SELECT e.problem_id pid, COUNT(DISTINCT e.device_id) n, COUNT(DISTINCT CASE WHEN e.payload->>'$.correct' IN ('false', '0') OR e.type = 'idk' THEN e.device_id END) w
+      FROM event e JOIN problem p ON p.problem_id = e.problem_id WHERE p.course_id = ? AND e.type IN ('answer_submit','idk') GROUP BY e.problem_id`).all(cid)) m.set(r.pid, 3 * r.w + 2 * r.n);
   return it => (m.get(it.pid) || 0) + (it.kind === "mc" ? 1 : 0) + 0.5 * (it.star ? 1 : 0) + 0.5 * (Array.isArray(it.body.exams) && it.body.exams.length ? 1 : 0);
 }
 function addJob(cid, stage, ref) {
@@ -126,8 +127,8 @@ function carry(it) {
   const h = bodyHash(it.kind, it.body);
   const r = st("carry", "SELECT * FROM item_tag WHERE problem_id = ? AND body_hash = ? AND version != ? AND review NOT IN ('rejected','stale') ORDER BY version DESC LIMIT 1").get(it.pid, h, it.v);
   if (!r) return false;
-  st("carryIns", `INSERT OR IGNORE INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf)
-      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(it.pid, it.v, h, r.vocab_ver, r.prompt_ver, r.model, r.kcs, r.diag, r.qa, r.review, now(), r.facet, r.depth, r.src, r.conf);
+  st("carryIns", `INSERT IGNORE INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf, course_id)
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`).run(it.pid, it.v, h, r.vocab_ver, r.prompt_ver, r.model, r.kcs, r.diag, r.qa, r.review, now(), r.facet, r.depth, r.src, r.conf, r.course_id);
   return true;
 }
 /**
@@ -218,10 +219,11 @@ async function runMerge(C, job) {
       code ||= "c" + String(++kn).padStart(2, "0");
       for (const r of from) mapK.set(r, code);
       const chs = [...new Set(from.map(r => r.split(":")[0]))];
-      st("kcUp", `INSERT INTO kc(course_id, code, chapter_keys, name, definition, boundary, confusable, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,?,?, 'draft', ?, ?)
-          ON CONFLICT(course_id, code) DO UPDATE SET chapter_keys = excluded.chapter_keys, name = CASE WHEN kc.source = 'admin' THEN kc.name ELSE excluded.name END,
-          definition = excluded.definition, boundary = excluded.boundary, vocab_ver = excluded.vocab_ver, updated_at = excluded.updated_at
-          WHERE kc.source NOT IN ('author', 'admin') AND kc.status != 'retired'`)
+      st("kcUp", `INSERT INTO kc(course_id, code, chapter_keys, name, definition, boundary, confusable, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,?,?, 'draft', ?, ?) AS n
+          ON DUPLICATE KEY UPDATE          -- MySQL에는 upsert의 WHERE가 없다 → 칸마다 IF(조건, 새 값, 그대로)
+          chapter_keys = IF(kc.source NOT IN ('author', 'admin') AND kc.status != 'retired', n.chapter_keys, kc.chapter_keys), name = IF(kc.source NOT IN ('author', 'admin') AND kc.status != 'retired', n.name, kc.name),
+          definition = IF(kc.source NOT IN ('author', 'admin') AND kc.status != 'retired', n.definition, kc.definition), boundary = IF(kc.source NOT IN ('author', 'admin') AND kc.status != 'retired', n.boundary, kc.boundary),
+          vocab_ver = IF(kc.source NOT IN ('author', 'admin') AND kc.status != 'retired', n.vocab_ver, kc.vocab_ver), updated_at = IF(kc.source NOT IN ('author', 'admin') AND kc.status != 'retired', n.updated_at, kc.updated_at)`)
         .run(C.cid, code, JSON.stringify(chs), cut(g.name || (C.topics[code] || code), 20), cut(g.definition, 200), cut(g.boundary, 160), "[]", C.topicMode ? "topic" : "llm", v, t);
       meta(`kc_support:${C.cid}:${code}`, JSON.stringify([...pids]));
       // 세부 포인트: 합치기 결과의 facets가 있으면 그대로, 없으면 단원 초안의 것을 모은다. 근거가 2문항 미만이면 가장 가까운 것에 합친다 (여기서는 같은 개념의 첫 것)
@@ -236,10 +238,9 @@ async function runMerge(C, job) {
         for (const c of exist) { const S = new Set(J(meta(`facet_support:${C.cid}:${c}`), [])); let n = 0; for (const p of fp) if (S.has(p)) n++; if (S.size && fp.size && n / Math.min(S.size, fp.size) >= 0.5) { fcode = c; break; } }
         fcode ||= `${code}.f${++fn}`; firstF ||= fcode;
         for (const r of f.from) mapF.set(r, fcode);
-        st("fUp", `INSERT INTO facet(course_id, code, kc, name, statement, kind, confusable, sort, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,'[]',?, 'llm', 'draft', ?, ?)
-            ON CONFLICT(course_id, code) DO UPDATE SET name = CASE WHEN facet.source = 'admin' THEN facet.name ELSE excluded.name END,
-            statement = CASE WHEN facet.source = 'admin' THEN facet.statement ELSE excluded.statement END, vocab_ver = excluded.vocab_ver, updated_at = excluded.updated_at
-            WHERE facet.source NOT IN ('author', 'admin') AND facet.status != 'retired'`)
+        st("fUp", `INSERT INTO facet(course_id, code, kc, name, statement, kind, confusable, sort, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,'[]',?, 'llm', 'draft', ?, ?) AS n
+            ON DUPLICATE KEY UPDATE name = IF(facet.source NOT IN ('author', 'admin') AND facet.status != 'retired', n.name, facet.name), statement = IF(facet.source NOT IN ('author', 'admin') AND facet.status != 'retired', n.statement, facet.statement),
+            vocab_ver = IF(facet.source NOT IN ('author', 'admin') AND facet.status != 'retired', n.vocab_ver, facet.vocab_ver), updated_at = IF(facet.source NOT IN ('author', 'admin') AND facet.status != 'retired', n.updated_at, facet.updated_at)`)
           .run(C.cid, fcode, code, cut(f.name, 20), cut(f.statement, 90), FACET_KINDS.includes(f.kind) ? f.kind : "property", fn, v, t);
         meta(`facet_support:${C.cid}:${fcode}`, JSON.stringify([...fp]));
       }
@@ -258,7 +259,7 @@ async function runMerge(C, job) {
       const fref = m.facet ? `${d.ch}:${m.kc}.${m.facet}` : null, f = (fref && mapF.get(fref)) || null; if (!k) continue;
       const dup = have.find(x => jac(tri(x.belief), tri(m.belief)) >= 0.6); if (dup) continue;
       const code = "m" + String(++mn).padStart(3, "0");
-      st("mIns", `INSERT OR IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?,?,?,?,?,?,?,?, 'llm', 'auto', ?, ?, ?)`)
+      st("mIns", `INSERT IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?,?,?,?,?,?,?,?, 'llm', 'auto', ?, ?, ?)`)
         .run(C.cid, code, d.ch, k, m.cw ? mapK.get(`${d.ch}:${m.cw}`) || null : null, m.belief, m.truth, m.contrast, m.cue, v, t, f);
       have.push({ code, belief: m.belief });
     }
@@ -277,6 +278,29 @@ export function confirmVocab(cid) {
     meta("vocab_ver:" + cid, String(v)); meta("vocab_ok:" + cid, String(v)); meta("vocab_pending:" + cid, null);
   });
   return { ver: v, approved: true };
+}
+
+/**
+ * 관리자 단원별 "확인": 고른 단원의 초안만 활성으로. 개념은 chapter_keys가 모두 확인된 단원 안에 있을 때 켠다.
+ * 확인된 단원은 vocab_ch_ok:<cid>에 모은다. 초안이 하나도 안 남으면 confirmVocab처럼 어휘 판을 마무리한다 (vocab_ok · vocab_ver · pending 지움)
+ */
+export function confirmVocabChapters(cid, chapters) {
+  const v = Math.max(vocabVer(cid), +(meta("vocab_pending:" + cid) || 0), 1), t = now();
+  const ok = new Set([...J(meta("vocab_ch_ok:" + cid), []), ...chapters.map(String)]);
+  const drafts = st("kcDraft", "SELECT code, chapter_keys FROM kc WHERE course_id = ? AND status = 'draft'").all(cid).map(k => ({ code: k.code, chs: J(k.chapter_keys, []) }));
+  const on = drafts.filter(k => k.chs.length && k.chs.every(c => ok.has(c))).map(k => k.code), wait = drafts.filter(k => !on.includes(k.code));
+  let facets = 0, miscs = 0;
+  tx(() => {
+    for (const code of on) {
+      st("kcAct1", "UPDATE kc SET status = 'active', vocab_ver = ?, updated_at = ? WHERE course_id = ? AND code = ? AND status = 'draft'").run(v, t, cid, code);
+      facets += Number(st("fAct1", "UPDATE facet SET status = 'active', vocab_ver = ?, updated_at = ? WHERE course_id = ? AND kc = ? AND status = 'draft'").run(v, t, cid, code).changes);
+      miscs += Number(st("mAct1", "UPDATE misc SET status = 'ok' WHERE course_id = ? AND kc = ? AND status = 'auto'").run(cid, code).changes);
+    }
+    const left = st("leftD", "SELECT (SELECT COUNT(*) FROM kc WHERE course_id = ? AND status = 'draft') + (SELECT COUNT(*) FROM facet WHERE course_id = ? AND status = 'draft') n").get(cid, cid).n;
+    if (!left) { meta("vocab_ver:" + cid, String(v)); meta("vocab_ok:" + cid, String(v)); meta("vocab_pending:" + cid, null); meta("vocab_ch_ok:" + cid, null); }
+    else meta("vocab_ch_ok:" + cid, JSON.stringify([...ok]));
+  });
+  return { ver: v, confirmed: on, facets, miscs, waiting: wait.map(k => ({ code: k.code, chapters: k.chs.filter(c => !ok.has(c)) })), approved: vocabApproved(cid) };
 }
 
 // ───────── C. 문제 태깅: 세부 포인트 + 깊이 + 보기마다 오개념 ─────────
@@ -312,11 +336,11 @@ async function runTag(C, job) {
     if (!r) { missing.push(it); return; }
     const old = st("tagRow", "SELECT version, vocab_ver, prompt_ver, review, src FROM item_tag WHERE problem_id = ? AND version = ?").get(it.pid, it.v);
     if (old && (old.review === "accepted" || old.review === "edited" || old.src === "admin" || old.src === "author")) return;
-    st("tagPut", `INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf)
-        VALUES (?,?,?,?,?,?,?,?, '{}', 'auto', ?, ?, ?, 'llm', 1)
-        ON CONFLICT(problem_id, version) DO UPDATE SET body_hash = excluded.body_hash, vocab_ver = excluded.vocab_ver, prompt_ver = excluded.prompt_ver, model = excluded.model,
-          kcs = excluded.kcs, diag = excluded.diag, updated_at = excluded.updated_at, facet = excluded.facet, depth = excluded.depth, src = 'llm', conf = 1, review = 'auto'`)
-      .run(it.pid, it.v, bodyHash(it.kind, it.body), v, P.ver, call.last || "", JSON.stringify(r.kcs), JSON.stringify(r.diag), t, r.facet, r.depth);
+    st("tagPut", `INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf, course_id)
+        VALUES (?,?,?,?,?,?,?,?, '{}', 'auto', ?, ?, ?, 'llm', 1, ?) AS n
+        ON DUPLICATE KEY UPDATE body_hash = n.body_hash, vocab_ver = n.vocab_ver, prompt_ver = n.prompt_ver, model = n.model,
+          kcs = n.kcs, diag = n.diag, updated_at = n.updated_at, facet = n.facet, depth = n.depth, src = 'llm', conf = 1, review = 'auto'`)
+      .run(it.pid, it.v, bodyHash(it.kind, it.body), v, P.ver, call.last || "", JSON.stringify(r.kcs), JSON.stringify(r.diag), t, r.facet, r.depth, C.cid);
   }));
   if (L.length - missing.length > 0) bumpMeta("tag_rev:" + C.cid);
   if (missing.length && missing.length < L.length) { addJob(C.cid, "tag", missing.map(it => it.pid + ":" + it.v).join(",")); return { done: true }; }
@@ -363,7 +387,7 @@ function addMisc(C, facet, nm) {
   const have = miscOfCourse(C.cid), dup = have.find(x => jac(tri(x.belief), tri(nm.belief)) >= 0.6); if (dup) return dup.code;
   const code = nextMisc(C.cid);
   const kc = (facetsOfCourse(C.cid).find(f => f.code === facet) || {}).kc || "";
-  st("mNew", `INSERT OR IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?, '', ?, NULL, ?, ?, '', '', 'llm', 'auto', ?, ?, ?)`)
+  st("mNew", `INSERT IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?, '', ?, NULL, ?, ?, '', '', 'llm', 'auto', ?, ?, ?)`)
     .run(C.cid, code, kc, cut(nm.belief, 70), cut(nm.truth, 90), vocabVer(C.cid), now(), facet);
   return code;
 }
@@ -374,8 +398,8 @@ async function runSecond(C, job) {
   if (pend) return { retry: true };
   const P = promptOf("second"); if (!P) throw fail("프롬프트 파일 second가 없어요");
   // conf가 아직 1이고 두 번째 의견이 없는 llm 태그, 단원별 12개씩 한 번에 한 묶음
-  const rows = st("needD", `SELECT t.problem_id pid, t.version v, t.facet, t.depth, t.diag FROM item_tag t JOIN problem p ON p.id = t.problem_id
-      WHERE p.course_id = ? AND t.src = 'llm' AND t.review = 'auto' AND json_extract(t.qa, '$.second') IS NULL ORDER BY t.problem_id LIMIT 200`).all(C.cid);
+  const rows = st("needD", `SELECT t.problem_id pid, t.version v, t.facet, t.depth, t.diag FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id
+      WHERE p.course_id = ? AND t.src = 'llm' AND t.review = 'auto' AND JSON_EXTRACT(t.qa, '$.second') IS NULL ORDER BY t.problem_id LIMIT 200`).all(C.cid);
   if (!rows.length) return { done: true };
   const it0 = C.items.find(i => i.pid === rows[0].pid); if (!it0) { markQa(rows[0].pid, rows[0].v, { second: "skip" }); return { retry: true }; }
   const L = rows.filter(r => { const it = C.items.find(i => i.pid === r.pid); return it && it.ch === it0.ch && it.v === r.v; }).slice(0, BATCH.second);
@@ -392,13 +416,13 @@ async function runSecond(C, job) {
     if (f2 === r.facet && d2 === r.depth) conf = grounded ? 3 : 2;
     else if (f2 === r.facet && Math.abs(d2 - r.depth) === 1) { conf = 1; depth = Math.min(d2, r.depth); }
     else conf = 1;
-    st("confPut", "UPDATE item_tag SET conf = ?, depth = ?, review = ?, qa = json_set(qa, '$.second', json(?)) WHERE problem_id = ? AND version = ?")
+    st("confPut", "UPDATE item_tag SET conf = ?, depth = ?, review = ?, qa = JSON_SET(qa, '$.second', CAST(? AS JSON)) WHERE problem_id = ? AND version = ?")
       .run(conf, depth, review, JSON.stringify({ facet: f2 || null, depth: d2 || null }), r.pid, r.v);
   }));
   bumpMeta("tag_rev:" + C.cid);
   return { retry: true };                                                   // 남은 것이 없을 때까지 같은 일감을 다시
 }
-const markQa = (pid, v, o) => st("qa", "UPDATE item_tag SET qa = json_patch(qa, ?) WHERE problem_id = ? AND version = ?").run(JSON.stringify(o), pid, v);
+const markQa = (pid, v, o) => st("qa", "UPDATE item_tag SET qa = JSON_MERGE_PATCH(qa, CAST(? AS JSON)) WHERE problem_id = ? AND version = ?").run(JSON.stringify(o), pid, v);
 
 // ───────── E. 변형 묶음 (세부 포인트마다, 한 번에 4개) ─────────
 async function runFamily(C, job) {
@@ -407,7 +431,7 @@ async function runFamily(C, job) {
   const P = promptOf("family"); if (!P) throw fail("프롬프트 파일 family가 없어요");
   const done = new Set(J(meta("family_done:" + C.cid), []));
   const byF = new Map();
-  for (const r of st("tagsF", `SELECT t.problem_id pid, t.version v, t.facet, t.depth FROM item_tag t JOIN problem p ON p.id = t.problem_id AND p.current_version = t.version
+  for (const r of st("tagsF", `SELECT t.problem_id pid, t.version v, t.facet, t.depth FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id AND p.current_version = t.version
       WHERE p.course_id = ? AND t.facet IS NOT NULL AND t.review NOT IN ('rejected','stale') AND p.status = 'published'`).all(C.cid))
     if (!st("inFam", "SELECT 1 FROM family_member WHERE problem_id = ? AND source IN ('author','admin')").get(r.pid)) (byF.get(r.facet) || byF.set(r.facet, []).get(r.facet)).push(r);
   const todo = [...byF].filter(([f, L]) => L.length >= 2 && !done.has(f)).slice(0, BATCH.family);
@@ -435,9 +459,10 @@ async function runFamily(C, job) {
       st("famIns", "INSERT INTO family(course_id, code, facet, base_problem_id, principle, source, status, updated_at) VALUES (?,?,?,?,?, 'llm', 'auto', ?)")
         .run(C.cid, code, f, base.pid, cut(g.principle, 90), t);
       const put = (r, role, dt, delta) => { const it = C.items.find(i => i.pid === r.pid);
-        st("fmIns", `INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?, 'llm', 2, ?)
-            ON CONFLICT(problem_id) DO UPDATE SET family = excluded.family, role = excluded.role, delta_type = excluded.delta_type, delta = excluded.delta, body_hash = excluded.body_hash, conf = 2, updated_at = excluded.updated_at
-            WHERE family_member.source = 'llm'`).run(r.pid, C.cid, code, role, dt, delta, bodyHash(it.kind, it.body), t); };
+        st("fmIns", `INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?, 'llm', 2, ?) AS n
+            ON DUPLICATE KEY UPDATE family = IF(family_member.source = 'llm', n.family, family_member.family), role = IF(family_member.source = 'llm', n.role, family_member.role),
+            delta_type = IF(family_member.source = 'llm', n.delta_type, family_member.delta_type), delta = IF(family_member.source = 'llm', n.delta, family_member.delta), body_hash = IF(family_member.source = 'llm', n.body_hash, family_member.body_hash),
+            conf = IF(family_member.source = 'llm', 2, family_member.conf), updated_at = IF(family_member.source = 'llm', n.updated_at, family_member.updated_at)`).run(r.pid, C.cid, code, role, dt, delta, bodyHash(it.kind, it.body), t); };
       put(base, "base", null, "");
       for (const m of mem) put(m.r, m.role, m.dt, m.delta);
     }
@@ -455,8 +480,8 @@ async function runVerify(C, job) {
   const P = promptOf("verify"); if (!P) throw fail("프롬프트 파일 verify가 없어요");
   const misc = new Map(miscOfCourse(C.cid).map(m => [m.code, m])), facets = new Map(facetsOfCourse(C.cid).map(f => [f.code, f]));
   const checks = [];
-  for (const r of st("needF", `SELECT t.problem_id pid, t.version v, t.facet, t.diag FROM item_tag t JOIN problem p ON p.id = t.problem_id
-      WHERE p.course_id = ? AND t.src = 'llm' AND t.review = 'auto' AND json_extract(t.qa, '$.verified') IS NULL ORDER BY t.problem_id LIMIT 40`).all(C.cid)) {
+  for (const r of st("needF", `SELECT t.problem_id pid, t.version v, t.facet, t.diag FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id
+      WHERE p.course_id = ? AND t.src = 'llm' AND t.review = 'auto' AND JSON_EXTRACT(t.qa, '$.verified') IS NULL ORDER BY t.problem_id LIMIT 40`).all(C.cid)) {
     const it = C.items.find(i => i.pid === r.pid && i.v === r.v); if (!it) { markQa(r.pid, r.v, { verified: "skip" }); continue; }
     const dg = J(r.diag), opts = Object.entries(dg.opt || {}).filter(([, o]) => o && o.m && o.src === "inferred" && o.d >= 2);
     for (const [i, o] of opts) checks.push({ r, it, i: +i, m: o.m });
@@ -476,8 +501,8 @@ async function runVerify(C, job) {
       const want = c.i === "ox" ? "O" : LET[c.i];
       if (x.picked !== want) { if (c.i === "ox") dg.ox.d = Math.min(dg.ox.d, 1); else if (dg.opt && dg.opt[c.i]) dg.opt[c.i].d = Math.min(dg.opt[c.i].d, 1); }   // 블라인드로 못 고르면 개념 증거로만
     }
-    st("diagPut", "UPDATE item_tag SET diag = ?, qa = json_set(qa, '$.verified', 1) WHERE problem_id = ? AND version = ?").run(JSON.stringify(dg), c.r.pid, c.r.v);
-    if (y && y.fit === "no") st("fitNo", "UPDATE item_tag SET conf = 1, qa = json_set(qa, '$.fit', 'no') WHERE problem_id = ? AND version = ?").run(c.r.pid, c.r.v);
+    st("diagPut", "UPDATE item_tag SET diag = ?, qa = JSON_SET(qa, '$.verified', 1) WHERE problem_id = ? AND version = ?").run(JSON.stringify(dg), c.r.pid, c.r.v);
+    if (y && y.fit === "no") st("fitNo", "UPDATE item_tag SET conf = 1, qa = JSON_SET(qa, '$.fit', 'no') WHERE problem_id = ? AND version = ?").run(c.r.pid, c.r.v);
   }));
   bumpMeta("tag_rev:" + C.cid);
   return { retry: true };
@@ -486,18 +511,18 @@ async function runVerify(C, job) {
 // ───────── 골드 시험 (DATA §8.7): 과목마다 12문제, 사람 쪽 라벨과 C 단계 태그 비교 ─────────
 /** gold/<과목 id · short · code>.json = [{ext_id, facet | null, facet_hint?, depth, depth_why?}] → { n, facet_agree, depth_kappa, pass } (파일이 없으면 null) */
 export function goldOf(cid) {
-  const c = st("cs", "SELECT id, short, code FROM course WHERE id = ?").get(cid); if (!c) return null;
+  const c = st("cs", "SELECT course_id id, short, code FROM course WHERE course_id = ?").get(cid); if (!c) return null;
   const file = [String(c.id), c.short, c.code].filter(Boolean).map(n => join(GOLD, n + ".json")).find(existsSync); if (!file) return null;
   let L; try { L = JSON.parse(readFileSync(file, "utf8")); } catch { return null; }
   const pairs = [];
   for (const g of Array.isArray(L) ? L : []) {
-    const p = st("byExt", "SELECT id, current_version v FROM problem WHERE course_id = ? AND ext_id = ?").get(cid, g.ext_id); if (!p) continue;
+    const p = st("byExt", "SELECT problem_id id, current_version v FROM problem WHERE course_id = ? AND ext_id = ?").get(cid, g.ext_id); if (!p) continue;
     const t = st("tagOf", "SELECT facet, depth, src FROM item_tag WHERE problem_id = ? AND version = ?").get(p.id, p.v);
     if (t && t.src === "llm") pairs.push([g, t]);
   }
   if (!pairs.length) {
     // 태그가 모두 저자·관리자 것(사람이 붙임)이면 비교할 llm 태그가 없다 → 골드 단계는 통과로 본다
-    const r = st("authAll", `SELECT COUNT(*) n, SUM(t.src IN ('author','admin')) a FROM problem p LEFT JOIN item_tag t ON t.problem_id = p.id AND t.version = p.current_version
+    const r = st("authAll", `SELECT COUNT(*) n, SUM(t.src IN ('author','admin')) a FROM problem p LEFT JOIN item_tag t ON t.problem_id = p.problem_id AND t.version = p.current_version
         WHERE p.course_id = ? AND p.status = 'published'`).get(cid);
     const out = r.n && r.a === r.n ? { n: 0, facet_agree: null, depth_kappa: null, pass: true, author: true } : { n: 0, facet_agree: null, depth_kappa: null, pass: false };
     meta("gold:" + cid, JSON.stringify(out)); return out;
@@ -531,44 +556,44 @@ export async function tick(cid = null, { stage = null } = {}) {
   if (!ai.enabled()) return { ran: null, state: "off" };
   if (!ai.aiLane.idle()) return { ran: null, state: "busy" };                 // 채점이 먼저
   st("expire", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE state = 'running' AND lease_until < ?").run(now());
-  const job = st("pick", `SELECT * FROM tag_job WHERE state = 'queued' AND (? IS NULL OR course_id = ?) AND (? IS NULL OR stage = ?) ORDER BY course_id, ${ORDER}, id LIMIT 1`).get(cid, cid, stage, stage);
+  const job = st("pick", `SELECT *, job_id id FROM tag_job WHERE state = 'queued' AND (? IS NULL OR course_id = ?) AND (? IS NULL OR stage = ?) ORDER BY course_id, ${ORDER}, job_id LIMIT 1`).get(cid, cid, stage, stage);
   if (!job) return { ran: null, state: "idle" };
   const lease = new Date(Date.now() + 3 * 6e4).toISOString();
-  if (!st("lease", "UPDATE tag_job SET state = 'running', lease_until = ?, updated_at = ? WHERE id = ? AND state = 'queued'").run(lease, now(), job.id).changes) return { ran: null, state: "raced" };
+  if (!st("lease", "UPDATE tag_job SET state = 'running', lease_until = ?, updated_at = ? WHERE job_id = ? AND state = 'queued'").run(lease, now(), job.id).changes) return { ran: null, state: "raced" };
   const C = courseOf(job.course_id);
   try {
     const r = C ? await RUN[job.stage](C, job) : { done: true };
-    st("jobDone", "UPDATE tag_job SET state = ?, lease_until = NULL, model = ?, updated_at = ? WHERE id = ?").run(r.retry ? "queued" : "done", call.last || job.model, now(), job.id);
+    st("jobDone", "UPDATE tag_job SET state = ?, lease_until = NULL, model = ?, updated_at = ? WHERE job_id = ?").run(r.retry ? "queued" : "done", call.last || job.model, now(), job.id);
     if (!r.retry && C) gateCheck(job.course_id);
     return { ran: job.id, state: r.retry ? "again" : "done" };
   } catch (e) {
     const code = e && e.code;
-    if (code === "lane") { st("back", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE id = ?").run(job.id); return { ran: null, state: "busy" }; }
+    if (code === "lane") { st("back", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE job_id = ?").run(job.id); return { ran: null, state: "busy" }; }
     if (code === "cap" || code === "quota") {
       // 하루 내내 쉬는 것은 쓸 모델이 정말 하나도 없을 때만 (모두 하루 한도 429로 막혔거나 오늘 몫 60%를 다 씀).
       // 몇 모델이 잠깐 붐빈(503·시간 초과) 사이에 한 모델이 429를 받은 경우는 10분만 쉰다
       const pool = [...new Set([...ai.INSIGHT_MODELS, ...ai.VERIFY_MODELS])];
       const usable = pool.filter(m => !blocked(m) && budgetToday(m).calls < 0.6 * ai.RPD);
       const until = new Date(usable.length ? Date.now() + 10 * 6e4 : ai.nextMidnightPT()).toISOString();
-      meta("tag_pause_until", until); st("back", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE id = ?").run(job.id);
+      meta("tag_pause_until", until); st("back", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE job_id = ?").run(job.id);
       return { ran: null, state: "paused", until };
     }
-    if (code === "off" || code === "key") { st("back", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE id = ?").run(job.id); return { ran: null, state: "off" }; }
+    if (code === "off" || code === "key") { st("back", "UPDATE tag_job SET state = 'queued', lease_until = NULL WHERE job_id = ?").run(job.id); return { ran: null, state: "off" }; }
     const tries = job.tries + 1, msg = String((e && e.message) || e).slice(0, 300);
     // 두 번 실패한 문제 묶음은 반으로 나눈다. 한 문제짜리가 세 번 실패하면 failed
     if (job.stage === "tag" && tries >= 2 && job.ref.includes(",")) {
       const p = job.ref.split(","), h = Math.ceil(p.length / 2);
-      tx(() => { st("jobFail", "UPDATE tag_job SET state = 'done', tries = ?, last_error = ?, updated_at = ? WHERE id = ?").run(tries, "나눔: " + msg, now(), job.id); addJob(job.course_id, "tag", p.slice(0, h).join(",")); addJob(job.course_id, "tag", p.slice(h).join(",")); });
+      tx(() => { st("jobFail", "UPDATE tag_job SET state = 'done', tries = ?, last_error = ?, updated_at = ? WHERE job_id = ?").run(tries, "나눔: " + msg, now(), job.id); addJob(job.course_id, "tag", p.slice(0, h).join(",")); addJob(job.course_id, "tag", p.slice(h).join(",")); });
       return { ran: job.id, state: "split", error: msg };
     }
-    st("jobErr", "UPDATE tag_job SET state = ?, tries = ?, last_error = ?, lease_until = NULL, updated_at = ? WHERE id = ?").run(tries >= 3 ? "failed" : "queued", tries, msg, now(), job.id);
+    st("jobErr", "UPDATE tag_job SET state = ?, tries = ?, last_error = ?, lease_until = NULL, updated_at = ? WHERE job_id = ?").run(tries >= 3 ? "failed" : "queued", tries, msg, now(), job.id);
     return { ran: job.id, state: tries >= 3 ? "failed" : "error", error: msg };
   }
 }
 
 // 서버 안에서 15초마다 하나 (관리자 "작업 시작" 또는 INSIGHT_TAGGER=1). 과목마다 켜고 끈다: meta tag_run:<cid> = 1
 let timer = null;
-const running = () => st("runs", "SELECT key FROM insight_meta WHERE key LIKE 'tag_run:%' AND value = '1'").all().map(r => +r.key.split(":")[1]);
+const running = () => st("runs", "SELECT meta_key `key` FROM insight_meta WHERE meta_key LIKE 'tag_run:%' AND value = '1'").all().map(r => +r.key.split(":")[1]);
 export function startLoop() {
   if (timer) return;
   timer = setInterval(async () => {
@@ -586,7 +611,7 @@ export const isRunning = cid => meta("tag_run:" + cid) === "1";
 export function jobsOf(cid) {
   const stages = STAGES.map(s => ({ stage: s, ...Object.fromEntries(["queued", "running", "done", "failed"].map(k => [k, 0])) }));
   for (const r of st("jobCnt", "SELECT stage, state, COUNT(*) n FROM tag_job WHERE course_id = ? GROUP BY stage, state").all(cid)) { const x = stages.find(s => s.stage === r.stage); if (x && r.state in x) x[r.state] = r.n; }
-  const recent_errors = st("jobErrs", "SELECT id, stage, ref, last_error error, updated_at at FROM tag_job WHERE course_id = ? AND last_error IS NOT NULL ORDER BY updated_at DESC LIMIT 10").all(cid);
+  const recent_errors = st("jobErrs", "SELECT job_id id, stage, ref, last_error error, updated_at at FROM tag_job WHERE course_id = ? AND last_error IS NOT NULL ORDER BY updated_at DESC LIMIT 10").all(cid);
   return { stages, recent_errors, running: isRunning(cid), paused_until: meta("tag_pause_until"), ai: ai.enabled() };
 }
 
@@ -616,7 +641,6 @@ export function setHold(cid, on) { meta("v2_hold:" + cid, on ? "1" : null); retu
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const a = process.argv.slice(2), arg = k => { const i = a.indexOf("--" + k); return i >= 0 ? a[i + 1] : null; };
   const cid = +arg("course"); if (!cid) { console.log("사용법: node server/insight/tagger.js --course <id> [--stage vocab|merge|tag|second|family|verify] [--limit 40] [--dry]"); process.exit(0); }
-  db.exec("PRAGMA busy_timeout = 3000");
   if (a.includes("--dry")) { console.log(JSON.stringify(plan(cid), null, 2)); process.exit(0); }
   plan(cid);
   const limit = +arg("limit") || 40, stage = arg("stage");

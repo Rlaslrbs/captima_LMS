@@ -1,0 +1,5700 @@
+{
+ "format": 1,
+ "publish": false,
+ "semester": {
+  "code": "27-1",
+  "name": "2027년 1학기"
+ },
+ "course": {
+  "code": "IE203",
+  "short": "공수1",
+  "name": "공학수학1",
+  "professor": "최현홍",
+  "meta": "2022 강의 슬라이드 2~15강 + 기말 정리 + 22년 중간·기말",
+  "lang": "ko",
+  "color": {
+   "light": "#9a7b0a",
+   "dark": "#e3c35a"
+  },
+  "math": false,
+  "files": {
+   "L1": "기말 정리 (Final Review, old22_final_review, 2022 슬라이드)",
+   "L2": "2강 Foundation of Engineering Mathematics (lec02, 2022 슬라이드)",
+   "L3": "3강 First-Order ODEs (1) (lec03, 2022 슬라이드)",
+   "L4": "4강 First-Order ODEs (2) (lec04, 2022 슬라이드)",
+   "L5": "5강 First-Order ODEs (3) (lec05, 2022 슬라이드)",
+   "L6": "6강 Second-Order Linear ODEs (1) (lec06, 2022 슬라이드)",
+   "L7": "7강 Second-Order Linear ODEs (2) (lec07, 2022 슬라이드)",
+   "L8": "8강 Second-Order Linear ODEs (3) (lec08, 2022 슬라이드)",
+   "L9": "9강 Second-Order Linear ODEs (4) (lec09, 2022 슬라이드)",
+   "L10": "10강 Higher Order Linear ODEs (1) (lec10, 2022 슬라이드)",
+   "L11": "11강 Higher Order Linear ODEs (2) (lec11, 2022 슬라이드)",
+   "L12": "12강 Laplace Transforms (1) (lec12, 2022 슬라이드)",
+   "L13": "13강 Laplace Transforms (2) (lec13, 2022 슬라이드)",
+   "L14": "14강 Laplace Transforms (3) (lec14, 2022 슬라이드)",
+   "L15": "15강 Laplace Transforms (4) (lec15, 2022 슬라이드)"
+  },
+  "topics": {
+   "gamma": {
+    "name": "감마함수",
+    "facets": {
+     "factorial": {
+      "name": "감마함수와 계승",
+      "kind": "relation",
+      "statement": "Γ(x+1) = xΓ(x) 이고 양의 정수 n 에서 Γ(n) = (n−1)! 이다"
+     }
+    }
+   },
+   "diff": {
+    "name": "다변수 함수의 미분",
+    "facets": {
+     "chain": {
+      "name": "다변수 함수의 연쇄법칙",
+      "kind": "procedure",
+      "statement": "z=f(x,y), x=g(t), y=h(t) 이면 dz/dt 는 경로별 곱을 모두 더한 값이다"
+     }
+    }
+   },
+   "hyper": {
+    "name": "쌍곡함수",
+    "facets": {
+     "def": {
+      "name": "쌍곡함수의 정의와 성질",
+      "kind": "def",
+      "statement": "cosh x = (e^x+e^(−x))/2, sinh x = (e^x−e^(−x))/2 이고 cosh²x − sinh²x = 1 이다"
+     }
+    }
+   },
+   "poly_roots": {
+    "name": "다항방정식의 근",
+    "facets": {
+     "conjugate": {
+      "name": "실계수 방정식의 복소근은 켤레쌍",
+      "kind": "property",
+      "statement": "계수가 실수인 n차 방정식의 복소근 a+bi 는 켤레 a−bi 와 함께 나온다"
+     }
+    }
+   },
+   "lin1": {
+    "name": "1계 선형 ODE",
+    "confusable": [
+     "bernoulli",
+     "separable"
+    ],
+    "facets": {
+     "solve": {
+      "name": "선형성 판정과 일반해 공식",
+      "kind": "procedure",
+      "statement": "y'+a(x)y=h(x) 꼴이면 선형이고 py = c+∫ph (p=e^(∫a dx)) 로 푼다"
+     }
+    }
+   },
+   "sol_types": {
+    "name": "ODE 해의 종류",
+    "facets": {
+     "kinds": {
+      "name": "일반해·특수해·특이해의 구분",
+      "kind": "distinction",
+      "statement": "일반해는 임의상수를 포함하고, c 를 정하면 특수해, 어떤 c 로도 못 얻으면 특이해다"
+     }
+    }
+   },
+   "bernoulli": {
+    "name": "Bernoulli 식",
+    "confusable": [
+     "lin1"
+    ],
+    "facets": {
+     "linearize": {
+      "name": "Bernoulli 식의 선형화",
+      "kind": "procedure",
+      "statement": "y'+py=g y^a (a≠0,1) 는 u=y^(1−a) 로 u'+(1−a)pu=(1−a)g 가 된다"
+     }
+    }
+   },
+   "separable": {
+    "name": "변수분리형 ODE",
+    "confusable": [
+     "exact",
+     "lin1"
+    ],
+    "facets": {
+     "solve": {
+      "name": "변수분리형 풀이와 특이해",
+      "kind": "procedure",
+      "statement": "y'=f(x)g(y) 는 ∫dy/g=∫f dx 로 풀고, g(y0)=0 인 상수해를 따로 확인한다"
+     },
+     "reduce": {
+      "name": "변수분리형으로의 환원",
+      "kind": "procedure",
+      "statement": "y'=f(y/x) 는 u=y/x, y'=f((ax+by+c)/(gx+ey+h)) 는 연립식의 해 유무로 Method I·II 를 쓴다"
+     }
+    }
+   },
+   "exact": {
+    "name": "완전미분방정식",
+    "confusable": [
+     "separable"
+    ],
+    "facets": {
+     "test": {
+      "name": "완전미분 판정과 적분인자",
+      "kind": "condition",
+      "statement": "∂P/∂y=∂Q/∂x 이면 완전이고, 아니면 F(x) 또는 F*(y) 적분인자를 R, R* 로 찾는다"
+     },
+     "solve": {
+      "name": "u(x,y)=c 일반해 구하기",
+      "kind": "procedure",
+      "statement": "∂u/∂x=P 를 적분해 k(y) 를 더하고 ∂u/∂y=Q 로 k(y) 를 정해 u(x,y)=c 로 쓴다"
+     }
+    }
+   },
+   "const2": {
+    "name": "2계 상수계수 동차 ODE",
+    "confusable": [
+     "euler2"
+    ],
+    "facets": {
+     "cases": {
+      "name": "특성근 종류별 해와 기저",
+      "kind": "procedure",
+      "statement": "특성근이 서로 다른 실근·중근·복소근인 경우마다 기저가 e^(λx), x e^(λx), e^(px)cos qx·sin qx 다"
+     }
+    }
+   },
+   "euler2": {
+    "name": "Euler–Cauchy 식",
+    "confusable": [
+     "const2"
+    ],
+    "facets": {
+     "aux": {
+      "name": "Euler–Cauchy 보조방정식",
+      "kind": "procedure",
+      "statement": "x²y\"+axy'+by=0 에 y=x^m 을 넣어 m²+(a−1)m+b=0 의 근 종류로 해를 쓴다"
+     }
+    }
+   },
+   "sol_struct": {
+    "name": "선형 ODE 해의 구조",
+    "facets": {
+     "superpos": {
+      "name": "중첩 원리의 성립 조건",
+      "kind": "condition",
+      "statement": "동차 선형 ODE 의 해의 일차결합은 해이지만, 비제차·비선형 ODE 에서는 성립하지 않는다"
+     },
+     "nonhom": {
+      "name": "비제차 선형 ODE 의 해의 구조",
+      "kind": "relation",
+      "statement": "y=yh+yp 이고, 비제차 ODE 의 두 해의 차는 제차 ODE 의 해다"
+     }
+    }
+   },
+   "reduction": {
+    "name": "차수내림법",
+    "facets": {
+     "reduce": {
+      "name": "차수내림법",
+      "kind": "procedure",
+      "statement": "해 y1 을 알면 y2 = y1∫1/(p y1²)dx (p=e^(∫a dx), 표준형), 비제차는 yp = y1∫(∫p y1 h)/(p y1²)"
+     }
+    }
+   },
+   "undet": {
+    "name": "미정계수법",
+    "confusable": [
+     "varparam"
+    ],
+    "facets": {
+     "cond": {
+      "name": "미정계수법의 적용 조건과 수정 규칙",
+      "kind": "condition",
+      "statement": "상수계수이고 r(x) 가 특정 꼴일 때 쓰며, yp 꼴이 동차해와 겹치면 x 또는 x² 를 곱한다"
+     },
+     "basic": {
+      "name": "r(x) 에 따른 yp 의 꼴",
+      "kind": "relation",
+      "statement": "r(x)=kx^n, k cos·sin ωx, k e^(αx) cos ωx 는 각각 모든 낮은 차수·cos·sin 쌍을 포함한 yp 를 둔다"
+     }
+    }
+   },
+   "varparam": {
+    "name": "변수변분법",
+    "confusable": [
+     "undet"
+    ],
+    "facets": {
+     "system": {
+      "name": "변수변분법의 연립 조건",
+      "kind": "procedure",
+      "statement": "yp=uy1+vy2 에서 u'y1+v'y2=0, u'y1'+v'y2'=r (r 은 표준형 우변)을 푼다"
+     }
+    }
+   },
+   "euler_n": {
+    "name": "고계 Euler–Cauchy 식",
+    "confusable": [
+     "const_n"
+    ],
+    "facets": {
+     "aux": {
+      "name": "n계 보조방정식과 일반해",
+      "kind": "procedure",
+      "statement": "x^k y^(k) 항이 m(m−1)⋯(m−k+1) 로 들어가는 보조방정식의 근 종류로 일반해를 쓴다"
+     }
+    }
+   },
+   "const_n": {
+    "name": "고계 상수계수 동차 ODE",
+    "confusable": [
+     "euler_n"
+    ],
+    "facets": {
+     "repeated": {
+      "name": "중복 복소근과 일차독립",
+      "kind": "condition",
+      "statement": "m중 복소근 p±qi 는 x 의 0~m−1 제곱을 cos qx, sin qx 에 곱한 해 2m 개를 준다"
+     }
+    }
+   },
+   "undet_n": {
+    "name": "고계 미정계수법",
+    "confusable": [
+     "undet"
+    ],
+    "facets": {
+     "modify": {
+      "name": "고계 수정 규칙 (x^k)",
+      "kind": "condition",
+      "statement": "동차해와 겹치는 항에 곱하는 x^k 의 k 는 겹침이 없어지는 최소 양의 정수다"
+     }
+    }
+   },
+   "laplace": {
+    "name": "라플라스 변환",
+    "facets": {
+     "table": {
+      "name": "라플라스 변환의 정의와 기본 변환표",
+      "kind": "def",
+      "statement": "F(s)=∫0^∞ e^(−st)f(t)dt 이고 e^(at), t^n, cos ωt, sin ωt, cosh, sinh 의 변환을 쓴다"
+     },
+     "linear": {
+      "name": "라플라스 변환의 선형성과 존재 조건",
+      "kind": "condition",
+      "statement": "L 은 선형이고, 구간별 연속이며 |f|≤Me^(kt) 이면 s>k 에서 변환이 존재한다"
+     },
+     "sderiv": {
+      "name": "s-영역의 미분과 적분",
+      "kind": "property",
+      "statement": "L{tf}=−F'(s), L{f/t}=∫(s→∞)F(σ)dσ 다"
+     }
+    }
+   },
+   "piecewise": {
+    "name": "구간별 함수의 변환",
+    "confusable": [
+     "delta"
+    ],
+    "facets": {
+     "step": {
+      "name": "구간별 함수의 계단함수 표현",
+      "kind": "procedure",
+      "statement": "구간별 함수는 u(t−a) 로 켜고 끄는 식으로 쓰고, t 를 포함하면 t-이동 형태로 고친다"
+     }
+    }
+   },
+   "special_lt": {
+    "name": "주기함수의 변환",
+    "facets": {
+     "periodic": {
+      "name": "주기함수·델타함수의 라플라스 변환",
+      "kind": "property",
+      "statement": "주기 T 인 f 는 L{f}=∫0^T e^(−st)f dt/(1−e^(−Ts)) 이고 δ 는 넓이 1 의 극한이다"
+     }
+    }
+   },
+   "delta": {
+    "name": "디랙 델타 함수",
+    "confusable": [
+     "piecewise"
+    ],
+    "facets": {
+     "props": {
+      "name": "디랙 델타 함수의 성질과 변환",
+      "kind": "property",
+      "statement": "∫g δ(t−a)dt=g(a), L{δ(t−a)}=e^(−as) 이고 δ 입력은 점프를 만든다"
+     }
+    }
+   },
+   "conv": {
+    "name": "합성곱",
+    "facets": {
+     "props": {
+      "name": "합성곱의 성질",
+      "kind": "property",
+      "statement": "합성곱은 교환·분배·결합·f*0=0 은 되지만 f*1=f 와 f*f≥0 은 성립하지 않는다"
+     }
+    }
+   },
+   "partial_frac": {
+    "name": "부분분수 역변환",
+    "facets": {
+     "expand": {
+      "name": "부분분수 전개와 역변환",
+      "kind": "procedure",
+      "statement": "일차 인수·중복 인수·이차 인수별 부분분수로 나눠 변환표로 역변환한다"
+     }
+    }
+   },
+   "lt_ode": {
+    "name": "라플라스로 ODE 풀기",
+    "facets": {
+     "solve": {
+      "name": "라플라스로 상수계수 ODE 풀기",
+      "kind": "procedure",
+      "statement": "(s²+as+b)Y=(s+a)y(0)+y'(0)+R 로 Y 를 구하고 부분분수·이동 정리로 역변환한다"
+     }
+    }
+   },
+   "lt_inteq": {
+    "name": "라플라스로 적분방정식 풀기",
+    "facets": {
+     "solve": {
+      "name": "라플라스 변환으로 적분방정식 풀기",
+      "kind": "procedure",
+      "statement": "∫0^t k(t−τ)y(τ)dτ 를 합성곱으로 보고 Y=F+KY 로 풀어 역변환한다"
+     }
+    }
+   }
+  },
+  "misconceptions": {
+   "m_gamma_n_fact": {
+    "facet": "gamma.factorial",
+    "belief": "Γ(n) = n! 이라고 생각함",
+    "truth": "Γ(n) = (n−1)! 이다. 감마함수 값은 인자보다 하나 작은 수의 계승이다"
+   },
+   "m_diff_mult_paths": {
+    "facet": "diff.chain",
+    "belief": "서로 다른 경로의 항도 곱해서 합친다고 생각함",
+    "truth": "한 경로 안에서는 곱하고 경로끼리는 더한다: dz/dt = f_x x' + f_y y'"
+   },
+   "m_diff_one_path": {
+    "facet": "diff.chain",
+    "belief": "바깥 함수의 편미분 한 항만 쓰면 된다고 생각함",
+    "truth": "독립변수마다 (편미분)×(그 변수의 도함수) 항을 모두 더해야 한다"
+   },
+   "m_hyper_swap": {
+    "facet": "hyper.def",
+    "belief": "cosh 와 sinh 의 정의 식(합·차)을 서로 바꿔 쓴다고 생각함",
+    "truth": "cosh x = (e^x + e^(−x))/2 (합), sinh x = (e^x − e^(−x))/2 (차) 이다"
+   },
+   "m_hyper_trig_id": {
+    "facet": "hyper.def",
+    "belief": "삼각함수 cos^2 + sin^2 = 1 과 같은 꼴이라고 생각함",
+    "truth": "cosh²x − sinh²x = 1 (차)이고, 합 cosh²x + sinh²x 는 cosh 2x 이다"
+   },
+   "m_hyper_drop_exp": {
+    "facet": "hyper.def",
+    "belief": "e^(ln 3) 만 남기고 e^(−ln 3) 항은 버린다고 생각함",
+    "truth": "cosh x = (e^x + e^(−x))/2 이므로 두 항을 모두 쓴다 (cosh(ln 3) = (3 + 1/3)/2)"
+   },
+   "m_hyper_no_half": {
+    "facet": "hyper.def",
+    "belief": "분모의 2 로 나누는 것을 빼먹는다고 생각함",
+    "truth": "cosh, sinh 는 합·차를 2 로 나눈 값이다"
+   },
+   "m_hyper_sinh_even": {
+    "facet": "hyper.def",
+    "belief": "sinh 는 cos 처럼 짝함수라고 생각함",
+    "truth": "sinh 는 홀함수(sinh(−x) = −sinh x), cosh 는 짝함수다"
+   },
+   "m_hyper_parity_mul": {
+    "facet": "hyper.def",
+    "belief": "곱해도 함수의 짝·홀이 바뀌지 않는다고 생각함",
+    "truth": "곱의 짝·홀: 짝·짝=짝, 홀·홀=짝, 홀·짝=홀 (x 를 곱하면 바뀐다)"
+   },
+   "m_poly_lone_root": {
+    "facet": "poly_roots.conjugate",
+    "belief": "실계수 방정식에서 복소근이 켤레 없이 하나만 나온다고 생각함",
+    "truth": "실계수 방정식의 복소근 a+bi 는 켤레 a−bi 와 항상 쌍으로 나온다"
+   },
+   "m_poly_conj_sign": {
+    "facet": "poly_roots.conjugate",
+    "belief": "켤레복소수는 실수부와 허수부의 부호를 모두 바꾼 것이라고 생각함",
+    "truth": "켤레복소수는 허수부의 부호만 바꾼 a − bi 이다"
+   },
+   "m_poly_nonreal_coef": {
+    "facet": "poly_roots.conjugate",
+    "belief": "복소근이면 계수와 상관없이 켤레도 근이라고 생각함",
+    "truth": "켤레쌍 성질은 계수가 모두 실수일 때만 성립한다"
+   },
+   "m_poly_imag_read": {
+    "facet": "poly_roots.conjugate",
+    "belief": "복소근 2 + i 의 허수부를 2 로 읽는다고 생각함",
+    "truth": "2 + i 는 p = 2, q = 1 이므로 해는 e^(2x) cos x, e^(2x) sin x 이다"
+   },
+   "m_poly_real_exp": {
+    "facet": "poly_roots.conjugate",
+    "belief": "복소근에도 단순근 −1 의 지수를 쓴다고 생각함",
+    "truth": "복소근 p ± qi 의 지수는 e^(px) 이다. 실근 −1 의 e^(−x) 와 별개다"
+   },
+   "m_lin1_exp_sign": {
+    "facet": "lin1.solve",
+    "belief": "제차 해의 지수 부호가 +∫a dx 라고 생각함",
+    "truth": "y' + a(x)y = 0 의 해는 y = c e^(−∫a dx) 이다 (지수에 − 부호)"
+   },
+   "m_lin1_nonstd": {
+    "facet": "lin1.solve",
+    "belief": "x y' + 2y 에서 y 의 계수 2 를 바로 a(x) 로 읽는다고 생각함",
+    "truth": "y' 앞의 x 로 먼저 나눠 표준형 y' + (2/x)y = 4x 로 만든 뒤 a(x) 를 읽는다"
+   },
+   "m_lin1_zero_nonlin": {
+    "facet": "lin1.solve",
+    "belief": "우변이 0 이면 y 의 거듭제곱이 있어도 제차 선형이라고 생각함",
+    "truth": "우변이 0 이어도 y 에 대해 비선형(y² 항 등)이면 선형 제차가 아니다"
+   },
+   "m_lin1_rhs_homog": {
+    "facet": "lin1.solve",
+    "belief": "우변이 0 이 아니어도 선형이면 제차라고 생각함",
+    "truth": "제차는 우변 h(x) = 0 인 선형식이다. h ≠ 0 이면 비제차다"
+   },
+   "m_lin1_no_y_term": {
+    "facet": "lin1.solve",
+    "belief": "y 항이 없으면 선형이 아니거나 제차라고 생각함",
+    "truth": "y' = e^x 는 a = 0, h = e^x 인 선형 비제차다 (y 항이 없어도 선형)"
+   },
+   "m_sol_c_large": {
+    "facet": "sol_types.kinds",
+    "belief": "c 에 큰 값을 넣으면 0 이 되므로 특수해라고 생각함",
+    "truth": "유한한 c 로 얻을 수 없는 해(c→∞ 극한 포함)는 특이해다"
+   },
+   "m_sol_general_all": {
+    "facet": "sol_types.kinds",
+    "belief": "일반해는 모든 해를 포함하므로 y = 0 도 일반해라고 생각함",
+    "truth": "일반해는 임의상수를 포함한 해 공식이고, 모든 해를 담지 못할 수 있다 (y = 0 은 특이해)"
+   },
+   "m_sol_only_general": {
+    "facet": "sol_types.kinds",
+    "belief": "일반해에 없는 함수는 해가 될 수 없다고 생각함",
+    "truth": "일반해 밖에도 해가 있을 수 있다 (특이해): y' = y² 의 y = 0"
+   },
+   "m_sol_singular_init": {
+    "facet": "sol_types.kinds",
+    "belief": "초기조건으로 구한 특별한 해를 특이해라고 생각함",
+    "truth": "초기조건으로 c 를 정한 해는 특수해, 어떤 c 로도 못 얻는 해가 특이해다"
+   },
+   "m_sol_const_all_general": {
+    "facet": "sol_types.kinds",
+    "belief": "상수함수 해는 모두 일반해에서 c 를 정해 얻는다고 생각함",
+    "truth": "상수해도 c 로 얻어지면 특수해, 못 얻으면 특이해다 (c = 0 → y = 1, y = −1 은 특이해)"
+   },
+   "m_sol_const_singular": {
+    "facet": "sol_types.kinds",
+    "belief": "상수함수 해는 일반해 밖의 특이해라고 생각함",
+    "truth": "상수해마다 따로 확인한다: y = 1 은 c = 0 으로 얻는 특수해다"
+   },
+   "m_bern_back_sub": {
+    "facet": "bernoulli.linearize",
+    "belief": "치환한 u 의 값을 그대로 y 의 답으로 쓴다고 생각함",
+    "truth": "풀이 끝에 u = y^(1−a) 를 y 로 되돌려야 한다"
+   },
+   "m_bern_form": {
+    "facet": "bernoulli.linearize",
+    "belief": "y 의 거듭제곱이 우변에 곱해져 있으면 Bernoulli 꼴이 아니라고 생각함",
+    "truth": "y' + p(x)y = g(x)y^a 꼴(우변 g y^a 한 항)이 Bernoulli 식이다"
+   },
+   "m_bern_a_range": {
+    "facet": "bernoulli.linearize",
+    "belief": "a 가 분수나 음수이면 Bernoulli 식이 아니라고 생각함",
+    "truth": "a 는 0, 1 이 아닌 어떤 실수여도 된다 (분수·음수 포함)"
+   },
+   "m_bern_coef_skip": {
+    "facet": "bernoulli.linearize",
+    "belief": "치환 후 p, g 에 (1 − a) 를 곱하지 않는다고 생각함",
+    "truth": "치환하면 u' + (1−a)p u = (1−a)g 로 p, g 에 (1−a) 가 곱해진다"
+   },
+   "m_bern_exp_sign": {
+    "facet": "bernoulli.linearize",
+    "belief": "치환 지수와 계수를 1 − a 대신 a − 1 로 잡는다고 생각함",
+    "truth": "치환은 u = y^(1−a), 계수도 (1−a) 이다 (a − 1 이 아니다)"
+   },
+   "m_sep_log_int": {
+    "facet": "separable.solve",
+    "belief": "∫ y^(−2) dy 를 ln|y| 로 적분한다고 생각함",
+    "truth": "∫ y^(−2) dy = −1/y 이다 (ln|y| 는 ∫ y^(−1) dy)"
+   },
+   "m_sep_form_look": {
+    "facet": "separable.solve",
+    "belief": "덧셈·지수·분수 꼴이면 변수분리가 안 된다고 생각함",
+    "truth": "곱 f(x)g(y) 로 묶거나 지수법칙으로 쓸 수 있으면 분리형이다 (y' = x + y 만 아님)"
+   },
+   "m_sepred_y_prime": {
+    "facet": "separable.reduce",
+    "belief": "y = ux 에서 y' = u' 라고 생각함",
+    "truth": "y = ux 이면 y' = u'x + u 이다 (곱의 미분)"
+   },
+   "m_sepred_one_expr": {
+    "facet": "separable.reduce",
+    "belief": "분자·분모 일차식의 계수가 비슷하면 u 를 한 식으로 잡는다고 생각함",
+    "truth": "a/g ≠ b/e 이면 연립식의 유일해로 평행이동(Method I)한 뒤 u = Y/X 로 환원한다"
+   },
+   "m_sepred_ratio_direct": {
+    "facet": "separable.reduce",
+    "belief": "분수 꼴이면 바로 y/x 치환(환원 (1))을 쓴다고 생각함",
+    "truth": "상수항이 있는 환원 (2) 꼴은 먼저 평행이동으로 상수항을 없앤 뒤 y/x 로 치환한다"
+   },
+   "m_sepred_method2": {
+    "facet": "separable.reduce",
+    "belief": "분모의 일차식을 u 로 잡는 Method II 를 쓴다고 생각함",
+    "truth": "Method II 는 a/g = b/e 일 때만 쓴다. a/g ≠ b/e 이면 Method I(평행이동)이다"
+   },
+   "m_sepred_shift_all": {
+    "facet": "separable.reduce",
+    "belief": "환원 (2)는 모두 평행이동으로 풀린다고 생각함",
+    "truth": "a/g = b/e 이면 연립식이 유일해를 갖지 않아 평행이동이 안 되고 Method II 를 쓴다"
+   },
+   "m_exact_wrong_pd": {
+    "facet": "exact.test",
+    "belief": "완전 판정 조건을 ∂P/∂x = ∂Q/∂y 로 쓴다고 생각함",
+    "truth": "완전 조건은 ∂P/∂y = ∂Q/∂x 이다 (P 는 y 로, Q 는 x 로 미분)"
+   },
+   "m_exact_skip_k": {
+    "facet": "exact.solve",
+    "belief": "u 를 ∫P dx 까지만 구하고 y 만의 함수 k(y) 는 생략해도 된다고 생각함",
+    "truth": "u = ∫P dx + k(y) 이고 ∂u/∂y = Q 로 k(y) 를 정해야 한다"
+   },
+   "m_exact_no_test": {
+    "facet": "exact.solve",
+    "belief": "판정 없이 바로 u 를 구하는 절차를 써도 된다고 생각함",
+    "truth": "먼저 ∂P/∂y = ∂Q/∂x 로 판정하고 완전이 아니면 적분인자를 곱한 뒤 u 를 구한다"
+   },
+   "m_exact_k_sign": {
+    "facet": "exact.solve",
+    "belief": "∂u/∂y = Q 에서 k'(y) 의 부호를 반대로 적분한다고 생각함",
+    "truth": "k'(y) 는 Q − ∂(∫P dx)/∂y 의 부호 그대로 적분한다 (k' = −y³ → k = −y⁴/4)"
+   },
+   "m_exact_orig_eq": {
+    "facet": "exact.solve",
+    "belief": "적분인자를 곱하기 전의 원래 식으로 u 를 구한다고 생각함",
+    "truth": "적분인자는 식 전체에 곱하고, 그 새 식에 대해 u 를 구한다"
+   },
+   "m_exact_k_power": {
+    "facet": "exact.solve",
+    "belief": "k'(y) = −y^3 을 적분할 때 지수를 올리지 않고 계수만 바꾼다고 생각함",
+    "truth": "∫ y^n dy = y^(n+1)/(n+1) 이므로 k' = −y³ 이면 k = −y⁴/4 이다"
+   },
+   "m_const2_real_sqrt": {
+    "facet": "const2.cases",
+    "belief": "y'' + b y = 0 에서 λ = ±√b 인 실근이 나온다고 생각함",
+    "truth": "y'' + 4y = 0 은 λ² + 4 = 0, λ = ±2i 이므로 y = c1 cos 2x + c2 sin 2x 이다"
+   },
+   "m_euler_cos_x": {
+    "facet": "euler2.aux",
+    "belief": "복소근이면 상수계수 식처럼 x 에 대한 cos, sin 을 쓴다고 생각함",
+    "truth": "복소근 p ± qi 이면 y = x^p [A cos(q ln x) + B sin(q ln x)] 이다 (cos 안은 q ln x)"
+   },
+   "m_euler_root_read": {
+    "facet": "euler2.aux",
+    "belief": "m² + 4 = 0 의 복소근 ±2i 를 실근 ±2 등으로 잘못 읽는다고 생각함",
+    "truth": "m² + 4 = 0 의 근은 ±2i 이므로 p = 0, q = 2 이다"
+   },
+   "m_euler_a_coef": {
+    "facet": "euler2.aux",
+    "belief": "m 의 계수가 a − 1 이 아니라 a 라고 생각함",
+    "truth": "보조방정식은 m² + (a − 1)m + b = 0 이다 (m 의 계수는 a − 1)"
+   },
+   "m_sup_not_closed": {
+    "facet": "sol_struct.superpos",
+    "belief": "동차 선형 ODE 해의 합이나 상수배가 해가 아닐 수 있다고 생각함",
+    "truth": "동차 선형 ODE 의 해의 일차결합 c1y1 + c2y2 는 계수와 상관없이 다시 해다"
+   },
+   "m_sup_nonhom_linear": {
+    "facet": "sol_struct.superpos",
+    "belief": "선형 ODE 이면 비제차여도 해의 일차결합이 해라고 생각함",
+    "truth": "일차결합이 해가 되는 것은 선형이면서 제차(우변 0)일 때뿐이다. 비제차는 우변이 배가 된다"
+   },
+   "m_sup_nonlin_ok": {
+    "facet": "sol_struct.superpos",
+    "belief": "y' 의 제곱이나 sin y 같은 항이 있어도 선형이라고 생각함",
+    "truth": "y, y', y'' 에 대해 일차식이어야 선형이다. (y')², sin y 는 비선형이다"
+   },
+   "m_nonhom_sum": {
+    "facet": "sol_struct.nonhom",
+    "belief": "두 해를 더하면 제차 ODE 의 해가 된다고 생각함",
+    "truth": "비제차 ODE 의 두 해의 차 y1 − y2 가 제차 ODE 의 해다 (합은 우변이 2배가 된다)"
+   },
+   "m_nonhom_scalar": {
+    "facet": "sol_struct.nonhom",
+    "belief": "해의 상수배는 항상 같은 ODE 의 해라고 생각함",
+    "truth": "비제차 ODE 의 해에 상수를 곱하면 우변도 곱해져 해가 아니다"
+   },
+   "m_nonhom_product": {
+    "facet": "sol_struct.nonhom",
+    "belief": "두 해의 곱도 해라고 생각함",
+    "truth": "선형 ODE 에서 해의 곱은 해가 아니다 (곱에는 선형성이 없다)"
+   },
+   "m_nonhom_yp_unique": {
+    "facet": "sol_struct.nonhom",
+    "belief": "특수해는 오직 하나여서 달라지면 일반해도 달라진다고 생각함",
+    "truth": "yp 는 유일하지 않다. 다른 yp 를 써도 yh + yp 는 같은 해 집합이다"
+   },
+   "m_nonhom_r_sum": {
+    "facet": "sol_struct.nonhom",
+    "belief": "일반해 전체 y 의 항을 모두 더해 r(x) 를 구한다고 생각함",
+    "truth": "r(x) 는 yp 만 ODE 좌변에 넣어 구한다 (yh 는 좌변을 0 으로 만든다)"
+   },
+   "m_red_x_factor": {
+    "facet": "reduction.reduce",
+    "belief": "중근이면 y1 에 x 를 곱한다고 생각함",
+    "truth": "x 를 곱하는 것은 상수계수 식의 중근 규칙이다. 여기서는 공식으로 구한다 (예: ln x)"
+   },
+   "m_red_exp_sign": {
+    "facet": "reduction.reduce",
+    "belief": "y1 의 지수 부호만 바꾸면 두 번째 해라고 생각함",
+    "truth": "y2 는 y1 의 부호만 바꾼 식이 아니라 y2 = y1 ∫ 1/(p y1²) dx 로 구한다"
+   },
+   "m_red_add_term": {
+    "facet": "reduction.reduce",
+    "belief": "두 번째 해는 y1 에 새 항을 더해 만든다고 생각함",
+    "truth": "y2 = u(x) y1 처럼 y1 에 함수 u 를 곱해 만든다 (더하지 않는다)"
+   },
+   "m_red_std_form": {
+    "facet": "reduction.reduce",
+    "belief": "y'' 의 계수를 1 로 만드는 표준형 변환 없이 식의 계수를 그대로 쓴다고 생각함",
+    "truth": "y'' 의 계수를 1 로 만든 표준형에서 a(x), h(x) 를 읽는다 (x² 으로 먼저 나눔)"
+   },
+   "m_red_yp_sign": {
+    "facet": "reduction.reduce",
+    "belief": "특수해 yp 의 부호를 바꿔 쓴다고 생각함",
+    "truth": "yp = −x² 이면 일반해는 yh − x² 이다 (yp 의 부호를 그대로 쓴다)"
+   },
+   "m_red_basis_x2": {
+    "facet": "reduction.reduce",
+    "belief": "제차해의 두 번째 기저를 x^2 이라고 생각함",
+    "truth": "차수내림법으로 구한 두 번째 기저는 y2 = x³ 이다 (x² 은 yp 에 나온다)"
+   },
+   "m_red_drop_yp": {
+    "facet": "reduction.reduce",
+    "belief": "특수해를 더하는 단계를 빼먹는다고 생각함",
+    "truth": "일반해는 yh + yp 두 부분을 모두 가진다"
+   },
+   "m_undet_cond_basic_only": {
+    "facet": "undet.cond",
+    "belief": "기본 규칙의 꼴만 쓰고 동차해와 겹치는지는 확인하지 않아도 된다고 생각함",
+    "truth": "yp 꼴이 동차해와 겹치면 수정 규칙으로 x (또는 x²) 를 곱한다"
+   },
+   "m_undet_cos_only_x": {
+    "facet": "undet.cond",
+    "belief": "수정 규칙에서 x 를 cos 항에만 곱하면 된다고 생각함",
+    "truth": "cos, sin 은 한 쌍이므로 생성집합 전체(둘 다)에 x 를 곱한다"
+   },
+   "m_undet_x2_cplx": {
+    "facet": "undet.cond",
+    "belief": "복소근 ±2i 도 중근처럼 x^2 을 곱한다고 생각함",
+    "truth": "±2i 는 단순근이므로 x 를 한 번만 곱한다 (x² 은 중근일 때)"
+   },
+   "m_undet_cos_only": {
+    "facet": "undet.basic",
+    "belief": "r(x) 에 cos 만 있으면 yp 에도 cos 만 두면 된다고 생각함",
+    "truth": "r(x) 에 cos 만 있어도 yp = m cos ωx + n sin ωx 로 sin 도 둔다"
+   },
+   "m_undet_one_term": {
+    "facet": "undet.basic",
+    "belief": "yp 에 r(x) 와 같은 항 하나만 두면 된다고 생각함",
+    "truth": "도함수가 낮은 차수 항을 만들므로 yp = A x² + B x + C 처럼 모든 낮은 차수 항을 둔다"
+   },
+   "m_undet_no_const": {
+    "facet": "undet.basic",
+    "belief": "상수항은 필요 없다고 생각함",
+    "truth": "yp = A x² + B x + C 처럼 상수항 C 도 둔다"
+   },
+   "m_undet_always_x": {
+    "facet": "undet.basic",
+    "belief": "동차해와 겹치지 않아도 x 를 곱해야 한다고 생각함",
+    "truth": "x 를 곱하는 수정 규칙은 yp 꼴이 동차해와 겹칠 때만 쓴다"
+   },
+   "m_undet_basic_skip": {
+    "facet": "undet.basic",
+    "belief": "표의 기본 규칙만 쓰면 되고 동차해와 겹치는지는 확인하지 않아도 된다고 생각함",
+    "truth": "기본 규칙의 꼴이 동차해와 같으면 수정 규칙으로 x 를 곱한다"
+   },
+   "m_undet_sin_only_x": {
+    "facet": "undet.basic",
+    "belief": "수정 규칙에서 r(x) 에 있는 sin 항에만 x 를 곱한다고 생각함",
+    "truth": "cos, sin 은 한 쌍이므로 생성집합 전체에 x 를 곱한다"
+   },
+   "m_undet_cplx_x2": {
+    "facet": "undet.basic",
+    "belief": "복소근 −1 ± 2i 를 중근으로 보고 x^2 을 곱한다고 생각함",
+    "truth": "−1 ± 2i 는 단순근이므로 x 를 한 번만 곱한다"
+   },
+   "m_vp_r_first": {
+    "facet": "varparam.system",
+    "belief": "r(x) 가 u'y1 + v'y2 쪽 식에 들어간다고 생각함",
+    "truth": "u'y1 + v'y2 = 0 이고 r 은 u'y1' + v'y2' = r 에 들어간다"
+   },
+   "m_vp_sign": {
+    "facet": "varparam.system",
+    "belief": "u' = tan x (부호를 놓침)라고 생각함",
+    "truth": "첫 식 u'y1 = −v'y2 에서 u' = −v' tan x = −tan x 이다 (부호 −)"
+   },
+   "m_vp_const_only": {
+    "facet": "varparam.system",
+    "belief": "변수계수 ODE 는 변수변분법 대상이 아니라고 생각함",
+    "truth": "변수변분법은 p, q 가 x 의 함수여도 쓴다 (일차독립인 y1, y2 가 필요)"
+   },
+   "m_vp_std_form": {
+    "facet": "varparam.system",
+    "belief": "우변을 표준형으로 나누지 않고 x^2 을 그대로 쓴다고 생각함",
+    "truth": "표준형으로 나눈 뒤의 우변을 r 로 쓴다 (여기서는 r = 1)"
+   },
+   "m_vp_u_itself": {
+    "facet": "varparam.system",
+    "belief": "u, v 의 도함수가 아니라 u, v 자체에 조건을 건다고 생각함",
+    "truth": "연립식은 u', v' 에 대한 식이다: u'y1 + v'y2 = 0, u'y1' + v'y2' = r"
+   },
+   "m_eulern_cos_x": {
+    "facet": "euler_n.aux",
+    "belief": "복소근이면 상수계수 식처럼 cos x, sin x 를 쓴다고 생각함",
+    "truth": "복소근 p ± qi 이면 x^p cos(q ln x), x^p sin(q ln x) 이다"
+   },
+   "m_eulern_cplx_exp": {
+    "facet": "euler_n.aux",
+    "belief": "복소근 ±i 를 그대로 x 의 복소 지수로 남겨 실수 기저로 바꾸지 않는다고 생각함",
+    "truth": "복소근은 실수 기저 x^p cos(q ln x), x^p sin(q ln x) 로 바꿔 쓴다"
+   },
+   "m_eulern_exp_real": {
+    "facet": "euler_n.aux",
+    "belief": "실근 m = 1 의 해를 e^(mx) 로 쓴다고 생각함",
+    "truth": "Euler–Cauchy 에서 실근 m 의 해는 x^m 이다 (e^(mx) 가 아니다)"
+   },
+   "m_constn_x_once": {
+    "facet": "const_n.repeated",
+    "belief": "3중 복소근에도 x 를 한 번만 곱한다고 생각함",
+    "truth": "m중 복소근이면 x 의 0 ~ m−1 제곱을 cos qx, sin qx 에 각각 곱한다"
+   },
+   "m_constn_sin_missing": {
+    "facet": "const_n.repeated",
+    "belief": "중복 복소근이어도 sin 항은 한 번만 쓰고 cos 에만 x 의 거듭제곱을 곱한다고 생각함",
+    "truth": "cos 와 sin 각각에 x 의 거듭제곱을 곱해 해 2m 개를 만든다"
+   },
+   "m_constn_ratio": {
+    "facet": "const_n.repeated",
+    "belief": "식의 모양이 다르면 서로 상수배가 아니라고 생각함",
+    "truth": "겉모양이 달라도 항등식으로 상수배(sin 2x = 2 sin x cos x)이면 일차종속이다"
+   },
+   "m_undetn_x2": {
+    "facet": "undet_n.modify",
+    "belief": "수정 규칙은 2계처럼 x 또는 x^2 만 곱한다고 생각함",
+    "truth": "곱하는 x^k 의 k 는 곱한 항이 동차해에서 벗어나는 최소 양의 정수(중복도)다"
+   },
+   "m_undetn_basic_only": {
+    "facet": "undet_n.modify",
+    "belief": "r(x) 와 같은 꼴을 고르는 기본 규칙만 쓰면 된다고 생각함",
+    "truth": "yp 후보가 동차해와 겹치면 x^k 를 곱하는 수정 규칙을 적용한다"
+   },
+   "m_undetn_k_order": {
+    "facet": "undet_n.modify",
+    "belief": "곱하는 x 의 거듭제곱을 ODE 의 계수 n 에 맞춰 정한다고 생각함",
+    "truth": "k 는 계수 n 이 아니라 겹치는 근의 중복도에 맞춰 정해진다"
+   },
+   "m_undetn_once": {
+    "facet": "undet_n.modify",
+    "belief": "수정 규칙에서 x 를 한 번만 곱하면 된다고 생각함",
+    "truth": "곱한 항이 동차해에서 벗어날 때까지 곱한다 (λ = 0 이 2중근이면 x²)"
+   },
+   "m_lt_eat_sign": {
+    "facet": "laplace.table",
+    "belief": "L{e^(at)} = 1/(s + a) 라고 생각함",
+    "truth": "L{e^(at)} = 1/(s − a) 이고 s > a 에서 존재한다"
+   },
+   "m_lt_cosh_trig": {
+    "facet": "laplace.table",
+    "belief": "cosh 의 변환도 삼각함수처럼 분모가 s² + ω² 라고 생각함",
+    "truth": "L{cosh at} = s/(s² − a²), L{sinh at} = a/(s² − a²) (분모 s² − a²)"
+   },
+   "m_lt_cosh_num": {
+    "facet": "laplace.table",
+    "belief": "cosh 의 변환 분자가 상수(sinh 의 것)라고 생각함",
+    "truth": "L{cosh at} 의 분자는 s 이고, 분자가 a 인 것은 sinh 이다"
+   },
+   "m_lt_inv_sinh": {
+    "facet": "laplace.table",
+    "belief": "분자가 1 이어도 역변환이 sinh 2t 그대로라고 생각함",
+    "truth": "L{sinh at} = a/(s² − a²) 이므로 분자가 1 이면 1/a 배를 해 준다"
+   },
+   "m_lt_gamma_exp": {
+    "facet": "laplace.table",
+    "belief": "분모의 지수를 a 로 잡고 a + 1 로 올리지 않는다고 생각함",
+    "truth": "L{t^a} = Γ(a+1)/s^(a+1) 이다 (지수와 감마 인자 모두 a + 1)"
+   },
+   "m_lt_gamma_half": {
+    "facet": "laplace.table",
+    "belief": "Γ(3/2) 를 1 이나 √π 로 둔다고 생각함",
+    "truth": "Γ(3/2) = (1/2)Γ(1/2) = √π/2 이다 (Γ(x+1) = xΓ(x))"
+   },
+   "m_lt_lin_sin_num": {
+    "facet": "laplace.linear",
+    "belief": "sin 의 변환 분자를 s 로 쓴다고 생각함",
+    "truth": "L{sin ωt} = ω/(s² + ω²), L{cos ωt} = s/(s² + ω²) 이다"
+   },
+   "m_lt_lin_eat_sign": {
+    "facet": "laplace.linear",
+    "belief": "e^(2t) 의 변환을 1/(s + 2) 로 쓴다고 생각함",
+    "truth": "L{e^(at)} = 1/(s − a) 이다 (e^(2t) → 1/(s − 2))"
+   },
+   "m_lt_lin_sum_prod": {
+    "facet": "laplace.linear",
+    "belief": "합의 변환을 두 변환의 곱으로 계산한다고 생각함",
+    "truth": "L{af + bg} = aL{f} + bL{g} 이다 (합의 변환은 변환의 합)"
+   },
+   "m_lt_exist_cont": {
+    "facet": "laplace.linear",
+    "belief": "연속인 함수는 항상 라플라스 변환을 가진다고 생각함",
+    "truth": "구간별 연속이면서 |f| ≤ M e^(kt) 인 증가 제한도 필요하다 (e^(t²) 은 변환이 없다)"
+   },
+   "m_lt_exist_pole": {
+    "facet": "laplace.linear",
+    "belief": "분모가 0 이 되는 점이 하나뿐이어서 구간별 연속이라고 생각함",
+    "truth": "구간별 연속은 불연속점에서 좌우 극한이 유한해야 한다 (1/(t−1) 은 발산)"
+   },
+   "m_lt_exist_periodic": {
+    "facet": "laplace.linear",
+    "belief": "주기함수이므로 증가 제한이 있고 구간별 연속이라고 생각함",
+    "truth": "tan t 는 주기함수여도 t = π/2 등에서 발산해 구간별 연속이 아니다"
+   },
+   "m_lt_t_sign": {
+    "facet": "laplace.sderiv",
+    "belief": "L{t f(t)} = F'(s) 라고 부호 없이 쓴다고 생각함",
+    "truth": "L{t f(t)} = −F'(s) 이다 (L^(−1){F'} = −t f(t))"
+   },
+   "m_lt_t_div_skip": {
+    "facet": "laplace.sderiv",
+    "belief": "t 로 나누는 것을 무시하고 원래 변환을 그대로 쓴다고 생각함",
+    "truth": "t 로 나누면 s 에 대한 적분 ∫(s→∞)F(σ)dσ 이고, 역변환에서는 t 로 나눈다"
+   },
+   "m_lt_div_as_mult": {
+    "facet": "laplace.sderiv",
+    "belief": "t 로 나누는 연산을 t 를 곱하는 s-미분 공식으로 계산한다고 생각함",
+    "truth": "t 를 곱하면 s 미분(−F'), t 로 나누면 s 적분이다"
+   },
+   "m_lt_int_bounds": {
+    "facet": "laplace.sderiv",
+    "belief": "∫(s→∞) 대신 ∫(0→s) 로 적분한다고 생각함",
+    "truth": "L{f/t} 는 s 부터 ∞ 까지 적분한다: ∫(s→∞)F(σ)dσ"
+   },
+   "m_lt_log_inv": {
+    "facet": "laplace.sderiv",
+    "belief": "ln 이 들어 있으면 역변환에도 ln 이 남는다고 생각함",
+    "truth": "F = ln(s/(s−2)) 는 F' 를 역변환해 f = (e^(2t) − 1)/t 로 얻는다 (ln 이 안 남는다)"
+   },
+   "m_pw_value_vs_jump": {
+    "facet": "piecewise.step",
+    "belief": "계단 뒤의 값 5 가 u(t − 1) 의 계수로 들어간다고 생각함",
+    "truth": "u(t−1) 의 계수는 새 값이 아니라 값의 변화량(5 − 2 = 3)이다"
+   },
+   "m_pw_jump_sign": {
+    "facet": "piecewise.step",
+    "belief": "계단의 증가분 3 의 부호를 반대로 쓴다고 생각함",
+    "truth": "증가분은 (새 값) − (이전 값) = 3 이고 부호도 그대로 쓴다"
+   },
+   "m_pw_exp_sign": {
+    "facet": "piecewise.step",
+    "belief": "e^(−as) 의 지수 부호를 반대로 쓴다고 생각함",
+    "truth": "L{u(t−a)} = e^(−as)/s 이다 (지수에 − 부호)"
+   },
+   "m_pw_pulse_order": {
+    "facet": "piecewise.step",
+    "belief": "큰 이동량 3 이 먼저 켜지는 것으로 보아 뺄셈 순서를 바꾼다고 생각함",
+    "truth": "u(t−1) − u(t−3) 의 변환은 e^(−s)/s − e^(−3s)/s 이다 (시작점 항이 먼저)"
+   },
+   "m_pw_pulse_length": {
+    "facet": "piecewise.step",
+    "belief": "구간의 길이 2 만큼 이동한 한 개의 펄스로 본다고 생각함",
+    "truth": "구간 (1, 3) 은 1 에서 켜고 3 에서 끄는 두 계단의 차이다 (길이만 쓰면 시작점이 사라진다)"
+   },
+   "m_pw_pulse_sign": {
+    "facet": "piecewise.step",
+    "belief": "u(t − 3) 를 빼는 부호를 더하기로 쓴다고 생각함",
+    "truth": "구간을 끄려면 u(t−3) 를 뺀다 (더하면 계속 켜져 있다)"
+   },
+   "m_pw_t_shift": {
+    "facet": "piecewise.step",
+    "belief": "t u(t − 2) 의 변환에서 t 를 (t − 2) + 2 로 고치지 않는다고 생각함",
+    "truth": "t-이동은 f(t−a)u(t−a) 꼴에만 쓴다. t = (t−2) + 2 로 고친 뒤 변환한다"
+   },
+   "m_pw_interval_sign": {
+    "facet": "piecewise.step",
+    "belief": "u(t − 2) 가 켜지는 구간의 부호를 반대로 쓴다고 생각함",
+    "truth": "f = t[u(t) − u(t−2)] = t − t u(t−2) 이다 (t u(t−2) 는 빼는 항)"
+   },
+   "m_per_no_factor": {
+    "facet": "special_lt.periodic",
+    "belief": "주기함수의 변환은 한 주기 적분과 같다고 생각함",
+    "truth": "L{f} = (1/(1−e^(−Ts))) ∫0^T e^(−st) f dt (반복 인자를 곱한다)"
+   },
+   "m_delta_always1": {
+    "facet": "delta.props",
+    "belief": "δ 와의 곱의 적분은 δ 의 넓이 1 이므로 항상 1 이라고 생각함",
+    "truth": "결과는 g(a) 이다 (g 를 곱하므로 항상 1 이 아니다)"
+   },
+   "m_delta_vs_step": {
+    "facet": "delta.props",
+    "belief": "δ(t − a) 를 계단함수 u(t − a) 와 같은 것으로 본다고 생각함",
+    "truth": "L{δ(t−a)} = e^(−as), L{u(t−a)} = e^(−as)/s 이다. δ 는 점프, 계단은 일정한 힘을 준다"
+   },
+   "m_delta_zero_only": {
+    "facet": "delta.props",
+    "belief": "δ 는 t = 0 에서만 값을 가지므로 이동해도 변환이 1 이라고 생각함",
+    "truth": "δ(t−a) 는 t = a 에서 값을 가지고 L{δ(t−a)} = e^(−as) 이다"
+   },
+   "m_delta_as_swap": {
+    "facet": "delta.props",
+    "belief": "e^(−as) 에서 a 와 s 의 자리를 바꿔 쓴다고 생각함",
+    "truth": "L{δ(t−a)} = e^(−as) 이다 (a 가 이동량, s 는 변환 변수)"
+   },
+   "m_delta_t_step_form": {
+    "facet": "delta.props",
+    "belief": "t δ(t − 2) 를 t u(t − 2) 의 변환 꼴로 계산한다고 생각함",
+    "truth": "δ 가 있으면 t 는 t = a 의 값으로 고정된다: L{t δ(t−2)} = 2e^(−2s)"
+   },
+   "m_delta_t_sign": {
+    "facet": "delta.props",
+    "belief": "L{t f} = −F'(s) 의 부호를 이중으로 뒤집는다고 생각함",
+    "truth": "−d/ds e^(−2s) = 2e^(−2s) 이다 (부호는 한 번만 뒤집힌다)"
+   },
+   "m_delta_no_shift": {
+    "facet": "delta.props",
+    "belief": "e^(−as) 가 있어도 t 를 이동하지 않고 sin 2t 를 그대로 쓴다고 생각함",
+    "truth": "e^(−as) 가 있으면 역변환 함수의 t 를 t − a 로 이동하고 u 로 켠다"
+   },
+   "m_delta_no_step": {
+    "facet": "delta.props",
+    "belief": "u(t − 2) 로 t < 2 에서 0 이 되는 것을 빼먹는다고 생각함",
+    "truth": "이동한 함수에는 u(t−2) 가 붙어 t < 2 에서 0 이 된다"
+   },
+   "m_conv_law_fail": {
+    "facet": "conv.props",
+    "belief": "합성곱은 분배·결합법칙이나 f*0=0 을 만족하지 않는다고 생각함",
+    "truth": "합성곱은 교환·분배·결합과 f*0=0 이 성립한다 (f*1=f, f*f≥0 만 성립하지 않는다)"
+   },
+   "m_conv_is_product": {
+    "facet": "conv.props",
+    "belief": "f * g 는 두 함수의 곱 f(t) g(t) 와 같다고 생각함",
+    "truth": "(f*g)(t) = ∫0^t f(τ)g(t−τ)dτ 이다 (함수의 곱이 아니라 적분)"
+   },
+   "m_conv_nonneg": {
+    "facet": "conv.props",
+    "belief": "f * f 는 항상 0 이상이라고 생각함",
+    "truth": "f*f ≥ 0 은 성립하지 않는다 (예: (cos*cos)(π) = −π/2)"
+   },
+   "m_pf_sign": {
+    "facet": "partial_frac.expand",
+    "belief": "두 계수를 모두 양수로 놓는다고 생각함",
+    "truth": "Ai 는 (s−ai)F(s) 에 s = ai 를 넣어 구한다. 음수일 수 있다 (A2 = −1)"
+   },
+   "m_pf_repeat_once": {
+    "facet": "partial_frac.expand",
+    "belief": "(s + 1)^2 이 중복 인수이지만 한 번만 나온다고 생각함",
+    "truth": "중복 인수 (s+1)² 은 1/(s+1) 과 1/(s+1)² 두 항을 모두 가진다"
+   },
+   "m_pf_repeat_sign": {
+    "facet": "partial_frac.expand",
+    "belief": "중복 인수 항 1/(s + 1)^2 의 부호를 반대로 한다고 생각함",
+    "truth": "C = 1/(−1) = −1 처럼 s = −1 을 넣어 구한 계수의 부호를 그대로 쓴다"
+   },
+   "m_pf_repeat_same_inv": {
+    "facet": "partial_frac.expand",
+    "belief": "1/(s + 1) 과 1/(s + 1)^2 의 역변환을 모두 e^(−t) 로 본다고 생각함",
+    "truth": "L^(−1){1/(s+1)²} = t e^(−t) 이다 (s-이동 + t 의 변환 1/s²)"
+   },
+   "m_pf_quad_cos": {
+    "facet": "partial_frac.expand",
+    "belief": "s/(s^2 + 4) 의 역변환을 sin 2t 라고 생각함",
+    "truth": "s/(s²+4) 의 역변환은 cos 2t 이고, 상수 분자는 sin 이다"
+   },
+   "m_pf_quad_a": {
+    "facet": "partial_frac.expand",
+    "belief": "1/(s (s^2 + 4)) 의 계수 A 를 1/2 로 구한다고 생각함",
+    "truth": "A = 1/(0 + 4) = 1/4 이다 (s = 0 을 넣어 s²+4 값으로 나눈다)"
+   },
+   "m_pf_quad_b_sign": {
+    "facet": "partial_frac.expand",
+    "belief": "(Bs + C)/(s^2 + 4) 의 B 부호를 반대로 한다고 생각함",
+    "truth": "분자 비교로 B = −A = −1/4 이다 (부호 −)"
+   },
+   "m_ltode_y0_only": {
+    "facet": "lt_ode.solve",
+    "belief": "우변에는 y(0) 항만 남고 y'(0) 은 필요 없다고 생각함",
+    "truth": "(s+a)y(0) + y'(0) 에서 y'(0) = 1 이면 우변에 남는다"
+   },
+   "m_ltode_rt": {
+    "facet": "lt_ode.solve",
+    "belief": "우변 r(t) = 4t 의 변환을 4/s 로 쓴다고 생각함",
+    "truth": "L{4t} = 4/s² 이다 (분모 s²)"
+   },
+   "m_ltode_no_shift": {
+    "facet": "lt_ode.solve",
+    "belief": "e^(−πs) 가 있어도 1 − cos t 에 t 만 대입하면 된다고 생각함",
+    "truth": "e^(−as) 가 있으면 t 를 t − a 로 이동한다: (1 − cos(t − π)) u(t − π)"
+   },
+   "m_ltode_num": {
+    "facet": "lt_ode.solve",
+    "belief": "Y = (s + 5)/(s + 2)^2 의 분자를 s + 3 으로 구한다고 생각함",
+    "truth": "분자는 (s+a)y(0) + y'(0) = (s+4)·1 + 1 = s + 5 이다"
+   },
+   "m_ltode_coef": {
+    "facet": "lt_ode.solve",
+    "belief": "분자 s + 5 의 5 를 t e^(−2t) 의 계수로 그대로 쓴다고 생각함",
+    "truth": "(s+5)/(s+2)² = 1/(s+2) + 3/(s+2)² 처럼 분자를 s+2 로 맞춰 나눈다"
+   },
+   "m_ltode_double_inv": {
+    "facet": "lt_ode.solve",
+    "belief": "1/(s + 2)^2 의 역변환도 e^(−2t) 라고 생각함",
+    "truth": "L^(−1){1/(s+2)²} = t e^(−2t) 이다"
+   },
+   "m_inteq_1s": {
+    "facet": "lt_inteq.solve",
+    "belief": "적분의 변환 1/s^2 대신 1/s 를 쓴다고 생각함",
+    "truth": "(t−τ) 적분은 (y*t) 이고 L{t} = 1/s² 이므로 Y·(1/s²) 이다"
+   },
+   "m_inteq_pf_sign": {
+    "facet": "lt_inteq.solve",
+    "belief": "부분분수에서 1/(s^2 − 1) 항의 부호를 반대로 한다고 생각함",
+    "truth": "Y = (1/2)[1/(s²+1) + 1/(s²−1)] 에서 두 항 모두 +1/2 이다"
+   },
+   "m_inteq_free_term": {
+    "facet": "lt_inteq.solve",
+    "belief": "sin t 항을 무시하고 변환한다고 생각함",
+    "truth": "자유항 sin t 의 변환 1/(s²+1) 도 Y 의 식에 넣는다"
+   },
+   "m_inteq_half": {
+    "facet": "lt_inteq.solve",
+    "belief": "부분분수의 계수 1/2 를 빼먹는다고 생각함",
+    "truth": "계수 1/2 를 포함해 y = (sin t + sinh t)/2 이다"
+   },
+   "m_inteq_sincos": {
+    "facet": "lt_inteq.solve",
+    "belief": "sin t 와 cos t 변환의 분자(1 과 s)를 서로 바꿔 쓴다고 생각함",
+    "truth": "L{sin t} = 1/(s²+1), L{cos t} = s/(s²+1) 이다"
+   }
+  }
+ },
+ "chapters": [
+  {
+   "key": "C1",
+   "title": "C1 · Foundation of Engineering Mathematics: 대수·감마함수·미분·적분 (lec02)",
+   "short": "기초",
+   "group": ""
+  },
+  {
+   "key": "C2",
+   "title": "C2 · 1계 ODE (1): 기본 개념·1계 선형·Bernoulli (lec03)",
+   "short": "1계①",
+   "group": ""
+  },
+  {
+   "key": "C3",
+   "title": "C3 · 1계 ODE (2·3): 변수분리·완전미분·적분인자 (lec04, lec05)",
+   "short": "1계②",
+   "group": ""
+  },
+  {
+   "key": "C4",
+   "title": "C4 · 2계 ODE (1·2): 동차 선형·상수계수·Euler–Cauchy (lec06, lec07)",
+   "short": "2계①",
+   "group": ""
+  },
+  {
+   "key": "C5",
+   "title": "C5 · 2계 ODE (3·4): 비제차·미정계수·변수변분 (lec08, lec09)",
+   "short": "2계②",
+   "group": ""
+  },
+  {
+   "key": "C6",
+   "title": "C6 · 고계 선형 ODE: 상수계수·n계 Euler–Cauchy·미정계수 (lec10, lec11)",
+   "short": "고계",
+   "group": ""
+  },
+  {
+   "key": "C7",
+   "title": "C7 · 라플라스 변환 (1·2): 정의·미분/적분 공식·t/s-이동 (lec12, lec13)",
+   "short": "라플라스①",
+   "group": ""
+  },
+  {
+   "key": "C8",
+   "title": "C8 · 라플라스 변환 (3·4): 특수함수·합성곱·부분분수·ODE 풀이 (lec14, lec15)",
+   "short": "라플라스②",
+   "group": ""
+  }
+ ],
+ "problems": [
+  {
+   "ext_id": "EM-044",
+   "no": "EM-044",
+   "chapter": "C1",
+   "kind": "short",
+   "q": "감마함수(gamma function) Γ(x) = ∫0^∞ e^(−t) t^(x−1) dt 에 대해 Γ(6) / Γ(4) 의 값을 구하라.",
+   "a": "20",
+   "accept": [
+    "20"
+   ],
+   "num": 20,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "s": "<p>Γ(x + 1) = xΓ(x) 를 두 번 쓰면 Γ(6) = 5·Γ(5) = 5·4·Γ(4) 이므로 Γ(6)/Γ(4) = 20 이다. 양의 정수 n 에 대해 Γ(n) = (n − 1)! 이므로 5!/3! = 20 으로 확인된다. 예상되는 틀린 답: 30 (Γ(6)/Γ(4) 를 6!/4! 로 계산).</p><p>함정: Γ(n) 은 n! 이 아니라 (n − 1)! 이다.</p>",
+   "src": [
+    [
+     "L2",
+     "18"
+    ],
+    [
+     "L2",
+     "19"
+    ]
+   ],
+   "topic": "gamma",
+   "dx": {
+    "facet": "gamma.factorial",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "Γ(n) = n! 이라고 생각함",
+      "ex": [
+       "30"
+      ],
+      "m": "m_gamma_n_fact"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-045",
+   "no": "EM-045",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "z = f(x, y), x = g(t), y = h(t) 가 모두 미분가능할 때 dz/dt = (∂f/∂x)(dx/dt) · (∂f/∂y)(dy/dt) 이다.",
+   "ox": false,
+   "fix": "dz/dt = (∂f/∂x)(dx/dt) + (∂f/∂y)(dy/dt). 경로 하나 안에서는 곱하고, 경로끼리는 더한다.",
+   "s": "<p>다변수 연쇄법칙은 경로마다 곱하고 그 결과를 모두 더한다: dz/dt = (∂f/∂x)(dx/dt) + (∂f/∂y)(dy/dt). 예를 들어 f = x + y, x = t, y = 2t 이면 dz/dt = 3 이지만 곱하면 1·1·1·2 = 2 가 되어 맞지 않다.</p><p>함정: 곱셈 구조(한 경로 안)와 덧셈 구조(경로 사이)를 섞는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "28"
+    ]
+   ],
+   "topic": "diff",
+   "dx": {
+    "facet": "diff.chain",
+    "depth": 1,
+    "mis": "m_diff_mult_paths"
+   }
+  },
+  {
+   "ext_id": "EM-046",
+   "no": "EM-046",
+   "chapter": "C1",
+   "kind": "short",
+   "q": "z = f(x, y) = x^2 y 이고 x = s + t, y = s t 일 때, 연쇄법칙으로 구한 ∂z/∂s 의 (s, t) = (1, 2) 에서의 값은?",
+   "a": "30",
+   "accept": [
+    "30"
+   ],
+   "num": 30,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>∂z/∂s = (∂f/∂x)(∂x/∂s) + (∂f/∂y)(∂y/∂s) = (2xy)(1) + (x^2)(t). (s, t) = (1, 2) 이면 x = 3, y = 2 이므로 2·3·2·1 + 9·2 = 12 + 18 = 30. 확인: z = (s + t)^2 s t 를 s 로 직접 미분해도 같다. 예상되는 틀린 답: 12 (∂f/∂y 항을 빠뜨림), 21 (s 가 아니라 t 로 미분한 ∂z/∂t 의 값).</p><p>함정: 독립변수가 둘이어도 각 편미분에 그 변수에 대한 도함수(∂x/∂s, ∂y/∂s)를 곱해 모두 더한다.</p>",
+   "src": [
+    [
+     "L2",
+     "23"
+    ],
+    [
+     "L2",
+     "28"
+    ]
+   ],
+   "topic": "diff",
+   "dx": {
+    "facet": "diff.chain",
+    "depth": 4,
+    "mis": [
+     {
+      "pattern": "바깥 함수의 편미분 한 항만 쓰면 된다고 생각함",
+      "ex": [
+       "12"
+      ],
+      "m": "m_diff_one_path"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-047",
+   "no": "EM-047",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "쌍곡함수(hyperbolic function)의 정의는 cosh x = (e^x − e^(−x)) / 2, sinh x = (e^x + e^(−x)) / 2 이다.",
+   "ox": false,
+   "fix": "sinh x = (e^x − e^(−x)) / 2, cosh x = (e^x + e^(−x)) / 2 이다.",
+   "s": "<p>강의의 정의는 sinh x = (e^x − e^(−x)) / 2, cosh x = (e^x + e^(−x)) / 2 이다. 문제의 식은 두 함수의 부호가 서로 바뀌어 있다. 확인: x = 0 이면 cosh 0 = 1, sinh 0 = 0 인데 문제의 식은 cosh 0 = 0 이 된다.</p><p>함정: cosh 는 더하기, sinh 는 빼기.</p>",
+   "src": [
+    [
+     "L2",
+     "44"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 1,
+    "family": "f_em047",
+    "role": "base",
+    "mis": "m_hyper_swap"
+   }
+  },
+  {
+   "ext_id": "EM-048",
+   "no": "EM-048",
+   "chapter": "C1",
+   "kind": "mc",
+   "q": "cosh(ln 3) 의 값은?",
+   "opts": [
+    "4/3",
+    "5/3",
+    "3",
+    "10/3"
+   ],
+   "ans": 1,
+   "why": [
+    "sinh 의 식을 cosh 로 쓴다고 생각함",
+    "",
+    "e^(ln 3) 만 남기고 e^(−ln 3) 항은 버린다고 생각함",
+    "분모의 2 로 나누는 것을 빼먹는다고 생각함"
+   ],
+   "s": "<p>e^(ln 3) = 3, e^(−ln 3) = 1/3 이므로 cosh(ln 3) = (3 + 1/3) / 2 = 5/3. 같은 방식으로 sinh(ln 3) = (3 − 1/3) / 2 = 4/3.</p><p>함정: 합 (e^x + e^(−x)) 를 2 로 나눈다.</p>",
+   "src": [
+    [
+     "L2",
+     "44"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 2,
+    "family": "f_em048",
+    "role": "base",
+    "mis": [
+     "m_hyper_swap",
+     "",
+     "m_hyper_drop_exp",
+     "m_hyper_no_half"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-049",
+   "no": "EM-049",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "모든 실수 x 에 대해 cosh^2 x + sinh^2 x = 1 이다.",
+   "ox": false,
+   "fix": "cosh^2 x − sinh^2 x = 1 이다. 더한 cosh^2 x + sinh^2 x 는 cosh 2x 와 같다.",
+   "s": "<p>cosh^2 x − sinh^2 x = ((e^x + e^(−x))^2 − (e^x − e^(−x))^2) / 4 = 4 / 4 = 1 이므로 항등식은 차(−)다. 더하면 cosh^2 x + sinh^2 x = cosh 2x 가 된다 (x = ln 3 에서 25/9 + 16/9 = 41/9 ≠ 1).</p><p>함정: cos^2 + sin^2 = 1 의 모양을 그대로 옮기는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "44"
+    ],
+    [
+     "L2",
+     "40"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 3,
+    "family": "f_em047",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "cos^2 + sin^2 = 1 → cosh^2 − sinh^2 = 1"
+    ],
+    "mis": "m_hyper_trig_id"
+   }
+  },
+  {
+   "ext_id": "EM-050",
+   "no": "EM-050",
+   "chapter": "C1",
+   "kind": "mc",
+   "q": "다음 중 짝함수(even function, f(−x) = f(x))인 것은?",
+   "opts": [
+    "sinh x",
+    "x cosh x",
+    "sinh x cosh x",
+    "x sinh x"
+   ],
+   "ans": 3,
+   "why": [
+    "sinh 는 cos 처럼 짝함수라고 생각함",
+    "x 를 곱해도 짝·홀이 바뀌지 않는다고 생각함",
+    "홀함수와 짝함수를 곱해도 짝함수라고 생각함",
+    ""
+   ],
+   "s": "<p>정의 sinh x = (e^x − e^(−x)) / 2 에서 sinh(−x) = −sinh x (홀), cosh(−x) = cosh x (짝). 홀 × 홀 = 짝이므로 x sinh x 는 짝이다. x cosh x 는 홀 × 짝 = 홀, sinh x cosh x 는 홀 × 짝 = 홀이다.</p><p>함정: 곱의 짝·홀은 부호 규칙(짝·짝 = 짝, 홀·홀 = 짝, 홀·짝 = 홀)을 따른다.</p>",
+   "src": [
+    [
+     "L2",
+     "44"
+    ],
+    [
+     "L2",
+     "39"
+    ]
+   ],
+   "topic": "hyper",
+   "dx": {
+    "facet": "hyper.def",
+    "depth": 4,
+    "family": "f_em048",
+    "role": "near",
+    "delta": [
+     "object",
+     "값 계산 → 곱의 짝·홀 판정"
+    ],
+    "mis": [
+     "m_hyper_sinh_even",
+     "m_hyper_parity_mul",
+     "m_hyper_parity_mul",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-051",
+   "no": "EM-051",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "계수가 모두 실수인 n차 방정식에서 a + bi (b ≠ 0) 가 근이면 켤레복소수 a − bi 도 그 방정식의 근이다.",
+   "ox": true,
+   "s": "<p>강의의 n차 방정식 성질: 계수가 실수일 때 a + bi 가 근이면 a − bi 도 반드시 근이다. 예: λ^2 − 2λ + 5 = 0 의 근은 1 + 2i 와 1 − 2i 쌍이다.</p><p>함정: 복소근은 홀로 나오지 않고 쌍으로 나온다.</p>",
+   "src": [
+    [
+     "L2",
+     "14"
+    ],
+    [
+     "L10",
+     "13"
+    ]
+   ],
+   "topic": "poly_roots",
+   "dx": {
+    "facet": "poly_roots.conjugate",
+    "depth": 1,
+    "family": "f_em051",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-052",
+   "no": "EM-052",
+   "chapter": "C1",
+   "kind": "short",
+   "q": "계수가 모두 실수인 3차 방정식의 근 중 두 개가 1 과 2 + 3i 이다. 나머지 한 근을 구하라. (a + bi 꼴로)",
+   "a": "2 − 3i",
+   "accept": [
+    "2-3i",
+    "2 − 3i",
+    "2-3*i",
+    "2 - 3i"
+   ],
+   "strict": false,
+   "s": "<p>실계수 방정식에서 2 + 3i 가 근이면 켤레 2 − 3i 도 근이다. 3차이므로 근이 3개이고 1, 2 + 3i, 2 − 3i 로 모두 정해진다 (확인: (λ − 1)(λ^2 − 4λ + 13) 은 실계수). 예상되는 틀린 답: −2 − 3i (실수부·허수부 부호를 모두 뒤집음).</p><p>함정: 켤레는 허수부의 부호만 바뀐다.</p>",
+   "src": [
+    [
+     "L2",
+     "14"
+    ]
+   ],
+   "topic": "poly_roots",
+   "dx": {
+    "facet": "poly_roots.conjugate",
+    "depth": 2,
+    "family": "f_em052",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "켤레복소수는 실수부와 허수부의 부호를 모두 바꾼 것이라고 생각함",
+      "ex": [
+       "−2 − 3i",
+       "-2-3i"
+      ],
+      "m": "m_poly_conj_sign"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-053",
+   "no": "EM-053",
+   "chapter": "C1",
+   "kind": "ox",
+   "q": "방정식 λ^2 − 2iλ − 1 = 0 (i 는 허수단위)은 근 i 를 가지므로 켤레복소수 −i 도 근이다.",
+   "ox": false,
+   "fix": "계수 −2i 가 실수가 아니므로 켤레쌍 성질을 쓸 수 없다. 이 방정식의 근은 i (중근)뿐이다.",
+   "s": "<p>λ^2 − 2iλ − 1 = (λ − i)^2 이므로 근은 i (중근)뿐이고 −i 는 근이 아니다. 켤레쌍 성질은 계수가 모두 실수일 때만 성립하는데 이 식은 λ 의 계수 −2i 가 실수가 아니다.</p><p>함정: 성립 전제(실계수)를 확인하지 않고 복소근마다 켤레를 붙이는 것.</p>",
+   "src": [
+    [
+     "L2",
+     "14"
+    ]
+   ],
+   "topic": "poly_roots",
+   "dx": {
+    "facet": "poly_roots.conjugate",
+    "depth": 3,
+    "family": "f_em051",
+    "role": "near",
+    "delta": [
+     "condition",
+     "실계수 → 복소수 계수 방정식"
+    ],
+    "mis": "m_poly_nonreal_coef"
+   }
+  },
+  {
+   "ext_id": "EM-054",
+   "no": "EM-054",
+   "chapter": "C1",
+   "kind": "mc",
+   "q": "특성방정식(characteristic equation)이 근 −1 과 2 + i 를 갖는 실계수 3계 상수계수 동차 선형 ODE 의 일반해는?",
+   "opts": [
+    "y = c1 e^(−x) + e^(2x) (c2 cos x + c3 sin x)",
+    "y = c1 e^(−x) + c2 e^(2x) cos x",
+    "y = c1 e^(−x) + e^(2x) (c2 cos 2x + c3 sin 2x)",
+    "y = c1 e^(−x) + e^(−x) (c2 cos x + c3 sin x)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "복소근은 켤레 없이 하나만 있어서 해가 2개로 충분하다고 생각함",
+    "복소근 2 + i 의 허수부를 2 로 읽는다고 생각함",
+    "복소근에도 단순근 −1 의 지수를 쓴다고 생각함"
+   ],
+   "s": "<p>3계 실계수 ODE 의 특성방정식은 근이 3개이고, 복소근 2 + i 가 있으면 켤레 2 − i 도 근이다. 따라서 근은 −1, 2 ± i 이고 단순 실근 −1 에서 e^(−x), 복소근 p ± qi = 2 ± i 에서 e^(2x) cos x, e^(2x) sin x 가 나온다 (p = 2, q = 1).</p><p>함정: 켤레근을 놓치면 3계인데 해가 2개뿐이다.</p>",
+   "src": [
+    [
+     "L2",
+     "14"
+    ],
+    [
+     "L10",
+     "13"
+    ]
+   ],
+   "topic": "poly_roots",
+   "dx": {
+    "facet": "poly_roots.conjugate",
+    "depth": 4,
+    "family": "f_em052",
+    "role": "near",
+    "delta": [
+     "combine",
+     "켤레쌍 성질 → ODE 일반해 구성과 결합"
+    ],
+    "mis": [
+     "",
+     "m_poly_lone_root",
+     "m_poly_imag_read",
+     "m_poly_real_exp"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-055",
+   "no": "EM-055",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "1계 제차(homogeneous) 선형 ODE y' + a(x)y = 0 의 일반해는 y = c e^(∫a(x)dx) 이다.",
+   "ox": false,
+   "fix": "y = c e^(−∫a(x)dx) 이다. 지수 앞에 − 부호가 붙는다.",
+   "s": "<p>y'/y = −a(x) 를 적분하면 ln|y| = −∫a(x)dx + c1 이므로 y = c e^(−∫a(x)dx) 다. 문제의 식은 지수 부호가 반대다. 확인: a = 1 이면 y' + y = 0 의 해는 e^(−x) 이고, e^(x) 는 y' = y 의 해다. 강의의 약식 표기 p(x)y = c (p = e^(∫a dx)) 와도 같다.</p><p>함정: 적분인자 p 는 e^(+∫a dx) 이지만 y 는 그 역수가 곱해진 e^(−∫a dx) 다.</p>",
+   "src": [
+    [
+     "L3",
+     "20"
+    ],
+    [
+     "L3",
+     "21"
+    ]
+   ],
+   "topic": "lin1",
+   "dx": {
+    "facet": "lin1.solve",
+    "depth": 1,
+    "mis": "m_lin1_exp_sign"
+   }
+  },
+  {
+   "ext_id": "EM-056",
+   "no": "EM-056",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "x y' + 2y = 4x^2 (x &gt; 0), y(1) = 3 의 해에서 y(2) 의 값을 구하라.",
+   "a": "4.5",
+   "accept": [
+    "9/2",
+    "4.5",
+    "x^2+2/x^2"
+   ],
+   "num": 4.5,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>먼저 y' 의 계수를 1 로 만드는 표준형으로 바꾼다: y' + (2/x) y = 4x, 즉 a(x) = 2/x, h(x) = 4x. p = e^(∫(2/x)dx) = x^2, p y = c + ∫p h = c + ∫4x^3 dx = c + x^4 이므로 y = x^2 + c/x^2. y(1) = 1 + c = 3 에서 c = 2, y(2) = 4 + 2/4 = 4.5.</p><p>함정: x y' + 2y = … 의 2 를 그대로 a(x) 로 읽으면 안 되고 y' 앞의 x 로 먼저 나눠야 한다.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L3",
+     "24"
+    ],
+    [
+     "L3",
+     "25"
+    ]
+   ],
+   "topic": "lin1",
+   "dx": {
+    "facet": "lin1.solve",
+    "depth": 4,
+    "mis": [
+     {
+      "pattern": "x y' + 2y 에서 y 의 계수 2 를 바로 a(x) 로 읽는다고 생각함",
+      "m": "m_lin1_nonstd"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-057",
+   "no": "EM-057",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": true,
+   "q": "다음 1계 ODE 중 선형(linear)이면서 제차(homogeneous)인 것은?",
+   "opts": [
+    "y' + y^2 = 0",
+    "y' + x y = x",
+    "y' + x y = 0",
+    "y' = e^x"
+   ],
+   "ans": 2,
+   "why": [
+    "우변이 0 이면 y 의 거듭제곱이 있어도 제차 선형이라고 생각함",
+    "우변이 0 이 아니어도 선형이면 제차라고 생각함",
+    "",
+    "y 항이 없으면 선형이 아니거나 제차라고 생각함"
+   ],
+   "s": "<p>선형이 되려면 y' + a(x)y = h(x) 꼴이어야 하고, 그중 h(x) = 0 이면 제차다. y' + x y = 0 은 a = x, h = 0 이라 선형 제차. y' + x y = x 는 선형이지만 h = x ≠ 0 이라 비제차, y' = e^x 는 a = 0, h = e^x 인 선형 비제차, y' + y^2 = 0 은 y^2 항 때문에 비선형이다.</p><p>함정: 우변이 0 이어도 y 에 대해 비선형이면 제차 선형이 아니다.</p>",
+   "src": [
+    [
+     "L3",
+     "13"
+    ],
+    [
+     "L3",
+     "15"
+    ],
+    [
+     "L3",
+     "18"
+    ]
+   ],
+   "topic": "lin1",
+   "dx": {
+    "facet": "lin1.solve",
+    "depth": 3,
+    "mis": [
+     "m_lin1_zero_nonlin",
+     "m_lin1_rhs_homog",
+     "",
+     "m_lin1_no_y_term"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-058",
+   "no": "EM-058",
+   "chapter": "C2",
+   "kind": "ox",
+   "q": "ODE 의 일반해(general solution)에서 임의상수 c 에 특정한 값을 넣어 얻은 해를 특수해(particular solution)라고 한다.",
+   "ox": true,
+   "s": "<p>강의의 정의: 임의상수 c 를 포함한 해가 일반해이고, c 에 특정한 값(예: 6.45, 0, −2.01)을 정하면 특수해가 된다. 초기조건이 주어지면 그 값으로 c 가 정해진다.</p><p>함정: 특수해는 일반해의 한 경우이고, 일반해에서 얻을 수 없는 해는 특이해다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ]
+   ],
+   "topic": "sol_types",
+   "dx": {
+    "facet": "sol_types.kinds",
+    "depth": 1,
+    "family": "f_em058",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-059",
+   "no": "EM-059",
+   "chapter": "C2",
+   "kind": "mc",
+   "q": "y' = y^2 의 일반해는 y = −1/(x + c) 이다. 상수함수 y = 0 은 이 ODE 의 해이면서 이 일반해의 어떤 c 로도 얻어지지 않는다. 이 강의의 정의에서 y = 0 은?",
+   "opts": [
+    "특수해(particular solution)",
+    "일반해(general solution)",
+    "특이해(singular solution)",
+    "ODE 의 해가 아니다"
+   ],
+   "ans": 2,
+   "why": [
+    "c 에 큰 값을 넣으면 0 이 되므로 특수해라고 생각함",
+    "일반해는 모든 해를 포함하므로 y = 0 도 일반해라고 생각함",
+    "",
+    "일반해에 없는 함수는 해가 될 수 없다고 생각함"
+   ],
+   "s": "<p>y = 0 이면 y' = 0 = y^2 이므로 해다. 그러나 −1/(x + c) 는 어떤 유한한 c 에서도 0 이 되지 않는다. 강의의 정의에서 일반해 공식의 어떤 c 로도 얻을 수 없는 해 y = y0 가 특이해다.</p><p>함정: c 가 무한대로 갈 때의 극한은 c 의 값이 아니다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ]
+   ],
+   "topic": "sol_types",
+   "dx": {
+    "facet": "sol_types.kinds",
+    "depth": 2,
+    "family": "f_em059",
+    "role": "base",
+    "mis": [
+     "m_sol_c_large",
+     "m_sol_general_all",
+     "",
+     "m_sol_only_general"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-060",
+   "no": "EM-060",
+   "chapter": "C2",
+   "kind": "ox",
+   "q": "y' = y^2, y(0) = 1 을 만족하는 해 y = 1/(1 − x) 는 이 ODE 의 특이해이다.",
+   "ox": false,
+   "fix": "이 해는 일반해 y = −1/(x + c) 에서 c = −1 로 정해지는 특수해다. 특이해는 y = 0 처럼 어떤 c 로도 얻을 수 없는 해다.",
+   "s": "<p>y = −1/(x + c) 에서 c = −1 을 넣으면 y = 1/(1 − x) 이고 y(0) = 1 이다. 일반해에서 c 값을 정해 얻은 해이므로 특수해다. 특이해는 일반해 공식의 어떤 c 로도 얻을 수 없는 해(여기서는 y = 0)를 가리킨다.</p><p>함정: 초기조건을 만족하는 해를 특이해로 부르는 것(특이해의 '특'과 특수해의 '특'을 혼동).</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ]
+   ],
+   "topic": "sol_types",
+   "dx": {
+    "facet": "sol_types.kinds",
+    "depth": 3,
+    "family": "f_em058",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "특수해 정의 → 특수해와 특이해 구별"
+    ],
+    "mis": "m_sol_singular_init"
+   }
+  },
+  {
+   "ext_id": "EM-061",
+   "no": "EM-061",
+   "chapter": "C2",
+   "kind": "mc",
+   "q": "y' = y^2 − 1 의 일반해는 y = (1 + c e^(2x)) / (1 − c e^(2x)) 이다. 상수함수 해 y = 1 과 y = −1 에 대해 옳은 것은?",
+   "opts": [
+    "y = 1 은 c = 0 으로 얻는 특수해, y = −1 은 특이해",
+    "둘 다 c 값으로 얻는 특수해",
+    "y = 1 은 특이해, y = −1 은 특수해",
+    "둘 다 일반해에서 얻을 수 없는 특이해"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "상수함수 해는 모두 일반해에서 c 를 정해 얻는다고 생각함",
+    "상수함수 해 중 먼저 보이는 y = 1 이 일반해 밖이라고 생각함",
+    "상수함수 해는 모두 일반해 밖이라고 생각함"
+   ],
+   "s": "<p>c = 0 이면 y = 1 이므로 y = 1 은 일반해에서 c 를 정해 얻는 특수해다. y = −1 이 되려면 (1 + c e^(2x)) = −(1 − c e^(2x)) 에서 2 = 0 이 되어 어떤 유한한 c 로도 불가능하다 (c → ∞ 의 극한일 뿐). 그러나 y' = 0 = (−1)^2 − 1 이므로 해이고, 일반해에서 얻을 수 없으므로 특이해다.</p><p>함정: 해가 같은 ODE 의 상수해라고 해서 모두 같은 종류는 아니다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ]
+   ],
+   "topic": "sol_types",
+   "dx": {
+    "facet": "sol_types.kinds",
+    "depth": 4,
+    "family": "f_em059",
+    "role": "near",
+    "delta": [
+     "object",
+     "y = 0 하나 → 상수해 y = ±1 두 개"
+    ],
+    "mis": [
+     "",
+     "m_sol_const_all_general",
+     "m_sol_const_singular",
+     "m_sol_const_singular"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-062",
+   "no": "EM-062",
+   "chapter": "C2",
+   "kind": "ox",
+   "star": true,
+   "q": "Bernoulli 식 y' + p(x)y = g(x) y^a 는 a = 0 또는 a = 1 이면 선형 ODE 이다.",
+   "ox": true,
+   "s": "<p>a = 0 이면 y' + p y = g 로 선형 비제차, a = 1 이면 y' + (p − g) y = 0 으로 선형 제차다. 강의는 a ≠ 0, 1 일 때 u = y^(1 − a) 치환을 쓴다고 정리한다.</p><p>함정: a = 0, 1 은 치환이 필요 없는 선형 경우다.</p>",
+   "src": [
+    [
+     "L3",
+     "30"
+    ],
+    [
+     "L3",
+     "31"
+    ]
+   ],
+   "topic": "bernoulli",
+   "dx": {
+    "facet": "bernoulli.linearize",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-063",
+   "no": "EM-063",
+   "chapter": "C2",
+   "kind": "short",
+   "star": true,
+   "q": "y' + y = x y^2, y(0) = 1 의 해에서 y(2) 의 값을 구하라. (소수 셋째 자리까지)",
+   "a": "0.333",
+   "accept": [
+    "1/3",
+    "0.333",
+    "1/(x+1)"
+   ],
+   "num": 0.333,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>a = 2 이므로 u = y^(1 − a) = y^(−1) 로 치환하면 u' + (1 − a)p u = (1 − a)g 에서 u' − u = −x. 적분인자로 풀면 u = x + 1 + c e^x, y = 1 / (x + 1 + c e^x). y(0) = 1 / (1 + c) = 1 에서 c = 0 이므로 y = 1/(x + 1), y(2) = 1/3 ≈ 0.333. 확인: y' + y = −1/(x + 1)^2 + 1/(x + 1) = x/(x + 1)^2 = x y^2.</p><p>함정: 치환 후에는 u 에 대한 선형식이므로 마지막에 u 를 y 로 되돌려야 한다 (u(2) = 3 을 답으로 쓰면 안 된다).</p>",
+   "src": [
+    [
+     "L3",
+     "31"
+    ],
+    [
+     "L3",
+     "32"
+    ]
+   ],
+   "topic": "bernoulli",
+   "dx": {
+    "facet": "bernoulli.linearize",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "치환한 u 의 값을 그대로 y 의 답으로 쓴다고 생각함",
+      "m": "m_bern_back_sub"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-064",
+   "no": "EM-064",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": true,
+   "q": "다음 중 Bernoulli 식 y' + p(x)y = g(x) y^a 꼴로 쓸 수 없는 것은?",
+   "opts": [
+    "y' + 2y = x y^3",
+    "y' + x y = y^(1/2)",
+    "y' + y = x y^(−1)",
+    "y' + y^2 = x"
+   ],
+   "ans": 3,
+   "why": [
+    "y 의 거듭제곱이 우변에 곱해져 있으면 Bernoulli 꼴이 아니라고 생각함",
+    "a 가 분수이면 Bernoulli 식이 아니라고 생각함",
+    "a 가 음수이면 Bernoulli 식이 아니라고 생각함",
+    ""
+   ],
+   "s": "<p>Bernoulli 식은 좌변이 y' + p(x)y 이고 우변이 g(x) y^a 한 항이어야 한다. y' + x y = y^(1/2) 은 a = 1/2, y' + y = x y^(−1) 은 a = −1, y' + 2y = x y^3 은 a = 3 으로 모두 이 꼴이다. y' + y^2 = x 는 y' = x − y^2 이어서 p(x)y 항이 없고 우변이 g(x) y^a 한 항이 아니므로 이 꼴로 쓸 수 없다.</p><p>함정: a 는 실수 어느 값이든 되지만 꼴 자체(좌변 p y, 우변 g y^a)는 지켜야 한다.</p>",
+   "src": [
+    [
+     "L3",
+     "30"
+    ]
+   ],
+   "topic": "bernoulli",
+   "dx": {
+    "facet": "bernoulli.linearize",
+    "depth": 3,
+    "mis": [
+     "m_bern_form",
+     "m_bern_a_range",
+     "m_bern_a_range",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-065",
+   "no": "EM-065",
+   "chapter": "C2",
+   "kind": "mc",
+   "star": true,
+   "q": "y' + y = x √y (y &gt; 0) 를 강의의 치환 u = y^(1 − a) 로 선형 ODE 로 바꾸면?",
+   "opts": [
+    "u = y^(1/2),  u' + u = x",
+    "u = y^(1/2),  u' + u/2 = x/2",
+    "u = y^(−1/2),  u' + u/2 = x/2",
+    "u = y^(1/2),  u' − u/2 = −x/2"
+   ],
+   "ans": 1,
+   "why": [
+    "치환 후 p, g 에 (1 − a) 를 곱하지 않는다고 생각함",
+    "",
+    "치환 지수를 1 − a 가 아니라 a − 1 로 잡는다고 생각함",
+    "(1 − a) = 1/2 대신 a − 1 = −1/2 를 계수로 곱한다고 생각함"
+   ],
+   "s": "<p>x √y = x y^(1/2) 이므로 a = 1/2, p = 1, g = x. u = y^(1 − a) = y^(1/2), 1 − a = 1/2 를 u' + (1 − a)p u = (1 − a)g 에 넣으면 u' + u/2 = x/2. 확인: u' = (1/2)y^(−1/2) y' = (1/2)y^(−1/2)(x y^(1/2) − y) = x/2 − u/2.</p><p>함정: a &lt; 1 이면 1 − a &gt; 0 이어서 부호가 a &gt; 1 일 때와 반대다.</p>",
+   "src": [
+    [
+     "L3",
+     "30"
+    ],
+    [
+     "L3",
+     "31"
+    ],
+    [
+     "L3",
+     "32"
+    ]
+   ],
+   "topic": "bernoulli",
+   "dx": {
+    "facet": "bernoulli.linearize",
+    "depth": 4,
+    "mis": [
+     "m_bern_coef_skip",
+     "",
+     "m_bern_exp_sign",
+     "m_bern_exp_sign"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-066",
+   "no": "EM-066",
+   "chapter": "C3",
+   "kind": "ox",
+   "q": "y' = f(x) g(y) 꼴의 1계 ODE 는 g(y) 로 나눈 뒤 양변을 적분하는 ∫ dy/g(y) = ∫ f(x) dx 로 풀 수 있다.",
+   "ox": true,
+   "s": "<p>강의의 변수분리법(method of separating variables): y' = f(x)g(y) 에서 dy/g(y) = f(x)dx 로 변수를 한쪽씩 모으고 양변을 적분한다. 예: y' = x/y 는 y dy = x dx → y^2 = x^2 + 2c.</p><p>함정: 나누는 g(y) 가 0 인 상수해는 이 과정에서 따로 확인해야 한다.</p>",
+   "src": [
+    [
+     "L4",
+     "4"
+    ],
+    [
+     "L4",
+     "5"
+    ],
+    [
+     "L4",
+     "9"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.solve",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-067",
+   "no": "EM-067",
+   "chapter": "C3",
+   "kind": "short",
+   "q": "y' = x y^2, y(0) = 1 의 해에서 y(1) 의 값을 구하라.",
+   "a": "2",
+   "accept": [
+    "2"
+   ],
+   "num": 2,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>y' = x y^2 은 y^(−2) dy = x dx 로 분리된다. −1/y = x^2/2 + c, y(0) = 1 에서 c = −1 이므로 y = 1 / (1 − x^2/2) = 2 / (2 − x^2). y(1) = 2/1 = 2. 확인: y' = 4x/(2 − x^2)^2 = x y^2. 예상되는 틀린 답: e^(1/2) ≈ 1.65 (적분을 ln|y| = x^2/2 + c 로 잘못 함).</p><p>함정: ∫ y^(−2) dy = −1/y 이다 (ln|y| 가 아니다).</p>",
+   "src": [
+    [
+     "L4",
+     "4"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.solve",
+    "depth": 2,
+    "family": "f_em067",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "∫ y^(−2) dy 를 ln|y| 로 적분한다고 생각함",
+      "m": "m_sep_log_int"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-068",
+   "no": "EM-068",
+   "chapter": "C3",
+   "kind": "mc",
+   "q": "다음 1계 ODE 중 변수분리형(separable)이 아닌 것은?",
+   "opts": [
+    "y' = x y + y",
+    "y' = e^(x + y)",
+    "y' = (x^2 + 1) / y",
+    "y' = x + y"
+   ],
+   "ans": 3,
+   "why": [
+    "x 와 y 의 합 꼴이 있으면 분리할 수 없다고 생각함",
+    "지수 안에 x 와 y 가 함께 있으면 분리할 수 없다고 생각함",
+    "분수 꼴이면 변수분리가 안 된다고 생각함",
+    ""
+   ],
+   "s": "<p>변수분리형은 y' = f(x)g(y), 즉 x 만의 함수와 y 만의 함수의 곱으로 쓸 수 있는 식이다. y' = x y + y = (x + 1) y, y' = e^(x + y) = e^x e^y, y' = (x^2 + 1)(1/y) 는 모두 곱으로 쓸 수 있다. y' = x + y 는 어떻게 묶어도 f(x)g(y) 가 되지 않는다(이 식은 1계 선형 ODE 로 푼다).</p><p>함정: 덧셈으로 보여도 인수분해하면 곱이 되는 식이 있다.</p>",
+   "src": [
+    [
+     "L4",
+     "4"
+    ],
+    [
+     "L4",
+     "9"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.solve",
+    "depth": 3,
+    "family": "f_em067",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "변수분리 풀이 → 분리형과 비분리형 구별"
+    ],
+    "mis": [
+     "m_sep_form_look",
+     "m_sep_form_look",
+     "m_sep_form_look",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-069",
+   "no": "EM-069",
+   "chapter": "C3",
+   "kind": "ox",
+   "q": "y' = x y^2 의 일반해는 y = −2 / (x^2 + c) 이고, 상수함수 y = 0 은 이 ODE 의 해이지만 일반해의 어떤 c 로도 얻을 수 없다.",
+   "ox": true,
+   "s": "<p>y = 0 이면 y' = 0 = x·0^2 이므로 해다. y = −2/(x^2 + c) 는 c 가 유한하면 절대 0 이 되지 않는다. g(y) = y^2 으로 나누는 단계에서 y = 0 이 빠졌으므로 y = 0 은 강의의 정의(일반해의 어떤 c 로도 얻을 수 없는 해)에서 특이해다.</p><p>함정: 나누기 전에 g(y) = 0 인 상수해를 확인하지 않으면 그 해를 놓친다.</p>",
+   "src": [
+    [
+     "L3",
+     "11"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.solve",
+    "depth": 4,
+    "family": "f_em067",
+    "role": "near",
+    "delta": [
+     "condition",
+     "풀이 계산 → g(y) = 0 인 상수해 확인"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-070",
+   "no": "EM-070",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "P(x, y)dx + Q(x, y)dy = 0 (P, Q 는 연속인 편도함수를 가짐)이 완전미분방정식(exact differential equation)이 되는 조건은 ∂P/∂x = ∂Q/∂y 이다.",
+   "ox": false,
+   "fix": "조건은 ∂P/∂y = ∂Q/∂x 이다 (P 는 y 로, Q 는 x 로 미분).",
+   "s": "<p>완전이면 어떤 u(x, y) 가 있어 ∂u/∂x = P, ∂u/∂y = Q 이고 혼합 편미분이 같으므로 ∂P/∂y = ∂Q/∂x 다. 이것이 강의의 판정 조건이다. 문제의 ∂P/∂x = ∂Q/∂y 는 P, Q 를 각자의 변수로 미분한 잘못된 비교다. 예: y dx − x dy = 0 은 ∂P/∂x = 0 = ∂Q/∂y 라서 문제의 조건을 만족하지만, ∂P/∂y = 1 ≠ −1 = ∂Q/∂x 이므로 완전이 아니다.</p><p>함정: P 는 y 로, Q 는 x 로 미분해 비교한다.</p>",
+   "src": [
+    [
+     "L5",
+     "6"
+    ],
+    [
+     "L5",
+     "7"
+    ],
+    [
+     "L5",
+     "8"
+    ]
+   ],
+   "topic": "exact",
+   "dx": {
+    "facet": "exact.test",
+    "depth": 1,
+    "mis": "m_exact_wrong_pd"
+   }
+  },
+  {
+   "ext_id": "EM-071",
+   "no": "EM-071",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "(2xy + k y^2) dx + (x^2 + 4xy) dy = 0 이 완전미분방정식이 되도록 하는 상수 k 의 값을 구하라.",
+   "a": "2",
+   "accept": [
+    "2",
+    "k=2",
+    "k = 2"
+   ],
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "s": "<p>P = 2xy + k y^2, Q = x^2 + 4xy. 완전 조건 ∂P/∂y = ∂Q/∂x 에서 2x + 2k y = 2x + 4y 이므로 k = 2. 확인: k = 2 이면 u = x^2 y + 2x y^2 이고 ∂u/∂x = 2xy + 2y^2 = P, ∂u/∂y = x^2 + 4xy = Q. 예상되는 틀린 답: ∂P/∂x = 2y, ∂Q/∂y = 4x 를 같다고 놓아 풀면 k 를 정할 수 없다.</p><p>함정: 판정은 ∂P/∂y = ∂Q/∂x 로, 양변이 x, y 의 식으로 모두 같아야 한다.</p>",
+   "src": [
+    [
+     "L5",
+     "7"
+    ],
+    [
+     "L5",
+     "8"
+    ]
+   ],
+   "topic": "exact",
+   "dx": {
+    "facet": "exact.test",
+    "depth": 3,
+    "mis": [
+     {
+      "pattern": "∂P/∂x = ∂Q/∂y 로 놓고 k 를 구하려 한다고 생각함",
+      "m": "m_exact_wrong_pd"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-072",
+   "no": "EM-072",
+   "chapter": "C3",
+   "kind": "ox",
+   "q": "완전미분방정식 P dx + Q dy = 0 의 일반해는 ∂u/∂x = P, ∂u/∂y = Q 를 만족하는 함수 u(x, y) 에 대해 u(x, y) = c 로 쓴다.",
+   "ox": true,
+   "s": "<p>완전이면 P dx + Q dy 가 du = (∂u/∂x)dx + (∂u/∂y)dy 와 같으므로 du = 0, 곧 u(x, y) = c 가 암시적(implicit) 일반해다.</p><p>함정: u 자체가 해가 아니라 u 가 상수인 곡선이 해다.</p>",
+   "src": [
+    [
+     "L5",
+     "6"
+    ],
+    [
+     "L5",
+     "9"
+    ],
+    [
+     "L5",
+     "10"
+    ]
+   ],
+   "topic": "exact",
+   "dx": {
+    "facet": "exact.solve",
+    "depth": 1,
+    "family": "f_em072",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-073",
+   "no": "EM-073",
+   "chapter": "C3",
+   "kind": "short",
+   "q": "(2x y^2 + 1) dx + (2x^2 y + 2y) dy = 0, y(1) = 1 의 해(y &gt; 0)에서 y(2) 의 값을 구하라. (소수 셋째 자리까지)",
+   "a": "0.447",
+   "accept": [
+    "1/√5",
+    "1/sqrt(5)",
+    "0.447",
+    "√5/5"
+   ],
+   "num": 0.447,
+   "tol": 0.002,
+   "ph": "숫자만 입력",
+   "s": "<p>∂P/∂y = 4xy = ∂Q/∂x 이므로 완전. u = ∫P dx + k(y) = x^2 y^2 + x + k(y), ∂u/∂y = 2x^2 y + k'(y) = Q = 2x^2 y + 2y 에서 k' = 2y, k = y^2. 일반해 x^2 y^2 + x + y^2 = c. y(1) = 1 이면 c = 3. x = 2 에서 4y^2 + 2 + y^2 = 3, y^2 = 1/5, y = 1/√5 ≈ 0.447. 예상되는 틀린 답: 0 (k(y) = y^2 를 빠뜨려 x^2 y^2 + x = 3 에 대입).</p><p>함정: ∂u/∂y 를 Q 와 비교해 k(y) 를 구하는 단계를 건너뛰면 안 된다.</p><p>(참고: 강의 lec05 p.9 슬라이드의 \"u = ∫Q dx + k(y)\"는 ∂u/∂x = P 이므로 ∫P dx 의 오기로 보인다.)</p>",
+   "src": [
+    [
+     "L5",
+     "6"
+    ],
+    [
+     "L5",
+     "9"
+    ]
+   ],
+   "topic": "exact",
+   "dx": {
+    "facet": "exact.solve",
+    "depth": 2,
+    "family": "f_em073",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "u 를 ∫P dx 까지만 구하고 y 만의 함수 k(y) 는 생략해도 된다고 생각함",
+      "ex": [
+       "0"
+      ],
+      "m": "m_exact_skip_k"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-074",
+   "no": "EM-074",
+   "chapter": "C3",
+   "kind": "ox",
+   "q": "P dx + Q dy = 0 에서 ∂P/∂y ≠ ∂Q/∂x 이더라도 ∂u/∂x = P 를 x 로 적분하고 ∂u/∂y = Q 를 맞추는 방법을 쓰면 일반해 u(x, y) = c 를 얻는다.",
+   "ox": false,
+   "fix": "완전일 때만 u 가 존재한다. 완전이 아니면 먼저 적분인자 F 를 곱해 완전하게 만든 뒤 풀어야 한다.",
+   "s": "<p>완전이 아니면 ∂u/∂x = P 와 ∂u/∂y = Q 를 동시에 만족하는 u 가 존재하지 않는다 (혼합 편미분이 달라야 하므로 모순). 예를 들어 y dx − x dy = 0 에서 u = xy + k(y) 로 시작하면 ∂u/∂y = x + k' = −x 에서 k' = −2x 가 되어 y 만의 함수가 아니다. 이때는 적분인자를 먼저 곱해 완전하게 만들어야 한다.</p><p>함정: 풀이 절차를 판정(1단계) 없이 바로 쓰는 것.</p>",
+   "src": [
+    [
+     "L5",
+     "6"
+    ],
+    [
+     "L5",
+     "9"
+    ],
+    [
+     "L5",
+     "18"
+    ]
+   ],
+   "topic": "exact",
+   "dx": {
+    "facet": "exact.solve",
+    "depth": 3,
+    "family": "f_em072",
+    "role": "near",
+    "delta": [
+     "condition",
+     "완전한 식 → 완전하지 않은 식에 같은 절차 적용"
+    ],
+    "mis": "m_exact_no_test"
+   }
+  },
+  {
+   "ext_id": "EM-075",
+   "no": "EM-075",
+   "chapter": "C3",
+   "kind": "mc",
+   "q": "y dx + (2x − y^2) dy = 0 은 완전이 아니다. y만의 적분인자 F*(y) = y 를 곱한 식 y^2 dx + (2xy − y^3) dy = 0 의 일반해는?",
+   "opts": [
+    "x y^2 + y^4/4 = c",
+    "x y^2 − y^4/4 = c",
+    "x y − y^3/3 = c",
+    "x y^2 − y^3 = c"
+   ],
+   "ans": 1,
+   "why": [
+    "∂u/∂y = Q 에서 k'(y) 의 부호를 반대로 적분한다고 생각함",
+    "",
+    "적분인자를 곱하기 전의 원래 식으로 u 를 구한다고 생각함",
+    "k'(y) = −y^3 을 적분할 때 지수를 올리지 않고 계수만 바꾼다고 생각함"
+   ],
+   "s": "<p>곱한 식은 P = y^2, Q = 2xy − y^3 으로 ∂P/∂y = 2y = ∂Q/∂x 라서 완전이다. u = ∫P dx + k(y) = x y^2 + k(y), ∂u/∂y = 2xy + k'(y) = 2xy − y^3 이므로 k' = −y^3, k = −y^4/4. 일반해 x y^2 − y^4/4 = c.</p><p>함정: 적분인자는 방정식 전체에 곱한 뒤 그 새 식에 대해 u 를 구한다.</p>",
+   "src": [
+    [
+     "L5",
+     "9"
+    ],
+    [
+     "L5",
+     "24"
+    ],
+    [
+     "L5",
+     "25"
+    ]
+   ],
+   "topic": "exact",
+   "dx": {
+    "facet": "exact.solve",
+    "depth": 4,
+    "family": "f_em073",
+    "role": "near",
+    "delta": [
+     "combine",
+     "u 구하기 → 적분인자를 곱한 뒤 u 구하기"
+    ],
+    "mis": [
+     "m_exact_k_sign",
+     "",
+     "m_exact_orig_eq",
+     "m_exact_k_power"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-076",
+   "no": "EM-076",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "y' = f(y/x) 꼴의 ODE 는 u = y/x 로 치환하면 y' = u'x + u 이므로 변수분리형으로 바뀐다.",
+   "ox": true,
+   "s": "<p>강의의 환원 (1): y = ux 로 두면 y' = u'x + u (곱의 미분), y' = f(u) 에 넣으면 u'x + u = f(u), 곧 du/(f(u) − u) = dx/x 로 분리된다.</p><p>함정: y' = u' 로 쓰면 안 된다 (y = ux 에서 x 도 변수다).</p>",
+   "src": [
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "L4",
+     "12"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.reduce",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-077",
+   "no": "EM-077",
+   "chapter": "C3",
+   "kind": "short",
+   "star": true,
+   "q": "y' = 1 + y/x (x &gt; 0), y(1) = 2 의 해에서 y(e) 의 값을 구하라. (소수 둘째 자리까지)",
+   "a": "8.15",
+   "accept": [
+    "3e",
+    "3*e",
+    "x(ln x + 2)",
+    "8.155"
+   ],
+   "num": 8.15,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>y' = f(y/x) 꼴이므로 u = y/x, y = ux, y' = u'x + u. u'x + u = 1 + u 에서 u'x = 1, u = ln x + c. y = x(ln x + c), y(1) = c = 2. y(e) = e(1 + 2) = 3e ≈ 8.15. 예상되는 틀린 답: y' = u' 로 치환하면 u' = 1 + u 가 되어 전혀 다른 해가 나온다.</p><p>함정: y' = u'x + u 에서 u 항이 양변에서 서로 지워진다.</p>",
+   "src": [
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "L4",
+     "12"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.reduce",
+    "depth": 2,
+    "family": "f_em077",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "치환 후 y' 를 u' 로만 쓴다고 생각함",
+      "m": "m_sepred_y_prime"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-078",
+   "no": "EM-078",
+   "chapter": "C3",
+   "kind": "mc",
+   "star": true,
+   "q": "y' = (x − y + 3) / (x + y − 1) 을 강의의 '변수분리형으로의 환원 (2)'로 풀 때 첫 치환으로 알맞은 것은?",
+   "opts": [
+    "u = x − y 로 바로 치환하고 분리한다",
+    "u = y/x 로 바로 치환하고 분리한다",
+    "x = X − 1, y = Y + 2 로 옮기고 u = Y/X 로 둔다",
+    "u = x + y 로 바로 치환하고 분리한다"
+   ],
+   "ans": 2,
+   "why": [
+    "분자·분모 일차식의 계수가 비슷하면 u 를 한 식으로 잡는다고 생각함",
+    "분수 꼴이면 바로 y/x 치환(환원 (1))을 쓴다고 생각함",
+    "",
+    "분모의 일차식을 u 로 잡는 Method II 를 쓴다고 생각함"
+   ],
+   "s": "<p>a = 1, b = −1, g = 1, e = 1 이므로 a/g = 1, b/e = −1 로 다르다. 연립식 α − β + 3 = 0, α + β − 1 = 0 은 유일해 (α, β) = (−1, 2) 를 가지므로 Method I: x = X + α, y = Y + β 로 상수항을 없애고 u = Y/X 로 환원 (1)을 쓴다. a/g = b/e 일 때만 Method II (u = gx + ey)를 쓴다.</p><p>함정: 연립식이 유일해를 가지는지(계수비가 다른지)부터 확인한다.</p>",
+   "src": [
+    [
+     "L4",
+     "17"
+    ],
+    [
+     "L4",
+     "19"
+    ],
+    [
+     "L4",
+     "21"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.reduce",
+    "depth": 3,
+    "mis": [
+     "m_sepred_one_expr",
+     "m_sepred_ratio_direct",
+     "",
+     "m_sepred_method2"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-079",
+   "no": "EM-079",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "환원 (2) 꼴 y' = f((ax + by + c)/(gx + ey + h)) 에서 a/g = b/e 인 경우에도 aα + bβ + c = 0, gα + eβ + h = 0 은 항상 유일한 해 (α, β) 를 가지므로 Method I 만 쓰면 된다.",
+   "ox": false,
+   "fix": "a/g = b/e 이면 연립식이 유일해를 갖지 않으므로(해 없음 또는 무수히 많음) Method II 를 쓴다.",
+   "s": "<p>a/g = b/e 이면 두 일차식의 x, y 계수가 비례해 연립식은 해가 없거나 무수히 많다(유일해가 아니다). 강의는 유일해이면 Method I, 해가 없거나 무수히 많으면 Method II 를 쓴다고 정리한다. 예: 2x + 4y + 1 = 0 과 x + 2y − 3 = 0 은 평행해 해가 없다.</p><p>함정: 평행이동 방법(Method I)은 연립식이 유일해일 때만 쓸 수 있다.</p>",
+   "src": [
+    [
+     "L4",
+     "19"
+    ],
+    [
+     "L4",
+     "21"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.reduce",
+    "depth": 3,
+    "mis": "m_sepred_shift_all"
+   }
+  },
+  {
+   "ext_id": "EM-080",
+   "no": "EM-080",
+   "chapter": "C3",
+   "kind": "ox",
+   "star": true,
+   "q": "y' = (2x + y)/(x − y) 는 환원 (2) 꼴이지만 상수항 c, h 가 0 이어서 평행이동 없이 u = y/x (환원 (1))로 바로 풀 수 있다.",
+   "ox": true,
+   "s": "<p>a = 2, b = 1, g = 1, e = −1 이고 c = h = 0 이므로 aα + bβ = 0, gα + eβ = 0 의 해는 α = β = 0 이다. 즉 Method I 의 평행이동이 필요 없고 y' = (2 + y/x)/(1 − y/x) = f(y/x) 가 되어 u = y/x 로 바로 분리된다.</p><p>함정: 환원 (2)는 환원 (1)을 포함하는 더 일반적인 형태다.</p>",
+   "src": [
+    [
+     "L4",
+     "11"
+    ],
+    [
+     "L4",
+     "17"
+    ],
+    [
+     "L4",
+     "19"
+    ]
+   ],
+   "topic": "separable",
+   "dx": {
+    "facet": "separable.reduce",
+    "depth": 4,
+    "family": "f_em077",
+    "role": "near",
+    "delta": [
+     "combine",
+     "환원 (1) 단독 → 환원 (2) 와 연결"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-081",
+   "no": "EM-081",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "y'' + 4y = 0 의 일반해는 y = c1 e^(2x) + c2 e^(−2x) 이다.",
+   "ox": false,
+   "fix": "y'' + 4y = 0 은 λ = ±2i 이므로 y = c1 cos 2x + c2 sin 2x 다. e^(2x), e^(−2x) 는 y'' − 4y = 0 의 기저다.",
+   "s": "<p>특성방정식 λ^2 + 4 = 0 의 근은 λ = ±2i (복소근, a^2 − 4b = −16 &lt; 0, Case III) 이므로 p = 0, q = 2 이고 일반해는 y = c1 cos 2x + c2 sin 2x 다. e^(2x), e^(−2x) 는 λ^2 − 4 = 0, 곧 y'' − 4y = 0 의 기저다 (Case I).</p><p>함정: y'' + 4y 와 y'' − 4y 의 부호 하나가 근의 종류(복소근 / 실근)를 바꾼다.</p>",
+   "src": [
+    [
+     "L6",
+     "19"
+    ],
+    [
+     "L6",
+     "20"
+    ],
+    [
+     "L6",
+     "27"
+    ]
+   ],
+   "topic": "const2",
+   "dx": {
+    "facet": "const2.cases",
+    "depth": 3,
+    "mis": "m_const2_real_sqrt"
+   }
+  },
+  {
+   "ext_id": "EM-082",
+   "no": "EM-082",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "y'' − 4y = 0 의 일반해는 y = A cosh 2x + B sinh 2x (A, B 는 임의의 상수)로 써도 된다.",
+   "ox": true,
+   "s": "<p>λ^2 − 4 = 0 에서 λ = ±2 이므로 기저는 e^(2x), e^(−2x). cosh 2x = (e^(2x) + e^(−2x))/2, sinh 2x = (e^(2x) − e^(−2x))/2 는 이 기저의 일차결합이고 서로 상수배가 아니어서 역시 일차독립이므로 또 하나의 기저다. A cosh 2x + B sinh 2x = ((A + B)/2) e^(2x) + ((A − B)/2) e^(−2x) 로 c1, c2 가 모든 값을 가질 수 있다.</p><p>함정: 기저는 유일하지 않고 같은 해 공간을 만드는 다른 쌍도 일반해를 줄 수 있다.</p>",
+   "src": [
+    [
+     "L6",
+     "10"
+    ],
+    [
+     "L6",
+     "20"
+    ],
+    [
+     "L2",
+     "44"
+    ]
+   ],
+   "topic": "const2",
+   "dx": {
+    "facet": "const2.cases",
+    "depth": 4
+   }
+  },
+  {
+   "ext_id": "EM-083",
+   "no": "EM-083",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": true,
+   "q": "x^2 y'' + x y' + 4y = 0 (x &gt; 0) 의 일반해는?",
+   "opts": [
+    "y = A cos(2 ln x) + B sin(2 ln x)",
+    "y = A cos 2x + B sin 2x",
+    "y = c1 x^2 + c2 x^(−2)",
+    "y = x^2 (A cos ln x + B sin ln x)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "복소근이면 상수계수 식처럼 x 에 대한 cos, sin 을 쓴다고 생각함",
+    "보조방정식 m^2 + 4 = 0 의 근을 ±2 로 읽는다고 생각함",
+    "복소근 ±2i 의 실수부를 2 로 읽고 q 를 1 로 읽는다고 생각함"
+   ],
+   "s": "<p>보조방정식 m^2 + (a − 1)m + b = m^2 + (1 − 1)m + 4 = m^2 + 4 = 0 이므로 m = ±2i, 곧 p = 0, q = 2 이다. 강의의 복소근 경우 y = x^p [A cos(q ln x) + B sin(q ln x)] 에 넣으면 y = A cos(2 ln x) + B sin(2 ln x). 확인: y = cos(2 ln x) 를 대입하면 x^2 y'' + x y' + 4y = 0.</p><p>함정: Euler–Cauchy 에서 복소근의 cos, sin 안은 x 가 아니라 q ln x 다.</p>",
+   "src": [
+    [
+     "L7",
+     "4"
+    ],
+    [
+     "L7",
+     "12"
+    ]
+   ],
+   "topic": "euler2",
+   "dx": {
+    "facet": "euler2.aux",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_euler_cos_x",
+     "m_euler_root_read",
+     "m_euler_root_read"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-084",
+   "no": "EM-084",
+   "chapter": "C4",
+   "kind": "short",
+   "star": true,
+   "q": "x^2 y'' + a x y' + b y = 0 (a, b 상수, x &gt; 0) 의 일반해가 y = c1 x^3 + c2 x^(−1) 일 때, a + b 의 값은?",
+   "a": "-4",
+   "accept": [
+    "-4",
+    "−4"
+   ],
+   "num": -4,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "s": "<p>일반해에서 보조방정식의 근은 m = 3, −1 이므로 (m − 3)(m + 1) = m^2 − 2m − 3 = m^2 + (a − 1)m + b. 따라서 a − 1 = −2 → a = −1, b = −3 이고 a + b = −4. 확인: x^2 y'' − x y' − 3y 에 y = x^3 을 넣으면 6x^3 − 3x^3 − 3x^3 = 0. 예상되는 틀린 답: −5 (m^2 + a m + b 로 읽어 a = −2, b = −3 으로 계산).</p><p>함정: 보조방정식의 m 계수는 a 가 아니라 a − 1 이다.</p>",
+   "src": [
+    [
+     "L7",
+     "4"
+    ],
+    [
+     "L7",
+     "6"
+    ]
+   ],
+   "topic": "euler2",
+   "dx": {
+    "facet": "euler2.aux",
+    "depth": 4,
+    "mis": [
+     {
+      "pattern": "m 의 계수가 a − 1 이 아니라 a 라고 생각함",
+      "ex": [
+       "-5"
+      ],
+      "m": "m_euler_a_coef"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-085",
+   "no": "EM-085",
+   "chapter": "C4",
+   "kind": "ox",
+   "q": "2계 동차 선형 ODE y'' + p(x)y' + q(x)y = 0 의 두 해 y1, y2 에 대해 c1 y1 + c2 y2 (c1, c2 는 임의의 상수)도 같은 ODE 의 해이다.",
+   "ox": true,
+   "s": "<p>강의의 중첩 원리(principle of superposition): 동차 선형 2계 ODE 의 두 해의 일차결합은 다시 해다. 대입하면 c1(y1'' + p y1' + q y1) + c2(y2'' + p y2' + q y2) = c1·0 + c2·0 = 0.</p><p>함정: 이 증명에서 우변이 0 이라는 점과 L[y] 가 y 에 대해 선형이라는 점이 모두 쓰인다.</p>",
+   "src": [
+    [
+     "L6",
+     "6"
+    ],
+    [
+     "L6",
+     "7"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.superpos",
+    "depth": 1,
+    "family": "f_em085",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-086",
+   "no": "EM-086",
+   "chapter": "C4",
+   "kind": "mc",
+   "q": "y1 = e^(2x), y2 = e^(−3x) 가 y'' + y' − 6y = 0 의 해이다. 다음 중 이 ODE 의 해가 아닌 것은?",
+   "opts": [
+    "e^(2x) + 1",
+    "5 e^(2x) − 3 e^(−3x)",
+    "2 e^(2x)",
+    "e^(2x) + e^(−3x)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "일차결합의 계수가 음수이거나 크면 해가 아니라고 생각함",
+    "해의 상수배는 해가 아니라고 생각함",
+    "두 해의 합은 해가 아니라고 생각함"
+   ],
+   "s": "<p>중첩 원리에 따라 c1 e^(2x) + c2 e^(−3x) 꼴은 모두 해다 (5e^(2x) − 3e^(−3x), 2e^(2x), e^(2x) + e^(−3x) 가 모두 이 꼴). e^(2x) + 1 은 이 꼴이 아니고, 직접 대입하면 (4e^(2x)) + (2e^(2x)) − 6(e^(2x) + 1) = −6 ≠ 0 이다.</p><p>함정: 상수 1 을 더한 함수는 일차결합이 아니다.</p>",
+   "src": [
+    [
+     "L6",
+     "6"
+    ],
+    [
+     "L6",
+     "10"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.superpos",
+    "depth": 2,
+    "family": "f_em086",
+    "role": "base",
+    "mis": [
+     "",
+     "m_sup_not_closed",
+     "m_sup_not_closed",
+     "m_sup_not_closed"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-087",
+   "no": "EM-087",
+   "chapter": "C4",
+   "kind": "ox",
+   "q": "y'' + y = 1 의 두 해 y1 = 1 + cos x, y2 = 1 + sin x 의 합 y1 + y2 도 y'' + y = 1 의 해이다.",
+   "ox": false,
+   "fix": "비제차 ODE 에서는 해의 합이 우변을 2배로 만들어 해가 아니다. y1 − y2 = cos x − sin x 가 제차 ODE y'' + y = 0 의 해다.",
+   "s": "<p>y1 + y2 = 2 + cos x + sin x 이므로 (y1 + y2)'' + (y1 + y2) = −cos x − sin x + 2 + cos x + sin x = 2 ≠ 1. 비제차 ODE 의 해들의 일차결합은 우변이 c1 + c2 배가 되어 일반적으로 해가 아니다. 강의도 일차결합 성질은 비제차나 비선형 ODE 에서 성립하지 않는다고 주의한다.</p><p>함정: 비제차 ODE 에서 두 해의 차(y1 − y2)는 제차 ODE 의 해이지만 합은 해가 아니다.</p>",
+   "src": [
+    [
+     "L6",
+     "6"
+    ],
+    [
+     "L8",
+     "5"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.superpos",
+    "depth": 3,
+    "family": "f_em085",
+    "role": "near",
+    "delta": [
+     "condition",
+     "동차 선형 ODE → 비제차 ODE"
+    ],
+    "mis": "m_sup_nonhom_linear"
+   }
+  },
+  {
+   "ext_id": "EM-088",
+   "no": "EM-088",
+   "chapter": "C4",
+   "kind": "mc",
+   "q": "다음 ODE 중 임의의 두 해 y1, y2 에 대해 c1 y1 + c2 y2 가 항상 다시 해가 되는 것은?",
+   "opts": [
+    "y'' + y = e^x",
+    "y'' + (y')^2 = 0",
+    "x y'' + y' + x^2 y = 0",
+    "y'' + sin y = 0"
+   ],
+   "ans": 2,
+   "why": [
+    "선형이면 우변이 0 이 아니어도 일차결합이 해라고 생각함",
+    "y' 의 제곱은 도함수라서 선형 ODE 로 볼 수 있다고 생각함",
+    "",
+    "y 가 sin 안에 있어도 부드러운 함수이므로 선형처럼 중첩된다고 생각함"
+   ],
+   "s": "<p>일차결합이 항상 해가 되려면 ODE 가 y, y', y'' 에 대해 선형이고 제차(우변 0)여야 한다. x y'' + y' + x^2 y = 0 은 계수 x, 1, x^2 이 x 의 함수일 뿐 y 에 대해서는 선형이고 우변이 0 이므로 성립한다. y'' + y = e^x 는 비제차, y'' + (y')^2 = 0 과 y'' + sin y = 0 은 비선형이어서 성립하지 않는다.</p><p>함정: 계수가 x 의 함수여도 선형성에는 영향이 없다 (y 와 그 도함수만 본다).</p>",
+   "src": [
+    [
+     "L3",
+     "14"
+    ],
+    [
+     "L6",
+     "5"
+    ],
+    [
+     "L6",
+     "6"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.superpos",
+    "depth": 4,
+    "family": "f_em086",
+    "role": "near",
+    "delta": [
+     "combine",
+     "중첩 원리 → 선형성·제차성 판정과 결합"
+    ],
+    "mis": [
+     "m_sup_nonhom_linear",
+     "m_sup_nonlin_ok",
+     "",
+     "m_sup_nonlin_ok"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-089",
+   "no": "EM-089",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "y1 이 y'' + a(x)y' + b(x)y = 0 의 해이면, p = e^(∫a(x)dx) 로 두고 y2 = y1 ∫ (1 / (p y1^2)) dx 가 y1 과 일차독립인 또 다른 해가 된다.",
+   "ox": true,
+   "s": "<p>강의의 차수내림법(method of reduction of order): y2 = u y1 로 두고 대입하면 u'' y1 + u'(2y1' + a y1) = 0 이고 v = u' 의 1계 ODE 를 풀면 v = 1/(p y1^2) 이다. 따라서 y2 = y1 ∫ 1/(p y1^2) dx. u 가 상수가 아니므로 y1, y2 는 일차독립이다.</p><p>함정: 공식의 a(x) 는 y'' 의 계수를 1 로 만든 표준형의 y' 계수다.</p>",
+   "src": [
+    [
+     "L7",
+     "17"
+    ],
+    [
+     "L7",
+     "18"
+    ],
+    [
+     "L1",
+     "11"
+    ]
+   ],
+   "topic": "reduction",
+   "dx": {
+    "facet": "reduction.reduce",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-090",
+   "no": "EM-090",
+   "chapter": "C4",
+   "kind": "mc",
+   "star": true,
+   "q": "x^2 y'' − 3x y' + 4y = 0 (x &gt; 0) 의 한 해가 y1 = x^2 이다. 차수내림법으로 y1 과 일차독립인 해 y2 를 구하면? (상수배 제외)",
+   "opts": [
+    "y2 = x^3",
+    "y2 = x^2 ln x",
+    "y2 = x^(−2)",
+    "y2 = x^2 + ln x"
+   ],
+   "ans": 1,
+   "why": [
+    "중근이면 y1 에 x 를 곱한다고 생각함",
+    "",
+    "y1 의 지수 부호만 바꾸면 두 번째 해라고 생각함",
+    "두 번째 해는 y1 에 새 항을 더해 만든다고 생각함"
+   ],
+   "s": "<p>표준형은 y'' − (3/x) y' + (4/x^2) y = 0 이므로 a(x) = −3/x, p = e^(∫a dx) = e^(−3 ln x) = x^(−3). y2 = y1 ∫ 1/(p y1^2) dx = x^2 ∫ 1/(x^(−3) x^4) dx = x^2 ∫ (1/x) dx = x^2 ln x. 확인: y = x^2 ln x 를 대입하면 좌변이 0 이다 (보조방정식 m^2 − 4m + 4 = (m − 2)^2 의 중근 해와 같다).</p><p>함정: x 를 곱하는 것은 상수계수 식의 중근 규칙이고, 여기서는 ln x 가 나온다.</p>",
+   "src": [
+    [
+     "L7",
+     "17"
+    ]
+   ],
+   "topic": "reduction",
+   "dx": {
+    "facet": "reduction.reduce",
+    "depth": 2,
+    "family": "f_em090",
+    "role": "base",
+    "mis": [
+     "m_red_x_factor",
+     "",
+     "m_red_exp_sign",
+     "m_red_add_term"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-091",
+   "no": "EM-091",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "x^2 y'' − 3x y' + 4y = 0 에 차수내림법의 공식 y2 = y1 ∫ 1/(p y1^2) dx 를 쓸 때, a(x) = −3x 로 읽고 p = e^(−3x^2/2) 로 계산한다.",
+   "ox": false,
+   "fix": "먼저 x^2 으로 나눠 표준형 y'' − (3/x)y' + (4/x^2)y = 0 으로 만든 뒤 a(x) = −3/x, p = x^(−3) 을 쓴다.",
+   "s": "<p>공식은 y'' 의 계수가 1 인 표준형 y'' + a(x)y' + b(x)y = 0 에서 쓴다. x^2 으로 나누면 y'' − (3/x) y' + (4/x^2) y = 0 이므로 a(x) = −3/x, p = e^(∫a dx) = x^(−3) 이다. a(x) = −3x 로 읽으면 y' 앞의 계수를 그대로 가져온 잘못이다.</p><p>함정: y'' 앞의 x^2 으로 먼저 나누는 표준형 변환을 건너뛰는 것.</p>",
+   "src": [
+    [
+     "L3",
+     "16"
+    ],
+    [
+     "L7",
+     "17"
+    ],
+    [
+     "L7",
+     "18"
+    ]
+   ],
+   "topic": "reduction",
+   "dx": {
+    "facet": "reduction.reduce",
+    "depth": 3,
+    "family": "f_em090",
+    "role": "near",
+    "delta": [
+     "condition",
+     "표준형 → 계수에 x^2 이 붙은 비표준형"
+    ],
+    "mis": "m_red_std_form"
+   }
+  },
+  {
+   "ext_id": "EM-092",
+   "no": "EM-092",
+   "chapter": "C4",
+   "kind": "ox",
+   "star": true,
+   "q": "x^2 y'' − x y' + y = 0 (x &gt; 0) 의 한 해 y1 = x 에 차수내림법을 쓰면 y2 = x ln x 가 나오고, 이는 Euler–Cauchy 보조방정식의 중근 m = 1 에서 얻는 해와 같다.",
+   "ox": true,
+   "s": "<p>표준형 y'' − (1/x) y' + (1/x^2) y = 0 에서 a = −1/x, p = e^(−ln x) = 1/x. y2 = x ∫ 1/((1/x) x^2) dx = x ∫ (1/x) dx = x ln x. 한편 보조방정식 m^2 + (a − 1)m + b = m^2 − 2m + 1 = (m − 1)^2 의 중근 m = 1 에서 Euler–Cauchy 의 중근 규칙 y = (c1 + c2 ln x) x^m 은 x ln x 를 준다. 두 방법이 같은 기저를 준다.</p><p>함정: Euler–Cauchy 식이어도 차수내림법을 쓸 수 있고 결과는 일치한다.</p>",
+   "src": [
+    [
+     "L7",
+     "8"
+    ],
+    [
+     "L7",
+     "18"
+    ]
+   ],
+   "topic": "reduction",
+   "dx": {
+    "facet": "reduction.reduce",
+    "depth": 4,
+    "family": "f_em090",
+    "role": "near",
+    "delta": [
+     "combine",
+     "차수내림법 단독 → Euler–Cauchy 중근 해와 대조"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-093",
+   "no": "EM-093",
+   "chapter": "C5",
+   "kind": "short",
+   "star": true,
+   "q": "x^2 y'' − 3x y' + 3y = x^2 (x &gt; 0) 에서 y1 = x 는 제차 ODE 의 해이다. 표준형으로 바꾼 뒤 차수내림법의 비제차 공식 yp = y1 ∫ ( ∫ p y1 h dx ) / (p y1^2) dx (적분상수는 모두 0)로 구한 특수해 yp 에 대해 yp(2) 의 값은?",
+   "a": "-4",
+   "accept": [
+    "-4",
+    "−4",
+    "-x^2"
+   ],
+   "num": -4,
+   "tol": 0.01,
+   "ph": "숫자만 입력",
+   "s": "<p>표준형은 y'' − (3/x) y' + (3/x^2) y = 1 이므로 a = −3/x, h = 1, p = x^(−3). ∫ p y1 h dx = ∫ x^(−2) dx = −1/x, p y1^2 = 1/x 이므로 (−1/x)/(1/x) = −1, 바깥 적분 ∫(−1)dx = −x, yp = x·(−x) = −x^2. yp(2) = −4. 확인: x^2(−2) − 3x(−2x) + 3(−x^2) = x^2. 예상되는 틀린 답: 16/3 (표준형으로 나누지 않고 h = x^2 을 그대로 써서 yp = x^4/3).</p><p>함정: h(x) 는 y'' 의 계수를 1 로 만든 뒤의 우변이다.</p>",
+   "src": [
+    [
+     "L9",
+     "14"
+    ],
+    [
+     "L9",
+     "15"
+    ],
+    [
+     "L1",
+     "10"
+    ],
+    [
+     "L1",
+     "11"
+    ]
+   ],
+   "topic": "reduction",
+   "dx": {
+    "facet": "reduction.reduce",
+    "depth": 2,
+    "family": "f_em093",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "우변 x^2 을 표준형으로 나누지 않고 그대로 h 로 쓴다고 생각함",
+      "ex": [
+       "16/3"
+      ],
+      "m": "m_red_std_form"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-094",
+   "no": "EM-094",
+   "chapter": "C5",
+   "kind": "mc",
+   "star": true,
+   "q": "x^2 y'' − 3x y' + 3y = x^2 (x &gt; 0) 에서 y1 = x 를 알 때, 차수내림법으로 y2 와 yp 를 모두 구해 쓴 일반해는?",
+   "opts": [
+    "y = c1 x + c2 x^3 + x^2",
+    "y = c1 x + c2 x^2 − x^2",
+    "y = c1 x + c2 x^3",
+    "y = c1 x + c2 x^3 − x^2"
+   ],
+   "ans": 3,
+   "why": [
+    "특수해 yp 의 부호를 바꿔 쓴다고 생각함",
+    "제차해의 두 번째 기저를 x^2 이라고 생각함",
+    "특수해를 더하는 단계를 빼먹는다고 생각함",
+    ""
+   ],
+   "s": "<p>제차: 표준형 a = −3/x, p = x^(−3), y2 = x ∫ 1/(x^(−3) x^2) dx = x ∫ x dx = x^3/2 (상수배는 c2 에 흡수) 이므로 yh = c1 x + c2 x^3. 비제차: 앞의 계산(h = 1)에서 yp = −x^2. 일반해 y = yh + yp = c1 x + c2 x^3 − x^2. 확인: x^2(6x) − 3x(3x^2) + 3x^3 = 0 이므로 x^3 은 제차해다.</p><p>함정: 일반해는 반드시 yh + yp 의 두 부분을 모두 가진다.</p>",
+   "src": [
+    [
+     "L9",
+     "14"
+    ],
+    [
+     "L1",
+     "11"
+    ]
+   ],
+   "topic": "reduction",
+   "dx": {
+    "facet": "reduction.reduce",
+    "depth": 4,
+    "family": "f_em093",
+    "role": "near",
+    "delta": [
+     "combine",
+     "yp 만 구하기 → y2 와 yp 를 합친 일반해"
+    ],
+    "mis": [
+     "m_red_yp_sign",
+     "m_red_basis_x2",
+     "m_red_drop_yp",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-095",
+   "no": "EM-095",
+   "chapter": "C5",
+   "kind": "mc",
+   "star": true,
+   "q": "y'' + 4y = cos 2x 에 미정계수법을 쓸 때, 선택 규칙에 맞는 특수해 yp 의 꼴은?",
+   "opts": [
+    "yp = A cos 2x + B sin 2x",
+    "yp = x (A cos 2x + B sin 2x)",
+    "yp = A x cos 2x",
+    "yp = x^2 (A cos 2x + B sin 2x)"
+   ],
+   "ans": 1,
+   "why": [
+    "r(x) 와 같은 꼴(cos, sin 쌍)을 고르는 기본 규칙만 쓰면 된다고 생각함",
+    "",
+    "수정 규칙에서 x 를 cos 항에만 곱하면 된다고 생각함",
+    "복소근 ±2i 도 중근처럼 x^2 을 곱한다고 생각함"
+   ],
+   "s": "<p>특성방정식 λ^2 + 4 = 0, λ = ±2i 이므로 yh = c1 cos 2x + c2 sin 2x. 기본 규칙의 A cos 2x + B sin 2x 는 동차해이므로 수정 규칙에 따라 그 생성 쌍 전체에 x 를 곱한다: x (A cos 2x + B sin 2x). ±2i 는 단순근이라 x 한 번이면 된다. 대입하면 −4A sin 2x + 4B cos 2x = cos 2x 에서 A = 0, B = 1/4, yp = (1/4) x sin 2x.</p><p>함정: cos 와 sin 은 함께 생성집합을 이루므로 둘 다 x 를 곱해야 한다.</p>",
+   "src": [
+    [
+     "L8",
+     "12"
+    ],
+    [
+     "L8",
+     "18"
+    ],
+    [
+     "L11",
+     "6"
+    ]
+   ],
+   "topic": "undet",
+   "dx": {
+    "facet": "undet.cond",
+    "depth": 3,
+    "mis": [
+     "m_undet_cond_basic_only",
+     "",
+     "m_undet_cos_only_x",
+     "m_undet_x2_cplx"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-096",
+   "no": "EM-096",
+   "chapter": "C5",
+   "kind": "short",
+   "star": true,
+   "q": "y'' − y = x e^x 의 특수해를 미정계수법으로 yp = (A x^2 + B x) e^x 꼴로 두고 대입해 구할 때, A 의 값은?",
+   "a": "0.25",
+   "accept": [
+    "1/4",
+    "0.25"
+   ],
+   "num": 0.25,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>yh = c1 e^x + c2 e^(−x) 이고 기본 규칙의 (A x + B) e^x 에서 B e^x 가 동차해이므로 수정 규칙에 따라 x 를 곱해 x (A x + B) e^x = (A x^2 + B x) e^x. 대입하면 (4A x + 2A + 2B) e^x = x e^x 이므로 4A = 1, 2A + 2B = 0, A = 1/4, B = −1/4.</p><p>함정: 다항식 × 지수 꼴에서는 동차해와 겹치는 항 때문에 전체 다항식에 x 를 곱해야 한다.</p>",
+   "src": [
+    [
+     "L8",
+     "12"
+    ],
+    [
+     "L8",
+     "18"
+    ],
+    [
+     "L8",
+     "21"
+    ]
+   ],
+   "topic": "undet",
+   "dx": {
+    "facet": "undet.cond",
+    "depth": 4,
+    "mis": [
+     {
+      "pattern": "x e^x 는 동차해가 아니므로 기본 규칙 (A x + B) e^x 가 그대로 맞는다고 생각함",
+      "m": "m_undet_cond_basic_only"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-097",
+   "no": "EM-097",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "변수변분법에서 yp = u y1 + v y2 라 두면 추가 조건으로 u' y1 + v' y2 = r(x) 를 둔다.",
+   "ox": false,
+   "fix": "추가 조건은 u' y1 + v' y2 = 0 이고, r(x) 는 u' y1' + v' y2' = r 쪽에 들어간다.",
+   "s": "<p>강의(lec09 p.5)의 추가 조건은 u' y1 + v' y2 = 0 이고, r(x) 는 둘째 식 u' y1' + v' y2' = r 에 들어간다. 이 0 조건 덕분에 yp' = u y1' + v y2' 가 되어 yp'' 에 u'', v'' 가 나오지 않는다. 문제의 식처럼 r 을 첫 식에 두면 yp' 에 u', v' 항이 남아 ODE 에 대입하기 어려워진다.</p><p>함정: 0 이 되는 식은 y1, y2 쪽이고 r 은 y1', y2' 쪽에 들어간다.</p>",
+   "src": [
+    [
+     "L9",
+     "4"
+    ],
+    [
+     "L9",
+     "5"
+    ],
+    [
+     "L9",
+     "6"
+    ]
+   ],
+   "topic": "varparam",
+   "dx": {
+    "facet": "varparam.system",
+    "depth": 1,
+    "mis": "m_vp_r_first"
+   }
+  },
+  {
+   "ext_id": "EM-098",
+   "no": "EM-098",
+   "chapter": "C5",
+   "kind": "short",
+   "star": true,
+   "q": "y'' + y = sec x 를 변수변분법으로 풀 때 y1 = cos x, y2 = sin x 이고 u' cos x + v' sin x = 0, −u' sin x + v' cos x = sec x 이다. 이 연립식에서 u'(π/4) 의 값은?",
+   "a": "-1",
+   "accept": [
+    "-1",
+    "−1"
+   ],
+   "num": -1,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>첫 식에서 u' = −v' tan x. 둘째 식에 넣으면 v'(sin^2 x / cos x + cos x) = v'/cos x = sec x 이므로 v' = 1, u' = −tan x. u'(π/4) = −tan(π/4) = −1. 확인: u' cos x + v' sin x = −sin x + sin x = 0. 예상되는 틀린 답: 1 (u' = +tan x 로 부호를 놓침).</p><p>함정: u' 의 부호는 첫 식 u' y1 = −v' y2 에서 나온다.</p>",
+   "src": [
+    [
+     "L9",
+     "7"
+    ]
+   ],
+   "topic": "varparam",
+   "dx": {
+    "facet": "varparam.system",
+    "depth": 2,
+    "family": "f_em098",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "u' = tan x (부호를 놓침)라고 생각함",
+      "ex": [
+       "1"
+      ],
+      "m": "m_vp_sign"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-099",
+   "no": "EM-099",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "변수변분법은 y'' + p(x)y' + q(x)y = r(x) 에서 p, q 가 상수일 때만 쓸 수 있고, 변수계수 ODE 에는 쓸 수 없다.",
+   "ox": false,
+   "fix": "변수변분법은 p, q 가 x 의 함수여도 쓸 수 있다. 다만 동차 ODE 의 일차독립인 해 y1, y2 가 필요하다.",
+   "s": "<p>강의(lec09 p.4): 미정계수법과 달리 변수변분법에서는 p, q 가 상수일 필요가 없고, p, q, r 모두 x 의 주어진 함수여도 된다. 단 동차 ODE 의 일차독립인 두 해 y1, y2 를 알아야 한다. 예를 들어 x^2 y'' − 2x y' + 2y = x^2 (계수가 상수가 아님)을 y1 = x, y2 = x^2 으로 푼다.</p><p>함정: 적용 범위가 넓은 쪽은 변수변분법이고, 미정계수법이 상수계수·특정 r(x) 에 한정된다.</p>",
+   "src": [
+    [
+     "L9",
+     "4"
+    ],
+    [
+     "L9",
+     "8"
+    ]
+   ],
+   "topic": "varparam",
+   "dx": {
+    "facet": "varparam.system",
+    "depth": 3,
+    "mis": "m_vp_const_only"
+   }
+  },
+  {
+   "ext_id": "EM-100",
+   "no": "EM-100",
+   "chapter": "C5",
+   "kind": "mc",
+   "star": true,
+   "q": "x^2 y'' − 3x y' + 3y = x^2 (x &gt; 0) 의 동차해가 y1 = x, y2 = x^3 일 때, yp = u y1 + v y2 의 u', v' 에 대한 올바른 연립식은?",
+   "opts": [
+    "x u' + x^3 v' = 0,  u' + 3x^2 v' = x^2",
+    "x u' + x^3 v' = x^2,  u' + 3x^2 v' = 0",
+    "x u + x^3 v = 0,  u + 3x^2 v = 1",
+    "x u' + x^3 v' = 0,  u' + 3x^2 v' = 1"
+   ],
+   "ans": 3,
+   "why": [
+    "우변을 표준형으로 나누지 않고 x^2 을 그대로 쓴다고 생각함",
+    "r(x) 가 y1, y2 쪽 식에 들어가고 y1', y2' 쪽이 0 이라고 생각함",
+    "u, v 의 도함수가 아니라 u, v 자체에 조건을 건다고 생각함",
+    ""
+   ],
+   "s": "<p>변수변분법의 연립식은 y'' + p y' + q y = r 의 표준형에서 u' y1 + v' y2 = 0, u' y1' + v' y2' = r. 주어진 식을 x^2 으로 나누면 r = 1 이다. y1 = x, y2 = x^3, y1' = 1, y2' = 3x^2 을 넣으면 x u' + x^3 v' = 0, u' + 3x^2 v' = 1. 풀면 v' = 1/(2x^2), u' = −1/2, yp = −x^2.</p><p>함정: r 은 x^2 으로 나눈 뒤의 우변이므로 1 이다 (x^2 이 아니다).</p>",
+   "src": [
+    [
+     "L9",
+     "5"
+    ],
+    [
+     "L9",
+     "8"
+    ]
+   ],
+   "topic": "varparam",
+   "dx": {
+    "facet": "varparam.system",
+    "depth": 4,
+    "mis": [
+     "m_vp_std_form",
+     "m_vp_r_first",
+     "m_vp_u_itself",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-101",
+   "no": "EM-101",
+   "chapter": "C5",
+   "kind": "ox",
+   "star": true,
+   "q": "동차해 y1, y2 가 y2 = 2 y1 처럼 일차독립이 아니면, y1 ≠ 0 인 구간에서 r(x) ≠ 0 일 때 u' y1 + v' y2 = 0, u' y1' + v' y2' = r 을 만족하는 u', v' 는 존재하지 않는다.",
+   "ox": true,
+   "s": "<p>y2 = 2 y1 이면 y2' = 2 y1' 이므로 첫 식은 (u' + 2v') y1 = 0, 둘째 식은 (u' + 2v') y1' = r 이 된다. 첫 식에서 u' + 2v' = 0 (y1 ≠ 0 인 곳)이면 둘째 식의 좌변도 0 이어서 r ≠ 0 과 모순이다. 강의가 y1, y2 를 두 개의 독립인 해로 잡는 이유다.</p><p>함정: 일차독립인 두 해가 있어야 연립식이 풀린다.</p>",
+   "src": [
+    [
+     "L9",
+     "4"
+    ],
+    [
+     "L9",
+     "5"
+    ],
+    [
+     "L6",
+     "9"
+    ]
+   ],
+   "topic": "varparam",
+   "dx": {
+    "facet": "varparam.system",
+    "depth": 4,
+    "family": "f_em098",
+    "role": "near",
+    "delta": [
+     "condition",
+     "기저 y1, y2 → 일차종속인 쌍 y2 = 2 y1"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-102",
+   "no": "EM-102",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "2계 비제차 선형 ODE y'' + p(x)y' + q(x)y = r(x) (r ≠ 0)의 일반해는 y = yh + yp 이고, yh 는 대응하는 제차 ODE 의 일반해, yp 는 비제차 ODE 의 특수해(particular solution)이다.",
+   "ox": true,
+   "s": "<p>강의(lec08 p.4): 비제차 ODE 의 일반해 y = yh + yp. yh = c1 y1 + c2 y2 는 제차 일반해(2개의 임의상수 포함), yp 는 상수를 포함하지 않는 비제차의 한 해다. 이 합이 비제차 ODE 를 만족하는 이유는 Theorem 1(b)다.</p><p>함정: yp 는 일반해에 임의상수를 더하는 것이 아니라 상수 없는 한 해다.</p>",
+   "src": [
+    [
+     "L8",
+     "4"
+    ],
+    [
+     "L8",
+     "5"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.nonhom",
+    "depth": 1,
+    "family": "f_em102",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-103",
+   "no": "EM-103",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "y1, y2 가 비제차 ODE y'' + p(x)y' + q(x)y = r(x) (r ≠ 0)의 서로 다른 두 해일 때, 제차 ODE y'' + p(x)y' + q(x)y = 0 의 해인 것은?",
+   "opts": [
+    "y1 − y2",
+    "y1 + y2",
+    "2 y1",
+    "y1 y2"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "두 해를 더하면 제차 ODE 의 해가 된다고 생각함",
+    "해의 상수배는 항상 같은 ODE 의 해라고 생각함",
+    "두 해의 곱도 해라고 생각함"
+   ],
+   "s": "<p>Theorem 1(a): 비제차 ODE 의 두 해의 차 y1 − y2 는 제차 ODE 의 해다. L[y] = y'' + p y' + q y 라 하면 L[y1 − y2] = r − r = 0. 합은 L[y1 + y2] = 2r ≠ 0, 상수배 2y1 은 L[2y1] = 2r ≠ 0, 곱은 선형성이 없어 일반적으로 성립하지 않는다.</p><p>함정: 해의 합은 우변이 2배가 되고 차에서는 우변이 소거된다.</p>",
+   "src": [
+    [
+     "L8",
+     "5"
+    ],
+    [
+     "L8",
+     "6"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.nonhom",
+    "depth": 2,
+    "family": "f_em103",
+    "role": "base",
+    "mis": [
+     "",
+     "m_nonhom_sum",
+     "m_nonhom_scalar",
+     "m_nonhom_product"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-104",
+   "no": "EM-104",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "비제차 ODE 의 특수해 yp 는 하나뿐이므로, 일반해 y = yh + yp 를 쓸 때 yp 를 다르게 잡으면 다른 집합의 해를 나타낸다.",
+   "ox": false,
+   "fix": "yp 는 유일하지 않다. 다른 특수해를 써도 두 특수해의 차가 제차해이므로 yh + yp 는 같은 해 집합을 나타낸다.",
+   "s": "<p>특수해 yp 는 유일하지 않다. 비제차 ODE 의 다른 해 yp* 를 잡아도 Theorem 1(a)에 의해 yp* − yp 가 제차 ODE 의 해이므로 yp* 은 yp + (제차 해) 이고, yh + yp* 도 yh + yp 와 같은 해 전체의 집합이다. 예: y'' − y = −x 에서 yp = x 도, yp = x + e^x 도 특수해이지만 일반해의 집합은 같다.</p><p>함정: yp 는 어느 것을 골라도 되고, 제차해가 섞여 있어도 일반해는 변하지 않는다.</p>",
+   "src": [
+    [
+     "L8",
+     "5"
+    ],
+    [
+     "L8",
+     "6"
+    ],
+    [
+     "L8",
+     "7"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.nonhom",
+    "depth": 3,
+    "family": "f_em102",
+    "role": "near",
+    "delta": [
+     "condition",
+     "특수해 정의 → 특수해의 유일성 여부"
+    ],
+    "mis": "m_nonhom_yp_unique"
+   }
+  },
+  {
+   "ext_id": "EM-105",
+   "no": "EM-105",
+   "chapter": "C5",
+   "kind": "short",
+   "q": "y'' + a y' + b y = r(x) (a, b 상수)의 일반해가 y = c1 e^(−x) + c2 e^(−2x) + x 일 때, r(x) 는? (x 의 식으로)",
+   "a": "2x + 3",
+   "accept": [
+    "2x+3",
+    "3+2x",
+    "2x + 3",
+    "3 + 2x"
+   ],
+   "strict": false,
+   "s": "<p>제차해 e^(−x), e^(−2x) 의 특성근은 −1, −2 이므로 (λ + 1)(λ + 2) = λ^2 + 3λ + 2, 곧 a = 3, b = 2. 특수해는 yp = x 이므로 yp'' + 3 yp' + 2 yp = 0 + 3 + 2x. 따라서 r(x) = 2x + 3.</p><p>함정: r(x) 는 yp 만 ODE 의 좌변에 넣어 구한다 (yh 는 좌변을 0 으로 만든다).</p>",
+   "src": [
+    [
+     "L8",
+     "4"
+    ],
+    [
+     "L6",
+     "18"
+    ]
+   ],
+   "topic": "sol_struct",
+   "dx": {
+    "facet": "sol_struct.nonhom",
+    "depth": 4,
+    "family": "f_em103",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "비제차 해 사이의 관계 → 일반해로부터 우변 r(x) 역산"
+    ],
+    "mis": [
+     {
+      "pattern": "일반해 전체 y 의 항을 모두 더해 r(x) 를 구한다고 생각함",
+      "m": "m_nonhom_r_sum"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-106",
+   "no": "EM-106",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "r(x) = k cos ωx 인 경우 미정계수법의 yp 는 cos 항만 포함한 m cos ωx 로 두면 충분하다.",
+   "ox": false,
+   "fix": "yp = m cos ωx + n sin ωx 로 둔다. sin 항도 함께 포함해야 한다.",
+   "s": "<p>강의의 기본 규칙(Basic Rule) 표: r(x) 가 k cos ωx 또는 k sin ωx 이면 yp = m cos ωx + n sin ωx. 도함수가 cos 와 sin 을 오가므로 한쪽만 두면 대입 후 항이 맞지 않는다. 예: y'' + y' + y = cos x 에 yp = m cos x 를 넣으면 −m cos x − m sin x + m cos x = −m sin x 가 되어 우변 cos x 와 같게 만들 수 없다.</p><p>함정: r(x) 에 cos 만 있어도 yp 에는 sin 이 필요하다.</p>",
+   "src": [
+    [
+     "L8",
+     "12"
+    ]
+   ],
+   "topic": "undet",
+   "dx": {
+    "facet": "undet.basic",
+    "depth": 1,
+    "mis": "m_undet_cos_only"
+   }
+  },
+  {
+   "ext_id": "EM-107",
+   "no": "EM-107",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "y'' + 3y' + 2y = x^2 (동차해 e^(−x), e^(−2x))에 미정계수법을 쓸 때 기본 규칙에 맞는 yp 의 꼴은?",
+   "opts": [
+    "yp = A x^2",
+    "yp = A x^2 + B x",
+    "yp = A x^2 + B x + C",
+    "yp = x (A x^2 + B x + C)"
+   ],
+   "ans": 2,
+   "why": [
+    "r(x) 와 같은 항 하나만 두면 된다고 생각함",
+    "상수항은 필요 없다고 생각함",
+    "",
+    "동차해와 겹치지 않아도 x 를 곱해야 한다고 생각함"
+   ],
+   "s": "<p>r(x) = k x^n 이면 yp = k_n x^n + k_(n−1) x^(n−1) + … + k_1 x + k_0 (모든 낮은 차수 포함). 여기서는 x^2 이므로 A x^2 + B x + C. 대입하면 2A + 3(2Ax + B) + 2(Ax^2 + Bx + C) = x^2 에서 A = 1/2, B = −3/2, C = 7/4. 동차해가 지수함수뿐이어서 다항식과 겹치지 않으므로 수정 규칙은 필요 없다.</p><p>함정: 한 개 항만 두면 대입 후 x, 상수항이 맞지 않는다.</p>",
+   "src": [
+    [
+     "L8",
+     "12"
+    ],
+    [
+     "L8",
+     "16"
+    ]
+   ],
+   "topic": "undet",
+   "dx": {
+    "facet": "undet.basic",
+    "depth": 2,
+    "family": "f_em107",
+    "role": "base",
+    "mis": [
+     "m_undet_one_term",
+     "m_undet_no_const",
+     "",
+     "m_undet_always_x"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-108",
+   "no": "EM-108",
+   "chapter": "C5",
+   "kind": "ox",
+   "q": "y'' + y' + y = x^2 에서 yp = A x^2 으로만 두고 대입해도 A 를 정해 특수해를 구할 수 있다.",
+   "ox": false,
+   "fix": "yp = A x^2 + B x + C 로 둔다. 도함수가 낮은 차수 항을 만들기 때문에 모든 낮은 차수 항이 필요하다.",
+   "s": "<p>yp = A x^2 이면 yp'' + yp' + yp = 2A + 2A x + A x^2. 이것이 x^2 과 같으려면 A = 1 (x^2 항), 2A = 0 (x 항), 2A = 0 (상수항) 이 동시에 맞아야 하는데 A = 1 과 모순이다. 낮은 차수의 항 B x, C 를 포함한 yp = A x^2 + B x + C 로 두어야 한다.</p><p>함정: 도함수에서 낮은 차수가 생기므로 yp 에도 낮은 차수 항이 있어야 한다.</p>",
+   "src": [
+    [
+     "L8",
+     "12"
+    ],
+    [
+     "L8",
+     "16"
+    ]
+   ],
+   "topic": "undet",
+   "dx": {
+    "facet": "undet.basic",
+    "depth": 3,
+    "family": "f_em107",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "yp 꼴 고르기 → 한 항만 잡으면 충분한지 판정"
+    ],
+    "mis": "m_undet_one_term"
+   }
+  },
+  {
+   "ext_id": "EM-109",
+   "no": "EM-109",
+   "chapter": "C5",
+   "kind": "mc",
+   "q": "y'' + 2y' + 5y = e^(−x) sin 2x 에 미정계수법을 쓸 때 선택 규칙(기본·수정)에 맞는 yp 의 꼴은?",
+   "opts": [
+    "yp = e^(−x) (m cos 2x + n sin 2x)",
+    "yp = x e^(−x) sin 2x",
+    "yp = x e^(−x) (m cos 2x + n sin 2x)",
+    "yp = x^2 e^(−x) (m cos 2x + n sin 2x)"
+   ],
+   "ans": 2,
+   "why": [
+    "표의 기본 규칙만 쓰면 되고 동차해와 겹치는지는 확인하지 않아도 된다고 생각함",
+    "수정 규칙에서 r(x) 에 있는 sin 항에만 x 를 곱한다고 생각함",
+    "",
+    "복소근 −1 ± 2i 를 중근으로 보고 x^2 을 곱한다고 생각함"
+   ],
+   "s": "<p>특성방정식 λ^2 + 2λ + 5 = 0, λ = −1 ± 2i 이므로 yh = e^(−x)(A cos 2x + B sin 2x). 기본 규칙의 e^(−x)(m cos 2x + n sin 2x) 는 동차해와 같은 꼴이므로 수정 규칙에 따라 x 를 곱한다 (단순근이라 x 한 번). 대입하면 yp = −(1/4) x e^(−x) cos 2x, 곧 m = −1/4, n = 0.</p><p>함정: 표의 꼴이 동차해와 일치하는지 반드시 확인한 뒤 생성집합 전체에 x 를 곱한다.</p>",
+   "src": [
+    [
+     "L8",
+     "12"
+    ],
+    [
+     "L8",
+     "18"
+    ],
+    [
+     "L11",
+     "6"
+    ]
+   ],
+   "topic": "undet",
+   "dx": {
+    "facet": "undet.basic",
+    "depth": 4,
+    "family": "f_em107",
+    "role": "near",
+    "delta": [
+     "combine",
+     "다항식 r(x) → 지수 × 삼각 r(x) 에 수정 규칙까지 결합"
+    ],
+    "mis": [
+     "m_undet_basic_skip",
+     "m_undet_sin_only_x",
+     "",
+     "m_undet_cplx_x2"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-110",
+   "no": "EM-110",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "3계 Euler–Cauchy 식 x^3 y''' + a1 x^2 y'' + a2 x y' + a3 y = 0 에 y = x^m 을 넣으면 보조방정식 m(m − 1)(m − 2) + a1 m(m − 1) + a2 m + a3 = 0 을 얻는다.",
+   "ox": true,
+   "s": "<p>y = x^m 이면 y' = m x^(m−1), y'' = m(m − 1) x^(m−2), y''' = m(m − 1)(m − 2) x^(m−3) 이고 x^k y^(k) 는 모두 x^m 으로 묶인다. 따라서 x^m [m(m − 1)(m − 2) + a1 m(m − 1) + a2 m + a3] = 0. 강의의 3계 보조방정식과 같다.</p><p>함정: x^k y^(k) 항은 m^k 가 아니라 낮아지는 곱 m(m − 1)⋯(m − k + 1) 로 들어간다.</p>",
+   "src": [
+    [
+     "L10",
+     "23"
+    ],
+    [
+     "L1",
+     "19"
+    ]
+   ],
+   "topic": "euler_n",
+   "dx": {
+    "facet": "euler_n.aux",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-111",
+   "no": "EM-111",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "x^3 y''' + 2x^2 y'' + x y' − y = 0 (x &gt; 0) 의 일반해는?",
+   "opts": [
+    "y = c1 x + c2 cos(ln x) + c3 sin(ln x)",
+    "y = c1 x + c2 cos x + c3 sin x",
+    "y = c1 x + c2 x^i + c3 x^(−i)",
+    "y = c1 e^x + c2 cos(ln x) + c3 sin(ln x)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "복소근이면 상수계수 식처럼 cos x, sin x 를 쓴다고 생각함",
+    "복소근 ±i 를 그대로 x 의 복소 지수로 남겨 실수 기저로 바꾸지 않는다고 생각함",
+    "실근 m = 1 의 해를 e^(mx) 로 쓴다고 생각함"
+   ],
+   "s": "<p>보조방정식은 m(m − 1)(m − 2) + 2m(m − 1) + m − 1 = m^3 − m^2 + m − 1 = (m − 1)(m^2 + 1) = 0 이므로 m = 1, ±i. 실근 m = 1 에서 x^1 = x, 복소근 p ± qi = 0 ± 1i 에서 x^p cos(q ln x) = cos(ln x), sin(ln x). 확인: y = cos(ln x) 를 대입하면 좌변이 0 이다.</p><p>함정: Euler–Cauchy 에서는 실근도 x^m, 복소근도 cos, sin 안이 q ln x 다 (e^(mx) 나 cos x 가 아니다).</p>",
+   "src": [
+    [
+     "L10",
+     "23"
+    ],
+    [
+     "L10",
+     "24"
+    ],
+    [
+     "L7",
+     "12"
+    ]
+   ],
+   "topic": "euler_n",
+   "dx": {
+    "facet": "euler_n.aux",
+    "depth": 4,
+    "mis": [
+     "",
+     "m_eulern_cos_x",
+     "m_eulern_cplx_exp",
+     "m_eulern_exp_real"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-112",
+   "no": "EM-112",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "특성방정식이 (λ^2 + 1)^3 = 0 인 6계 상수계수 동차 선형 ODE 의 일반해는?",
+   "opts": [
+    "y = (c1 + c2 x) cos x + (c3 + c4 x) sin x",
+    "y = (c1 + c2 x + c3 x^2) cos x + c4 sin x",
+    "y = (c1 + c2 x + c3 x^2 + c4 x^3 + c5 x^4 + c6 x^5) cos x",
+    "y = (c1 + c2 x + c3 x^2) cos x + (c4 + c5 x + c6 x^2) sin x"
+   ],
+   "ans": 3,
+   "why": [
+    "3중 복소근에도 x 를 한 번만 곱한다고 생각함",
+    "sin 은 cos 와 짝이라 한 번만 쓰면 된다고 생각함",
+    "해 6개를 cos x 에 x 의 거듭제곱만 곱해 채운다고 생각함",
+    ""
+   ],
+   "s": "<p>λ = ±i 가 각각 3중근(m = 3)이다 (p = 0, q = 1). 강의의 다중 복소근 경우 y = e^(px)[(A1 + A2 x + … + Am x^(m−1)) cos qx + (B1 + B2 x + … + Bm x^(m−1)) sin qx] 에 m = 3 을 넣으면 위의 식이다. 해의 개수는 3 + 3 = 6 이어서 6계에 맞는다.</p><p>함정: 중복도 m 이면 x 의 0 ~ m − 1 제곱을 cos, sin 에 각각 곱한다.</p>",
+   "src": [
+    [
+     "L10",
+     "19"
+    ],
+    [
+     "L10",
+     "21"
+    ]
+   ],
+   "topic": "const_n",
+   "dx": {
+    "facet": "const_n.repeated",
+    "depth": 4,
+    "mis": [
+     "m_constn_x_once",
+     "m_constn_sin_missing",
+     "m_constn_sin_missing",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-113",
+   "no": "EM-113",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "함수 sin 2x 와 sin x cos x 는 구간 (0, π) 에서 일차독립(linearly independent)이다.",
+   "ox": false,
+   "fix": "sin 2x = 2 sin x cos x 이므로 두 함수의 비가 상수 2 이고, 일차종속이다.",
+   "s": "<p>sin 2x = 2 sin x cos x 이므로 k1 sin 2x + k2 sin x cos x = 0 이 (k1, k2) = (1, −2) 처럼 모두 0 이 아닌 값으로 구간 전체에서 성립한다. 따라서 일차종속이다. 두 함수의 비 sin 2x/(sin x cos x) = 2 도 상수다.</p><p>함정: 겉모양이 달라도 항등식으로 같은 함수의 상수배일 수 있다.</p>",
+   "src": [
+    [
+     "L10",
+     "6"
+    ],
+    [
+     "L10",
+     "7"
+    ]
+   ],
+   "topic": "const_n",
+   "dx": {
+    "facet": "const_n.repeated",
+    "depth": 4,
+    "mis": "m_constn_ratio"
+   }
+  },
+  {
+   "ext_id": "EM-114",
+   "no": "EM-114",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "n계 상수계수 비제차 ODE 의 미정계수법에서, yp 후보의 어떤 항이 동차해이면 그 항에 x^k 를 곱한다. 여기서 k 는 곱한 항이 더 이상 동차해가 아닌 가장 작은 양의 정수이다.",
+   "ox": true,
+   "s": "<p>강의(lec11 p.6)의 수정 규칙(B): \"If a term in your choice for yp is a solution of the homogeneous equation, then multiply this term by x^k, where k is the smallest positive integer such that this term times x^k is not a solution of the homogeneous equation.\" 2계에서의 x, x^2 은 k = 1, 2 인 특별한 경우다.</p><p>함정: k 는 근의 중복도에 따라 정해지며 1 이나 2 로 고정되어 있지 않다.</p>",
+   "src": [
+    [
+     "L11",
+     "6"
+    ],
+    [
+     "L1",
+     "21"
+    ]
+   ],
+   "topic": "undet_n",
+   "dx": {
+    "facet": "undet_n.modify",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-115",
+   "no": "EM-115",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "y''' − y' = e^x 에 미정계수법을 쓸 때, 선택 규칙에 맞는 특수해 yp 의 꼴은?",
+   "opts": [
+    "yp = A e^x",
+    "yp = A x e^x",
+    "yp = A x^2 e^x",
+    "yp = A x^3 e^x"
+   ],
+   "ans": 1,
+   "why": [
+    "r(x) 와 같은 꼴을 고르는 기본 규칙만 쓰면 된다고 생각함",
+    "",
+    "3계이므로 x 를 두 번 곱한다고 생각함",
+    "3계이므로 x 를 세 번 곱한다고 생각함"
+   ],
+   "s": "<p>특성방정식 λ^3 − λ = λ(λ − 1)(λ + 1) = 0, λ = 0, 1, −1 이므로 yh = c1 + c2 e^x + c3 e^(−x). 기본 규칙의 A e^x 는 동차해이므로 수정 규칙에 따라 x^k 를 곱하는데, λ = 1 이 단순근이므로 k = 1 이면 x e^x 가 더 이상 동차해가 아니다. 대입하면 yp''' − yp' = 2A e^x = e^x 에서 A = 1/2.</p><p>함정: k 는 ODE 의 계수 n 이 아니라 그 근의 중복도에 맞춰 정해진다.</p>",
+   "src": [
+    [
+     "L11",
+     "6"
+    ],
+    [
+     "L11",
+     "7"
+    ]
+   ],
+   "topic": "undet_n",
+   "dx": {
+    "facet": "undet_n.modify",
+    "depth": 2,
+    "family": "f_em115",
+    "role": "base",
+    "mis": [
+     "m_undetn_basic_only",
+     "",
+     "m_undetn_k_order",
+     "m_undetn_k_order"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-116",
+   "no": "EM-116",
+   "chapter": "C6",
+   "kind": "ox",
+   "q": "λ = 2 가 특성방정식의 3중근인 3계 상수계수 ODE 에서 r(x) = e^(2x) 이면, yp = A x^2 e^(2x) 로 두면 된다.",
+   "ox": false,
+   "fix": "3중근이므로 e^(2x), x e^(2x), x^2 e^(2x) 가 모두 동차해다. yp = A x^3 e^(2x) 로 둔다.",
+   "s": "<p>동차해는 e^(2x), x e^(2x), x^2 e^(2x) 이다. A x^2 e^(2x) 도 동차해이므로 대입하면 0 이 되어 A 를 정할 수 없다. 수정 규칙의 k 는 곱한 항이 동차해가 아닌 가장 작은 양의 정수이므로 k = 3 이고 yp = A x^3 e^(2x) 다 (예: y''' + 3y'' + 3y' + y = 30 e^(−x) 를 yp = 5 x^3 e^(−x) 로 푼 강의 예제와 같은 원리).</p><p>함정: 2계의 '단순근 x, 중근 x^2' 를 고계에 그대로 옮기는 것.</p>",
+   "src": [
+    [
+     "L11",
+     "6"
+    ],
+    [
+     "L11",
+     "7"
+    ],
+    [
+     "L11",
+     "8"
+    ]
+   ],
+   "topic": "undet_n",
+   "dx": {
+    "facet": "undet_n.modify",
+    "depth": 3,
+    "family": "f_em115",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "2계 규칙(x, x^2) → 고계의 x^k (k = 중복도)"
+    ],
+    "mis": "m_undetn_x2"
+   }
+  },
+  {
+   "ext_id": "EM-117",
+   "no": "EM-117",
+   "chapter": "C6",
+   "kind": "mc",
+   "q": "y''' + y'' = x 에 미정계수법을 쓸 때, 선택 규칙(기본·수정)에 맞는 특수해 yp 의 꼴은?",
+   "opts": [
+    "yp = A x + B",
+    "yp = x (A x + B)",
+    "yp = x^3 (A x + B)",
+    "yp = x^2 (A x + B)"
+   ],
+   "ans": 3,
+   "why": [
+    "r(x) 가 x 이니 기본 규칙의 다항식 꼴로 충분하다고 생각함",
+    "수정 규칙에서 x 를 한 번만 곱하면 된다고 생각함",
+    "3계이므로 x^3 을 곱한다고 생각함",
+    ""
+   ],
+   "s": "<p>특성방정식 λ^3 + λ^2 = λ^2(λ + 1) = 0, λ = 0 (2중근), −1 이므로 yh = c1 + c2 x + c3 e^(−x). 기본 규칙의 A x + B 는 동차해(1, x)와 겹친다. x 를 곱한 A x^2 + B x 에도 동차해 x 가 있으므로 부족하고, x^2 을 곱한 A x^3 + B x^2 이면 동차해가 아니다. 따라서 k = 2 (= 0 의 중복도). 대입하면 6A + 6A x + 2B = x 에서 A = 1/6, B = −1/2.</p><p>함정: x 를 곱한 뒤에도 동차해가 남아 있는지 다시 확인한다.</p>",
+   "src": [
+    [
+     "L11",
+     "6"
+    ],
+    [
+     "L11",
+     "7"
+    ]
+   ],
+   "topic": "undet_n",
+   "dx": {
+    "facet": "undet_n.modify",
+    "depth": 4,
+    "family": "f_em115",
+    "role": "near",
+    "delta": [
+     "combine",
+     "지수 r(x) → 다항식 r(x) 와 중복도 2 인 근 결합"
+    ],
+    "mis": [
+     "m_undetn_basic_only",
+     "m_undetn_once",
+     "m_undetn_k_order",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-118",
+   "no": "EM-118",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "L{e^(at)} = 1/(s + a) 이고 이 변환은 s &gt; −a 에서 존재한다.",
+   "ox": false,
+   "fix": "L{e^(at)} = 1/(s − a) 이고 s &gt; a 에서 존재한다.",
+   "s": "<p>정의 F(s) = ∫0^∞ e^(−st) f(t) dt 에 f = e^(at) 를 넣으면 ∫0^∞ e^(−(s − a)t) dt = 1/(s − a) (s &gt; a 일 때 수렴). 강의의 변환표 6번과 같다. a = 2 이면 L{e^(2t)} = 1/(s − 2) 이고 s ≤ 2 이면 적분이 발산한다.</p><p>함정: 부호가 s + a 가 아니라 s − a 이다.</p>",
+   "src": [
+    [
+     "L12",
+     "9"
+    ],
+    [
+     "L12",
+     "16"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.table",
+    "depth": 1,
+    "mis": "m_lt_eat_sign"
+   }
+  },
+  {
+   "ext_id": "EM-119",
+   "no": "EM-119",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "L{cosh 3t} 는?",
+   "opts": [
+    "s / (s^2 + 9)",
+    "s / (s^2 − 9)",
+    "3 / (s^2 − 9)",
+    "3 / (s^2 + 9)"
+   ],
+   "ans": 1,
+   "why": [
+    "cosh 도 cos 처럼 분모가 s^2 + ω^2 라고 생각함",
+    "",
+    "cosh 의 변환 분자가 상수(sinh 의 것)라고 생각함",
+    "cosh 3t 를 sin 3t 와 같은 변환이라고 생각함"
+   ],
+   "s": "<p>cosh 3t = (e^(3t) + e^(−3t))/2 이므로 L{cosh 3t} = (1/2)(1/(s − 3) + 1/(s + 3)) = s/(s^2 − 9). 강의 변환표 9번 L{cosh at} = s/(s^2 − a^2).</p><p>함정: cosh 는 분모가 s^2 − a^2, 분자가 s 이다 (sinh 는 분자가 a).</p>",
+   "src": [
+    [
+     "L12",
+     "12"
+    ],
+    [
+     "L12",
+     "16"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.table",
+    "depth": 2,
+    "family": "f_em119",
+    "role": "base",
+    "mis": [
+     "m_lt_cosh_trig",
+     "",
+     "m_lt_cosh_num",
+     "m_lt_cosh_trig"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-120",
+   "no": "EM-120",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "L^(−1){ 1 / (s^2 − 4) } 를 f(t) 라 할 때, f(ln 2) 의 값을 구하라. (소수 넷째 자리까지)",
+   "a": "0.9375",
+   "accept": [
+    "15/16",
+    "0.9375"
+   ],
+   "num": 0.9375,
+   "tol": 0.0005,
+   "ph": "숫자만 입력",
+   "s": "<p>L{sinh at} = a/(s^2 − a^2) 이고 a = 2 이므로 2/(s^2 − 4) 의 역변환이 sinh 2t 다. 1/(s^2 − 4) 는 그 1/2 배이므로 f(t) = (1/2) sinh 2t. f(ln 2) = (1/2)·(4 − 1/4)/2 = 15/16 = 0.9375. 예상되는 틀린 답: 1.875 (분자 2 를 보정하지 않고 sinh 2t 를 그대로 씀).</p><p>함정: 변환표의 분자는 a 이므로 분자가 1 이면 1/a 배를 해 줘야 한다.</p>",
+   "src": [
+    [
+     "L12",
+     "12"
+    ],
+    [
+     "L12",
+     "16"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.table",
+    "depth": 3,
+    "family": "f_em119",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "변환 구하기 → 역변환 구하기(분자 보정)"
+    ],
+    "mis": [
+     {
+      "pattern": "분자가 1 이어도 역변환이 sinh 2t 그대로라고 생각함",
+      "ex": [
+       "1.875"
+      ],
+      "m": "m_lt_inv_sinh"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-121",
+   "no": "EM-121",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "Γ 함수를 써서 L{√t} 를 구하면? (L{t^a} = Γ(a + 1)/s^(a+1), a &gt; 0 은 강의 변환표 5번이고, Γ(1/2) = √π 이다.)",
+   "opts": [
+    "√π / (2 s^(1/2))",
+    "1 / s^(3/2)",
+    "√π / (2 s^(3/2))",
+    "√π / s^(3/2)"
+   ],
+   "ans": 2,
+   "why": [
+    "분모의 지수를 a 로 잡고 a + 1 로 올리지 않는다고 생각함",
+    "Γ(3/2) 값을 1 로 둔다고 생각함",
+    "",
+    "Γ(3/2) 를 Γ(1/2) = √π 와 같게 본다고 생각함"
+   ],
+   "s": "<p>L{t^a} = Γ(a + 1)/s^(a+1) 에 a = 1/2 를 넣으면 Γ(3/2)/s^(3/2). Γ(x + 1) = xΓ(x) 와 Γ(1/2) = √π 에서 Γ(3/2) = (1/2)√π 이므로 L{√t} = √π / (2 s^(3/2)). 확인: 적분 ∫0^∞ e^(−st) t^(1/2) dt 에서 u = st 로 치환하면 Γ(3/2)/s^(3/2).</p><p>함정: 지수는 a + 1 로 올라가고 감마함수 인자도 a + 1 이다.</p>",
+   "src": [
+    [
+     "L12",
+     "16"
+    ],
+    [
+     "L2",
+     "18"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.table",
+    "depth": 4,
+    "family": "f_em119",
+    "role": "near",
+    "delta": [
+     "combine",
+     "변환표 사용 → 감마함수 포인트와 결합"
+    ],
+    "mis": [
+     "m_lt_gamma_exp",
+     "m_lt_gamma_half",
+     "",
+     "m_lt_gamma_half"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-122",
+   "no": "EM-122",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "라플라스 변환은 선형이다: L{a f(t) + b g(t)} = a L{f(t)} + b L{g(t)} (f, g 의 변환이 존재할 때).",
+   "ox": true,
+   "s": "<p>정의 적분이 선형이므로 ∫0^∞ e^(−st)[a f + b g] dt = a ∫ e^(−st) f dt + b ∫ e^(−st) g dt. 강의(lec12 p.11)의 선형성 증명과 같다.</p><p>함정: 합과 상수배에는 성립하지만 곱 f g 에는 성립하지 않는다.</p>",
+   "src": [
+    [
+     "L12",
+     "10"
+    ],
+    [
+     "L12",
+     "11"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.linear",
+    "depth": 1,
+    "family": "f_em122",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-123",
+   "no": "EM-123",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "L{3e^(2t) − 5 sin t} 는?",
+   "opts": [
+    "3 / (s − 2) − 5 / (s^2 + 1)",
+    "3 / (s − 2) − 5 s / (s^2 + 1)",
+    "3 / (s + 2) − 5 / (s^2 + 1)",
+    "(3 − 5)/((s − 2)(s^2 + 1))"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "sin 의 변환 분자를 s 로 쓴다고 생각함",
+    "e^(2t) 의 변환을 1/(s + 2) 로 쓴다고 생각함",
+    "합의 변환을 두 변환의 곱으로 계산한다고 생각함"
+   ],
+   "s": "<p>선형성으로 L{3e^(2t) − 5 sin t} = 3L{e^(2t)} − 5L{sin t} = 3/(s − 2) − 5/(s^2 + 1). 변환표: L{e^(at)} = 1/(s − a), L{sin ωt} = ω/(s^2 + ω^2).</p><p>함정: sin ωt 는 분자가 ω, cos ωt 는 분자가 s 다.</p>",
+   "src": [
+    [
+     "L12",
+     "11"
+    ],
+    [
+     "L12",
+     "16"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.linear",
+    "depth": 2,
+    "mis": [
+     "",
+     "m_lt_lin_sin_num",
+     "m_lt_lin_eat_sign",
+     "m_lt_lin_sum_prod"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-124",
+   "no": "EM-124",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "f(t) = e^(t^2) 은 t ≥ 0 에서 연속이므로 어떤 s 에 대해서든 라플라스 변환 L{f} 가 존재한다.",
+   "ox": false,
+   "fix": "구간별 연속이면서 |f(t)| ≤ M e^(kt) 를 만족해야 한다. e^(t^2) 은 증가 제한을 만족하지 못해 변환이 존재하지 않는다.",
+   "s": "<p>강의의 존재 정리는 f 가 구간별 연속이고 증가 제한 |f(t)| ≤ M e^(kt) 를 만족하는 M, k 가 있어야 s &gt; k 에서 변환이 존재한다고 한다. e^(t^2) 은 e^(kt) 보다 빠르게 증가해 어떤 M, k 로도 이 제한을 만족하지 못한다. 실제로 ∫0^∞ e^(−st) e^(t^2) dt 는 모든 s 에서 발산한다.</p><p>함정: 연속이기만 하면 된다고 보는 것(증가 제한도 필요).</p>",
+   "src": [
+    [
+     "L12",
+     "14"
+    ],
+    [
+     "L12",
+     "15"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.linear",
+    "depth": 3,
+    "family": "f_em122",
+    "role": "near",
+    "delta": [
+     "condition",
+     "변환의 성질 → 존재에 필요한 조건"
+    ],
+    "mis": "m_lt_exist_cont"
+   }
+  },
+  {
+   "ext_id": "EM-125",
+   "no": "EM-125",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "다음 중 강의의 존재 정리 조건(t ≥ 0 에서 구간별 연속이면서 어떤 M, k 에 대해 |f(t)| ≤ M e^(kt))을 만족하는 함수는?",
+   "opts": [
+    "e^(2t) sin 3t",
+    "e^(t^2)",
+    "1 / (t − 1)",
+    "tan t"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "e^(t^2) 은 연속이어서 조건을 만족한다고 생각함",
+    "분모가 0 이 되는 점이 하나뿐이어서 구간별 연속이라고 생각함",
+    "주기함수이므로 증가 제한이 있고 구간별 연속이라고 생각함"
+   ],
+   "s": "<p>e^(2t) sin 3t 는 연속이고 |e^(2t) sin 3t| ≤ e^(2t) 이므로 M = 1, k = 2. e^(t^2) 은 증가 제한을 깨고, 1/(t − 1) 과 tan t 는 t = 1, t = π/2 등에서 값이 무한대로 발산하므로 유한한 점프만 허용하는 구간별 연속이 아니다.</p><p>함정: 구간별 연속은 불연속점에서 좌우 극한이 유한해야 한다.</p>",
+   "src": [
+    [
+     "L12",
+     "14"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.linear",
+    "depth": 3,
+    "family": "f_em122",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "존재 조건 두 가지 → 어느 조건이 깨졌는지 구별"
+    ],
+    "mis": [
+     "",
+     "m_lt_exist_cont",
+     "m_lt_exist_pole",
+     "m_lt_exist_periodic"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-126",
+   "no": "EM-126",
+   "chapter": "C7",
+   "kind": "ox",
+   "q": "L{f(t)} = F(s) 이면 L{t f(t)} = F'(s) 이다.",
+   "ox": false,
+   "fix": "L{t f(t)} = −F'(s) 이다. 부호 −가 붙는다.",
+   "s": "<p>F(s) = ∫0^∞ e^(−st) f(t) dt 를 s 로 미분하면 F'(s) = ∫0^∞ (−t) e^(−st) f(t) dt = −L{t f(t)}. 따라서 L{t f(t)} = −F'(s), 역변환으로는 L^(−1){F'(s)} = −t f(t). 예: f = 1 이면 F = 1/s, F' = −1/s^2 인데 L{t} = 1/s^2 이므로 부호가 −다.</p><p>함정: t 를 곱하면 s 로 미분하고 −1 을 곱한다.</p>",
+   "src": [
+    [
+     "L12",
+     "35"
+    ],
+    [
+     "L12",
+     "36"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.sderiv",
+    "depth": 1,
+    "family": "f_em126",
+    "role": "base",
+    "mis": "m_lt_t_sign"
+   }
+  },
+  {
+   "ext_id": "EM-127",
+   "no": "EM-127",
+   "chapter": "C7",
+   "kind": "short",
+   "q": "L{t sin 2t} 는 −F'(s) 로 구할 수 있다. 이 변환의 s = 1 에서의 값은?",
+   "a": "0.16",
+   "accept": [
+    "4/25",
+    "0.16"
+   ],
+   "num": 0.16,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>F(s) = L{sin 2t} = 2/(s^2 + 4). L{t sin 2t} = −F'(s) = 4s/(s^2 + 4)^2. s = 1 이면 4/25 = 0.16. 예상되는 틀린 답: −0.16 (부호 −를 빠뜨려 F'(s) = −4s/(s^2 + 4)^2 를 그대로 씀).</p><p>함정: −F'(s) 이므로 F' 의 부호를 한 번 더 뒤집는다.</p>",
+   "src": [
+    [
+     "L12",
+     "35"
+    ],
+    [
+     "L12",
+     "36"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.sderiv",
+    "depth": 2,
+    "mis": [
+     {
+      "pattern": "t 를 곱한 변환은 F'(s) 로 부호 없이 구한다고 생각함",
+      "ex": [
+       "-0.16"
+      ],
+      "m": "m_lt_t_sign"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-128",
+   "no": "EM-128",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "L{ (sin t) / t } 는? (강의의 L{f(t)/t} = ∫(s→∞) F(σ) dσ 를 쓴다)",
+   "opts": [
+    "1 / (s^2 + 1)",
+    "−d/ds [1/(s^2 + 1)] = 2s/(s^2 + 1)^2",
+    "arctan(1/s)",
+    "arctan s"
+   ],
+   "ans": 2,
+   "why": [
+    "t 로 나누는 것을 무시하고 sin t 의 변환을 그대로 쓴다고 생각함",
+    "t 로 나누는 연산을 t 를 곱하는 s-미분 공식으로 계산한다고 생각함",
+    "",
+    "∫(s→∞) 대신 ∫(0→s) 로 적분한다고 생각함"
+   ],
+   "s": "<p>f = sin t 이면 F(s) = 1/(s^2 + 1), lim(t→0) f/t = 1 로 존재하므로 L{f/t} = ∫(s→∞) 1/(σ^2 + 1) dσ = [arctan σ](s→∞) = π/2 − arctan s = arctan(1/s).</p><p>함정: t 로 나누면 s 에 대한 적분(s 부터 ∞ 까지)이고, t 를 곱하면 s 에 대한 미분(−F')이다.</p>",
+   "src": [
+    [
+     "L12",
+     "38"
+    ],
+    [
+     "L12",
+     "39"
+    ],
+    [
+     "L12",
+     "40"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.sderiv",
+    "depth": 3,
+    "family": "f_em126",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "t 를 곱함(미분) → t 로 나눔(적분)"
+    ],
+    "mis": [
+     "m_lt_t_div_skip",
+     "m_lt_div_as_mult",
+     "",
+     "m_lt_int_bounds"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-129",
+   "no": "EM-129",
+   "chapter": "C7",
+   "kind": "mc",
+   "q": "F(s) = ln( s / (s − 2) ) 의 역변환 f(t) = L^(−1){F} 는?",
+   "opts": [
+    "f(t) = (1 − e^(2t)) / t",
+    "f(t) = (e^(2t) − 1) / t",
+    "f(t) = e^(2t) − 1",
+    "f(t) = ln(1 − e^(2t))"
+   ],
+   "ans": 1,
+   "why": [
+    "−t f(t) = F' 의 부호를 놓쳐 t f(t) = F'(s) 의 역변환으로 계산한다고 생각함",
+    "",
+    "t 로 나누는 단계를 빼먹는다고 생각함",
+    "ln 이 들어 있으면 역변환에도 ln 이 남는다고 생각함"
+   ],
+   "s": "<p>F'(s) = 1/s − 1/(s − 2) 이므로 L^(−1){F'} = 1 − e^(2t). 그런데 L^(−1){F'} = −t f(t) 이므로 f(t) = (e^(2t) − 1)/t. 확인: f/t 변환을 다시 쓰면 ∫(s→∞)[1/(σ − 2) − 1/σ] dσ = ln(s/(s − 2)).</p><p>함정: 역변환 공식은 L^(−1){F'(s)} = −t f(t) 이므로 부호와 t 로 나누는 것을 같이 챙긴다.</p>",
+   "src": [
+    [
+     "L12",
+     "35"
+    ],
+    [
+     "L12",
+     "37"
+    ]
+   ],
+   "topic": "laplace",
+   "dx": {
+    "facet": "laplace.sderiv",
+    "depth": 4,
+    "family": "f_em126",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "f 에서 변환 구하기 → 변환 F' 로 f 역산"
+    ],
+    "mis": [
+     "m_lt_t_sign",
+     "",
+     "m_lt_t_div_skip",
+     "m_lt_log_inv"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-130",
+   "no": "EM-130",
+   "chapter": "C8",
+   "kind": "short",
+   "q": "주기 1 인 함수 f(t) 가 0 &lt; t &lt; 1 에서 f(t) = t 이고 f(t + 1) = f(t) 로 반복될 때(톱니파), 주기함수의 라플라스 변환 공식으로 구한 L{f} 의 s = 1 에서의 값은? (소수 셋째 자리까지)",
+   "a": "0.418",
+   "accept": [
+    "(e-2)/(e-1)",
+    "0.418"
+   ],
+   "num": 0.418,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>L{f} = (1/(1 − e^(−Ts))) ∫0^T e^(−st) f(t) dt 에서 T = 1. ∫0^1 t e^(−st) dt = (1 − e^(−s) − s e^(−s))/s^2 이므로 L{f} = (1 − e^(−s) − s e^(−s)) / (s^2 (1 − e^(−s))). s = 1 이면 (1 − 2/e)/(1 − 1/e) = (e − 2)/(e − 1) ≈ 0.418. 예상되는 틀린 답: 0.264 (한 주기 적분 (1 − 2/e) 만 쓰고 1/(1 − e^(−s)) 를 곱하지 않음).</p><p>함정: 적분은 [0, T] 한 주기만, 앞의 인자 1/(1 − e^(−Ts)) 는 모든 주기를 더해 준다.</p>",
+   "src": [
+    [
+     "L14",
+     "7"
+    ],
+    [
+     "L14",
+     "8"
+    ]
+   ],
+   "topic": "special_lt",
+   "dx": {
+    "facet": "special_lt.periodic",
+    "depth": 3,
+    "mis": [
+     {
+      "pattern": "한 주기의 변환 ∫0^T 만 계산하고 반복 인자는 곱하지 않는다고 생각함",
+      "ex": [
+       "0.264"
+      ],
+      "m": "m_per_no_factor"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-131",
+   "no": "EM-131",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "주기가 T 인 함수 f(t) 의 라플라스 변환은 한 주기에서의 적분 ∫0^T e^(−st) f(t) dt 와 같다.",
+   "ox": false,
+   "fix": "L{f} = (1/(1 − e^(−Ts))) ∫0^T e^(−st) f(t) dt. 한 주기 적분에 1/(1 − e^(−Ts)) 를 곱해야 한다.",
+   "s": "<p>주기함수의 변환은 L{f} = (1/(1 − e^(−Ts))) ∫0^T e^(−st) f(t) dt 로, 한 주기의 변환에 1/(1 − e^(−Ts)) 가 곱해진다. 이 인자는 기하급수 1 + e^(−Ts) + e^(−2Ts) + … 의 합으로, 둘째 주기부터 이어지는 모든 주기의 기여를 더한다.</p><p>함정: 한 주기 적분만으로는 t &gt; T 에서의 f 가 반영되지 않는다.</p>",
+   "src": [
+    [
+     "L14",
+     "7"
+    ],
+    [
+     "L14",
+     "8"
+    ]
+   ],
+   "topic": "special_lt",
+   "dx": {
+    "facet": "special_lt.periodic",
+    "depth": 3,
+    "mis": "m_per_no_factor"
+   }
+  },
+  {
+   "ext_id": "EM-132",
+   "no": "EM-132",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "구간별 함수 f(t) = f1(t) (0 &lt; t &lt; a), f2(t) (t &gt; a) 는 단위계단함수로 f(t) = f1(t)[u(t) − u(t − a)] + f2(t) u(t − a) 로 쓸 수 있다.",
+   "ox": true,
+   "s": "<p>단위계단함수(unit step function) u(t − a) 는 t &lt; a 에서 0, t &gt; a 에서 1 이다. u(t) − u(t − a) 는 0 &lt; t &lt; a 에서만 1 이므로 f1 만 남기고, u(t − a) 는 t &gt; a 에서 f2 만 켠다. 강의(lec14 p.4)의 구간별 연속 함수 표현과 같다.</p><p>함정: u(t − a) 의 값은 t = a 에서 켜진다 (t = 0 이 아니다).</p>",
+   "src": [
+    [
+     "L14",
+     "4"
+    ],
+    [
+     "L13",
+     "4"
+    ],
+    [
+     "L13",
+     "5"
+    ]
+   ],
+   "topic": "piecewise",
+   "dx": {
+    "facet": "piecewise.step",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-133",
+   "no": "EM-133",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "f(t) = 2 (0 &lt; t &lt; 1), 5 (t &gt; 1) 일 때 L{f} 는?",
+   "opts": [
+    "(2 + 5 e^(−s)) / s",
+    "(2 − 3 e^(−s)) / s",
+    "(2 + 3 e^(s)) / s",
+    "(2 + 3 e^(−s)) / s"
+   ],
+   "ans": 3,
+   "why": [
+    "계단 뒤의 값 5 가 u(t − 1) 의 계수로 들어간다고 생각함",
+    "계단의 증가분 3 의 부호를 반대로 쓴다고 생각함",
+    "e^(−as) 의 지수 부호를 반대로 쓴다고 생각함",
+    ""
+   ],
+   "s": "<p>f(t) = 2[u(t) − u(t − 1)] + 5 u(t − 1) = 2 + 3 u(t − 1). L{u(t − a)} = e^(−as)/s 이므로 L{f} = 2/s + 3 e^(−s)/s = (2 + 3e^(−s))/s.</p><p>함정: u(t − 1) 앞에는 새 값이 아니라 값의 변화량(5 − 2 = 3)이 붙는다.</p>",
+   "src": [
+    [
+     "L14",
+     "4"
+    ],
+    [
+     "L14",
+     "5"
+    ],
+    [
+     "L13",
+     "5"
+    ]
+   ],
+   "topic": "piecewise",
+   "dx": {
+    "facet": "piecewise.step",
+    "depth": 2,
+    "family": "f_em133",
+    "role": "base",
+    "mis": [
+     "m_pw_value_vs_jump",
+     "m_pw_jump_sign",
+     "m_pw_exp_sign",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-134",
+   "no": "EM-134",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "f(t) = u(t − 1) − u(t − 3) 의 라플라스 변환은? (u 는 단위계단함수)",
+   "opts": [
+    "(e^(−3s) − e^(−s)) / s",
+    "(e^(−s) − e^(−3s)) / s",
+    "(1 − e^(−2s)) / s",
+    "(e^(−s) + e^(−3s)) / s"
+   ],
+   "ans": 1,
+   "why": [
+    "큰 이동량 3 이 먼저 켜지는 것으로 보아 뺄셈 순서를 바꾼다고 생각함",
+    "",
+    "구간의 길이 2 만큼 이동한 한 개의 펄스로 본다고 생각함",
+    "u(t − 3) 를 빼는 부호를 더하기로 쓴다고 생각함"
+   ],
+   "s": "<p>f(t) 는 1 &lt; t &lt; 3 에서 1 이고 그 밖에서 0 인 펄스다. L{u(t − a)} = e^(−as)/s 이므로 L{f} = e^(−s)/s − e^(−3s)/s.</p><p>함정: 구간 (1, 3) 의 변환은 e^(−s) 에서 시작해 e^(−3s) 를 뺀다 (구간 길이만 쓰면 시작점 정보가 사라진다).</p>",
+   "src": [
+    [
+     "L14",
+     "4"
+    ],
+    [
+     "L14",
+     "5"
+    ],
+    [
+     "L13",
+     "5"
+    ]
+   ],
+   "topic": "piecewise",
+   "dx": {
+    "facet": "piecewise.step",
+    "depth": 3,
+    "family": "f_em133",
+    "role": "near",
+    "delta": [
+     "repr",
+     "값 변화로 쓴 식 → 펄스 u(t − 1) − u(t − 3)"
+    ],
+    "mis": [
+     "m_pw_pulse_order",
+     "",
+     "m_pw_pulse_length",
+     "m_pw_pulse_sign"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-135",
+   "no": "EM-135",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "f(t) = t (0 &lt; t &lt; 2), 0 (t &gt; 2) 일 때 L{f} 는?",
+   "opts": [
+    "1/s^2 − e^(−2s)/s^2",
+    "1/s^2 + e^(−2s) (1/s^2 + 2/s)",
+    "(1 − e^(−2s)) / s^2",
+    "1/s^2 − e^(−2s) (1/s^2 + 2/s)"
+   ],
+   "ans": 3,
+   "why": [
+    "t u(t − 2) 의 변환에 (t − 2) 로 고치는 보정을 하지 않는다고 생각함",
+    "u(t − 2) 가 켜지는 구간의 부호를 반대로 쓴다고 생각함",
+    "두 계단함수에서 나온 t 를 그대로 같은 변환으로 쓴다고 생각함",
+    ""
+   ],
+   "s": "<p>f(t) = t [u(t) − u(t − 2)] = t − t u(t − 2). t u(t − 2) = (t − 2) u(t − 2) + 2 u(t − 2) 로 고쳐 t-이동을 쓰면 L{t u(t − 2)} = e^(−2s)(1/s^2 + 2/s). 따라서 L{f} = 1/s^2 − e^(−2s)(1/s^2 + 2/s).</p><p>함정: t-이동 공식은 f(t − a) u(t − a) 꼴에만 쓸 수 있으므로 t 를 (t − 2) + 2 로 먼저 고친다.</p>",
+   "src": [
+    [
+     "L14",
+     "4"
+    ],
+    [
+     "L13",
+     "6"
+    ],
+    [
+     "L13",
+     "13"
+    ]
+   ],
+   "topic": "piecewise",
+   "dx": {
+    "facet": "piecewise.step",
+    "depth": 4,
+    "family": "f_em133",
+    "role": "near",
+    "delta": [
+     "combine",
+     "상수 값 구간 → t-이동 공식과 결합(t 를 포함한 구간)"
+    ],
+    "mis": [
+     "m_pw_t_shift",
+     "m_pw_interval_sign",
+     "m_pw_t_shift",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-136",
+   "no": "EM-136",
+   "chapter": "C8",
+   "kind": "ox",
+   "star": true,
+   "q": "연속인 함수 g(t) 와 a &gt; 0 에 대해 ∫0^∞ g(t) δ(t − a) dt = g(a) 이다. (δ 는 디랙 델타 함수(Dirac delta function))",
+   "ox": true,
+   "s": "<p>강의(lec14 p.14)의 델타 함수의 체질 성질(sifting): δ(t − a) 는 t = a 에서만 값을 가지고 넓이가 1 이므로 연속인 g 와의 곱의 적분은 t = a 에서의 g 값만 남긴다. g = 1 이면 ∫0^∞ δ(t − a) dt = 1, g = e^(−st) 이면 L{δ(t − a)} = e^(−as) 다.</p><p>함정: 결과는 g 의 적분이 아니라 g(a) 다.</p>",
+   "src": [
+    [
+     "L14",
+     "12"
+    ],
+    [
+     "L14",
+     "14"
+    ]
+   ],
+   "topic": "delta",
+   "dx": {
+    "facet": "delta.props",
+    "depth": 1,
+    "family": "f_em136",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-137",
+   "no": "EM-137",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "∫0^∞ (t^2 + 1) δ(t − 3) dt 의 값을 구하라.",
+   "a": "10",
+   "accept": [
+    "10"
+   ],
+   "num": 10,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "s": "<p>체질 성질 ∫0^∞ g(t) δ(t − a) dt = g(a) 에 g(t) = t^2 + 1, a = 3 을 넣으면 g(3) = 9 + 1 = 10. 예상되는 틀린 답: 1 (δ 의 넓이 1 만 보고 g 를 무시함), 12 (g 를 0 에서 3 까지 적분함).</p><p>함정: δ(t − a) 가 있으면 g 는 t = a 에서의 값으로만 들어간다.</p>",
+   "src": [
+    [
+     "L14",
+     "14"
+    ]
+   ],
+   "topic": "delta",
+   "dx": {
+    "facet": "delta.props",
+    "depth": 2,
+    "family": "f_em137",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "δ 와의 곱의 적분은 δ 의 넓이 1 이므로 항상 1 이라고 생각함",
+      "ex": [
+       "1"
+      ],
+      "m": "m_delta_always1"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-138",
+   "no": "EM-138",
+   "chapter": "C8",
+   "kind": "mc",
+   "star": true,
+   "q": "L{δ(t − 2)} 는? (δ 는 디랙 델타 함수, u 는 단위계단함수)",
+   "opts": [
+    "e^(−2s)",
+    "e^(−2s) / s",
+    "1",
+    "2 e^(−s)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "δ(t − 2) 를 계단함수 u(t − 2) 와 같은 것으로 본다고 생각함",
+    "δ 는 t = 0 에서만 값을 가지므로 이동해도 변환이 1 이라고 생각함",
+    "e^(−as) 에서 a 와 s 의 자리를 바꿔 쓴다고 생각함"
+   ],
+   "s": "<p>L{δ(t − a)} = e^(−as) (강의 lec14 p.13). a = 2 이므로 e^(−2s). 반면 L{u(t − a)} = e^(−as)/s 이다 (δ 는 u 의 도함수에 해당하므로 s 를 곱한 꼴).</p><p>함정: δ 의 변환에는 1/s 가 없다.</p>",
+   "src": [
+    [
+     "L14",
+     "13"
+    ],
+    [
+     "L14",
+     "14"
+    ],
+    [
+     "L13",
+     "5"
+    ]
+   ],
+   "topic": "delta",
+   "dx": {
+    "facet": "delta.props",
+    "depth": 3,
+    "family": "f_em136",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "델타 함수의 체질 성질 → u(t − a) 와 구별한 변환"
+    ],
+    "mis": [
+     "",
+     "m_delta_vs_step",
+     "m_delta_zero_only",
+     "m_delta_as_swap"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-139",
+   "no": "EM-139",
+   "chapter": "C8",
+   "kind": "mc",
+   "star": true,
+   "q": "L{ t δ(t − 2) } 는?",
+   "opts": [
+    "e^(−2s) / s^2",
+    "e^(−2s) (1/s^2 + 2/s)",
+    "2 e^(−2s)",
+    "−2 e^(−2s)"
+   ],
+   "ans": 2,
+   "why": [
+    "t 를 곱했으므로 e^(−as) F(s) 에서 F = 1/s^2 이라고 생각함",
+    "t u(t − 2) 의 변환 꼴을 그대로 쓴다고 생각함",
+    "",
+    "L{t f} = −F'(s) 의 부호를 이중으로 뒤집는다고 생각함"
+   ],
+   "s": "<p>체질 성질로 t δ(t − 2) 는 t = 2 에서의 값 2 만 남아 2δ(t − 2) 와 같은 효과를 낸다. L{t δ(t − 2)} = ∫0^∞ e^(−st) t δ(t − 2) dt = 2 e^(−2s). 확인: L{δ(t − 2)} = e^(−2s) 이고 L{t f} = −F'(s) 이므로 −d/ds e^(−2s) = 2 e^(−2s) 로 같다.</p><p>함정: δ 가 있으면 곱해진 t 는 t = 2 로 고정된다 (미분·이동이 필요한 것이 아니다).</p>",
+   "src": [
+    [
+     "L14",
+     "14"
+    ],
+    [
+     "L12",
+     "35"
+    ]
+   ],
+   "topic": "delta",
+   "dx": {
+    "facet": "delta.props",
+    "depth": 4,
+    "family": "f_em137",
+    "role": "near",
+    "delta": [
+     "combine",
+     "체질 성질 단독 → t 를 곱한 변환(s-미분)과 대조"
+    ],
+    "mis": [
+     "m_delta_t_step_form",
+     "m_delta_t_step_form",
+     "",
+     "m_delta_t_sign"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-140",
+   "no": "EM-140",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "합성곱(convolution)은 교환법칙 f * g = g * f 를 만족한다.",
+   "ox": true,
+   "s": "<p>강의(lec14 p.25)의 합성곱 성질: 교환 f * g = g * f, 분배 f * (g1 + g2) = f * g1 + f * g2, 결합 (f * g) * h = f * (g * h). 변수를 τ → t − τ 로 바꾸면 ∫0^t f(τ)g(t − τ)dτ = ∫0^t g(τ)f(t − τ)dτ 이고, 변환으로는 F G = G F 와 같다.</p><p>함정: 교환·분배·결합은 되지만 항등원(1)과 양수성은 성립하지 않는다.</p>",
+   "src": [
+    [
+     "L14",
+     "25"
+    ]
+   ],
+   "topic": "conv",
+   "dx": {
+    "facet": "conv.props",
+    "depth": 1,
+    "family": "f_em140",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-141",
+   "no": "EM-141",
+   "chapter": "C8",
+   "kind": "short",
+   "q": "합성곱 (f * g)(t) = ∫0^t f(τ) g(t − τ) dτ 에서 f(t) = t, g(t) = t 일 때 (f * g)(3) 의 값은?",
+   "a": "4.5",
+   "accept": [
+    "9/2",
+    "4.5"
+   ],
+   "num": 4.5,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>(t * t)(t) = ∫0^t τ (t − τ) dτ = t·t^2/2 − t^3/3 = t^3/6. t = 3 이면 27/6 = 4.5. 확인: L{t} L{t} = 1/s^4 이고 L^(−1){1/s^4} = t^3/6. 예상되는 틀린 답: 9 (함수의 곱 t·t = 9 로 계산함).</p><p>함정: 합성곱은 함수의 곱이 아니라 적분으로 정의된다.</p>",
+   "src": [
+    [
+     "L14",
+     "19"
+    ],
+    [
+     "L14",
+     "21"
+    ]
+   ],
+   "topic": "conv",
+   "dx": {
+    "facet": "conv.props",
+    "depth": 2,
+    "family": "f_em141",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "f * g 는 두 함수의 곱 f(t) g(t) 와 같다고 생각함",
+      "m": "m_conv_is_product"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-142",
+   "no": "EM-142",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "다음 중 합성곱에 대해 성립하지 않는 것은?",
+   "opts": [
+    "f * (g + h) = f * g + f * h",
+    "(f * g) * h = f * (g * h)",
+    "f * f ≥ 0 (모든 f 에 대해)",
+    "f * 0 = 0"
+   ],
+   "ans": 2,
+   "why": [
+    "합성곱은 분배법칙을 만족하지 않는다고 생각함",
+    "합성곱은 결합법칙을 만족하지 않는다고 생각함",
+    "",
+    "합성곱의 영원소가 없다고 생각함"
+   ],
+   "s": "<p>강의(lec14 p.25)는 교환, 분배, 결합, 영원소(f * 0 = 0)는 성립하고 항등원(f * 1 ≠ f)과 양수성(f * f ≥ 0)은 성립하지 않는다고 정리한다. 반례: (cos * cos)(π) = ∫0^π cos τ cos(π − τ) dτ = −π/2 &lt; 0.</p><p>함정: 수의 곱셈처럼 f * f 가 항상 0 이상일 것이라는 직관.</p>",
+   "src": [
+    [
+     "L14",
+     "25"
+    ],
+    [
+     "L14",
+     "27"
+    ]
+   ],
+   "topic": "conv",
+   "dx": {
+    "facet": "conv.props",
+    "depth": 3,
+    "family": "f_em140",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "교환법칙 → 수의 곱셈 성질과 구별(양수성)"
+    ],
+    "mis": [
+     "m_conv_law_fail",
+     "m_conv_law_fail",
+     "",
+     "m_conv_law_fail"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-143",
+   "no": "EM-143",
+   "chapter": "C8",
+   "kind": "short",
+   "q": "합성곱 (cos * cos)(t) = ∫0^t cos τ cos(t − τ) dτ 를 t = π 에서 계산한 값은? (소수 넷째 자리까지)",
+   "a": "-1.5708",
+   "accept": [
+    "-π/2",
+    "−π/2",
+    "-pi/2",
+    "-1.5708",
+    "-1.571"
+   ],
+   "num": -1.5708,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>cos τ cos(t − τ) = (1/2)[cos t + cos(2τ − t)] 이므로 (cos * cos)(t) = (1/2)(t cos t + sin t). t = π 이면 (1/2)(−π + 0) = −π/2 ≈ −1.5708. 라플라스로 확인하면 L{cos}^2 = s^2/(s^2 + 1)^2 이고 이 역변환이 (t cos t + sin t)/2 다.</p><p>함정: f * f 는 0 이상이 아니며 음수가 될 수 있다.</p>",
+   "src": [
+    [
+     "L14",
+     "19"
+    ],
+    [
+     "L14",
+     "27"
+    ]
+   ],
+   "topic": "conv",
+   "dx": {
+    "facet": "conv.props",
+    "depth": 4,
+    "family": "f_em141",
+    "role": "near",
+    "delta": [
+     "object",
+     "t * t 계산 → (cos * cos) 의 부호"
+    ],
+    "mis": [
+     {
+      "pattern": "f * f 는 항상 0 이상이라고 생각함",
+      "m": "m_conv_nonneg"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-144",
+   "no": "EM-144",
+   "chapter": "C8",
+   "kind": "ox",
+   "q": "F(s)/G(s) 의 분모가 서로 다른 일차 인수의 곱 (s − a1)(s − a2)⋯(s − an) 이면, F/G = Σ Ai/(s − ai) 로 전개되고 Ai 는 (s − ai) F(s)/G(s) 에 s = ai 를 넣어 구한다.",
+   "ox": true,
+   "s": "<p>강의(lec14 p.31, 33)의 Heaviside 전개(unrepeated factors): 양변에 (s − ai) 를 곱하고 s = ai 를 넣으면 나머지 항이 모두 0 이 되어 Ai 만 남는다. 예: (s + 3)/((s + 1)(s + 2)) 에서 A1 = (−1 + 3)/(−1 + 2) = 2, A2 = (−2 + 3)/(−2 + 1) = −1.</p><p>함정: 곱하는 인수는 구하려는 극점의 인수 하나뿐이다.</p>",
+   "src": [
+    [
+     "L14",
+     "30"
+    ],
+    [
+     "L14",
+     "31"
+    ],
+    [
+     "L14",
+     "33"
+    ]
+   ],
+   "topic": "partial_frac",
+   "dx": {
+    "facet": "partial_frac.expand",
+    "depth": 1
+   }
+  },
+  {
+   "ext_id": "EM-145",
+   "no": "EM-145",
+   "chapter": "C8",
+   "kind": "short",
+   "q": "F(s) = (s + 3) / ((s + 1)(s + 2)) 의 역변환 f(t) 에 대해 f(ln 2) 의 값을 구하라.",
+   "a": "0.75",
+   "accept": [
+    "3/4",
+    "0.75"
+   ],
+   "num": 0.75,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>부분분수로 (s + 3)/((s + 1)(s + 2)) = 2/(s + 1) − 1/(s + 2) 이므로 f(t) = 2e^(−t) − e^(−2t). f(ln 2) = 2·(1/2) − 1/4 = 3/4 = 0.75. 예상되는 틀린 답: 1.25 (A2 의 부호를 + 로 놓아 2e^(−t) + e^(−2t) 로 계산).</p><p>함정: A2 = (s + 3)/(s + 1) 에 s = −2 를 넣으면 1/(−1) = −1 이다.</p>",
+   "src": [
+    [
+     "L14",
+     "31"
+    ],
+    [
+     "L14",
+     "33"
+    ]
+   ],
+   "topic": "partial_frac",
+   "dx": {
+    "facet": "partial_frac.expand",
+    "depth": 2,
+    "family": "f_em145",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "두 계수를 모두 양수로 놓는다고 생각함",
+      "ex": [
+       "1.25"
+      ],
+      "m": "m_pf_sign"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-146",
+   "no": "EM-146",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "F(s) = 1 / (s (s + 1)^2) 의 역변환은?",
+   "opts": [
+    "f(t) = 1 − e^(−t) − t e^(−t)",
+    "f(t) = 1 − e^(−t)",
+    "f(t) = 1 − e^(−t) + t e^(−t)",
+    "f(t) = 1 − 2e^(−t)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "(s + 1)^2 이 중복 인수이지만 한 번만 나온다고 생각함",
+    "중복 인수 항 1/(s + 1)^2 의 부호를 반대로 한다고 생각함",
+    "1/(s + 1) 과 1/(s + 1)^2 의 역변환을 모두 e^(−t) 로 본다고 생각함"
+   ],
+   "s": "<p>반복 인수는 A/s + B/(s + 1) + C/(s + 1)^2. A = 1, C = 1/(−1) = −1, s^2 계수 비교로 A + B = 0 에서 B = −1. 따라서 F = 1/s − 1/(s + 1) − 1/(s + 1)^2. L^(−1){1/(s + 1)^2} = t e^(−t) (s-이동 + t 의 변환 1/s^2) 이므로 f = 1 − e^(−t) − t e^(−t).</p><p>함정: 중복 인수 (s − a)^2 은 1/(s − a) 와 1/(s − a)^2 두 항을 모두 가진다.</p>",
+   "src": [
+    [
+     "L14",
+     "31"
+    ],
+    [
+     "L14",
+     "35"
+    ],
+    [
+     "L14",
+     "36"
+    ]
+   ],
+   "topic": "partial_frac",
+   "dx": {
+    "facet": "partial_frac.expand",
+    "depth": 3,
+    "family": "f_em145",
+    "role": "near",
+    "delta": [
+     "condition",
+     "서로 다른 일차 인수 → 중복 일차 인수"
+    ],
+    "mis": [
+     "",
+     "m_pf_repeat_once",
+     "m_pf_repeat_sign",
+     "m_pf_repeat_same_inv"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-147",
+   "no": "EM-147",
+   "chapter": "C8",
+   "kind": "mc",
+   "q": "F(s) = 1 / (s (s^2 + 4)) 의 역변환은?",
+   "opts": [
+    "f(t) = (1 − sin 2t) / 4",
+    "f(t) = (1 − cos 2t) / 2",
+    "f(t) = (1 + cos 2t) / 4",
+    "f(t) = (1 − cos 2t) / 4"
+   ],
+   "ans": 3,
+   "why": [
+    "s/(s^2 + 4) 의 역변환을 sin 2t 라고 생각함",
+    "1/(s (s^2 + 4)) 의 계수 A 를 1/2 로 구한다고 생각함",
+    "(Bs + C)/(s^2 + 4) 의 B 부호를 반대로 한다고 생각함",
+    ""
+   ],
+   "s": "<p>1/(s (s^2 + 4)) = A/s + (Bs + C)/(s^2 + 4). A = 1/4, 분자 비교로 B = −1/4, C = 0. 따라서 F = (1/4)(1/s − s/(s^2 + 4)) 이고 L^(−1){s/(s^2 + 4)} = cos 2t 이므로 f = (1 − cos 2t)/4.</p><p>함정: 이차 인수의 분자는 일차식 Bs + C 로 두고, s 가 있으면 cos, 상수이면 sin 이다.</p>",
+   "src": [
+    [
+     "L14",
+     "37"
+    ],
+    [
+     "L14",
+     "38"
+    ],
+    [
+     "L12",
+     "16"
+    ]
+   ],
+   "topic": "partial_frac",
+   "dx": {
+    "facet": "partial_frac.expand",
+    "depth": 4,
+    "family": "f_em145",
+    "role": "near",
+    "delta": [
+     "object",
+     "일차 인수 → 이차(복소) 인수 포함"
+    ],
+    "mis": [
+     "m_pf_quad_cos",
+     "m_pf_quad_a",
+     "m_pf_quad_b_sign",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-148",
+   "no": "EM-148",
+   "chapter": "C8",
+   "kind": "ox",
+   "star": true,
+   "q": "y'' + a y' + b y = r(t) (a, b 는 상수)의 초기값 문제를 라플라스 변환하면 (s^2 + a s + b) Y = (s + a) y(0) + y'(0) + R(s) 가 된다. (Y = L{y}, R = L{r})",
+   "ox": true,
+   "s": "<p>L{y''} = s^2 Y − s y(0) − y'(0), L{y'} = sY − y(0) 이므로 [s^2 Y − s y(0) − y'(0)] + a[sY − y(0)] + bY = R. 정리하면 (s^2 + as + b)Y = (s + a)y(0) + y'(0) + R(s). 강의(lec15 p.8)의 식과 같다.</p><p>함정: y(0) 은 L{y''} 에서 s 배로, L{a y'} 에서 a 배로 두 번 들어간다.</p>",
+   "src": [
+    [
+     "L15",
+     "8"
+    ],
+    [
+     "L12",
+     "21"
+    ]
+   ],
+   "topic": "lt_ode",
+   "dx": {
+    "facet": "lt_ode.solve",
+    "depth": 1,
+    "family": "f_em148",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-149",
+   "no": "EM-149",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y'' − 3y' + 2y = 0, y(0) = 0, y'(0) = 1 의 해에서 y(1) 의 값을 구하라. (소수 셋째 자리까지)",
+   "a": "4.671",
+   "accept": [
+    "e^2-e",
+    "e^2 - e",
+    "4.671",
+    "4.67"
+   ],
+   "num": 4.671,
+   "tol": 0.002,
+   "ph": "숫자만 입력",
+   "s": "<p>변환하면 (s^2 − 3s + 2) Y = (s − 3)·0 + 1 이므로 Y = 1/((s − 1)(s − 2)) = 1/(s − 2) − 1/(s − 1). 역변환 y = e^(2t) − e^t. y(1) = e^2 − e ≈ 4.671. 예상되는 틀린 답: 0 (y'(0) = 1 항을 빠뜨리면 Y = 0 이 되어 y ≡ 0).</p><p>함정: 초기값이 0 인 항은 사라지지만 y'(0) = 1 은 우변에 남는다.</p>",
+   "src": [
+    [
+     "L15",
+     "8"
+    ],
+    [
+     "L15",
+     "9"
+    ]
+   ],
+   "topic": "lt_ode",
+   "dx": {
+    "facet": "lt_ode.solve",
+    "depth": 2,
+    "family": "f_em149",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "우변에는 y(0) 항만 남고 y'(0) 은 필요 없다고 생각함",
+      "ex": [
+       "0"
+      ],
+      "m": "m_ltode_y0_only"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-150",
+   "no": "EM-150",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y'' + 4y = 4t, y(0) = 0, y'(0) = 0 의 해에서 y(π) 의 값을 구하라. (소수 넷째 자리까지)",
+   "a": "3.1416",
+   "accept": [
+    "π",
+    "pi",
+    "3.1416",
+    "3.142"
+   ],
+   "num": 3.1416,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>변환하면 (s^2 + 4)Y = 4/s^2 이므로 Y = 4/(s^2 (s^2 + 4)) = 1/s^2 − 1/(s^2 + 4). 역변환 y = t − (1/2) sin 2t. y(π) = π − 0 = π ≈ 3.1416. 확인: y'' + 4y = 2 sin 2t + 4t − 2 sin 2t = 4t.</p><p>함정: R(s) = L{4t} = 4/s^2 이고 이 분모 s^2 은 부분분수에 그대로 들어간다.</p>",
+   "src": [
+    [
+     "L15",
+     "8"
+    ],
+    [
+     "L15",
+     "9"
+    ],
+    [
+     "L14",
+     "30"
+    ]
+   ],
+   "topic": "lt_ode",
+   "dx": {
+    "facet": "lt_ode.solve",
+    "depth": 3,
+    "family": "f_em148",
+    "role": "near",
+    "delta": [
+     "condition",
+     "제차 → 우변이 4t 인 비제차"
+    ],
+    "mis": [
+     {
+      "pattern": "우변 r(t) = 4t 의 변환을 4/s 로 쓴다고 생각함",
+      "m": "m_ltode_rt"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-151",
+   "no": "EM-151",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y'' + y = u(t − π), y(0) = 0, y'(0) = 0 (u 는 단위계단함수)의 해에서 y(2π) 의 값은?",
+   "a": "2",
+   "accept": [
+    "2"
+   ],
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "s": "<p>변환하면 (s^2 + 1)Y = e^(−πs)/s 이므로 Y = e^(−πs) · 1/(s(s^2 + 1)) = e^(−πs)(1/s − s/(s^2 + 1)). 1/s − s/(s^2 + 1) 의 역변환은 1 − cos t 이고 t-이동을 하면 y = [1 − cos(t − π)] u(t − π) = (1 + cos t) u(t − π). y(2π) = 1 + cos 2π = 2. 예상되는 틀린 답: 0 (이동을 빠뜨려 1 − cos t 로 계산하면 1 − cos 2π = 0).</p><p>함정: e^(−πs) 가 있으면 변환하기 전의 함수 1 − cos t 에서 t 를 (t − π) 로 바꾼다.</p>",
+   "src": [
+    [
+     "L15",
+     "8"
+    ],
+    [
+     "L13",
+     "6"
+    ],
+    [
+     "L14",
+     "30"
+    ]
+   ],
+   "topic": "lt_ode",
+   "dx": {
+    "facet": "lt_ode.solve",
+    "depth": 4,
+    "family": "f_em148",
+    "role": "near",
+    "delta": [
+     "combine",
+     "다항식 입력 → 계단함수 입력과 t-이동 결합"
+    ],
+    "mis": [
+     {
+      "pattern": "e^(−πs) 가 있어도 1 − cos t 에 t 만 대입하면 된다고 생각함",
+      "ex": [
+       "0"
+      ],
+      "m": "m_ltode_no_shift"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-152",
+   "no": "EM-152",
+   "chapter": "C8",
+   "kind": "mc",
+   "star": true,
+   "q": "y'' + 4y' + 4y = 0, y(0) = 1, y'(0) = 1 을 라플라스 변환으로 풀면 y(t) 는?",
+   "opts": [
+    "y = (1 + t) e^(−2t)",
+    "y = (1 + 3t) e^(−2t)",
+    "y = (1 + 5t) e^(−2t)",
+    "y = e^(−2t) + 3 e^(−2t)"
+   ],
+   "ans": 1,
+   "why": [
+    "Y = (s + 5)/(s + 2)^2 의 분자를 s + 3 으로 구한다고 생각함",
+    "",
+    "분자 s + 5 의 5 를 t e^(−2t) 의 계수로 그대로 쓴다고 생각함",
+    "1/(s + 2)^2 의 역변환도 e^(−2t) 라고 생각함"
+   ],
+   "s": "<p>변환하면 (s^2 + 4s + 4)Y = (s + 4)·1 + 1 = s + 5 이므로 Y = (s + 5)/(s + 2)^2 = 1/(s + 2) + 3/(s + 2)^2. L^(−1){1/(s + 2)^2} = t e^(−2t) 이므로 y = e^(−2t) + 3t e^(−2t) = (1 + 3t) e^(−2t). 확인: y(0) = 1, y'(0) = −2 + 3 = 1.</p><p>함정: (s + 5)/(s + 2)^2 = (s + 2 + 3)/(s + 2)^2 = 1/(s + 2) + 3/(s + 2)^2 처럼 분자를 분모의 (s + 2) 로 맞춰 나눈다.</p>",
+   "src": [
+    [
+     "L15",
+     "8"
+    ],
+    [
+     "L14",
+     "35"
+    ],
+    [
+     "L13",
+     "10"
+    ]
+   ],
+   "topic": "lt_ode",
+   "dx": {
+    "facet": "lt_ode.solve",
+    "depth": 4,
+    "family": "f_em149",
+    "role": "near",
+    "delta": [
+     "combine",
+     "단순근 → 중복 인수와 s-이동 역변환 결합"
+    ],
+    "mis": [
+     "m_ltode_num",
+     "",
+     "m_ltode_coef",
+     "m_ltode_double_inv"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-153",
+   "no": "EM-153",
+   "chapter": "C8",
+   "kind": "ox",
+   "star": true,
+   "q": "초기값이 모두 0 인 y'' + a y' + b y = r(t) 의 변환은 Y = R(s) Q(s), Q(s) = 1/(s^2 + as + b) 이다.",
+   "ox": true,
+   "s": "<p>(s^2 + as + b)Y = (s + a)y(0) + y'(0) + R(s) 에서 y(0) = y'(0) = 0 이면 Y = R/(s^2 + as + b) = R Q. 강의의 전달함수(transfer function) Q(s) 로 쓰면 일반 초기값의 해는 Y = [(s + a)y(0) + y'(0)]Q + R Q 이다.</p><p>함정: Q 는 ODE 의 좌변(계수 a, b)에만 의존하고 입력 r 에는 의존하지 않는다.</p>",
+   "src": [
+    [
+     "L15",
+     "8"
+    ],
+    [
+     "L15",
+     "9"
+    ],
+    [
+     "L15",
+     "13"
+    ]
+   ],
+   "topic": "lt_ode",
+   "dx": {
+    "facet": "lt_ode.solve",
+    "depth": 3,
+    "family": "f_em148",
+    "role": "near",
+    "delta": [
+     "repr",
+     "변환식 → 전달함수 Q(s) 로 쓴 표현"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-154",
+   "no": "EM-154",
+   "chapter": "C8",
+   "kind": "ox",
+   "star": true,
+   "q": "적분 ∫0^t y(τ) k(t − τ) dτ 는 합성곱 (y * k)(t) 이므로 라플라스 변환은 Y(s) K(s) 이다.",
+   "ox": true,
+   "s": "<p>합성곱 정리: L{f * g} = F G. ∫0^t y(τ) k(t − τ) dτ 는 정의가 (y * k)(t) 와 같으므로 변환은 Y K 다. 이 성질로 적분방정식이 Y 에 대한 대수방정식으로 바뀐다.</p><p>함정: ∫0^t y(τ) k(τ) dτ (τ 의 곱)는 합성곱이 아니다.</p>",
+   "src": [
+    [
+     "L14",
+     "19"
+    ],
+    [
+     "L15",
+     "14"
+    ],
+    [
+     "L15",
+     "15"
+    ]
+   ],
+   "topic": "lt_inteq",
+   "dx": {
+    "facet": "lt_inteq.solve",
+    "depth": 1,
+    "family": "f_em154",
+    "role": "base"
+   }
+  },
+  {
+   "ext_id": "EM-155",
+   "no": "EM-155",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y(t) = t + ∫0^t y(τ)(t − τ) dτ 의 해에서 y(1) 의 값을 구하라. (소수 넷째 자리까지)",
+   "a": "1.1752",
+   "accept": [
+    "sinh 1",
+    "sinh(1)",
+    "1.1752",
+    "1.175"
+   ],
+   "num": 1.1752,
+   "tol": 0.0005,
+   "ph": "숫자만 입력",
+   "s": "<p>적분은 (y * t)(t) 이므로 Y = 1/s^2 + Y · (1/s^2). Y (1 − 1/s^2) = 1/s^2 에서 Y = 1/(s^2 − 1), y = sinh t. y(1) = sinh 1 ≈ 1.1752. 확인: sinh t 를 대입하면 t + ∫0^t sinh τ (t − τ) dτ = t + (sinh t − t) = sinh t. 예상되는 틀린 답: 1.7183 (적분의 변환을 Y/s 로 써서 y = e^t − 1 로 계산함).</p><p>함정: (t − τ) 는 g(t) = t 와의 합성곱이고 변환은 1/s^2 이다.</p>",
+   "src": [
+    [
+     "L15",
+     "14"
+    ],
+    [
+     "L15",
+     "15"
+    ],
+    [
+     "L14",
+     "19"
+    ]
+   ],
+   "topic": "lt_inteq",
+   "dx": {
+    "facet": "lt_inteq.solve",
+    "depth": 2,
+    "family": "f_em155",
+    "role": "base",
+    "mis": [
+     {
+      "pattern": "적분의 변환 1/s^2 대신 1/s 를 쓴다고 생각함",
+      "ex": [
+       "1.7183"
+      ],
+      "m": "m_inteq_1s"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-156",
+   "no": "EM-156",
+   "chapter": "C8",
+   "kind": "mc",
+   "star": true,
+   "q": "y(t) = sin t + ∫0^t (t − τ) y(τ) dτ 를 라플라스 변환으로 풀면 y(t) 는?",
+   "opts": [
+    "y = (sin t − sinh t) / 2",
+    "y = sinh t",
+    "y = sin t + sinh t",
+    "y = (sin t + sinh t) / 2"
+   ],
+   "ans": 3,
+   "why": [
+    "부분분수에서 1/(s^2 − 1) 항의 부호를 반대로 한다고 생각함",
+    "sin t 항을 무시하고 변환한다고 생각함",
+    "부분분수의 계수 1/2 를 빼먹는다고 생각함",
+    ""
+   ],
+   "s": "<p>(t − τ) 적분은 (y * t) 이므로 Y = 1/(s^2 + 1) + Y/s^2. Y (s^2 − 1)/s^2 = 1/(s^2 + 1) 에서 Y = s^2 / ((s^2 + 1)(s^2 − 1)) = (1/2)[1/(s^2 + 1) + 1/(s^2 − 1)]. 역변환 y = (sin t + sinh t)/2. 확인: s^2/((s^2 + 1)(s^2 − 1)) 에 s^2 = −1, 1 을 넣어 계수 1/2 를 구한다.</p><p>함정: Y 를 모으면 분모가 (s^2 − 1) 가 되고 sin t 는 오른쪽 항으로 따로 들어간다.</p>",
+   "src": [
+    [
+     "L15",
+     "14"
+    ],
+    [
+     "L15",
+     "15"
+    ],
+    [
+     "L14",
+     "30"
+    ]
+   ],
+   "topic": "lt_inteq",
+   "dx": {
+    "facet": "lt_inteq.solve",
+    "depth": 3,
+    "family": "f_em155",
+    "role": "near",
+    "delta": [
+     "object",
+     "자유항 t → sin t"
+    ],
+    "mis": [
+     "m_inteq_pf_sign",
+     "m_inteq_free_term",
+     "m_inteq_half",
+     ""
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-157",
+   "no": "EM-157",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y(t) = t^2 + ∫0^t sin(t − τ) y(τ) dτ 의 해에서 y(2) 의 값을 구하라. (소수 넷째 자리까지)",
+   "a": "5.3333",
+   "accept": [
+    "16/3",
+    "5.3333",
+    "5.333"
+   ],
+   "num": 5.3333,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>적분은 (y * sin)(t) 이므로 Y = 2/s^3 + Y/(s^2 + 1). Y · s^2/(s^2 + 1) = 2/s^3 이므로 Y = 2(s^2 + 1)/s^5 = 2/s^3 + 2/s^5. 역변환 y = t^2 + t^4/12 (L{t^n} = n!/s^(n+1)). y(2) = 4 + 16/12 = 16/3 ≈ 5.3333. 확인: y = t^2 + t^4/12 이면 ∫0^t sin(t − τ)(τ^2 + τ^4/12)dτ = t^4/12 가 된다.</p><p>함정: 2/s^5 의 역변환은 2·t^4/4! = t^4/12 이다 (n! 로 나눈다).</p>",
+   "src": [
+    [
+     "L15",
+     "14"
+    ],
+    [
+     "L15",
+     "15"
+    ],
+    [
+     "L12",
+     "16"
+    ]
+   ],
+   "topic": "lt_inteq",
+   "dx": {
+    "facet": "lt_inteq.solve",
+    "depth": 4,
+    "family": "f_em155",
+    "role": "near",
+    "delta": [
+     "combine",
+     "단순한 변환 풀이 → 부분분수와 t^n 역변환 결합"
+    ],
+    "mis": [
+     {
+      "pattern": "sin t 의 변환을 s/(s^2 + 1) 로 쓴다고 생각함",
+      "m": "m_inteq_sincos"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-158",
+   "no": "EM-158",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y'' + 4y = δ(t − π/2), y(0) = 0, y'(0) = 0 (δ 는 디랙 델타 함수)의 해에서 y(3π/4) 의 값은?",
+   "a": "0.5",
+   "accept": [
+    "1/2",
+    "0.5"
+   ],
+   "num": 0.5,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>변환하면 (s^2 + 4)Y = e^(−πs/2) 이므로 Y = e^(−πs/2) · 1/(s^2 + 4). 1/(s^2 + 4) 의 역변환은 (1/2) sin 2t 이고 t-이동을 하면 y = (1/2) sin(2(t − π/2)) u(t − π/2) = −(1/2) sin 2t · u(t − π/2). y(3π/4) = (1/2) sin(2·π/4) = 1/2. 예상되는 틀린 답: 1 (역변환의 계수 1/2 를 빠뜨림), −0.5 (이동 없이 (1/2) sin 2t 에 t = 3π/4 를 넣음).</p><p>함정: δ 입력은 e^(−as) 만 만들고, 역변환에서 t 를 t − a 로 이동하며 u 로 켠다.</p>",
+   "src": [
+    [
+     "L15",
+     "12"
+    ],
+    [
+     "L14",
+     "13"
+    ],
+    [
+     "L13",
+     "6"
+    ]
+   ],
+   "topic": "delta",
+   "dx": {
+    "facet": "delta.props",
+    "depth": 4,
+    "family": "f_em137",
+    "role": "near",
+    "delta": [
+     "combine",
+     "δ 의 변환 성질 → δ 입력 ODE 풀이와 t-이동 결합"
+    ],
+    "mis": [
+     {
+      "pattern": "e^(−as) 가 있어도 t 를 이동하지 않고 sin 2t 를 그대로 쓴다고 생각함",
+      "ex": [
+       "-0.5"
+      ],
+      "m": "m_delta_no_shift"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-159",
+   "no": "EM-159",
+   "chapter": "C8",
+   "kind": "mc",
+   "star": true,
+   "q": "y' + y = δ(t − 2), y(0) = 0 (δ 는 디랙 델타 함수)의 해는? (u 는 단위계단함수)",
+   "opts": [
+    "y = (1 − e^(−(t − 2))) u(t − 2)",
+    "y = e^(−(t − 2)) u(t − 2)",
+    "y = e^(−t) u(t − 2)",
+    "y = e^(−(t − 2))"
+   ],
+   "ans": 1,
+   "why": [
+    "δ 입력을 계단함수 u(t − 2) 입력과 같은 것으로 본다고 생각함",
+    "",
+    "t-이동을 하지 않고 e^(−t) 에 u 만 곱한다고 생각함",
+    "u(t − 2) 로 t < 2 에서 0 이 되는 것을 빼먹는다고 생각함"
+   ],
+   "s": "<p>변환하면 (s + 1)Y = e^(−2s) 이므로 Y = e^(−2s)/(s + 1). 1/(s + 1) 의 역변환 e^(−t) 를 t-이동해 y = e^(−(t − 2)) u(t − 2). t = 2 에서 y 가 0 에서 1 로 점프하고 이후 e^(−(t − 2)) 로 줄어든다 (δ 의 넓이 1). 입력이 u(t − 2) 이면 Y = e^(−2s)/(s(s + 1)) 이어서 (1 − e^(−(t − 2))) u(t − 2) 가 된다.</p><p>함정: δ 입력은 점프를, 계단 입력은 일정한 힘을 준다.</p>",
+   "src": [
+    [
+     "L14",
+     "13"
+    ],
+    [
+     "L15",
+     "12"
+    ],
+    [
+     "L13",
+     "6"
+    ]
+   ],
+   "topic": "delta",
+   "dx": {
+    "facet": "delta.props",
+    "depth": 3,
+    "family": "f_em136",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "u(t − a) 입력 → δ(t − a) 입력 ODE"
+    ],
+    "mis": [
+     "m_delta_vs_step",
+     "",
+     "m_delta_no_shift",
+     "m_delta_no_step"
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-160",
+   "no": "EM-160",
+   "chapter": "C8",
+   "kind": "short",
+   "star": true,
+   "q": "y(t) = 1 + 2 ∫0^t cos(t − τ) y(τ) dτ 의 해에서 y(1) 의 값을 구하라. (소수 넷째 자리까지)",
+   "a": "6.4366",
+   "accept": [
+    "1+2e",
+    "1 + 2e",
+    "6.4366",
+    "6.437"
+   ],
+   "num": 6.4366,
+   "tol": 0.001,
+   "ph": "숫자만 입력",
+   "s": "<p>적분은 (cos * y)(t) 이므로 Y = 1/s + 2 s Y/(s^2 + 1). Y (s^2 + 1 − 2s)/(s^2 + 1) = 1/s 에서 Y = (s^2 + 1)/(s (s − 1)^2) = 1/s + 2/(s − 1)^2. 역변환 y = 1 + 2t e^t (L{t e^(at)} = 1/(s − a)^2). y(1) = 1 + 2e ≈ 6.4366. 확인: y = 1 + 2t e^t 를 대입하면 적분 항이 (y − 1)/2 가 된다.</p><p>함정: L{cos t} = s/(s^2 + 1) 이므로 Y 의 계수에 s 가 곱해진다.</p>",
+   "src": [
+    [
+     "L15",
+     "14"
+    ],
+    [
+     "L15",
+     "15"
+    ],
+    [
+     "L13",
+     "10"
+    ]
+   ],
+   "topic": "lt_inteq",
+   "dx": {
+    "facet": "lt_inteq.solve",
+    "depth": 4,
+    "family": "f_em155",
+    "role": "near",
+    "delta": [
+     "combine",
+     "(t − τ) 커널 → cos(t − τ) 커널 + 중복 인수"
+    ],
+    "mis": [
+     {
+      "pattern": "cos t 의 변환을 1/(s^2 + 1) 로 쓴다고 생각함",
+      "m": "m_inteq_sincos"
+     }
+    ]
+   }
+  },
+  {
+   "ext_id": "EM-161",
+   "no": "EM-161",
+   "chapter": "C8",
+   "kind": "ox",
+   "star": true,
+   "q": "y(t) = f(t) + ∫0^t k(t − τ) y(τ) dτ 의 라플라스 변환 해는 Y(s) = F(s) / (1 − K(s)) 이다. (K(s) ≠ 1)",
+   "ox": true,
+   "s": "<p>적분은 (k * y)(t) 이므로 변환하면 Y = F + K Y 이고, Y (1 − K) = F 에서 Y = F/(1 − K) 다. 예: f = t, k = t 이면 F = K = 1/s^2 이므로 Y = (1/s^2)/(1 − 1/s^2) = 1/(s^2 − 1).</p><p>함정: Y 가 양변에 모두 있으므로 모아서 정리해야 한다 (K 가 곱해져 있으므로 Y 가 사라지지 않는다).</p>",
+   "src": [
+    [
+     "L15",
+     "14"
+    ],
+    [
+     "L15",
+     "15"
+    ]
+   ],
+   "topic": "lt_inteq",
+   "dx": {
+    "facet": "lt_inteq.solve",
+    "depth": 3,
+    "family": "f_em154",
+    "role": "near",
+    "delta": [
+     "repr",
+     "구체적인 식 → 일반 꼴 Y = F/(1 − K)"
+    ]
+   }
+  }
+ ]
+}
