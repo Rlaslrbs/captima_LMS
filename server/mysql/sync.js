@@ -20,16 +20,25 @@ function numbered(sql) {
 }
 
 export function openMySQL(cfg) {
+  const waitMs = cfg.waitMs ?? WAIT_MS;                 // 시험에서만 짧게
   const sab = new SharedArrayBuffer(4), flag = new Int32Array(sab);
   const { port1, port2 } = new MessageChannel();
   const worker = new Worker(new URL("./worker.js", import.meta.url), { workerData: { port: port2, sab, cfg }, transferList: [port2] });
   worker.unref(); port1.unref();
+  let seq = 0;
 
+  // 쿼리마다 번호를 붙인다. 시간이 지나 포기한 앞 쿼리의 답이 늦게 오면 버린다 (안 그러면 그 뒤 쿼리가 모두 한 칸 밀린 답을 받는다)
   function call(sql, params = []) {
+    const id = ++seq, end = Date.now() + waitMs;
+    let message;
     Atomics.store(flag, 0, 0);
-    port1.postMessage({ sql, params });
-    if (Atomics.wait(flag, 0, 0, WAIT_MS) === "timed-out") throw new Error("MySQL 응답이 없어요 (" + WAIT_MS / 1000 + "초)");
-    const { message } = receiveMessageOnPort(port1);
+    port1.postMessage({ id, sql, params });
+    while (!message) {
+      const left = end - Date.now();
+      if (left <= 0 || Atomics.wait(flag, 0, 0, left) === "timed-out") throw new Error("MySQL 응답이 없어요 (" + waitMs / 1000 + "초)");
+      Atomics.store(flag, 0, 0);
+      for (let r; (r = receiveMessageOnPort(port1));) if (r.message.id === id) message = r.message;
+    }
     if (message.error) throw Object.assign(new Error(message.error.message), { code: message.error.code, errno: message.error.errno, sql });
     return message;
   }

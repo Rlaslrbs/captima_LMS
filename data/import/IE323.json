@@ -1,0 +1,8450 @@
+{
+  "format": 1,
+  "semester": {
+    "code": "27-2",
+    "name": "2027년 2학기"
+  },
+  "course": {
+    "code": "IE323",
+    "short": "인지",
+    "name": "인공지능",
+    "color": {
+      "light": "#4f63b8",
+      "dark": "#aebcff"
+    },
+    "professor": "정재윤",
+    "meta": "2025 강의자료 21개 · 2022~2024 중간·기말 기출 6개",
+    "lang": "ko",
+    "math": true,
+    "files": {
+      "I01": "AI_01_Intro.pdf (인공지능 소개 및 산업 응용)",
+      "I02": "AI_02_ANN.pdf (ANN·MLP)",
+      "I03": "AI_03_Perceptron.pdf (Perceptron and Delta Rule)",
+      "I04": "AI_04_BP.pdf (Gradient Descent·Backpropagation)",
+      "I05": "AI_05_DNN.pdf (TensorFlow·Keras DNN)",
+      "I05H": "AI_05_DNN_HW.pdf (DNN 과제 해설)",
+      "I05O": "AI_05_DNN_Optimization.pdf (딥러닝 최적화)",
+      "I06": "AI_06_CNN.pdf (CNN 이론)",
+      "I06M": "AI_06_CNN__MNIST.pdf (MNIST CNN)",
+      "I06C1": "AI_06_CNN_CIFAR(1).pdf (검증 전략)",
+      "I06C2": "AI_06_CNN_CIFAR(2).pdf (증강·탐색)",
+      "I07": "AI_07_RNN.pdf (RNN·LSTM·GRU)",
+      "I07I": "AI_07_RNN_IMDB.pdf (LSTM 감성분류)",
+      "I07W": "AI_07-2_RNN_W2V.pdf (Word2Vec)",
+      "I08": "AI_08_DAE.pdf (AutoEncoder)",
+      "I09": "AI_09_Detection.pdf (Detection·평가지표)",
+      "I09Y": "AI_09_Detection_YOLO.pdf (YOLOv11 실습)",
+      "I10": "AI_10_GAN.pdf (GAN·DCGAN)",
+      "I11": "AI_11_Transformer.pdf (Transformer)",
+      "I12": "AI_12_GPT.pdf (GPT)",
+      "I13": "AI_13_LLM.pdf (LLM·RAG·TAG)",
+      "E22M": "AI2022_mid.pdf (2022 중간고사)",
+      "E22F": "AI2022_final.pdf (2022 기말고사)",
+      "E23M": "AI2023_mid.pdf (2023 중간고사)",
+      "E23F": "AI2023_final.pdf (2023 기말고사)",
+      "E24M": "AI2024_mid.pdf (2024 중간고사)",
+      "E24F": "AI2024_final.pdf (2024 기말고사)"
+    },
+    "topics": {
+      "ai": {
+        "name": "인공지능의 기초와 산업 응용",
+        "confusable": [
+          "nn"
+        ],
+        "facets": {
+          "scope": {
+            "name": "AI·ML·DL의 포함 관계",
+            "kind": "relation",
+            "statement": "딥러닝은 인공신경망을 기반으로 하는 머신러닝의 일부이며, 머신러닝은 인공지능의 일부이다."
+          },
+          "history": {
+            "name": "AI와 딥러닝의 주요 역사",
+            "kind": "def",
+            "statement": "AI라는 용어는 1956년 Dartmouth Workshop에서 등장했고 AlexNet은 2012년 ILSVRC에서 우승했다."
+          },
+          "learning": {
+            "name": "기계학습의 세 유형",
+            "kind": "distinction",
+            "statement": "지도학습은 입력과 정답으로 예측을 학습하고, 비지도학습은 정답 없이 구조를 찾으며, 강화학습은 행동의 보상으로 정책을 학습한다."
+          },
+          "industry": {
+            "name": "산업 AI 문제 정의",
+            "kind": "relation",
+            "statement": "산업 AI는 생산·품질·물류·설비 데이터를 이용해 예측, 진단, 최적화와 의사결정을 지원한다."
+          }
+        }
+      },
+      "nn": {
+        "name": "퍼셉트론·경사하강·역전파",
+        "confusable": [
+          "dnn"
+        ],
+        "facets": {
+          "structure": {
+            "name": "퍼셉트론과 MLP 구조",
+            "kind": "distinction",
+            "statement": "퍼셉트론은 가중합과 활성함수로 출력을 만들며, MLP는 입력층과 출력층 사이에 하나 이상의 은닉층을 둔 순방향 신경망이다."
+          },
+          "activations": {
+            "name": "활성함수 선택",
+            "kind": "relation",
+            "statement": "회귀 출력에는 주로 Linear, 이진 분류에는 Sigmoid, 다중 분류에는 Softmax, 은닉층에는 ReLU를 사용한다."
+          },
+          "losses": {
+            "name": "손실함수 선택",
+            "kind": "relation",
+            "statement": "회귀에는 MSE, 이진 분류에는 Binary Cross-Entropy, 다중 분류에는 Categorical Cross-Entropy를 주로 사용한다."
+          },
+          "delta": {
+            "name": "Delta Rule",
+            "kind": "procedure",
+            "statement": "Linear neuron의 Delta Rule은 오차와 입력에 비례해 가중치를 수정하며, 대표적으로 w←w+α(d-o)x 형태로 쓴다."
+          },
+          "gradient": {
+            "name": "경사하강법",
+            "kind": "procedure",
+            "statement": "경사하강법은 최소화를 위해 현재 파라미터에서 학습률과 그래디언트의 곱을 빼서 갱신한다."
+          },
+          "backprop": {
+            "name": "오류역전파",
+            "kind": "procedure",
+            "statement": "오류역전파는 전방향 계산 후 출력 오차를 연쇄법칙으로 뒤쪽 층에서 앞쪽 층으로 전달해 각 가중치의 그래디언트를 구한다."
+          },
+          "parameters": {
+            "name": "완전연결층 파라미터 계산",
+            "kind": "procedure",
+            "statement": "입력 노드 n개와 출력 노드 m개를 완전연결하면 가중치 nm개와 편향 m개로 총 (n+1)m개의 파라미터가 필요하다."
+          }
+        }
+      },
+      "dnn": {
+        "name": "DNN 구현과 학습 최적화",
+        "confusable": [
+          "nn"
+        ],
+        "facets": {
+          "keras": {
+            "name": "Keras 모델링 절차",
+            "kind": "procedure",
+            "statement": "Keras 모델링은 데이터 준비, 네트워크 설계, compile, fit, evaluate·predict 순으로 진행한다."
+          },
+          "preprocessing": {
+            "name": "입력 전처리",
+            "kind": "procedure",
+            "statement": "연속형 입력은 스케일 차이를 줄이도록 정규화하고, 거리 의미가 없는 명목형 범주는 원-핫 인코딩한다."
+          },
+          "initialization": {
+            "name": "가중치 초기화",
+            "kind": "condition",
+            "statement": "같은 값 초기화는 노드 대칭성을 만들며 ReLU에는 He, Sigmoid·tanh에는 Xavier가 주로 적합하다."
+          },
+          "optimizers": {
+            "name": "모멘텀과 적응적 옵티마이저",
+            "kind": "distinction",
+            "statement": "Momentum은 방향을 누적하고 RMSProp은 학습률을 조절하며 Adam은 두 아이디어를 결합한다."
+          },
+          "regularization": {
+            "name": "과적합 방지와 배치 정규화",
+            "kind": "distinction",
+            "statement": "Early Stopping과 Dropout은 과적합을 줄이고, Batch Normalization은 미니배치 통계로 중간 활성값을 정규화해 학습을 안정화한다."
+          }
+        }
+      },
+      "cnn": {
+        "name": "CNN과 영상 분류",
+        "confusable": [
+          "vision"
+        ],
+        "facets": {
+          "signal": {
+            "name": "영상의 해상도·색 깊이·채널",
+            "kind": "def",
+            "statement": "표본화 밀도는 공간 해상도와, 양자화 단계 수는 색 깊이와 관련되며 컬러 영상은 보통 R·G·B 세 채널로 표현한다."
+          },
+          "conv": {
+            "name": "합성곱과 특징맵",
+            "kind": "procedure",
+            "statement": "합성곱 층은 작은 커널을 입력의 국소 영역에 이동 적용해 특징맵을 만들며 커널 값은 역전파로 학습한다."
+          },
+          "output": {
+            "name": "Padding·Stride·출력 크기",
+            "kind": "procedure",
+            "statement": "한 변의 입력 크기 w, 커널 h, 패딩 p, 스트라이드 s일 때 합성곱 출력 크기는 floor((w+2p-h)/s)+1이다."
+          },
+          "props": {
+            "name": "지역 연결과 가중치 공유",
+            "kind": "property",
+            "statement": "CNN은 국소 수용장을 사용하고 동일 커널을 공간 전체에 공유하여 완전연결층보다 파라미터 수를 줄이고 위치에 걸친 패턴을 탐지한다."
+          },
+          "pool": {
+            "name": "Pooling",
+            "kind": "distinction",
+            "statement": "Pooling은 국소 영역을 최대값이나 평균값으로 요약해 공간 크기를 줄이며 일반적으로 학습 파라미터가 없다."
+          },
+          "params": {
+            "name": "합성곱층 파라미터 계산",
+            "kind": "procedure",
+            "statement": "커널 h×w, 입력 채널 Cin, 출력 채널 Cout인 Conv 층은 편향 포함 (h×w×Cin+1)×Cout개의 파라미터를 갖는다."
+          },
+          "arch": {
+            "name": "LeNet·AlexNet·VGGNet",
+            "kind": "distinction",
+            "statement": "LeNet은 초기 CNN, AlexNet은 2012 ILSVRC 우승 모델, VGGNet은 3×3 커널을 반복한 모델이다."
+          }
+        }
+      },
+      "rnn": {
+        "name": "RNN·LSTM·Word Embedding",
+        "confusable": [
+          "nlp"
+        ],
+        "facets": {
+          "structure": {
+            "name": "RNN 순환 구조",
+            "kind": "def",
+            "statement": "RNN은 현재 입력과 이전 은닉상태로 새 은닉상태를 계산하며 Wxh, Whh, Why와 bh, by를 공유해 순차 데이터를 처리한다."
+          },
+          "compute": {
+            "name": "RNN 전방 계산",
+            "kind": "procedure",
+            "statement": "기본 RNN은 h_t=f(x_t Wxh+h_{t-1}Whh+bh), y_t=g(h_t Why+by) 순서로 시점별 출력을 계산한다."
+          },
+          "forms": {
+            "name": "RNN 입출력 형태",
+            "kind": "distinction",
+            "statement": "RNN은 one-to-many, many-to-one, many-to-many 등 과업에 따라 입력·출력 시퀀스 형태를 다르게 설계한다."
+          },
+          "lstm": {
+            "name": "LSTM·GRU",
+            "kind": "distinction",
+            "statement": "LSTM은 세 gate와 cell state로 장기 의존성을 보존하고 GRU는 이를 단순화한다."
+          },
+          "embedding": {
+            "name": "Embedding·Word2Vec",
+            "kind": "distinction",
+            "statement": "Embedding은 단어를 저차원 벡터로 바꾸며 CBOW와 Skip-gram은 예측 방향이 반대다."
+          }
+        }
+      },
+      "gen": {
+        "name": "AutoEncoder와 GAN",
+        "confusable": [
+          "vision"
+        ],
+        "facets": {
+          "ae_core": {
+            "name": "AutoEncoder의 구조와 활용",
+            "kind": "def",
+            "statement": "AutoEncoder는 입력을 압축·복원하며 차원 축소와 재구성 오차 기반 이상탐지에 활용한다."
+          },
+          "ae_variants": {
+            "name": "SAE·DAE·CAE·VAE",
+            "kind": "distinction",
+            "statement": "SAE는 은닉층을 쌓고, DAE는 손상 입력을 복원하며, CAE는 합성곱을 사용하고, VAE는 잠재분포에서 샘플링해 생성할 수 있다."
+          },
+          "transconv": {
+            "name": "전치합성곱",
+            "kind": "procedure",
+            "statement": "전치합성곱은 학습 가능한 커널로 작은 특징맵을 더 큰 공간 특징맵으로 변환해 CAE·GAN의 Decoder나 Generator에서 사용한다."
+          },
+          "gan": {
+            "name": "GAN·DCGAN",
+            "kind": "procedure",
+            "statement": "GAN은 데이터를 만드는 Generator와 실제·가짜를 구분하는 Discriminator를 적대적으로 학습한다."
+          }
+        }
+      },
+      "vision": {
+        "name": "객체 탐지와 성능 평가",
+        "confusable": [
+          "cnn"
+        ],
+        "facets": {
+          "tasks": {
+            "name": "영상 분석 과업 구분",
+            "kind": "distinction",
+            "statement": "Classification은 범주, Localization은 위치, Detection은 박스, Segmentation은 픽셀 영역을 예측한다."
+          },
+          "class_metrics": {
+            "name": "분류 성능지표",
+            "kind": "procedure",
+            "statement": "Precision은 TP/(TP+FP), Recall은 TP/(TP+FN), Specificity는 TN/(TN+FP)이다."
+          },
+          "seg_metrics": {
+            "name": "IoU·Dice",
+            "kind": "procedure",
+            "statement": "IoU는 교집합/합집합, Dice는 교집합의 두 배를 두 집합 크기의 합으로 나눈 값이다."
+          },
+          "yolo": {
+            "name": "YOLO·NMS·AP",
+            "kind": "procedure",
+            "statement": "YOLO는 그리드별 박스·objectness·클래스를 한 단계에서 예측하고 NMS로 중복을 줄인다."
+          }
+        }
+      },
+      "nlp": {
+        "name": "Transformer·GPT·LLM",
+        "confusable": [
+          "rnn"
+        ],
+        "facets": {
+          "transformer": {
+            "name": "Transformer 구조",
+            "kind": "distinction",
+            "statement": "Transformer는 순환 대신 self-attention을 사용해 장기 의존성과 병렬 처리를 지원한다."
+          },
+          "attention": {
+            "name": "Attention과 MHA",
+            "kind": "procedure",
+            "statement": "Attention은 Query와 Key의 유사도로 Value를 가중합하며 Decoder는 미래 토큰을 가린다."
+          },
+          "gpt": {
+            "name": "GPT의 구조와 사전학습",
+            "kind": "def",
+            "statement": "GPT는 Decoder-only Transformer에서 causal mask로 다음 토큰을 autoregressive 예측한다."
+          },
+          "llm_rag": {
+            "name": "LLM·RAG·TAG",
+            "kind": "procedure",
+            "statement": "RAG는 관련 문서를 검색해 LLM 문맥에 넣고 TAG는 관계형 DB를 질의해 답변에 활용한다."
+          }
+        }
+      }
+    },
+    "misconceptions": {
+      "m_ai_scope": {
+        "facet": "ai.scope",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "딥러닝은 인공신경망을 기반으로 하는 머신러닝의 일부이며, 머신러닝은 인공지능의 일부이다."
+      },
+      "m_ai_history": {
+        "facet": "ai.history",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "AI라는 용어는 1956년 Dartmouth Workshop에서 등장했고 AlexNet은 2012년 ILSVRC에서 우승했다."
+      },
+      "m_ai_learning": {
+        "facet": "ai.learning",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "지도학습은 입력과 정답으로 예측을 학습하고, 비지도학습은 정답 없이 구조를 찾으며, 강화학습은 행동의 보상으로 정책을 학습한다."
+      },
+      "m_ai_industry": {
+        "facet": "ai.industry",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "산업 AI는 생산·품질·물류·설비 데이터를 이용해 예측, 진단, 최적화와 의사결정을 지원한다."
+      },
+      "m_nn_structure": {
+        "facet": "nn.structure",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "퍼셉트론은 가중합과 활성함수로 출력을 만들며, MLP는 입력층과 출력층 사이에 하나 이상의 은닉층을 둔 순방향 신경망이다."
+      },
+      "m_nn_activations": {
+        "facet": "nn.activations",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "회귀 출력에는 주로 Linear, 이진 분류에는 Sigmoid, 다중 분류에는 Softmax, 은닉층에는 ReLU를 사용한다."
+      },
+      "m_nn_losses": {
+        "facet": "nn.losses",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "회귀에는 MSE, 이진 분류에는 Binary Cross-Entropy, 다중 분류에는 Categorical Cross-Entropy를 주로 사용한다."
+      },
+      "m_nn_delta": {
+        "facet": "nn.delta",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Linear neuron의 Delta Rule은 오차와 입력에 비례해 가중치를 수정하며, 대표적으로 w←w+α(d-o)x 형태로 쓴다."
+      },
+      "m_nn_gradient": {
+        "facet": "nn.gradient",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "경사하강법은 최소화를 위해 현재 파라미터에서 학습률과 그래디언트의 곱을 빼서 갱신한다."
+      },
+      "m_nn_backprop": {
+        "facet": "nn.backprop",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "오류역전파는 전방향 계산 후 출력 오차를 연쇄법칙으로 뒤쪽 층에서 앞쪽 층으로 전달해 각 가중치의 그래디언트를 구한다."
+      },
+      "m_nn_parameters": {
+        "facet": "nn.parameters",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "입력 노드 n개와 출력 노드 m개를 완전연결하면 가중치 nm개와 편향 m개로 총 (n+1)m개의 파라미터가 필요하다."
+      },
+      "m_dnn_keras": {
+        "facet": "dnn.keras",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Keras 모델링은 데이터 준비, 네트워크 설계, compile, fit, evaluate·predict 순으로 진행한다."
+      },
+      "m_dnn_preprocessing": {
+        "facet": "dnn.preprocessing",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "연속형 입력은 스케일 차이를 줄이도록 정규화하고, 거리 의미가 없는 명목형 범주는 원-핫 인코딩한다."
+      },
+      "m_dnn_initialization": {
+        "facet": "dnn.initialization",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "같은 값 초기화는 노드 대칭성을 만들며 ReLU에는 He, Sigmoid·tanh에는 Xavier가 주로 적합하다."
+      },
+      "m_dnn_optimizers": {
+        "facet": "dnn.optimizers",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Momentum은 방향을 누적하고 RMSProp은 학습률을 조절하며 Adam은 두 아이디어를 결합한다."
+      },
+      "m_dnn_regularization": {
+        "facet": "dnn.regularization",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Early Stopping과 Dropout은 과적합을 줄이고, Batch Normalization은 미니배치 통계로 중간 활성값을 정규화해 학습을 안정화한다."
+      },
+      "m_cnn_signal": {
+        "facet": "cnn.signal",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "표본화 밀도는 공간 해상도와, 양자화 단계 수는 색 깊이와 관련되며 컬러 영상은 보통 R·G·B 세 채널로 표현한다."
+      },
+      "m_cnn_conv": {
+        "facet": "cnn.conv",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "합성곱 층은 작은 커널을 입력의 국소 영역에 이동 적용해 특징맵을 만들며 커널 값은 역전파로 학습한다."
+      },
+      "m_cnn_output": {
+        "facet": "cnn.output",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "한 변의 입력 크기 w, 커널 h, 패딩 p, 스트라이드 s일 때 합성곱 출력 크기는 floor((w+2p-h)/s)+1이다."
+      },
+      "m_cnn_props": {
+        "facet": "cnn.props",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "CNN은 국소 수용장을 사용하고 동일 커널을 공간 전체에 공유하여 완전연결층보다 파라미터 수를 줄이고 위치에 걸친 패턴을 탐지한다."
+      },
+      "m_cnn_pool": {
+        "facet": "cnn.pool",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Pooling은 국소 영역을 최대값이나 평균값으로 요약해 공간 크기를 줄이며 일반적으로 학습 파라미터가 없다."
+      },
+      "m_cnn_params": {
+        "facet": "cnn.params",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "커널 h×w, 입력 채널 Cin, 출력 채널 Cout인 Conv 층은 편향 포함 (h×w×Cin+1)×Cout개의 파라미터를 갖는다."
+      },
+      "m_cnn_arch": {
+        "facet": "cnn.arch",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "LeNet은 초기 CNN, AlexNet은 2012 ILSVRC 우승 모델, VGGNet은 3×3 커널을 반복한 모델이다."
+      },
+      "m_rnn_structure": {
+        "facet": "rnn.structure",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "RNN은 현재 입력과 이전 은닉상태로 새 은닉상태를 계산하며 Wxh, Whh, Why와 bh, by를 공유해 순차 데이터를 처리한다."
+      },
+      "m_rnn_compute": {
+        "facet": "rnn.compute",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "기본 RNN은 h_t=f(x_t Wxh+h_{t-1}Whh+bh), y_t=g(h_t Why+by) 순서로 시점별 출력을 계산한다."
+      },
+      "m_rnn_forms": {
+        "facet": "rnn.forms",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "RNN은 one-to-many, many-to-one, many-to-many 등 과업에 따라 입력·출력 시퀀스 형태를 다르게 설계한다."
+      },
+      "m_rnn_lstm": {
+        "facet": "rnn.lstm",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "LSTM은 세 gate와 cell state로 장기 의존성을 보존하고 GRU는 이를 단순화한다."
+      },
+      "m_rnn_embedding": {
+        "facet": "rnn.embedding",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Embedding은 단어를 저차원 벡터로 바꾸며 CBOW와 Skip-gram은 예측 방향이 반대다."
+      },
+      "m_gen_ae_core": {
+        "facet": "gen.ae_core",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "AutoEncoder는 입력을 압축·복원하며 차원 축소와 재구성 오차 기반 이상탐지에 활용한다."
+      },
+      "m_gen_ae_variants": {
+        "facet": "gen.ae_variants",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "SAE는 은닉층을 쌓고, DAE는 손상 입력을 복원하며, CAE는 합성곱을 사용하고, VAE는 잠재분포에서 샘플링해 생성할 수 있다."
+      },
+      "m_gen_transconv": {
+        "facet": "gen.transconv",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "전치합성곱은 학습 가능한 커널로 작은 특징맵을 더 큰 공간 특징맵으로 변환해 CAE·GAN의 Decoder나 Generator에서 사용한다."
+      },
+      "m_gen_gan": {
+        "facet": "gen.gan",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "GAN은 데이터를 만드는 Generator와 실제·가짜를 구분하는 Discriminator를 적대적으로 학습한다."
+      },
+      "m_vision_tasks": {
+        "facet": "vision.tasks",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Classification은 범주, Localization은 위치, Detection은 박스, Segmentation은 픽셀 영역을 예측한다."
+      },
+      "m_vision_class_metrics": {
+        "facet": "vision.class_metrics",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Precision은 TP/(TP+FP), Recall은 TP/(TP+FN), Specificity는 TN/(TN+FP)이다."
+      },
+      "m_vision_seg_metrics": {
+        "facet": "vision.seg_metrics",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "IoU는 교집합/합집합, Dice는 교집합의 두 배를 두 집합 크기의 합으로 나눈 값이다."
+      },
+      "m_vision_yolo": {
+        "facet": "vision.yolo",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "YOLO는 그리드별 박스·objectness·클래스를 한 단계에서 예측하고 NMS로 중복을 줄인다."
+      },
+      "m_nlp_transformer": {
+        "facet": "nlp.transformer",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Transformer는 순환 대신 self-attention을 사용해 장기 의존성과 병렬 처리를 지원한다."
+      },
+      "m_nlp_attention": {
+        "facet": "nlp.attention",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "Attention은 Query와 Key의 유사도로 Value를 가중합하며 Decoder는 미래 토큰을 가린다."
+      },
+      "m_nlp_gpt": {
+        "facet": "nlp.gpt",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "GPT는 Decoder-only Transformer에서 causal mask로 다음 토큰을 autoregressive 예측한다."
+      },
+      "m_nlp_llm_rag": {
+        "facet": "nlp.llm_rag",
+        "belief": "핵심 조건이나 개념의 방향을 반대로 적용해도 된다고 생각함",
+        "truth": "RAG는 관련 문서를 검색해 LLM 문맥에 넣고 TAG는 관계형 DB를 질의해 답변에 활용한다."
+      }
+    }
+  },
+  "chapters": [
+    {
+      "key": "C1",
+      "title": "1장 · 인공지능 기초와 산업 응용",
+      "short": "AI 기초",
+      "group": "전반부"
+    },
+    {
+      "key": "C2",
+      "title": "2장 · 퍼셉트론과 오류역전파",
+      "short": "퍼셉트론·BP",
+      "group": "전반부"
+    },
+    {
+      "key": "C3",
+      "title": "3장 · DNN 구현과 학습 최적화",
+      "short": "DNN 최적화",
+      "group": "전반부"
+    },
+    {
+      "key": "C4",
+      "title": "4장 · CNN과 영상 분류",
+      "short": "CNN",
+      "group": "전반부"
+    },
+    {
+      "key": "C5",
+      "title": "5장 · RNN·LSTM·Word Embedding",
+      "short": "RNN·LSTM",
+      "group": "후반부"
+    },
+    {
+      "key": "C6",
+      "title": "6장 · AutoEncoder와 GAN",
+      "short": "AE·GAN",
+      "group": "후반부"
+    },
+    {
+      "key": "C7",
+      "title": "7장 · 객체 탐지와 성능 평가",
+      "short": "Detection",
+      "group": "후반부"
+    },
+    {
+      "key": "C8",
+      "title": "8장 · Transformer·GPT·LLM",
+      "short": "Transformer·LLM",
+      "group": "후반부"
+    }
+  ],
+  "problems": [
+    {
+      "ext_id": "AI-001",
+      "no": "AI-001",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": false,
+      "q": "딥러닝은 머신러닝에 포함되고 머신러닝은 인공지능에 포함된다.",
+      "ox": true,
+      "s": "<p>딥러닝은 인공신경망을 기반으로 하는 머신러닝의 일부이며, 머신러닝은 인공지능의 일부이다.</p>",
+      "src": [
+        [
+          "I01",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.scope",
+        "depth": 1,
+        "family": "ie323_ai_scope",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-002",
+      "no": "AI-002",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": false,
+      "q": "인공지능은 딥러닝에 포함되는 가장 작은 범주의 기술이다.",
+      "ox": false,
+      "fix": "포함 관계는 딥러닝 ⊂ 머신러닝 ⊂ 인공지능이다.",
+      "s": "<p>포함 관계는 딥러닝 ⊂ 머신러닝 ⊂ 인공지능이다.</p>",
+      "src": [
+        [
+          "I01",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.scope",
+        "depth": 3,
+        "family": "ie323_ai_scope",
+        "role": "near",
+        "mis": "m_ai_scope",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-003",
+      "no": "AI-003",
+      "chapter": "C1",
+      "kind": "short",
+      "star": false,
+      "q": "인공신경망을 기반으로 표현을 학습하는 머신러닝 분야를 무엇이라 하는가?",
+      "a": "딥러닝",
+      "accept": [
+        "deep learning",
+        "딥 러닝"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>딥러닝은 인공신경망을 기반으로 하는 머신러닝의 일부이며, 머신러닝은 인공지능의 일부이다.</p>",
+      "src": [
+        [
+          "I01",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.scope",
+        "depth": 1,
+        "family": "ie323_ai_scope",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-004",
+      "no": "AI-004",
+      "chapter": "C1",
+      "kind": "mc",
+      "star": false,
+      "q": "AI·ML·DL의 관계로 옳은 것은?",
+      "opts": [
+        "DL ⊂ ML ⊂ AI",
+        "AI ⊂ ML ⊂ DL",
+        "ML ⊂ AI ⊂ DL",
+        "AI와 ML은 서로 무관하다"
+      ],
+      "ans": 0,
+      "a": "DL ⊂ ML ⊂ AI",
+      "why": [
+        "",
+        "AI ⊂ ML ⊂ DL을(를) 정답으로 혼동함",
+        "ML ⊂ AI ⊂ DL을(를) 정답으로 혼동함",
+        "AI와 ML은 서로 무관하다을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>딥러닝은 인공신경망을 기반으로 하는 머신러닝의 일부이며, 머신러닝은 인공지능의 일부이다.</p><p>정답: <b>DL ⊂ ML ⊂ AI</b></p>",
+      "src": [
+        [
+          "I01",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.scope",
+        "depth": 3,
+        "family": "ie323_ai_scope",
+        "role": "near",
+        "mis": [
+          "",
+          "m_ai_scope",
+          "m_ai_scope",
+          "m_ai_scope"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-005",
+      "no": "AI-005",
+      "chapter": "C1",
+      "kind": "short",
+      "star": false,
+      "q": "진동 기반 고장진단을 규칙 기반 AI와 딥러닝으로 구현할 때 입력과 특징 설계의 차이를 설명하시오.",
+      "a": "규칙 기반 방식은 사람이 특징과 판정 규칙을 설계하지만, 딥러닝은 원 신호 또는 가공 신호에서 유용한 표현을 신경망이 학습한다.",
+      "accept": [
+        "규칙 기반 방식은 사람이 특징과 판정 규칙을 설계하지만, 딥러닝은 원 신호 또는 가공 신호에서 유용한 표현을 신경망이 학습한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>규칙 기반 방식은 사람이 특징과 판정 규칙을 설계하지만, 딥러닝은 원 신호 또는 가공 신호에서 유용한 표현을 신경망이 학습한다.</p>",
+      "src": [
+        [
+          "I01",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.scope",
+        "depth": 2,
+        "family": "ie323_ai_scope",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-006",
+      "no": "AI-006",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": true,
+      "q": "1956년 Dartmouth Workshop은 인공지능이라는 명칭이 등장한 사건이다.",
+      "ox": true,
+      "s": "<p>AI라는 용어는 1956년 Dartmouth Workshop에서 John McCarthy가 처음 사용했고, AlexNet은 2012년 ILSVRC에서 딥러닝의 전환점을 만들었다.</p>",
+      "src": [
+        [
+          "I01",
+          "6"
+        ],
+        [
+          "I01",
+          "14"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.history",
+        "depth": 1,
+        "family": "ie323_ai_history",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-007",
+      "no": "AI-007",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": false,
+      "q": "AlexNet은 1998년에 개발되어 LeNet보다 먼저 ILSVRC에서 우승했다.",
+      "ox": false,
+      "fix": "AlexNet은 2012년 ILSVRC에서 우승했고, LeNet-5는 1998년의 초기 CNN 사례이다.",
+      "s": "<p>AlexNet은 2012년 ILSVRC에서 우승했고, LeNet-5는 1998년의 초기 CNN 사례이다.</p>",
+      "src": [
+        [
+          "I01",
+          "6"
+        ],
+        [
+          "I01",
+          "14"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.history",
+        "depth": 3,
+        "family": "ie323_ai_history",
+        "role": "near",
+        "mis": "m_ai_history",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-008",
+      "no": "AI-008",
+      "chapter": "C1",
+      "kind": "short",
+      "star": false,
+      "q": "1956년에 AI라는 명칭이 처음 만들어진 회의 이름을 쓰시오.",
+      "a": "Dartmouth Workshop",
+      "accept": [
+        "다트머스 워크숍",
+        "dartmouth conference"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>AI라는 용어는 1956년 Dartmouth Workshop에서 John McCarthy가 처음 사용했고, AlexNet은 2012년 ILSVRC에서 딥러닝의 전환점을 만들었다.</p>",
+      "src": [
+        [
+          "I01",
+          "6"
+        ],
+        [
+          "I01",
+          "14"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.history",
+        "depth": 1,
+        "family": "ie323_ai_history",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-009",
+      "no": "AI-009",
+      "chapter": "C1",
+      "kind": "mc",
+      "star": true,
+      "q": "2012년 ILSVRC에서 딥러닝 기반으로 우승한 모델은?",
+      "opts": [
+        "LeNet-5",
+        "AlexNet",
+        "VGGNet-19",
+        "YOLOv1"
+      ],
+      "ans": 1,
+      "a": "AlexNet",
+      "why": [
+        "LeNet-5을(를) 정답으로 혼동함",
+        "",
+        "VGGNet-19을(를) 정답으로 혼동함",
+        "YOLOv1을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>AI라는 용어는 1956년 Dartmouth Workshop에서 John McCarthy가 처음 사용했고, AlexNet은 2012년 ILSVRC에서 딥러닝의 전환점을 만들었다.</p><p>정답: <b>AlexNet</b></p>",
+      "src": [
+        [
+          "I01",
+          "6"
+        ],
+        [
+          "I01",
+          "14"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.history",
+        "depth": 3,
+        "family": "ie323_ai_history",
+        "role": "near",
+        "mis": [
+          "m_ai_history",
+          "",
+          "m_ai_history",
+          "m_ai_history"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-010",
+      "no": "AI-010",
+      "chapter": "C1",
+      "kind": "essay",
+      "star": true,
+      "q": "AlexNet이 딥러닝 발전의 전환점으로 평가되는 이유를 한 문장으로 쓰시오.",
+      "a": "<p>대규모 ImageNet 분류에서 CNN이 기존 방법보다 크게 낮은 오류율을 보여 딥러닝의 실효성을 입증했기 때문이다.</p>",
+      "pts": [
+        "ImageNet/ILSVRC",
+        "기존 방법 대비 성능 향상"
+      ],
+      "s": "<p>대규모 ImageNet 분류에서 CNN이 기존 방법보다 크게 낮은 오류율을 보여 딥러닝의 실효성을 입증했기 때문이다.</p>",
+      "src": [
+        [
+          "I01",
+          "6"
+        ],
+        [
+          "I01",
+          "14"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.history",
+        "depth": 4,
+        "family": "ie323_ai_history",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-011",
+      "no": "AI-011",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": true,
+      "q": "강화학습은 행동 결과로 받은 보상을 이용해 정책을 개선한다.",
+      "ox": true,
+      "s": "<p>지도학습은 입력과 정답으로 예측을 학습하고, 비지도학습은 정답 없이 구조를 찾으며, 강화학습은 행동의 보상으로 정책을 학습한다.</p>",
+      "src": [
+        [
+          "I03",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.learning",
+        "depth": 1,
+        "family": "ie323_ai_learning",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-012",
+      "no": "AI-012",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": false,
+      "q": "비지도학습은 모든 입력 샘플에 정답 레이블이 있어야 한다.",
+      "ox": false,
+      "fix": "비지도학습은 정답 레이블 없이 데이터의 구조나 표현을 학습한다.",
+      "s": "<p>비지도학습은 정답 레이블 없이 데이터의 구조나 표현을 학습한다.</p>",
+      "src": [
+        [
+          "I03",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.learning",
+        "depth": 3,
+        "family": "ie323_ai_learning",
+        "role": "near",
+        "mis": "m_ai_learning",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-013",
+      "no": "AI-013",
+      "chapter": "C1",
+      "kind": "short",
+      "star": false,
+      "q": "입력과 목표 출력의 쌍을 이용해 예측 모형을 학습하는 유형은?",
+      "a": "지도학습",
+      "accept": [
+        "supervised learning"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>지도학습은 입력과 정답으로 예측을 학습하고, 비지도학습은 정답 없이 구조를 찾으며, 강화학습은 행동의 보상으로 정책을 학습한다.</p>",
+      "src": [
+        [
+          "I03",
+          "3"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.learning",
+        "depth": 1,
+        "family": "ie323_ai_learning",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-014",
+      "no": "AI-014",
+      "chapter": "C1",
+      "kind": "mc",
+      "star": true,
+      "q": "학습 유형과 정보의 연결이 옳은 것은?",
+      "opts": [
+        "비지도학습-행동 보상",
+        "강화학습-정답 클래스만 사용",
+        "지도학습-정답 레이블",
+        "비지도학습-모든 샘플의 목표값"
+      ],
+      "ans": 2,
+      "a": "지도학습-정답 레이블",
+      "why": [
+        "비지도학습-행동 보상을(를) 정답으로 혼동함",
+        "강화학습-정답 클래스만 사용을(를) 정답으로 혼동함",
+        "",
+        "비지도학습-모든 샘플의 목표값을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>지도학습은 입력과 정답으로 예측을 학습하고, 비지도학습은 정답 없이 구조를 찾으며, 강화학습은 행동의 보상으로 정책을 학습한다.</p><p>정답: <b>지도학습-정답 레이블</b></p>",
+      "src": [
+        [
+          "I03",
+          "3"
+        ],
+        [
+          "E24M",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.learning",
+        "depth": 3,
+        "family": "ie323_ai_learning",
+        "role": "near",
+        "mis": [
+          "m_ai_learning",
+          "m_ai_learning",
+          "",
+          "m_ai_learning"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-015",
+      "no": "AI-015",
+      "chapter": "C1",
+      "kind": "short",
+      "star": true,
+      "q": "분류·군집화·게임 에이전트를 지도학습, 비지도학습, 강화학습에 각각 대응시키시오.",
+      "a": "분류-지도학습, 군집화-비지도학습, 게임 에이전트-강화학습",
+      "accept": [
+        "분류-지도학습, 군집화-비지도학습, 게임 에이전트-강화학습"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>분류-지도학습, 군집화-비지도학습, 게임 에이전트-강화학습</p>",
+      "src": [
+        [
+          "I03",
+          "3"
+        ],
+        [
+          "E24M",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.learning",
+        "depth": 2,
+        "family": "ie323_ai_learning",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-016",
+      "no": "AI-016",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": true,
+      "q": "산업 AI는 품질 진단뿐 아니라 생산·물류·설비 문제에도 적용할 수 있다.",
+      "ox": true,
+      "s": "<p>산업 AI는 생산·품질·물류·설비 데이터를 이용해 예측, 진단, 최적화와 의사결정을 지원한다.</p>",
+      "src": [
+        [
+          "I01",
+          "28"
+        ],
+        [
+          "I01",
+          "29"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.industry",
+        "depth": 1,
+        "family": "ie323_ai_industry",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-017",
+      "no": "AI-017",
+      "chapter": "C1",
+      "kind": "ox",
+      "star": false,
+      "q": "산업 AI 문제는 반드시 자연어 생성 모델로만 해결해야 한다.",
+      "ox": false,
+      "fix": "산업 AI에는 분류·회귀·시계열·비전·최적화 등 다양한 모델을 사용할 수 있다.",
+      "s": "<p>산업 AI에는 분류·회귀·시계열·비전·최적화 등 다양한 모델을 사용할 수 있다.</p>",
+      "src": [
+        [
+          "I01",
+          "28"
+        ],
+        [
+          "I01",
+          "29"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.industry",
+        "depth": 3,
+        "family": "ie323_ai_industry",
+        "role": "near",
+        "mis": "m_ai_industry",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-018",
+      "no": "AI-018",
+      "chapter": "C1",
+      "kind": "short",
+      "star": false,
+      "q": "설비 센서로 미래 고장 시점을 예측하는 대표 산업 AI 과업은?",
+      "a": "예지보전",
+      "accept": [
+        "predictive maintenance",
+        "고장 예측"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>산업 AI는 생산·품질·물류·설비 데이터를 이용해 예측, 진단, 최적화와 의사결정을 지원한다.</p>",
+      "src": [
+        [
+          "I01",
+          "28"
+        ],
+        [
+          "I01",
+          "29"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.industry",
+        "depth": 1,
+        "family": "ie323_ai_industry",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-019",
+      "no": "AI-019",
+      "chapter": "C1",
+      "kind": "mc",
+      "star": true,
+      "q": "산업 AI 문제와 적합한 출력의 연결로 가장 타당한 것은?",
+      "opts": [
+        "불량 판정-문장 번역",
+        "설비 이상-이미지 생성만 수행",
+        "배송 경로-감성 분류",
+        "월별 판매량-연속값 예측"
+      ],
+      "ans": 3,
+      "a": "월별 판매량-연속값 예측",
+      "why": [
+        "불량 판정-문장 번역을(를) 정답으로 혼동함",
+        "설비 이상-이미지 생성만 수행을(를) 정답으로 혼동함",
+        "배송 경로-감성 분류을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>산업 AI는 생산·품질·물류·설비 데이터를 이용해 예측, 진단, 최적화와 의사결정을 지원한다.</p><p>정답: <b>월별 판매량-연속값 예측</b></p>",
+      "src": [
+        [
+          "I01",
+          "28"
+        ],
+        [
+          "I01",
+          "29"
+        ],
+        [
+          "E23F",
+          "2"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.industry",
+        "depth": 3,
+        "family": "ie323_ai_industry",
+        "role": "near",
+        "mis": [
+          "m_ai_industry",
+          "m_ai_industry",
+          "m_ai_industry",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-020",
+      "no": "AI-020",
+      "chapter": "C1",
+      "kind": "essay",
+      "star": true,
+      "q": "제조 공정의 품질 개선을 위한 AI 문제를 입력, 출력, 모델 유형으로 나누어 설계하시오.",
+      "a": "<p>공정 조건·센서값을 입력으로, 불량 여부나 품질값을 출력으로 두고 분류 또는 회귀 모델을 학습한다.</p>",
+      "pts": [
+        "입력 변수",
+        "출력 정의",
+        "분류/회귀 선택"
+      ],
+      "s": "<p>공정 조건·센서값을 입력으로, 불량 여부나 품질값을 출력으로 두고 분류 또는 회귀 모델을 학습한다.</p>",
+      "src": [
+        [
+          "I01",
+          "28"
+        ],
+        [
+          "I01",
+          "29"
+        ],
+        [
+          "E23F",
+          "2"
+        ]
+      ],
+      "topic": "ai",
+      "dx": {
+        "facet": "ai.industry",
+        "depth": 4,
+        "family": "ie323_ai_industry",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-021",
+      "no": "AI-021",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "MLP는 입력층과 출력층 사이에 하나 이상의 은닉층을 갖는다.",
+      "ox": true,
+      "s": "<p>퍼셉트론은 가중합과 활성함수로 출력을 만들며, MLP는 입력층과 출력층 사이에 하나 이상의 은닉층을 둔 순방향 신경망이다.</p>",
+      "src": [
+        [
+          "I02",
+          "7"
+        ],
+        [
+          "I02",
+          "14"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.structure",
+        "depth": 1,
+        "family": "ie323_nn_structure",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-022",
+      "no": "AI-022",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "단층 퍼셉트론 하나만으로 XOR을 항상 선형 분리할 수 있다.",
+      "ox": false,
+      "fix": "XOR은 선형 분리가 불가능하므로 은닉층을 둔 MLP가 필요하다.",
+      "s": "<p>XOR은 선형 분리가 불가능하므로 은닉층을 둔 MLP가 필요하다.</p>",
+      "src": [
+        [
+          "I02",
+          "7"
+        ],
+        [
+          "I02",
+          "14"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.structure",
+        "depth": 3,
+        "family": "ie323_nn_structure",
+        "role": "near",
+        "mis": "m_nn_structure",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-023",
+      "no": "AI-023",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "입력층과 출력층 사이에 은닉층을 하나 이상 둔 순방향 신경망은?",
+      "a": "다층 퍼셉트론",
+      "accept": [
+        "MLP",
+        "multi-layer perceptron",
+        "다층퍼셉트론"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>퍼셉트론은 가중합과 활성함수로 출력을 만들며, MLP는 입력층과 출력층 사이에 하나 이상의 은닉층을 둔 순방향 신경망이다.</p>",
+      "src": [
+        [
+          "I02",
+          "7"
+        ],
+        [
+          "I02",
+          "14"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.structure",
+        "depth": 1,
+        "family": "ie323_nn_structure",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-024",
+      "no": "AI-024",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "단층 퍼셉트론의 한계로 옳은 것은?",
+      "opts": [
+        "비선형 분리 문제인 XOR을 풀기 어렵다",
+        "가중치를 사용할 수 없다",
+        "연속형 입력을 받을 수 없다",
+        "활성함수를 사용할 수 없다"
+      ],
+      "ans": 0,
+      "a": "비선형 분리 문제인 XOR을 풀기 어렵다",
+      "why": [
+        "",
+        "가중치를 사용할 수 없다을(를) 정답으로 혼동함",
+        "연속형 입력을 받을 수 없다을(를) 정답으로 혼동함",
+        "활성함수를 사용할 수 없다을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>퍼셉트론은 가중합과 활성함수로 출력을 만들며, MLP는 입력층과 출력층 사이에 하나 이상의 은닉층을 둔 순방향 신경망이다.</p><p>정답: <b>비선형 분리 문제인 XOR을 풀기 어렵다</b></p>",
+      "src": [
+        [
+          "I02",
+          "7"
+        ],
+        [
+          "I02",
+          "14"
+        ],
+        [
+          "E22M",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.structure",
+        "depth": 3,
+        "family": "ie323_nn_structure",
+        "role": "near",
+        "mis": [
+          "",
+          "m_nn_structure",
+          "m_nn_structure",
+          "m_nn_structure"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-025",
+      "no": "AI-025",
+      "chapter": "C2",
+      "kind": "short",
+      "star": true,
+      "q": "입력 3개, 은닉층 3개(각 노드 3개), 출력 1개인 완전연결 MLP의 가중치와 편향 수를 계산하시오.",
+      "a": "(3+1)×3 + (3+1)×3 + (3+1)×3 + (3+1)×1 = 40개",
+      "accept": [
+        "(3+1)×3 + (3+1)×3 + (3+1)×3 + (3+1)×1 = 40개"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>(3+1)×3 + (3+1)×3 + (3+1)×3 + (3+1)×1 = 40개</p>",
+      "src": [
+        [
+          "I02",
+          "7"
+        ],
+        [
+          "I02",
+          "14"
+        ],
+        [
+          "E22M",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.structure",
+        "depth": 2,
+        "family": "ie323_nn_structure",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-026",
+      "no": "AI-026",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "서로 배타적인 다중 분류 출력층에는 Softmax가 적합하다.",
+      "ox": true,
+      "s": "<p>회귀 출력에는 주로 Linear, 이진 분류에는 Sigmoid, 다중 분류에는 Softmax, 은닉층에는 ReLU를 사용한다.</p>",
+      "src": [
+        [
+          "I02",
+          "19"
+        ],
+        [
+          "I03",
+          "9"
+        ],
+        [
+          "I03",
+          "11"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.activations",
+        "depth": 1,
+        "family": "ie323_nn_activations",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-027",
+      "no": "AI-027",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "회귀 출력층에서는 예측값을 0과 1 사이로 제한하기 위해 항상 Softmax를 사용한다.",
+      "ox": false,
+      "fix": "일반 회귀 출력층에는 범위를 제한하지 않는 Linear 활성함수를 주로 사용한다.",
+      "s": "<p>일반 회귀 출력층에는 범위를 제한하지 않는 Linear 활성함수를 주로 사용한다.</p>",
+      "src": [
+        [
+          "I02",
+          "19"
+        ],
+        [
+          "I03",
+          "9"
+        ],
+        [
+          "I03",
+          "11"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.activations",
+        "depth": 3,
+        "family": "ie323_nn_activations",
+        "role": "near",
+        "mis": "m_nn_activations",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-028",
+      "no": "AI-028",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "이진 분류 출력값을 0~1 확률로 만드는 대표 활성함수는?",
+      "a": "Sigmoid",
+      "accept": [
+        "시그모이드",
+        "logistic sigmoid"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>회귀 출력에는 주로 Linear, 이진 분류에는 Sigmoid, 다중 분류에는 Softmax, 은닉층에는 ReLU를 사용한다.</p>",
+      "src": [
+        [
+          "I02",
+          "19"
+        ],
+        [
+          "I03",
+          "9"
+        ],
+        [
+          "I03",
+          "11"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.activations",
+        "depth": 1,
+        "family": "ie323_nn_activations",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-029",
+      "no": "AI-029",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "과업과 출력 활성함수의 연결이 옳은 것은?",
+      "opts": [
+        "회귀-Softmax",
+        "다중 분류-Softmax",
+        "이진 분류-Linear만 가능",
+        "은닉층-항상 Softmax"
+      ],
+      "ans": 1,
+      "a": "다중 분류-Softmax",
+      "why": [
+        "회귀-Softmax을(를) 정답으로 혼동함",
+        "",
+        "이진 분류-Linear만 가능을(를) 정답으로 혼동함",
+        "은닉층-항상 Softmax을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>회귀 출력에는 주로 Linear, 이진 분류에는 Sigmoid, 다중 분류에는 Softmax, 은닉층에는 ReLU를 사용한다.</p><p>정답: <b>다중 분류-Softmax</b></p>",
+      "src": [
+        [
+          "I02",
+          "19"
+        ],
+        [
+          "I03",
+          "9"
+        ],
+        [
+          "I03",
+          "11"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.activations",
+        "depth": 3,
+        "family": "ie323_nn_activations",
+        "role": "near",
+        "mis": [
+          "m_nn_activations",
+          "",
+          "m_nn_activations",
+          "m_nn_activations"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-030",
+      "no": "AI-030",
+      "chapter": "C2",
+      "kind": "essay",
+      "star": true,
+      "q": "Linear, Sigmoid, Softmax를 회귀·이진 분류·다중 분류에 각각 대응시키시오.",
+      "a": "<p>회귀-Linear, 이진 분류-Sigmoid, 다중 분류-Softmax</p>",
+      "pts": [
+        "세 대응 모두 정확"
+      ],
+      "s": "<p>회귀-Linear, 이진 분류-Sigmoid, 다중 분류-Softmax</p>",
+      "src": [
+        [
+          "I02",
+          "19"
+        ],
+        [
+          "I03",
+          "9"
+        ],
+        [
+          "I03",
+          "11"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.activations",
+        "depth": 4,
+        "family": "ie323_nn_activations",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-031",
+      "no": "AI-031",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "다중 클래스 분류에서 Softmax와 Categorical Cross-Entropy를 함께 사용할 수 있다.",
+      "ox": true,
+      "s": "<p>회귀에는 MSE, 이진 분류에는 Binary Cross-Entropy, 다중 분류에는 Categorical Cross-Entropy를 주로 사용한다.</p>",
+      "src": [
+        [
+          "I05",
+          "12"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.losses",
+        "depth": 1,
+        "family": "ie323_nn_losses",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-032",
+      "no": "AI-032",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "회귀 문제의 대표 손실함수는 Categorical Cross-Entropy이다.",
+      "ox": false,
+      "fix": "회귀의 대표 손실함수는 MSE이며 Categorical Cross-Entropy는 다중 분류에 사용한다.",
+      "s": "<p>회귀의 대표 손실함수는 MSE이며 Categorical Cross-Entropy는 다중 분류에 사용한다.</p>",
+      "src": [
+        [
+          "I05",
+          "12"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.losses",
+        "depth": 3,
+        "family": "ie323_nn_losses",
+        "role": "near",
+        "mis": "m_nn_losses",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-033",
+      "no": "AI-033",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "회귀에서 예측값과 실제값 차이의 제곱을 평균하는 손실함수는?",
+      "a": "MSE",
+      "accept": [
+        "mean squared error",
+        "평균제곱오차"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>회귀에는 MSE, 이진 분류에는 Binary Cross-Entropy, 다중 분류에는 Categorical Cross-Entropy를 주로 사용한다.</p>",
+      "src": [
+        [
+          "I05",
+          "12"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.losses",
+        "depth": 1,
+        "family": "ie323_nn_losses",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-034",
+      "no": "AI-034",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "과업과 손실함수의 연결이 옳은 것은?",
+      "opts": [
+        "이진 분류-MAPE만 사용",
+        "다중 분류-MAE만 사용",
+        "회귀-MSE",
+        "회귀-Categorical Cross-Entropy"
+      ],
+      "ans": 2,
+      "a": "회귀-MSE",
+      "why": [
+        "이진 분류-MAPE만 사용을(를) 정답으로 혼동함",
+        "다중 분류-MAE만 사용을(를) 정답으로 혼동함",
+        "",
+        "회귀-Categorical Cross-Entropy을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>회귀에는 MSE, 이진 분류에는 Binary Cross-Entropy, 다중 분류에는 Categorical Cross-Entropy를 주로 사용한다.</p><p>정답: <b>회귀-MSE</b></p>",
+      "src": [
+        [
+          "I05",
+          "12"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.losses",
+        "depth": 3,
+        "family": "ie323_nn_losses",
+        "role": "near",
+        "mis": [
+          "m_nn_losses",
+          "m_nn_losses",
+          "",
+          "m_nn_losses"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-035",
+      "no": "AI-035",
+      "chapter": "C2",
+      "kind": "short",
+      "star": true,
+      "q": "이진 분류, 다중 분류, 회귀의 대표 출력 활성함수와 손실함수를 각각 쓰시오.",
+      "a": "이진 분류: Sigmoid+BCE, 다중 분류: Softmax+CCE, 회귀: Linear+MSE",
+      "accept": [
+        "이진 분류: Sigmoid+BCE, 다중 분류: Softmax+CCE, 회귀: Linear+MSE"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>이진 분류: Sigmoid+BCE, 다중 분류: Softmax+CCE, 회귀: Linear+MSE</p>",
+      "src": [
+        [
+          "I05",
+          "12"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.losses",
+        "depth": 2,
+        "family": "ie323_nn_losses",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-036",
+      "no": "AI-036",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "Delta Rule의 가중치 변화량은 학습률, 오차, 해당 입력값에 영향을 받는다.",
+      "ox": true,
+      "s": "<p>Linear neuron의 Delta Rule은 오차와 입력에 비례해 가중치를 수정하며, 대표적으로 w←w+α(d-o)x 형태로 쓴다.</p>",
+      "src": [
+        [
+          "I03",
+          "13"
+        ],
+        [
+          "I03",
+          "17"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.delta",
+        "depth": 1,
+        "family": "ie323_nn_delta",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-037",
+      "no": "AI-037",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "Delta Rule은 오차와 무관하게 모든 가중치를 같은 값만큼 증가시킨다.",
+      "ox": false,
+      "fix": "가중치 변화량은 학습률 α, 오차 (d-o), 입력 x에 따라 달라진다.",
+      "s": "<p>가중치 변화량은 학습률 α, 오차 (d-o), 입력 x에 따라 달라진다.</p>",
+      "src": [
+        [
+          "I03",
+          "13"
+        ],
+        [
+          "I03",
+          "17"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.delta",
+        "depth": 3,
+        "family": "ie323_nn_delta",
+        "role": "near",
+        "mis": "m_nn_delta",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-038",
+      "no": "AI-038",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "퍼셉트론의 제곱오차를 줄이도록 가중치를 순차적으로 갱신하는 규칙은?",
+      "a": "Delta Rule",
+      "accept": [
+        "델타 규칙",
+        "delta rule"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Linear neuron의 Delta Rule은 오차와 입력에 비례해 가중치를 수정하며, 대표적으로 w←w+α(d-o)x 형태로 쓴다.</p>",
+      "src": [
+        [
+          "I03",
+          "13"
+        ],
+        [
+          "I03",
+          "17"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.delta",
+        "depth": 1,
+        "family": "ie323_nn_delta",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-039",
+      "no": "AI-039",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "w←w+α(d-o)x에서 입력 x가 0일 때 해당 샘플이 w에 주는 직접 변화는?",
+      "opts": [
+        "α",
+        "d-o",
+        "항상 1",
+        "0"
+      ],
+      "ans": 3,
+      "a": "0",
+      "why": [
+        "α을(를) 정답으로 혼동함",
+        "d-o을(를) 정답으로 혼동함",
+        "항상 1을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>Linear neuron의 Delta Rule은 오차와 입력에 비례해 가중치를 수정하며, 대표적으로 w←w+α(d-o)x 형태로 쓴다.</p><p>정답: <b>0</b></p>",
+      "src": [
+        [
+          "I03",
+          "13"
+        ],
+        [
+          "I03",
+          "17"
+        ],
+        [
+          "E22M",
+          "2"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.delta",
+        "depth": 3,
+        "family": "ie323_nn_delta",
+        "role": "near",
+        "mis": [
+          "m_nn_delta",
+          "m_nn_delta",
+          "m_nn_delta",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-040",
+      "no": "AI-040",
+      "chapter": "C2",
+      "kind": "essay",
+      "star": true,
+      "q": "α=0.1, d=1, o=0.4, x=2, 현재 w=0.5일 때 한 번 갱신한 w를 구하시오.",
+      "a": "<p>0.5+0.1×(1-0.4)×2=0.62</p>",
+      "pts": [
+        "오차 0.6",
+        "변화량 0.12",
+        "새 가중치 0.62"
+      ],
+      "s": "<p>0.5+0.1×(1-0.4)×2=0.62</p>",
+      "src": [
+        [
+          "I03",
+          "13"
+        ],
+        [
+          "I03",
+          "17"
+        ],
+        [
+          "E22M",
+          "2"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.delta",
+        "depth": 4,
+        "family": "ie323_nn_delta",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-041",
+      "no": "AI-041",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "최소화 문제의 기본 경사하강 갱신식은 θ′=θ-α∇f(θ)이다.",
+      "ox": true,
+      "s": "<p>경사하강법은 최소화를 위해 현재 파라미터에서 학습률과 그래디언트의 곱을 빼서 갱신한다.</p>",
+      "src": [
+        [
+          "I04",
+          "4"
+        ],
+        [
+          "I04",
+          "7"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.gradient",
+        "depth": 1,
+        "family": "ie323_nn_gradient",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-042",
+      "no": "AI-042",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "학습률이 클수록 항상 더 안정적으로 전역 최적해에 수렴한다.",
+      "ox": false,
+      "fix": "학습률이 너무 크면 최적점을 지나치는 오버슈팅이나 발산이 생길 수 있다.",
+      "s": "<p>학습률이 너무 크면 최적점을 지나치는 오버슈팅이나 발산이 생길 수 있다.</p>",
+      "src": [
+        [
+          "I04",
+          "4"
+        ],
+        [
+          "I04",
+          "7"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.gradient",
+        "depth": 3,
+        "family": "ie323_nn_gradient",
+        "role": "near",
+        "mis": "m_nn_gradient",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-043",
+      "no": "AI-043",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "목적함수의 기울기 반대 방향으로 반복 이동하는 최적화 방법은?",
+      "a": "경사하강법",
+      "accept": [
+        "gradient descent",
+        "GDM"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>경사하강법은 최소화를 위해 현재 파라미터에서 학습률과 그래디언트의 곱을 빼서 갱신한다.</p>",
+      "src": [
+        [
+          "I04",
+          "4"
+        ],
+        [
+          "I04",
+          "7"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.gradient",
+        "depth": 1,
+        "family": "ie323_nn_gradient",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-044",
+      "no": "AI-044",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "현재 x=2, f′(x)=3, α=0.1일 때 한 번 갱신한 x는?",
+      "opts": [
+        "1.7",
+        "2.3",
+        "1.9",
+        "3.0"
+      ],
+      "ans": 0,
+      "a": "1.7",
+      "why": [
+        "",
+        "2.3을(를) 정답으로 혼동함",
+        "1.9을(를) 정답으로 혼동함",
+        "3.0을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>경사하강법은 최소화를 위해 현재 파라미터에서 학습률과 그래디언트의 곱을 빼서 갱신한다.</p><p>정답: <b>1.7</b></p>",
+      "src": [
+        [
+          "I04",
+          "4"
+        ],
+        [
+          "I04",
+          "7"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.gradient",
+        "depth": 3,
+        "family": "ie323_nn_gradient",
+        "role": "near",
+        "mis": [
+          "",
+          "m_nn_gradient",
+          "m_nn_gradient",
+          "m_nn_gradient"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-045",
+      "no": "AI-045",
+      "chapter": "C2",
+      "kind": "short",
+      "star": true,
+      "q": "학습률이 지나치게 작을 때와 지나치게 클 때의 문제를 비교하시오.",
+      "a": "너무 작으면 수렴이 느리고, 너무 크면 오버슈팅·진동·발산이 발생할 수 있다.",
+      "accept": [
+        "너무 작으면 수렴이 느리고, 너무 크면 오버슈팅·진동·발산이 발생할 수 있다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>너무 작으면 수렴이 느리고, 너무 크면 오버슈팅·진동·발산이 발생할 수 있다.</p>",
+      "src": [
+        [
+          "I04",
+          "4"
+        ],
+        [
+          "I04",
+          "7"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.gradient",
+        "depth": 2,
+        "family": "ie323_nn_gradient",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-046",
+      "no": "AI-046",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "오류역전파는 연쇄법칙을 이용하여 각 층 가중치가 손실에 미치는 영향을 계산한다.",
+      "ox": true,
+      "s": "<p>오류역전파는 전방향 계산 후 출력 오차를 연쇄법칙으로 뒤쪽 층에서 앞쪽 층으로 전달해 각 가중치의 그래디언트를 구한다.</p>",
+      "src": [
+        [
+          "I04",
+          "14"
+        ],
+        [
+          "I04",
+          "18"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.backprop",
+        "depth": 1,
+        "family": "ie323_nn_backprop",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-047",
+      "no": "AI-047",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "오류역전파에서는 출력층 가중치만 수정하고 은닉층 가중치는 고정한다.",
+      "ox": false,
+      "fix": "출력층 델타를 이용해 은닉층 델타도 계산하고 모든 학습 대상 가중치를 수정한다.",
+      "s": "<p>출력층 델타를 이용해 은닉층 델타도 계산하고 모든 학습 대상 가중치를 수정한다.</p>",
+      "src": [
+        [
+          "I04",
+          "14"
+        ],
+        [
+          "I04",
+          "18"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.backprop",
+        "depth": 3,
+        "family": "ie323_nn_backprop",
+        "role": "near",
+        "mis": "m_nn_backprop",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-048",
+      "no": "AI-048",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "출력 오차를 뒤에서 앞으로 전달해 신경망 가중치를 학습하는 알고리즘은?",
+      "a": "오류역전파",
+      "accept": [
+        "backpropagation",
+        "error backpropagation",
+        "백프로퍼게이션"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>오류역전파는 전방향 계산 후 출력 오차를 연쇄법칙으로 뒤쪽 층에서 앞쪽 층으로 전달해 각 가중치의 그래디언트를 구한다.</p>",
+      "src": [
+        [
+          "I04",
+          "14"
+        ],
+        [
+          "I04",
+          "18"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.backprop",
+        "depth": 1,
+        "family": "ie323_nn_backprop",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-049",
+      "no": "AI-049",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "오류역전파의 올바른 순서는?",
+      "opts": [
+        "가중치 갱신→전방향 계산→데이터 삭제",
+        "전방향 계산→오차 계산→역방향 그래디언트→가중치 갱신",
+        "오차 계산→입력 제거→출력 고정",
+        "은닉층 삭제→손실 계산"
+      ],
+      "ans": 1,
+      "a": "전방향 계산→오차 계산→역방향 그래디언트→가중치 갱신",
+      "why": [
+        "가중치 갱신→전방향 계산→데이터 삭제을(를) 정답으로 혼동함",
+        "",
+        "오차 계산→입력 제거→출력 고정을(를) 정답으로 혼동함",
+        "은닉층 삭제→손실 계산을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>오류역전파는 전방향 계산 후 출력 오차를 연쇄법칙으로 뒤쪽 층에서 앞쪽 층으로 전달해 각 가중치의 그래디언트를 구한다.</p><p>정답: <b>전방향 계산→오차 계산→역방향 그래디언트→가중치 갱신</b></p>",
+      "src": [
+        [
+          "I04",
+          "14"
+        ],
+        [
+          "I04",
+          "18"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.backprop",
+        "depth": 3,
+        "family": "ie323_nn_backprop",
+        "role": "near",
+        "mis": [
+          "m_nn_backprop",
+          "",
+          "m_nn_backprop",
+          "m_nn_backprop"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-050",
+      "no": "AI-050",
+      "chapter": "C2",
+      "kind": "essay",
+      "star": true,
+      "q": "Sigmoid 은닉노드의 출력이 포화 영역에 가까울 때 역전파가 어려워지는 이유를 설명하시오.",
+      "a": "<p>Sigmoid 도함수가 0에 가까워져 연쇄법칙으로 전달되는 그래디언트가 작아지는 기울기 소실이 발생하기 때문이다.</p>",
+      "pts": [
+        "작은 도함수",
+        "연쇄법칙",
+        "기울기 소실"
+      ],
+      "s": "<p>Sigmoid 도함수가 0에 가까워져 연쇄법칙으로 전달되는 그래디언트가 작아지는 기울기 소실이 발생하기 때문이다.</p>",
+      "src": [
+        [
+          "I04",
+          "14"
+        ],
+        [
+          "I04",
+          "18"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.backprop",
+        "depth": 4,
+        "family": "ie323_nn_backprop",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-051",
+      "no": "AI-051",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": true,
+      "q": "입력 8개, 출력 4개인 Dense 층의 파라미터 수는 편향을 포함해 36개이다.",
+      "ox": true,
+      "s": "<p>입력 노드 n개와 출력 노드 m개를 완전연결하면 가중치 nm개와 편향 m개로 총 (n+1)m개의 파라미터가 필요하다.</p>",
+      "src": [
+        [
+          "I02",
+          "15"
+        ],
+        [
+          "I05",
+          "20"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.parameters",
+        "depth": 1,
+        "family": "ie323_nn_parameters",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-052",
+      "no": "AI-052",
+      "chapter": "C2",
+      "kind": "ox",
+      "star": false,
+      "q": "Dense 층의 파라미터 수는 입력 노드 수와 출력 노드 수를 더한 값이다.",
+      "ox": false,
+      "fix": "Dense 층은 모든 입력-출력 연결과 출력별 편향이 있어 (입력+1)×출력으로 계산한다.",
+      "s": "<p>Dense 층은 모든 입력-출력 연결과 출력별 편향이 있어 (입력+1)×출력으로 계산한다.</p>",
+      "src": [
+        [
+          "I02",
+          "15"
+        ],
+        [
+          "I05",
+          "20"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.parameters",
+        "depth": 3,
+        "family": "ie323_nn_parameters",
+        "role": "near",
+        "mis": "m_nn_parameters",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-053",
+      "no": "AI-053",
+      "chapter": "C2",
+      "kind": "short",
+      "star": false,
+      "q": "입력 n개, 출력 m개인 Dense 층의 파라미터 수를 식으로 쓰시오.",
+      "a": "(n+1)m",
+      "accept": [
+        "nm+m",
+        "(n + 1) * m",
+        "(n+1)*m"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>입력 노드 n개와 출력 노드 m개를 완전연결하면 가중치 nm개와 편향 m개로 총 (n+1)m개의 파라미터가 필요하다.</p>",
+      "src": [
+        [
+          "I02",
+          "15"
+        ],
+        [
+          "I05",
+          "20"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.parameters",
+        "depth": 1,
+        "family": "ie323_nn_parameters",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-054",
+      "no": "AI-054",
+      "chapter": "C2",
+      "kind": "mc",
+      "star": true,
+      "q": "입력 10개, 출력 6개인 Dense 층의 파라미터 수는?",
+      "opts": [
+        "60",
+        "16",
+        "66",
+        "76"
+      ],
+      "ans": 2,
+      "a": "66",
+      "why": [
+        "60을(를) 정답으로 혼동함",
+        "16을(를) 정답으로 혼동함",
+        "",
+        "76을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>입력 노드 n개와 출력 노드 m개를 완전연결하면 가중치 nm개와 편향 m개로 총 (n+1)m개의 파라미터가 필요하다.</p><p>정답: <b>66</b></p>",
+      "src": [
+        [
+          "I02",
+          "15"
+        ],
+        [
+          "I05",
+          "20"
+        ],
+        [
+          "E22F",
+          "1"
+        ],
+        [
+          "E23M",
+          "2"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.parameters",
+        "depth": 3,
+        "family": "ie323_nn_parameters",
+        "role": "near",
+        "mis": [
+          "m_nn_parameters",
+          "m_nn_parameters",
+          "",
+          "m_nn_parameters"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-055",
+      "no": "AI-055",
+      "chapter": "C2",
+      "kind": "short",
+      "star": true,
+      "q": "7×7×64 특징맵을 Flatten한 뒤 1024개 Dense 노드에 연결할 때 파라미터 수를 구하시오.",
+      "a": "(7×7×64+1)×1024=(3136+1)×1024=3,212,288개",
+      "accept": [
+        "(7×7×64+1)×1024=(3136+1)×1024=3,212,288개"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>(7×7×64+1)×1024=(3136+1)×1024=3,212,288개</p>",
+      "src": [
+        [
+          "I02",
+          "15"
+        ],
+        [
+          "I05",
+          "20"
+        ],
+        [
+          "E22F",
+          "1"
+        ],
+        [
+          "E23M",
+          "2"
+        ]
+      ],
+      "topic": "nn",
+      "dx": {
+        "facet": "nn.parameters",
+        "depth": 2,
+        "family": "ie323_nn_parameters",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-056",
+      "no": "AI-056",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": true,
+      "q": "model.compile은 손실함수, 옵티마이저, 평가지표 등을 설정한다.",
+      "ox": true,
+      "s": "<p>Keras 모델링은 데이터 준비, 네트워크 설계, compile, fit, evaluate·predict 순으로 진행한다.</p>",
+      "src": [
+        [
+          "I05",
+          "6"
+        ],
+        [
+          "I05",
+          "8"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.keras",
+        "depth": 1,
+        "family": "ie323_dnn_keras",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-057",
+      "no": "AI-057",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": false,
+      "q": "model.evaluate는 훈련 데이터를 이용해 가중치를 갱신하는 함수이다.",
+      "ox": false,
+      "fix": "가중치 학습은 model.fit이 수행하고 model.evaluate는 고정된 모델의 성능을 평가한다.",
+      "s": "<p>가중치 학습은 model.fit이 수행하고 model.evaluate는 고정된 모델의 성능을 평가한다.</p>",
+      "src": [
+        [
+          "I05",
+          "6"
+        ],
+        [
+          "I05",
+          "8"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.keras",
+        "depth": 3,
+        "family": "ie323_dnn_keras",
+        "role": "near",
+        "mis": "m_dnn_keras",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-058",
+      "no": "AI-058",
+      "chapter": "C3",
+      "kind": "short",
+      "star": false,
+      "q": "Keras에서 학습 데이터를 이용해 에포크를 반복하며 가중치를 학습하는 메서드는?",
+      "a": "model.fit",
+      "accept": [
+        "fit",
+        "model.fit()"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Keras 모델링은 데이터 준비, 네트워크 설계, compile, fit, evaluate·predict 순으로 진행한다.</p>",
+      "src": [
+        [
+          "I05",
+          "6"
+        ],
+        [
+          "I05",
+          "8"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.keras",
+        "depth": 1,
+        "family": "ie323_dnn_keras",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-059",
+      "no": "AI-059",
+      "chapter": "C3",
+      "kind": "mc",
+      "star": true,
+      "q": "Keras 모델링 순서로 옳은 것은?",
+      "opts": [
+        "fit→데이터 준비→compile→모델 설계",
+        "evaluate→fit→데이터 삭제",
+        "compile→evaluate→모델 설계",
+        "데이터 준비→모델 설계→compile→fit→evaluate"
+      ],
+      "ans": 3,
+      "a": "데이터 준비→모델 설계→compile→fit→evaluate",
+      "why": [
+        "fit→데이터 준비→compile→모델 설계을(를) 정답으로 혼동함",
+        "evaluate→fit→데이터 삭제을(를) 정답으로 혼동함",
+        "compile→evaluate→모델 설계을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>Keras 모델링은 데이터 준비, 네트워크 설계, compile, fit, evaluate·predict 순으로 진행한다.</p><p>정답: <b>데이터 준비→모델 설계→compile→fit→evaluate</b></p>",
+      "src": [
+        [
+          "I05",
+          "6"
+        ],
+        [
+          "I05",
+          "8"
+        ],
+        [
+          "E22M",
+          "2"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.keras",
+        "depth": 3,
+        "family": "ie323_dnn_keras",
+        "role": "near",
+        "mis": [
+          "m_dnn_keras",
+          "m_dnn_keras",
+          "m_dnn_keras",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-060",
+      "no": "AI-060",
+      "chapter": "C3",
+      "kind": "essay",
+      "star": true,
+      "q": "compile과 fit의 역할 차이를 설명하시오.",
+      "a": "<p>compile은 손실·옵티마이저·지표를 설정하고, fit은 설정된 방법으로 학습 데이터를 반복해 가중치를 갱신한다.</p>",
+      "pts": [
+        "compile 설정",
+        "fit 학습"
+      ],
+      "s": "<p>compile은 손실·옵티마이저·지표를 설정하고, fit은 설정된 방법으로 학습 데이터를 반복해 가중치를 갱신한다.</p>",
+      "src": [
+        [
+          "I05",
+          "6"
+        ],
+        [
+          "I05",
+          "8"
+        ],
+        [
+          "E22M",
+          "2"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.keras",
+        "depth": 4,
+        "family": "ie323_dnn_keras",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-061",
+      "no": "AI-061",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": true,
+      "q": "표준화는 각 특징에서 평균을 빼고 표준편차로 나누어 스케일 차이를 완화한다.",
+      "ox": true,
+      "s": "<p>연속형 입력은 스케일 차이를 줄이도록 정규화하고, 거리 의미가 없는 명목형 범주는 원-핫 인코딩한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "3"
+        ],
+        [
+          "I05O",
+          "5"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.preprocessing",
+        "depth": 1,
+        "family": "ie323_dnn_preprocessing",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-062",
+      "no": "AI-062",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": false,
+      "q": "남자=1, 여자=2 같은 명목형 코드는 2가 1보다 두 배라는 거리 의미를 가진다.",
+      "ox": false,
+      "fix": "명목형 숫자 코드는 크기·거리 의미가 없으므로 원-핫 인코딩하는 것이 적절하다.",
+      "s": "<p>명목형 숫자 코드는 크기·거리 의미가 없으므로 원-핫 인코딩하는 것이 적절하다.</p>",
+      "src": [
+        [
+          "I05O",
+          "3"
+        ],
+        [
+          "I05O",
+          "5"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.preprocessing",
+        "depth": 3,
+        "family": "ie323_dnn_preprocessing",
+        "role": "near",
+        "mis": "m_dnn_preprocessing",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-063",
+      "no": "AI-063",
+      "chapter": "C3",
+      "kind": "short",
+      "star": false,
+      "q": "평균 0, 표준편차 1이 되도록 변환하는 전처리는?",
+      "a": "표준화",
+      "accept": [
+        "standardization",
+        "z-normalization",
+        "z normalization"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>연속형 입력은 스케일 차이를 줄이도록 정규화하고, 거리 의미가 없는 명목형 범주는 원-핫 인코딩한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "3"
+        ],
+        [
+          "I05O",
+          "5"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.preprocessing",
+        "depth": 1,
+        "family": "ie323_dnn_preprocessing",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-064",
+      "no": "AI-064",
+      "chapter": "C3",
+      "kind": "mc",
+      "star": true,
+      "q": "명목형 변수 전처리로 가장 적절한 것은?",
+      "opts": [
+        "원-핫 인코딩",
+        "항상 제곱",
+        "모든 범주를 같은 0으로 변환",
+        "정답 레이블 삭제"
+      ],
+      "ans": 0,
+      "a": "원-핫 인코딩",
+      "why": [
+        "",
+        "항상 제곱을(를) 정답으로 혼동함",
+        "모든 범주를 같은 0으로 변환을(를) 정답으로 혼동함",
+        "정답 레이블 삭제을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>연속형 입력은 스케일 차이를 줄이도록 정규화하고, 거리 의미가 없는 명목형 범주는 원-핫 인코딩한다.</p><p>정답: <b>원-핫 인코딩</b></p>",
+      "src": [
+        [
+          "I05O",
+          "3"
+        ],
+        [
+          "I05O",
+          "5"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.preprocessing",
+        "depth": 3,
+        "family": "ie323_dnn_preprocessing",
+        "role": "near",
+        "mis": [
+          "",
+          "m_dnn_preprocessing",
+          "m_dnn_preprocessing",
+          "m_dnn_preprocessing"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-065",
+      "no": "AI-065",
+      "chapter": "C3",
+      "kind": "short",
+      "star": true,
+      "q": "키(m)와 몸무게(kg)를 그대로 사용할 때 생길 수 있는 스케일 문제와 해결책을 설명하시오.",
+      "a": "단위와 범위가 달라 큰 스케일 특징이 그래디언트에 과도한 영향을 줄 수 있으므로 특징별 표준화나 정규화를 적용한다.",
+      "accept": [
+        "단위와 범위가 달라 큰 스케일 특징이 그래디언트에 과도한 영향을 줄 수 있으므로 특징별 표준화나 정규화를 적용한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>단위와 범위가 달라 큰 스케일 특징이 그래디언트에 과도한 영향을 줄 수 있으므로 특징별 표준화나 정규화를 적용한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "3"
+        ],
+        [
+          "I05O",
+          "5"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.preprocessing",
+        "depth": 2,
+        "family": "ie323_dnn_preprocessing",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-066",
+      "no": "AI-066",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": false,
+      "q": "모든 은닉노드 가중치를 같은 값으로 초기화하면 대칭성이 깨지지 않을 수 있다.",
+      "ox": true,
+      "s": "<p>같은 값으로 초기화하면 노드가 대칭적으로 같은 학습을 하므로 난수 초기화가 필요하고, ReLU에는 He, Sigmoid·tanh에는 Xavier/Glorot가 주로 적합하다.</p>",
+      "src": [
+        [
+          "I05O",
+          "6"
+        ],
+        [
+          "I05O",
+          "7"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.initialization",
+        "depth": 1,
+        "family": "ie323_dnn_initialization",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-067",
+      "no": "AI-067",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": false,
+      "q": "ReLU 네트워크에서는 일반적으로 Xavier보다 He 초기화가 더 부적절하다.",
+      "ox": false,
+      "fix": "ReLU의 분산 특성을 고려한 He 초기화가 일반적으로 잘 맞는다.",
+      "s": "<p>ReLU의 분산 특성을 고려한 He 초기화가 일반적으로 잘 맞는다.</p>",
+      "src": [
+        [
+          "I05O",
+          "6"
+        ],
+        [
+          "I05O",
+          "7"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.initialization",
+        "depth": 3,
+        "family": "ie323_dnn_initialization",
+        "role": "near",
+        "mis": "m_dnn_initialization",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-068",
+      "no": "AI-068",
+      "chapter": "C3",
+      "kind": "short",
+      "star": false,
+      "q": "Sigmoid나 tanh 네트워크에서 입력·출력 노드 수를 고려하는 대표 초기화는?",
+      "a": "Xavier 초기화",
+      "accept": [
+        "glorot initialization",
+        "Glorot",
+        "Xavier"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>같은 값으로 초기화하면 노드가 대칭적으로 같은 학습을 하므로 난수 초기화가 필요하고, ReLU에는 He, Sigmoid·tanh에는 Xavier/Glorot가 주로 적합하다.</p>",
+      "src": [
+        [
+          "I05O",
+          "6"
+        ],
+        [
+          "I05O",
+          "7"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.initialization",
+        "depth": 1,
+        "family": "ie323_dnn_initialization",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-069",
+      "no": "AI-069",
+      "chapter": "C3",
+      "kind": "mc",
+      "star": false,
+      "q": "활성함수와 초기화의 대표 연결은?",
+      "opts": [
+        "ReLU-항상 0",
+        "ReLU-He",
+        "Sigmoid-He만 가능",
+        "Softmax-편향만 난수"
+      ],
+      "ans": 1,
+      "a": "ReLU-He",
+      "why": [
+        "ReLU-항상 0을(를) 정답으로 혼동함",
+        "",
+        "Sigmoid-He만 가능을(를) 정답으로 혼동함",
+        "Softmax-편향만 난수을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>같은 값으로 초기화하면 노드가 대칭적으로 같은 학습을 하므로 난수 초기화가 필요하고, ReLU에는 He, Sigmoid·tanh에는 Xavier/Glorot가 주로 적합하다.</p><p>정답: <b>ReLU-He</b></p>",
+      "src": [
+        [
+          "I05O",
+          "6"
+        ],
+        [
+          "I05O",
+          "7"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.initialization",
+        "depth": 3,
+        "family": "ie323_dnn_initialization",
+        "role": "near",
+        "mis": [
+          "m_dnn_initialization",
+          "",
+          "m_dnn_initialization",
+          "m_dnn_initialization"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-070",
+      "no": "AI-070",
+      "chapter": "C3",
+      "kind": "essay",
+      "star": false,
+      "q": "가중치를 전부 0으로 초기화하면 다수 은닉노드가 중복되는 이유를 설명하시오.",
+      "a": "<p>같은 입력과 그래디언트를 받아 모든 노드가 동일하게 갱신되므로 서로 다른 특징을 학습하지 못한다.</p>",
+      "pts": [
+        "동일 출력",
+        "동일 그래디언트",
+        "특징 중복"
+      ],
+      "s": "<p>같은 입력과 그래디언트를 받아 모든 노드가 동일하게 갱신되므로 서로 다른 특징을 학습하지 못한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "6"
+        ],
+        [
+          "I05O",
+          "7"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.initialization",
+        "depth": 4,
+        "family": "ie323_dnn_initialization",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-071",
+      "no": "AI-071",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": true,
+      "q": "Adam은 모멘텀과 적응적 학습률의 아이디어를 함께 사용한다.",
+      "ox": true,
+      "s": "<p>Momentum은 과거 그래디언트를 누적해 진동을 줄이고, RMSProp은 최근 제곱 그래디언트의 이동평균으로 학습률을 조절하며, Adam은 Momentum과 RMSProp의 아이디어를 결합한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "8"
+        ],
+        [
+          "I05O",
+          "13"
+        ],
+        [
+          "I05O",
+          "14"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.optimizers",
+        "depth": 1,
+        "family": "ie323_dnn_optimizers",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-072",
+      "no": "AI-072",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": false,
+      "q": "AdaGrad는 오래된 그래디언트의 영향을 지수적으로 잊어 학습률 감소 문제를 해결한다.",
+      "ox": false,
+      "fix": "오래된 제곱 그래디언트를 지수적으로 잊는 방식은 RMSProp이며, AdaGrad는 계속 누적한다.",
+      "s": "<p>오래된 제곱 그래디언트를 지수적으로 잊는 방식은 RMSProp이며, AdaGrad는 계속 누적한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "8"
+        ],
+        [
+          "I05O",
+          "13"
+        ],
+        [
+          "I05O",
+          "14"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.optimizers",
+        "depth": 3,
+        "family": "ie323_dnn_optimizers",
+        "role": "near",
+        "mis": "m_dnn_optimizers",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-073",
+      "no": "AI-073",
+      "chapter": "C3",
+      "kind": "short",
+      "star": false,
+      "q": "RMSProp에 모멘텀 개념을 결합한 대표 옵티마이저는?",
+      "a": "Adam",
+      "accept": [
+        "adaptive moment estimation"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Momentum은 과거 그래디언트를 누적해 진동을 줄이고, RMSProp은 최근 제곱 그래디언트의 이동평균으로 학습률을 조절하며, Adam은 Momentum과 RMSProp의 아이디어를 결합한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "8"
+        ],
+        [
+          "I05O",
+          "13"
+        ],
+        [
+          "I05O",
+          "14"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.optimizers",
+        "depth": 1,
+        "family": "ie323_dnn_optimizers",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-074",
+      "no": "AI-074",
+      "chapter": "C3",
+      "kind": "mc",
+      "star": true,
+      "q": "Nesterov Momentum의 특징은?",
+      "opts": [
+        "과거 그래디언트를 모두 무시한다",
+        "학습률을 항상 0으로 만든다",
+        "현재 속도로 미리 이동한 지점의 그래디언트를 본다",
+        "손실함수를 사용하지 않는다"
+      ],
+      "ans": 2,
+      "a": "현재 속도로 미리 이동한 지점의 그래디언트를 본다",
+      "why": [
+        "과거 그래디언트를 모두 무시한다을(를) 정답으로 혼동함",
+        "학습률을 항상 0으로 만든다을(를) 정답으로 혼동함",
+        "",
+        "손실함수를 사용하지 않는다을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>Momentum은 과거 그래디언트를 누적해 진동을 줄이고, RMSProp은 최근 제곱 그래디언트의 이동평균으로 학습률을 조절하며, Adam은 Momentum과 RMSProp의 아이디어를 결합한다.</p><p>정답: <b>현재 속도로 미리 이동한 지점의 그래디언트를 본다</b></p>",
+      "src": [
+        [
+          "I05O",
+          "8"
+        ],
+        [
+          "I05O",
+          "13"
+        ],
+        [
+          "I05O",
+          "14"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.optimizers",
+        "depth": 3,
+        "family": "ie323_dnn_optimizers",
+        "role": "near",
+        "mis": [
+          "m_dnn_optimizers",
+          "m_dnn_optimizers",
+          "",
+          "m_dnn_optimizers"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-075",
+      "no": "AI-075",
+      "chapter": "C3",
+      "kind": "short",
+      "star": true,
+      "q": "Momentum, RMSProp, Adam의 차이를 간단히 비교하시오.",
+      "a": "Momentum은 방향 누적으로 진동을 줄이고, RMSProp은 최근 제곱 그래디언트로 좌표별 학습률을 조정하며, Adam은 두 방식을 결합한다.",
+      "accept": [
+        "Momentum은 방향 누적으로 진동을 줄이고, RMSProp은 최근 제곱 그래디언트로 좌표별 학습률을 조정하며, Adam은 두 방식을 결합한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>Momentum은 방향 누적으로 진동을 줄이고, RMSProp은 최근 제곱 그래디언트로 좌표별 학습률을 조정하며, Adam은 두 방식을 결합한다.</p>",
+      "src": [
+        [
+          "I05O",
+          "8"
+        ],
+        [
+          "I05O",
+          "13"
+        ],
+        [
+          "I05O",
+          "14"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.optimizers",
+        "depth": 2,
+        "family": "ie323_dnn_optimizers",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-076",
+      "no": "AI-076",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": true,
+      "q": "Early Stopping은 검증 성능이 더 이상 개선되지 않을 때 학습을 멈춰 과적합을 줄일 수 있다.",
+      "ox": true,
+      "s": "<p>Early Stopping과 Dropout은 과적합을 줄이고, Batch Normalization은 미니배치 통계로 중간 활성값을 정규화해 학습을 안정화한다.</p>",
+      "src": [
+        [
+          "I05H",
+          "14"
+        ],
+        [
+          "I05O",
+          "18"
+        ],
+        [
+          "I05O",
+          "19"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.regularization",
+        "depth": 1,
+        "family": "ie323_dnn_regularization",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-077",
+      "no": "AI-077",
+      "chapter": "C3",
+      "kind": "ox",
+      "star": false,
+      "q": "Dropout은 평가와 예측 시에도 항상 모든 노드를 무작위로 제거해야 한다.",
+      "ox": false,
+      "fix": "Dropout은 주로 훈련 중 일부 노드를 무작위로 비활성화하고 추론 시 전체 네트워크를 사용한다.",
+      "s": "<p>Dropout은 주로 훈련 중 일부 노드를 무작위로 비활성화하고 추론 시 전체 네트워크를 사용한다.</p>",
+      "src": [
+        [
+          "I05H",
+          "14"
+        ],
+        [
+          "I05O",
+          "18"
+        ],
+        [
+          "I05O",
+          "19"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.regularization",
+        "depth": 3,
+        "family": "ie323_dnn_regularization",
+        "role": "near",
+        "mis": "m_dnn_regularization",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-078",
+      "no": "AI-078",
+      "chapter": "C3",
+      "kind": "short",
+      "star": false,
+      "q": "훈련 중 일부 노드를 확률적으로 비활성화하는 정규화 기법은?",
+      "a": "Dropout",
+      "accept": [
+        "드롭아웃"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Early Stopping과 Dropout은 과적합을 줄이고, Batch Normalization은 미니배치 통계로 중간 활성값을 정규화해 학습을 안정화한다.</p>",
+      "src": [
+        [
+          "I05H",
+          "14"
+        ],
+        [
+          "I05O",
+          "18"
+        ],
+        [
+          "I05O",
+          "19"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.regularization",
+        "depth": 1,
+        "family": "ie323_dnn_regularization",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-079",
+      "no": "AI-079",
+      "chapter": "C3",
+      "kind": "mc",
+      "star": true,
+      "q": "Batch Normalization의 주된 목적은?",
+      "opts": [
+        "레이블을 무작위로 바꾼다",
+        "출력 노드를 삭제한다",
+        "테스트 데이터를 훈련에 합친다",
+        "중간 활성값 분포를 안정화해 학습을 돕는다"
+      ],
+      "ans": 3,
+      "a": "중간 활성값 분포를 안정화해 학습을 돕는다",
+      "why": [
+        "레이블을 무작위로 바꾼다을(를) 정답으로 혼동함",
+        "출력 노드를 삭제한다을(를) 정답으로 혼동함",
+        "테스트 데이터를 훈련에 합친다을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>Early Stopping과 Dropout은 과적합을 줄이고, Batch Normalization은 미니배치 통계로 중간 활성값을 정규화해 학습을 안정화한다.</p><p>정답: <b>중간 활성값 분포를 안정화해 학습을 돕는다</b></p>",
+      "src": [
+        [
+          "I05H",
+          "14"
+        ],
+        [
+          "I05O",
+          "18"
+        ],
+        [
+          "I05O",
+          "19"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.regularization",
+        "depth": 3,
+        "family": "ie323_dnn_regularization",
+        "role": "near",
+        "mis": [
+          "m_dnn_regularization",
+          "m_dnn_regularization",
+          "m_dnn_regularization",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-080",
+      "no": "AI-080",
+      "chapter": "C3",
+      "kind": "essay",
+      "star": true,
+      "q": "Early Stopping과 Batch Normalization의 목적 차이를 설명하시오.",
+      "a": "<p>Early Stopping은 검증 성능을 기준으로 과적합 전에 학습을 중단하고, Batch Normalization은 층별 분포 변화를 완화해 학습을 안정화한다.</p>",
+      "pts": [
+        "Early Stopping-과적합",
+        "BN-학습 안정화"
+      ],
+      "s": "<p>Early Stopping은 검증 성능을 기준으로 과적합 전에 학습을 중단하고, Batch Normalization은 층별 분포 변화를 완화해 학습을 안정화한다.</p>",
+      "src": [
+        [
+          "I05H",
+          "14"
+        ],
+        [
+          "I05O",
+          "18"
+        ],
+        [
+          "I05O",
+          "19"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "dnn",
+      "dx": {
+        "facet": "dnn.regularization",
+        "depth": 4,
+        "family": "ie323_dnn_regularization",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-081",
+      "no": "AI-081",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "8비트 명암 영상은 일반적으로 256단계 밝기를 표현한다.",
+      "ox": true,
+      "s": "<p>표본화 밀도는 공간 해상도와, 양자화 단계 수는 색 깊이와 관련되며 컬러 영상은 보통 R·G·B 세 채널로 표현한다.</p>",
+      "src": [
+        [
+          "I06",
+          "2"
+        ],
+        [
+          "I06",
+          "5"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.signal",
+        "depth": 1,
+        "family": "ie323_cnn_signal",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-082",
+      "no": "AI-082",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "RGB 컬러 영상은 하나의 명암 채널만으로 구성된다.",
+      "ox": false,
+      "fix": "RGB 컬러 영상은 Red, Green, Blue의 세 채널로 구성된다.",
+      "s": "<p>RGB 컬러 영상은 Red, Green, Blue의 세 채널로 구성된다.</p>",
+      "src": [
+        [
+          "I06",
+          "2"
+        ],
+        [
+          "I06",
+          "5"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.signal",
+        "depth": 3,
+        "family": "ie323_cnn_signal",
+        "role": "near",
+        "mis": "m_cnn_signal",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-083",
+      "no": "AI-083",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "영상에서 픽셀의 밝기 단계 수와 관련된 개념은?",
+      "a": "색 깊이",
+      "accept": [
+        "color depth",
+        "색 심도"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>표본화 밀도는 공간 해상도와, 양자화 단계 수는 색 깊이와 관련되며 컬러 영상은 보통 R·G·B 세 채널로 표현한다.</p>",
+      "src": [
+        [
+          "I06",
+          "2"
+        ],
+        [
+          "I06",
+          "5"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.signal",
+        "depth": 1,
+        "family": "ie323_cnn_signal",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-084",
+      "no": "AI-084",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": false,
+      "q": "28×28 RGB 영상의 입력 원소 수는?",
+      "opts": [
+        "2352",
+        "784",
+        "1568",
+        "28"
+      ],
+      "ans": 0,
+      "a": "2352",
+      "why": [
+        "",
+        "784을(를) 정답으로 혼동함",
+        "1568을(를) 정답으로 혼동함",
+        "28을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>표본화 밀도는 공간 해상도와, 양자화 단계 수는 색 깊이와 관련되며 컬러 영상은 보통 R·G·B 세 채널로 표현한다.</p><p>정답: <b>2352</b></p>",
+      "src": [
+        [
+          "I06",
+          "2"
+        ],
+        [
+          "I06",
+          "5"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.signal",
+        "depth": 3,
+        "family": "ie323_cnn_signal",
+        "role": "near",
+        "mis": [
+          "",
+          "m_cnn_signal",
+          "m_cnn_signal",
+          "m_cnn_signal"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-085",
+      "no": "AI-085",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "표본화와 양자화가 영상 품질의 어떤 특성에 각각 영향을 주는지 설명하시오.",
+      "a": "표본화는 픽셀 수와 공간 해상도에, 양자화는 픽셀값 단계 수와 색 깊이에 영향을 준다.",
+      "accept": [
+        "표본화는 픽셀 수와 공간 해상도에, 양자화는 픽셀값 단계 수와 색 깊이에 영향을 준다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>표본화는 픽셀 수와 공간 해상도에, 양자화는 픽셀값 단계 수와 색 깊이에 영향을 준다.</p>",
+      "src": [
+        [
+          "I06",
+          "2"
+        ],
+        [
+          "I06",
+          "5"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.signal",
+        "depth": 2,
+        "family": "ie323_cnn_signal",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-086",
+      "no": "AI-086",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "CNN의 커널 가중치는 사람이 고정하는 대신 학습으로 얻을 수 있다.",
+      "ox": true,
+      "s": "<p>합성곱 층은 작은 커널을 입력의 국소 영역에 이동 적용해 특징맵을 만들며 커널 값은 역전파로 학습한다.</p>",
+      "src": [
+        [
+          "I06",
+          "9"
+        ],
+        [
+          "I06",
+          "11"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.conv",
+        "depth": 1,
+        "family": "ie323_cnn_conv",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-087",
+      "no": "AI-087",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "합성곱 층의 각 출력 위치는 입력 영상의 모든 픽셀과 반드시 완전연결된다.",
+      "ox": false,
+      "fix": "각 출력은 커널이 덮는 국소 수용장과 연결된다.",
+      "s": "<p>각 출력은 커널이 덮는 국소 수용장과 연결된다.</p>",
+      "src": [
+        [
+          "I06",
+          "9"
+        ],
+        [
+          "I06",
+          "11"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.conv",
+        "depth": 3,
+        "family": "ie323_cnn_conv",
+        "role": "near",
+        "mis": "m_cnn_conv",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-088",
+      "no": "AI-088",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "커널을 입력에 이동 적용해 얻는 출력 배열을 무엇이라 하는가?",
+      "a": "특징맵",
+      "accept": [
+        "feature map",
+        "특성맵"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>합성곱 층은 작은 커널을 입력의 국소 영역에 이동 적용해 특징맵을 만들며 커널 값은 역전파로 학습한다.</p>",
+      "src": [
+        [
+          "I06",
+          "9"
+        ],
+        [
+          "I06",
+          "11"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.conv",
+        "depth": 1,
+        "family": "ie323_cnn_conv",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-089",
+      "no": "AI-089",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": false,
+      "q": "CNN 합성곱 층의 설명으로 옳은 것은?",
+      "opts": [
+        "각 위치마다 완전히 독립된 대형 커널만 쓴다",
+        "같은 커널을 여러 위치에 공유한다",
+        "역전파로 학습할 수 없다",
+        "입력의 공간 구조를 항상 제거한다"
+      ],
+      "ans": 1,
+      "a": "같은 커널을 여러 위치에 공유한다",
+      "why": [
+        "각 위치마다 완전히 독립된 대형 커널만 쓴다을(를) 정답으로 혼동함",
+        "",
+        "역전파로 학습할 수 없다을(를) 정답으로 혼동함",
+        "입력의 공간 구조를 항상 제거한다을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>합성곱 층은 작은 커널을 입력의 국소 영역에 이동 적용해 특징맵을 만들며 커널 값은 역전파로 학습한다.</p><p>정답: <b>같은 커널을 여러 위치에 공유한다</b></p>",
+      "src": [
+        [
+          "I06",
+          "9"
+        ],
+        [
+          "I06",
+          "11"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.conv",
+        "depth": 3,
+        "family": "ie323_cnn_conv",
+        "role": "near",
+        "mis": [
+          "m_cnn_conv",
+          "",
+          "m_cnn_conv",
+          "m_cnn_conv"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-090",
+      "no": "AI-090",
+      "chapter": "C4",
+      "kind": "essay",
+      "star": false,
+      "q": "전통적 영상처리 커널과 CNN 커널의 가장 중요한 차이를 설명하시오.",
+      "a": "<p>전통적 커널은 사람이 목적에 맞게 설계하지만 CNN 커널은 데이터와 손실함수로부터 역전파를 통해 학습된다.</p>",
+      "pts": [
+        "사람 설계",
+        "데이터 기반 학습"
+      ],
+      "s": "<p>전통적 커널은 사람이 목적에 맞게 설계하지만 CNN 커널은 데이터와 손실함수로부터 역전파를 통해 학습된다.</p>",
+      "src": [
+        [
+          "I06",
+          "9"
+        ],
+        [
+          "I06",
+          "11"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.conv",
+        "depth": 4,
+        "family": "ie323_cnn_conv",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-091",
+      "no": "AI-091",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": true,
+      "q": "28×28 입력에 3×3 커널, padding=1, stride=1을 적용하면 공간 크기는 28×28로 유지된다.",
+      "ox": true,
+      "s": "<p>한 변의 입력 크기 w, 커널 h, 패딩 p, 스트라이드 s일 때 합성곱 출력 크기는 floor((w+2p-h)/s)+1이다.</p>",
+      "src": [
+        [
+          "I06",
+          "12"
+        ],
+        [
+          "I06",
+          "13"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.output",
+        "depth": 1,
+        "family": "ie323_cnn_output",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-092",
+      "no": "AI-092",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "Stride를 크게 하면 합성곱 출력의 공간 크기도 항상 커진다.",
+      "ox": false,
+      "fix": "Stride가 커지면 커널 이동 간격이 커져 일반적으로 출력 공간 크기는 작아진다.",
+      "s": "<p>Stride가 커지면 커널 이동 간격이 커져 일반적으로 출력 공간 크기는 작아진다.</p>",
+      "src": [
+        [
+          "I06",
+          "12"
+        ],
+        [
+          "I06",
+          "13"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.output",
+        "depth": 3,
+        "family": "ie323_cnn_output",
+        "role": "near",
+        "mis": "m_cnn_output",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-093",
+      "no": "AI-093",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "합성곱으로 줄어드는 가장자리 크기를 보완하기 위해 입력 주변에 값을 추가하는 기법은?",
+      "a": "Padding",
+      "accept": [
+        "패딩",
+        "zero padding",
+        "제로 패딩"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>한 변의 입력 크기 w, 커널 h, 패딩 p, 스트라이드 s일 때 합성곱 출력 크기는 floor((w+2p-h)/s)+1이다.</p>",
+      "src": [
+        [
+          "I06",
+          "12"
+        ],
+        [
+          "I06",
+          "13"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.output",
+        "depth": 1,
+        "family": "ie323_cnn_output",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-094",
+      "no": "AI-094",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": true,
+      "q": "32×32 입력, 5×5 커널, p=0, s=1의 출력 한 변 크기는?",
+      "opts": [
+        "32",
+        "36",
+        "28",
+        "27"
+      ],
+      "ans": 2,
+      "a": "28",
+      "why": [
+        "32을(를) 정답으로 혼동함",
+        "36을(를) 정답으로 혼동함",
+        "",
+        "27을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>한 변의 입력 크기 w, 커널 h, 패딩 p, 스트라이드 s일 때 합성곱 출력 크기는 floor((w+2p-h)/s)+1이다.</p><p>정답: <b>28</b></p>",
+      "src": [
+        [
+          "I06",
+          "12"
+        ],
+        [
+          "I06",
+          "13"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.output",
+        "depth": 3,
+        "family": "ie323_cnn_output",
+        "role": "near",
+        "mis": [
+          "m_cnn_output",
+          "m_cnn_output",
+          "",
+          "m_cnn_output"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-095",
+      "no": "AI-095",
+      "chapter": "C4",
+      "kind": "short",
+      "star": true,
+      "q": "입력 15, 커널 3, padding 1, stride 2일 때 출력 한 변 크기를 구하시오.",
+      "a": "floor((15+2-3)/2)+1=floor(7)+1=8",
+      "accept": [
+        "floor((15+2-3)/2)+1=floor(7)+1=8"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>floor((15+2-3)/2)+1=floor(7)+1=8</p>",
+      "src": [
+        [
+          "I06",
+          "12"
+        ],
+        [
+          "I06",
+          "13"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.output",
+        "depth": 2,
+        "family": "ie323_cnn_output",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-096",
+      "no": "AI-096",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": true,
+      "q": "가중치 공유는 동일한 특징 검출기를 여러 공간 위치에 적용한다.",
+      "ox": true,
+      "s": "<p>CNN은 국소 수용장을 사용하고 동일 커널을 공간 전체에 공유하여 완전연결층보다 파라미터 수를 줄이고 위치에 걸친 패턴을 탐지한다.</p>",
+      "src": [
+        [
+          "I06",
+          "14"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.props",
+        "depth": 1,
+        "family": "ie323_cnn_props",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-097",
+      "no": "AI-097",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "CNN의 가중치 공유는 각 픽셀 위치마다 완전히 다른 커널을 학습한다는 뜻이다.",
+      "ox": false,
+      "fix": "가중치 공유는 같은 커널 가중치를 여러 위치에서 재사용한다는 뜻이다.",
+      "s": "<p>가중치 공유는 같은 커널 가중치를 여러 위치에서 재사용한다는 뜻이다.</p>",
+      "src": [
+        [
+          "I06",
+          "14"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.props",
+        "depth": 3,
+        "family": "ie323_cnn_props",
+        "role": "near",
+        "mis": "m_cnn_props",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-098",
+      "no": "AI-098",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "입력의 일부 영역만 연결해 처리하는 CNN의 성질은?",
+      "a": "지역 연결",
+      "accept": [
+        "local connectivity",
+        "local weighting",
+        "국소 연결",
+        "국소 수용장"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>CNN은 국소 수용장을 사용하고 동일 커널을 공간 전체에 공유하여 완전연결층보다 파라미터 수를 줄이고 위치에 걸친 패턴을 탐지한다.</p>",
+      "src": [
+        [
+          "I06",
+          "14"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.props",
+        "depth": 1,
+        "family": "ie323_cnn_props",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-099",
+      "no": "AI-099",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": true,
+      "q": "가중치 공유의 효과로 가장 타당한 것은?",
+      "opts": [
+        "출력 클래스 자동 삭제",
+        "학습 데이터 불필요",
+        "모든 위치 정보 완전 제거",
+        "파라미터 수 감소"
+      ],
+      "ans": 3,
+      "a": "파라미터 수 감소",
+      "why": [
+        "출력 클래스 자동 삭제을(를) 정답으로 혼동함",
+        "학습 데이터 불필요을(를) 정답으로 혼동함",
+        "모든 위치 정보 완전 제거을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>CNN은 국소 수용장을 사용하고 동일 커널을 공간 전체에 공유하여 완전연결층보다 파라미터 수를 줄이고 위치에 걸친 패턴을 탐지한다.</p><p>정답: <b>파라미터 수 감소</b></p>",
+      "src": [
+        [
+          "I06",
+          "14"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.props",
+        "depth": 3,
+        "family": "ie323_cnn_props",
+        "role": "near",
+        "mis": [
+          "m_cnn_props",
+          "m_cnn_props",
+          "m_cnn_props",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-100",
+      "no": "AI-100",
+      "chapter": "C4",
+      "kind": "essay",
+      "star": true,
+      "q": "지역 연결과 가중치 공유가 이미지 처리에 유리한 이유를 설명하시오.",
+      "a": "<p>지역 연결은 근접 픽셀 패턴을 포착하고, 가중치 공유는 같은 패턴을 여러 위치에서 적은 파라미터로 탐지하게 한다.</p>",
+      "pts": [
+        "지역 패턴",
+        "위치 전반 재사용",
+        "파라미터 감소"
+      ],
+      "s": "<p>지역 연결은 근접 픽셀 패턴을 포착하고, 가중치 공유는 같은 패턴을 여러 위치에서 적은 파라미터로 탐지하게 한다.</p>",
+      "src": [
+        [
+          "I06",
+          "14"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.props",
+        "depth": 4,
+        "family": "ie323_cnn_props",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-101",
+      "no": "AI-101",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": true,
+      "q": "Max-pooling 층에는 일반적으로 학습되는 커널 가중치가 없다.",
+      "ox": true,
+      "s": "<p>Pooling은 국소 영역을 최대값이나 평균값으로 요약해 공간 크기를 줄이며 일반적으로 학습 파라미터가 없다.</p>",
+      "src": [
+        [
+          "I06",
+          "16"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.pool",
+        "depth": 1,
+        "family": "ie323_cnn_pool",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-102",
+      "no": "AI-102",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "Average pooling은 국소 영역에서 가장 큰 값 하나만 선택한다.",
+      "ox": false,
+      "fix": "Average pooling은 영역의 평균을, Max-pooling은 최댓값을 사용한다.",
+      "s": "<p>Average pooling은 영역의 평균을, Max-pooling은 최댓값을 사용한다.</p>",
+      "src": [
+        [
+          "I06",
+          "16"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.pool",
+        "depth": 3,
+        "family": "ie323_cnn_pool",
+        "role": "near",
+        "mis": "m_cnn_pool",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-103",
+      "no": "AI-103",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "국소 영역의 최댓값을 선택하는 다운샘플링 연산은?",
+      "a": "Max-pooling",
+      "accept": [
+        "맥스 풀링",
+        "최대 풀링"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Pooling은 국소 영역을 최대값이나 평균값으로 요약해 공간 크기를 줄이며 일반적으로 학습 파라미터가 없다.</p>",
+      "src": [
+        [
+          "I06",
+          "16"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.pool",
+        "depth": 1,
+        "family": "ie323_cnn_pool",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-104",
+      "no": "AI-104",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": true,
+      "q": "Pooling의 대표 효과는?",
+      "opts": [
+        "공간 크기 감소",
+        "클래스 수 증가",
+        "레이블 생성",
+        "항상 채널 수 두 배"
+      ],
+      "ans": 0,
+      "a": "공간 크기 감소",
+      "why": [
+        "",
+        "클래스 수 증가을(를) 정답으로 혼동함",
+        "레이블 생성을(를) 정답으로 혼동함",
+        "항상 채널 수 두 배을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>Pooling은 국소 영역을 최대값이나 평균값으로 요약해 공간 크기를 줄이며 일반적으로 학습 파라미터가 없다.</p><p>정답: <b>공간 크기 감소</b></p>",
+      "src": [
+        [
+          "I06",
+          "16"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.pool",
+        "depth": 3,
+        "family": "ie323_cnn_pool",
+        "role": "near",
+        "mis": [
+          "",
+          "m_cnn_pool",
+          "m_cnn_pool",
+          "m_cnn_pool"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-105",
+      "no": "AI-105",
+      "chapter": "C4",
+      "kind": "short",
+      "star": true,
+      "q": "2×2 영역 [1,3; 2,4]의 max-pooling과 average-pooling 출력을 각각 구하시오.",
+      "a": "Max-pooling=4, Average-pooling=(1+3+2+4)/4=2.5",
+      "accept": [
+        "Max-pooling=4, Average-pooling=(1+3+2+4)/4=2.5"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>Max-pooling=4, Average-pooling=(1+3+2+4)/4=2.5</p>",
+      "src": [
+        [
+          "I06",
+          "16"
+        ],
+        [
+          "E22F",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.pool",
+        "depth": 2,
+        "family": "ie323_cnn_pool",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-106",
+      "no": "AI-106",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": true,
+      "q": "3×3 커널, 입력 채널 3, 출력 채널 64인 Conv 층의 파라미터 수는 (27+1)×64=1792개이다.",
+      "ox": true,
+      "s": "<p>커널 h×w, 입력 채널 Cin, 출력 채널 Cout인 Conv 층은 편향 포함 (h×w×Cin+1)×Cout개의 파라미터를 갖는다.</p>",
+      "src": [
+        [
+          "I06",
+          "15"
+        ],
+        [
+          "I06",
+          "23"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.params",
+        "depth": 1,
+        "family": "ie323_cnn_params",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-107",
+      "no": "AI-107",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "Conv 층의 파라미터 수는 입력 영상의 가로·세로 해상도에 직접 비례한다.",
+      "ox": false,
+      "fix": "가중치 공유 때문에 파라미터 수는 커널 크기, 입력·출력 채널 수에 의해 정해진다.",
+      "s": "<p>가중치 공유 때문에 파라미터 수는 커널 크기, 입력·출력 채널 수에 의해 정해진다.</p>",
+      "src": [
+        [
+          "I06",
+          "15"
+        ],
+        [
+          "I06",
+          "23"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.params",
+        "depth": 3,
+        "family": "ie323_cnn_params",
+        "role": "near",
+        "mis": "m_cnn_params",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-108",
+      "no": "AI-108",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "h×w 커널, Cin 입력 채널, Cout 출력 채널 Conv 층의 파라미터 수 식을 쓰시오.",
+      "a": "(h*w*Cin+1)*Cout",
+      "accept": [
+        "(hwCin+1)Cout",
+        "(h×w×Cin+1)×Cout"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>커널 h×w, 입력 채널 Cin, 출력 채널 Cout인 Conv 층은 편향 포함 (h×w×Cin+1)×Cout개의 파라미터를 갖는다.</p>",
+      "src": [
+        [
+          "I06",
+          "15"
+        ],
+        [
+          "I06",
+          "23"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.params",
+        "depth": 1,
+        "family": "ie323_cnn_params",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-109",
+      "no": "AI-109",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": true,
+      "q": "3×3, 입력 64채널, 출력 128채널 Conv 층의 파라미터 수는?",
+      "opts": [
+        "73728",
+        "73856",
+        "1728",
+        "128"
+      ],
+      "ans": 1,
+      "a": "73856",
+      "why": [
+        "73728을(를) 정답으로 혼동함",
+        "",
+        "1728을(를) 정답으로 혼동함",
+        "128을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>커널 h×w, 입력 채널 Cin, 출력 채널 Cout인 Conv 층은 편향 포함 (h×w×Cin+1)×Cout개의 파라미터를 갖는다.</p><p>정답: <b>73856</b></p>",
+      "src": [
+        [
+          "I06",
+          "15"
+        ],
+        [
+          "I06",
+          "23"
+        ],
+        [
+          "E22F",
+          "1"
+        ],
+        [
+          "E23M",
+          "2"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.params",
+        "depth": 3,
+        "family": "ie323_cnn_params",
+        "role": "near",
+        "mis": [
+          "m_cnn_params",
+          "",
+          "m_cnn_params",
+          "m_cnn_params"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-110",
+      "no": "AI-110",
+      "chapter": "C4",
+      "kind": "essay",
+      "star": true,
+      "q": "CNN 파라미터 수가 같은 크기의 완전연결 영상층보다 적은 이유를 설명하시오.",
+      "a": "<p>작은 국소 커널을 사용하고 그 커널을 모든 공간 위치에 공유하므로 영상 전체 위치마다 별도 가중치를 두지 않기 때문이다.</p>",
+      "pts": [
+        "국소 커널",
+        "가중치 공유"
+      ],
+      "s": "<p>작은 국소 커널을 사용하고 그 커널을 모든 공간 위치에 공유하므로 영상 전체 위치마다 별도 가중치를 두지 않기 때문이다.</p>",
+      "src": [
+        [
+          "I06",
+          "15"
+        ],
+        [
+          "I06",
+          "23"
+        ],
+        [
+          "E22F",
+          "1"
+        ],
+        [
+          "E23M",
+          "2"
+        ],
+        [
+          "E24M",
+          "2"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.params",
+        "depth": 4,
+        "family": "ie323_cnn_params",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-111",
+      "no": "AI-111",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": true,
+      "q": "VGGNet은 주로 3×3의 작은 합성곱 커널을 반복해 깊은 구조를 만든다.",
+      "ox": true,
+      "s": "<p>LeNet-5는 초기 CNN 사례이고, AlexNet은 ReLU·Max-pooling·Dropout 등으로 2012 ILSVRC를 주도했으며, VGGNet은 작은 3×3 커널을 반복해 깊이를 늘렸다.</p>",
+      "src": [
+        [
+          "I06",
+          "18"
+        ],
+        [
+          "I06",
+          "21"
+        ],
+        [
+          "I06",
+          "24"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.arch",
+        "depth": 1,
+        "family": "ie323_cnn_arch",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-112",
+      "no": "AI-112",
+      "chapter": "C4",
+      "kind": "ox",
+      "star": false,
+      "q": "LeNet-5는 ReLU와 Max-pooling을 처음 소개한 2012년 ILSVRC 우승 모델이다.",
+      "ox": false,
+      "fix": "그 설명은 AlexNet에 가깝고, LeNet-5는 1998년 수표 숫자 인식에 쓰인 초기 CNN이다.",
+      "s": "<p>그 설명은 AlexNet에 가깝고, LeNet-5는 1998년 수표 숫자 인식에 쓰인 초기 CNN이다.</p>",
+      "src": [
+        [
+          "I06",
+          "18"
+        ],
+        [
+          "I06",
+          "21"
+        ],
+        [
+          "I06",
+          "24"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.arch",
+        "depth": 3,
+        "family": "ie323_cnn_arch",
+        "role": "near",
+        "mis": "m_cnn_arch",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-113",
+      "no": "AI-113",
+      "chapter": "C4",
+      "kind": "short",
+      "star": false,
+      "q": "2012년 ILSVRC 우승으로 딥러닝 붐을 촉진한 CNN은?",
+      "a": "AlexNet",
+      "accept": [
+        "알렉스넷"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>LeNet-5는 초기 CNN 사례이고, AlexNet은 ReLU·Max-pooling·Dropout 등으로 2012 ILSVRC를 주도했으며, VGGNet은 작은 3×3 커널을 반복해 깊이를 늘렸다.</p>",
+      "src": [
+        [
+          "I06",
+          "18"
+        ],
+        [
+          "I06",
+          "21"
+        ],
+        [
+          "I06",
+          "24"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.arch",
+        "depth": 1,
+        "family": "ie323_cnn_arch",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-114",
+      "no": "AI-114",
+      "chapter": "C4",
+      "kind": "mc",
+      "star": true,
+      "q": "모델과 특징의 연결이 옳은 것은?",
+      "opts": [
+        "AlexNet-평균 풀링만 사용",
+        "LeNet-Transformer decoder",
+        "VGGNet-3×3 커널 반복",
+        "VGGNet-RNN 게이트"
+      ],
+      "ans": 2,
+      "a": "VGGNet-3×3 커널 반복",
+      "why": [
+        "AlexNet-평균 풀링만 사용을(를) 정답으로 혼동함",
+        "LeNet-Transformer decoder을(를) 정답으로 혼동함",
+        "",
+        "VGGNet-RNN 게이트을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>LeNet-5는 초기 CNN 사례이고, AlexNet은 ReLU·Max-pooling·Dropout 등으로 2012 ILSVRC를 주도했으며, VGGNet은 작은 3×3 커널을 반복해 깊이를 늘렸다.</p><p>정답: <b>VGGNet-3×3 커널 반복</b></p>",
+      "src": [
+        [
+          "I06",
+          "18"
+        ],
+        [
+          "I06",
+          "21"
+        ],
+        [
+          "I06",
+          "24"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.arch",
+        "depth": 3,
+        "family": "ie323_cnn_arch",
+        "role": "near",
+        "mis": [
+          "m_cnn_arch",
+          "m_cnn_arch",
+          "",
+          "m_cnn_arch"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-115",
+      "no": "AI-115",
+      "chapter": "C4",
+      "kind": "short",
+      "star": true,
+      "q": "LeNet, AlexNet, VGGNet의 구조적·역사적 차이를 요약하시오.",
+      "a": "LeNet은 초기 숫자 인식 CNN, AlexNet은 2012 ImageNet 우승과 ReLU·Max-pooling·Dropout, VGGNet은 3×3 커널 반복으로 더 깊은 구조를 만든 모델이다.",
+      "accept": [
+        "LeNet은 초기 숫자 인식 CNN, AlexNet은 2012 ImageNet 우승과 ReLU·Max-pooling·Dropout, VGGNet은 3×3 커널 반복으로 더 깊은 구조를 만든 모델이다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>LeNet은 초기 숫자 인식 CNN, AlexNet은 2012 ImageNet 우승과 ReLU·Max-pooling·Dropout, VGGNet은 3×3 커널 반복으로 더 깊은 구조를 만든 모델이다.</p>",
+      "src": [
+        [
+          "I06",
+          "18"
+        ],
+        [
+          "I06",
+          "21"
+        ],
+        [
+          "I06",
+          "24"
+        ],
+        [
+          "E22M",
+          "1"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ]
+      ],
+      "topic": "cnn",
+      "dx": {
+        "facet": "cnn.arch",
+        "depth": 2,
+        "family": "ie323_cnn_arch",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-116",
+      "no": "AI-116",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": true,
+      "q": "기본 RNN은 이전 시점 은닉상태를 다음 시점 계산에 사용한다.",
+      "ox": true,
+      "s": "<p>RNN은 현재 입력과 이전 은닉상태로 새 은닉상태를 계산하며 Wxh, Whh, Why와 bh, by를 공유해 순차 데이터를 처리한다.</p>",
+      "src": [
+        [
+          "I07",
+          "2"
+        ],
+        [
+          "I07",
+          "4"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.structure",
+        "depth": 1,
+        "family": "ie323_rnn_structure",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-117",
+      "no": "AI-117",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": false,
+      "q": "RNN은 시점마다 서로 무관한 가중치 행렬을 새로 만들어야 한다.",
+      "ox": false,
+      "fix": "RNN은 동일한 가중치 행렬을 여러 시점에 공유한다.",
+      "s": "<p>RNN은 동일한 가중치 행렬을 여러 시점에 공유한다.</p>",
+      "src": [
+        [
+          "I07",
+          "2"
+        ],
+        [
+          "I07",
+          "4"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.structure",
+        "depth": 3,
+        "family": "ie323_rnn_structure",
+        "role": "near",
+        "mis": "m_rnn_structure",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-118",
+      "no": "AI-118",
+      "chapter": "C5",
+      "kind": "short",
+      "star": false,
+      "q": "시간 순서에 따라 이전 은닉상태를 재사용하는 신경망은?",
+      "a": "RNN",
+      "accept": [
+        "recurrent neural network",
+        "순환 신경망",
+        "순환신경망"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>RNN은 현재 입력과 이전 은닉상태로 새 은닉상태를 계산하며 Wxh, Whh, Why와 bh, by를 공유해 순차 데이터를 처리한다.</p>",
+      "src": [
+        [
+          "I07",
+          "2"
+        ],
+        [
+          "I07",
+          "4"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.structure",
+        "depth": 1,
+        "family": "ie323_rnn_structure",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-119",
+      "no": "AI-119",
+      "chapter": "C5",
+      "kind": "mc",
+      "star": true,
+      "q": "기본 RNN의 은닉상태 계산에 직접 필요한 것은?",
+      "opts": [
+        "미래 정답만",
+        "현재 출력만",
+        "영상의 RGB 채널만",
+        "현재 입력과 이전 은닉상태"
+      ],
+      "ans": 3,
+      "a": "현재 입력과 이전 은닉상태",
+      "why": [
+        "미래 정답만을(를) 정답으로 혼동함",
+        "현재 출력만을(를) 정답으로 혼동함",
+        "영상의 RGB 채널만을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>RNN은 현재 입력과 이전 은닉상태로 새 은닉상태를 계산하며 Wxh, Whh, Why와 bh, by를 공유해 순차 데이터를 처리한다.</p><p>정답: <b>현재 입력과 이전 은닉상태</b></p>",
+      "src": [
+        [
+          "I07",
+          "2"
+        ],
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "E23M",
+          "1"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.structure",
+        "depth": 3,
+        "family": "ie323_rnn_structure",
+        "role": "near",
+        "mis": [
+          "m_rnn_structure",
+          "m_rnn_structure",
+          "m_rnn_structure",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-120",
+      "no": "AI-120",
+      "chapter": "C5",
+      "kind": "essay",
+      "star": true,
+      "q": "MLP와 RNN의 가장 중요한 구조적 차이를 설명하시오.",
+      "a": "<p>MLP는 샘플을 독립적으로 순방향 처리하지만 RNN은 이전 은닉상태를 다음 시점에 전달해 순서 정보를 이용한다.</p>",
+      "pts": [
+        "MLP 독립 처리",
+        "RNN 상태 전달"
+      ],
+      "s": "<p>MLP는 샘플을 독립적으로 순방향 처리하지만 RNN은 이전 은닉상태를 다음 시점에 전달해 순서 정보를 이용한다.</p>",
+      "src": [
+        [
+          "I07",
+          "2"
+        ],
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "E23M",
+          "1"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.structure",
+        "depth": 4,
+        "family": "ie323_rnn_structure",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-121",
+      "no": "AI-121",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": true,
+      "q": "h2를 계산할 때 h1은 순환 연결을 통해 사용될 수 있다.",
+      "ox": true,
+      "s": "<p>기본 RNN은 h_t=f(x_t Wxh+h_{t-1}Whh+bh), y_t=g(h_t Why+by) 순서로 시점별 출력을 계산한다.</p>",
+      "src": [
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "I07",
+          "5"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.compute",
+        "depth": 1,
+        "family": "ie323_rnn_compute",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-122",
+      "no": "AI-122",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": false,
+      "q": "시퀀스 길이가 2이면 h2는 h0만 사용하고 h1은 무시한다.",
+      "ox": false,
+      "fix": "h2는 일반적으로 현재 입력 x2와 바로 이전 상태 h1을 사용한다.",
+      "s": "<p>h2는 일반적으로 현재 입력 x2와 바로 이전 상태 h1을 사용한다.</p>",
+      "src": [
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "I07",
+          "5"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.compute",
+        "depth": 3,
+        "family": "ie323_rnn_compute",
+        "role": "near",
+        "mis": "m_rnn_compute",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-123",
+      "no": "AI-123",
+      "chapter": "C5",
+      "kind": "short",
+      "star": false,
+      "q": "RNN을 시간축으로 펼쳐 오차를 역전파하는 학습 방법의 약자는?",
+      "a": "BPTT",
+      "accept": [
+        "backpropagation through time"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>기본 RNN은 h_t=f(x_t Wxh+h_{t-1}Whh+bh), y_t=g(h_t Why+by) 순서로 시점별 출력을 계산한다.</p>",
+      "src": [
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "I07",
+          "5"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.compute",
+        "depth": 1,
+        "family": "ie323_rnn_compute",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-124",
+      "no": "AI-124",
+      "chapter": "C5",
+      "kind": "mc",
+      "star": true,
+      "q": "h_t 계산식으로 가장 적절한 것은?",
+      "opts": [
+        "f(x_t Wxh+h_{t-1}Whh+bh)",
+        "f(y_t)만 사용",
+        "x_t와 무관한 상수",
+        "미래 h_{t+1}만 사용"
+      ],
+      "ans": 0,
+      "a": "f(x_t Wxh+h_{t-1}Whh+bh)",
+      "why": [
+        "",
+        "f(y_t)만 사용을(를) 정답으로 혼동함",
+        "x_t와 무관한 상수을(를) 정답으로 혼동함",
+        "미래 h_{t+1}만 사용을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>기본 RNN은 h_t=f(x_t Wxh+h_{t-1}Whh+bh), y_t=g(h_t Why+by) 순서로 시점별 출력을 계산한다.</p><p>정답: <b>f(x_t Wxh+h_{t-1}Whh+bh)</b></p>",
+      "src": [
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "I07",
+          "5"
+        ],
+        [
+          "E22F",
+          "2"
+        ],
+        [
+          "E23F",
+          "2"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.compute",
+        "depth": 3,
+        "family": "ie323_rnn_compute",
+        "role": "near",
+        "mis": [
+          "",
+          "m_rnn_compute",
+          "m_rnn_compute",
+          "m_rnn_compute"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-125",
+      "no": "AI-125",
+      "chapter": "C5",
+      "kind": "short",
+      "star": true,
+      "q": "h0=0, x1=2, Wxh=3, Whh=4, bh=1이고 활성함수가 Linear일 때 h1을 구하시오.",
+      "a": "h1=2×3+0×4+1=7",
+      "accept": [
+        "h1=2×3+0×4+1=7"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>h1=2×3+0×4+1=7</p>",
+      "src": [
+        [
+          "I07",
+          "4"
+        ],
+        [
+          "I07",
+          "5"
+        ],
+        [
+          "E22F",
+          "2"
+        ],
+        [
+          "E23F",
+          "2"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.compute",
+        "depth": 2,
+        "family": "ie323_rnn_compute",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-126",
+      "no": "AI-126",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": false,
+      "q": "문장 전체를 입력해 감성 하나를 출력하는 것은 many-to-one 구조이다.",
+      "ox": true,
+      "s": "<p>RNN은 one-to-many, many-to-one, many-to-many 등 과업에 따라 입력·출력 시퀀스 형태를 다르게 설계한다.</p>",
+      "src": [
+        [
+          "I07",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.forms",
+        "depth": 1,
+        "family": "ie323_rnn_forms",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-127",
+      "no": "AI-127",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": false,
+      "q": "이미지 하나에서 문장 캡션을 생성하는 과업은 many-to-one 구조이다.",
+      "ox": false,
+      "fix": "이미지 하나에서 여러 단어를 생성하는 캡션은 one-to-many 구조이다.",
+      "s": "<p>이미지 하나에서 여러 단어를 생성하는 캡션은 one-to-many 구조이다.</p>",
+      "src": [
+        [
+          "I07",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.forms",
+        "depth": 3,
+        "family": "ie323_rnn_forms",
+        "role": "near",
+        "mis": "m_rnn_forms",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-128",
+      "no": "AI-128",
+      "chapter": "C5",
+      "kind": "short",
+      "star": false,
+      "q": "여러 단어의 리뷰를 입력해 긍정·부정 하나를 출력하는 RNN 형태는?",
+      "a": "many-to-one",
+      "accept": [
+        "many to one",
+        "다대일"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>RNN은 one-to-many, many-to-one, many-to-many 등 과업에 따라 입력·출력 시퀀스 형태를 다르게 설계한다.</p>",
+      "src": [
+        [
+          "I07",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.forms",
+        "depth": 1,
+        "family": "ie323_rnn_forms",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-129",
+      "no": "AI-129",
+      "chapter": "C5",
+      "kind": "mc",
+      "star": false,
+      "q": "기계번역처럼 입력 문장과 출력 문장을 다루는 형태는?",
+      "opts": [
+        "one-to-one만 가능",
+        "many-to-many",
+        "one-to-many만 가능",
+        "출력이 없음"
+      ],
+      "ans": 1,
+      "a": "many-to-many",
+      "why": [
+        "one-to-one만 가능을(를) 정답으로 혼동함",
+        "",
+        "one-to-many만 가능을(를) 정답으로 혼동함",
+        "출력이 없음을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>RNN은 one-to-many, many-to-one, many-to-many 등 과업에 따라 입력·출력 시퀀스 형태를 다르게 설계한다.</p><p>정답: <b>many-to-many</b></p>",
+      "src": [
+        [
+          "I07",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.forms",
+        "depth": 3,
+        "family": "ie323_rnn_forms",
+        "role": "near",
+        "mis": [
+          "m_rnn_forms",
+          "",
+          "m_rnn_forms",
+          "m_rnn_forms"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-130",
+      "no": "AI-130",
+      "chapter": "C5",
+      "kind": "essay",
+      "star": false,
+      "q": "감성분석, 이미지 캡셔닝, 기계번역을 RNN 입출력 형태에 각각 대응시키시오.",
+      "a": "<p>감성분석-many-to-one, 이미지 캡셔닝-one-to-many, 기계번역-many-to-many</p>",
+      "pts": [
+        "세 대응 모두"
+      ],
+      "s": "<p>감성분석-many-to-one, 이미지 캡셔닝-one-to-many, 기계번역-many-to-many</p>",
+      "src": [
+        [
+          "I07",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.forms",
+        "depth": 4,
+        "family": "ie323_rnn_forms",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-131",
+      "no": "AI-131",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": true,
+      "q": "LSTM의 forget gate는 이전 cell state에서 유지할 정보를 조절한다.",
+      "ox": true,
+      "s": "<p>LSTM은 input·forget·output gate와 cell state로 장기 의존성을 보존하고, GRU는 gate와 state를 단순화해 파라미터 수를 줄인다.</p>",
+      "src": [
+        [
+          "I07",
+          "8"
+        ],
+        [
+          "I07",
+          "9"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.lstm",
+        "depth": 1,
+        "family": "ie323_rnn_lstm",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-132",
+      "no": "AI-132",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": false,
+      "q": "GRU는 LSTM보다 항상 더 많은 gate와 별도의 cell state를 사용한다.",
+      "ox": false,
+      "fix": "GRU는 gate를 병합하고 cell state와 hidden state를 합쳐 LSTM보다 단순하다.",
+      "s": "<p>GRU는 gate를 병합하고 cell state와 hidden state를 합쳐 LSTM보다 단순하다.</p>",
+      "src": [
+        [
+          "I07",
+          "8"
+        ],
+        [
+          "I07",
+          "9"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.lstm",
+        "depth": 3,
+        "family": "ie323_rnn_lstm",
+        "role": "near",
+        "mis": "m_rnn_lstm",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-133",
+      "no": "AI-133",
+      "chapter": "C5",
+      "kind": "short",
+      "star": false,
+      "q": "장기 의존성과 기울기 소실을 완화하기 위해 gate와 cell state를 사용하는 모델은?",
+      "a": "LSTM",
+      "accept": [
+        "long short-term memory",
+        "long short term memory"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>LSTM은 input·forget·output gate와 cell state로 장기 의존성을 보존하고, GRU는 gate와 state를 단순화해 파라미터 수를 줄인다.</p>",
+      "src": [
+        [
+          "I07",
+          "8"
+        ],
+        [
+          "I07",
+          "9"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.lstm",
+        "depth": 1,
+        "family": "ie323_rnn_lstm",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-134",
+      "no": "AI-134",
+      "chapter": "C5",
+      "kind": "mc",
+      "star": true,
+      "q": "LSTM의 세 대표 gate는?",
+      "opts": [
+        "query·key·value",
+        "convolution·pooling·flatten",
+        "input·forget·output",
+        "precision·recall·AUC"
+      ],
+      "ans": 2,
+      "a": "input·forget·output",
+      "why": [
+        "query·key·value을(를) 정답으로 혼동함",
+        "convolution·pooling·flatten을(를) 정답으로 혼동함",
+        "",
+        "precision·recall·AUC을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>LSTM은 input·forget·output gate와 cell state로 장기 의존성을 보존하고, GRU는 gate와 state를 단순화해 파라미터 수를 줄인다.</p><p>정답: <b>input·forget·output</b></p>",
+      "src": [
+        [
+          "I07",
+          "8"
+        ],
+        [
+          "I07",
+          "9"
+        ],
+        [
+          "E22F",
+          "2"
+        ],
+        [
+          "E23F",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.lstm",
+        "depth": 3,
+        "family": "ie323_rnn_lstm",
+        "role": "near",
+        "mis": [
+          "m_rnn_lstm",
+          "m_rnn_lstm",
+          "",
+          "m_rnn_lstm"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-135",
+      "no": "AI-135",
+      "chapter": "C5",
+      "kind": "short",
+      "star": true,
+      "q": "입력 차원 n, 은닉 크기 h인 LSTM 층의 파라미터 수를 식으로 쓰시오.",
+      "a": "네 gate 각각 입력 가중치 nh, 순환 가중치 h², 편향 h가 필요하므로 4(nh+h²+h)=4(n+h+1)h이다.",
+      "accept": [
+        "네 gate 각각 입력 가중치 nh, 순환 가중치 h², 편향 h가 필요하므로 4(nh+h²+h)=4(n+h+1)h이다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>네 gate 각각 입력 가중치 nh, 순환 가중치 h², 편향 h가 필요하므로 4(nh+h²+h)=4(n+h+1)h이다.</p>",
+      "src": [
+        [
+          "I07",
+          "8"
+        ],
+        [
+          "I07",
+          "9"
+        ],
+        [
+          "E22F",
+          "2"
+        ],
+        [
+          "E23F",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.lstm",
+        "depth": 2,
+        "family": "ie323_rnn_lstm",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-136",
+      "no": "AI-136",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": true,
+      "q": "Word2Vec은 의미가 비슷한 단어가 가까운 벡터를 갖도록 학습할 수 있다.",
+      "ox": true,
+      "s": "<p>Embedding은 고차원 one-hot 단어를 저차원 벡터로 바꾸고, Word2Vec의 CBOW는 문맥에서 중심 단어를, Skip-gram은 중심 단어에서 문맥을 예측한다.</p>",
+      "src": [
+        [
+          "I07W",
+          "2"
+        ],
+        [
+          "I07W",
+          "4"
+        ],
+        [
+          "I07W",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.embedding",
+        "depth": 1,
+        "family": "ie323_rnn_embedding",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-137",
+      "no": "AI-137",
+      "chapter": "C5",
+      "kind": "ox",
+      "star": false,
+      "q": "CBOW는 중심 단어 하나를 입력해 주변 문맥 단어를 예측한다.",
+      "ox": false,
+      "fix": "그 방향은 Skip-gram이며, CBOW는 주변 문맥으로 중심 단어를 예측한다.",
+      "s": "<p>그 방향은 Skip-gram이며, CBOW는 주변 문맥으로 중심 단어를 예측한다.</p>",
+      "src": [
+        [
+          "I07W",
+          "2"
+        ],
+        [
+          "I07W",
+          "4"
+        ],
+        [
+          "I07W",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.embedding",
+        "depth": 3,
+        "family": "ie323_rnn_embedding",
+        "role": "near",
+        "mis": "m_rnn_embedding",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-138",
+      "no": "AI-138",
+      "chapter": "C5",
+      "kind": "short",
+      "star": false,
+      "q": "중심 단어로 주변 문맥 단어를 예측하는 Word2Vec 모델은?",
+      "a": "Skip-gram",
+      "accept": [
+        "skip gram",
+        "스킵그램",
+        "skip-gram model"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Embedding은 고차원 one-hot 단어를 저차원 벡터로 바꾸고, Word2Vec의 CBOW는 문맥에서 중심 단어를, Skip-gram은 중심 단어에서 문맥을 예측한다.</p>",
+      "src": [
+        [
+          "I07W",
+          "2"
+        ],
+        [
+          "I07W",
+          "4"
+        ],
+        [
+          "I07W",
+          "7"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.embedding",
+        "depth": 1,
+        "family": "ie323_rnn_embedding",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-139",
+      "no": "AI-139",
+      "chapter": "C5",
+      "kind": "mc",
+      "star": true,
+      "q": "CBOW의 입력과 출력 관계는?",
+      "opts": [
+        "중심 단어→문맥 단어",
+        "영상→바운딩박스",
+        "보상→정답 레이블",
+        "문맥 단어→중심 단어"
+      ],
+      "ans": 3,
+      "a": "문맥 단어→중심 단어",
+      "why": [
+        "중심 단어→문맥 단어을(를) 정답으로 혼동함",
+        "영상→바운딩박스을(를) 정답으로 혼동함",
+        "보상→정답 레이블을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>Embedding은 고차원 one-hot 단어를 저차원 벡터로 바꾸고, Word2Vec의 CBOW는 문맥에서 중심 단어를, Skip-gram은 중심 단어에서 문맥을 예측한다.</p><p>정답: <b>문맥 단어→중심 단어</b></p>",
+      "src": [
+        [
+          "I07W",
+          "2"
+        ],
+        [
+          "I07W",
+          "4"
+        ],
+        [
+          "I07W",
+          "7"
+        ],
+        [
+          "E22F",
+          "2"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.embedding",
+        "depth": 3,
+        "family": "ie323_rnn_embedding",
+        "role": "near",
+        "mis": [
+          "m_rnn_embedding",
+          "m_rnn_embedding",
+          "m_rnn_embedding",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-140",
+      "no": "AI-140",
+      "chapter": "C5",
+      "kind": "essay",
+      "star": true,
+      "q": "단어 종류 500개를 100차원으로 바꾸는 Embedding 층의 파라미터 수를 구하시오.",
+      "a": "<p>500×100=50,000개</p>",
+      "pts": [
+        "어휘 수×임베딩 차원",
+        "50,000"
+      ],
+      "s": "<p>500×100=50,000개</p>",
+      "src": [
+        [
+          "I07W",
+          "2"
+        ],
+        [
+          "I07W",
+          "4"
+        ],
+        [
+          "I07W",
+          "7"
+        ],
+        [
+          "E22F",
+          "2"
+        ]
+      ],
+      "topic": "rnn",
+      "dx": {
+        "facet": "rnn.embedding",
+        "depth": 4,
+        "family": "ie323_rnn_embedding",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-141",
+      "no": "AI-141",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": true,
+      "q": "AutoEncoder의 학습 목표는 출력이 입력을 잘 복원하도록 재구성 오차를 줄이는 것이다.",
+      "ox": true,
+      "s": "<p>AutoEncoder는 입력을 latent vector로 인코딩하고 다시 입력과 가깝게 복원하도록 비지도 학습하며 차원 축소와 재구성 오차 기반 이상탐지에 활용한다.</p>",
+      "src": [
+        [
+          "I08",
+          "3"
+        ],
+        [
+          "I08",
+          "12"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_core",
+        "depth": 1,
+        "family": "ie323_gen_ae_core",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-142",
+      "no": "AI-142",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": false,
+      "q": "AutoEncoder 이상탐지에서는 재구성 오차가 작을수록 반드시 이상치로 판정한다.",
+      "ox": false,
+      "fix": "정상 패턴을 학습했다면 재구성 오차가 큰 샘플을 이상치로 판정한다.",
+      "s": "<p>정상 패턴을 학습했다면 재구성 오차가 큰 샘플을 이상치로 판정한다.</p>",
+      "src": [
+        [
+          "I08",
+          "3"
+        ],
+        [
+          "I08",
+          "12"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_core",
+        "depth": 3,
+        "family": "ie323_gen_ae_core",
+        "role": "near",
+        "mis": "m_gen_ae_core",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-143",
+      "no": "AI-143",
+      "chapter": "C6",
+      "kind": "short",
+      "star": false,
+      "q": "입력을 압축해 얻는 내부 저차원 표현을 무엇이라 하는가?",
+      "a": "Latent vector",
+      "accept": [
+        "잠재 벡터",
+        "latent representation",
+        "잠재표현"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>AutoEncoder는 입력을 latent vector로 인코딩하고 다시 입력과 가깝게 복원하도록 비지도 학습하며 차원 축소와 재구성 오차 기반 이상탐지에 활용한다.</p>",
+      "src": [
+        [
+          "I08",
+          "3"
+        ],
+        [
+          "I08",
+          "12"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_core",
+        "depth": 1,
+        "family": "ie323_gen_ae_core",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-144",
+      "no": "AI-144",
+      "chapter": "C6",
+      "kind": "mc",
+      "star": true,
+      "q": "AutoEncoder의 대표 활용이 아닌 것은?",
+      "opts": [
+        "정답 레이블 강제 생성",
+        "차원 축소",
+        "노이즈 제거",
+        "이상탐지"
+      ],
+      "ans": 0,
+      "a": "정답 레이블 강제 생성",
+      "why": [
+        "",
+        "차원 축소을(를) 정답으로 혼동함",
+        "노이즈 제거을(를) 정답으로 혼동함",
+        "이상탐지을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>AutoEncoder는 입력을 latent vector로 인코딩하고 다시 입력과 가깝게 복원하도록 비지도 학습하며 차원 축소와 재구성 오차 기반 이상탐지에 활용한다.</p><p>정답: <b>정답 레이블 강제 생성</b></p>",
+      "src": [
+        [
+          "I08",
+          "3"
+        ],
+        [
+          "I08",
+          "12"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_core",
+        "depth": 3,
+        "family": "ie323_gen_ae_core",
+        "role": "near",
+        "mis": [
+          "",
+          "m_gen_ae_core",
+          "m_gen_ae_core",
+          "m_gen_ae_core"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-145",
+      "no": "AI-145",
+      "chapter": "C6",
+      "kind": "short",
+      "star": true,
+      "q": "AutoEncoder로 설비 이상을 탐지하는 절차를 설명하시오.",
+      "a": "정상 데이터로 입력 복원을 학습한 뒤 신규 샘플의 재구성 오차를 계산하고, 설정한 임계값보다 크면 이상으로 판정한다.",
+      "accept": [
+        "정상 데이터로 입력 복원을 학습한 뒤 신규 샘플의 재구성 오차를 계산하고, 설정한 임계값보다 크면 이상으로 판정한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>정상 데이터로 입력 복원을 학습한 뒤 신규 샘플의 재구성 오차를 계산하고, 설정한 임계값보다 크면 이상으로 판정한다.</p>",
+      "src": [
+        [
+          "I08",
+          "3"
+        ],
+        [
+          "I08",
+          "12"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_core",
+        "depth": 2,
+        "family": "ie323_gen_ae_core",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-146",
+      "no": "AI-146",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": true,
+      "q": "VAE는 잠재변수를 하나의 고정 벡터가 아니라 분포로 모델링해 생성에 활용할 수 있다.",
+      "ox": true,
+      "s": "<p>SAE는 은닉층을 쌓고, DAE는 손상 입력을 복원하며, CAE는 합성곱을 사용하고, VAE는 잠재분포에서 샘플링해 생성할 수 있다.</p>",
+      "src": [
+        [
+          "I08",
+          "4"
+        ],
+        [
+          "I08",
+          "5"
+        ],
+        [
+          "I08",
+          "6"
+        ],
+        [
+          "I08",
+          "9"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_variants",
+        "depth": 1,
+        "family": "ie323_gen_ae_variants",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-147",
+      "no": "AI-147",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": false,
+      "q": "DAE는 입력에 잡음을 추가한 뒤 그 잡음 자체를 정답으로 복원하도록 학습한다.",
+      "ox": false,
+      "fix": "DAE는 잡음이 섞인 입력에서 원래의 깨끗한 입력을 복원하도록 학습한다.",
+      "s": "<p>DAE는 잡음이 섞인 입력에서 원래의 깨끗한 입력을 복원하도록 학습한다.</p>",
+      "src": [
+        [
+          "I08",
+          "4"
+        ],
+        [
+          "I08",
+          "5"
+        ],
+        [
+          "I08",
+          "6"
+        ],
+        [
+          "I08",
+          "9"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_variants",
+        "depth": 3,
+        "family": "ie323_gen_ae_variants",
+        "role": "near",
+        "mis": "m_gen_ae_variants",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-148",
+      "no": "AI-148",
+      "chapter": "C6",
+      "kind": "short",
+      "star": false,
+      "q": "Encoder와 Decoder에 합성곱·전치합성곱을 사용하는 AutoEncoder는?",
+      "a": "CAE",
+      "accept": [
+        "convolutional autoencoder",
+        "합성곱 오토인코더"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>SAE는 은닉층을 쌓고, DAE는 손상 입력을 복원하며, CAE는 합성곱을 사용하고, VAE는 잠재분포에서 샘플링해 생성할 수 있다.</p>",
+      "src": [
+        [
+          "I08",
+          "4"
+        ],
+        [
+          "I08",
+          "5"
+        ],
+        [
+          "I08",
+          "6"
+        ],
+        [
+          "I08",
+          "9"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_variants",
+        "depth": 1,
+        "family": "ie323_gen_ae_variants",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-149",
+      "no": "AI-149",
+      "chapter": "C6",
+      "kind": "mc",
+      "star": true,
+      "q": "변형과 특징의 연결이 옳은 것은?",
+      "opts": [
+        "DAE-항상 레이블 필요",
+        "VAE-잠재분포 샘플링",
+        "CAE-합성곱 사용 불가",
+        "SAE-은닉층 없음"
+      ],
+      "ans": 1,
+      "a": "VAE-잠재분포 샘플링",
+      "why": [
+        "DAE-항상 레이블 필요을(를) 정답으로 혼동함",
+        "",
+        "CAE-합성곱 사용 불가을(를) 정답으로 혼동함",
+        "SAE-은닉층 없음을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>SAE는 은닉층을 쌓고, DAE는 손상 입력을 복원하며, CAE는 합성곱을 사용하고, VAE는 잠재분포에서 샘플링해 생성할 수 있다.</p><p>정답: <b>VAE-잠재분포 샘플링</b></p>",
+      "src": [
+        [
+          "I08",
+          "4"
+        ],
+        [
+          "I08",
+          "5"
+        ],
+        [
+          "I08",
+          "6"
+        ],
+        [
+          "I08",
+          "9"
+        ],
+        [
+          "E23F",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_variants",
+        "depth": 3,
+        "family": "ie323_gen_ae_variants",
+        "role": "near",
+        "mis": [
+          "m_gen_ae_variants",
+          "",
+          "m_gen_ae_variants",
+          "m_gen_ae_variants"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-150",
+      "no": "AI-150",
+      "chapter": "C6",
+      "kind": "essay",
+      "star": true,
+      "q": "SAE, DAE, CAE, VAE의 차이를 한 줄씩 설명하시오.",
+      "a": "<p>SAE는 다층 AE, DAE는 잡음 입력 복원, CAE는 합성곱 기반 영상 AE, VAE는 잠재분포 기반 생성 모델이다.</p>",
+      "pts": [
+        "SAE",
+        "DAE",
+        "CAE",
+        "VAE"
+      ],
+      "s": "<p>SAE는 다층 AE, DAE는 잡음 입력 복원, CAE는 합성곱 기반 영상 AE, VAE는 잠재분포 기반 생성 모델이다.</p>",
+      "src": [
+        [
+          "I08",
+          "4"
+        ],
+        [
+          "I08",
+          "5"
+        ],
+        [
+          "I08",
+          "6"
+        ],
+        [
+          "I08",
+          "9"
+        ],
+        [
+          "E23F",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.ae_variants",
+        "depth": 4,
+        "family": "ie323_gen_ae_variants",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-151",
+      "no": "AI-151",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": true,
+      "q": "CAE Decoder는 공간 크기를 복원하기 위해 전치합성곱을 사용할 수 있다.",
+      "ox": true,
+      "s": "<p>전치합성곱은 학습 가능한 커널로 작은 특징맵을 더 큰 공간 특징맵으로 변환해 CAE·GAN의 Decoder나 Generator에서 사용한다.</p>",
+      "src": [
+        [
+          "I08",
+          "8"
+        ],
+        [
+          "I10",
+          "17"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.transconv",
+        "depth": 1,
+        "family": "ie323_gen_transconv",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-152",
+      "no": "AI-152",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": false,
+      "q": "전치합성곱은 일반 합성곱의 수치적 역행렬이므로 언제나 원본 입력을 완벽히 복원한다.",
+      "ox": false,
+      "fix": "전치합성곱은 합성곱 연산의 입력-출력 형태를 전치한 학습 연산이지 항상 정확한 역연산은 아니다.",
+      "s": "<p>전치합성곱은 합성곱 연산의 입력-출력 형태를 전치한 학습 연산이지 항상 정확한 역연산은 아니다.</p>",
+      "src": [
+        [
+          "I08",
+          "8"
+        ],
+        [
+          "I10",
+          "17"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.transconv",
+        "depth": 3,
+        "family": "ie323_gen_transconv",
+        "role": "near",
+        "mis": "m_gen_transconv",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-153",
+      "no": "AI-153",
+      "chapter": "C6",
+      "kind": "short",
+      "star": false,
+      "q": "CNN Decoder에서 특징맵의 공간 크기를 키우는 학습 가능한 대표 연산은?",
+      "a": "전치합성곱",
+      "accept": [
+        "transposed convolution",
+        "transpose convolution",
+        "deconvolution"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>전치합성곱은 학습 가능한 커널로 작은 특징맵을 더 큰 공간 특징맵으로 변환해 CAE·GAN의 Decoder나 Generator에서 사용한다.</p>",
+      "src": [
+        [
+          "I08",
+          "8"
+        ],
+        [
+          "I10",
+          "17"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.transconv",
+        "depth": 1,
+        "family": "ie323_gen_transconv",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-154",
+      "no": "AI-154",
+      "chapter": "C6",
+      "kind": "mc",
+      "star": true,
+      "q": "전치합성곱이 주로 사용되는 위치는?",
+      "opts": [
+        "혼동행렬의 실제 레이블",
+        "K-fold의 fold 이름",
+        "CAE Decoder",
+        "RNN의 보상함수"
+      ],
+      "ans": 2,
+      "a": "CAE Decoder",
+      "why": [
+        "혼동행렬의 실제 레이블을(를) 정답으로 혼동함",
+        "K-fold의 fold 이름을(를) 정답으로 혼동함",
+        "",
+        "RNN의 보상함수을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>전치합성곱은 학습 가능한 커널로 작은 특징맵을 더 큰 공간 특징맵으로 변환해 CAE·GAN의 Decoder나 Generator에서 사용한다.</p><p>정답: <b>CAE Decoder</b></p>",
+      "src": [
+        [
+          "I08",
+          "8"
+        ],
+        [
+          "I10",
+          "17"
+        ],
+        [
+          "E23F",
+          "2"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.transconv",
+        "depth": 3,
+        "family": "ie323_gen_transconv",
+        "role": "near",
+        "mis": [
+          "m_gen_transconv",
+          "m_gen_transconv",
+          "",
+          "m_gen_transconv"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-155",
+      "no": "AI-155",
+      "chapter": "C6",
+      "kind": "short",
+      "star": true,
+      "q": "전치합성곱에서 stride를 1보다 크게 두면 출력 공간에 어떤 변화가 생기는지 설명하시오.",
+      "a": "입력 원소의 배치 간격이 넓어지는 효과로 출력 공간 크기가 더 크게 확장된다.",
+      "accept": [
+        "입력 원소의 배치 간격이 넓어지는 효과로 출력 공간 크기가 더 크게 확장된다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>입력 원소의 배치 간격이 넓어지는 효과로 출력 공간 크기가 더 크게 확장된다.</p>",
+      "src": [
+        [
+          "I08",
+          "8"
+        ],
+        [
+          "I10",
+          "17"
+        ],
+        [
+          "E23F",
+          "2"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.transconv",
+        "depth": 2,
+        "family": "ie323_gen_transconv",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-156",
+      "no": "AI-156",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": true,
+      "q": "GAN 학습에서 Generator와 Discriminator는 서로 다른 목표를 두고 경쟁한다.",
+      "ox": true,
+      "s": "<p>GAN은 실제와 가짜를 구분하는 Discriminator와 이를 속이는 데이터를 만드는 Generator를 적대적으로 학습하며, DCGAN은 합성곱 구조를 사용한다.</p>",
+      "src": [
+        [
+          "I10",
+          "2"
+        ],
+        [
+          "I10",
+          "3"
+        ],
+        [
+          "I10",
+          "17"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.gan",
+        "depth": 1,
+        "family": "ie323_gen_gan",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-157",
+      "no": "AI-157",
+      "chapter": "C6",
+      "kind": "ox",
+      "star": false,
+      "q": "GAN의 Generator는 실제/가짜 판정 확률만 출력하고 새 데이터를 생성하지 않는다.",
+      "ox": false,
+      "fix": "Generator는 잠재 노이즈에서 가짜 데이터를 만들고 Discriminator가 실제/가짜를 판별한다.",
+      "s": "<p>Generator는 잠재 노이즈에서 가짜 데이터를 만들고 Discriminator가 실제/가짜를 판별한다.</p>",
+      "src": [
+        [
+          "I10",
+          "2"
+        ],
+        [
+          "I10",
+          "3"
+        ],
+        [
+          "I10",
+          "17"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.gan",
+        "depth": 3,
+        "family": "ie323_gen_gan",
+        "role": "near",
+        "mis": "m_gen_gan",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-158",
+      "no": "AI-158",
+      "chapter": "C6",
+      "kind": "short",
+      "star": false,
+      "q": "GAN에서 실제 데이터와 생성 데이터를 구별하는 네트워크는?",
+      "a": "Discriminator",
+      "accept": [
+        "판별자",
+        "discriminator network"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>GAN은 실제와 가짜를 구분하는 Discriminator와 이를 속이는 데이터를 만드는 Generator를 적대적으로 학습하며, DCGAN은 합성곱 구조를 사용한다.</p>",
+      "src": [
+        [
+          "I10",
+          "2"
+        ],
+        [
+          "I10",
+          "3"
+        ],
+        [
+          "I10",
+          "17"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.gan",
+        "depth": 1,
+        "family": "ie323_gen_gan",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-159",
+      "no": "AI-159",
+      "chapter": "C6",
+      "kind": "mc",
+      "star": true,
+      "q": "DCGAN Generator에서 공간 크기를 키우는 데 흔히 쓰는 층은?",
+      "opts": [
+        "Max-pooling만",
+        "혼동행렬",
+        "RNN gate",
+        "전치합성곱"
+      ],
+      "ans": 3,
+      "a": "전치합성곱",
+      "why": [
+        "Max-pooling만을(를) 정답으로 혼동함",
+        "혼동행렬을(를) 정답으로 혼동함",
+        "RNN gate을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>GAN은 실제와 가짜를 구분하는 Discriminator와 이를 속이는 데이터를 만드는 Generator를 적대적으로 학습하며, DCGAN은 합성곱 구조를 사용한다.</p><p>정답: <b>전치합성곱</b></p>",
+      "src": [
+        [
+          "I10",
+          "2"
+        ],
+        [
+          "I10",
+          "3"
+        ],
+        [
+          "I10",
+          "17"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.gan",
+        "depth": 3,
+        "family": "ie323_gen_gan",
+        "role": "near",
+        "mis": [
+          "m_gen_gan",
+          "m_gen_gan",
+          "m_gen_gan",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-160",
+      "no": "AI-160",
+      "chapter": "C6",
+      "kind": "essay",
+      "star": true,
+      "q": "GAN의 Generator와 Discriminator가 각각 최소화·최대화하려는 목표를 개념적으로 설명하시오.",
+      "a": "<p>Discriminator는 실제와 가짜를 정확히 구분하려 하고, Generator는 생성 샘플을 실제로 판정하게 만들어 Discriminator를 속이려 한다.</p>",
+      "pts": [
+        "판별자 목표",
+        "생성자 목표",
+        "적대적 학습"
+      ],
+      "s": "<p>Discriminator는 실제와 가짜를 정확히 구분하려 하고, Generator는 생성 샘플을 실제로 판정하게 만들어 Discriminator를 속이려 한다.</p>",
+      "src": [
+        [
+          "I10",
+          "2"
+        ],
+        [
+          "I10",
+          "3"
+        ],
+        [
+          "I10",
+          "17"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "gen",
+      "dx": {
+        "facet": "gen.gan",
+        "depth": 4,
+        "family": "ie323_gen_gan",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-161",
+      "no": "AI-161",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": false,
+      "q": "Object Detection은 객체 클래스와 바운딩 박스를 함께 예측한다.",
+      "ox": true,
+      "s": "<p>Classification은 이미지 범주, Localization은 한 객체의 위치, Object Detection은 여러 객체의 범주와 박스, Instance Segmentation은 객체별 픽셀 영역을 예측한다.</p>",
+      "src": [
+        [
+          "I09",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.tasks",
+        "depth": 1,
+        "family": "ie323_vision_tasks",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-162",
+      "no": "AI-162",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": false,
+      "q": "Instance Segmentation은 이미지 전체에 클래스 하나만 부여하고 객체 위치는 예측하지 않는다.",
+      "ox": false,
+      "fix": "Instance Segmentation은 객체별 영역을 픽셀 단위로 구분한다.",
+      "s": "<p>Instance Segmentation은 객체별 영역을 픽셀 단위로 구분한다.</p>",
+      "src": [
+        [
+          "I09",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.tasks",
+        "depth": 3,
+        "family": "ie323_vision_tasks",
+        "role": "near",
+        "mis": "m_vision_tasks",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-163",
+      "no": "AI-163",
+      "chapter": "C7",
+      "kind": "short",
+      "star": false,
+      "q": "여러 객체의 클래스와 바운딩 박스를 동시에 예측하는 과업은?",
+      "a": "Object Detection",
+      "accept": [
+        "객체 탐지",
+        "객체 검출",
+        "객체 감지"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Classification은 이미지 범주, Localization은 한 객체의 위치, Object Detection은 여러 객체의 범주와 박스, Instance Segmentation은 객체별 픽셀 영역을 예측한다.</p>",
+      "src": [
+        [
+          "I09",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.tasks",
+        "depth": 1,
+        "family": "ie323_vision_tasks",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-164",
+      "no": "AI-164",
+      "chapter": "C7",
+      "kind": "mc",
+      "star": false,
+      "q": "과업과 출력의 연결이 옳은 것은?",
+      "opts": [
+        "Instance Segmentation-객체별 픽셀 마스크",
+        "Classification-여러 바운딩박스",
+        "Localization-문장 생성",
+        "Detection-클래스 하나만"
+      ],
+      "ans": 0,
+      "a": "Instance Segmentation-객체별 픽셀 마스크",
+      "why": [
+        "",
+        "Classification-여러 바운딩박스을(를) 정답으로 혼동함",
+        "Localization-문장 생성을(를) 정답으로 혼동함",
+        "Detection-클래스 하나만을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>Classification은 이미지 범주, Localization은 한 객체의 위치, Object Detection은 여러 객체의 범주와 박스, Instance Segmentation은 객체별 픽셀 영역을 예측한다.</p><p>정답: <b>Instance Segmentation-객체별 픽셀 마스크</b></p>",
+      "src": [
+        [
+          "I09",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.tasks",
+        "depth": 3,
+        "family": "ie323_vision_tasks",
+        "role": "near",
+        "mis": [
+          "",
+          "m_vision_tasks",
+          "m_vision_tasks",
+          "m_vision_tasks"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-165",
+      "no": "AI-165",
+      "chapter": "C7",
+      "kind": "short",
+      "star": false,
+      "q": "Classification, Localization, Detection, Instance Segmentation의 출력 차이를 비교하시오.",
+      "a": "Classification은 클래스, Localization은 클래스와 한 위치, Detection은 여러 클래스와 박스, Instance Segmentation은 객체별 픽셀 마스크를 출력한다.",
+      "accept": [
+        "Classification은 클래스, Localization은 클래스와 한 위치, Detection은 여러 클래스와 박스, Instance Segmentation은 객체별 픽셀 마스크를 출력한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>Classification은 클래스, Localization은 클래스와 한 위치, Detection은 여러 클래스와 박스, Instance Segmentation은 객체별 픽셀 마스크를 출력한다.</p>",
+      "src": [
+        [
+          "I09",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.tasks",
+        "depth": 2,
+        "family": "ie323_vision_tasks",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-166",
+      "no": "AI-166",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": true,
+      "q": "Sensitivity와 Recall은 모두 TP/(TP+FN)으로 계산한다.",
+      "ox": true,
+      "s": "<p>Accuracy=(TP+TN)/전체, Precision=TP/(TP+FP), Recall·Sensitivity=TP/(TP+FN), Specificity=TN/(TN+FP), F1은 Precision과 Recall의 조화평균이다.</p>",
+      "src": [
+        [
+          "I09",
+          "4"
+        ],
+        [
+          "I09",
+          "6"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.class_metrics",
+        "depth": 1,
+        "family": "ie323_vision_class_metrics",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-167",
+      "no": "AI-167",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": false,
+      "q": "Specificity는 TP/(TP+FP)로 계산한다.",
+      "ox": false,
+      "fix": "Specificity=TN/(TN+FP)이며 TP/(TP+FP)는 Precision이다.",
+      "s": "<p>Specificity=TN/(TN+FP)이며 TP/(TP+FP)는 Precision이다.</p>",
+      "src": [
+        [
+          "I09",
+          "4"
+        ],
+        [
+          "I09",
+          "6"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.class_metrics",
+        "depth": 3,
+        "family": "ie323_vision_class_metrics",
+        "role": "near",
+        "mis": "m_vision_class_metrics",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-168",
+      "no": "AI-168",
+      "chapter": "C7",
+      "kind": "short",
+      "star": false,
+      "q": "ROC 곡선 아래 면적으로 임계값 전반의 이진분류 성능을 나타내는 지표는?",
+      "a": "AUC",
+      "accept": [
+        "area under the curve",
+        "ROC-AUC",
+        "ROC AUC"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Accuracy=(TP+TN)/전체, Precision=TP/(TP+FP), Recall·Sensitivity=TP/(TP+FN), Specificity=TN/(TN+FP), F1은 Precision과 Recall의 조화평균이다.</p>",
+      "src": [
+        [
+          "I09",
+          "4"
+        ],
+        [
+          "I09",
+          "6"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.class_metrics",
+        "depth": 1,
+        "family": "ie323_vision_class_metrics",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-169",
+      "no": "AI-169",
+      "chapter": "C7",
+      "kind": "mc",
+      "star": true,
+      "q": "TP=30, FP=10일 때 Precision은?",
+      "opts": [
+        "0.30",
+        "0.75",
+        "0.40",
+        "3.00"
+      ],
+      "ans": 1,
+      "a": "0.75",
+      "why": [
+        "0.30을(를) 정답으로 혼동함",
+        "",
+        "0.40을(를) 정답으로 혼동함",
+        "3.00을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>Accuracy=(TP+TN)/전체, Precision=TP/(TP+FP), Recall·Sensitivity=TP/(TP+FN), Specificity=TN/(TN+FP), F1은 Precision과 Recall의 조화평균이다.</p><p>정답: <b>0.75</b></p>",
+      "src": [
+        [
+          "I09",
+          "4"
+        ],
+        [
+          "I09",
+          "6"
+        ],
+        [
+          "E23F",
+          "2"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.class_metrics",
+        "depth": 3,
+        "family": "ie323_vision_class_metrics",
+        "role": "near",
+        "mis": [
+          "m_vision_class_metrics",
+          "",
+          "m_vision_class_metrics",
+          "m_vision_class_metrics"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-170",
+      "no": "AI-170",
+      "chapter": "C7",
+      "kind": "essay",
+      "star": true,
+      "q": "TP=10, FN=10, FP=20, TN=80일 때 Accuracy, Precision, Recall, Specificity를 구하시오.",
+      "a": "<p>Accuracy=90/120=0.75, Precision=10/30=1/3, Recall=10/20=0.5, Specificity=80/100=0.8</p>",
+      "pts": [
+        "Accuracy",
+        "Precision",
+        "Recall",
+        "Specificity"
+      ],
+      "s": "<p>Accuracy=90/120=0.75, Precision=10/30=1/3, Recall=10/20=0.5, Specificity=80/100=0.8</p>",
+      "src": [
+        [
+          "I09",
+          "4"
+        ],
+        [
+          "I09",
+          "6"
+        ],
+        [
+          "E23F",
+          "2"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.class_metrics",
+        "depth": 4,
+        "family": "ie323_vision_class_metrics",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-171",
+      "no": "AI-171",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": true,
+      "q": "예측 마스크와 정답 마스크가 완전히 같으면 IoU와 Dice는 모두 1이다.",
+      "ox": true,
+      "s": "<p>IoU=|A∩G|/|A∪G|이고 Dice=2|A∩G|/(|A|+|G|)로 예측 마스크와 정답 마스크의 겹침을 평가한다.</p>",
+      "src": [
+        [
+          "I09",
+          "8"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.seg_metrics",
+        "depth": 1,
+        "family": "ie323_vision_seg_metrics",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-172",
+      "no": "AI-172",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": false,
+      "q": "Dice 계수는 |A∩G|/|A∪G|로 계산한다.",
+      "ox": false,
+      "fix": "그 식은 IoU이고 Dice는 2|A∩G|/(|A|+|G|)이다.",
+      "s": "<p>그 식은 IoU이고 Dice는 2|A∩G|/(|A|+|G|)이다.</p>",
+      "src": [
+        [
+          "I09",
+          "8"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.seg_metrics",
+        "depth": 3,
+        "family": "ie323_vision_seg_metrics",
+        "role": "near",
+        "mis": "m_vision_seg_metrics",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-173",
+      "no": "AI-173",
+      "chapter": "C7",
+      "kind": "short",
+      "star": false,
+      "q": "예측과 정답의 교집합을 합집합으로 나눈 Segmentation 지표는?",
+      "a": "IoU",
+      "accept": [
+        "intersection over union",
+        "Jaccard index",
+        "자카드 지수"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>IoU=|A∩G|/|A∪G|이고 Dice=2|A∩G|/(|A|+|G|)로 예측 마스크와 정답 마스크의 겹침을 평가한다.</p>",
+      "src": [
+        [
+          "I09",
+          "8"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.seg_metrics",
+        "depth": 1,
+        "family": "ie323_vision_seg_metrics",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-174",
+      "no": "AI-174",
+      "chapter": "C7",
+      "kind": "mc",
+      "star": true,
+      "q": "|A|=100, |G|=110, |A∩G|=90일 때 IoU는?",
+      "opts": [
+        "6/7",
+        "9/10",
+        "3/4",
+        "90/210"
+      ],
+      "ans": 2,
+      "a": "3/4",
+      "why": [
+        "6/7을(를) 정답으로 혼동함",
+        "9/10을(를) 정답으로 혼동함",
+        "",
+        "90/210을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>IoU=|A∩G|/|A∪G|이고 Dice=2|A∩G|/(|A|+|G|)로 예측 마스크와 정답 마스크의 겹침을 평가한다.</p><p>정답: <b>3/4</b></p>",
+      "src": [
+        [
+          "I09",
+          "8"
+        ],
+        [
+          "E23F",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.seg_metrics",
+        "depth": 3,
+        "family": "ie323_vision_seg_metrics",
+        "role": "near",
+        "mis": [
+          "m_vision_seg_metrics",
+          "m_vision_seg_metrics",
+          "",
+          "m_vision_seg_metrics"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-175",
+      "no": "AI-175",
+      "chapter": "C7",
+      "kind": "short",
+      "star": true,
+      "q": "|A|=100, |G|=110, A-G=10, G-A=20일 때 IoU와 Dice를 구하시오.",
+      "a": "교집합=90, 합집합=120이므로 IoU=90/120=3/4, Dice=180/210=6/7",
+      "accept": [
+        "교집합=90, 합집합=120이므로 IoU=90/120=3/4, Dice=180/210=6/7"
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>교집합=90, 합집합=120이므로 IoU=90/120=3/4, Dice=180/210=6/7</p>",
+      "src": [
+        [
+          "I09",
+          "8"
+        ],
+        [
+          "E23F",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.seg_metrics",
+        "depth": 2,
+        "family": "ie323_vision_seg_metrics",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-176",
+      "no": "AI-176",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": true,
+      "q": "YOLO는 분류와 바운딩 박스 회귀를 한 단계에서 수행하는 one-stage detector이다.",
+      "ox": true,
+      "s": "<p>YOLO는 한 번의 네트워크 실행으로 그리드별 박스·objectness·클래스를 예측하는 one-stage detector이며 NMS로 중복 박스를 줄이고 P-R 곡선으로 AP를 계산한다.</p>",
+      "src": [
+        [
+          "I09",
+          "10"
+        ],
+        [
+          "I09",
+          "11"
+        ],
+        [
+          "I09",
+          "13"
+        ],
+        [
+          "I09Y",
+          "5"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.yolo",
+        "depth": 1,
+        "family": "ie323_vision_yolo",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-177",
+      "no": "AI-177",
+      "chapter": "C7",
+      "kind": "ox",
+      "star": false,
+      "q": "NMS는 confidence가 높은 박스를 먼저 제거하고 겹친 낮은 confidence 박스를 모두 남긴다.",
+      "ox": false,
+      "fix": "NMS는 높은 confidence 박스를 남기고 IoU가 큰 중복 박스를 제거한다.",
+      "s": "<p>NMS는 높은 confidence 박스를 남기고 IoU가 큰 중복 박스를 제거한다.</p>",
+      "src": [
+        [
+          "I09",
+          "10"
+        ],
+        [
+          "I09",
+          "11"
+        ],
+        [
+          "I09",
+          "13"
+        ],
+        [
+          "I09Y",
+          "5"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.yolo",
+        "depth": 3,
+        "family": "ie323_vision_yolo",
+        "role": "near",
+        "mis": "m_vision_yolo",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-178",
+      "no": "AI-178",
+      "chapter": "C7",
+      "kind": "short",
+      "star": false,
+      "q": "겹치는 탐지 박스 중 대표 박스만 남기는 후처리 기법은?",
+      "a": "NMS",
+      "accept": [
+        "non-maximum suppression",
+        "non maximum suppression",
+        "비최대 억제"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>YOLO는 한 번의 네트워크 실행으로 그리드별 박스·objectness·클래스를 예측하는 one-stage detector이며 NMS로 중복 박스를 줄이고 P-R 곡선으로 AP를 계산한다.</p>",
+      "src": [
+        [
+          "I09",
+          "10"
+        ],
+        [
+          "I09",
+          "11"
+        ],
+        [
+          "I09",
+          "13"
+        ],
+        [
+          "I09Y",
+          "5"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.yolo",
+        "depth": 1,
+        "family": "ie323_vision_yolo",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-179",
+      "no": "AI-179",
+      "chapter": "C7",
+      "kind": "mc",
+      "star": true,
+      "q": "YOLOv1의 7×7×30에서 셀당 30의 구성은?",
+      "opts": [
+        "박스 30개만",
+        "클래스 7개와 픽셀 23개",
+        "RNN gate 30개",
+        "박스 2개×5값 + 클래스 20개"
+      ],
+      "ans": 3,
+      "a": "박스 2개×5값 + 클래스 20개",
+      "why": [
+        "박스 30개만을(를) 정답으로 혼동함",
+        "클래스 7개와 픽셀 23개을(를) 정답으로 혼동함",
+        "RNN gate 30개을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>YOLO는 한 번의 네트워크 실행으로 그리드별 박스·objectness·클래스를 예측하는 one-stage detector이며 NMS로 중복 박스를 줄이고 P-R 곡선으로 AP를 계산한다.</p><p>정답: <b>박스 2개×5값 + 클래스 20개</b></p>",
+      "src": [
+        [
+          "I09",
+          "10"
+        ],
+        [
+          "I09",
+          "11"
+        ],
+        [
+          "I09",
+          "13"
+        ],
+        [
+          "I09Y",
+          "5"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.yolo",
+        "depth": 3,
+        "family": "ie323_vision_yolo",
+        "role": "near",
+        "mis": [
+          "m_vision_yolo",
+          "m_vision_yolo",
+          "m_vision_yolo",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-180",
+      "no": "AI-180",
+      "chapter": "C7",
+      "kind": "essay",
+      "star": true,
+      "q": "confidence threshold와 NMS IoU threshold를 지나치게 낮출 때 발생할 수 있는 현상을 설명하시오.",
+      "a": "<p>낮은 confidence 박스가 많이 남고 NMS IoU 기준도 낮으면 조금만 겹쳐도 억제되어, 오탐 증가와 실제 객체 누락 사이의 trade-off가 생긴다.</p>",
+      "pts": [
+        "confidence-오탐",
+        "NMS IoU-중복 억제",
+        "trade-off"
+      ],
+      "s": "<p>낮은 confidence 박스가 많이 남고 NMS IoU 기준도 낮으면 조금만 겹쳐도 억제되어, 오탐 증가와 실제 객체 누락 사이의 trade-off가 생긴다.</p>",
+      "src": [
+        [
+          "I09",
+          "10"
+        ],
+        [
+          "I09",
+          "11"
+        ],
+        [
+          "I09",
+          "13"
+        ],
+        [
+          "I09Y",
+          "5"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "vision",
+      "dx": {
+        "facet": "vision.yolo",
+        "depth": 4,
+        "family": "ie323_vision_yolo",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-181",
+      "no": "AI-181",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": true,
+      "q": "Transformer는 RNN처럼 시점별 순차 계산을 강제하지 않아 병렬 처리에 유리하다.",
+      "ox": true,
+      "s": "<p>Transformer는 순환 대신 self-attention으로 토큰 관계를 계산해 병렬 처리가 가능하며 원형 구조는 Encoder와 Decoder를 함께 사용한다.</p>",
+      "src": [
+        [
+          "I11",
+          "2"
+        ],
+        [
+          "I11",
+          "3"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.transformer",
+        "depth": 1,
+        "family": "ie323_nlp_transformer",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-182",
+      "no": "AI-182",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": false,
+      "q": "Transformer는 단어 순서를 RNN hidden state로만 표현하므로 positional encoding이 필요 없다.",
+      "ox": false,
+      "fix": "Transformer는 병렬 처리로 순서 정보가 자동 포함되지 않아 positional encoding을 더한다.",
+      "s": "<p>Transformer는 병렬 처리로 순서 정보가 자동 포함되지 않아 positional encoding을 더한다.</p>",
+      "src": [
+        [
+          "I11",
+          "2"
+        ],
+        [
+          "I11",
+          "3"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.transformer",
+        "depth": 3,
+        "family": "ie323_nlp_transformer",
+        "role": "near",
+        "mis": "m_nlp_transformer",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-183",
+      "no": "AI-183",
+      "chapter": "C8",
+      "kind": "short",
+      "star": false,
+      "q": "2017년 Attention Is All You Need 논문에서 제안된 모델은?",
+      "a": "Transformer",
+      "accept": [
+        "트랜스포머"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Transformer는 순환 대신 self-attention으로 토큰 관계를 계산해 병렬 처리가 가능하며 원형 구조는 Encoder와 Decoder를 함께 사용한다.</p>",
+      "src": [
+        [
+          "I11",
+          "2"
+        ],
+        [
+          "I11",
+          "3"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.transformer",
+        "depth": 1,
+        "family": "ie323_nlp_transformer",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-184",
+      "no": "AI-184",
+      "chapter": "C8",
+      "kind": "mc",
+      "star": true,
+      "q": "Transformer의 장점으로 옳은 것은?",
+      "opts": [
+        "장기 의존성과 병렬 처리에 유리",
+        "모든 토큰을 반드시 한 글자씩 순차 처리",
+        "Attention을 사용하지 않음",
+        "영상에 적용 불가"
+      ],
+      "ans": 0,
+      "a": "장기 의존성과 병렬 처리에 유리",
+      "why": [
+        "",
+        "모든 토큰을 반드시 한 글자씩 순차 처리을(를) 정답으로 혼동함",
+        "Attention을 사용하지 않음을(를) 정답으로 혼동함",
+        "영상에 적용 불가을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>Transformer는 순환 대신 self-attention으로 토큰 관계를 계산해 병렬 처리가 가능하며 원형 구조는 Encoder와 Decoder를 함께 사용한다.</p><p>정답: <b>장기 의존성과 병렬 처리에 유리</b></p>",
+      "src": [
+        [
+          "I11",
+          "2"
+        ],
+        [
+          "I11",
+          "3"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.transformer",
+        "depth": 3,
+        "family": "ie323_nlp_transformer",
+        "role": "near",
+        "mis": [
+          "",
+          "m_nlp_transformer",
+          "m_nlp_transformer",
+          "m_nlp_transformer"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-185",
+      "no": "AI-185",
+      "chapter": "C8",
+      "kind": "short",
+      "star": true,
+      "q": "RNN과 Transformer가 시퀀스의 장기 의존성을 처리하는 방식을 비교하시오.",
+      "a": "RNN은 순환 상태를 시간축으로 전달하지만 Transformer는 self-attention으로 멀리 떨어진 토큰 관계를 직접 계산한다.",
+      "accept": [
+        "RNN은 순환 상태를 시간축으로 전달하지만 Transformer는 self-attention으로 멀리 떨어진 토큰 관계를 직접 계산한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>RNN은 순환 상태를 시간축으로 전달하지만 Transformer는 self-attention으로 멀리 떨어진 토큰 관계를 직접 계산한다.</p>",
+      "src": [
+        [
+          "I11",
+          "2"
+        ],
+        [
+          "I11",
+          "3"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.transformer",
+        "depth": 2,
+        "family": "ie323_nlp_transformer",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-186",
+      "no": "AI-186",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": true,
+      "q": "Attention에서 Query와 Key의 유사도로 Value를 가중합한다.",
+      "ox": true,
+      "s": "<p>Scaled Dot-Product Attention은 softmax(QKᵀ/√dk)V이며 Transformer에는 Encoder self-attention, masked Decoder self-attention, Encoder-Decoder cross-attention이 있다.</p>",
+      "src": [
+        [
+          "I11",
+          "5"
+        ],
+        [
+          "I11",
+          "6"
+        ],
+        [
+          "I12",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.attention",
+        "depth": 1,
+        "family": "ie323_nlp_attention",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-187",
+      "no": "AI-187",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": false,
+      "q": "Decoder의 masked self-attention은 현재 토큰이 미래 토큰을 자유롭게 보도록 한다.",
+      "ox": false,
+      "fix": "Causal mask는 autoregressive 생성에서 미래 토큰을 보지 못하게 막는다.",
+      "s": "<p>Causal mask는 autoregressive 생성에서 미래 토큰을 보지 못하게 막는다.</p>",
+      "src": [
+        [
+          "I11",
+          "5"
+        ],
+        [
+          "I11",
+          "6"
+        ],
+        [
+          "I12",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.attention",
+        "depth": 3,
+        "family": "ie323_nlp_attention",
+        "role": "near",
+        "mis": "m_nlp_attention",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-188",
+      "no": "AI-188",
+      "chapter": "C8",
+      "kind": "short",
+      "star": false,
+      "q": "Attention에서 검색 기준 역할을 하는 벡터를 무엇이라 하는가?",
+      "a": "Query",
+      "accept": [
+        "쿼리",
+        "Q"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>Scaled Dot-Product Attention은 softmax(QKᵀ/√dk)V이며 Transformer에는 Encoder self-attention, masked Decoder self-attention, Encoder-Decoder cross-attention이 있다.</p>",
+      "src": [
+        [
+          "I11",
+          "5"
+        ],
+        [
+          "I11",
+          "6"
+        ],
+        [
+          "I12",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.attention",
+        "depth": 1,
+        "family": "ie323_nlp_attention",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-189",
+      "no": "AI-189",
+      "chapter": "C8",
+      "kind": "mc",
+      "star": true,
+      "q": "Scaled Dot-Product Attention 식은?",
+      "opts": [
+        "Q+K+V만",
+        "softmax(QKᵀ/√dk)V",
+        "softmax(V)V",
+        "QK without V"
+      ],
+      "ans": 1,
+      "a": "softmax(QKᵀ/√dk)V",
+      "why": [
+        "Q+K+V만을(를) 정답으로 혼동함",
+        "",
+        "softmax(V)V을(를) 정답으로 혼동함",
+        "QK without V을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>Scaled Dot-Product Attention은 softmax(QKᵀ/√dk)V이며 Transformer에는 Encoder self-attention, masked Decoder self-attention, Encoder-Decoder cross-attention이 있다.</p><p>정답: <b>softmax(QKᵀ/√dk)V</b></p>",
+      "src": [
+        [
+          "I11",
+          "5"
+        ],
+        [
+          "I11",
+          "6"
+        ],
+        [
+          "I12",
+          "11"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.attention",
+        "depth": 3,
+        "family": "ie323_nlp_attention",
+        "role": "near",
+        "mis": [
+          "m_nlp_attention",
+          "",
+          "m_nlp_attention",
+          "m_nlp_attention"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-190",
+      "no": "AI-190",
+      "chapter": "C8",
+      "kind": "essay",
+      "star": true,
+      "q": "Transformer Encoder·Decoder에서 사용하는 세 Multi-Head Attention의 차이를 설명하시오.",
+      "a": "<p>Encoder self-attention은 입력끼리, Decoder masked self-attention은 미래를 가린 출력 토큰끼리, cross-attention은 Decoder Query가 Encoder Key·Value를 참조한다.</p>",
+      "pts": [
+        "Encoder self",
+        "masked Decoder self",
+        "cross attention"
+      ],
+      "s": "<p>Encoder self-attention은 입력끼리, Decoder masked self-attention은 미래를 가린 출력 토큰끼리, cross-attention은 Decoder Query가 Encoder Key·Value를 참조한다.</p>",
+      "src": [
+        [
+          "I11",
+          "5"
+        ],
+        [
+          "I11",
+          "6"
+        ],
+        [
+          "I12",
+          "11"
+        ],
+        [
+          "E24F",
+          "2"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.attention",
+        "depth": 4,
+        "family": "ie323_nlp_attention",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-191",
+      "no": "AI-191",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": true,
+      "q": "GPT의 사전학습은 앞선 토큰으로 다음 토큰을 예측하는 자기지도학습으로 수행할 수 있다.",
+      "ox": true,
+      "s": "<p>GPT는 Generative Pre-trained Transformer의 약자이며 Decoder-only Transformer에서 causal mask를 사용해 다음 토큰을 autoregressive 방식으로 예측한다.</p>",
+      "src": [
+        [
+          "I12",
+          "2"
+        ],
+        [
+          "I12",
+          "4"
+        ],
+        [
+          "I12",
+          "5"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.gpt",
+        "depth": 1,
+        "family": "ie323_nlp_gpt",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-192",
+      "no": "AI-192",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": false,
+      "q": "GPT는 양방향 Masked Language Modeling만 사용하는 Encoder-only 모델이다.",
+      "ox": false,
+      "fix": "GPT는 autoregressive language modeling을 사용하는 Decoder-only 모델이며, BERT가 대표적인 Encoder 기반 masked language model이다.",
+      "s": "<p>GPT는 autoregressive language modeling을 사용하는 Decoder-only 모델이며, BERT가 대표적인 Encoder 기반 masked language model이다.</p>",
+      "src": [
+        [
+          "I12",
+          "2"
+        ],
+        [
+          "I12",
+          "4"
+        ],
+        [
+          "I12",
+          "5"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.gpt",
+        "depth": 3,
+        "family": "ie323_nlp_gpt",
+        "role": "near",
+        "mis": "m_nlp_gpt",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-193",
+      "no": "AI-193",
+      "chapter": "C8",
+      "kind": "short",
+      "star": false,
+      "q": "GPT의 전체 영어 명칭을 쓰시오.",
+      "a": "Generative Pre-trained Transformer",
+      "accept": [
+        "generative pretrained transformer",
+        "Generative Pretrained Transformer"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>GPT는 Generative Pre-trained Transformer의 약자이며 Decoder-only Transformer에서 causal mask를 사용해 다음 토큰을 autoregressive 방식으로 예측한다.</p>",
+      "src": [
+        [
+          "I12",
+          "2"
+        ],
+        [
+          "I12",
+          "4"
+        ],
+        [
+          "I12",
+          "5"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.gpt",
+        "depth": 1,
+        "family": "ie323_nlp_gpt",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-194",
+      "no": "AI-194",
+      "chapter": "C8",
+      "kind": "mc",
+      "star": true,
+      "q": "GPT 생성에서 causal mask를 쓰는 이유는?",
+      "opts": [
+        "모든 토큰 삭제",
+        "이미지 크기 축소",
+        "미래 토큰 정보 누설 방지",
+        "편향 제거"
+      ],
+      "ans": 2,
+      "a": "미래 토큰 정보 누설 방지",
+      "why": [
+        "모든 토큰 삭제을(를) 정답으로 혼동함",
+        "이미지 크기 축소을(를) 정답으로 혼동함",
+        "",
+        "편향 제거을(를) 정답으로 혼동함"
+      ],
+      "s": "<p>GPT는 Generative Pre-trained Transformer의 약자이며 Decoder-only Transformer에서 causal mask를 사용해 다음 토큰을 autoregressive 방식으로 예측한다.</p><p>정답: <b>미래 토큰 정보 누설 방지</b></p>",
+      "src": [
+        [
+          "I12",
+          "2"
+        ],
+        [
+          "I12",
+          "4"
+        ],
+        [
+          "I12",
+          "5"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.gpt",
+        "depth": 3,
+        "family": "ie323_nlp_gpt",
+        "role": "near",
+        "mis": [
+          "m_nlp_gpt",
+          "m_nlp_gpt",
+          "",
+          "m_nlp_gpt"
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-195",
+      "no": "AI-195",
+      "chapter": "C8",
+      "kind": "short",
+      "star": true,
+      "q": "GPT의 tokenization, embedding, positional encoding, causal self-attention 흐름을 설명하시오.",
+      "a": "텍스트를 BPE 등으로 토큰화하고 토큰 임베딩에 위치 정보를 더한 뒤, 미래를 가린 self-attention으로 다음 토큰 확률을 계산한다.",
+      "accept": [
+        "텍스트를 BPE 등으로 토큰화하고 토큰 임베딩에 위치 정보를 더한 뒤, 미래를 가린 self-attention으로 다음 토큰 확률을 계산한다."
+      ],
+      "strict": false,
+      "ph": "계산식 또는 핵심 설명",
+      "s": "<p>텍스트를 BPE 등으로 토큰화하고 토큰 임베딩에 위치 정보를 더한 뒤, 미래를 가린 self-attention으로 다음 토큰 확률을 계산한다.</p>",
+      "src": [
+        [
+          "I12",
+          "2"
+        ],
+        [
+          "I12",
+          "4"
+        ],
+        [
+          "I12",
+          "5"
+        ],
+        [
+          "E23M",
+          "1"
+        ],
+        [
+          "E24M",
+          "1"
+        ],
+        [
+          "E24F",
+          "1"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.gpt",
+        "depth": 2,
+        "family": "ie323_nlp_gpt",
+        "role": "near",
+        "delta": [
+          "object",
+          "새 수치·사례에 적용"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-196",
+      "no": "AI-196",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": false,
+      "q": "RAG는 사전학습에 없던 최신·도메인 문서를 검색해 LLM 응답의 근거로 제공할 수 있다.",
+      "ox": true,
+      "s": "<p>RAG는 문서를 로딩·분할·임베딩해 Vector DB에 저장하고 질문과 유사한 문맥을 검색해 LLM 프롬프트에 넣으며, TAG는 관계형 DB를 질의해 답변에 활용한다.</p>",
+      "src": [
+        [
+          "I13",
+          "3"
+        ],
+        [
+          "I13",
+          "5"
+        ],
+        [
+          "I13",
+          "6"
+        ],
+        [
+          "I13",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.llm_rag",
+        "depth": 1,
+        "family": "ie323_nlp_llm_rag",
+        "role": "base"
+      }
+    },
+    {
+      "ext_id": "AI-197",
+      "no": "AI-197",
+      "chapter": "C8",
+      "kind": "ox",
+      "star": false,
+      "q": "RAG에서는 문서를 Vector DB에 저장하지 않고 모델 가중치를 매 질문마다 처음부터 재학습한다.",
+      "ox": false,
+      "fix": "RAG는 문서를 chunking·embedding해 검색 저장소에 두고 관련 문맥을 프롬프트에 제공한다.",
+      "s": "<p>RAG는 문서를 chunking·embedding해 검색 저장소에 두고 관련 문맥을 프롬프트에 제공한다.</p>",
+      "src": [
+        [
+          "I13",
+          "3"
+        ],
+        [
+          "I13",
+          "5"
+        ],
+        [
+          "I13",
+          "6"
+        ],
+        [
+          "I13",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.llm_rag",
+        "depth": 3,
+        "family": "ie323_nlp_llm_rag",
+        "role": "near",
+        "mis": "m_nlp_llm_rag",
+        "delta": [
+          "condition",
+          "핵심 조건 또는 방향을 반대로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-198",
+      "no": "AI-198",
+      "chapter": "C8",
+      "kind": "short",
+      "star": false,
+      "q": "검색 결과를 프롬프트에 추가해 LLM 응답을 생성하는 기법의 약자는?",
+      "a": "RAG",
+      "accept": [
+        "retrieval augmented generation",
+        "retrieval-augmented generation",
+        "검색 증강 생성"
+      ],
+      "strict": false,
+      "ph": "용어 또는 식",
+      "s": "<p>RAG는 문서를 로딩·분할·임베딩해 Vector DB에 저장하고 질문과 유사한 문맥을 검색해 LLM 프롬프트에 넣으며, TAG는 관계형 DB를 질의해 답변에 활용한다.</p>",
+      "src": [
+        [
+          "I13",
+          "3"
+        ],
+        [
+          "I13",
+          "5"
+        ],
+        [
+          "I13",
+          "6"
+        ],
+        [
+          "I13",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.llm_rag",
+        "depth": 1,
+        "family": "ie323_nlp_llm_rag",
+        "role": "iso",
+        "delta": [
+          "repr",
+          "진술을 용어·식 회상으로 바꿈"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-199",
+      "no": "AI-199",
+      "chapter": "C8",
+      "kind": "mc",
+      "star": false,
+      "q": "RAG 문서 구축 순서로 옳은 것은?",
+      "opts": [
+        "Vector DB 삭제→학습 중단",
+        "Generation→Labeling→Pooling",
+        "NMS→Convolution→RNN",
+        "Loading→Chunking→Embedding→Vector DB"
+      ],
+      "ans": 3,
+      "a": "Loading→Chunking→Embedding→Vector DB",
+      "why": [
+        "Vector DB 삭제→학습 중단을(를) 정답으로 혼동함",
+        "Generation→Labeling→Pooling을(를) 정답으로 혼동함",
+        "NMS→Convolution→RNN을(를) 정답으로 혼동함",
+        ""
+      ],
+      "s": "<p>RAG는 문서를 로딩·분할·임베딩해 Vector DB에 저장하고 질문과 유사한 문맥을 검색해 LLM 프롬프트에 넣으며, TAG는 관계형 DB를 질의해 답변에 활용한다.</p><p>정답: <b>Loading→Chunking→Embedding→Vector DB</b></p>",
+      "src": [
+        [
+          "I13",
+          "3"
+        ],
+        [
+          "I13",
+          "5"
+        ],
+        [
+          "I13",
+          "6"
+        ],
+        [
+          "I13",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.llm_rag",
+        "depth": 3,
+        "family": "ie323_nlp_llm_rag",
+        "role": "near",
+        "mis": [
+          "m_nlp_llm_rag",
+          "m_nlp_llm_rag",
+          "m_nlp_llm_rag",
+          ""
+        ],
+        "delta": [
+          "neighbour",
+          "인접 개념·공식과 구별"
+        ]
+      }
+    },
+    {
+      "ext_id": "AI-200",
+      "no": "AI-200",
+      "chapter": "C8",
+      "kind": "essay",
+      "star": false,
+      "q": "RAG와 TAG가 외부 정보를 가져오는 방식의 차이를 설명하시오.",
+      "a": "<p>RAG는 주로 비정형 문서를 임베딩 유사도로 검색하고, TAG는 SQL 등으로 관계형 DB의 구조화 데이터를 조회해 응답에 사용한다.</p>",
+      "pts": [
+        "RAG-문서/벡터 검색",
+        "TAG-관계형 DB 질의"
+      ],
+      "s": "<p>RAG는 주로 비정형 문서를 임베딩 유사도로 검색하고, TAG는 SQL 등으로 관계형 DB의 구조화 데이터를 조회해 응답에 사용한다.</p>",
+      "src": [
+        [
+          "I13",
+          "3"
+        ],
+        [
+          "I13",
+          "5"
+        ],
+        [
+          "I13",
+          "6"
+        ],
+        [
+          "I13",
+          "11"
+        ]
+      ],
+      "topic": "nlp",
+      "dx": {
+        "facet": "nlp.llm_rag",
+        "depth": 4,
+        "family": "ie323_nlp_llm_rag",
+        "role": "near",
+        "delta": [
+          "condition",
+          "비교·조건·설계 판단"
+        ]
+      }
+    }
+  ]
+}
