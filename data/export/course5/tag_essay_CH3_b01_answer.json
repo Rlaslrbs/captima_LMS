@@ -1,0 +1,20 @@
+{
+  "items": [
+    {"ref": "p937", "rationale": "내부비용이 거래비용보다 크면 외부 구매를 택하고, 정보시스템이 거래비용과 대리인 비용을 낮춰 조직을 작고 강하게 만든다.", "facet": "tcost.boundary", "facets2": ["agency.cost"], "depth": "4", "depth_why": "D4d",
+     "points": [{"i": 0, "facet": "tcost.boundary", "misc": "m_tcost_dir"}, {"i": 1, "facet": "tcost.boundary", "misc": "m_tcost_items"}, {"i": 2, "facet": "agency.cost", "misc": "m_agency_tcost"}, {"i": 3, "facet": "tcost.boundary", "misc": "none"}]},
+    {"ref": "p938", "rationale": "Five Forces는 외부 환경의 다섯 세력을, 가치사슬은 내부 활동을 보며 가치사슬이 구체적 전략과 정보시스템 활용으로 이어진다.", "facet": "five_forces.forces", "facets2": ["value_chain.activities"], "depth": "3", "depth_why": "D3a",
+     "points": [{"i": 0, "facet": "five_forces.forces", "misc": "none"}, {"i": 1, "facet": "value_chain.activities", "misc": "m_value_chain_hr"}, {"i": 2, "facet": "five_forces.forces", "misc": "none"}, {"i": 3, "facet": "value_chain.activities", "misc": "none"}]},
+    {"ref": "p939", "rationale": "인수로 고객층·배송 거점·광고 채널을 얻어 1+1=3의 시너지를 내고, 정보시스템이 통합 운영을 뒷받침한다.", "facet": "value_chain.activities", "facets2": [], "depth": "2", "depth_why": "D2a",
+     "points": [{"i": 0, "facet": "value_chain.activities", "misc": "none"}, {"i": 1, "facet": "value_chain.activities", "misc": "none"}, {"i": 2, "facet": "value_chain.activities", "misc": "none"}]},
+    {"ref": "p940", "rationale": "정보시스템이 자원·정보 접근·구조·문화·정치를 바꿔 저항이 생기며, 해동 → 실행 → 재동결로 줄인다.", "facet": "culture.def", "facets2": [], "depth": "2", "depth_why": "D2a",
+     "points": [{"i": 0, "facet": "culture.def", "misc": "none"}, {"i": 1, "facet": "culture.def", "misc": "m_culture_easy"}, {"i": 2, "facet": "culture.def", "misc": "none"}, {"i": 3, "facet": "culture.def", "misc": "none"}]},
+    {"ref": "p1078", "rationale": "CBAM은 수입품의 탄소배출량에 따라 추가 비용을 매기는 규제이며, 조직 환경의 규제 변화에 정보시스템이 데이터 관리로 대응한다.", "facet": "org_def.tech_beh", "facets2": [], "depth": "2", "depth_why": "D2a",
+     "points": [{"i": 0, "facet": "org_def.tech_beh", "misc": "none"}, {"i": 1, "facet": "org_def.tech_beh", "misc": "none"}, {"i": 2, "facet": "org_def.tech_beh", "misc": "none"}, {"i": 3, "facet": "org_def.tech_beh", "misc": "none"}]},
+    {"ref": "p1079", "rationale": "전략적 정보시스템은 산업 구조, 가치사슬, 전략과의 정렬이라는 세 질문으로 점검하며 정기 점검이 필요하다.", "facet": "five_forces.forces", "facets2": ["value_chain.activities"], "depth": "4", "depth_why": "D4d",
+     "points": [{"i": 0, "facet": "five_forces.forces", "misc": "none"}, {"i": 1, "facet": "value_chain.activities", "misc": "none"}, {"i": 2, "facet": "five_forces.forces", "misc": "none"}, {"i": 3, "facet": "value_chain.activities", "misc": "none"}]},
+    {"ref": "p1152", "rationale": "루틴의 집합이 비즈니스 프로세스이고 그 집합이 기업이다. 조직문화와 조직정치가 큰 변화에 저항을 일으킨다.", "facet": "culture.def", "facets2": [], "depth": "2", "depth_why": "D2a",
+     "points": [{"i": 0, "facet": "culture.def", "misc": "none"}, {"i": 1, "facet": "culture.def", "misc": "m_culture_easy"}, {"i": 2, "facet": "culture.def", "misc": "m_culture_politics"}, {"i": 3, "facet": "culture.def", "misc": "none"}]},
+    {"ref": "p1153", "rationale": "네트워크 경제에서는 사용자 수에 따라 제품 가치가 달라지며, 멧칼프의 법칙에 따라 가치가 급증해 점유율과 플랫폼 확보를 서두른다.", "facet": "net_econ.def", "facets2": [], "depth": "2", "depth_why": "D2a",
+     "points": [{"i": 0, "facet": "net_econ.def", "misc": "m_net_econ_subst"}, {"i": 1, "facet": "net_econ.def", "misc": "none"}, {"i": 2, "facet": "net_econ.def", "misc": "m_net_econ_price"}, {"i": 3, "facet": "net_econ.def", "misc": "m_net_econ_eco"}]}
+  ]
+}

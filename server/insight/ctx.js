@@ -1,21 +1,21 @@
 // 학습 리포트: 과목 내용 묶음 (Contract 2). 과목의 문제·단원·개념 이름을 한 번 읽어 두고, 내용이 바뀔 때만 다시 만든다.
 // 과목을 이름·번호로 가르지 않는다: 단원·개념(topic)·'먼저 읽기'는 모두 DB 내용에서 정한다.
-import { db, J } from "../db.js";
+import { db, J, dataVersion } from "../db.js";
 import { strip, lnP } from "../../web/js/insight-engine.js";
 import { PARAM_VER } from "./params.js";
 
 let contentVer = () => 0;
 /** server.js가 관리자 쓰기 횟수(contentVer)를 읽는 함수를 넘겨준다 */
 export const useContentVer = fn => { contentVer = fn; };
-// contentVer와 data_version은 서버를 켤 때마다 처음부터 센다 → 켠 시각을 붙여, 예전 프로세스가 만든 insight 행과 섞이지 않게
+// contentVer는 서버를 켤 때마다 처음부터 센다 → 켠 시각을 붙여, 예전 프로세스가 만든 insight 행과 섞이지 않게
 const BOOT = Date.now().toString(36);
 const Q = {}, st = (k, sql) => Q[k] ||= db.prepare(sql);
 
-/** 캐시 키: 다른 프로그램의 DB 쓰기(data_version) | 관리자 쓰기 | 태그·개념 사전·보정 판 | 조절값 판 | 서버 켠 시각 */
+/** 캐시 키: 다른 프로그램의 DB 쓰기(내용 표의 마지막 고친 시각) | 관리자 쓰기 | 태그·개념 사전·보정 판 | 조절값 판 | 서버 켠 시각 */
 export function ctxKey(cid) {
   const m = {};
-  for (const r of st("meta", "SELECT key, value FROM insight_meta WHERE key IN (?, ?, ?, 'calib_rev')").all("tag_rev:" + cid, "vocab_ver:" + cid, "v2_ready:" + cid)) m[r.key] = r.value;
-  return [st("dv", "PRAGMA data_version").get().data_version, contentVer(), m["tag_rev:" + cid] ?? 0, m["vocab_ver:" + cid] ?? 0, m["v2_ready:" + cid] ?? 0, m.calib_rev ?? 0, PARAM_VER, BOOT].join("|");
+  for (const r of st("meta", "SELECT meta_key `key`, value FROM insight_meta WHERE meta_key IN (?, ?, ?, 'calib_rev')").all("tag_rev:" + cid, "vocab_ver:" + cid, "v2_ready:" + cid)) m[r.key] = r.value;
+  return [dataVersion(), contentVer(), m["tag_rev:" + cid] ?? 0, m["vocab_ver:" + cid] ?? 0, m["v2_ready:" + cid] ?? 0, m.calib_rev ?? 0, PARAM_VER, BOOT].join("|");
 }
 
 const median = a => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
@@ -25,16 +25,16 @@ const unNum = t => String(t || "").replace(/^[\d.\-–~·\s]+/, "").trim();     
 const human = code => String(code).replace(/^t_/, "").replace(/[_-]+/g, " ").trim() || String(code);   // 코드만 남을 때 읽기 쉽게
 
 function build(cid, key) {
-  const c = st("course", "SELECT c.id, c.short, c.name, c.visible, c.info, s.visible sv FROM course c JOIN semester s ON s.id = c.semester_id WHERE c.id = ?").get(cid);
+  const c = st("course", "SELECT c.course_id id, c.short, c.name, c.visible, c.info, s.visible sv FROM course c JOIN semester s ON s.semester_id = c.semester_id WHERE c.course_id = ?").get(cid);
   if (!c) return null;
   const info = J(c.info), concepts = info.concepts && typeof info.concepts === "object" ? info.concepts : {};
-  const chapters = st("chs", "SELECT key, title, short, grp, sort FROM chapter WHERE course_id = ? ORDER BY sort, id").all(cid)
+  const chapters = st("chs", "SELECT chapter_key `key`, title, short, grp, sort FROM chapter WHERE course_id = ? ORDER BY sort, chapter_id").all(cid)
     .map(r => ({ key: r.key, title: r.title, short: r.short, grp: r.grp, sort: r.sort }));
   // 문제: 지금 버전 하나씩 (숨긴 문제도 넣고 status로 표시 → 엔진이 뺀다)
   const items = new Map(), lens = { ox: [], mc: [], short: [], essay: [] };
-  for (const r of st("items", `SELECT p.id, p.ext_id, p.status, p.current_version v, ch.key ch, pv.kind, pv.star, pv.body FROM problem p
-      JOIN chapter ch ON ch.id = p.chapter_id JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version
-      WHERE p.course_id = ? ORDER BY p.sort, p.id`).all(cid)) {
+  for (const r of st("items", `SELECT p.problem_id id, p.ext_id, p.status, p.current_version v, ch.chapter_key ch, pv.kind, pv.star, pv.body FROM problem p
+      JOIN chapter ch ON ch.chapter_id = p.chapter_id JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version
+      WHERE p.course_id = ? ORDER BY p.sort, p.problem_id`).all(cid)) {
     const b = J(r.body), opts = Array.isArray(b.opts) ? b.opts : [];
     const len = strip(b.q).length + strip(b.stem).length + opts.reduce((s, o) => s + strip(o).length, 0);   // 수식은 그대로 센다
     items.set(r.id, { pid: r.id, ext: r.ext_id, ch: r.ch, kind: r.kind, v: r.v, star: r.star ? 1 : 0, status: r.status,
@@ -103,7 +103,7 @@ function misOf(kind, dg, nopt) {
   return null;
 }
 function v2Of(cid, items, chapters, topics, same) {
-  const rows = tbl(`SELECT t.problem_id pid, t.version v, t.facet, t.depth, t.src, t.conf, t.diag, t.review FROM item_tag t JOIN problem p ON p.id = t.problem_id
+  const rows = tbl(`SELECT t.problem_id pid, t.version v, t.facet, t.depth, t.src, t.conf, t.diag, t.review FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id
       WHERE p.course_id = ? AND t.facet IS NOT NULL AND t.review NOT IN ('rejected', 'stale') ORDER BY t.problem_id, t.version DESC`, cid);
   if (!rows || !rows.length) return null;
   const tags = new Map();
@@ -141,7 +141,7 @@ function v2Of(cid, items, chapters, topics, same) {
     const ch = [...m].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))[0][0];
     F.ch = ch; F.chTitle = unNum(chTitle.get(ch) || ch);
   }
-  const ready = (st("v2r", "SELECT value FROM insight_meta WHERE key = ?").get("v2_ready:" + cid) || {}).value === "1";
+  const ready = (st("v2r", "SELECT value FROM insight_meta WHERE meta_key = ?").get("v2_ready:" + cid) || {}).value === "1";
   return { ready, facets, misc, tags, fam, famOfFacet, byFacet, bySecond };
 }
 

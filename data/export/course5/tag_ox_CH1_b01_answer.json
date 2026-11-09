@@ -1,0 +1,211 @@
+{
+ "items": [
+  {
+   "ref": "p885",
+   "rationale": "IS는 기존 비즈니스의 효율화뿐 아니라 새로운 비즈니스 창출에도 기여한다. '효율화에만'이라는 한정이 거짓이다.",
+   "facet": "c05.f3",
+   "depth": "4",
+   "depth_why": "D4c",
+   "ox": {
+    "statement_true": false,
+    "misc": "none",
+    "d": "1",
+    "err": "qualifier",
+    "reverse_misc": "none",
+    "planted_error": "'효율화에만 기여'로 바꿔 새로운 비즈니스 창출을 배제함"
+   }
+  },
+  {
+   "ref": "p886",
+   "rationale": "정보시스템은 입력·처리·출력을 수행하고 피드백으로 입력과 처리를 교정한다. 배운 문장 그대로의 참인 진술이다.",
+   "facet": "c01.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p887",
+   "rationale": "정보는 의미 있게 가공된 형태이고 데이터는 정렬·가공 이전의 사실이다. 진술은 두 정의를 맞바꿨다.",
+   "facet": "c02.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m001",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "데이터와 정보의 정의를 서로 바꿈"
+   }
+  },
+  {
+   "ref": "p888",
+   "rationale": "컴퓨터와 프로그램은 필수 요소이지만 IS는 그보다 더 포괄적인 개념이라 일부일 뿐이다. 참인 진술이다.",
+   "facet": "c01.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p889",
+   "rationale": "IT 투자 규모가 커도 보완적 자산이 갖춰지지 않으면 생산성 향상은 보장되지 않는다. 진술은 '보장된다'로 뒤집었다.",
+   "facet": "c03.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m002",
+    "d": "3",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "'보장되지 않는다'를 '보장된다'로 바꿈"
+   }
+  },
+  {
+   "ref": "p890",
+   "rationale": "인터넷·산업 인프라·공교육·정부 정책·법률은 기업 외부의 사회적 자산이다. 조직적 자산은 기업 내부의 구조·프로세스이다.",
+   "facet": "c03.f3",
+   "depth": "3",
+   "depth_why": "D3c",
+   "ox": {
+    "statement_true": false,
+    "misc": "m003",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "사회적 자산을 조직적 자산이라고 바꿈"
+   }
+  },
+  {
+   "ref": "p891",
+   "rationale": "사회기술적 관점에서 최적 성과는 기술적 접근과 행위적 접근을 모두 활용해야 얻는다. 배운 문장 그대로이다.",
+   "facet": "c04.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p892",
+   "rationale": "경영과학(OR)은 수리적 모형과 최적화를 다루는 기술적 접근이고 행위적 접근은 사회학·심리학·경제학이다.",
+   "facet": "c04.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m005",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "기술적 접근을 행위적 접근으로 바꿈"
+   }
+  },
+  {
+   "ref": "p894",
+   "rationale": "환경적 영향과 지속가능성은 정보시스템 전략 목적으로 새로 추가된 항목이다. 배운 문장 그대로이다.",
+   "facet": "c05.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p1029",
+   "rationale": "책임 있는 AI는 경영 측면, 원격근무는 조직 측면의 과제이다. 진술은 두 측면 분류를 틀리게 붙였다.",
+   "facet": "c05.f4",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m011",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "책임 있는 AI를 기술, 원격근무를 경영 측면으로 바꿈"
+   }
+  },
+  {
+   "ref": "p1031",
+   "rationale": "기업 조직은 피라미드형 계층이며 계층마다 권한·책임이 달라 주로 쓰는 정보시스템도 다르다. 슬라이드 조직 차원 설명과 같은 참인 진술이다.",
+   "facet": "c06.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   },
+   "facets2": [
+    "c06.f2"
+   ]
+  },
+  {
+   "ref": "p1127",
+   "rationale": "정보시스템의 정의는 독립적 요소가 아니라 상호연관된 요소들의 집합이다. 진술의 '서로 독립적으로 작동'이 거짓이다.",
+   "facet": "c01.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m009",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "'상호연관된'을 '서로 독립적으로 작동하는'으로 바꿈"
+   }
+  },
+  {
+   "ref": "p1128",
+   "rationale": "IT는 하드웨어·소프트웨어 기술이고 IS는 이를 포함하는 더 복잡하고 포괄적인 개념이다. 참인 진술이다.",
+   "facet": "c01.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "m008"
+   }
+  },
+  {
+   "ref": "p1129",
+   "rationale": "사회기술적 관점은 양방향 적응을 말한다. 조직과 구성원도 기술 요구사항에 맞춰 교육·변화해야 한다.",
+   "facet": "c04.f2",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m007",
+    "d": "3",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "조직·구성원도 변해야 한다를 변할 필요 없다로 바꿈"
+   }
+  }
+ ]
+}

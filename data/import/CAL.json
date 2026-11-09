@@ -1,0 +1,8061 @@
+{
+ "format": 1,
+ "semester": {
+  "code": "01-1",
+  "name": "1학년 1학기"
+ },
+ "course": {
+  "code": "CAL",
+  "short": "미적",
+  "name": "미분적분학",
+  "professor": "",
+  "meta": "Stewart 교재 1~13장 (1~11장은 SSM 목차 기준)",
+  "lang": "ko",
+  "color": {
+   "light": "#8a2d5b",
+   "dark": "#e89ac0"
+  },
+  "math": true,
+  "files": {
+   "T": "교재 (미분적분학.pdf, Stewart 9E 한국어판)"
+  },
+  "topics": {
+   "fn": {
+    "name": "함수와 정의역",
+    "confusable": [],
+    "facets": {
+     "dom": {
+      "name": "정의역 찾기",
+      "kind": "condition",
+      "statement": "함수의 정의역은 식이 정의되는 모든 입력이며 분모·근호·로그의 조건으로 정한다"
+     },
+     "comp": {
+      "name": "합성함수의 정의역",
+      "kind": "property",
+      "statement": "f∘g의 정의역은 g의 정의역 중 g(x)가 f의 정의역에 드는 x 전체다"
+     },
+     "trans": {
+      "name": "그래프의 평행이동·대칭",
+      "kind": "procedure",
+      "statement": "f(x−c)는 오른쪽으로 c만큼, −f(x)는 x축 대칭으로 옮긴 그래프다"
+     }
+    }
+   },
+   "lim": {
+    "name": "극한",
+    "confusable": [
+     "cont"
+    ],
+    "facets": {
+     "lawx": {
+      "name": "극한 법칙",
+      "kind": "property",
+      "statement": "두 극한이 존재하면 합·차·곱의 극한은 극한들의 합·차·곱이고, 분모 극한이 0이 아니면 몫도 같다"
+     },
+     "indet": {
+      "name": "0/0 꼴 정리",
+      "kind": "procedure",
+      "statement": "0/0 꼴은 약분·유리화로 식을 고친 뒤 대입해야 하며 0/0을 0이나 1로 정하지 않는다"
+     },
+     "side": {
+      "name": "좌극한과 우극한",
+      "kind": "condition",
+      "statement": "극한이 존재하려면 좌극한과 우극한이 같아야 한다"
+     },
+     "inf": {
+      "name": "무한대에서의 극한",
+      "kind": "procedure",
+      "statement": "x→∞일 때 분자·분모의 최고차항만 남겨 극한을 구한다"
+     }
+    }
+   },
+   "cont": {
+    "name": "연속과 중간값 정리",
+    "confusable": [
+     "lim"
+    ],
+    "facets": {
+     "def": {
+      "name": "연속의 정의",
+      "kind": "def",
+      "statement": "x=a에서 연속이려면 f(a)가 정의되고 극한이 존재하며 극한값이 f(a)와 같아야 한다"
+     },
+     "ivt": {
+      "name": "중간값 정리",
+      "kind": "property",
+      "statement": "닫힌 구간에서 연속이고 양끝의 부호가 다르면 그 사이에 근이 있다"
+     }
+    }
+   },
+   "der": {
+    "name": "미분계수와 접선",
+    "confusable": [],
+    "facets": {
+     "def": {
+      "name": "미분계수의 정의",
+      "kind": "def",
+      "statement": "f'(a)는 평균변화율의 극한이며 x=a에서 접선의 기울기다"
+     },
+     "tan": {
+      "name": "접선의 방정식",
+      "kind": "procedure",
+      "statement": "접선은 점 (a, f(a))를 지나고 기울기가 f'(a)인 직선이다"
+     }
+    }
+   },
+   "dif": {
+    "name": "미분법",
+    "confusable": [],
+    "facets": {
+     "pw": {
+      "name": "거듭제곱과 상수배·합",
+      "kind": "procedure",
+      "statement": "x^n의 도함수는 nx^(n−1)이며 상수배와 합은 각 항별로 미분한다"
+     },
+     "pq": {
+      "name": "곱의 미분과 몫의 미분",
+      "kind": "procedure",
+      "statement": "(fg)'=f'g+fg'이고 (f/g)'=(f'g−fg')/g²이다"
+     },
+     "tri": {
+      "name": "삼각함수 미분",
+      "kind": "procedure",
+      "statement": "(sin x)'=cos x, (cos x)'=−sin x, (tan x)'=sec²x이다"
+     }
+    }
+   },
+   "chain": {
+    "name": "연쇄법칙",
+    "confusable": [],
+    "facets": {
+     "cr": {
+      "name": "합성함수의 미분",
+      "kind": "procedure",
+      "statement": "(f(g(x)))'=f'(g(x))·g'(x)이다 (바깥 미분 후 안쪽 미분을 곱한다)"
+     }
+    }
+   },
+   "impl": {
+    "name": "음함수 미분",
+    "confusable": [],
+    "facets": {
+     "ip": {
+      "name": "음함수의 y'",
+      "kind": "procedure",
+      "statement": "y를 x의 함수로 보고 양변을 미분해 y'를 푼다"
+     }
+    }
+   },
+   "rel": {
+    "name": "관련 변화율",
+    "confusable": [],
+    "facets": {
+     "rr": {
+      "name": "시간에 대한 관련 변화율",
+      "kind": "relation",
+      "statement": "변수 사이 관계식을 시간 t에 대해 미분해 변화율을 연결한다"
+     }
+    }
+   },
+   "lin": {
+    "name": "선형근사",
+    "confusable": [],
+    "facets": {
+     "ap": {
+      "name": "선형근사식",
+      "kind": "procedure",
+      "statement": "x=a 근처에서 f(x) ≈ f(a)+f'(a)(x−a)이다"
+     },
+     "nr": {
+      "name": "뉴턴법",
+      "kind": "procedure",
+      "statement": "x₁ = x₀ − f(x₀)/f′(x₀)로 접선의 x절편을 다음 근사값으로 쓴다"
+     }
+    }
+   },
+   "ext": {
+    "name": "극값과 볼록성",
+    "confusable": [],
+    "facets": {
+     "crit": {
+      "name": "임계점",
+      "kind": "def",
+      "statement": "f'(c)=0이거나 f'가 정의되지 않는 점이 임계점이며 극값 후보다"
+     },
+     "test": {
+      "name": "극값 판정",
+      "kind": "condition",
+      "statement": "f'의 부호가 바뀌는 점이 극값이며 부호가 같으면 극값이 아니다"
+     },
+     "conc": {
+      "name": "볼록성과 f''",
+      "kind": "property",
+      "statement": "f''>0이면 아래로 볼록, f''<0이면 위로 볼록이다"
+     }
+    }
+   },
+   "mvt": {
+    "name": "평균값 정리",
+    "confusable": [],
+    "facets": {
+     "mv": {
+      "name": "평균값 정리",
+      "kind": "property",
+      "statement": "구간에서 연속이고 내부에서 미분가능하면 f'(c)=(f(b)−f(a))/(b−a)인 c가 구간 안에 있다"
+     }
+    }
+   },
+   "asym": {
+    "name": "점근선",
+    "confusable": [],
+    "facets": {
+     "hz": {
+      "name": "수평 점근선",
+      "kind": "def",
+      "statement": "x→±∞에서 f(x)가 L에 가까워지면 y=L이 수평 점근선이다"
+     }
+    }
+   },
+   "opt": {
+    "name": "최적화",
+    "confusable": [],
+    "facets": {
+     "end": {
+      "name": "구간에서 최댓·최솟값",
+      "kind": "procedure",
+      "statement": "임계점과 구간의 끝점에서 함숫값을 모두 비교한다"
+     }
+    }
+   },
+   "anti": {
+    "name": "부정적분",
+    "confusable": [],
+    "facets": {
+     "ad": {
+      "name": "부정적분과 C",
+      "kind": "def",
+      "statement": "F'=f이면 f의 부정적분은 F(x)+C이며 상수 C를 붙인다"
+     }
+    }
+   },
+   "area": {
+    "name": "넓이와 정적분",
+    "confusable": [],
+    "facets": {
+     "rs": {
+      "name": "리만 합과 정적분",
+      "kind": "def",
+      "statement": "정적분은 리만 합의 극한이며 x축 아래 부분은 음의 값으로 센다"
+     }
+    }
+   },
+   "ftc": {
+    "name": "미적분학의 기본정리",
+    "confusable": [],
+    "facets": {
+     "ftc1": {
+      "name": "적분의 도함수",
+      "kind": "property",
+      "statement": "f가 연속이면 d/dx ∫_a^x f(t)dt = f(x)이다"
+     },
+     "ftc2": {
+      "name": "정적분 계산",
+      "kind": "procedure",
+      "statement": "∫_a^b f(x)dx = F(b)−F(a)이며 F'=f이다"
+     }
+    }
+   },
+   "subs": {
+    "name": "치환적분",
+    "confusable": [],
+    "facets": {
+     "sub": {
+      "name": "치환과 구간 변환",
+      "kind": "procedure",
+      "statement": "u=g(x)로 놓으면 du=g'(x)dx이며 적분 구간도 u에 맞게 바꾼다"
+     }
+    }
+   },
+   "abc": {
+    "name": "두 곡선 사이의 넓이",
+    "confusable": [],
+    "facets": {
+     "ab": {
+      "name": "위와 아래 곡선",
+      "kind": "procedure",
+      "statement": "넓이는 (위 곡선−아래 곡선)을 교점으로 나눈 구간마다 적분한다"
+     }
+    }
+   },
+   "vol": {
+    "name": "회전체의 부피",
+    "confusable": [],
+    "facets": {
+     "disk": {
+      "name": "원판·와셔법",
+      "kind": "procedure",
+      "statement": "회전축과 단면 반지름으로 π∫(R²−r²)dx를 쓴다"
+     },
+     "shell": {
+      "name": "원통껍질법",
+      "kind": "procedure",
+      "statement": "y축 회전은 2π∫x f(x)dx이다"
+     }
+    }
+   },
+   "work": {
+    "name": "일과 평균값",
+    "confusable": [],
+    "facets": {
+     "wk": {
+      "name": "일의 적분",
+      "kind": "def",
+      "statement": "힘 F(x)가 변할 때 일은 W=∫F(x)dx이다"
+     },
+     "av": {
+      "name": "함수의 평균값",
+      "kind": "def",
+      "statement": "f의 평균값은 (1/(b−a))∫_a^b f(x)dx이다"
+     }
+    }
+   },
+   "inv": {
+    "name": "역함수",
+    "confusable": [],
+    "facets": {
+     "inv": {
+      "name": "역함수의 성질",
+      "kind": "property",
+      "statement": "f⁻¹(f(x))=x이며 (f⁻¹)'(a)=1/f'(f⁻¹(a))이다"
+     }
+    }
+   },
+   "expl": {
+    "name": "지수·로그 함수",
+    "confusable": [],
+    "facets": {
+     "ex": {
+      "name": "지수·로그의 법칙과 도함수",
+      "kind": "property",
+      "statement": "(e^x)'=e^x, (ln x)'=1/x, ln(ab)=ln a+ln b이며 ln(a+b)는 분해되지 않는다"
+     },
+     "lgd": {
+      "name": "로그 미분",
+      "kind": "procedure",
+      "statement": "y=f(x)^g(x)는 양변에 ln을 취한 뒤 미분한다"
+     }
+    }
+   },
+   "hyp": {
+    "name": "쌍곡선함수",
+    "confusable": [],
+    "facets": {
+     "hy": {
+      "name": "쌍곡선함수의 성질",
+      "kind": "property",
+      "statement": "cosh²x−sinh²x=1이며 (sinh x)'=cosh x, (cosh x)'=sinh x이다"
+     }
+    }
+   },
+   "lh": {
+    "name": "부정형과 로피탈",
+    "confusable": [],
+    "facets": {
+     "lh": {
+      "name": "로피탈 정리",
+      "kind": "condition",
+      "statement": "0/0 또는 ∞/∞ 꼴에서만 분자·분모를 각각 미분해 극한을 구한다"
+     }
+    }
+   },
+   "parts": {
+    "name": "부분적분",
+    "confusable": [],
+    "facets": {
+     "bp": {
+      "name": "u와 dv의 선택",
+      "kind": "procedure",
+      "statement": "∫u dv=uv−∫v du이며 u는 미분하면 간단해지는 쪽으로 고른다"
+     }
+    }
+   },
+   "trig": {
+    "name": "삼각적분",
+    "confusable": [],
+    "facets": {
+     "tr": {
+      "name": "sin·cos 거듭제곱",
+      "kind": "procedure",
+      "statement": "홀수 거듭제곱은 하나를 떼어 cos²=1−sin² 등으로 바꾸고, 짝수 거듭제곱은 반각공식으로 낮춘다"
+     }
+    }
+   },
+   "tsub": {
+    "name": "삼각치환",
+    "confusable": [],
+    "facets": {
+     "ts": {
+      "name": "치환의 짝",
+      "kind": "procedure",
+      "statement": "√(a²−x²)는 x=a sinθ, √(a²+x²)는 x=a tanθ, √(x²−a²)는 x=a secθ로 치환한다"
+     }
+    }
+   },
+   "pfrac": {
+    "name": "부분분수",
+    "confusable": [],
+    "facets": {
+     "pf": {
+      "name": "부분분수 분해",
+      "kind": "procedure",
+      "statement": "분자 차수가 분모보다 낮을 때 분모 인수에 맞춰 A/(x−r) 꼴로 나눈다"
+     }
+    }
+   },
+   "impr": {
+    "name": "이상적분",
+    "confusable": [],
+    "facets": {
+     "im": {
+      "name": "이상적분의 수렴",
+      "kind": "def",
+      "statement": "무한 구간이나 불연속 피적분함수는 극한으로 바꾸어 수렴·발산을 판정한다"
+     }
+    }
+   },
+   "arc": {
+    "name": "호의 길이와 회전면",
+    "confusable": [],
+    "facets": {
+     "al": {
+      "name": "호의 길이 공식",
+      "kind": "procedure",
+      "statement": "L=∫√(1+(f')²)dx이다"
+     },
+     "sa": {
+      "name": "회전면의 넓이",
+      "kind": "procedure",
+      "statement": "x축 회전 넓이는 2π∫f√(1+(f')²)dx이다"
+     }
+    }
+   },
+   "de": {
+    "name": "미분방정식",
+    "confusable": [],
+    "facets": {
+     "sep": {
+      "name": "변수분리형",
+      "kind": "procedure",
+      "statement": "y'=g(x)h(y)는 dy/h(y)=g(x)dx로 나눈 뒤 양변을 적분한다"
+     },
+     "grow": {
+      "name": "지수 성장·감쇠",
+      "kind": "property",
+      "statement": "dy/dt=ky의 해는 y=Ce^(kt)이며 C는 초기조건으로 정한다"
+     },
+     "lin1": {
+      "name": "적분인자",
+      "kind": "procedure",
+      "statement": "y'+p(x)y=q(x)는 적분인자 e^(∫p dx)를 곱해 푼다"
+     }
+    }
+   },
+   "param": {
+    "name": "매개변수 곡선",
+    "confusable": [],
+    "facets": {
+     "dv": {
+      "name": "dy/dx와 넓이",
+      "kind": "procedure",
+      "statement": "dy/dx=(dy/dt)/(dx/dt)이며 넓이는 ∫y dx로 구한다"
+     }
+    }
+   },
+   "polar": {
+    "name": "극좌표",
+    "confusable": [],
+    "facets": {
+     "pt": {
+      "name": "극좌표와 직교좌표",
+      "kind": "def",
+      "statement": "x=r cosθ, y=r sinθ이며 같은 점을 여러 극좌표로 나타낼 수 있다"
+     },
+     "ar": {
+      "name": "극곡선의 넓이",
+      "kind": "procedure",
+      "statement": "극곡선 넓이는 (1/2)∫r²dθ이다"
+     },
+     "ln": {
+      "name": "극곡선의 길이",
+      "kind": "procedure",
+      "statement": "극곡선 길이는 ∫√(r²+(dr/dθ)²)dθ이다"
+     }
+    }
+   },
+   "seq": {
+    "name": "수열",
+    "confusable": [],
+    "facets": {
+     "lim": {
+      "name": "수열의 극한",
+      "kind": "def",
+      "statement": "n→∞에서 a_n이 L에 가까워지면 수열은 L로 수렴한다"
+     }
+    }
+   },
+   "ser": {
+    "name": "급수 판정",
+    "confusable": [],
+    "facets": {
+     "geo": {
+      "name": "등비급수",
+      "kind": "property",
+      "statement": "|r|<1이면 Σar^n = a/(1−r)이고 그 밖에서는 발산한다"
+     },
+     "test": {
+      "name": "판정법",
+      "kind": "condition",
+      "statement": "비교·비율·적분·교대급수 판정법을 조건에 맞게 고른다"
+     },
+     "nth": {
+      "name": "n항 판정",
+      "kind": "property",
+      "statement": "lim a_n ≠ 0이면 급수는 발산한다. lim a_n = 0이어도 수렴을 보장하지 않는다"
+     }
+    }
+   },
+   "pow": {
+    "name": "멱급수",
+    "confusable": [],
+    "facets": {
+     "rad": {
+      "name": "수렴반경과 구간",
+      "kind": "procedure",
+      "statement": "비율판정으로 수렴반경 R을 구하고 끝점은 따로 검사한다"
+     }
+    }
+   },
+   "tay": {
+    "name": "테일러 급수",
+    "confusable": [],
+    "facets": {
+     "tt": {
+      "name": "테일러 전개",
+      "kind": "def",
+      "statement": "f(x)=Σ f^(n)(a)/n! (x−a)^n이며 기본 급수를 치환·미분·적분해 얻는다"
+     }
+    }
+   },
+   "vec": {
+    "name": "벡터 연산",
+    "confusable": [],
+    "facets": {
+     "dot": {
+      "name": "내적",
+      "kind": "property",
+      "statement": "a·b=|a||b|cosθ=a1b1+a2b2+a3b3이며 a·b=0이면 수직이다"
+     },
+     "cross": {
+      "name": "외적",
+      "kind": "property",
+      "statement": "a×b는 두 벡터에 수직이고 |a×b|는 평행사변형 넓이이며 b×a=−a×b이다"
+     }
+    }
+   },
+   "lp": {
+    "name": "직선과 평면",
+    "confusable": [],
+    "facets": {
+     "plane": {
+      "name": "평면의 방정식",
+      "kind": "procedure",
+      "statement": "법선벡터 n과 평면 위 점 Q로 n·(x−Q)=0이다"
+     },
+     "dist": {
+      "name": "점과 평면 사이 거리",
+      "kind": "procedure",
+      "statement": "점 P와 평면 사이 거리는 |n·(P−Q)|/|n|이다"
+     }
+    }
+   },
+   "vf": {
+    "name": "벡터값 함수",
+    "confusable": [],
+    "facets": {
+     "deriv": {
+      "name": "벡터함수의 미분",
+      "kind": "procedure",
+      "statement": "r'(t)는 곡선의 접선 방향이며 각 성분을 따로 미분한다"
+     },
+     "len": {
+      "name": "곡선의 길이",
+      "kind": "procedure",
+      "statement": "곡선 길이는 ∫|r'(t)|dt이다"
+     }
+    }
+   }
+  },
+  "misconceptions": {
+   "m_fn_closed": {
+    "facet": "fn.dom",
+    "belief": "로그의 진수가 0이 되는 끝점을 정의역에 포함한다고 생각함",
+    "truth": "ln x는 x>0에서만 정의되므로 끝점은 제외된다"
+   },
+   "m_fn_nolog": {
+    "facet": "fn.dom",
+    "belief": "로그 조건을 무시하고 근호 조건만 본다고 생각함",
+    "truth": "ln 식이 있으면 진수가 양수여야 한다"
+   },
+   "m_fn_nosqrt": {
+    "facet": "fn.dom",
+    "belief": "근호 안이 음수여도 정의된다고 생각함",
+    "truth": "짝수 근호 안은 0 이상이어야 한다"
+   },
+   "m_fn_comp": {
+    "facet": "fn.comp",
+    "belief": "합성해서 식이 단순해지면 원래 정의역 제약이 사라진다고 생각함",
+    "truth": "g의 정의역은 합성 뒤에도 남는다"
+   },
+   "m_fn_shift": {
+    "facet": "fn.trans",
+    "belief": "f(x−c)를 c만큼 왼쪽으로 옮긴다고 생각함",
+    "truth": "x−c는 오른쪽으로 c만큼 옮긴다"
+   },
+   "m_lim_zero": {
+    "facet": "lim.indet",
+    "belief": "0/0 꼴에 x=a를 대입해 0이나 1로 정한다고 생각함",
+    "truth": "0/0은 부정형이라 식을 고쳐야 한다"
+   },
+   "m_lim_side": {
+    "facet": "lim.side",
+    "belief": "좌극한과 우극한이 달라도 극한이 있다고 생각함",
+    "truth": "두 쪽이 같아야 극한이 존재한다"
+   },
+   "m_lim_inf": {
+    "facet": "lim.inf",
+    "belief": "분모에 x가 있으면 x→∞에서 극한이 항상 0이라고 생각함",
+    "truth": "분자와 분모의 차수를 비교한다. 분자 차수가 더 크면 발산한다"
+   },
+   "m_cont_def": {
+    "facet": "cont.def",
+    "belief": "함수값만 있으면 극한이 없어도 연속이라고 생각함",
+    "truth": "극한과 함수값이 같아야 연속이다"
+   },
+   "m_cont_ivt": {
+    "facet": "cont.ivt",
+    "belief": "부호가 반대이면 연속인지와 관계없이 근이 있다고 생각함",
+    "truth": "중간값 정리는 구간에서 연속일 때만 쓸 수 있다"
+   },
+   "m_der_cont": {
+    "facet": "der.def",
+    "belief": "연속이면 항상 미분가능하다고 생각함",
+    "truth": "뾰족한 점에서는 연속이어도 미분계수가 없다"
+   },
+   "m_dif_trig": {
+    "facet": "dif.tri",
+    "belief": "(tan x)'를 csc²x로 잘못 쓴다고 생각함",
+    "truth": "(tan x)'=sec²x이다"
+   },
+   "m_der_avg": {
+    "facet": "der.def",
+    "belief": "평균변화율과 순간변화율을 같은 것으로 본다고 생각함",
+    "truth": "순간변화율은 h→0 극한이다"
+   },
+   "m_dif_prod": {
+    "facet": "dif.pq",
+    "belief": "곱의 미분을 미분끼리의 곱으로 계산한다고 생각함",
+    "truth": "곱의 미분은 f'g+fg'이다"
+   },
+   "m_chain_skip": {
+    "facet": "chain.cr",
+    "belief": "합성함수 미분에서 안쪽 도함수를 빼먹는다고 생각함",
+    "truth": "안쪽 도함수를 곱해야 한다"
+   },
+   "m_impl_noy": {
+    "facet": "impl.ip",
+    "belief": "음함수 미분에서 y를 미분할 때 y'를 붙이지 않는다고 생각함",
+    "truth": "y의 항은 y'를 곱해야 한다"
+   },
+   "m_rel_nodiff": {
+    "facet": "rel.rr",
+    "belief": "관련 변화율에서 시간 미분 없이 값만 대입한다고 생각함",
+    "truth": "관계식을 t에 대해 미분한 뒤 대입한다"
+   },
+   "m_ext_zero": {
+    "facet": "ext.crit",
+    "belief": "f'(c)=0이면 항상 극값이라고 생각함",
+    "truth": "부호가 바뀌지 않으면 극값이 아니다 (예: x³)"
+   },
+   "m_ext_conc": {
+    "facet": "ext.conc",
+    "belief": "f''=0이면 항상 변곡점이라고 생각함",
+    "truth": "f''가 부호를 바꿔야 변곡점이다"
+   },
+   "m_mvt_noc": {
+    "facet": "mvt.mv",
+    "belief": "평균값 정리의 c를 끝점으로 생각함",
+    "truth": "c는 열린 구간 (a,b) 안에 있다"
+   },
+   "m_asym_zero": {
+    "facet": "asym.hz",
+    "belief": "극한값이 0이면 수평 점근선이 아니라고 생각함",
+    "truth": "극한값이 L이면 L=0이어도 y=L이 수평 점근선이다"
+   },
+   "m_opt_end": {
+    "facet": "opt.end",
+    "belief": "임계점만 확인하고 구간의 끝점은 보지 않는다고 생각함",
+    "truth": "끝점도 최댓·최솟값 후보다"
+   },
+   "m_ad_c": {
+    "facet": "anti.ad",
+    "belief": "부정적분에서 상수 C를 빼먹는다고 생각함",
+    "truth": "부정적분은 F+C 꼴이다"
+   },
+   "m_ftc_sign": {
+    "facet": "area.rs",
+    "belief": "x축과 곡선 사이의 넓이는 정적분 값과 같다고 생각함",
+    "truth": "x축 아래 부분은 정적분이 음수이므로 넓이는 |f|를 적분한다"
+   },
+   "m_ftc_wrong": {
+    "facet": "ftc.ftc1",
+    "belief": "d/dx ∫_a^x f(t)dt를 f(a)라고 생각함",
+    "truth": "위끝 x에 대한 도함수는 f(x)이다"
+   },
+   "m_sub_limit": {
+    "facet": "subs.sub",
+    "belief": "치환 후에도 적분 구간을 원래 x 값으로 둔다고 생각함",
+    "truth": "구간도 u로 바꿔야 한다"
+   },
+   "m_ab_order": {
+    "facet": "abc.ab",
+    "belief": "두 곡선 넓이에서 위와 아래를 바꿔 적분한다고 생각함",
+    "truth": "위 곡선에서 아래 곡선을 뺀다"
+   },
+   "m_vol_hole": {
+    "facet": "vol.disk",
+    "belief": "와셔의 바깥·안쪽 반지름을 먼저 빼고 제곱한다고 생각함",
+    "truth": "부피는 π(R²−R_in²)이므로 반지름 제곱끼리 뺀다"
+   },
+   "m_inv_recip": {
+    "facet": "inv.inv",
+    "belief": "(f⁻¹)'(a)를 f'(a)로 계산한다고 생각함",
+    "truth": "역수 1/f'(f⁻¹(a))를 쓴다"
+   },
+   "m_ex_ln": {
+    "facet": "expl.ex",
+    "belief": "ln(a+b)=ln a+ln b라고 생각함",
+    "truth": "로그는 곱을 합으로 바꿀 뿐 합은 분해되지 않는다"
+   },
+   "m_hy_sign": {
+    "facet": "hyp.hy",
+    "belief": "cosh²x+sinh²x=1이라고 생각함",
+    "truth": "cosh²x−sinh²x=1이다"
+   },
+   "m_lh_quot": {
+    "facet": "lh.lh",
+    "belief": "로피탈을 모든 몫의 극한에 적용한다고 생각함",
+    "truth": "0/0 또는 ∞/∞ 꼴에서만 쓴다"
+   },
+   "m_bp_choice": {
+    "facet": "parts.bp",
+    "belief": "u와 dv를 어느 쪽으로 골라도 된다고 생각함",
+    "truth": "u는 미분하면 간단해지는 쪽이어야 한다"
+   },
+   "m_tr_even": {
+    "facet": "trig.tr",
+    "belief": "짝수 거듭제곱에도 바로 치환한다고 생각함",
+    "truth": "짝수면 배각공식으로 낮춘다"
+   },
+   "m_ts_map": {
+    "facet": "tsub.ts",
+    "belief": "√(a²−x²)에 x=a tanθ로 치환한다고 생각함",
+    "truth": "√(a²−x²)는 x=a sinθ로 치환한다"
+   },
+   "m_pf_deg": {
+    "facet": "pfrac.pf",
+    "belief": "분자 차수가 더 커도 바로 부분분수로 나눈다고 생각함",
+    "truth": "분자 차수가 크면 먼저 나눗셈을 한다"
+   },
+   "m_im_inf": {
+    "facet": "impr.im",
+    "belief": "무한대 적분 끝에 ∞를 그냥 대입한다고 생각함",
+    "truth": "극한으로 바꿔 계산한다"
+   },
+   "m_al_sqrt": {
+    "facet": "arc.al",
+    "belief": "호의 길이 적분에서 근호를 빼먹는다고 생각함",
+    "truth": "√(1+f'²)를 적분한다"
+   },
+   "m_sa_no2pi": {
+    "facet": "arc.sa",
+    "belief": "회전면 넓이에서 2π를 빼먹는다고 생각함",
+    "truth": "회전 한 바퀴 둘레 2πf를 곱한다"
+   },
+   "m_gr_linear": {
+    "facet": "de.grow",
+    "belief": "지수 성장을 일정한 직선 증가로 생각함",
+    "truth": "변화량이 y에 비례하므로 지수함수가 된다"
+   },
+   "m_l1_pq": {
+    "facet": "de.lin1",
+    "belief": "적분인자를 e^(∫q)로 쓴다고 생각함",
+    "truth": "적분인자는 e^(∫p)이다"
+   },
+   "m_pm_dx": {
+    "facet": "param.dv",
+    "belief": "dy/dx를 dy/dt와 dx/dt의 곱으로 구한다고 생각함",
+    "truth": "dy/dx=(dy/dt)/(dx/dt)이다"
+   },
+   "m_pl_r": {
+    "facet": "polar.ar",
+    "belief": "극좌표 넓이를 (1/2)∫r dθ로 계산한다고 생각함",
+    "truth": "r²를 적분해야 한다"
+   },
+   "m_ser_nth": {
+    "facet": "ser.nth",
+    "belief": "n항이 0으로 가면 급수가 수렴한다고 생각함",
+    "truth": "조화급수처럼 n항→0이어도 발산할 수 있다"
+   },
+   "m_pow_end": {
+    "facet": "pow.rad",
+    "belief": "수렴반경 안에서는 끝점도 항상 수렴한다고 생각함",
+    "truth": "끝점은 따로 검사해야 한다"
+   },
+   "m_tay_c": {
+    "facet": "tay.tt",
+    "belief": "테일러 급수 중심을 항상 0으로 잡는다고 생각함",
+    "truth": "중심 a에 따라 전개식이 달라진다"
+   },
+   "m_cross_comm": {
+    "facet": "vec.cross",
+    "belief": "a×b=b×a라고 생각함",
+    "truth": "외적은 교환법칙이 성립하지 않는다"
+   },
+   "m_dot_perp": {
+    "facet": "vec.dot",
+    "belief": "내적이 0이면 두 벡터가 평행하다고 생각함",
+    "truth": "내적이 0이면 수직이다"
+   },
+   "m_lp_dir": {
+    "facet": "lp.dist",
+    "belief": "평면 방정식에서 법선벡터 대신 방향벡터를 쓴다고 생각함",
+    "truth": "평면은 법선벡터로 정한다"
+   },
+   "m_vf_len": {
+    "facet": "vf.len",
+    "belief": "곡선 길이에서 |r'|대신 r'를 적분한다고 생각함",
+    "truth": "크기 |r'(t)|를 적분한다"
+   },
+   "m_bp_sign": {
+    "facet": "parts.bp",
+    "belief": "부분적분 공식에서 ∫v du 항의 부호를 반대로 쓴다고 생각함",
+    "truth": "∫u dv = uv − ∫v du 이다"
+   },
+   "m_bp_const": {
+    "facet": "parts.bp",
+    "belief": "곱에서 x를 상수처럼 적분 밖으로 뺀다고 생각함",
+    "truth": "x는 적분변수이므로 밖으로 뺄 수 없다"
+   },
+   "m_bp_half": {
+    "facet": "parts.bp",
+    "belief": "곱의 한쪽 인수만 적분하고 다른 쪽은 그대로 둔다고 생각함",
+    "truth": "곱의 적분은 부분적분 ∫u dv = uv − ∫v du 로 한다"
+   },
+   "m_cont_nolim": {
+    "facet": "cont.def",
+    "belief": "구멍(0/0 꼴)이 있는 점에서는 극한이 없다고 생각함",
+    "truth": "약분하면 극한값이 존재한다 (함숫값과 같으면 연속이다)"
+   }
+  }
+ },
+ "chapters": [
+  {
+   "key": "C1",
+   "title": "1장 · 함수와 극한",
+   "short": "1장",
+   "group": ""
+  },
+  {
+   "key": "C2",
+   "title": "2장 · 도함수",
+   "short": "2장",
+   "group": ""
+  },
+  {
+   "key": "C3",
+   "title": "3장 · 도함수의 응용",
+   "short": "3장",
+   "group": ""
+  },
+  {
+   "key": "C4",
+   "title": "4장 · 적분",
+   "short": "4장",
+   "group": ""
+  },
+  {
+   "key": "C5",
+   "title": "5장 · 적분의 응용",
+   "short": "5장",
+   "group": ""
+  },
+  {
+   "key": "C6",
+   "title": "6장 · 역함수·지수·로그",
+   "short": "6장",
+   "group": ""
+  },
+  {
+   "key": "C7",
+   "title": "7장 · 적분법",
+   "short": "7장",
+   "group": ""
+  },
+  {
+   "key": "C8",
+   "title": "8장 · 적분의 응용 II",
+   "short": "8장",
+   "group": ""
+  },
+  {
+   "key": "C9",
+   "title": "9장 · 미분방정식",
+   "short": "9장",
+   "group": ""
+  },
+  {
+   "key": "C10",
+   "title": "10장 · 매개변수·극좌표",
+   "short": "10장",
+   "group": ""
+  },
+  {
+   "key": "C11",
+   "title": "11장 · 무한급수",
+   "short": "11장",
+   "group": ""
+  },
+  {
+   "key": "C12",
+   "title": "12장 · 벡터와 공간 기하",
+   "short": "12장",
+   "group": ""
+  },
+  {
+   "key": "C13",
+   "title": "13장 · 벡터함수",
+   "short": "13장",
+   "group": ""
+  }
+ ],
+ "problems": [
+  {
+   "ext_id": "C1-1",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "fn",
+   "star": true,
+   "q": "\\(f(x)=\\sqrt{x-2}\\)의 정의역은 \\(x\\ge 2\\)이다.",
+   "s": "<p>근호 안이 0 이상이어야 하므로 \\(x-2\\ge 0\\), 즉 \\(x\\ge 2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.dom",
+    "depth": 1
+   },
+   "no": "C1-1"
+  },
+  {
+   "ext_id": "C1-2",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "fn",
+   "q": "\\(f(x)=\\dfrac{1}{x^2-4}\\)에서 정의역에서 빠지는 실수 중 양수인 것을 쓰시오.",
+   "a": "2",
+   "s": "<p>분모가 0이 되는 \\(x^2-4=0\\)의 해는 \\(x=\\pm 2\\)입니다. 양수는 \\(2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.dom",
+    "depth": 2
+   },
+   "no": "C1-2"
+  },
+  {
+   "ext_id": "C1-3",
+   "chapter": "C1",
+   "kind": "mc",
+   "star": true,
+   "topic": "fn",
+   "q": "\\(f(x)=\\ln(x-1)+\\sqrt{3-x}\\)의 정의역은?",
+   "opts": [
+    "\\((1,\\ 3]\\)",
+    "\\([1,\\ 3]\\)",
+    "\\((-\\infty,\\ 3]\\)",
+    "\\((1,\\ \\infty)\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "로그의 진수가 0인 끝점 \\(x=1\\)을 정의역에 포함한다고 생각함",
+    "로그 조건 \\(x>1\\)을 무시한다고 생각함",
+    "근호 안의 \\(3-x\\ge 0\\) 조건을 무시한다고 생각함"
+   ],
+   "s": "<p>\\(\\ln\\)은 진수가 양수여야 하므로 \\(x>1\\)이고, 근호 안은 \\(3-x\\ge 0\\)이므로 \\(x\\le 3\\)입니다. 두 조건을 합치면 \\((1,3]\\)입니다.</p><p>함정: 로그의 끝점 \\(x=1\\)은 포함되지 않습니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.dom",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_fn_closed",
+     "m_fn_nolog",
+     "m_fn_nosqrt"
+    ]
+   },
+   "no": "C1-3"
+  },
+  {
+   "ext_id": "C1-4",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "fn",
+   "q": "\\(f(x)=x^2+1,\\ g(x)=\\sqrt{x}\\)일 때 \\(f(g(x))\\)의 정의역은 모든 실수이다.",
+   "fix": "정의역은 \\(x\\ge 0\\)이다. 식은 \\(x+1\\)로 단순해지지만 \\(g\\)의 정의역 제약은 남는다.",
+   "s": "<p>\\(f(g(x))=(\\sqrt{x})^2+1=x+1\\)이지만, 원래 \\(g(x)=\\sqrt{x}\\)가 정의되는 \\(x\\ge 0\\)에서만 합성이 정의됩니다.</p><p>함정: 식이 단순해져도 정의역 제약은 사라지지 않습니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.comp",
+    "depth": 3,
+    "mis": "m_fn_comp"
+   },
+   "no": "C1-4"
+  },
+  {
+   "ext_id": "C1-5",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "fn",
+   "q": "\\(y=f(x-3)\\)의 그래프는 \\(y=f(x)\\)의 그래프를 왼쪽으로 3만큼 옮긴 것이다.",
+   "fix": "오른쪽으로 3만큼 옮긴 것이다.",
+   "s": "<p>\\(x\\)에 \\(x-3\\)을 대입하면 \\(x=3\\)일 때 \\(f(x)\\)의 값이 나오므로 그래프는 오른쪽으로 3 옮겨집니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.trans",
+    "depth": 2,
+    "mis": "m_fn_shift"
+   },
+   "no": "C1-5"
+  },
+  {
+   "ext_id": "C1-6",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 4,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lim",
+   "star": true,
+   "q": "\\(\\displaystyle\\lim_{x\\to 2}\\frac{x^2-4}{x-2}\\)의 값을 구하시오.",
+   "a": "4",
+   "s": "<p>\\(x\\ne 2\\)에서 \\(\\dfrac{x^2-4}{x-2}=x+2\\)로 약분하면 극한은 \\(4\\)입니다. 약분 전에 \\(x=2\\)를 대입하면 \\(0/0\\)이 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.indet",
+    "depth": 2,
+    "family": "lim-quot",
+    "role": "base"
+   },
+   "no": "C1-6"
+  },
+  {
+   "ext_id": "C1-7",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to 1}\\frac{x^3-1}{x-1}\\)의 값을 구하시오.",
+   "a": "3",
+   "s": "<p>\\(x^3-1=(x-1)(x^2+x+1)\\)이므로 약분하면 \\(x^2+x+1\\)이고, \\(x=1\\)을 대입해 \\(3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.indet",
+    "depth": 2,
+    "family": "lim-quot",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "지수 2를 3으로 바꿈"
+    ]
+   },
+   "no": "C1-7"
+  },
+  {
+   "ext_id": "C1-8",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to 0}\\frac{\\sqrt{x+4}-2}{x}\\)의 값은?",
+   "opts": [
+    "\\(0\\)",
+    "\\(\\dfrac14\\)",
+    "\\(\\dfrac12\\)",
+    "발산한다"
+   ],
+   "ans": 1,
+   "why": [
+    "0/0을 0으로 정한다고 생각함",
+    "",
+    "분자를 한 번 나눈 값을 극한으로 착각한다고 생각함",
+    "분모가 0에 가까우면 항상 발산한다고 생각함"
+   ],
+   "s": "<p>분자를 유리화하면 \\(\\dfrac{x}{x(\\sqrt{x+4}+2)}=\\dfrac{1}{\\sqrt{x+4}+2}\\)이고, \\(x=0\\)을 대입해 \\(\\dfrac14\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.indet",
+    "depth": 3,
+    "mis": [
+     "m_lim_zero",
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C1-8"
+  },
+  {
+   "ext_id": "C1-9",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 0.6,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{3x^2+x}{5x^2-2}\\)의 값을 소수로 쓰시오.",
+   "a": "0.6",
+   "s": "<p>분자와 분모를 \\(x^2\\)으로 나누면 \\(\\dfrac{3+1/x}{5-2/x^2}\\to \\dfrac35\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.inf",
+    "depth": 2
+   },
+   "no": "C1-9"
+  },
+  {
+   "ext_id": "C1-10",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to\\infty}\\frac{x^2+1}{x}=0\\)이다.",
+   "fix": "분자의 차수가 더 커서 극한은 \\(\\infty\\)로 발산한다.",
+   "s": "<p>최고차항만 보면 \\(\\dfrac{x^2}{x}=x\\to\\infty\\)입니다.</p><p>함정: 분자 차수가 분모보다 크면 0이 아닙니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.inf",
+    "depth": 2,
+    "mis": "m_lim_inf"
+   },
+   "no": "C1-10"
+  },
+  {
+   "ext_id": "C1-11",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to 0^+}\\frac{1}{x}=\\infty\\)이다.",
+   "s": "<p>\\(x\\)가 오른쪽에서 0에 가까워지면 \\(1/x\\)는 양수로 한없이 커집니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.side",
+    "depth": 2
+   },
+   "no": "C1-11"
+  },
+  {
+   "ext_id": "C1-12",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "lim",
+   "q": "\\(f(x)=\\begin{cases}x+1 & (x<1)\\\\ x & (x\\ge 1)\\end{cases}\\)에 대해 \\(\\displaystyle\\lim_{x\\to 1}f(x)\\)가 존재한다.",
+   "fix": "좌극한은 2, 우극한은 1로 달라서 극한이 존재하지 않는다.",
+   "s": "<p>\\(x\\to 1^-\\)이면 \\(f(x)\\to 2\\), \\(x\\to 1^+\\)이면 \\(f(x)\\to 1\\)입니다. 두 쪽이 같아야 극한이 존재합니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.side",
+    "depth": 3,
+    "mis": "m_lim_side"
+   },
+   "no": "C1-12"
+  },
+  {
+   "ext_id": "C1-13",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "cont",
+   "q": "\\(f(x)=\\dfrac{x^2-1}{x-1}\\ (x\\ne 1),\\ f(1)=3\\)일 때 \\(f\\)에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "좌극한과 우극한이 달라서 불연속이다",
+    "\\(x=1\\)에서 연속이다. 극한이 존재하기 때문이다",
+    "\\(x=1\\)에서 연속이 아니다. \\(f(1)=3\\)이고 극한은 \\(2\\)이기 때문이다",
+    "\\(f(1)\\)을 바꾸어도 \\(x=1\\)에서 연속이 될 수 없다"
+   ],
+   "ans": 2,
+   "why": [
+    "좌극한과 우극한이 다르다고 잘못 생각함",
+    "극한이 있으면 함숫값과 상관없이 연속이라고 생각함",
+    "",
+    "극한값으로 함숫값을 바꿀 수 없다고 생각함"
+   ],
+   "s": "<p>\\(\\dfrac{x^2-1}{x-1}=x+1\\)이므로 극한은 \\(2\\)입니다. 함숫값 \\(3\\)과 다르므로 불연속입니다. \\(f(1)=2\\)로 정의하면 연속이 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.def",
+    "depth": 3,
+    "mis": [
+     null,
+     "m_cont_def",
+     "",
+     null
+    ]
+   },
+   "no": "C1-13"
+  },
+  {
+   "ext_id": "C1-14",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "cont",
+   "q": "\\(f(x)=x^3-x-1\\)은 구간 \\([1,2]\\)에서 근을 가진다.",
+   "s": "<p>\\(f\\)는 다항식이라 연속이고 \\(f(1)=-1<0\\), \\(f(2)=5>0\\)입니다. 중간값 정리로 \\((1,2)\\)에 근이 있습니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.ivt",
+    "depth": 2
+   },
+   "no": "C1-14"
+  },
+  {
+   "ext_id": "C1-15",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "cont",
+   "q": "\\(f(x)=\\dfrac1x\\)는 \\(f(-1)f(1)<0\\)이므로 구간 \\([-1,1]\\)에서 \\(f(c)=0\\)인 \\(c\\)가 있다.",
+   "fix": "\\(x=0\\)에서 불연속이라 중간값 정리를 쓸 수 없다. 사실 \\(1/x\\neq 0\\)이다.",
+   "s": "<p>중간값 정리는 닫힌 구간에서 연속이라는 조건이 있어야 합니다. \\(1/x\\)는 \\(x=0\\)에서 정의되지 않으므로 조건이 깨집니다.</p><p>함정: 양끝의 부호가 달라도 연속 조건이 없으면 근이 있다고 말할 수 없습니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.ivt",
+    "depth": 4,
+    "mis": "m_cont_ivt"
+   },
+   "no": "C1-15"
+  },
+  {
+   "ext_id": "C1-16",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 0.875,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "cont",
+   "q": "\\(f(x)=x^3-x-1\\)에서 근이 있는 구간 \\([1,2]\\)의 중점 \\(x=1.5\\)에서 \\(f(1.5)\\)의 값을 소수로 쓰시오.",
+   "a": "0.875",
+   "s": "<p>\\(f(1.5)=3.375-1.5-1=0.875\\)입니다. 양수이므로 근은 \\([1,1.5]\\)에 있습니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.ivt",
+    "depth": 2
+   },
+   "no": "C1-16"
+  },
+  {
+   "ext_id": "C2-1",
+   "chapter": "C2",
+   "kind": "mc",
+   "topic": "der",
+   "star": true,
+   "q": "\\(f'(2)\\)가 뜻하는 것은?",
+   "opts": [
+    "\\(x=2\\)에서 함수의 최댓값",
+    "구간 \\([0,2]\\)에서 평균변화율",
+    "\\(x=2\\)에서 함숫값",
+    "\\(x=2\\)에서 접선의 기울기"
+   ],
+   "ans": 3,
+   "why": [
+    "미분계수를 최댓값으로 생각함",
+    "평균변화율과 순간변화율을 같은 것으로 본다고 생각함",
+    "함숫값과 미분계수를 같은 것으로 본다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(f'(a)\\)는 \\(x=a\\)에서 접선의 기울기입니다. 구간 평균변화율은 \\(\\dfrac{f(b)-f(a)}{b-a}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.def",
+    "depth": 1,
+    "mis": [
+     null,
+     "m_der_avg",
+     null,
+     ""
+    ]
+   },
+   "no": "C2-1"
+  },
+  {
+   "ext_id": "C2-2",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 6,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "der",
+   "q": "\\(f(x)=x^2\\)일 때 \\(x=3\\)에서 접선의 기울기를 구하시오.",
+   "a": "6",
+   "s": "<p>\\(f'(x)=2x\\)이므로 \\(f'(3)=6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.tan",
+    "depth": 2
+   },
+   "no": "C2-2"
+  },
+  {
+   "ext_id": "C2-3",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": true,
+   "topic": "der",
+   "q": "\\(f'(a)\\)가 존재하면 \\(f\\)는 \\(x=a\\)에서 연속이다.",
+   "s": "<p>미분가능하면 연속입니다. 그 역은 성립하지 않습니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.def",
+    "depth": 2
+   },
+   "no": "C2-3"
+  },
+  {
+   "ext_id": "C2-4",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "der",
+   "q": "\\(f(x)=|x|\\)는 \\(x=0\\)에서 연속이므로 미분가능하다.",
+   "fix": "\\(x=0\\)에서 연속이지만 좌우 기울기가 \\(-1\\)과 \\(1\\)로 달라 미분가능하지 않다.",
+   "s": "<p>\\(x=0\\)에서 뾰족하므로 미분계수가 없습니다. 연속이라고 미분가능하지는 않습니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.def",
+    "depth": 3,
+    "mis": "m_der_cont"
+   },
+   "no": "C2-4"
+  },
+  {
+   "ext_id": "C2-5",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 0,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "dif",
+   "q": "\\(f(x)=x^4-3x^2+2x\\)일 때 \\(f'(1)\\)의 값을 구하시오.",
+   "a": "0",
+   "s": "<p>\\(f'(x)=4x^3-6x+2\\)이므로 \\(f'(1)=4-6+2=0\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pw",
+    "depth": 2
+   },
+   "no": "C2-5"
+  },
+  {
+   "ext_id": "C2-6",
+   "chapter": "C2",
+   "kind": "mc",
+   "topic": "dif",
+   "q": "\\(f(x)=x^2(2x+1)\\)의 도함수 \\(f'(x)\\)는?",
+   "opts": [
+    "\\(6x^2+2x\\)",
+    "\\(2x^2+2x\\)",
+    "\\(6x^2+x\\)",
+    "\\(4x\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(x^2\\)과 \\(2x+1\\)을 각각 잘못 미분한다고 생각함",
+    "지수를 잘못 내린다고 생각함",
+    "두 함수의 도함수끼리 곱한다고 생각함"
+   ],
+   "s": "<p>\\(f=2x^3+x^2\\)로 펼쳐 미분하면 \\(f'=6x^2+2x\\)입니다. 곱의 미분은 \\(f'g+fg'\\)를 써도 같은 결과입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pq",
+    "depth": 2,
+    "mis": [
+     "",
+     null,
+     null,
+     "m_dif_prod"
+    ]
+   },
+   "no": "C2-6"
+  },
+  {
+   "ext_id": "C2-7",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 0.25,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "dif",
+   "q": "\\(f(x)=\\dfrac{x}{x+1}\\)일 때 \\(f'(1)\\)을 소수로 쓰시오.",
+   "a": "0.25",
+   "s": "<p>\\(f'(x)=\\dfrac{(x+1)-x}{(x+1)^2}=\\dfrac{1}{(x+1)^2}\\)이고 \\(f'(1)=\\dfrac14\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pq",
+    "depth": 3
+   },
+   "no": "C2-7"
+  },
+  {
+   "ext_id": "C2-8",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": true,
+   "topic": "dif",
+   "q": "\\((\\sin x)'=\\cos x\\)이다.",
+   "s": "<p>삼각함수 도함수의 기본 공식입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.tri",
+    "depth": 1
+   },
+   "no": "C2-8"
+  },
+  {
+   "ext_id": "C2-9",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "dif",
+   "q": "\\((\\tan x)'=\\csc^2 x\\)이다.",
+   "fix": "\\((\\tan x)'=\\sec^2 x\\)이다.",
+   "s": "<p>\\(\\tan x\\)의 도함수는 \\(\\sec^2 x\\)입니다. \\(\\csc^2 x\\)는 \\(\\cot x\\)의 도함수에 음수를 붙인 것입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.tri",
+    "depth": 1,
+    "mis": "m_dif_trig"
+   },
+   "no": "C2-9"
+  },
+  {
+   "ext_id": "C2-10",
+   "chapter": "C2",
+   "kind": "mc",
+   "topic": "chain",
+   "star": true,
+   "q": "\\(\\dfrac{d}{dx}\\sin(x^2)\\)는?",
+   "opts": [
+    "\\(\\cos(x^2)\\)",
+    "\\(2x\\cos(x^2)\\)",
+    "\\(2x\\sin(x^2)\\)",
+    "\\(2\\cos x^2\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "안쪽 함수의 도함수를 곱하지 않는다고 생각함",
+    "",
+    "바깥 함수 \\(\\sin\\)을 \\(\\sin\\)으로 그대로 둔다고 생각함",
+    "\\(x^2\\)의 도함수를 빼먹는다고 생각함"
+   ],
+   "s": "<p>바깥 \\(\\sin\\)의 도함수 \\(\\cos\\)에 안쪽 \\(x^2\\)의 도함수 \\(2x\\)를 곱해 \\(2x\\cos(x^2)\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "chain.cr",
+    "depth": 2,
+    "mis": [
+     "m_chain_skip",
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C2-10"
+  },
+  {
+   "ext_id": "C2-11",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 15,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "chain",
+   "q": "\\(f(x)=(3x+1)^5\\)일 때 \\(f'(0)\\)의 값을 구하시오.",
+   "a": "15",
+   "s": "<p>\\(f'(x)=5(3x+1)^4\\cdot 3\\)이므로 \\(f'(0)=15\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "chain.cr",
+    "depth": 2,
+    "family": "chain-pow",
+    "role": "base"
+   },
+   "no": "C2-11"
+  },
+  {
+   "ext_id": "C2-12",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 54,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "chain",
+   "q": "\\(f(x)=(2x+1)^3\\)일 때 \\(f'(1)\\)의 값을 구하시오.",
+   "a": "54",
+   "s": "<p>\\(f'(x)=3(2x+1)^2\\cdot 2=6(2x+1)^2\\)이고 \\(f'(1)=6\\cdot 9=54\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "chain.cr",
+    "depth": 2,
+    "family": "chain-pow",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "지수와 계수를 바꿈"
+    ]
+   },
+   "no": "C2-12"
+  },
+  {
+   "ext_id": "C2-13",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "chain",
+   "q": "\\(\\dfrac{d}{dx}\\sin 3x=\\cos 3x\\)이다.",
+   "fix": "\\(3\\cos 3x\\)이다. 안쪽 \\(3x\\)의 도함수 3을 곱해야 한다.",
+   "s": "<p>연쇄법칙으로 안쪽 함수의 도함수 \\(3\\)을 곱해야 합니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "chain.cr",
+    "depth": 2,
+    "mis": "m_chain_skip"
+   },
+   "no": "C2-13"
+  },
+  {
+   "ext_id": "C2-14",
+   "chapter": "C2",
+   "kind": "short",
+   "num": -0.75,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "impl",
+   "q": "\\(x^2+y^2=25\\)에서 점 \\((3,4)\\)에서의 \\(\\dfrac{dy}{dx}\\)를 소수로 쓰시오.",
+   "a": "-0.75",
+   "s": "<p>\\(2x+2yy'=0\\)에서 \\(y'=-\\dfrac{x}{y}=-\\dfrac34\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "impl.ip",
+    "depth": 2
+   },
+   "no": "C2-14"
+  },
+  {
+   "ext_id": "C2-15",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "impl",
+   "q": "\\(x^2+y^2=25\\)의 양변을 \\(x\\)로 미분하면 \\(2x+2y=0\\)이다.",
+   "fix": "\\(2x+2y\\,y'=0\\)이다. \\(y\\)는 \\(x\\)의 함수이므로 \\(y^2\\)을 미분하면 \\(y'\\)가 붙는다.",
+   "s": "<p>\\(y\\)를 \\(x\\)의 함수로 보고 양변을 미분해야 합니다. \\(2y\\)에 \\(y'\\)가 붙어야 합니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "impl.ip",
+    "depth": 2,
+    "mis": "m_impl_noy"
+   },
+   "no": "C2-15"
+  },
+  {
+   "ext_id": "C2-16",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 226.19,
+   "tol": 0.05,
+   "ph": "소수 둘째 자리까지",
+   "topic": "rel",
+   "star": true,
+   "q": "반지름 \\(r\\)인 구의 부피는 \\(V=\\dfrac43\\pi r^3\\)이다. \\(r=3\\,\\mathrm{cm}\\)일 때 \\(\\dfrac{dr}{dt}=2\\,\\mathrm{cm/s}\\)이면 \\(\\dfrac{dV}{dt}\\)는 몇 \\(\\mathrm{cm^3/s}\\)인지 소수 둘째 자리까지 쓰시오. (\\(\\pi\\)는 3.1416으로 계산)",
+   "a": "226.19",
+   "s": "<p>\\(\\dfrac{dV}{dt}=4\\pi r^2\\dfrac{dr}{dt}=4\\pi\\cdot 9\\cdot 2=72\\pi\\approx 226.19\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "rel.rr",
+    "depth": 2
+   },
+   "no": "C2-16"
+  },
+  {
+   "ext_id": "C2-17",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 1.3333,
+   "tol": 0.001,
+   "ph": "소수로 입력 (m/s)",
+   "topic": "rel",
+   "q": "길이 10 m 사다리의 위 끝이 벽을 따라 일정하게 1 m/s로 미끄러져 내려온다. 아래 끝이 벽에서 6 m 떨어져 있을 때 아래 끝이 벽에서 멀어지는 속도(m/s)를 소수로 쓰시오.",
+   "a": "1.3333",
+   "s": "<p>\\(x^2+y^2=100\\), \\(x=6\\), \\(y=8\\), \\(y'=-1\\)을 미분하면 \\(2xx'+2yy'=0\\), \\(12x'-16=0\\), \\(x'=\\dfrac43\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "rel.rr",
+    "depth": 3,
+    "mis": null
+   },
+   "no": "C2-17"
+  },
+  {
+   "ext_id": "C2-18",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 2.025,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "lin",
+   "q": "\\(f(x)=\\sqrt{x}\\)의 \\(x=4\\) 근처 선형근사로 \\(\\sqrt{4.1}\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "2.025",
+   "s": "<p>\\(f(4)=2\\), \\(f'(4)=\\dfrac14\\)이므로 \\(\\sqrt{4.1}\\approx 2+\\dfrac{0.1}{4}=2.025\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "lin.ap",
+    "depth": 2
+   },
+   "no": "C2-18"
+  },
+  {
+   "ext_id": "C2-19",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": true,
+   "topic": "lin",
+   "q": "선형근사식 \\(f(a)+f'(a)(x-a)\\)는 점 \\((a,f(a))\\)에서의 접선이다.",
+   "s": "<p>접선의 방정식과 같은 식입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "lin.ap",
+    "depth": 1
+   },
+   "no": "C2-19"
+  },
+  {
+   "ext_id": "C2-20",
+   "chapter": "C2",
+   "kind": "essay",
+   "topic": "der",
+   "star": true,
+   "q": "\\(f(x)=x^3\\)에서 \\(x=1\\)에서의 접선의 방정식을 구하시오.",
+   "a": "\\(f'(x)=3x^2\\)이므로 \\(f'(1)=3\\), \\(f(1)=1\\)이다. 접선은 \\(y-1=3(x-1)\\), 즉 \\(y=3x-2\\)이다.",
+   "pts": [
+    "\\(f'(x)=3x^2\\)을 구했는가",
+    "\\(f'(1)=3\\)을 구했는가",
+    "접점 \\((1,1)\\)을 썼는가",
+    "\\(y=3x-2\\)로 정리했는가"
+   ],
+   "s": "<p>접선은 점 \\((a,f(a))\\)를 지나고 기울기 \\(f'(a)\\)인 직선입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.tan",
+    "depth": 2
+   },
+   "no": "C2-20"
+  },
+  {
+   "ext_id": "C2-21",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "rel",
+   "q": "관련 변화율 문제에서는 관계식을 미분하지 않고 그 시점의 값만 대입하면 된다.",
+   "fix": "관계식을 시간 \\(t\\)에 대해 먼저 미분한 뒤 그 시점의 값을 대입한다.",
+   "s": "<p>변화율끼리의 관계는 미분해야 얻어집니다. 값만 대입하면 변화율이 빠집니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "rel.rr",
+    "depth": 2,
+    "mis": "m_rel_nodiff"
+   },
+   "no": "C2-21"
+  },
+  {
+   "ext_id": "C3-1",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "ext",
+   "star": true,
+   "q": "\\(f(x)=x^3\\)에서 \\(x=0\\)에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "극댓값이다",
+    "극솟값이다",
+    "극값이 아니다",
+    "판단할 수 없다"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(f'(0)=0\\)이면 극값이라고 생각함",
+    "\\(f'(0)=0\\)이면 극값이라고 생각함",
+    "",
+    "미분계수가 0인 점은 판단할 수 없다고 생각함"
+   ],
+   "s": "<p>\\(f'(x)=3x^2\\ge 0\\)이므로 \\(x=0\\)의 양쪽에서 증가합니다. 부호가 바뀌지 않아 극값이 아닙니다.</p><p>함정: \\(f'(c)=0\\)은 극값의 후보일 뿐입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.crit",
+    "depth": 3,
+    "mis": [
+     "m_ext_zero",
+     "m_ext_zero",
+     "",
+     null
+    ]
+   },
+   "no": "C3-1"
+  },
+  {
+   "ext_id": "C3-2",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ext",
+   "q": "\\(f(x)=x^2\\)은 \\(x=0\\)에서 극솟값을 가진다.",
+   "s": "<p>\\(f'(x)=2x\\)는 \\(x=0\\)에서 음에서 양으로 바뀌므로 극솟값입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.test",
+    "depth": 2
+   },
+   "no": "C3-2"
+  },
+  {
+   "ext_id": "C3-3",
+   "chapter": "C3",
+   "kind": "short",
+   "num": -2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ext",
+   "star": true,
+   "q": "\\(f(x)=x^3-3x\\)의 극솟값을 구하시오.",
+   "a": "-2",
+   "s": "<p>\\(f'(x)=3x^2-3=0\\)에서 \\(x=\\pm 1\\)입니다. \\(f'\\)의 부호가 \\(x=1\\)에서 음에서 양으로 바뀌므로 극솟값은 \\(f(1)=-2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.test",
+    "depth": 2
+   },
+   "no": "C3-3"
+  },
+  {
+   "ext_id": "C3-4",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": false,
+   "topic": "ext",
+   "q": "\\(f(x)=x^4\\)에서 \\(f''(0)=0\\)이므로 \\((0,0)\\)은 변곡점이다.",
+   "fix": "\\(f''(x)=12x^2\\)는 \\(x=0\\) 양쪽에서 부호가 바뀌지 않아 \\((0,0)\\)은 변곡점이 아니다.",
+   "s": "<p>변곡점은 \\(f''\\)의 부호가 실제로 바뀌는 점입니다. \\(f''(0)=0\\)만으로는 부족합니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.conc",
+    "depth": 3,
+    "mis": "m_ext_conc"
+   },
+   "no": "C3-4"
+  },
+  {
+   "ext_id": "C3-5",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 0,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ext",
+   "q": "\\(f(x)=x^3-3x\\)의 변곡점의 \\(x\\)좌표를 구하시오.",
+   "a": "0",
+   "s": "<p>\\(f''(x)=6x\\)이고 \\(x=0\\)에서 부호가 음에서 양으로 바뀝니다. 변곡점의 \\(x\\)좌표는 \\(0\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.conc",
+    "depth": 2
+   },
+   "no": "C3-5"
+  },
+  {
+   "ext_id": "C3-6",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "mvt",
+   "q": "\\(f(x)=x^2\\)이 구간 \\([0,2]\\)에서 평균값 정리를 만족하는 \\(c\\)는?",
+   "opts": [
+    "\\(2\\)",
+    "\\(4\\)",
+    "\\(0\\)",
+    "\\(1\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "끝점을 \\(c\\)로 생각함",
+    "평균변화율 4를 \\(c\\)로 잘못 생각함",
+    "끝점을 \\(c\\)로 생각함",
+    ""
+   ],
+   "s": "<p>\\(\\dfrac{f(2)-f(0)}{2-0}=2\\)이고 \\(f'(c)=2c=2\\)이므로 \\(c=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "mvt.mv",
+    "depth": 2,
+    "mis": [
+     "m_mvt_noc",
+     null,
+     "m_mvt_noc",
+     ""
+    ]
+   },
+   "no": "C3-6"
+  },
+  {
+   "ext_id": "C3-7",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": false,
+   "topic": "mvt",
+   "q": "\\(f(x)=|x|\\)는 구간 \\([-1,1]\\)에서 평균값 정리를 만족하는 \\(c\\)가 있다.",
+   "fix": "\\(x=0\\)에서 미분가능하지 않아 평균값 정리의 조건이 깨진다.",
+   "s": "<p>평균값 정리는 내부에서 미분가능해야 합니다. \\(x=0\\)에서 뾰족하므로 조건이 맞지 않습니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "mvt.mv",
+    "depth": 4
+   },
+   "no": "C3-7"
+  },
+  {
+   "ext_id": "C3-8",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "asym",
+   "q": "\\(f(x)=\\dfrac{2x+1}{x-3}\\)에서 \\(x\\to\\infty\\)일 때 극한값(수평 점근선의 \\(y\\)값)을 구하시오.",
+   "a": "2",
+   "s": "<p>분자와 분모를 \\(x\\)로 나누면 \\(\\dfrac{2+1/x}{1-3/x}\\to 2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "asym.hz",
+    "depth": 2
+   },
+   "no": "C3-8"
+  },
+  {
+   "ext_id": "C3-9",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": false,
+   "topic": "asym",
+   "q": "\\(f(x)=\\dfrac1x\\)는 \\(x\\to\\infty\\)일 때 극한이 \\(0\\)이므로 수평 점근선이 없다.",
+   "fix": "극한이 \\(0\\)이어도 \\(y=0\\)이 수평 점근선이다.",
+   "s": "<p>극한값 \\(L\\)이 있으면 \\(y=L\\)이 수평 점근선입니다. 극한이 0인 것도 포함됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "asym.hz",
+    "depth": 2,
+    "mis": "m_asym_zero"
+   },
+   "no": "C3-9"
+  },
+  {
+   "ext_id": "C3-10",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "opt",
+   "star": true,
+   "q": "\\(f(x)=x^3-3x\\)의 구간 \\([0,2]\\)에서 최댓값을 구하시오.",
+   "a": "2",
+   "s": "<p>\\(f(0)=0\\), \\(f(2)=2\\), 임계점 \\(x=1\\)에서 \\(f(1)=-2\\)입니다. 최댓값은 끝점 \\(x=2\\)의 \\(2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "opt.end",
+    "depth": 3
+   },
+   "no": "C3-10"
+  },
+  {
+   "ext_id": "C3-11",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": false,
+   "topic": "opt",
+   "q": "\\(f(x)=x^3-3x\\)의 구간 \\([0,2]\\)에서 최댓값은 임계점에서만 얻어지므로 끝점은 볼 필요가 없다.",
+   "fix": "최댓값은 끝점 \\(x=2\\)에서 얻어지므로 끝점도 반드시 비교해야 한다.",
+   "s": "<p>임계점과 구간 끝점의 함숫값을 모두 비교해야 최댓값과 최솟값이 정해집니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "opt.end",
+    "depth": 3,
+    "mis": "m_opt_end"
+   },
+   "no": "C3-11"
+  },
+  {
+   "ext_id": "C3-12",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 100,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "opt",
+   "star": true,
+   "q": "둘레가 40인 직사각형의 넓이의 최댓값을 구하시오.",
+   "a": "100",
+   "s": "<p>가로를 \\(x\\)라 하면 세로는 \\(20-x\\)이고 넓이는 \\(x(20-x)\\)입니다. \\(x=10\\)에서 최대이고 넓이는 \\(100\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.7절"
+    ]
+   ],
+   "dx": {
+    "facet": "opt.end",
+    "depth": 3
+   },
+   "no": "C3-12"
+  },
+  {
+   "ext_id": "C3-13",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 1.5,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "lin",
+   "q": "뉴턴법으로 \\(f(x)=x^2-2\\)의 근을 구한다. 시작값 \\(x_0=1\\)일 때 \\(x_1\\)을 소수로 쓰시오.",
+   "a": "1.5",
+   "s": "<p>\\(x_1=x_0-\\dfrac{f(x_0)}{f'(x_0)}=1-\\dfrac{-1}{2}=1.5\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "lin.nr",
+    "depth": 2
+   },
+   "no": "C3-13"
+  },
+  {
+   "ext_id": "C3-14",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": false,
+   "topic": "anti",
+   "q": "\\(\\displaystyle\\int 2x\\,dx=x^2\\)이다.",
+   "fix": "\\(\\displaystyle\\int 2x\\,dx=x^2+C\\)이다.",
+   "s": "<p>부정적분은 상수 \\(C\\)를 붙여야 합니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "anti.ad",
+    "depth": 1,
+    "mis": "m_ad_c"
+   },
+   "no": "C3-14"
+  },
+  {
+   "ext_id": "C3-15",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "anti",
+   "q": "\\(\\displaystyle\\int\\cos x\\,dx\\)는?",
+   "opts": [
+    "\\(\\sin x+C\\)",
+    "\\(-\\sin x+C\\)",
+    "\\(\\cos x+C\\)",
+    "\\(\\sin x\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(\\cos\\)의 도함수와 \\(\\sin\\)의 부호를 혼동한다고 생각함",
+    "\\(\\cos x\\)를 그대로 적분 결과라고 생각함",
+    "상수 \\(C\\)를 빼먹는다고 생각함"
+   ],
+   "s": "<p>\\((\\sin x)'=\\cos x\\)이므로 \\(\\int\\cos x\\,dx=\\sin x+C\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "anti.ad",
+    "depth": 1,
+    "mis": [
+     "",
+     null,
+     null,
+     "m_ad_c"
+    ]
+   },
+   "no": "C3-15"
+  },
+  {
+   "ext_id": "C3-16",
+   "chapter": "C3",
+   "kind": "essay",
+   "topic": "ext",
+   "q": "\\(F(x)=\\displaystyle\\int_0^x(t^2-1)\\,dt\\)의 극값을 구하고 극댓값인지 극솟값인지 쓰시오.",
+   "a": "\\(F'(x)=x^2-1\\)이므로 \\(x=\\pm1\\)이 임계점이다. \\(x=-1\\)에서 \\(F'\\)가 양에서 음으로 바뀌어 극댓값, \\(x=1\\)에서 음에서 양으로 바뀌어 극솟값이다. \\(F(-1)=\\dfrac23\\), \\(F(1)=-\\dfrac23\\)이다.",
+   "pts": [
+    "\\(F'(x)=x^2-1\\)을 구했는가",
+    "임계점 \\(x=\\pm1\\)을 구했는가",
+    "\\(x=-1\\)은 극댓값, \\(x=1\\)은 극솟값인가",
+    "극값 \\(\\dfrac23\\), \\(-\\dfrac23\\)을 구했는가"
+   ],
+   "s": "<p>미적분학의 기본정리로 \\(F'(x)=f(x)\\)입니다. 부호 변화로 극값을 판정합니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.test",
+    "depth": 3
+   },
+   "no": "C3-16"
+  },
+  {
+   "ext_id": "C4-1",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": true,
+   "topic": "area",
+   "q": "정적분 \\(\\displaystyle\\int_a^b f(x)\\,dx\\)는 구간을 잘게 나눈 리만 합의 극한이다.",
+   "s": "<p>정적분의 정의입니다. 구간 분할의 폭을 0으로 보낸 극한입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "area.rs",
+    "depth": 1
+   },
+   "no": "C4-1"
+  },
+  {
+   "ext_id": "C4-2",
+   "chapter": "C4",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ftc",
+   "star": true,
+   "q": "\\(\\displaystyle\\int_0^{\\pi}\\sin x\\,dx\\)의 값을 구하시오.",
+   "a": "2",
+   "s": "<p>\\(\\int_0^\\pi\\sin x\\,dx=[-\\cos x]_0^\\pi=-\\cos\\pi+\\cos 0=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc2",
+    "depth": 1
+   },
+   "no": "C4-2"
+  },
+  {
+   "ext_id": "C4-3",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": false,
+   "topic": "area",
+   "q": "\\(\\displaystyle\\int_0^{2\\pi}\\sin x\\,dx=0\\)이므로 \\(y=\\sin x\\)와 \\(x\\)축 사이의 넓이도 0이다.",
+   "fix": "정적분은 0이지만 넓이는 \\(\\displaystyle\\int_0^{2\\pi}|\\sin x|\\,dx=4\\)이다.",
+   "s": "<p>정적분은 부호를 포함하고, 넓이는 절댓값으로 셉니다.</p><p>함정: 정적분 값이 0이라고 넓이가 0인 것은 아닙니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "area.rs",
+    "depth": 3,
+    "mis": "m_ftc_sign"
+   },
+   "no": "C4-3"
+  },
+  {
+   "ext_id": "C4-4",
+   "chapter": "C4",
+   "kind": "mc",
+   "topic": "ftc",
+   "star": true,
+   "q": "\\(\\dfrac{d}{dx}\\displaystyle\\int_1^x t^2\\,dt\\)는?",
+   "opts": [
+    "\\(2x\\)",
+    "\\(x^2\\)",
+    "\\(x^2-1\\)",
+    "\\(1\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "피적분함수를 한 번 더 미분한다고 생각함",
+    "",
+    "적분 구간의 하한 1을 빼서 계산한다고 생각함",
+    "\\(f(a)\\)를 도함수로 생각함"
+   ],
+   "s": "<p>미적분학의 기본정리 첫째 부분에 의해 적분 결과의 도함수는 피적분함수 \\(t^2\\)에 \\(t=x\\)를 넣은 \\(x^2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc1",
+    "depth": 2,
+    "mis": [
+     null,
+     "",
+     null,
+     "m_ftc_wrong"
+    ]
+   },
+   "no": "C4-4"
+  },
+  {
+   "ext_id": "C4-5",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ftc",
+   "q": "\\(\\dfrac{d}{dx}\\displaystyle\\int_0^x\\sin t\\,dt=\\sin x\\)이다.",
+   "s": "<p>\\(f=\\sin\\)이 연속이므로 기본정리에 의해 \\(f(x)=\\sin x\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc1",
+    "depth": 2
+   },
+   "no": "C4-5"
+  },
+  {
+   "ext_id": "C4-6",
+   "chapter": "C4",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ftc",
+   "q": "\\(\\displaystyle\\int_0^1(3x^2+1)\\,dx\\)의 값을 구하시오.",
+   "a": "2",
+   "s": "<p>\\([x^3+x]_0^1=1+1=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc2",
+    "depth": 1
+   },
+   "no": "C4-6"
+  },
+  {
+   "ext_id": "C4-7",
+   "chapter": "C4",
+   "kind": "short",
+   "num": 0.6931,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "ftc",
+   "q": "\\(\\displaystyle\\int_1^2\\dfrac1x\\,dx\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.6931",
+   "s": "<p>\\(\\int_1^2\\dfrac1x\\,dx=\\ln 2\\approx 0.6931\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc2",
+    "depth": 2
+   },
+   "no": "C4-7"
+  },
+  {
+   "ext_id": "C4-8",
+   "chapter": "C4",
+   "kind": "short",
+   "num": 3.75,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "subs",
+   "star": true,
+   "q": "\\(\\displaystyle\\int_0^1 2x(x^2+1)^3\\,dx\\)의 값을 소수로 쓰시오.",
+   "a": "3.75",
+   "s": "<p>\\(u=x^2+1\\), \\(du=2x\\,dx\\), 구간은 \\(1\\)에서 \\(2\\)입니다. \\(\\displaystyle\\int_1^2 u^3\\,du=\\dfrac{16-1}{4}=\\dfrac{15}{4}=3.75\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "subs.sub",
+    "depth": 2
+   },
+   "no": "C4-8"
+  },
+  {
+   "ext_id": "C4-9",
+   "chapter": "C4",
+   "kind": "mc",
+   "topic": "subs",
+   "q": "\\(\\displaystyle\\int_0^1 2x(x^2+1)^3\\,dx\\)를 \\(u=x^2+1\\)로 치환할 때 \\(u\\)의 적분 구간은?",
+   "opts": [
+    "\\([1,3]\\)",
+    "\\([0,1]\\)",
+    "\\([1,2]\\)",
+    "\\([0,2]\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(u=x^2+1\\)에 \\(x=2\\)를 대입한다고 생각함",
+    "적분 구간을 바꾸지 않는다고 생각함",
+    "",
+    "\\(x\\)의 구간 끝을 그대로 쓴다고 생각함"
+   ],
+   "s": "<p>\\(x=0\\)이면 \\(u=1\\), \\(x=1\\)이면 \\(u=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "subs.sub",
+    "depth": 2,
+    "mis": [
+     null,
+     "m_sub_limit",
+     "",
+     null
+    ]
+   },
+   "no": "C4-9"
+  },
+  {
+   "ext_id": "C4-10",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": false,
+   "topic": "subs",
+   "q": "\\(\\displaystyle\\int_0^1 2x(x^2+1)^3\\,dx\\)를 \\(u=x^2+1\\)로 치환하면 \\(\\displaystyle\\int_0^1 u^3\\,du\\)가 된다.",
+   "fix": "적분 구간이 \\(\\displaystyle\\int_1^2 u^3\\,du\\)가 된다.",
+   "s": "<p>치환하면 적분 변수가 \\(u\\)로 바뀌므로 구간도 \\(u\\) 기준으로 바꿔야 합니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "subs.sub",
+    "depth": 3,
+    "mis": "m_sub_limit"
+   },
+   "no": "C4-10"
+  },
+  {
+   "ext_id": "C4-11",
+   "chapter": "C4",
+   "kind": "essay",
+   "topic": "ftc",
+   "q": "\\(\\displaystyle\\int_0^{4}\\sqrt{x}\\,dx\\)를 계산하고 그 결과를 설명하시오.",
+   "a": "\\(\\displaystyle\\int_0^4 x^{1/2}\\,dx=\\left[\\tfrac23 x^{3/2}\\right]_0^4=\\tfrac23\\cdot 8=\\tfrac{16}{3}\\)이다. 이는 곡선 \\(y=\\sqrt x\\), x축, 직선 \\(x=4\\) 사이의 넓이다.",
+   "pts": [
+    "거듭제곱 적분 \\(\\tfrac23x^{3/2}\\)을 구했는가",
+    "구간 \\(0\\)에서 \\(4\\)까지 대입했는가",
+    "결과 \\(\\tfrac{16}{3}\\)을 썼는가",
+    "넓이로 해석했는가"
+   ],
+   "s": "<p>\\(\\sqrt x\\geq0\\)이므로 정적분 값이 넓이와 같습니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc2",
+    "depth": 2
+   },
+   "no": "C4-11"
+  },
+  {
+   "ext_id": "C5-1",
+   "chapter": "C5",
+   "kind": "mc",
+   "topic": "abc",
+   "star": true,
+   "q": "\\(y=x\\)와 \\(y=x^2\\)로 둘러싸인 영역의 넓이는? (\\(0\\le x\\le 1\\))",
+   "opts": [
+    "\\(-\\dfrac16\\)",
+    "\\(\\dfrac12\\)",
+    "\\(\\dfrac13\\)",
+    "\\(\\dfrac16\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "위와 아래 곡선을 뒤집어 적분한다고 생각함",
+    "\\(x\\)만 적분한다고 생각함",
+    "\\(x^2\\)만 적분한다고 생각함",
+    ""
+   ],
+   "s": "<p>위 곡선 \\(y=x\\)에서 아래 곡선 \\(y=x^2\\)을 빼고 적분합니다. \\(\\displaystyle\\int_0^1(x-x^2)\\,dx=\\tfrac12-\\tfrac13=\\tfrac16\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "abc.ab",
+    "depth": 2,
+    "mis": [
+     "m_ab_order",
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C5-1"
+  },
+  {
+   "ext_id": "C5-2",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 0.1667,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "abc",
+   "q": "\\(y=x\\)와 \\(y=x^2\\)로 둘러싸인 영역의 넓이를 소수 넷째 자리까지 쓰시오. (\\(0\\le x\\le1\\))",
+   "a": "0.1667",
+   "s": "<p>\\(\\dfrac16\\approx0.1667\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "abc.ab",
+    "depth": 2
+   },
+   "no": "C5-2"
+  },
+  {
+   "ext_id": "C5-3",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 1.3333,
+   "tol": 0.001,
+   "ph": "소수로 입력",
+   "topic": "abc",
+   "q": "\\(y=2x\\)와 \\(y=x^2\\)로 둘러싸인 영역의 넓이를 소수로 쓰시오.",
+   "a": "1.3333",
+   "s": "<p>교점은 \\(x=0\\), \\(x=2\\)입니다. \\(\\displaystyle\\int_0^2(2x-x^2)\\,dx=4-\\tfrac83=\\tfrac43\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "abc.ab",
+    "depth": 3
+   },
+   "no": "C5-3"
+  },
+  {
+   "ext_id": "C5-4",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": true,
+   "topic": "abc",
+   "q": "\\(y=x^2\\)와 \\(y=4\\)로 둘러싸인 영역의 넓이는 \\(\\displaystyle\\int_{-2}^{2}(4-x^2)\\,dx\\)이다.",
+   "s": "<p>위 곡선 \\(y=4\\)에서 아래 곡선 \\(y=x^2\\)을 빼고 \\(-2\\)에서 \\(2\\)까지 적분합니다. 값은 \\(\\dfrac{32}{3}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "abc.ab",
+    "depth": 2
+   },
+   "no": "C5-4"
+  },
+  {
+   "ext_id": "C5-5",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 127.2345,
+   "tol": 0.01,
+   "ph": "소수 둘째 자리까지",
+   "topic": "vol",
+   "star": true,
+   "q": "\\(y=\\sqrt{x}\\), \\(x=9\\), \\(y=0\\)으로 둘러싸인 영역을 \\(x\\)축 둘레로 회전시킬 때 부피를 소수 넷째 자리까지 쓰시오. (\\(\\pi\\)는 3.1416)",
+   "a": "127.2345",
+   "s": "<p>원판법으로 \\(V=\\pi\\displaystyle\\int_0^9 x\\,dx=\\pi\\cdot\\dfrac{81}{2}=40.5\\pi\\approx127.2345\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.disk",
+    "depth": 2
+   },
+   "no": "C5-5"
+  },
+  {
+   "ext_id": "C5-6",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": false,
+   "topic": "vol",
+   "q": "\\(y=x\\)와 \\(y=x^2\\)로 둘러싸인 영역을 \\(x\\)축 둘레로 회전한 부피는 \\(\\displaystyle\\pi\\int_0^1(x-x^2)^2\\,dx\\)이다.",
+   "fix": "\\(\\displaystyle\\pi\\int_0^1(x^2-x^4)\\,dx=\\dfrac{2\\pi}{15}\\)이다. 바깥 반지름은 \\(x\\), 안쪽 반지름은 \\(x^2\\)이다.",
+   "s": "<p>와셔 공식은 바깥 반지름의 제곱에서 안쪽 반지름의 제곱을 뺍니다.</p><p>함정: 두 곡선의 차를 제곱하면 안 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.disk",
+    "depth": 3,
+    "mis": "m_vol_hole"
+   },
+   "no": "C5-6"
+  },
+  {
+   "ext_id": "C5-7",
+   "chapter": "C5",
+   "kind": "mc",
+   "topic": "vol",
+   "q": "\\(y=x^2\\), \\(0\\le x\\le 1\\), \\(x\\)축 위의 영역을 \\(y\\)축 둘레로 회전할 때 부피는?",
+   "opts": [
+    "\\(\\dfrac{\\pi}{2}\\)",
+    "\\(\\dfrac{\\pi}{4}\\)",
+    "\\(\\dfrac{2\\pi}{3}\\)",
+    "\\(\\pi\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "반지름을 \\(x^2\\)으로 잘못 넣는다고 생각함",
+    "껍질 높이를 \\(x\\)로 잘못 둔다고 생각함",
+    "회전 한 바퀴 면적에 \\(2\\pi\\)를 빼먹는다고 생각함"
+   ],
+   "s": "<p>원통껍질법으로 \\(V=2\\pi\\displaystyle\\int_0^1 x\\cdot x^2\\,dx=2\\pi\\cdot\\dfrac14=\\dfrac{\\pi}{2}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.shell",
+    "depth": 2,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "C5-7"
+  },
+  {
+   "ext_id": "C5-8",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 20,
+   "tol": 0,
+   "ph": "숫자만 입력 (J)",
+   "topic": "work",
+   "q": "용수철의 힘이 \\(F(x)=10x\\)(N, \\(x\\)는 m)일 때 \\(x=0\\)부터 \\(x=2\\)까지 늘이는 데 필요한 일(J)을 구하시오.",
+   "a": "20",
+   "s": "<p>\\(W=\\displaystyle\\int_0^2 10x\\,dx=[5x^2]_0^2=20\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.wk",
+    "depth": 2
+   },
+   "no": "C5-8"
+  },
+  {
+   "ext_id": "C5-9",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "work",
+   "q": "\\(f(x)=x^2\\)의 구간 \\([0,3]\\)에서 평균값을 구하시오.",
+   "a": "3",
+   "s": "<p>\\(\\dfrac{1}{3}\\displaystyle\\int_0^3x^2\\,dx=\\dfrac13\\cdot 9=3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.av",
+    "depth": 2
+   },
+   "no": "C5-9"
+  },
+  {
+   "ext_id": "C5-10",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": false,
+   "topic": "work",
+   "q": "\\(f\\)의 구간 \\([a,b]\\)에서 평균값은 \\(\\dfrac{f(a)+f(b)}{2}\\)이다.",
+   "fix": "평균값은 \\(\\dfrac{1}{b-a}\\displaystyle\\int_a^b f(x)\\,dx\\)이다. 끝점 평균은 일반적으로 다르다.",
+   "s": "<p>끝점 함숫값의 평균은 일차함수에서만 맞습니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.av",
+    "depth": 2
+   },
+   "no": "C5-10"
+  },
+  {
+   "ext_id": "C5-11",
+   "chapter": "C5",
+   "kind": "essay",
+   "topic": "vol",
+   "star": true,
+   "q": "\\(y=\\sqrt x\\), \\(x=4\\), \\(y=0\\)으로 둘러싸인 영역을 \\(x\\)축 둘레로 회전한 부피를 구하는 식을 쓰고 값을 구하시오.",
+   "a": "원판법으로 \\(V=\\pi\\displaystyle\\int_0^4(\\sqrt x)^2\\,dx=\\pi\\int_0^4 x\\,dx=8\\pi\\)이다.",
+   "pts": [
+    "반지름을 \\(\\sqrt x\\)로 놓았는가",
+    "피적분함수 \\(\\pi x\\)를 세웠는가",
+    "구간 \\(0\\)에서 \\(4\\)까지인가",
+    "값 \\(8\\pi\\)를 구했는가"
+   ],
+   "s": "<p>원판의 반지름은 곡선의 \\(y\\)값이므로 \\(\\sqrt x\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.disk",
+    "depth": 2
+   },
+   "no": "C5-11"
+  },
+  {
+   "ext_id": "C5-12",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ftc",
+   "q": "\\(y=\\cos x\\)와 \\(x\\)축, \\(x=0\\), \\(x=\\dfrac{\\pi}{2}\\)로 둘러싸인 영역의 넓이를 구하시오.",
+   "a": "1",
+   "s": "<p>\\(\\displaystyle\\int_0^{\\pi/2}\\cos x\\,dx=\\sin\\dfrac{\\pi}{2}-\\sin 0=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc2",
+    "depth": 1
+   },
+   "no": "C5-12"
+  },
+  {
+   "ext_id": "C5-13",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 25.1327,
+   "tol": 0.01,
+   "ph": "소수 둘째 자리까지",
+   "topic": "vol",
+   "q": "\\(y=x^2\\), \\(x=2\\), \\(y=0\\)으로 둘러싸인 영역을 \\(y\\)축 둘레로 회전한 부피를 소수 넷째 자리까지 쓰시오. (\\(\\pi\\)는 3.1416)",
+   "a": "25.1327",
+   "s": "<p>껍질법으로 \\(V=2\\pi\\displaystyle\\int_0^2x\\cdot x^2\\,dx=2\\pi\\cdot 4=8\\pi\\approx 25.1327\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.shell",
+    "depth": 2
+   },
+   "no": "C5-13"
+  },
+  {
+   "ext_id": "C5-14",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": true,
+   "topic": "work",
+   "q": "\\(f(x)=x\\)의 구간 \\([0,2]\\)에서 평균값은 \\(1\\)이다.",
+   "s": "<p>\\(\\dfrac12\\displaystyle\\int_0^2 x\\,dx=\\dfrac12\\cdot 2=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.av",
+    "depth": 1
+   },
+   "no": "C5-14"
+  },
+  {
+   "ext_id": "C6-1",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": true,
+   "topic": "inv",
+   "q": "\\(f(x)=e^x\\)의 역함수는 \\(\\ln x\\)이다.",
+   "s": "<p>\\(e^{\\ln x}=x\\)이고 \\(\\ln(e^x)=x\\)이므로 서로 역함수입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "inv.inv",
+    "depth": 1
+   },
+   "no": "C6-1"
+  },
+  {
+   "ext_id": "C6-2",
+   "chapter": "C6",
+   "kind": "mc",
+   "topic": "inv",
+   "star": true,
+   "q": "\\(f(x)=x^3+x\\)일 때 \\(f(1)=2\\)이다. \\((f^{-1})'(2)\\)는?",
+   "opts": [
+    "\\(2\\)",
+    "\\(\\dfrac14\\)",
+    "\\(4\\)",
+    "\\(\\dfrac12\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "\\(f(1)=2\\)를 그대로 쓴다고 생각함",
+    "",
+    "\\(f'(1)\\)을 그대로 쓴다고 생각함",
+    "역함수의 도함수를 \\(f'(1)/2\\)로 잘못 생각함"
+   ],
+   "s": "<p>\\(f'(x)=3x^2+1\\), \\(f'(1)=4\\)이므로 \\((f^{-1})'(2)=\\dfrac{1}{f'(1)}=\\dfrac14\\)입니다.</p><p>함정: \\(f'(1)\\)이 아니라 그 역수를 씁니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "inv.inv",
+    "depth": 3,
+    "mis": [
+     null,
+     "",
+     "m_inv_recip",
+     null
+    ]
+   },
+   "no": "C6-2"
+  },
+  {
+   "ext_id": "C6-3",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": true,
+   "topic": "expl",
+   "q": "\\((e^x)'=e^x\\)이다.",
+   "s": "<p>\\(e^x\\)는 도함수가 자기 자신인 유일한 기본함수입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.ex",
+    "depth": 1
+   },
+   "no": "C6-3"
+  },
+  {
+   "ext_id": "C6-4",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": false,
+   "topic": "expl",
+   "q": "\\(\\ln(a+b)=\\ln a+\\ln b\\)이다.",
+   "fix": "\\(\\ln(ab)=\\ln a+\\ln b\\)이다. \\(\\ln(a+b)\\)는 이렇게 나눌 수 없다.",
+   "s": "<p>로그의 법칙은 곱을 합으로 바꾸는 것입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.ex",
+    "depth": 2,
+    "mis": "m_ex_ln"
+   },
+   "no": "C6-4"
+  },
+  {
+   "ext_id": "C6-5",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "expl",
+   "q": "\\(y=\\ln(x^2+1)\\)의 \\(x=1\\)에서의 미분계수를 구하시오.",
+   "a": "1",
+   "s": "<p>\\(y'=\\dfrac{2x}{x^2+1}\\)이고 \\(y'(1)=\\dfrac{2}{2}=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.ex",
+    "depth": 2
+   },
+   "no": "C6-5"
+  },
+  {
+   "ext_id": "C6-6",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 30.3085,
+   "tol": 0.001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "expl",
+   "star": true,
+   "q": "\\(y=x^x\\)에서 \\(x=e\\)일 때 \\(y'\\)의 값을 소수 넷째 자리까지 쓰시오. (\\(e\\)는 2.71828)",
+   "a": "30.3085",
+   "s": "<p>양변에 \\(\\ln\\)을 취하면 \\(\\dfrac{y'}{y}=\\ln x+1\\)이므로 \\(y'=x^x(1+\\ln x)\\)입니다. \\(x=e\\)에서 \\(y'=e^e\\cdot 2\\approx30.3085\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.lgd",
+    "depth": 3
+   },
+   "no": "C6-6"
+  },
+  {
+   "ext_id": "C6-7",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": false,
+   "topic": "expl",
+   "q": "\\(y=x^x\\)의 도함수는 \\(x^{x-1}\\)이다.",
+   "fix": "\\(y'=x^x(1+\\ln x)\\)이다. 지수가 변수이므로 로그 미분을 써야 한다.",
+   "s": "<p>밑과 지수가 모두 \\(x\\)이므로 양변에 \\(\\ln\\)을 취해 미분합니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.lgd",
+    "depth": 3
+   },
+   "no": "C6-7"
+  },
+  {
+   "ext_id": "C6-8",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": true,
+   "topic": "hyp",
+   "q": "\\(\\cosh^2 x-\\sinh^2 x=1\\)이다.",
+   "s": "<p>\\(\\cosh x=\\dfrac{e^x+e^{-x}}{2}\\), \\(\\sinh x=\\dfrac{e^x-e^{-x}}{2}\\)로 계산하면 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.7절"
+    ]
+   ],
+   "dx": {
+    "facet": "hyp.hy",
+    "depth": 1
+   },
+   "no": "C6-8"
+  },
+  {
+   "ext_id": "C6-9",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": false,
+   "topic": "hyp",
+   "q": "\\(\\cosh^2 x+\\sinh^2 x=1\\)이다.",
+   "fix": "\\(\\cosh^2 x-\\sinh^2 x=1\\)이다. 합이 아니라 차이다.",
+   "s": "<p>삼각함수의 \\(\\cos^2+\\sin^2=1\\)과 부호가 다릅니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.7절"
+    ]
+   ],
+   "dx": {
+    "facet": "hyp.hy",
+    "depth": 2,
+    "mis": "m_hy_sign"
+   },
+   "no": "C6-9"
+  },
+  {
+   "ext_id": "C6-10",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "hyp",
+   "q": "\\(\\dfrac{d}{dx}\\sinh x\\)의 \\(x=0\\)에서의 값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\((\\sinh x)'=\\cosh x\\)이고 \\(\\cosh 0=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.7절"
+    ]
+   ],
+   "dx": {
+    "facet": "hyp.hy",
+    "depth": 2
+   },
+   "no": "C6-10"
+  },
+  {
+   "ext_id": "C6-11",
+   "chapter": "C6",
+   "kind": "mc",
+   "topic": "hyp",
+   "q": "\\(\\dfrac{d}{dx}\\cosh x\\)는?",
+   "opts": [
+    "\\(\\tanh x\\)",
+    "\\(-\\sinh x\\)",
+    "\\(\\sinh x\\)",
+    "\\(\\cosh x\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(\\tanh\\)을 도함수로 쓴다고 생각함",
+    "삼각함수 \\(\\cos\\)의 도함수 부호를 가져온다고 생각함",
+    "",
+    "도함수가 자기 자신이라고 생각함"
+   ],
+   "s": "<p>\\((\\cosh x)'=\\sinh x\\)입니다. \\((\\cos x)'=-\\sin x\\)와 부호가 다릅니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.7절"
+    ]
+   ],
+   "dx": {
+    "facet": "hyp.hy",
+    "depth": 1,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "no": "C6-11"
+  },
+  {
+   "ext_id": "C6-12",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lh",
+   "q": "\\(\\displaystyle\\lim_{x\\to0}\\dfrac{\\sin x}{x}\\)의 값을 구하시오. (로피탈 정리 사용)",
+   "a": "1",
+   "s": "<p>\\(0/0\\) 꼴이므로 분자와 분모를 미분하면 \\(\\dfrac{\\cos x}{1}\\to1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "lh.lh",
+    "depth": 2,
+    "family": "lh-quot",
+    "role": "base"
+   },
+   "no": "C6-12"
+  },
+  {
+   "ext_id": "C6-13",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lh",
+   "q": "\\(\\displaystyle\\lim_{x\\to0}\\dfrac{e^{2x}-1}{x}\\)의 값을 구하시오. (로피탈 정리 사용)",
+   "a": "2",
+   "s": "<p>\\(0/0\\) 꼴이므로 미분하면 \\(\\dfrac{2e^{2x}}{1}\\to2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "lh.lh",
+    "depth": 2,
+    "family": "lh-quot",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "지수 함수를 e^(2x)로 바꿈"
+    ]
+   },
+   "no": "C6-13"
+  },
+  {
+   "ext_id": "C6-14",
+   "chapter": "C6",
+   "kind": "mc",
+   "topic": "lh",
+   "q": "\\(\\displaystyle\\lim_{x\\to\\infty}\\dfrac{x}{e^x}\\)의 값은?",
+   "opts": [
+    "\\(1\\)",
+    "\\(\\infty\\)",
+    "\\(e\\)",
+    "\\(0\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "분자와 분모의 차수가 같다고 생각함",
+    "지수함수가 다항식보다 빨리 커지지 않는다고 생각함",
+    "\\(e\\)가 극한값이라고 생각함",
+    ""
+   ],
+   "s": "<p>\\(\\infty/\\infty\\) 꼴이므로 로피탈을 쓰면 \\(\\dfrac{1}{e^x}\\to0\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "lh.lh",
+    "depth": 3,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C6-14"
+  },
+  {
+   "ext_id": "C6-15",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": false,
+   "topic": "lh",
+   "q": "\\(\\displaystyle\\lim_{x\\to0}\\dfrac{x+1}{x}\\)는 로피탈 정리로 \\(\\dfrac{1}{1}=1\\)이다.",
+   "fix": "분자가 \\(1\\)이고 분모가 \\(0\\)으로 가므로 0/0 꼴이 아니다. 극한은 발산하며 로피탈 정리는 쓸 수 없다.",
+   "s": "<p>로피탈 정리는 \\(0/0\\) 또는 \\(\\infty/\\infty\\) 꼴에서만 씁니다.</p><p>함정: 몫이면 아무 때나 미분하면 안 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "lh.lh",
+    "depth": 4,
+    "mis": "m_lh_quot"
+   },
+   "no": "C6-15"
+  },
+  {
+   "ext_id": "C6-16",
+   "chapter": "C6",
+   "kind": "essay",
+   "topic": "lh",
+   "star": true,
+   "q": "\\(\\displaystyle\\lim_{x\\to0}\\dfrac{e^x-1-x}{x^2}\\)를 로피탈 정리로 구하고 그 과정을 쓰시오.",
+   "a": "\\(0/0\\) 꼴이므로 한 번 미분하면 \\(\\dfrac{e^x-1}{2x}\\), 다시 \\(0/0\\) 꼴이므로 미분하면 \\(\\dfrac{e^x}{2}\\to\\dfrac12\\)이다.",
+   "pts": [
+    "\\(0/0\\) 꼴임을 확인했는가",
+    "한 번 미분한 식을 세웠는가",
+    "두 번째도 \\(0/0\\)임을 확인했는가",
+    "극한값 \\(\\tfrac12\\)을 구했는가"
+   ],
+   "s": "<p>로피탈 정리는 조건이 맞는 동안 반복할 수 있습니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "lh.lh",
+    "depth": 3
+   },
+   "no": "C6-16"
+  },
+  {
+   "ext_id": "C7-1",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "parts",
+   "star": true,
+   "q": "\\(\\displaystyle\\int xe^x\\,dx\\)는?",
+   "opts": [
+    "\\((x-1)e^x+C\\)",
+    "\\((x+1)e^x+C\\)",
+    "\\(e^x+C\\)",
+    "\\(xe^x+C\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "부분적분 후 부호를 잘못 썼다고 생각함",
+    "\\(x\\)를 상수처럼 빼냈다고 생각함",
+    "\\(x\\)를 그대로 적분했다고 생각함"
+   ],
+   "s": "<p>\\(u=x\\), \\(dv=e^x\\,dx\\)로 놓으면 \\(\\int xe^x\\,dx=xe^x-\\int e^x\\,dx=(x-1)e^x+C\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "parts.bp",
+    "depth": 2,
+    "mis": [
+     "",
+     "m_bp_sign",
+     "m_bp_const",
+     "m_bp_half"
+    ]
+   },
+   "no": "C7-1"
+  },
+  {
+   "ext_id": "C7-2",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "parts",
+   "q": "\\(\\displaystyle\\int_0^1 xe^x\\,dx\\)의 값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\([(x-1)e^x]_0^1=0-(-1)=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "parts.bp",
+    "depth": 2
+   },
+   "no": "C7-2"
+  },
+  {
+   "ext_id": "C7-3",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": true,
+   "topic": "parts",
+   "q": "\\(\\displaystyle\\int\\ln x\\,dx=x\\ln x-x+C\\)이다.",
+   "s": "<p>\\(u=\\ln x\\), \\(dv=dx\\)로 놓으면 \\(x\\ln x-\\int dx\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "parts.bp",
+    "depth": 2
+   },
+   "no": "C7-3"
+  },
+  {
+   "ext_id": "C7-4",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "trig",
+   "q": "\\(\\displaystyle\\int\\sin^2x\\,dx\\)는?",
+   "opts": [
+    "\\(\\dfrac{\\sin^3x}{3}+C\\)",
+    "\\(\\dfrac x2-\\dfrac{\\sin 2x}{4}+C\\)",
+    "\\(x-\\cos x+C\\)",
+    "\\(-\\dfrac{\\cos^2x}{2}+C\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "짝수 거듭제곱에도 바로 치환한다고 생각함",
+    "",
+    "\\(\\sin^2x\\)를 \\(\\sin x\\)로 잘못 적분한다고 생각함",
+    "\\(\\sin^2x\\)를 \\(\\cos^2x\\)로 바꾼다고 생각함"
+   ],
+   "s": "<p>\\(\\sin^2x=\\dfrac{1-\\cos2x}{2}\\)로 바꾸어 적분하면 \\(\\dfrac x2-\\dfrac{\\sin2x}{4}+C\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "trig.tr",
+    "depth": 3,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C7-4"
+  },
+  {
+   "ext_id": "C7-5",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 1.3333,
+   "tol": 0.001,
+   "ph": "소수로 입력",
+   "topic": "trig",
+   "q": "\\(\\displaystyle\\int_0^{\\pi}\\sin^3x\\,dx\\)의 값을 소수로 쓰시오.",
+   "a": "1.3333",
+   "s": "<p>\\(\\sin^3x=(1-\\cos^2x)\\sin x\\)로 두고 \\(u=\\cos x\\)로 치환하면 \\(\\displaystyle\\int_{-1}^{1}(1-u^2)\\,du=\\dfrac43\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "trig.tr",
+    "depth": 2
+   },
+   "no": "C7-5"
+  },
+  {
+   "ext_id": "C7-6",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 0.7854,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "trig",
+   "q": "\\(\\displaystyle\\int_0^{\\pi/2}\\cos^2x\\,dx\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.7854",
+   "s": "<p>\\(\\cos^2x=\\dfrac{1+\\cos2x}{2}\\)이므로 값은 \\(\\dfrac{\\pi}{4}\\approx0.7854\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "trig.tr",
+    "depth": 2
+   },
+   "no": "C7-6"
+  },
+  {
+   "ext_id": "C7-7",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": false,
+   "topic": "trig",
+   "q": "\\(\\displaystyle\\int\\sin^2x\\,dx\\)는 배각 공식 없이 \\(u=\\sin x\\)로 치환하여 바로 계산된다.",
+   "fix": "짝수 거듭제곱이므로 배각 공식 \\(\\sin^2x=\\dfrac{1-\\cos2x}{2}\\)로 차수를 낮춘다.",
+   "s": "<p>\\(\\sin x\\)의 거듭제곱이 짝수이면 치환 대신 배각 공식을 씁니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "trig.tr",
+    "depth": 3,
+    "mis": "m_tr_even"
+   },
+   "no": "C7-7"
+  },
+  {
+   "ext_id": "C7-8",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 0.5236,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "tsub",
+   "q": "\\(\\displaystyle\\int_0^{3/2}\\dfrac{dx}{\\sqrt{9-x^2}}\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.5236",
+   "s": "<p>\\(\\arcsin\\dfrac{x}{3}\\)의 부정적분이므로 \\(\\arcsin\\dfrac12-\\arcsin 0=\\dfrac{\\pi}{6}\\approx0.5236\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "tsub.ts",
+    "depth": 3
+   },
+   "no": "C7-8"
+  },
+  {
+   "ext_id": "C7-9",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "tsub",
+   "q": "\\(\\sqrt{x^2+4}\\)가 들어 있는 적분에 가장 알맞은 치환은?",
+   "opts": [
+    "\\(x=2\\cos\\theta\\)",
+    "\\(x=2\\sin\\theta\\)",
+    "\\(x=2\\tan\\theta\\)",
+    "\\(x=2\\sec\\theta\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(\\cos\\) 치환도 같다고 생각함",
+    "\\(x^2+a^2\\) 꼴에도 \\(\\sin\\)으로 풀린다고 생각함",
+    "",
+    "\\(\\sec\\)을 근호 치환에 쓴다고 생각함"
+   ],
+   "s": "<p>\\(x^2+a^2\\) 꼴은 \\(x=a\\tan\\theta\\)로 치환합니다. \\(1+\\tan^2\\theta=\\sec^2\\theta\\)로 근호가 풀립니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "tsub.ts",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "no": "C7-9"
+  },
+  {
+   "ext_id": "C7-10",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": false,
+   "topic": "tsub",
+   "q": "\\(\\sqrt{a^2-x^2}\\)가 들어 있는 적분은 \\(x=a\\tan\\theta\\)로 치환한다.",
+   "fix": "\\(x=a\\sin\\theta\\)로 치환한다. \\(1-\\sin^2\\theta=\\cos^2\\theta\\)가 되기 때문이다.",
+   "s": "<p>근호 안이 \\(a^2-x^2\\)이면 \\(\\sin\\)을, \\(x^2+a^2\\)이면 \\(\\tan\\)을 씁니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "tsub.ts",
+    "depth": 3,
+    "mis": "m_ts_map"
+   },
+   "no": "C7-10"
+  },
+  {
+   "ext_id": "C7-11",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 0.2877,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "pfrac",
+   "star": true,
+   "q": "\\(\\displaystyle\\int_0^1\\dfrac{dx}{(x+1)(x+2)}\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.2877",
+   "s": "<p>\\(\\dfrac{1}{(x+1)(x+2)}=\\dfrac{1}{x+1}-\\dfrac{1}{x+2}\\)입니다. 적분하면 \\(\\ln\\dfrac43\\approx0.2877\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "pfrac.pf",
+    "depth": 3
+   },
+   "no": "C7-11"
+  },
+  {
+   "ext_id": "C7-12",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "pfrac",
+   "q": "\\(\\dfrac{1}{x^2-1}\\)의 부분분수 분해는?",
+   "opts": [
+    "\\(\\dfrac{1}{x-1}-\\dfrac{1}{x+1}\\)",
+    "\\(\\dfrac12\\left(\\dfrac{1}{x-1}+\\dfrac{1}{x+1}\\right)\\)",
+    "\\(\\dfrac{1}{x-1}+\\dfrac{1}{x+1}\\)",
+    "\\(\\dfrac12\\left(\\dfrac{1}{x-1}-\\dfrac{1}{x+1}\\right)\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "계수 \\(\\tfrac12\\)를 빼먹는다고 생각함",
+    "두 항의 부호를 같게 놓는다고 생각함",
+    "각 항에 계수를 붙이지 않는다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(\\dfrac{1}{(x-1)(x+1)}=\\dfrac12\\left(\\dfrac{1}{x-1}-\\dfrac{1}{x+1}\\right)\\)입니다. 통분하면 확인됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "pfrac.pf",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C7-12"
+  },
+  {
+   "ext_id": "C7-13",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": false,
+   "topic": "pfrac",
+   "q": "분자의 차수가 분모보다 높을 때는 바로 부분분수로 분해한다.",
+   "fix": "먼저 나눗셈으로 다항식 몫을 분리한 뒤 나머지를 부분분수로 나눈다.",
+   "s": "<p>부분분수 분해는 진분수(분자 차수가 더 낮은 것)에서만 씁니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "pfrac.pf",
+    "depth": 3,
+    "mis": "m_pf_deg"
+   },
+   "no": "C7-13"
+  },
+  {
+   "ext_id": "C7-14",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "impr",
+   "q": "\\(\\displaystyle\\int_1^\\infty\\dfrac{dx}{x^2}\\)의 값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\(\\displaystyle\\lim_{t\\to\\infty}\\int_1^t x^{-2}\\,dx=\\lim_{t\\to\\infty}\\left(1-\\dfrac1t\\right)=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "impr.im",
+    "depth": 2
+   },
+   "no": "C7-14"
+  },
+  {
+   "ext_id": "C7-15",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": false,
+   "topic": "impr",
+   "q": "\\(\\displaystyle\\int_1^\\infty\\dfrac{dx}{x}\\)은 수렴한다.",
+   "fix": "발산한다. \\(\\ln t\\to\\infty\\)이기 때문이다.",
+   "s": "<p>\\(\\int_1^t\\dfrac{dx}{x}=\\ln t\\)이고 \\(t\\to\\infty\\)일 때 무한대로 갑니다.</p><p>함정: 무한대 끝에 \\(\\infty\\)를 그냥 대입하면 안 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "impr.im",
+    "depth": 3,
+    "mis": "m_im_inf"
+   },
+   "no": "C7-15"
+  },
+  {
+   "ext_id": "C7-16",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "impr",
+   "q": "\\(\\displaystyle\\int_0^1\\dfrac{dx}{\\sqrt x}\\)는?",
+   "opts": [
+    "\\(2\\)",
+    "발산한다",
+    "\\(0\\)",
+    "\\(1\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(x=0\\)에서 발산하니 전체도 발산한다고 생각함",
+    "적분값이 0이라고 생각함",
+    "넓이가 1이라고 생각함"
+   ],
+   "s": "<p>\\(\\displaystyle\\int_0^1x^{-1/2}\\,dx=[2\\sqrt x]_0^1=2\\)입니다. \\(x^{-1/2}\\)의 적분은 \\(0\\)에서도 수렴합니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "impr.im",
+    "depth": 2,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "C7-16"
+  },
+  {
+   "ext_id": "C7-17",
+   "chapter": "C7",
+   "kind": "essay",
+   "topic": "impr",
+   "q": "\\(\\displaystyle\\int_0^\\infty e^{-x}\\,dx\\)가 수렴하는지 판정하고 값을 구하시오.",
+   "a": "\\(\\displaystyle\\lim_{t\\to\\infty}\\int_0^t e^{-x}\\,dx=\\lim_{t\\to\\infty}(1-e^{-t})=1\\)이므로 수렴하고 값은 \\(1\\)이다.",
+   "pts": [
+    "무한 구간을 극한으로 바꾸었는가",
+    "부정적분 \\(-e^{-x}\\)을 구했는가",
+    "\\(t\\to\\infty\\)의 극한을 구했는가",
+    "수렴과 값 \\(1\\)을 썼는가"
+   ],
+   "s": "<p>무한 구간 적분은 유한한 상한을 \\(t\\)로 두고 극한을 취합니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "impr.im",
+    "depth": 2
+   },
+   "no": "C7-17"
+  },
+  {
+   "ext_id": "C7-18",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "parts",
+   "q": "\\(\\displaystyle\\int_0^{\\pi/2}x\\sin x\\,dx\\)의 값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\(u=x\\), \\(dv=\\sin x\\,dx\\)로 놓으면 \\([-x\\cos x+\\sin x]_0^{\\pi/2}=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "parts.bp",
+    "depth": 3
+   },
+   "no": "C7-18"
+  },
+  {
+   "ext_id": "C7-19",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 0.2027,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "pfrac",
+   "q": "\\(\\displaystyle\\int_2^3\\dfrac{dx}{x^2-1}\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.2027",
+   "s": "<p>\\(\\dfrac{1}{x^2-1}=\\dfrac12\\left(\\dfrac{1}{x-1}-\\dfrac{1}{x+1}\\right)\\)이므로 값은 \\(\\dfrac12\\ln\\dfrac32\\approx0.2027\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "pfrac.pf",
+    "depth": 3
+   },
+   "no": "C7-19"
+  },
+  {
+   "ext_id": "C7-20",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "subs",
+   "q": "\\(\\displaystyle\\int\\tan x\\,dx\\)는?",
+   "opts": [
+    "\\(\\ln|\\cos x|+C\\)",
+    "\\(-\\ln|\\cos x|+C\\)",
+    "\\(\\sec^2x+C\\)",
+    "\\(\\cot x+C\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "부호를 빼먹는다고 생각함",
+    "",
+    "\\(\\tan\\)의 도함수와 혼동한다고 생각함",
+    "\\(\\tan\\)과 \\(\\cot\\)를 혼동한다고 생각함"
+   ],
+   "s": "<p>\\(\\tan x=\\dfrac{\\sin x}{\\cos x}\\)에서 \\(u=\\cos x\\)로 치환하면 \\(-\\ln|\\cos x|+C\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "subs.sub",
+    "depth": 2,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C7-20"
+  },
+  {
+   "ext_id": "C7-21",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": false,
+   "topic": "subs",
+   "q": "\\(\\displaystyle\\int\\sin x\\cos x\\,dx=\\sin^2x+C\\)이다.",
+   "fix": "\\(\\displaystyle\\int\\sin x\\cos x\\,dx=\\dfrac{\\sin^2x}{2}+C\\)이다. \\((\\sin^2 x)'=2\\sin x\\cos x\\)이기 때문이다.",
+   "s": "<p>\\(u=\\sin x\\)로 치환하면 \\(\\int u\\,du=\\dfrac{u^2}{2}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "subs.sub",
+    "depth": 2
+   },
+   "no": "C7-21"
+  },
+  {
+   "ext_id": "C7-22",
+   "chapter": "C7",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "parts",
+   "q": "\\(\\displaystyle\\int_1^e\\ln x\\,dx\\)의 값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\([x\\ln x-x]_1^e=(e-e)-(0-1)=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "parts.bp",
+    "depth": 2
+   },
+   "no": "C7-22"
+  },
+  {
+   "ext_id": "C8-1",
+   "chapter": "C8",
+   "kind": "short",
+   "num": 6.7082,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "arc",
+   "q": "\\(y=2x\\), \\(0\\le x\\le3\\)의 호의 길이를 소수 넷째 자리까지 쓰시오.",
+   "a": "6.7082",
+   "s": "<p>\\(L=\\displaystyle\\int_0^3\\sqrt{1+4}\\,dx=3\\sqrt5\\approx6.7082\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.al",
+    "depth": 2
+   },
+   "no": "C8-1"
+  },
+  {
+   "ext_id": "C8-2",
+   "chapter": "C8",
+   "kind": "ox",
+   "ox": true,
+   "topic": "arc",
+   "q": "\\(y=f(x)\\)의 호의 길이는 \\(\\displaystyle\\int\\sqrt{1+(f'(x))^2}\\,dx\\)이다.",
+   "s": "<p>호의 길이 공식입니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.al",
+    "depth": 1
+   },
+   "no": "C8-2"
+  },
+  {
+   "ext_id": "C8-3",
+   "chapter": "C8",
+   "kind": "ox",
+   "ox": false,
+   "topic": "arc",
+   "q": "호의 길이는 \\(\\displaystyle\\int(1+(f'(x))^2)\\,dx\\)로 계산한다.",
+   "fix": "근호를 씌워 \\(\\displaystyle\\int\\sqrt{1+(f'(x))^2}\\,dx\\)로 계산한다.",
+   "s": "<p>피타고라스 정리에서 나온 미소 길이 \\(\\sqrt{dx^2+dy^2}\\)를 적분하므로 근호가 필요합니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.al",
+    "depth": 2,
+    "mis": "m_al_sqrt"
+   },
+   "no": "C8-3"
+  },
+  {
+   "ext_id": "C8-4",
+   "chapter": "C8",
+   "kind": "mc",
+   "topic": "arc",
+   "q": "\\(y=f(x)\\)의 호의 길이 공식에서 피적분함수는?",
+   "opts": [
+    "\\((f'(x))^2\\)",
+    "\\(\\sqrt{(f(x))^2+1}\\)",
+    "\\(\\sqrt{1+(f'(x))^2}\\)",
+    "\\(1+(f'(x))^2\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "1을 빼먹는다고 생각함",
+    "\\(f\\)와 \\(f'\\)를 혼동한다고 생각함",
+    "",
+    "근호를 빼먹는다고 생각함"
+   ],
+   "s": "<p>피적분함수는 \\(\\sqrt{1+(f'(x))^2}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.al",
+    "depth": 1,
+    "mis": [
+     null,
+     null,
+     "",
+     "m_al_sqrt"
+    ]
+   },
+   "no": "C8-4"
+  },
+  {
+   "ext_id": "C8-5",
+   "chapter": "C8",
+   "kind": "short",
+   "num": 4.4429,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "arc",
+   "star": true,
+   "q": "\\(y=x\\), \\(0\\le x\\le1\\)을 \\(x\\)축 둘레로 회전시킨 곡면의 넓이를 소수 넷째 자리까지 쓰시오.",
+   "a": "4.4429",
+   "s": "<p>\\(S=2\\pi\\displaystyle\\int_0^1 x\\sqrt2\\,dx=\\pi\\sqrt2\\approx4.4429\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.sa",
+    "depth": 2
+   },
+   "no": "C8-5"
+  },
+  {
+   "ext_id": "C8-6",
+   "chapter": "C8",
+   "kind": "ox",
+   "ox": false,
+   "topic": "arc",
+   "q": "\\(y=x\\), \\(0\\le x\\le1\\)을 \\(x\\)축 둘레로 회전한 곡면의 넓이를 구할 때 \\(2\\pi\\)는 쓰지 않아도 된다.",
+   "fix": "회전 한 바퀴의 둘레 \\(2\\pi f\\)를 곱해야 하므로 \\(2\\pi\\)가 필요하다.",
+   "s": "<p>회전면 넓이는 둘레 \\(2\\pi f\\)에 호의 미소 길이를 곱해 적분합니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.sa",
+    "depth": 2,
+    "mis": "m_sa_no2pi"
+   },
+   "no": "C8-6"
+  },
+  {
+   "ext_id": "C8-7",
+   "chapter": "C8",
+   "kind": "essay",
+   "topic": "arc",
+   "q": "\\(y=x^2\\), \\(0\\le x\\le1\\)을 \\(x\\)축 둘레로 회전한 곡면의 넓이를 구하는 적분식을 쓰시오. (값은 구하지 않아도 됨)",
+   "a": "\\(S=2\\pi\\displaystyle\\int_0^1 x^2\\sqrt{1+4x^2}\\,dx\\)",
+   "pts": [
+    "둘레 \\(2\\pi y\\)를 썼는가",
+    "\\(y'=2x\\)로 \\(\\sqrt{1+4x^2}\\)을 세웠는가",
+    "구간 \\(0\\)에서 \\(1\\)까지인가"
+   ],
+   "s": "<p>\\(S=2\\pi\\int y\\sqrt{1+(y')^2}\\,dx\\)에 \\(y=x^2\\)를 넣습니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.sa",
+    "depth": 2
+   },
+   "no": "C8-7"
+  },
+  {
+   "ext_id": "C8-8",
+   "chapter": "C8",
+   "kind": "mc",
+   "topic": "arc",
+   "q": "\\(y=f(x)\\), \\(a\\le x\\le b\\)를 \\(y\\)축 둘레로 회전한 곡면 넓이의 식은?",
+   "opts": [
+    "\\(2\\pi\\displaystyle\\int_a^b f\\sqrt{1+(f')^2}\\,dx\\)",
+    "\\(\\pi\\displaystyle\\int_a^b f^2\\,dx\\)",
+    "\\(2\\pi\\displaystyle\\int_a^b f\\,dx\\)",
+    "\\(2\\pi\\displaystyle\\int_a^b x\\sqrt{1+(f')^2}\\,dx\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "\\(x\\)축 회전 공식을 그대로 쓴다고 생각함",
+    "회전체 부피 공식과 혼동한다고 생각함",
+    "호의 길이 항을 빼먹는다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(y\\)축 회전은 반지름이 \\(x\\)이므로 \\(2\\pi x\\)를 곱합니다.</p>",
+   "src": [
+    [
+     "T",
+     "8.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "arc.sa",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C8-8"
+  },
+  {
+   "ext_id": "C9-1",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 2.7183,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "star": true,
+   "q": "\\(y'=2xy\\), \\(y(0)=1\\)의 해를 구하고 \\(y(1)\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "2.7183",
+   "s": "<p>변수분리하면 \\(\\ln y=x^2+C\\), \\(y=e^{x^2}\\)이고 \\(y(0)=1\\)을 만족합니다. \\(y(1)=e\\approx2.7183\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.sep",
+    "depth": 2
+   },
+   "no": "C9-1"
+  },
+  {
+   "ext_id": "C9-2",
+   "chapter": "C9",
+   "kind": "ox",
+   "ox": true,
+   "topic": "de",
+   "q": "\\(y'=y\\)의 일반해는 \\(y=Ce^x\\)이다. (\\(C\\)는 상수)",
+   "s": "<p>\\(\\dfrac{dy}{y}=dx\\)이므로 \\(\\ln|y|=x+C\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.grow",
+    "depth": 1
+   },
+   "no": "C9-2"
+  },
+  {
+   "ext_id": "C9-3",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 271.8282,
+   "tol": 0.01,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "q": "\\(\\dfrac{dP}{dt}=0.1P\\), \\(P(0)=100\\)일 때 \\(P(10)\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "271.8282",
+   "s": "<p>\\(P(t)=100e^{0.1t}\\)이므로 \\(P(10)=100e\\approx271.8282\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.grow",
+    "depth": 2
+   },
+   "no": "C9-3"
+  },
+  {
+   "ext_id": "C9-4",
+   "chapter": "C9",
+   "kind": "ox",
+   "ox": false,
+   "topic": "de",
+   "q": "\\(\\dfrac{dy}{dt}=ky\\)이면 \\(y\\)는 일정한 속도로 직선처럼 증가한다.",
+   "fix": "변화량이 \\(y\\)에 비례하므로 지수함수 \\(y=Ce^{kt}\\)처럼 변한다.",
+   "s": "<p>변화율이 현재 값에 비례하면 지수적으로 변합니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.grow",
+    "depth": 2,
+    "mis": "m_gr_linear"
+   },
+   "no": "C9-4"
+  },
+  {
+   "ext_id": "C9-5",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 0.6321,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "q": "\\(y'+y=1\\), \\(y(0)=0\\)의 해를 구하고 \\(y(1)\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.6321",
+   "s": "<p>적분인자 \\(e^x\\)를 곱하면 \\((ye^x)'=e^x\\)이므로 \\(y=1-e^{-x}\\)입니다. \\(y(1)=1-e^{-1}\\approx0.6321\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.lin1",
+    "depth": 3
+   },
+   "no": "C9-5"
+  },
+  {
+   "ext_id": "C9-6",
+   "chapter": "C9",
+   "kind": "ox",
+   "ox": false,
+   "topic": "de",
+   "q": "\\(y'+y=x\\)의 적분인자는 \\(e^{\\int x\\,dx}=e^{x^2/2}\\)이다.",
+   "fix": "적분인자는 \\(e^{\\int p\\,dx}\\)이고 여기서 \\(p=1\\)이므로 \\(e^{x}\\)이다.",
+   "s": "<p>적분인자는 \\(y\\)의 계수 \\(p(x)\\)로 만듭니다. 오른쪽 항 \\(q(x)=x\\)는 적분인자에 들어가지 않습니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.lin1",
+    "depth": 3,
+    "mis": "m_l1_pq"
+   },
+   "no": "C9-6"
+  },
+  {
+   "ext_id": "C9-7",
+   "chapter": "C9",
+   "kind": "essay",
+   "topic": "de",
+   "star": true,
+   "q": "\\(\\dfrac{dy}{dx}=y^2\\), \\(y(0)=1\\)을 풀어 \\(y(x)\\)를 구하시오.",
+   "a": "변수분리하면 \\(-\\dfrac1y=x+C\\)이고 \\(y(0)=1\\)에서 \\(C=-1\\)이다. 따라서 \\(y=\\dfrac{1}{1-x}\\) (\\(x<1\\))이다.",
+   "pts": [
+    "변수분리 \\(\\dfrac{dy}{y^2}=dx\\)를 세웠는가",
+    "양변을 적분했는가",
+    "초기조건으로 \\(C\\)를 구했는가",
+    "\\(y=\\dfrac{1}{1-x}\\)를 구했는가"
+   ],
+   "s": "<p>\\(1/y\\)를 적분하면 \\(-1/y\\)입니다. 해가 존재하는 구간은 \\(x<1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.sep",
+    "depth": 2
+   },
+   "no": "C9-7"
+  },
+  {
+   "ext_id": "C10-1",
+   "chapter": "C10",
+   "kind": "short",
+   "num": 1.5,
+   "tol": 0,
+   "ph": "소수로 입력",
+   "topic": "param",
+   "star": true,
+   "q": "\\(x=t^2\\), \\(y=t^3\\)에서 \\(t=1\\)일 때 \\(\\dfrac{dy}{dx}\\)의 값을 소수로 쓰시오.",
+   "a": "1.5",
+   "s": "<p>\\(\\dfrac{dy}{dx}=\\dfrac{3t^2}{2t}=\\dfrac{3t}{2}\\)이므로 \\(t=1\\)에서 \\(1.5\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "param.dv",
+    "depth": 2
+   },
+   "no": "C10-1"
+  },
+  {
+   "ext_id": "C10-2",
+   "chapter": "C10",
+   "kind": "ox",
+   "ox": false,
+   "topic": "param",
+   "q": "매개변수 곡선에서 \\(\\dfrac{dy}{dx}=\\dfrac{dy}{dt}\\cdot\\dfrac{dx}{dt}\\)이다.",
+   "fix": "\\(\\dfrac{dy}{dx}=\\dfrac{dy/dt}{dx/dt}\\)이다. 나누어야 한다.",
+   "s": "<p>연쇄법칙으로 \\(\\dfrac{dy}{dt}=\\dfrac{dy}{dx}\\dfrac{dx}{dt}\\)이므로 나눗셈이 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "param.dv",
+    "depth": 2,
+    "mis": "m_pm_dx"
+   },
+   "no": "C10-2"
+  },
+  {
+   "ext_id": "C10-3",
+   "chapter": "C10",
+   "kind": "short",
+   "num": 0.3333,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "param",
+   "q": "\\(x=t\\), \\(y=t^2\\), \\(0\\le t\\le1\\)일 때 곡선과 \\(x\\)축 사이의 넓이를 소수 넷째 자리까지 쓰시오.",
+   "a": "0.3333",
+   "s": "<p>\\(A=\\displaystyle\\int y\\,dx=\\int_0^1 t^2\\,dt=\\dfrac13\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "param.dv",
+    "depth": 2
+   },
+   "no": "C10-3"
+  },
+  {
+   "ext_id": "C10-4",
+   "chapter": "C10",
+   "kind": "mc",
+   "topic": "polar",
+   "q": "극좌표 \\((r,\\theta)=\\left(2,\\dfrac{\\pi}{2}\\right)\\)을 직교좌표로 바꾸면?",
+   "opts": [
+    "\\((0,2)\\)",
+    "\\((-2,0)\\)",
+    "\\((0,-2)\\)",
+    "\\((2,0)\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(\\theta=\\pi/2\\)를 음의 \\(x\\)축으로 잘못 잡는다고 생각함",
+    "\\(\\sin\\)의 부호를 반대로 쓴다고 생각함",
+    "\\(r\\)을 \\(x\\)좌표로 그대로 쓴다고 생각함"
+   ],
+   "s": "<p>\\(x=r\\cos\\theta=0\\), \\(y=r\\sin\\theta=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.pt",
+    "depth": 1,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "C10-4"
+  },
+  {
+   "ext_id": "C10-5",
+   "chapter": "C10",
+   "kind": "ox",
+   "ox": true,
+   "topic": "polar",
+   "q": "극좌표 \\((1,0)\\)과 \\((-1,\\pi)\\)은 같은 점을 나타낸다.",
+   "s": "<p>\\((-1,\\pi)\\)의 직교좌표는 \\((-1\\cdot\\cos\\pi,\\,-1\\cdot\\sin\\pi)=(1,0)\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.pt",
+    "depth": 2
+   },
+   "no": "C10-5"
+  },
+  {
+   "ext_id": "C10-6",
+   "chapter": "C10",
+   "kind": "short",
+   "num": 6.2832,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "polar",
+   "q": "극곡선 \\(r=2\\), \\(0\\le\\theta\\le\\pi\\)가 가리키는 넓이를 소수 넷째 자리까지 쓰시오. (\\(\\pi\\)는 3.1416)",
+   "a": "6.2832",
+   "s": "<p>\\(A=\\dfrac12\\displaystyle\\int_0^\\pi 4\\,d\\theta=2\\pi\\approx6.2832\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ar",
+    "depth": 2
+   },
+   "no": "C10-6"
+  },
+  {
+   "ext_id": "C10-7",
+   "chapter": "C10",
+   "kind": "mc",
+   "topic": "polar",
+   "star": true,
+   "q": "극곡선 \\(r=2\\), \\(0\\le\\theta\\le\\pi\\)가 둘러싸는 넓이는?",
+   "opts": [
+    "\\(\\pi\\)",
+    "\\(2\\pi\\)",
+    "\\(4\\pi\\)",
+    "\\(8\\pi\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "\\(\\tfrac12\\int r\\,d\\theta\\)로 계산했다고 생각함",
+    "",
+    "\\(\\tfrac12\\)를 빼먹었다고 생각함",
+    "\\(r^2\\)의 적분 구간을 두 배로 잘못 잡았다고 생각함"
+   ],
+   "s": "<p>\\(A=\\dfrac12\\displaystyle\\int_0^\\pi r^2\\,d\\theta=\\dfrac12\\int_0^\\pi4\\,d\\theta=2\\pi\\)입니다.</p><p>함정: 극좌표 넓이는 \\(r\\)이 아니라 \\(r^2\\)을 적분합니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ar",
+    "depth": 3,
+    "mis": [
+     "m_pl_r",
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C10-7"
+  },
+  {
+   "ext_id": "C10-8",
+   "chapter": "C10",
+   "kind": "ox",
+   "ox": false,
+   "topic": "polar",
+   "q": "극곡선 \\(r=f(\\theta)\\)가 둘러싸는 넓이는 \\(\\dfrac12\\displaystyle\\int r\\,d\\theta\\)이다.",
+   "fix": "\\(\\dfrac12\\displaystyle\\int r^2\\,d\\theta\\)이다. 넓이는 \\(r^2\\)을 적분한다.",
+   "s": "<p>부채꼴 한 조각의 넓이 \\(\\dfrac12r^2\\,d\\theta\\)를 더한 것입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ar",
+    "depth": 2,
+    "mis": "m_pl_r"
+   },
+   "no": "C10-8"
+  },
+  {
+   "ext_id": "C10-9",
+   "chapter": "C10",
+   "kind": "short",
+   "num": 6.2832,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "polar",
+   "q": "극곡선 \\(r=1\\)의 한 바퀴 길이 \\(0\\le\\theta\\le2\\pi\\)를 소수 넷째 자리까지 쓰시오. (\\(\\pi\\)는 3.1416)",
+   "a": "6.2832",
+   "s": "<p>\\(L=\\displaystyle\\int_0^{2\\pi}\\sqrt{r^2+(r')^2}\\,d\\theta=\\int_0^{2\\pi}1\\,d\\theta=2\\pi\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ln",
+    "depth": 2
+   },
+   "no": "C10-9"
+  },
+  {
+   "ext_id": "C10-10",
+   "chapter": "C10",
+   "kind": "essay",
+   "topic": "polar",
+   "star": true,
+   "q": "심장형 곡선 \\(r=1+\\cos\\theta\\)의 전체 길이를 구하는 적분식을 세우고 값을 구하시오.",
+   "a": "\\(L=\\displaystyle\\int_0^{2\\pi}\\sqrt{r^2+(r')^2}\\,d\\theta=\\int_0^{2\\pi}\\sqrt{2+2\\cos\\theta}\\,d\\theta=8\\)이다.",
+   "pts": [
+    "\\(\\sqrt{r^2+(r')^2}\\)를 세웠는가",
+    "\\(r^2+(r')^2=2+2\\cos\\theta\\)로 정리했는가",
+    "\\(\\sqrt{2+2\\cos\\theta}=2|\\cos(\\theta/2)|\\)로 바꾸었는가",
+    "값 \\(8\\)을 구했는가"
+   ],
+   "s": "<p>\\(\\sqrt{2+2\\cos\\theta}=2\\left|\\cos\\dfrac\\theta2\\right|\\)이고 \\(u=\\dfrac\\theta2\\)로 치환하면 \\(8\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ln",
+    "depth": 3
+   },
+   "no": "C10-10"
+  },
+  {
+   "ext_id": "C10-11",
+   "chapter": "C10",
+   "kind": "mc",
+   "topic": "param",
+   "q": "\\(x=\\cos t\\), \\(y=\\sin t\\)에서 \\(t=\\dfrac{\\pi}{4}\\)일 때 접선의 기울기는?",
+   "opts": [
+    "\\(\\infty\\)",
+    "\\(1\\)",
+    "\\(-1\\)",
+    "\\(0\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(\\sin\\)이 0이 된다고 생각함",
+    "부호를 빼먹는다고 생각함",
+    "",
+    "\\(\\cos\\)의 값을 기울기로 생각함"
+   ],
+   "s": "<p>\\(\\dfrac{dy}{dx}=\\dfrac{\\cos t}{-\\sin t}=-\\cot t\\)이고 \\(t=\\dfrac\\pi4\\)에서 \\(-1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "param.dv",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "no": "C10-11"
+  },
+  {
+   "ext_id": "C10-12",
+   "chapter": "C10",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "param",
+   "q": "\\(x=2t+1\\), \\(y=t^2\\)에서 \\(t=2\\)일 때 \\(\\dfrac{dy}{dx}\\)의 값을 구하시오.",
+   "a": "2",
+   "s": "<p>\\(\\dfrac{dy}{dx}=\\dfrac{2t}{2}=t\\)이므로 \\(t=2\\)에서 \\(2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "param.dv",
+    "depth": 2
+   },
+   "no": "C10-12"
+  },
+  {
+   "ext_id": "C10-13",
+   "chapter": "C10",
+   "kind": "short",
+   "num": -3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "polar",
+   "q": "극좌표 \\((r,\\theta)=(3,\\pi)\\)을 직교좌표로 바꿀 때 \\(x\\)좌표를 구하시오.",
+   "a": "-3",
+   "s": "<p>\\(x=3\\cos\\pi=-3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.pt",
+    "depth": 1
+   },
+   "no": "C10-13"
+  },
+  {
+   "ext_id": "C10-14",
+   "chapter": "C10",
+   "kind": "mc",
+   "topic": "polar",
+   "q": "극좌표 \\((-2,\\dfrac{\\pi}{3})\\)과 같은 점을 \\(r>0\\)으로 나타낸 것은?",
+   "opts": [
+    "\\(\\left(-2,\\dfrac{4\\pi}{3}\\right)\\)",
+    "\\(\\left(2,-\\dfrac\\pi3\\right)\\)",
+    "\\(\\left(2,\\dfrac\\pi3\\right)\\)",
+    "\\(\\left(2,\\dfrac{4\\pi}{3}\\right)\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "\\(r\\)의 부호를 그대로 둔다고 생각함",
+    "각을 반대 방향으로 잰다고 생각함",
+    "\\(r\\)의 부호를 무시했다고 생각함",
+    ""
+   ],
+   "s": "<p>\\((-2,\\theta)=(2,\\theta+\\pi)\\)이므로 \\(\\left(2,\\dfrac{4\\pi}{3}\\right)\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.pt",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C10-14"
+  },
+  {
+   "ext_id": "C11-1",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "seq",
+   "star": true,
+   "q": "\\(\\displaystyle\\lim_{n\\to\\infty}\\dfrac{n^2+1}{2n^2-3}\\)의 값은?",
+   "opts": [
+    "\\(\\tfrac12\\)",
+    "\\(1\\)",
+    "\\(0\\)",
+    "\\(\\infty\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "분자와 분모의 계수를 같다고 생각함",
+    "분자의 차수만 본다고 생각함",
+    "분자가 커지면 발산한다고 생각함"
+   ],
+   "s": "<p>분자와 분모를 \\(n^2\\)으로 나누면 \\(\\dfrac{1+1/n^2}{2-3/n^2}\\to\\dfrac12\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "seq.lim",
+    "depth": 2,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "C11-1"
+  },
+  {
+   "ext_id": "C11-2",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": false,
+   "topic": "seq",
+   "q": "수열 \\(a_n=(-1)^n\\)은 수렴한다.",
+   "fix": "\\(1,-1\\)을 번갈아 가지므로 극한이 없어 발산한다.",
+   "s": "<p>수열이 한 값에 가까워지지 않고 진동하므로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "seq.lim",
+    "depth": 2
+   },
+   "no": "C11-2"
+  },
+  {
+   "ext_id": "C11-3",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ser",
+   "star": true,
+   "q": "\\(\\displaystyle\\sum_{n=0}^\\infty\\left(\\dfrac12\\right)^n\\)의 합을 구하시오.",
+   "a": "2",
+   "s": "<p>등비급수이고 \\(|r|=\\dfrac12<1\\)이므로 \\(\\dfrac{1}{1-1/2}=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.geo",
+    "depth": 1,
+    "family": "geo-sum",
+    "role": "base"
+   },
+   "no": "C11-3"
+  },
+  {
+   "ext_id": "C11-4",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 6,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty 3\\left(\\dfrac23\\right)^n\\)의 합을 구하시오.",
+   "a": "6",
+   "s": "<p>첫째항 \\(3\\cdot\\dfrac23=2\\), 공비 \\(\\dfrac23\\)이므로 \\(\\dfrac{2}{1-2/3}=6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.geo",
+    "depth": 1,
+    "family": "geo-sum",
+    "role": "iso",
+    "delta": [
+     "surface",
+     "첫째항과 공비를 바꿈"
+    ]
+   },
+   "no": "C11-4"
+  },
+  {
+   "ext_id": "C11-5",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": false,
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac1n\\)은 \\(\\lim a_n=0\\)이므로 수렴한다.",
+   "fix": "조화급수이므로 발산한다. \\(a_n\\to0\\)이어도 수렴을 보장하지 않는다.",
+   "s": "<p>\\(\\dfrac1n\\to0\\)이지만 합은 무한대로 갑니다.</p><p>함정: 항이 0으로 가는 것은 수렴의 필요조건일 뿐입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.nth",
+    "depth": 3,
+    "mis": "m_ser_nth"
+   },
+   "no": "C11-5"
+  },
+  {
+   "ext_id": "C11-6",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{n}{n^2+1}\\)의 판정에 가장 알맞은 방법은?",
+   "opts": [
+    "적분판정법은 쓸 수 없다",
+    "비교판정법 (\\(\\tfrac1n\\)과 비교)",
+    "교대급수판정법",
+    "비율판정법"
+   ],
+   "ans": 1,
+   "why": [
+    "양의 연속 감소함수로 놓을 수 없다고 생각함",
+    "",
+    "음수 항이 있다고 생각함",
+    "비율이 1에 가까워서 소용이 없다고 생각함"
+   ],
+   "s": "<p>\\(\\dfrac{n}{n^2+1}\\ge\\dfrac{1}{2n}\\)이고 조화급수가 발산하므로 비교판정법으로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.test",
+    "depth": 3,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C11-6"
+  },
+  {
+   "ext_id": "C11-7",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{(-1)^n}{n}\\)은 교대급수판정법으로 수렴한다.",
+   "s": "<p>\\(\\dfrac1n\\)은 감소하고 \\(\\to0\\)이므로 수렴합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.test",
+    "depth": 2
+   },
+   "no": "C11-7"
+  },
+  {
+   "ext_id": "C11-8",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": false,
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty(-1)^n\\)은 수렴한다.",
+   "fix": "\\(a_n\\)이 0으로 가지 않아 발산한다.",
+   "s": "<p>부분합이 \\(-1,0,-1,\\dots\\)로 진동하므로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.nth",
+    "depth": 2,
+    "mis": "m_ser_nth"
+   },
+   "no": "C11-8"
+  },
+  {
+   "ext_id": "C11-9",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "pow",
+   "q": "멱급수 \\(\\displaystyle\\sum_{n=0}^\\infty\\dfrac{x^n}{3^n}\\)의 수렴반경을 구하시오.",
+   "a": "3",
+   "s": "<p>비율판정으로 \\(\\dfrac{|x|}{3}<1\\)이므로 \\(R=3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "pow.rad",
+    "depth": 2
+   },
+   "no": "C11-9"
+  },
+  {
+   "ext_id": "C11-10",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "pow",
+   "star": true,
+   "q": "멱급수 \\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{x^n}{n}\\)은 수렴반경이 \\(1\\)이다. 끝점 \\(x=1\\)에서 수렴하는가?",
+   "opts": [
+    "절대수렴한다",
+    "수렴한다",
+    "발산한다",
+    "판단할 수 없다"
+   ],
+   "ans": 2,
+   "why": [
+    "절대수렴이면 항상 끝점도 수렴한다고 생각함",
+    "수렴반경 안의 끝점도 항상 수렴한다고 생각함",
+    "",
+    "끝점은 따로 검사할 필요가 없다고 생각함"
+   ],
+   "s": "<p>\\(x=1\\)이면 조화급수 \\(\\sum\\dfrac1n\\)이므로 발산합니다. 끝점은 따로 검사해야 합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "pow.rad",
+    "depth": 3,
+    "mis": [
+     null,
+     "m_pow_end",
+     "",
+     null
+    ]
+   },
+   "no": "C11-10"
+  },
+  {
+   "ext_id": "C11-11",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 4,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "pow",
+   "q": "멱급수 \\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{(x+2)^n}{n\\,4^n}\\)의 수렴반경을 구하시오.",
+   "a": "4",
+   "s": "<p>\\(\\dfrac{|x+2|}{4}<1\\)이므로 \\(R=4\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "pow.rad",
+    "depth": 2
+   },
+   "no": "C11-11"
+  },
+  {
+   "ext_id": "C11-12",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "tay",
+   "q": "\\(\\dfrac{1}{1-x}\\)의 \\(x=0\\)에서의 테일러 급수는?",
+   "opts": [
+    "\\(\\displaystyle\\sum_{n=0}^\\infty n x^n\\)",
+    "\\(\\displaystyle\\sum_{n=0}^\\infty(-1)^nx^n\\)",
+    "\\(\\displaystyle\\sum_{n=0}^\\infty\\dfrac{x^n}{n!}\\)",
+    "\\(\\displaystyle\\sum_{n=0}^\\infty x^n\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "미분 결과를 그대로 쓴다고 생각함",
+    "\\(x\\)를 \\(-x\\)로 바꾼 것으로 생각함",
+    "\\(e^x\\)의 전개와 혼동한다고 생각함",
+    ""
+   ],
+   "s": "<p>등비급수 \\(\\dfrac{1}{1-x}=\\sum x^n\\)이 바로 테일러 급수입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.10절"
+    ]
+   ],
+   "dx": {
+    "facet": "tay.tt",
+    "depth": 1,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C11-12"
+  },
+  {
+   "ext_id": "C11-13",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": true,
+   "topic": "tay",
+   "q": "\\(e^x\\)를 \\(x=1\\)에서 전개하면 \\(\\displaystyle\\sum_{n=0}^\\infty\\dfrac{e(x-1)^n}{n!}\\)이다.",
+   "s": "<p>\\(f^{(n)}(1)=e\\)이므로 \\(\\dfrac{f^{(n)}(1)}{n!}(x-1)^n=\\dfrac{e}{n!}(x-1)^n\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.10절"
+    ]
+   ],
+   "dx": {
+    "facet": "tay.tt",
+    "depth": 2
+   },
+   "no": "C11-13"
+  },
+  {
+   "ext_id": "C11-14",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": false,
+   "topic": "tay",
+   "q": "테일러 급수의 중심은 항상 \\(0\\)이어야 한다.",
+   "fix": "중심 \\(a\\)는 임의로 잡을 수 있다. \\(a=0\\)이면 매클로린 급수다.",
+   "s": "<p>\\(a=0\\)인 경우를 매클로린 급수라고 부를 뿐입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.10절"
+    ]
+   ],
+   "dx": {
+    "facet": "tay.tt",
+    "depth": 2,
+    "mis": "m_tay_c"
+   },
+   "no": "C11-14"
+  },
+  {
+   "ext_id": "C11-15",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 0.0998,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "tay",
+   "q": "\\(\\sin x\\approx x-\\dfrac{x^3}{6}\\)를 이용하여 \\(\\sin 0.1\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.0998",
+   "s": "<p>\\(0.1-\\dfrac{0.001}{6}\\approx0.09983\\)이므로 \\(0.0998\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.11절"
+    ]
+   ],
+   "dx": {
+    "facet": "tay.tt",
+    "depth": 2
+   },
+   "no": "C11-15"
+  },
+  {
+   "ext_id": "C11-16",
+   "chapter": "C11",
+   "kind": "essay",
+   "topic": "tay",
+   "star": true,
+   "q": "\\(e^{-x^2}\\)의 매클로린 급수를 \\(\\sum\\)을 써서 나타내시오.",
+   "a": "\\(e^u=\\sum\\dfrac{u^n}{n!}\\)에 \\(u=-x^2\\)을 넣으면 \\(\\displaystyle\\sum_{n=0}^\\infty\\dfrac{(-1)^nx^{2n}}{n!}\\)이다.",
+   "pts": [
+    "\\(e^u\\)의 전개를 알고 있는가",
+    "\\(u=-x^2\\)을 대입했는가",
+    "부호와 차수 \\(x^{2n}\\)을 맞게 썼는가"
+   ],
+   "s": "<p>기본 급수를 치환해 얻는 방법이 가장 빠릅니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.10절"
+    ]
+   ],
+   "dx": {
+    "facet": "tay.tt",
+    "depth": 3
+   },
+   "no": "C11-16"
+  },
+  {
+   "ext_id": "C11-17",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 0.6667,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=0}^\\infty\\left(-\\dfrac12\\right)^n\\)의 합을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.6667",
+   "s": "<p>\\(\\dfrac{1}{1+1/2}=\\dfrac23\\approx0.6667\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.geo",
+    "depth": 2
+   },
+   "no": "C11-17"
+  },
+  {
+   "ext_id": "C11-18",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{n}{n+1}\\)에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "발산한다",
+    "수렴하고 합은 \\(0\\)",
+    "판단할 수 없다",
+    "수렴하고 합은 \\(1\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(n\\)항의 극한만으로 합이 0이라고 생각함",
+    "항이 0으로 가지 않아도 수렴할 수 있다고 생각함",
+    "\\(\\lim a_n=1\\)을 합으로 착각한다고 생각함"
+   ],
+   "s": "<p>\\(\\lim_{n\\to\\infty}\\dfrac{n}{n+1}=1\\neq0\\)이므로 \\(n\\)항 판정법으로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.nth",
+    "depth": 2,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "C11-18"
+  },
+  {
+   "ext_id": "C11-19",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{1}{n^2+1}\\)의 수렴 여부는?",
+   "opts": [
+    "발산한다",
+    "수렴한다",
+    "판단할 수 없다",
+    "교대급수이므로 수렴한다"
+   ],
+   "ans": 1,
+   "why": [
+    "분모가 커지지 않는다고 생각함",
+    "",
+    "비교판정법을 쓸 수 없다고 생각함",
+    "음수 항이 있다고 생각함"
+   ],
+   "s": "<p>\\(0<\\dfrac{1}{n^2+1}\\le\\dfrac{1}{n^2}\\)이고 \\(\\sum\\dfrac{1}{n^2}\\)이 수렴하므로 비교판정법으로 수렴합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.test",
+    "depth": 3,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C11-19"
+  },
+  {
+   "ext_id": "C11-20",
+   "chapter": "C11",
+   "kind": "essay",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{n!}{3^n}\\)의 수렴 여부를 비율판정법으로 판정하시오.",
+   "a": "\\(\\dfrac{a_{n+1}}{a_n}=\\dfrac{(n+1)}{3}\\to\\infty\\)이므로 1보다 커져서 발산한다.",
+   "pts": [
+    "\\(\\dfrac{a_{n+1}}{a_n}\\)을 계산했는가",
+    "극한이 \\(\\infty\\)임을 확인했는가",
+    "발산이라고 결론 냈는가"
+   ],
+   "s": "<p>비율이 1보다 크면 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.test",
+    "depth": 3
+   },
+   "no": "C11-20"
+  },
+  {
+   "ext_id": "C11-21",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{n!}{n^n}\\)은 비율판정법으로 수렴한다.",
+   "s": "<p>\\(\\dfrac{a_{n+1}}{a_n}=\\left(\\dfrac{n}{n+1}\\right)^n\\to\\dfrac1e<1\\)이므로 수렴합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.test",
+    "depth": 3
+   },
+   "no": "C11-21"
+  },
+  {
+   "ext_id": "C11-22",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{(-1)^n}{n^2}\\)은 절대수렴한다.",
+   "s": "<p>\\(\\left|\\dfrac{(-1)^n}{n^2}\\right|=\\dfrac1{n^2}\\)의 합이 수렴하므로 절대수렴합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.test",
+    "depth": 3
+   },
+   "no": "C11-22"
+  },
+  {
+   "ext_id": "C12-1",
+   "chapter": "C12",
+   "kind": "mc",
+   "topic": "vec",
+   "star": true,
+   "q": "\\(\\mathbf a=(1,2,3)\\), \\(\\mathbf b=(4,-5,6)\\)일 때 \\(\\mathbf a\\cdot\\mathbf b\\)는?",
+   "opts": [
+    "\\(4\\)",
+    "\\(24\\)",
+    "\\(12\\)",
+    "\\(-12\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "첫 성분의 곱만 더한다고 생각함",
+    "성분 곱을 모두 더하지 않고 곱한다고 생각함",
+    "",
+    "음수 성분 부호를 잘못 계산한다고 생각함"
+   ],
+   "s": "<p>\\(4-10+18=12\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.dot",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "no": "C12-1"
+  },
+  {
+   "ext_id": "C12-2",
+   "chapter": "C12",
+   "kind": "ox",
+   "ox": false,
+   "topic": "vec",
+   "q": "\\(\\mathbf a\\cdot\\mathbf b=0\\)이면 \\(\\mathbf a\\)와 \\(\\mathbf b\\)는 평행하다.",
+   "fix": "내적이 0이면 두 벡터는 수직이다. 평행하면 외적이 0이다.",
+   "s": "<p>\\(\\mathbf a\\cdot\\mathbf b=|\\mathbf a||\\mathbf b|\\cos\\theta=0\\)이면 \\(\\theta=\\dfrac\\pi2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.dot",
+    "depth": 1,
+    "mis": "m_dot_perp"
+   },
+   "no": "C12-2"
+  },
+  {
+   "ext_id": "C12-3",
+   "chapter": "C12",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "vec",
+   "q": "\\(\\mathbf a=(1,2,0)\\), \\(\\mathbf b=(3,4,0)\\)일 때 \\(|\\mathbf a\\times\\mathbf b|\\)를 구하시오.",
+   "a": "2",
+   "s": "<p>\\(\\mathbf a\\times\\mathbf b=(0,0,4-6)=(0,0,-2)\\)이고 크기는 \\(2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.cross",
+    "depth": 2
+   },
+   "no": "C12-3"
+  },
+  {
+   "ext_id": "C12-4",
+   "chapter": "C12",
+   "kind": "ox",
+   "ox": true,
+   "topic": "vec",
+   "q": "\\(\\mathbf a\\times\\mathbf b=-(\\mathbf b\\times\\mathbf a)\\)이다.",
+   "s": "<p>외적은 순서를 바꾸면 부호가 바뀝니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.cross",
+    "depth": 1
+   },
+   "no": "C12-4"
+  },
+  {
+   "ext_id": "C12-5",
+   "chapter": "C12",
+   "kind": "ox",
+   "ox": false,
+   "topic": "vec",
+   "q": "\\(\\mathbf a\\times\\mathbf b=\\mathbf b\\times\\mathbf a\\)이다.",
+   "fix": "\\(\\mathbf a\\times\\mathbf b=-(\\mathbf b\\times\\mathbf a)\\)이다. 외적은 교환법칙이 성립하지 않는다.",
+   "s": "<p>외적은 방향이 오른손 법칙으로 정해져 순서에 따라 반대입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.cross",
+    "depth": 1,
+    "mis": "m_cross_comm"
+   },
+   "no": "C12-5"
+  },
+  {
+   "ext_id": "C12-6",
+   "chapter": "C12",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "vec",
+   "q": "세 점 \\((0,0,0)\\), \\((1,0,0)\\), \\((0,2,0)\\)으로 이루어진 삼각형의 넓이를 구하시오.",
+   "a": "1",
+   "s": "<p>두 변 벡터 \\((1,0,0)\\), \\((0,2,0)\\)의 외적은 \\((0,0,2)\\)이므로 평행사변형 넓이는 \\(2\\), 삼각형 넓이는 \\(1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.cross",
+    "depth": 3
+   },
+   "no": "C12-6"
+  },
+  {
+   "ext_id": "C12-7",
+   "chapter": "C12",
+   "kind": "mc",
+   "topic": "lp",
+   "q": "점 \\((1,2,3)\\)을 지나고 법선벡터가 \\((1,1,1)\\)인 평면의 방정식은?",
+   "opts": [
+    "\\(x+y+z=1\\)",
+    "\\(x+y=3\\)",
+    "\\(x-y+z=2\\)",
+    "\\(x+y+z=6\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "법선벡터의 성분 합만 맞추고 점을 무시한다고 생각함",
+    "\\(z\\)를 빼먹는다고 생각함",
+    "법선벡터의 부호를 임의로 바꾼다고 생각함",
+    ""
+   ],
+   "s": "<p>\\((1,1,1)\\cdot(x-1,y-2,z-3)=0\\)이므로 \\(x+y+z=6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.plane",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "no": "C12-7"
+  },
+  {
+   "ext_id": "C12-8",
+   "chapter": "C12",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lp",
+   "q": "세 점 \\((1,0,0)\\), \\((0,1,0)\\), \\((0,0,1)\\)을 지나는 평면을 \\(ax+by+cz=d\\)로 쓸 때 \\(d\\)의 값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\(a=b=c=1\\)로 두면 \\(x+y+z=1\\)이고 \\(d=1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.plane",
+    "depth": 2
+   },
+   "no": "C12-8"
+  },
+  {
+   "ext_id": "C12-9",
+   "chapter": "C12",
+   "kind": "short",
+   "num": 3.4641,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "lp",
+   "star": true,
+   "q": "원점 \\((0,0,0)\\)과 평면 \\(x+y+z=6\\) 사이의 거리를 소수 넷째 자리까지 쓰시오.",
+   "a": "3.4641",
+   "s": "<p>거리는 \\(\\dfrac{|0+0+0-6|}{\\sqrt3}=2\\sqrt3\\approx3.4641\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.dist",
+    "depth": 2
+   },
+   "no": "C12-9"
+  },
+  {
+   "ext_id": "C12-10",
+   "chapter": "C12",
+   "kind": "ox",
+   "ox": false,
+   "topic": "lp",
+   "q": "평면 \\(x+y+z=6\\)과 점 \\(P\\) 사이의 거리는 평면의 방향벡터를 써서 구한다.",
+   "fix": "평면은 법선벡터 \\(\\mathbf n\\)으로 거리를 구하며 거리는 \\(\\dfrac{|\\mathbf n\\cdot(P-Q)|}{|\\mathbf n|}\\)이다.",
+   "s": "<p>평면에는 방향벡터가 없고 법선벡터로 거리를 잽니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.dist",
+    "depth": 3,
+    "mis": "m_lp_dir"
+   },
+   "no": "C12-10"
+  },
+  {
+   "ext_id": "C12-11",
+   "chapter": "C12",
+   "kind": "essay",
+   "topic": "lp",
+   "star": true,
+   "q": "꼬인 두 직선 \\(L_1:(x,y,z)=(1,1,0)+t(1,6,2)\\), \\(L_2:(x,y,z)=(1,5,-2)+s(2,15,6)\\) 사이의 거리를 외적을 이용해 구하시오.",
+   "a": "\\(\\mathbf d_1\\times\\mathbf d_2=(6,-2,3)\\), \\(|\\cdot|=7\\). \\(\\overrightarrow{P_1P_2}=(0,4,-2)\\)의 내적은 \\(-14\\)이므로 거리는 \\(\\dfrac{|-14|}{7}=2\\)이다.",
+   "pts": [
+    "두 방향벡터의 외적 \\((6,-2,3)\\)을 구했는가",
+    "외적의 크기 \\(7\\)을 구했는가",
+    "두 점을 잇는 벡터 \\((0,4,-2)\\)를 세웠는가",
+    "거리 \\(2\\)를 구했는가"
+   ],
+   "s": "<p>두 직선 사이의 최단거리는 공통 수직 방향(외적)에 두 점 사이 벡터를 투영한 길이입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.dist",
+    "depth": 3
+   },
+   "no": "C12-11"
+  },
+  {
+   "ext_id": "C12-12",
+   "chapter": "C12",
+   "kind": "mc",
+   "topic": "lp",
+   "q": "평면 \\(2x-y+3z=4\\)의 법선벡터는?",
+   "opts": [
+    "\\((2,-1,3)\\)",
+    "\\((2,1,3)\\)",
+    "\\((4,-1,3)\\)",
+    "\\(\\left(\\tfrac12,-\\tfrac14,\\tfrac34\\right)\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(y\\)의 부호를 잘못 읽었다고 생각함",
+    "상수항을 법선벡터에 넣는다고 생각함",
+    "단위벡터로 바꾼 것을 법선벡터라고 생각함"
+   ],
+   "s": "<p>평면 \\(ax+by+cz=d\\)의 법선벡터는 \\((a,b,c)=(2,-1,3)\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.plane",
+    "depth": 1,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "no": "C12-12"
+  },
+  {
+   "ext_id": "C12-13",
+   "chapter": "C12",
+   "kind": "ox",
+   "ox": true,
+   "topic": "lp",
+   "q": "두 평면이 평행하면 두 법선벡터도 평행하다.",
+   "s": "<p>평행한 평면은 같은 방향의 법선벡터를 가집니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.plane",
+    "depth": 2
+   },
+   "no": "C12-13"
+  },
+  {
+   "ext_id": "C12-14",
+   "chapter": "C12",
+   "kind": "ox",
+   "ox": true,
+   "topic": "vec",
+   "q": "\\(\\mathbf a=(1,2,0)\\)과 \\(\\mathbf b=(2,4,0)\\)이면 \\(\\mathbf a\\times\\mathbf b=\\mathbf 0\\)이다.",
+   "s": "<p>\\(\\mathbf b=2\\mathbf a\\)이므로 평행하고 외적은 영벡터입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.cross",
+    "depth": 2
+   },
+   "no": "C12-14"
+  },
+  {
+   "ext_id": "C13-1",
+   "chapter": "C13",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "vf",
+   "q": "\\(\\mathbf r(t)=(t^2,t^3)\\)일 때 \\(\\mathbf r'(1)\\)의 \\(y\\)성분을 구하시오.",
+   "a": "3",
+   "s": "<p>\\(\\mathbf r'(t)=(2t,3t^2)\\)이므로 \\(\\mathbf r'(1)=(2,3)\\)이고 \\(y\\)성분은 \\(3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.deriv",
+    "depth": 1
+   },
+   "no": "C13-1"
+  },
+  {
+   "ext_id": "C13-2",
+   "chapter": "C13",
+   "kind": "ox",
+   "ox": true,
+   "topic": "vf",
+   "q": "\\(\\mathbf r'(t)\\)는 곡선의 접선 방향을 나타낸다.",
+   "s": "<p>\\(\\mathbf r'(t)\\)가 0이 아니면 그 방향이 접선 방향입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.deriv",
+    "depth": 1
+   },
+   "no": "C13-2"
+  },
+  {
+   "ext_id": "C13-3",
+   "chapter": "C13",
+   "kind": "mc",
+   "topic": "vf",
+   "q": "\\(\\mathbf r(t)=(\\cos t,\\sin t,t)\\)에서 \\(t=0\\)일 때 접선의 방정식은?",
+   "opts": [
+    "\\((1,0,0)+s(0,1,0)\\)",
+    "\\((1,0,0)+s(0,1,1)\\)",
+    "\\((0,1,0)+s(1,0,1)\\)",
+    "\\((1,0,0)+s(1,1,1)\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "\\(z\\) 성분의 변화를 빼먹는다고 생각함",
+    "",
+    "접점의 좌표를 \\(y\\)축 위로 잘못 잡는다고 생각함",
+    "\\(t\\)의 계수 성분을 모두 1로 놓는다고 생각함"
+   ],
+   "s": "<p>\\(\\mathbf r(0)=(1,0,0)\\), \\(\\mathbf r'(t)=(-\\sin t,\\cos t,1)\\)이므로 \\(\\mathbf r'(0)=(0,1,1)\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.deriv",
+    "depth": 2,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "no": "C13-3"
+  },
+  {
+   "ext_id": "C13-4",
+   "chapter": "C13",
+   "kind": "short",
+   "num": 5,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "vf",
+   "q": "\\(\\mathbf r(t)=(3t,4t)\\), \\(0\\le t\\le1\\)의 곡선 길이를 구하시오.",
+   "a": "5",
+   "s": "<p>\\(|\\mathbf r'(t)|=|(3,4)|=5\\)이므로 길이는 \\(5\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.len",
+    "depth": 2
+   },
+   "no": "C13-4"
+  },
+  {
+   "ext_id": "C13-5",
+   "chapter": "C13",
+   "kind": "ox",
+   "ox": false,
+   "topic": "vf",
+   "q": "곡선 \\(\\mathbf r(t)\\)의 길이는 \\(\\displaystyle\\int\\mathbf r'(t)\\,dt\\)이다.",
+   "fix": "\\(\\displaystyle\\int|\\mathbf r'(t)|\\,dt\\)이다. 벡터를 적분하지 않고 크기를 적분한다.",
+   "s": "<p>길이는 속력 \\(|\\mathbf r'(t)|\\)의 적분입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.len",
+    "depth": 2,
+    "mis": "m_vf_len"
+   },
+   "no": "C13-5"
+  },
+  {
+   "ext_id": "C13-6",
+   "chapter": "C13",
+   "kind": "short",
+   "num": 3.1416,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "vf",
+   "q": "\\(\\mathbf r(t)=(\\cos t,\\sin t)\\), \\(0\\le t\\le\\pi\\)의 곡선 길이를 소수 넷째 자리까지 쓰시오.",
+   "a": "3.1416",
+   "s": "<p>\\(|\\mathbf r'(t)|=1\\)이므로 길이는 \\(\\pi\\approx3.1416\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.len",
+    "depth": 2
+   },
+   "no": "C13-6"
+  },
+  {
+   "ext_id": "C13-7",
+   "chapter": "C13",
+   "kind": "essay",
+   "topic": "vf",
+   "q": "\\(\\mathbf r(t)=(t,t^2,0)\\)에서 \\(t=1\\)일 때 접선의 방정식을 구하시오.",
+   "a": "점 \\((1,1,0)\\), 방향 \\(\\mathbf r'(1)=(1,2,0)\\)이므로 \\((1,1,0)+s(1,2,0)\\)이다.",
+   "pts": [
+    "\\(\\mathbf r(1)=(1,1,0)\\)을 구했는가",
+    "\\(\\mathbf r'(t)=(1,2t,0)\\)을 구했는가",
+    "접선 방정식을 썼는가"
+   ],
+   "s": "<p>접선은 접점과 접선 방향 벡터로 씁니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.deriv",
+    "depth": 2
+   },
+   "no": "C13-7"
+  },
+  {
+   "ext_id": "C13-8",
+   "chapter": "C13",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "vf",
+   "q": "\\(\\mathbf r(t)=(t,2t,2t)\\)의 속력 \\(|\\mathbf r'(t)|\\)을 구하시오.",
+   "a": "3",
+   "s": "<p>\\(\\mathbf r'(t)=(1,2,2)\\)이므로 속력은 \\(\\sqrt{1+4+4}=3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "13.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vf.len",
+    "depth": 1
+   },
+   "no": "C13-8"
+  },
+  {
+   "ext_id": "C1-17",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "cont",
+   "q": "\\(f(x)=|x|\\)는 \\(x=0\\)에서 연속이다.",
+   "s": "<p>\\(\\displaystyle\\lim_{x\\to0}|x|=0=f(0)\\)이므로 연속입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.def",
+    "depth": 1
+   },
+   "no": "C1-17"
+  },
+  {
+   "ext_id": "C2-22",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": true,
+   "topic": "der",
+   "q": "\\(y=x^3\\)의 \\(x=0\\)에서 접선의 기울기는 \\(0\\)이다.",
+   "s": "<p>\\(y'=3x^2\\)이므로 \\(y'(0)=0\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.tan",
+    "depth": 2
+   },
+   "no": "C2-22"
+  },
+  {
+   "ext_id": "C3-17",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ext",
+   "q": "\\(f(x)=x^2\\)은 \\(x=0\\)에서 극솟값을 가지며 \\(f''(0)>0\\)이다.",
+   "s": "<p>\\(f''(x)=2>0\\)이므로 아래로 볼록이고 \\(x=0\\)에서 극솟값을 가집니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.conc",
+    "depth": 2
+   },
+   "no": "C3-17"
+  },
+  {
+   "ext_id": "C4-12",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ftc",
+   "q": "\\(\\displaystyle\\int_0^2 x\\,dx=2\\)이다.",
+   "s": "<p>\\(\\left[\\dfrac{x^2}{2}\\right]_0^2=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc2",
+    "depth": 1
+   },
+   "no": "C4-12"
+  },
+  {
+   "ext_id": "C5-15",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": true,
+   "topic": "vol",
+   "q": "\\(x\\)축 둘레 회전의 원판법에서 원판의 반지름은 곡선의 \\(y\\)좌표이다.",
+   "s": "<p>회전축에 수직인 단면의 반지름은 회전축에서 곡선까지의 거리, 즉 \\(|y|\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.disk",
+    "depth": 1
+   },
+   "no": "C5-15"
+  },
+  {
+   "ext_id": "C6-17",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": true,
+   "topic": "expl",
+   "q": "\\((\\ln x)'=\\dfrac1x\\)이다. (\\(x>0\\))",
+   "s": "<p>\\(\\ln x\\)의 기본 도함수 공식입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.ex",
+    "depth": 1
+   },
+   "no": "C6-17"
+  },
+  {
+   "ext_id": "C7-23",
+   "chapter": "C7",
+   "kind": "ox",
+   "ox": true,
+   "topic": "impr",
+   "q": "\\(\\displaystyle\\int_0^1\\dfrac{dx}{x^2}\\)은 발산한다.",
+   "s": "<p>\\(\\displaystyle\\int_t^1x^{-2}\\,dx=\\dfrac1t-1\\to\\infty\\) (\\(t\\to0^+\\))이므로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "impr.im",
+    "depth": 1
+   },
+   "no": "C7-23"
+  },
+  {
+   "ext_id": "C10-15",
+   "chapter": "C10",
+   "kind": "ox",
+   "ox": true,
+   "topic": "polar",
+   "q": "극좌표 \\((r,\\theta)\\)와 \\((-r,\\theta+\\pi)\\)는 같은 점을 나타낸다.",
+   "s": "<p>\\((-r)\\cos(\\theta+\\pi)=r\\cos\\theta\\), \\((-r)\\sin(\\theta+\\pi)=r\\sin\\theta\\)이므로 같은 점입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.pt",
+    "depth": 2
+   },
+   "no": "C10-15"
+  },
+  {
+   "ext_id": "V-01",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "fn",
+   "q": "\\(f(x)=\\sqrt x\\), \\(g(x)=x-3\\)일 때 \\((f\\circ g)(x)\\)의 정의역은 \\(x\\ge0\\)이다.",
+   "fix": "\\(x\\ge3\\)이다. \\(f(g(x))=\\sqrt{x-3}\\)이고 근호 안은 \\(x-3\\ge0\\)이어야 한다.",
+   "s": "<p>합성 뒤 안쪽 \\(g\\)가 만드는 \\(x-3\\)이 근호 안에 들어가므로 정의역은 \\(x\\ge3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.comp",
+    "depth": 3,
+    "mis": "m_fn_comp"
+   },
+   "publish": false,
+   "no": "V-01"
+  },
+  {
+   "ext_id": "V-02",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "fn",
+   "q": "\\(f(x)=\\ln x\\), \\(g(x)=x^2-1\\)일 때 \\((f\\circ g)(x)\\)의 정의역은?",
+   "opts": [
+    "\\(x\\ge1\\)",
+    "모든 실수",
+    "\\(|x|>1\\)",
+    "\\(x>1\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "끝점 \\(x=1\\)을 포함한다고 생각함",
+    "식이 다항식이면 정의역이 모든 실수라고 생각함",
+    "",
+    "음수 쪽 구간을 빼먹는다고 생각함"
+   ],
+   "s": "<p>\\(\\ln\\)의 진수 \\(x^2-1\\)이 양수여야 하므로 \\(x^2>1\\), 즉 \\(|x|>1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.comp",
+    "depth": 3,
+    "mis": [
+     null,
+     "m_fn_comp",
+     "",
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-02"
+  },
+  {
+   "ext_id": "V-03",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "fn",
+   "q": "\\(y=f(x)+2\\)의 그래프는 \\(y=f(x)\\)의 그래프를 위로 \\(2\\)만큼 옮긴 것이다.",
+   "s": "<p>함숫값이 모두 \\(2\\)만큼 커지므로 위로 옮긴 그래프입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.trans",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-03"
+  },
+  {
+   "ext_id": "V-04",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "fn",
+   "q": "\\(y=-f(x)\\)의 그래프는 \\(y=f(x)\\)의 그래프를 \\(y\\)축에 대하여 대칭이동한 것이다.",
+   "fix": "\\(x\\)축에 대하여 대칭이동한 것이다.",
+   "s": "<p>\\(y\\)값의 부호만 바뀌므로 \\(x\\)축 대칭입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.trans",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-04"
+  },
+  {
+   "ext_id": "V-05",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 5,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to1}(2x+3)x^2\\)의 값을 구하시오.",
+   "a": "5",
+   "s": "<p>극한 법칙으로 \\((2+3)\\cdot1^2=5\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.lawx",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-05"
+  },
+  {
+   "ext_id": "V-06",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to2}\\dfrac{x+1}{x-3}\\)의 값은?",
+   "opts": [
+    "\\(3\\)",
+    "\\(-\\tfrac13\\)",
+    "발산한다",
+    "\\(-3\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "부호를 빼먹는다고 생각함",
+    "분자와 분모를 뒤집는다고 생각함",
+    "분모가 0이 아니어도 발산한다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(x=2\\)를 대입하면 분모가 \\(-1\\)이 되어 \\(\\dfrac{3}{-1}=-3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.lawx",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "publish": false,
+   "no": "V-06"
+  },
+  {
+   "ext_id": "V-07",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to\\infty}\\dfrac{2x^3+1}{x^3-5x}\\)의 값을 구하시오.",
+   "a": "2",
+   "s": "<p>최고차항의 계수 비 \\(\\dfrac21=2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.inf",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-07"
+  },
+  {
+   "ext_id": "V-08",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to\\infty}\\dfrac{x^3+x}{x^2+1}=\\infty\\)이다.",
+   "s": "<p>분자 차수가 분모보다 1 크므로 최고차항으로 보면 \\(x\\)로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.inf",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-08"
+  },
+  {
+   "ext_id": "V-09",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to0}\\dfrac{|x|}{x}=1\\)이다.",
+   "fix": "좌극한은 \\(-1\\), 우극한은 \\(1\\)이 달라서 극한이 존재하지 않는다.",
+   "s": "<p>\\(x<0\\)이면 \\(|x|/x=-1\\), \\(x>0\\)이면 \\(1\\)이므로 두 쪽이 다릅니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.side",
+    "depth": 3,
+    "mis": "m_lim_side"
+   },
+   "publish": false,
+   "no": "V-09"
+  },
+  {
+   "ext_id": "V-10",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "cont",
+   "q": "\\(f(x)=\\dfrac{x^2-4}{x-2}\\ (x\\ne2)\\)이고 \\(f(2)=4\\)이다. \\(f\\)는 \\(x=2\\)에서 연속인가?",
+   "opts": [
+    "연속이다",
+    "연속이 아니다. 극한이 없다",
+    "연속이 아니다. 함숫값이 없다",
+    "연속이 아니다. 좌극한과 우극한이 다르다"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "극한이 없다고 생각함",
+    "\\(x=2\\)에서 함숫값이 없다고 생각함",
+    "좌우 극한이 다르다고 잘못 생각함"
+   ],
+   "s": "<p>\\(\\dfrac{x^2-4}{x-2}=x+2\\)이므로 극한은 \\(4\\)이고 \\(f(2)=4\\)와 같습니다. 세 조건이 모두 성립하므로 연속입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.def",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_cont_nolim",
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-10"
+  },
+  {
+   "ext_id": "V-11",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "cont",
+   "q": "\\(f(x)=1\\ (x\\ne0),\\ f(0)=0\\)은 \\(x=0\\)에서 연속이다.",
+   "fix": "극한은 \\(1\\)인데 \\(f(0)=0\\)이라 연속이 아니다.",
+   "s": "<p>연속이려면 극한값과 함숫값이 같아야 합니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.def",
+    "depth": 3,
+    "mis": "m_cont_def"
+   },
+   "publish": false,
+   "no": "V-11"
+  },
+  {
+   "ext_id": "V-12",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 58,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "dif",
+   "q": "\\(f(x)=5x^3-2x+7\\)일 때 \\(f'(2)\\)의 값을 구하시오.",
+   "a": "58",
+   "s": "<p>\\(f'(x)=15x^2-2\\)이므로 \\(f'(2)=60-2=58\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pw",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-12"
+  },
+  {
+   "ext_id": "V-13",
+   "chapter": "C2",
+   "kind": "short",
+   "num": -2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "dif",
+   "q": "\\(f(x)=x^{-2}\\)일 때 \\(f'(1)\\)의 값을 구하시오.",
+   "a": "-2",
+   "s": "<p>\\(f'(x)=-2x^{-3}\\)이므로 \\(f'(1)=-2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pw",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-13"
+  },
+  {
+   "ext_id": "V-14",
+   "chapter": "C2",
+   "kind": "mc",
+   "topic": "dif",
+   "q": "\\(\\dfrac{d}{dx}\\cos x\\)는?",
+   "opts": [
+    "\\(\\sin x\\)",
+    "\\(-\\sin x\\)",
+    "\\(\\cos x\\)",
+    "\\(-\\cos x\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "부호를 빼먹는다고 생각함",
+    "",
+    "도함수가 원래 함수와 같다고 생각함",
+    "\\(\\cos\\)의 도함수에 \\(\\cos\\)를 그대로 쓴다고 생각함"
+   ],
+   "s": "<p>\\((\\cos x)'=-\\sin x\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.tri",
+    "depth": 1,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-14"
+  },
+  {
+   "ext_id": "V-15",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": true,
+   "topic": "dif",
+   "q": "\\((\\sec x)'=\\sec x\\tan x\\)이다.",
+   "s": "<p>\\(\\sec x=\\dfrac{1}{\\cos x}\\)를 몫의 미분법으로 계산하면 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.tri",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-15"
+  },
+  {
+   "ext_id": "V-16",
+   "chapter": "C2",
+   "kind": "short",
+   "num": -1,
+   "tol": 0.0001,
+   "ph": "숫자만 입력",
+   "topic": "impl",
+   "q": "\\(x^3+y^3=2\\)에서 점 \\((1,1)\\)에서의 \\(\\dfrac{dy}{dx}\\)를 구하시오.",
+   "a": "-1",
+   "s": "<p>\\(3x^2+3y^2y'=0\\)에서 \\(y'=-\\dfrac{x^2}{y^2}\\)이고 \\((1,1)\\)에서 \\(-1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "impl.ip",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-16"
+  },
+  {
+   "ext_id": "V-17",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "impl",
+   "q": "\\(xy=1\\)에서 \\(\\dfrac{dy}{dx}=\\dfrac1x\\)이다.",
+   "fix": "\\(\\dfrac{dy}{dx}=-\\dfrac{1}{x^2}\\)이다. 양변을 미분하면 \\(y+xy'=0\\)이다.",
+   "s": "<p>곱의 미분 \\((xy)'=y+xy'\\)을 쓰면 됩니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "impl.ip",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-17"
+  },
+  {
+   "ext_id": "V-18",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 3.0167,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "lin",
+   "q": "\\(f(x)=\\sqrt x\\)의 \\(x=9\\) 근처 선형근사로 \\(\\sqrt{9.1}\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "3.0167",
+   "s": "<p>\\(f(9)=3\\), \\(f'(9)=\\dfrac16\\)이므로 \\(3+\\dfrac{0.1}{6}\\approx3.0167\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "lin.ap",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-18"
+  },
+  {
+   "ext_id": "V-19",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": false,
+   "topic": "lin",
+   "q": "선형근사식은 어떤 \\(x\\)에서도 함숫값을 정확히 준다.",
+   "fix": "\\(x=a\\) 근처에서만 근사한다. \\(a\\)에서 멀어질수록 오차가 커진다.",
+   "s": "<p>접선은 접점 근처에서만 곡선과 가깝습니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "lin.ap",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-19"
+  },
+  {
+   "ext_id": "V-20",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "ext",
+   "q": "\\(f(x)=x^4\\)에서 \\(x=0\\)에 대한 설명으로 옳은 것은?",
+   "opts": [
+    "극값이 아니다",
+    "판단할 수 없다",
+    "극솟값이다",
+    "극댓값이다"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(f''(0)=0\\)이면 극값이 아니라고 생각함",
+    "미분계수가 0이면 판단할 수 없다고 생각함",
+    "",
+    "\\(f'(0)=0\\)이면 극댓값이라고 생각함"
+   ],
+   "s": "<p>\\(f'(x)=4x^3\\)은 \\(x=0\\)의 왼쪽에서 음, 오른쪽에서 양이므로 극솟값입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.crit",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-20"
+  },
+  {
+   "ext_id": "V-21",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ext",
+   "q": "\\(f'(c)=0\\)이면 \\(c\\)는 임계점이다.",
+   "s": "<p>임계점은 미분계수가 \\(0\\)이거나 정의되지 않는 점입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.crit",
+    "depth": 1
+   },
+   "publish": false,
+   "no": "V-21"
+  },
+  {
+   "ext_id": "V-22",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": false,
+   "topic": "ext",
+   "q": "임계점이면 반드시 극값이다.",
+   "fix": "극값이 아닐 수도 있다. 예를 들어 \\(f(x)=x^3\\)의 \\(x=0\\)은 임계점이지만 극값이 아니다.",
+   "s": "<p>임계점은 극값의 후보일 뿐입니다. 부호가 바뀌어야 극값입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.crit",
+    "depth": 3,
+    "mis": "m_ext_zero"
+   },
+   "publish": false,
+   "no": "V-22"
+  },
+  {
+   "ext_id": "V-23",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 1.1547,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "mvt",
+   "q": "\\(f(x)=x^3\\)이 구간 \\([0,2]\\)에서 평균값 정리를 만족하는 \\(c\\)를 \\(c>0\\)에서 소수 넷째 자리까지 쓰시오.",
+   "a": "1.1547",
+   "s": "<p>\\(3c^2=\\dfrac{8-0}{2}=4\\)이므로 \\(c=\\dfrac{2}{\\sqrt3}\\approx1.1547\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "mvt.mv",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-23"
+  },
+  {
+   "ext_id": "V-24",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": true,
+   "topic": "mvt",
+   "q": "\\(f(x)=x^2+1\\)이 구간 \\([-1,2]\\)에서 평균값 정리를 만족하는 \\(c\\)는 \\(\\dfrac12\\)이다.",
+   "s": "<p>평균변화율은 \\(\\dfrac{5-2}{3}=1\\)이고 \\(f'(c)=2c=1\\)이므로 \\(c=\\dfrac12\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "mvt.mv",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-24"
+  },
+  {
+   "ext_id": "V-25",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "asym",
+   "q": "\\(f(x)=\\dfrac{3x^2+1}{x^2-4}\\)에서 \\(x\\to\\infty\\)일 때의 극한값을 구하시오.",
+   "a": "3",
+   "s": "<p>최고차항 계수 비 \\(\\dfrac31=3\\)입니다. 따라서 수평 점근선은 \\(y=3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "asym.hz",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-25"
+  },
+  {
+   "ext_id": "V-26",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "asym",
+   "q": "\\(f(x)=e^{-x}\\)에서 \\(x\\to\\infty\\)일 때 극한값은?",
+   "opts": [
+    "\\(1\\)",
+    "\\(\\infty\\)",
+    "극한이 없다",
+    "\\(0\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "지수가 음수라도 함숫값이 1이라고 생각함",
+    "\\(e\\)가 커진다고 생각함",
+    "지수함수는 음의 무한대로 가면 극한이 없다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(x\\to\\infty\\)이면 \\(e^{-x}\\to0\\)이므로 \\(y=0\\)이 수평 점근선입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "asym.hz",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "publish": false,
+   "no": "V-26"
+  },
+  {
+   "ext_id": "V-27",
+   "chapter": "C3",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "anti",
+   "q": "\\(\\displaystyle\\int6x\\,dx\\)의 부정적분 결과에서 \\(x^2\\)의 계수를 구하시오.",
+   "a": "3",
+   "s": "<p>\\(\\displaystyle\\int6x\\,dx=3x^2+C\\)이므로 계수는 \\(3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "anti.ad",
+    "depth": 1
+   },
+   "publish": false,
+   "no": "V-27"
+  },
+  {
+   "ext_id": "V-28",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "anti",
+   "q": "\\(\\displaystyle\\int e^x\\,dx\\)는?",
+   "opts": [
+    "\\(e^x+C\\)",
+    "\\(xe^x+C\\)",
+    "\\(e^x\\)",
+    "\\(\\ln x+C\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "지수 함수의 적분에 부분적분을 쓴다고 생각함",
+    "상수 \\(C\\)를 빼먹는다고 생각함",
+    "지수와 로그를 뒤집는다고 생각함"
+   ],
+   "s": "<p>\\((e^x)'=e^x\\)이므로 적분 결과도 \\(e^x+C\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.9절"
+    ]
+   ],
+   "dx": {
+    "facet": "anti.ad",
+    "depth": 1,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-28"
+  },
+  {
+   "ext_id": "V-29",
+   "chapter": "C4",
+   "kind": "short",
+   "num": 0,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "area",
+   "q": "\\(\\displaystyle\\int_0^{\\pi}\\cos x\\,dx\\)의 값을 구하시오.",
+   "a": "0",
+   "s": "<p>\\([\\sin x]_0^\\pi=0\\)입니다. 값은 0이지만 넓이는 0이 아닙니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "area.rs",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-29"
+  },
+  {
+   "ext_id": "V-30",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": false,
+   "topic": "area",
+   "q": "\\(\\displaystyle\\int_{-1}^{1}x^3\\,dx=0\\)이므로 \\(y=x^3\\)과 \\(x\\)축 사이의 넓이도 0이다.",
+   "fix": "넓이는 \\(\\displaystyle\\int_{-1}^1|x^3|\\,dx=\\dfrac12\\)이다.",
+   "s": "<p>정적분은 부호를 포함하고 넓이는 절댓값으로 셉니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "area.rs",
+    "depth": 3,
+    "mis": "m_ftc_sign"
+   },
+   "publish": false,
+   "no": "V-30"
+  },
+  {
+   "ext_id": "V-31",
+   "chapter": "C4",
+   "kind": "mc",
+   "topic": "ftc",
+   "q": "\\(\\dfrac{d}{dx}\\displaystyle\\int_0^x(t^3+1)\\,dt\\)는?",
+   "opts": [
+    "\\(3x^2\\)",
+    "\\(x^3+1\\)",
+    "\\(x^3\\)",
+    "\\(\\tfrac{x^4}{4}+x\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "피적분함수를 미분했다고 생각함",
+    "",
+    "적분하면서 상수항 \\(1\\)을 빼먹는다고 생각함",
+    "먼저 적분하고 다시 미분하지 않는다고 생각함"
+   ],
+   "s": "<p>기본정리에 의해 \\(t\\)에 \\(x\\)를 넣은 \\(x^3+1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc1",
+    "depth": 2,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-31"
+  },
+  {
+   "ext_id": "V-32",
+   "chapter": "C4",
+   "kind": "ox",
+   "ox": false,
+   "topic": "ftc",
+   "q": "\\(\\dfrac{d}{dx}\\displaystyle\\int_x^2\\sin t\\,dt=\\sin x\\)이다.",
+   "fix": "\\(-\\sin x\\)이다. 적분 구간의 아래끝이 \\(x\\)이므로 부호가 바뀐다.",
+   "s": "<p>\\(\\displaystyle\\int_x^2=-\\int_2^x\\)이므로 도함수는 \\(-\\sin x\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ftc.ftc1",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-32"
+  },
+  {
+   "ext_id": "V-33",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 2.0944,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "vol",
+   "q": "\\(y=x\\), \\(0\\le x\\le1\\), \\(x\\)축으로 둘러싸인 영역을 \\(y\\)축 둘레로 회전한 부피를 소수 넷째 자리까지 쓰시오.",
+   "a": "2.0944",
+   "s": "<p>껍질법 \\(V=2\\pi\\displaystyle\\int_0^1x\\cdot x\\,dx=\\dfrac{2\\pi}{3}\\approx2.0944\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.shell",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-33"
+  },
+  {
+   "ext_id": "V-34",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": false,
+   "topic": "vol",
+   "q": "원통껍질법에서 \\(y\\)축 둘레로 회전할 때 껍질의 반지름은 \\(y\\)이다.",
+   "fix": "반지름은 \\(x\\)이다. 회전축인 \\(y\\)축까지의 거리가 \\(x\\)이기 때문이다.",
+   "s": "<p>\\(y\\)축 둘레 회전에서 반지름은 \\(x\\)축 방향 거리입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vol.shell",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-34"
+  },
+  {
+   "ext_id": "V-35",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 18,
+   "tol": 0,
+   "ph": "숫자만 입력 (J)",
+   "topic": "work",
+   "q": "힘 \\(F(x)=4x\\)(N, \\(x\\)는 m)이 \\(x=0\\)에서 \\(x=3\\)까지 한 일(J)을 구하시오.",
+   "a": "18",
+   "s": "<p>\\(\\displaystyle\\int_0^3 4x\\,dx=2\\cdot9=18\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.wk",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-35"
+  },
+  {
+   "ext_id": "V-36",
+   "chapter": "C5",
+   "kind": "mc",
+   "topic": "work",
+   "q": "힘 \\(F(x)=x^2\\)(N, \\(x\\)는 m)이 \\(x=0\\)에서 \\(x=2\\)까지 한 일은?",
+   "opts": [
+    "\\(2\\)",
+    "\\(8\\)",
+    "\\(\\dfrac83\\)",
+    "\\(4\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(x\\)만 적분한다고 생각함",
+    "적분 구간 길이를 곱하지 않는다고 생각함",
+    "",
+    "힘을 \\(F(2)\\)로 고정해 곱한다고 생각함"
+   ],
+   "s": "<p>\\(W=\\displaystyle\\int_0^2x^2\\,dx=\\dfrac83\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.wk",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-36"
+  },
+  {
+   "ext_id": "V-37",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 40.1711,
+   "tol": 0.001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "q": "\\(\\dfrac{dy}{dx}=3y\\), \\(y(0)=2\\)일 때 \\(y(1)\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "40.1711",
+   "s": "<p>\\(y=2e^{3x}\\)이므로 \\(y(1)=2e^3\\approx40.1711\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.grow",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-37"
+  },
+  {
+   "ext_id": "V-38",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 1.4142,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "q": "\\(\\dfrac{dy}{dx}=\\dfrac{x}{y}\\), \\(y(0)=1\\)일 때 \\(y(1)\\)을 소수 넷째 자리까지 쓰시오. (\\(y>0\\))",
+   "a": "1.4142",
+   "s": "<p>\\(y\\,dy=x\\,dx\\)이므로 \\(y^2=x^2+1\\)입니다. \\(y(1)=\\sqrt2\\approx1.4142\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.sep",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-38"
+  },
+  {
+   "ext_id": "V-39",
+   "chapter": "C9",
+   "kind": "ox",
+   "ox": true,
+   "topic": "de",
+   "q": "\\(y'+2y=0\\)의 적분인자는 \\(e^{2x}\\)이다.",
+   "s": "<p>\\(\\displaystyle e^{\\int2\\,dx}=e^{2x}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.lin1",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-39"
+  },
+  {
+   "ext_id": "V-40",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 1.7293,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "q": "\\(y'+2y=4\\), \\(y(0)=0\\)의 해를 구하고 \\(y(1)\\)을 소수 넷째 자리까지 쓰시오.",
+   "a": "1.7293",
+   "s": "<p>\\((ye^{2x})'=4e^{2x}\\)에서 \\(y=2-2e^{-2x}\\)입니다. \\(y(1)=2-2e^{-2}\\approx1.7293\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.lin1",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-40"
+  },
+  {
+   "ext_id": "V-41",
+   "chapter": "C11",
+   "kind": "mc",
+   "topic": "seq",
+   "q": "\\(\\displaystyle\\lim_{n\\to\\infty}\\left(1+\\dfrac1n\\right)^n\\)의 값은?",
+   "opts": [
+    "\\(0\\)",
+    "\\(\\infty\\)",
+    "\\(1\\)",
+    "\\(e\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "지수가 커져도 밑이 1이라 0에 가깝다고 생각함",
+    "지수가 무한대라 극한이 무한대라고 생각함",
+    "밑이 1에 가까우니 극한이 1이라고 생각함",
+    ""
+   ],
+   "s": "<p>잘 알려진 극한으로 \\(e\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "seq.lim",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "publish": false,
+   "no": "V-41"
+  },
+  {
+   "ext_id": "V-42",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": true,
+   "topic": "seq",
+   "q": "\\(\\displaystyle\\lim_{n\\to\\infty}n^{1/n}=1\\)이다.",
+   "s": "<p>\\(\\ln n^{1/n}=\\dfrac{\\ln n}{n}\\to0\\)이므로 극한은 \\(1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "seq.lim",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-42"
+  },
+  {
+   "ext_id": "V-43",
+   "chapter": "C12",
+   "kind": "short",
+   "num": 0,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "vec",
+   "q": "\\(\\mathbf a=(1,1,1)\\), \\(\\mathbf b=(1,-1,0)\\)일 때 \\(\\mathbf a\\cdot\\mathbf b\\)를 구하시오.",
+   "a": "0",
+   "s": "<p>\\(1-1+0=0\\)입니다. 따라서 두 벡터는 수직입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.dot",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-43"
+  },
+  {
+   "ext_id": "V-44",
+   "chapter": "C12",
+   "kind": "mc",
+   "topic": "vec",
+   "q": "\\(\\mathbf a=(1,0,0)\\)과 \\(\\mathbf b=(1,1,0)\\) 사이의 각 \\(\\theta\\)는?",
+   "opts": [
+    "\\(\\dfrac\\pi4\\)",
+    "\\(\\dfrac\\pi3\\)",
+    "\\(\\dfrac\\pi2\\)",
+    "\\(\\dfrac\\pi6\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(\\cos\\theta=\\tfrac12\\)로 잘못 계산한다고 생각함",
+    "내적을 0으로 두고 수직이라 생각함",
+    "\\(\\cos\\theta=\\tfrac{\\sqrt3}{2}\\)로 계산한다고 생각함"
+   ],
+   "s": "<p>\\(\\cos\\theta=\\dfrac{\\mathbf a\\cdot\\mathbf b}{|\\mathbf a||\\mathbf b|}=\\dfrac{1}{\\sqrt2}\\)이므로 \\(\\theta=\\dfrac\\pi4\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "vec.dot",
+    "depth": 3,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-44"
+  },
+  {
+   "ext_id": "V-45",
+   "chapter": "C10",
+   "kind": "short",
+   "num": 6.2832,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "polar",
+   "q": "극곡선 \\(r=2\\), \\(0\\le\\theta\\le\\pi\\)의 길이를 소수 넷째 자리까지 쓰시오.",
+   "a": "6.2832",
+   "s": "<p>\\(L=\\displaystyle\\int_0^\\pi\\sqrt{4+0}\\,d\\theta=2\\pi\\approx6.2832\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ln",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-45"
+  },
+  {
+   "ext_id": "V-46",
+   "chapter": "C10",
+   "kind": "ox",
+   "ox": true,
+   "topic": "polar",
+   "q": "극곡선 \\(r=\\theta\\), \\(0\\le\\theta\\le a\\)의 길이는 \\(\\displaystyle\\int_0^a\\sqrt{\\theta^2+1}\\,d\\theta\\)이다.",
+   "s": "<p>\\(r'=1\\)이므로 \\(\\sqrt{r^2+r'^2}=\\sqrt{\\theta^2+1}\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ln",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-46"
+  },
+  {
+   "ext_id": "V-47",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "fn",
+   "q": "\\(f(x)=\\sqrt{x+1}\\big/(x-2)\\)의 정의역은?",
+   "opts": [
+    "\\(x\\ge2\\)",
+    "\\(x\\ge-1,\\ x\\ne2\\)",
+    "\\(x>-1\\)",
+    "\\(x\\ge-1\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "근호 조건을 뒤집는다고 생각함",
+    "",
+    "끝점 \\(x=-1\\)을 빼먹는다고 생각함",
+    "분모 조건을 빼먹는다고 생각함"
+   ],
+   "s": "<p>근호 안은 \\(x+1\\ge0\\), 분모는 \\(x\\ne2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.dom",
+    "depth": 2,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-47"
+  },
+  {
+   "ext_id": "V-48",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "fn",
+   "q": "\\(f(x)=\\dfrac1x\\), \\(g(x)=x-1\\)일 때 \\((f\\circ g)(x)\\)의 정의역은?",
+   "opts": [
+    "\\(x\\ne-1\\)",
+    "모든 실수",
+    "\\(x\\ne1\\)",
+    "\\(x\\ne0\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "\\(g\\)의 0점을 잘못 잡는다고 생각함",
+    "식이 단순해졌으니 제약이 없다고 생각함",
+    "",
+    "\\(f\\)의 정의역만 보고 답한다고 생각함"
+   ],
+   "s": "<p>\\((f\\circ g)(x)=\\dfrac{1}{x-1}\\)이므로 \\(x\\ne1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.comp",
+    "depth": 3,
+    "mis": [
+     null,
+     "m_fn_comp",
+     "",
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-48"
+  },
+  {
+   "ext_id": "V-49",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": false,
+   "topic": "fn",
+   "q": "\\(y=f(x+2)\\)의 그래프는 \\(y=f(x)\\)의 그래프를 오른쪽으로 \\(2\\)만큼 옮긴 것이다.",
+   "fix": "왼쪽으로 \\(2\\)만큼 옮긴 것이다.",
+   "s": "<p>\\(x\\)에 \\(x+2\\)를 넣으면 \\(x=-2\\)일 때의 값이 \\(x=0\\)에서 나오므로 왼쪽입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "fn.trans",
+    "depth": 2,
+    "mis": "m_fn_shift"
+   },
+   "publish": false,
+   "no": "V-49"
+  },
+  {
+   "ext_id": "V-50",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 1.6,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to3}\\dfrac{x^2-1}{x+2}\\)의 값을 소수로 쓰시오.",
+   "a": "1.6",
+   "s": "<p>\\(\\dfrac{9-1}{3+2}=\\dfrac85=1.6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.lawx",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-50"
+  },
+  {
+   "ext_id": "V-51",
+   "chapter": "C1",
+   "kind": "mc",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to-1}(x^2+3x)(2x-1)\\)의 값은?",
+   "opts": [
+    "\\(-6\\)",
+    "\\(0\\)",
+    "\\(3\\)",
+    "\\(6\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "두 식의 부호를 하나 빼먹는다고 생각함",
+    "한 식의 값을 0으로 잘못 본다고 생각함",
+    "곱 대신 합을 쓴다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(x^2+3x\\to-2\\), \\(2x-1\\to-3\\)이므로 곱은 \\(6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.lawx",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     null,
+     ""
+    ]
+   },
+   "publish": false,
+   "no": "V-51"
+  },
+  {
+   "ext_id": "V-52",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 2,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to0}\\dfrac{x^2+2x}{x}\\)의 값을 구하시오.",
+   "a": "2",
+   "s": "<p>\\(x\\ne0\\)에서 \\(\\dfrac{x(x+2)}{x}=x+2\\)이므로 극한은 \\(2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.6절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.indet",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-52"
+  },
+  {
+   "ext_id": "V-53",
+   "chapter": "C1",
+   "kind": "ox",
+   "ox": true,
+   "topic": "lim",
+   "q": "\\(\\displaystyle\\lim_{x\\to0^-}\\dfrac1x=-\\infty\\)이다.",
+   "s": "<p>\\(x\\)가 왼쪽에서 0으로 가면 \\(1/x\\)는 음수로 커지므로 \\(-\\infty\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lim.side",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-53"
+  },
+  {
+   "ext_id": "V-54",
+   "chapter": "C1",
+   "kind": "short",
+   "num": 0.25,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "cont",
+   "q": "\\(f(x)=x^2-2\\)의 근이 있는 구간 \\([1,2]\\)의 중점 \\(x=1.5\\)에서 \\(f(1.5)\\)를 소수로 쓰시오.",
+   "a": "0.25",
+   "s": "<p>\\(f(1.5)=2.25-2=0.25\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "1.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "cont.ivt",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-54"
+  },
+  {
+   "ext_id": "V-55",
+   "chapter": "C2",
+   "kind": "ox",
+   "ox": true,
+   "topic": "der",
+   "q": "\\(f(x)=x|x|\\)는 \\(x=0\\)에서 미분가능하다.",
+   "s": "<p>\\(x\\ge0\\)이면 \\(x^2\\), \\(x<0\\)이면 \\(-x^2\\)이고 두 쪽 기울기가 모두 \\(0\\)이 되므로 미분가능합니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.def",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-55"
+  },
+  {
+   "ext_id": "V-56",
+   "chapter": "C2",
+   "kind": "short",
+   "num": -0.25,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "der",
+   "q": "\\(f(x)=\\dfrac1x\\)에서 \\(x=2\\)일 때 접선의 기울기를 소수로 쓰시오.",
+   "a": "-0.25",
+   "s": "<p>\\(f'(x)=-\\dfrac{1}{x^2}\\)이고 \\(f'(2)=-\\dfrac14\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "der.tan",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-56"
+  },
+  {
+   "ext_id": "V-57",
+   "chapter": "C2",
+   "kind": "short",
+   "num": -6,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "dif",
+   "q": "\\(f(x)=\\dfrac{3}{x^2}\\)일 때 \\(f'(1)\\)의 값을 구하시오.",
+   "a": "-6",
+   "s": "<p>\\(f(x)=3x^{-2}\\)이므로 \\(f'(x)=-6x^{-3}\\)이고 \\(f'(1)=-6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pw",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-57"
+  },
+  {
+   "ext_id": "V-58",
+   "chapter": "C2",
+   "kind": "mc",
+   "topic": "dif",
+   "q": "\\(f(x)=2x(x+3)\\)의 도함수 \\(f'(x)\\)는?",
+   "opts": [
+    "\\(4x+6\\)",
+    "\\(2x+6\\)",
+    "\\(4x+3\\)",
+    "\\(2x^2+6x\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "전개하지 않고 한 항만 미분한다고 생각함",
+    "\\(2x\\)의 도함수를 \\(2\\)로 잘못 쓴다고 생각함",
+    "도함수 대신 원래 식을 쓴다고 생각함"
+   ],
+   "s": "<p>\\(f=2x^2+6x\\)이므로 \\(f'=4x+6\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pq",
+    "depth": 2,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-58"
+  },
+  {
+   "ext_id": "V-59",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 0,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "dif",
+   "q": "\\(f(x)=\\dfrac{x}{x^2+1}\\)일 때 \\(f'(1)\\)의 값을 구하시오.",
+   "a": "0",
+   "s": "<p>\\(f'(x)=\\dfrac{1-x^2}{(x^2+1)^2}\\)이고 \\(f'(1)=0\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "dif.pq",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-59"
+  },
+  {
+   "ext_id": "V-60",
+   "chapter": "C2",
+   "kind": "short",
+   "num": 24,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "rel",
+   "q": "한 변의 길이 \\(s\\)인 정사각형에서 \\(s=4\\), \\(\\dfrac{ds}{dt}=3\\)일 때 넓이의 변화율 \\(\\dfrac{dA}{dt}\\)를 구하시오.",
+   "a": "24",
+   "s": "<p>\\(A=s^2\\)이므로 \\(\\dfrac{dA}{dt}=2s\\dfrac{ds}{dt}=2\\cdot4\\cdot3=24\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "2.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "rel.rr",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-60"
+  },
+  {
+   "ext_id": "V-61",
+   "chapter": "C3",
+   "kind": "mc",
+   "topic": "ext",
+   "q": "\\(f(x)=x^3-12x\\)에서 \\(x=2\\)에서의 극값은?",
+   "opts": [
+    "극값이 아니다",
+    "극솟값 \\(-16\\)",
+    "극댓값 \\(16\\)",
+    "극솟값 \\(16\\)"
+   ],
+   "ans": 1,
+   "why": [
+    "임계점이면 극값이 아니라고 생각함",
+    "",
+    "\\(x=-2\\)의 극값을 \\(x=2\\)에 옮겨 생각함",
+    "극솟값의 부호를 잘못 본다고 생각함"
+   ],
+   "s": "<p>\\(f'=3x^2-12=0\\)에서 \\(x=\\pm2\\)입니다. \\(f'\\)가 \\(x=2\\)에서 음에서 양으로 바뀌므로 극솟값 \\(f(2)=-16\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.test",
+    "depth": 2,
+    "mis": [
+     null,
+     "",
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-61"
+  },
+  {
+   "ext_id": "V-62",
+   "chapter": "C3",
+   "kind": "ox",
+   "ox": true,
+   "topic": "ext",
+   "q": "\\(f(x)=x^3\\)의 그래프는 \\(x=0\\)에서 볼록이 바뀌는 점을 가진다.",
+   "s": "<p>\\(f''(x)=6x\\)는 \\(x=0\\)에서 부호가 음에서 양으로 바뀌므로 변곡점입니다.</p>",
+   "src": [
+    [
+     "T",
+     "3.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "ext.conc",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-62"
+  },
+  {
+   "ext_id": "V-63",
+   "chapter": "C4",
+   "kind": "short",
+   "num": 0.8591,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "subs",
+   "q": "\\(\\displaystyle\\int_0^1 xe^{x^2}\\,dx\\)의 값을 소수 넷째 자리까지 쓰시오.",
+   "a": "0.8591",
+   "s": "<p>\\(u=x^2\\)로 치환하면 \\(\\dfrac12\\displaystyle\\int_0^1e^u\\,du=\\dfrac{e-1}{2}\\approx0.8591\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "4.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "subs.sub",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-63"
+  },
+  {
+   "ext_id": "V-64",
+   "chapter": "C5",
+   "kind": "ox",
+   "ox": true,
+   "topic": "work",
+   "q": "힘이 일정하면 일은 힘과 이동 거리의 곱이다.",
+   "s": "<p>\\(W=Fd\\)이며 \\(\\int F\\,dx\\)에서 \\(F\\)가 상수인 경우입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.wk",
+    "depth": 1
+   },
+   "publish": false,
+   "no": "V-64"
+  },
+  {
+   "ext_id": "V-65",
+   "chapter": "C5",
+   "kind": "short",
+   "num": 1,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "work",
+   "q": "\\(f(x)=3x^2\\)의 구간 \\([0,1]\\)에서 평균값을 구하시오.",
+   "a": "1",
+   "s": "<p>\\(\\displaystyle\\int_0^1 3x^2\\,dx=1\\)이고 구간 길이가 \\(1\\)이므로 평균값은 \\(1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "5.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "work.av",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-65"
+  },
+  {
+   "ext_id": "V-66",
+   "chapter": "C6",
+   "kind": "mc",
+   "topic": "inv",
+   "q": "\\(f(x)=2x+1\\)의 역함수의 도함수 \\((f^{-1})'(x)\\)는?",
+   "opts": [
+    "\\(-\\tfrac12\\)",
+    "\\(1\\)",
+    "\\(\\tfrac12\\)",
+    "\\(2\\)"
+   ],
+   "ans": 2,
+   "why": [
+    "부호를 뒤집는다고 생각함",
+    "기울기가 1이라고 잘못 본다고 생각함",
+    "",
+    "\\(f'\\)를 그대로 쓴다고 생각함"
+   ],
+   "s": "<p>\\(f^{-1}(x)=\\dfrac{x-1}{2}\\)이므로 도함수는 \\(\\dfrac12\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "inv.inv",
+    "depth": 2,
+    "mis": [
+     null,
+     null,
+     "",
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-66"
+  },
+  {
+   "ext_id": "V-67",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 0.2,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "inv",
+   "q": "\\(f(x)=x^3+2x\\)에서 \\(f(1)=3\\)이다. \\((f^{-1})'(3)\\)을 소수로 쓰시오.",
+   "a": "0.2",
+   "s": "<p>\\((f^{-1})'(3)=\\dfrac{1}{f'(1)}=\\dfrac{1}{3+2}=0.2\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.1절"
+    ]
+   ],
+   "dx": {
+    "facet": "inv.inv",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-67"
+  },
+  {
+   "ext_id": "V-68",
+   "chapter": "C6",
+   "kind": "short",
+   "num": 0.6931,
+   "tol": 0.0001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "expl",
+   "q": "\\(y=2^x\\)에서 \\(x=0\\)일 때 \\(\\dfrac{dy}{dx}\\)를 소수 넷째 자리까지 쓰시오.",
+   "a": "0.6931",
+   "s": "<p>\\(\\dfrac{dy}{dx}=2^x\\ln2\\)이므로 \\(x=0\\)에서 \\(\\ln2\\approx0.6931\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.lgd",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-68"
+  },
+  {
+   "ext_id": "V-69",
+   "chapter": "C6",
+   "kind": "ox",
+   "ox": true,
+   "topic": "expl",
+   "q": "\\(y=x^x\\)의 도함수는 \\(x^x(1+\\ln x)\\)이다. (\\(x>0\\))",
+   "s": "<p>양변에 \\(\\ln\\)을 취하면 \\(\\dfrac{y'}{y}=\\ln x+1\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "6.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "expl.lgd",
+    "depth": 3
+   },
+   "publish": false,
+   "no": "V-69"
+  },
+  {
+   "ext_id": "V-70",
+   "chapter": "C7",
+   "kind": "mc",
+   "topic": "tsub",
+   "q": "\\(\\displaystyle\\int\\sqrt{4-x^2}\\,dx\\)에 가장 알맞은 치환은?",
+   "opts": [
+    "\\(x=2\\tan\\theta\\)",
+    "\\(x=2\\sec\\theta\\)",
+    "\\(x=2\\theta\\)",
+    "\\(x=2\\sin\\theta\\)"
+   ],
+   "ans": 3,
+   "why": [
+    "\\(x^2+a^2\\) 꼴의 치환을 쓴다고 생각함",
+    "\\(\\sec\\)을 근호 치환에 쓴다고 생각함",
+    "근호 안을 직접 \\(\\theta\\)로 바꾼다고 생각함",
+    ""
+   ],
+   "s": "<p>\\(4-x^2=4\\cos^2\\theta\\)가 되도록 \\(x=2\\sin\\theta\\)로 놓습니다.</p>",
+   "src": [
+    [
+     "T",
+     "7.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "tsub.ts",
+    "depth": 2,
+    "mis": [
+     "m_ts_map",
+     null,
+     null,
+     ""
+    ]
+   },
+   "publish": false,
+   "no": "V-70"
+  },
+  {
+   "ext_id": "V-71",
+   "chapter": "C9",
+   "kind": "short",
+   "num": 22.1672,
+   "tol": 0.001,
+   "ph": "소수 넷째 자리까지",
+   "topic": "de",
+   "q": "\\(\\dfrac{dy}{dx}=y\\), \\(y(0)=3\\)일 때 \\(y(2)\\)를 소수 넷째 자리까지 쓰시오. (\\(e\\)는 2.71828)",
+   "a": "22.1672",
+   "s": "<p>\\(y=3e^x\\)이므로 \\(y(2)=3e^2\\approx22.1672\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "9.3절"
+    ]
+   ],
+   "dx": {
+    "facet": "de.sep",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-71"
+  },
+  {
+   "ext_id": "V-72",
+   "chapter": "C10",
+   "kind": "mc",
+   "topic": "polar",
+   "q": "극곡선 \\(r=\\cos\\theta\\), \\(0\\le\\theta\\le\\pi\\)가 둘러싸는 넓이는?",
+   "opts": [
+    "\\(\\dfrac\\pi4\\)",
+    "\\(\\dfrac\\pi2\\)",
+    "\\(\\pi\\)",
+    "\\(2\\pi\\)"
+   ],
+   "ans": 0,
+   "why": [
+    "",
+    "\\(\\tfrac12\\)를 빼먹었다고 생각함",
+    "반지름 \\(1\\)짜리 원 넓이라고 생각함",
+    "두 바퀴 돈다고 생각함"
+   ],
+   "s": "<p>\\(A=\\dfrac12\\displaystyle\\int_0^\\pi\\cos^2\\theta\\,d\\theta=\\dfrac\\pi4\\)입니다. 반지름 \\(\\tfrac12\\)인 원입니다.</p>",
+   "src": [
+    [
+     "T",
+     "10.4절"
+    ]
+   ],
+   "dx": {
+    "facet": "polar.ar",
+    "depth": 3,
+    "mis": [
+     "",
+     null,
+     null,
+     null
+    ]
+   },
+   "publish": false,
+   "no": "V-72"
+  },
+  {
+   "ext_id": "V-73",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 2.5,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=0}^\\infty\\dfrac{2}{5^n}\\)의 합을 소수로 쓰시오.",
+   "a": "2.5",
+   "s": "<p>첫째항 \\(2\\), 공비 \\(\\dfrac15\\)이므로 \\(\\dfrac{2}{1-1/5}=\\dfrac52\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.geo",
+    "depth": 1
+   },
+   "publish": false,
+   "no": "V-73"
+  },
+  {
+   "ext_id": "V-74",
+   "chapter": "C11",
+   "kind": "ox",
+   "ox": false,
+   "topic": "ser",
+   "q": "\\(\\displaystyle\\sum_{n=1}^\\infty\\dfrac{n+1}{n}\\)은 수렴한다.",
+   "fix": "\\(\\dfrac{n+1}{n}\\to1\\neq0\\)이므로 발산한다.",
+   "s": "<p>항이 \\(0\\)으로 가지 않으므로 \\(n\\)항 판정법으로 발산합니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.2절"
+    ]
+   ],
+   "dx": {
+    "facet": "ser.nth",
+    "depth": 2,
+    "mis": "m_ser_nth"
+   },
+   "publish": false,
+   "no": "V-74"
+  },
+  {
+   "ext_id": "V-75",
+   "chapter": "C11",
+   "kind": "short",
+   "num": 0.5,
+   "tol": 0.0001,
+   "ph": "소수로 입력",
+   "topic": "pow",
+   "q": "멱급수 \\(\\displaystyle\\sum_{n=0}^\\infty\\dfrac{(2x)^n}{n+1}\\)의 수렴반경을 소수로 쓰시오.",
+   "a": "0.5",
+   "s": "<p>\\(|2x|<1\\)이므로 \\(|x|<\\dfrac12\\)이고 수렴반경은 \\(\\dfrac12\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "11.8절"
+    ]
+   ],
+   "dx": {
+    "facet": "pow.rad",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-75"
+  },
+  {
+   "ext_id": "V-76",
+   "chapter": "C12",
+   "kind": "short",
+   "num": 3,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "topic": "lp",
+   "q": "점 \\((1,2,2)\\)과 평면 \\(x+2y+2z=0\\) 사이의 거리를 구하시오.",
+   "a": "3",
+   "s": "<p>\\(\\dfrac{|1+4+4|}{\\sqrt{1+4+4}}=\\dfrac{9}{3}=3\\)입니다.</p>",
+   "src": [
+    [
+     "T",
+     "12.5절"
+    ]
+   ],
+   "dx": {
+    "facet": "lp.dist",
+    "depth": 2
+   },
+   "publish": false,
+   "no": "V-76"
+  }
+ ]
+}

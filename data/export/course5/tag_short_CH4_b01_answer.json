@@ -1,0 +1,341 @@
+{
+ "items": [
+  {
+   "ref": "p958",
+   "rationale": "여러 원천 데이터를 조합해 개인 문서를 만드는 것은 프로파일링이다.",
+   "facet": "c13.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 데이터 기술 용어를 댐",
+     "examples": [
+      "데이터 마이닝",
+      "빅데이터 분석"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "프로파일링 도구인 쿠키를 답함",
+     "examples": [
+      "쿠키",
+      "캐시"
+     ],
+     "misc": "m028",
+     "d": "2",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p959",
+   "rationale": "반복될 수 없는 행동은 처음부터 거절하라는 원칙은 미끄러운 경사길 원칙이다.",
+   "facet": "c11.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 원칙을 댐",
+     "examples": [
+      "위험 기피 원칙",
+      "공리 원칙"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "일반화 기준을 말하는 정언명령을 댐",
+     "examples": [
+      "칸트의 정언명령",
+      "황금률"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p960",
+   "rationale": "유용한 것을 제공했다면 대가를 원한다고 가정하라는 것은 윤리적 공짜 점심 법칙이다.",
+   "facet": "c11.f4",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 원칙을 댐",
+     "examples": [
+      "황금률",
+      "공리 원칙"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "소유권 개념을 답함",
+     "examples": [
+      "지식재산권",
+      "재산권과 의무"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p961",
+   "rationale": "타인의 감시와 방해에서 자유로울 권리는 프라이버시이다.",
+   "facet": "c13.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "권리의 상위 개념을 댐",
+     "examples": [
+      "정보 권리",
+      "정보권리"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "이웃 개념을 댐",
+     "examples": [
+      "프로파일링",
+      "자유권"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p962",
+   "rationale": "13세 미만 아동의 개인정보를 규제하는 미국 법은 COPPA이다.",
+   "facet": "c13.f5",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "다른 개인정보 규제 법·원칙을 댐",
+     "examples": [
+      "GDPR",
+      "FIP",
+      "CCPA"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "약자를 틀리게 씀",
+     "examples": [
+      "COPA",
+      "COPPA법"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "recall"
+    }
+   ]
+  },
+  {
+   "ref": "p963",
+   "rationale": "정보기술을 잘 쓰는 계층과 못 쓰는 계층이 나뉘는 현상은 디지털 격차이다.",
+   "facet": "c15.f3",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "삶의 질의 이웃 현상을 댐",
+     "examples": [
+      "빅테크 권력 집중",
+      "고용 불안"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "일반적 표현으로 답함",
+     "examples": [
+      "정보 불평등",
+      "양극화"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "weak_distractor"
+    }
+   ]
+  },
+  {
+   "ref": "p964",
+   "rationale": "통제권을 느낄수록 더 많이 제공하는 역설은 통제 패러독스이다.",
+   "facet": "c15.f5",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 역설·개념을 댐",
+     "examples": [
+      "프라이버시 패러독스",
+      "사전동의"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "수신승인·수신거부 용어를 댐",
+     "examples": [
+      "수신승인",
+      "opt-in"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p965",
+   "rationale": "불법은 아니지만 비윤리적인 사용은 컴퓨터 오남용이다.",
+   "facet": "c15.f4",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "악성 행위를 범죄로 분류함",
+     "examples": [
+      "컴퓨터 범죄",
+      "사이버 범죄"
+     ],
+     "misc": "m033",
+     "d": "3",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "사례 이름을 그대로 댐",
+     "examples": [
+      "사이버 괴롭힘",
+      "스팸"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p1093",
+   "rationale": "보호 기간이 지나 자유롭게 쓰는 상태는 퍼블릭 도메인이다.",
+   "facet": "c14.f5",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 지식재산 용어를 댐",
+     "examples": [
+      "저작권 만료",
+      "공정 이용"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "오픈 라이선스 용어를 댐",
+     "examples": [
+      "오픈소스",
+      "카피레프트"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1096",
+   "rationale": "특허 요건은 산업상 이용 가능성, 신규성, 진보성이다.",
+   "facet": "c14.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "short_errors": [
+    {
+     "pattern": "일부만 씀",
+     "examples": [
+      "신규성, 진보성",
+      "신규성"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "비슷한 어휘로 바꿔 씀",
+     "examples": [
+      "독창성, 신규성, 유용성",
+      "신규성, 독창성, 진보성"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "recall"
+    },
+    {
+     "pattern": "영업비밀 요건을 씀",
+     "examples": [
+      "비공지성, 경제적 가치, 비밀 유지 노력"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1161",
+   "rationale": "다섯 도덕적 차원은 정보 권리와 의무, 재산권과 의무, 책무성과 통제, 시스템 품질, 삶의 질이다.",
+   "facet": "c12.f3",
+   "depth": "1",
+   "depth_why": "D1a",
+   "short_errors": [
+    {
+     "pattern": "일부 차원만 씀",
+     "examples": [
+      "정보 권리, 재산권, 시스템 품질",
+      "프라이버시, 재산권, 삶의 질"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "정보시스템의 3차원과 혼동함",
+     "examples": [
+      "정보기술, 조직, 경영"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "이웃 개념으로 대체해 씀",
+     "examples": [
+      "프라이버시, 지식재산권, 법적 책임, 시스템 품질, 디지털 격차"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "recall"
+    }
+   ]
+  }
+ ]
+}

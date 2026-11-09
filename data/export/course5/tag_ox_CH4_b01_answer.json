@@ -1,0 +1,168 @@
+{
+ "items": [
+  {
+   "ref": "p941",
+   "rationale": "제시된 설명은 수신거부(opt-out)의 정의이며, 수신승인(opt-in)은 명시적 동의가 있어야 수집이 허용된다.",
+   "facet": "c13.f3",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m027",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "수신승인의 정의에 수신거부(거부 전까지 허락)의 성질을 붙임"
+   }
+  },
+  {
+   "ref": "p942",
+   "rationale": "법을 어기지 않았어도 고객·직원 관점의 윤리적·사회적 이슈는 남을 수 있다.",
+   "facet": "c11.f5",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m024",
+    "d": "3",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "법을 지키면 윤리 문제가 모두 해결된다"
+   }
+  },
+  {
+   "ref": "p943",
+   "rationale": "저장 비용이 내려가면 다수 개인의 DB를 쉽게 만들어 프라이버시 침해 위험이 커진다.",
+   "facet": "c13.f1",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p944",
+   "rationale": "윤리 분석의 첫 단계는 사실관계의 확인이며 대안 식별은 4단계이다.",
+   "facet": "c11.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m025",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "첫 단계를 대안 식별로 바꿈"
+   }
+  },
+  {
+   "ref": "p945",
+   "rationale": "모두에게 옳지 않은 행동은 누구에게도 옳지 않다는 것은 칸트의 정언명령이다.",
+   "facet": "c11.f2",
+   "depth": "1",
+   "depth_why": "D1a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p946",
+   "rationale": "실패 비용이 큰 행동을 피하라는 것은 위험 기피 원칙이고, 공리 원칙은 이해관계자 전체의 효용 최대화이다.",
+   "facet": "c11.f3",
+   "depth": "3",
+   "depth_why": "D3c",
+   "ox": {
+    "statement_true": false,
+    "misc": "m026",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "공리 원칙에 위험 기피 원칙의 내용을 붙임"
+   },
+   "facets2": [
+    "c11.f2"
+   ]
+  },
+  {
+   "ref": "p947",
+   "rationale": "행동강령은 전문직 집단의 자율 규제이며 법적 의무와 같지 않다.",
+   "facet": "c12.f1",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "none",
+    "d": "1",
+    "err": "overgeneralize",
+    "reverse_misc": "none",
+    "planted_error": "행동강령이 법적 의무와 같다"
+   }
+  },
+  {
+   "ref": "p949",
+   "rationale": "FIP는 법이 아니라 원칙이며, GDPR 등이 법으로 개인정보를 규제한다.",
+   "facet": "c13.f5",
+   "depth": "1",
+   "depth_why": "D1b",
+   "ox": {
+    "statement_true": false,
+    "misc": "m030",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "FIP를 미국 의회가 제정한 법률이라 함"
+   }
+  },
+  {
+   "ref": "p950",
+   "rationale": "GDPR은 법(규정)으로 중대 위반에 높은 과징금을 부과한다는 서술이며 참이다. 과징금 상한 수치는 배운 세부 포인트에 직접 없다.",
+   "facet": "c13.f5",
+   "depth": "4",
+   "depth_why": "D4a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p951",
+   "rationale": "2020년 데이터 3법 개정으로 가명정보를 연구·통계·공익 기록 보존 목적에 활용할 수 있게 되었다.",
+   "facet": "c13.f5",
+   "depth": "4",
+   "depth_why": "D4a",
+   "ox": {
+    "statement_true": true,
+    "misc": "none",
+    "d": "0",
+    "err": "recall",
+    "reverse_misc": "none"
+   }
+  },
+  {
+   "ref": "p952",
+   "rationale": "쿠키는 방문 정보를 담아 프로파일링에 쓰이고, 캐시는 자료를 미리 저장해 로딩을 줄이는 것으로 진술이 뒤바뀌었다.",
+   "facet": "c13.f2",
+   "depth": "3",
+   "depth_why": "D3c",
+   "ox": {
+    "statement_true": false,
+    "misc": "m028",
+    "d": "3",
+    "err": "concept_confusion",
+    "reverse_misc": "none",
+    "planted_error": "쿠키와 캐시의 정의를 서로 바꿈"
+   }
+  }
+ ]
+}

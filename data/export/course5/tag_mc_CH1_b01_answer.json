@@ -1,0 +1,172 @@
+{
+ "items": [
+  {
+   "ref": "p1035",
+   "rationale": "입출력·처리에 쓰는 물리적 장치는 하드웨어이고, 보안 기술은 정보 자산을 보호하는 기술이다. 따라서 C의 연결이 옳지 않다.",
+   "facet": "c01.f2",
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "소프트웨어는 명령어 집합이 아니라 다른 것이라고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "weak_distractor"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "데이터 관리 기술은 저장매체 데이터 구성과 무관하다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "weak_distractor"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "네트워크·통신 기술은 하드웨어 연결·전송과 관련이 없다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "weak_distractor"
+    }
+   ]
+  },
+  {
+   "ref": "p1036",
+   "rationale": "혁신을 관리·보상하는 인센티브와 리더십은 경영적 자산이다. 권한 배분과 IS 개발팀은 조직적, 표준·정부 정책은 사회적 자산이다.",
+   "facet": "c03.f4",
+   "depth": "3",
+   "depth_why": "D3a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "의사결정 권한 배분이 경영적 자산이라고 생각함",
+     "misc": "m004",
+     "d": "2",
+     "src": "inferred",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "IS 개발팀은 경영진이 갖추는 경영적 자산이라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "표준과 정부 정책도 경영 능력에 속하는 경영적 자산이라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1130",
+   "rationale": "7단계 결재·권한 집중·부서 간 비협조는 기업 내부 구조와 프로세스 문제이므로 조직적 자산 부족이다. 임원이 나온다고 경영적 자산으로 고르면 안 된다.",
+   "facet": "c03.f4",
+   "depth": "3",
+   "depth_why": "D3a",
+   "facets2": [
+    "c03.f3"
+   ],
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "임원에게 권한이 몰린 것이므로 경영적 자산이 부족하다고 생각함",
+     "misc": "m004",
+     "d": "3",
+     "src": "explanation",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "결재·권한 문제를 기업 외부 환경의 사회적 자산 문제로 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "정보기술 자산도 보완적 자산의 한 유형이라고 생각함",
+     "misc": "none",
+     "d": "1",
+     "src": "inferred",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p1131",
+   "rationale": "의사결정 모형과 최적화 기법은 경영과학(OR)의 관심사이고 컴퓨터과학은 효율적 데이터 처리·저장·접근에 관심을 둔다. 따라서 C가 옳지 않다.",
+   "facet": "c04.f1",
+   "depth": "3",
+   "depth_why": "D3c",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "심리학은 행위적 접근과 관련 없다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "weak_distractor"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "경제학은 정보시스템의 시장 변화와 무관하다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "weak_distractor"
+    },
+    {
+     "idx": 3,
+     "belief_if_chosen": "사회학은 정보시스템의 사회적 영향과 무관하다고 생각함",
+     "misc": "none",
+     "d": "0",
+     "src": "inferred",
+     "err": "weak_distractor"
+    }
+   ]
+  },
+  {
+   "ref": "p1132",
+   "rationale": "정보는 데이터를 의미 있고 유용한 형태로 가공한 것이다. 지점별로 정렬해 합계를 낸 매출 표만 가공된 결과이고 나머지는 정렬 이전의 사실(데이터)이다.",
+   "facet": "c02.f1",
+   "depth": "2",
+   "depth_why": "D2a",
+   "options": [
+    {
+     "idx": 0,
+     "belief_if_chosen": "POS에 찍힌 기록도 정렬 전 사실 기록이지만 정보라고 생각함",
+     "misc": "m001",
+     "d": "2",
+     "src": "inferred",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 1,
+     "belief_if_chosen": "센서가 기록한 값도 정렬 전 사실이지만 정보라고 생각함",
+     "misc": "m001",
+     "d": "2",
+     "src": "inferred",
+     "err": "concept_confusion"
+    },
+    {
+     "idx": 2,
+     "belief_if_chosen": "고객이 입력한 주소 원문도 정보라고 생각함",
+     "misc": "m001",
+     "d": "2",
+     "src": "inferred",
+     "err": "concept_confusion"
+    }
+   ]
+  }
+ ]
+}

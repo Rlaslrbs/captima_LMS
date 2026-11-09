@@ -1,0 +1,230 @@
+{
+ "items": [
+  {
+   "ref": "p966",
+   "rationale": "윤리 분석 5단계를 순서대로 적고 자율주행 상황에 적용한다.",
+   "facet": "c11.f1",
+   "depth": "2",
+   "depth_why": "D2a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c11.f1",
+     "misc": "m025"
+    },
+    {
+     "i": 1,
+     "facet": "c11.f1",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c11.f1",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c13.f3",
+     "misc": "none"
+    },
+    {
+     "i": 4,
+     "facet": "c11.f1",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p967",
+   "rationale": "네 지식재산 유형의 보호 대상·기간·요건을 비교하고 디지털 환경의 보호 곤란을 설명한다.",
+   "facet": "c14.f1",
+   "depth": "3",
+   "depth_why": "D3a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c14.f2",
+     "misc": "m035"
+    },
+    {
+     "i": 1,
+     "facet": "c14.f3",
+     "misc": "m034"
+    },
+    {
+     "i": 2,
+     "facet": "c14.f4",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c14.f1",
+     "misc": "none"
+    },
+    {
+     "i": 4,
+     "facet": "c15.f2",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p968",
+   "rationale": "삶의 질 변화 다섯 가지를 예와 함께 쓰고 범죄와 오남용을 구분한다.",
+   "facet": "c12.f3",
+   "depth": "3",
+   "depth_why": "D3a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c12.f3",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c15.f3",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c12.f3",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c12.f3",
+     "misc": "none"
+    },
+    {
+     "i": 4,
+     "facet": "c15.f4",
+     "misc": "m033"
+    }
+   ]
+  },
+  {
+   "ref": "p1098",
+   "rationale": "다섯 기술 트렌드와 각 이슈를 짝지어 서술한다.",
+   "facet": "c15.f2",
+   "depth": "3",
+   "depth_why": "D3a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c15.f2",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c13.f1",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c13.f2",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c15.f2",
+     "misc": "m032"
+    },
+    {
+     "i": 4,
+     "facet": "c13.f2",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p1099",
+   "rationale": "Meta의 수익 모델과 딜레마, 통제 패러독스, ATT 영향을 연결해 서술한다.",
+   "facet": "c15.f5",
+   "depth": "4",
+   "depth_why": "D4d",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c13.f2",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c13.f4",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c15.f5",
+     "misc": "m031"
+    },
+    {
+     "i": 3,
+     "facet": "c13.f3",
+     "misc": "none"
+    }
+   ]
+  },
+  {
+   "ref": "p1162",
+   "rationale": "특허와 영업비밀을 요건·기간·위험 측면에서 비교하고 유리한 경우를 선택한다.",
+   "facet": "c14.f1",
+   "depth": "3",
+   "depth_why": "D3b",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c14.f3",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c14.f1",
+     "misc": "m034"
+    },
+    {
+     "i": 2,
+     "facet": "c14.f1",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c14.f1",
+     "misc": "none"
+    }
+   ],
+   "facets2": [
+    "c14.f3"
+   ]
+  },
+  {
+   "ref": "p1163",
+   "rationale": "책임·책무성·법적 책임을 구분하고 소프트웨어 제어 기계 사고에 적용한다.",
+   "facet": "c12.f2",
+   "depth": "3",
+   "depth_why": "D3a",
+   "points": [
+    {
+     "i": 0,
+     "facet": "c12.f2",
+     "misc": "none"
+    },
+    {
+     "i": 1,
+     "facet": "c12.f2",
+     "misc": "none"
+    },
+    {
+     "i": 2,
+     "facet": "c12.f2",
+     "misc": "none"
+    },
+    {
+     "i": 3,
+     "facet": "c15.f1",
+     "misc": "none"
+    }
+   ]
+  }
+ ]
+}

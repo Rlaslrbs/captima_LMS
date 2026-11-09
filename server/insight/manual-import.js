@@ -1,5 +1,5 @@
 // Gemini 채팅에 손으로 붙여 넣고 받은 답을 들여온다 (data/export/course<id>/ 묶음과 짝).
-//   node server/insight/manual-import.js --course 4 [--stage tag|second|third|family|verify] [--dry] [--export <묶음 폴더>] <답 파일…>
+//   node server/insight/manual-import.js --course 4 [--stage tag|second|third|family|verify] [--dry] [--no-second] [--export <묶음 폴더>] <답 파일…>
 //   답 파일 이름: <묶음 파일 이름>_answer.json (예: second_2.3_b01_answer.json). 코드 울타리(```)나 앞말이 있어도 첫 JSON 객체만 읽는다.
 //   --stage를 빼면 묶음 파일의 stage를 따른다. 한 번에 한 단계만. 순서: (vocab → merge → 관리자 어휘 확인) → tag → second → third → verify → family
 // - vocab: vocab_<단원>_bNN_answer.json → 단원 초안 insight_meta vocab_draft:<cid>:<단원> (tagger runVocab과 같은 검사, 글은 자르지 않고 길이 넘침은 참고로)
@@ -10,24 +10,26 @@
 //     2) 아니고 facet이 셋 중 둘 이상 같으면 그 facet, depth는 그 facet을 고른 판단들 중 다수 (없으면 둘이면 낮은 쪽, 셋이면 가운데), conf 1
 //     3) 셋 다 facet이 다르면 첫 태그 그대로, conf 1
 //     facet이 바뀌면 kcs·diag.facets2도 새 facet에 맞춘다. qa.second(없으면)·qa.third(규칙과 첫 태그)를 남긴다
+// - verify --no-second: 두 번째 의견(qa.second) 없는 llm 태그도 검증을 받는다 (사용자가 그 과목에 허락한 경우만)
+// - verify의 저자 태그(src author): 결과만 qa에 남긴다 (qa.verified · qa.fit · qa.author_unpicked = 블라인드로 못 고른 저자 오개념). conf · src · facet · diag는 그대로
 // - verify2_bNN: 저장된 오개념 문장이 잘린 확인 항목(key.unreadable)은 fit만 받고 그 보기 증거를 d ≤ 1로. 같은 번호의 verify_bNN은 받지 않는다
 // - tag: item_tag (src 'llm' · model 'gemini-chat(manual)' · conf 1 · review auto · qa.manual = true). 자동 태깅과 같은 줄에 선다
 // - second·family·verify: tagger.js runSecond·runFamily·runVerify와 같은 규칙·같은 DB 효과 (conf · family 행 · 검증 표시)
 // - 문제 글·상태·학습자 기록은 건드리지 않는다. 저자·관리자 태그(src author/admin, review accepted/edited)는 덮어쓰지 않는다
-// - 실제로 쓰기 전에 data/backups/ 에 VACUUM INTO 백업을 만든다. --dry는 아무것도 쓰지 않는다
+// - 실제로 쓰기 전에 data/backups/ 에 mysqldump 백업(SQL 파일)을 만든다. --dry는 아무것도 쓰지 않는다
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, basename, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { db, ROOT, J, now, tx, meta, bumpMeta, bodyHash, facetsOf, miscOf, DEPTH_WHY, DELTA_TYPES, FACET_KINDS, BACKUP_DIR } from "../db.js";
+import { db, ROOT, J, now, tx, meta, bumpMeta, bodyHash, facetsOf, miscOf, DEPTH_WHY, DELTA_TYPES, FACET_KINDS, BACKUP_DIR, dumpTo } from "../db.js";
 
 const LET = "ABCDEFGH", MODEL = "gemini-chat(manual)", STAGES = ["vocab", "merge", "tag", "second", "third", "family", "verify"];
 const cut = (s, n) => (s = String(s ?? "").trim(), s.length > n ? s.slice(0, n - 1) + "…" : s);
 const stageOf = batch => (String(batch.stage || "").startsWith("tag_") ? "tag" : batch.stage);
-/** 쓰기 전 백업 (VACUUM INTO) → 파일 경로 */
+/** 쓰기 전 백업 (mysqldump → SQL 파일) → 파일 경로 */
 function backup(stage) {
   mkdirSync(BACKUP_DIR, { recursive: true });
-  const bk = join(BACKUP_DIR, `app-before-manual-${stage === "tag" ? "tags" : stage}-${new Date().toISOString().replace(/[-:]/g, "").slice(0, 13)}.db`);
-  db.exec(`VACUUM INTO '${bk.replace(/'/g, "''")}'`); return bk;
+  const bk = join(BACKUP_DIR, `app-before-manual-${stage === "tag" ? "tags" : stage}-${new Date().toISOString().replace(/[-:]/g, "").slice(0, 13)}.sql`);
+  dumpTo(bk); return bk;
 }
 /** 답 파일 하나 → { B(요약 칸), batch, ans } 또는 B.error */
 function load(file, exportDir, stage, report) {
@@ -97,11 +99,11 @@ function check(x, it, V) {
 }
 
 /** 답 파일들을 검사하고 (dry가 아니면) 쓴다 → 요약. stage를 빼면 첫 묶음 파일의 단계 */
-export function importAnswers(cid, files, { dry = true, exportDir = join(ROOT, "data/export/course" + cid), stage = null, keepThin = false, chapters = null } = {}) {
+export function importAnswers(cid, files, { dry = true, exportDir = join(ROOT, "data/export/course" + cid), stage = null, keepThin = false, chapters = null, noSecond = false } = {}) {
   if (!stage) { const st = files.map(x => join(exportDir, basename(x).replace(/_answer\.json$/i, ".json"))).filter(existsSync).map(f => stageOf(JSON.parse(readFileSync(f, "utf8"))));
     stage = files.some(x => /^merge_/i.test(basename(x))) ? "merge" : st.includes("third") ? "third" : st[0] || "tag"; }
   if (!STAGES.includes(stage)) throw new Error(`단계는 ${STAGES.join(" · ")} 중 하나예요`);
-  const R = { vocab: importVocab, merge: importMerge, tag: importTag, second: importSecond, third: importThird, family: importFamily, verify: importVerify }[stage](cid, files, { dry, exportDir, keepThin, chapters });
+  const R = { vocab: importVocab, merge: importMerge, tag: importTag, second: importSecond, third: importThird, family: importFamily, verify: importVerify }[stage](cid, files, { dry, exportDir, keepThin, chapters, noSecond });
   R.stage = stage; return R;
 }
 
@@ -109,7 +111,7 @@ function importTag(cid, files, { dry, exportDir }) {
   const V ={ facets: new Set(facetsOf(cid).filter(f => f.status === "active").map(f => f.code)),
     miscs: new Set(miscOf(cid, null, { all: true }).filter(m => m.status === "ok").map(m => m.code)),
     kcOf: new Map(facetsOf(cid).map(f => [f.code, f.kc])) };
-  const cur = db.prepare(`SELECT p.id pid, p.current_version v, p.course_id cid, pv.kind, pv.body FROM problem p JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version WHERE p.id = ?`);
+  const cur = db.prepare(`SELECT p.problem_id pid, p.current_version v, p.course_id cid, pv.kind, pv.body FROM problem p JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version WHERE p.problem_id = ?`);
   const tagRow = db.prepare("SELECT src, review FROM item_tag WHERE problem_id = ? AND version = ?");
   const report = { batches: [], done: [], failed: [], missing: [], notes: [] }, writes = [];
   for (const file of files) {
@@ -146,12 +148,15 @@ function importTag(cid, files, { dry, exportDir }) {
   if (!dry && writes.length) {
     report.backup = backup("tag");
     const vv = +(meta("vocab_ver:" + cid) || 0), t = now();
-    const put = db.prepare(`INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf)
-        VALUES (?,?,?,?,?,?,?,?, '{"manual":true}', 'auto', ?, ?, ?, 'llm', 1)
-        ON CONFLICT(problem_id, version) DO UPDATE SET body_hash = excluded.body_hash, vocab_ver = excluded.vocab_ver, prompt_ver = excluded.prompt_ver, model = excluded.model,
-          kcs = excluded.kcs, diag = excluded.diag, qa = excluded.qa, updated_at = excluded.updated_at, facet = excluded.facet, depth = excluded.depth, src = 'llm', conf = 1, review = 'auto'
-        WHERE item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited')`);
-    tx(() => { for (const w of writes) put.run(w.it.pid, w.it.v, bodyHash(w.it.kind, w.it.body), vv, w.prompt_ver, MODEL, JSON.stringify(w.kcs), JSON.stringify(w.diag), t, w.facet, w.depth); });
+    const put = db.prepare(`INSERT INTO item_tag(problem_id, version, body_hash, vocab_ver, prompt_ver, model, kcs, diag, qa, review, updated_at, facet, depth, src, conf, course_id)
+        VALUES (?,?,?,?,?,?,?,?, '{"manual":true}', 'auto', ?, ?, ?, 'llm', 1, ?) AS n
+        ON DUPLICATE KEY UPDATE          -- MySQL에는 upsert의 WHERE가 없다 → 칸마다 IF(조건, 새 값, 그대로). src · conf · review는 조건 칸이라 맨 끝에
+          body_hash = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.body_hash, item_tag.body_hash), vocab_ver = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.vocab_ver, item_tag.vocab_ver),
+          prompt_ver = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.prompt_ver, item_tag.prompt_ver), model = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.model, item_tag.model), kcs = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.kcs, item_tag.kcs),
+          diag = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.diag, item_tag.diag), qa = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.qa, item_tag.qa), updated_at = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.updated_at, item_tag.updated_at),
+          facet = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.facet, item_tag.facet), depth = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), n.depth, item_tag.depth),
+          conf = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), 1, item_tag.conf), src = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), 'llm', item_tag.src), review = IF(item_tag.src NOT IN ('author','admin') AND item_tag.review NOT IN ('accepted','edited'), 'auto', item_tag.review)`);
+    tx(() => { for (const w of writes) put.run(w.it.pid, w.it.v, bodyHash(w.it.kind, w.it.body), vv, w.prompt_ver, MODEL, JSON.stringify(w.kcs), JSON.stringify(w.diag), t, w.facet, w.depth, w.it.cid); });
     bumpMeta("tag_rev:" + cid); report.written = writes.length;
   }
   return report;
@@ -159,7 +164,7 @@ function importTag(cid, files, { dry, exportDir }) {
 
 // 묶음의 current[ref] = 내보낼 때의 { problem_id, version, facet, depth, conf } → 지금 태그 행이 그대로인지
 const tagNow = () => db.prepare(`SELECT t.problem_id pid, t.version v, t.facet, t.depth, t.conf, t.src, t.review, t.diag, t.qa, p.course_id cid, p.current_version cv, p.status
-    FROM item_tag t JOIN problem p ON p.id = t.problem_id WHERE t.problem_id = ? AND t.version = ?`);
+    FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id WHERE t.problem_id = ? AND t.version = ?`);
 function sameTag(t, c, cid) {
   if (!t || t.cid !== cid) return "태그가 없음";
   if (t.cv !== c.version) return `문제가 고쳐짐 (묶음 v${c.version} → 지금 v${t.cv}), 다시 내보내 주세요`;
@@ -198,8 +203,8 @@ function importSecond(cid, files, { dry, exportDir }) {
   report.summary = `conf 3: ${conf[3]} · conf 2: ${conf[2]} · conf 1: ${conf[1]}`;
   if (!dry && writes.length) {
     report.backup = backup("second");
-    const put = db.prepare(`UPDATE item_tag SET conf = ?, depth = ?, review = 'auto', qa = json_set(qa, '$.second', json(?))
-        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND json_extract(qa, '$.second') IS NULL`);
+    const put = db.prepare(`UPDATE item_tag SET conf = ?, depth = ?, review = 'auto', qa = JSON_SET(qa, '$.second', CAST(? AS JSON))
+        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND JSON_EXTRACT(qa, '$.second') IS NULL`);
     let n = 0; tx(() => { for (const w of writes) n += Number(put.run(w.conf, w.depth, JSON.stringify(w.sec), w.pid, w.v).changes); });
     bumpMeta("tag_rev:" + cid); report.written = n;
   }
@@ -249,9 +254,11 @@ function importFamily(cid, files, { dry, exportDir }) {
     report.backup = backup("family");
     const t = now(), body = db.prepare("SELECT kind, body FROM problem_version WHERE problem_id = ? AND version = ?");
     const famIns = db.prepare("INSERT INTO family(course_id, code, facet, base_problem_id, principle, source, status, updated_at) VALUES (?,?,?,?,?, 'llm', 'auto', ?)");
-    const fmIns = db.prepare(`INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?, 'llm', 2, ?)
-        ON CONFLICT(problem_id) DO UPDATE SET family = excluded.family, role = excluded.role, delta_type = excluded.delta_type, delta = excluded.delta, body_hash = excluded.body_hash, conf = 2, updated_at = excluded.updated_at
-        WHERE family_member.source = 'llm'`);
+    const fmIns = db.prepare(`INSERT INTO family_member(problem_id, course_id, family, role, delta_type, delta, body_hash, source, conf, updated_at) VALUES (?,?,?,?,?,?,?, 'llm', 2, ?) AS n
+        ON DUPLICATE KEY UPDATE family = IF(family_member.source = 'llm', n.family, family_member.family), role = IF(family_member.source = 'llm', n.role, family_member.role),
+        delta_type = IF(family_member.source = 'llm', n.delta_type, family_member.delta_type), delta = IF(family_member.source = 'llm', n.delta, family_member.delta),
+        body_hash = IF(family_member.source = 'llm', n.body_hash, family_member.body_hash), conf = IF(family_member.source = 'llm', 2, family_member.conf),
+        updated_at = IF(family_member.source = 'llm', n.updated_at, family_member.updated_at)`);
     let rows = 0;
     tx(() => {
       let n = db.prepare("SELECT code FROM family WHERE course_id = ?").all(cid).reduce((m, x) => Math.max(m, +((/^F(\d+)$/.exec(x.code) || [0, 0])[1])), 0);
@@ -270,9 +277,9 @@ function importFamily(cid, files, { dry, exportDir }) {
 }
 
 // ───────── F. 검증 (tagger runVerify): 블라인드로 고른 답이 그 보기가 아니면 오개념 증거를 d ≤ 1로, fit no면 conf 1 ─────────
-function importVerify(cid, files, { dry, exportDir }) {
+function importVerify(cid, files, { dry, exportDir, noSecond = false }) {
   const report = newReport(), writes = [], q = tagNow(), allRows = new Set();
-  let lowered = 0, fitNo = 0;
+  let lowered = 0, fitNo = 0, authN = 0, authNo = 0, authUnpicked = 0;
   for (const file of files) {
     const { B, batch, ans } = load(file, exportDir, "verify", report); if (B.error) continue;
     // verify2_bNN이 있으면 옛 verify_bNN은 받지 않는다 (잘린 학생 설명으로 고른 답)
@@ -286,12 +293,24 @@ function importVerify(cid, files, { dry, exportDir }) {
       const ref = "p" + pid, c = batch.current[ref];
       if (allRows.has(ref)) { fail(ref, "같은 문제가 두 번"); continue; }
       const t = q.get(c.problem_id, c.version), bad = sameTag(t, c, cid); if (bad) { fail(ref, bad); continue; }
-      if (t.src !== "llm" || t.review !== "auto") { fail(ref, "사람이 확인한 태그라 건너뜀"); continue; }
+      const author = t.src === "author";
+      if (!author && (t.src !== "llm" || t.review !== "auto")) { fail(ref, "사람이 확인한 태그라 건너뜀"); continue; }
       const qa = J(t.qa); if (qa.verified != null) { fail(ref, "이미 검증됨"); continue; }
-      if (qa.second == null) { fail(ref, "두 번째 의견을 먼저 들여와 주세요 (second)"); continue; }
+      if (!author && qa.second == null && !noSecond) { fail(ref, "두 번째 의견을 먼저 들여와 주세요 (second, 또는 --no-second)"); continue; }
       // 그 문제의 v 항목이 모두 답해져 있어야 한다 (오개념 확인은 picked, 모두 fit)
       const lack = K.filter(k => !["yes", "no"].includes(fit.get(k.ref)?.fit) || (k.misc && !/^[A-HOX]$/.test(String(pick.get(k.ref)?.picked || ""))));
       if (lack.length) { report.missing.push(ref); B.missing++; continue; }
+      const no = K.some(k => fit.get(k.ref).fit === "no");
+      if (author) {                                                                  // 저자 태그: 결과만 기록 (conf·diag 그대로)
+        const dg = J(t.diag), unpicked = [];
+        for (const k of K) if (k.misc) {
+          const o = k.opt === "ox" ? dg.ox : dg.opt && dg.opt[k.opt];
+          if (!o || o.m !== k.misc) { report.notes.push({ ref, note: `${k.ref} 보기의 오개념이 바뀌어 건너뜀` }); continue; }
+          if (pick.get(k.ref).picked !== k.want) unpicked.push({ opt: k.opt, misc: k.misc, want: k.want, picked: pick.get(k.ref).picked });
+        }
+        authN++; authNo += no ? 1 : 0; authUnpicked += unpicked.length; B.passed++; allRows.add(ref); report.done.push(ref);
+        writes.push({ pid: t.pid, v: t.v, author: true, no, unpicked }); continue;
+      }
       const dg = J(t.diag); let low = 0;
       for (const k of K) if (k.unreadable) {                                         // 저장된 오개념 문장이 잘려 블라인드 확인을 못 함 → 개념 증거로만
         const o = k.opt === "ox" ? dg.ox : dg.opt && dg.opt[k.opt];
@@ -302,19 +321,21 @@ function importVerify(cid, files, { dry, exportDir }) {
         if (!o || o.m !== k.misc) { report.notes.push({ ref, note: `${k.ref} 보기의 오개념이 바뀌어 건너뜀` }); continue; }
         if (pick.get(k.ref).picked !== k.want && o.d > 1) { o.d = 1; low++; }        // 블라인드로 못 고르면 개념 증거로만
       }
-      const no = K.some(k => fit.get(k.ref).fit === "no");
       lowered += low; fitNo += no ? 1 : 0; B.passed++; allRows.add(ref); report.done.push(ref);
       writes.push({ pid: t.pid, v: t.v, diag: dg, no });
     }
   }
   report.failed = report.failed.filter(f => !allRows.has(f.ref)); report.missing = [...new Set(report.missing)].filter(r => !allRows.has(r));
-  report.summary = `검증 ${writes.length}문제 · 오개념 증거를 낮춤 ${lowered}개 · 세부 포인트가 맞지 않음(fit no → conf 1) ${fitNo}문제`;
+  report.summary = `검증 llm ${writes.length - authN}문제 · 오개념 증거를 낮춤 ${lowered}개 · 세부 포인트가 맞지 않음(fit no → conf 1) ${fitNo}문제` +
+    ` | 저자 ${authN}문제 (기록만) · fit no ${authNo}문제 · 블라인드로 못 고른 저자 오개념 ${authUnpicked}개`;
   if (!dry && writes.length) {
     report.backup = backup("verify");
-    const W = "WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND json_extract(qa, '$.verified') IS NULL";
-    const ok = db.prepare(`UPDATE item_tag SET diag = ?, qa = json_set(qa, '$.verified', 1, '$.manual_verify', json('true')) ${W}`);
-    const no = db.prepare(`UPDATE item_tag SET diag = ?, conf = 1, qa = json_set(qa, '$.verified', 1, '$.manual_verify', json('true'), '$.fit', 'no') ${W}`);
-    let n = 0; tx(() => { for (const w of writes) n += Number((w.no ? no : ok).run(JSON.stringify(w.diag), w.pid, w.v).changes); });
+    const W = "WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND JSON_EXTRACT(qa, '$.verified') IS NULL";
+    const ok = db.prepare(`UPDATE item_tag SET diag = ?, qa = JSON_SET(qa, '$.verified', 1, '$.manual_verify', CAST('true' AS JSON)) ${W}`);
+    const no = db.prepare(`UPDATE item_tag SET diag = ?, conf = 1, qa = JSON_SET(qa, '$.verified', 1, '$.manual_verify', CAST('true' AS JSON), '$.fit', 'no') ${W}`);
+    const au = db.prepare(`UPDATE item_tag SET qa = JSON_SET(COALESCE(qa, JSON_OBJECT()), '$.verified', 1, '$.manual_verify', CAST('true' AS JSON), '$.fit', ?, '$.author_unpicked', CAST(? AS JSON))
+      WHERE problem_id = ? AND version = ? AND src = 'author' AND JSON_EXTRACT(qa, '$.verified') IS NULL`);
+    let n = 0; tx(() => { for (const w of writes) n += Number((w.author ? au.run(w.no ? "no" : "yes", JSON.stringify(w.unpicked), w.pid, w.v) : (w.no ? no : ok).run(JSON.stringify(w.diag), w.pid, w.v)).changes); });
     bumpMeta("tag_rev:" + cid); report.written = n;
   }
   return report;
@@ -384,8 +405,8 @@ function importThird(cid, files, { dry, exportDir }) {
   if (!dry && writes.length) {
     report.backup = backup("third");
     const put = db.prepare(`UPDATE item_tag SET facet = ?, depth = ?, conf = ?, kcs = ?, diag = ?,
-        qa = json_set(CASE WHEN ? IS NULL THEN qa ELSE json_set(qa, '$.second', json(?)) END, '$.third', json(?)), updated_at = ?
-        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND json_extract(qa, '$.third') IS NULL AND json_extract(qa, '$.verified') IS NULL`);
+        qa = JSON_SET(CASE WHEN ? IS NULL THEN qa ELSE JSON_SET(qa, '$.second', CAST(? AS JSON)) END, '$.third', CAST(? AS JSON)), updated_at = ?
+        WHERE problem_id = ? AND version = ? AND src = 'llm' AND review = 'auto' AND JSON_EXTRACT(qa, '$.third') IS NULL AND JSON_EXTRACT(qa, '$.verified') IS NULL`);
     const t = now(); let n = 0;
     tx(() => { for (const w of writes) { const sec = w.sec ? JSON.stringify(w.sec) : null;
       n += Number(put.run(w.facet, w.depth, w.conf, JSON.stringify(w.kcs), JSON.stringify(w.diag), sec, sec, JSON.stringify(w.third), t, w.pid, w.v).changes); } });
@@ -403,12 +424,12 @@ const maxNum = (rows, re) => rows.reduce((m, x) => Math.max(m, +((re.exec(x.code
 const LIM = { name: 20, definition: 200, boundary: 160, statement: 90, belief: 70, truth: 90, contrast: 200, cue: 50 };
 const txt = (v, k, warn, where) => { const s = String(v ?? "").trim(); if (LIM[k] && s.length > LIM[k]) warn(`${where} ${k} ${s.length}자 (권장 ≤ ${LIM[k]})`); return s; };
 function courseInfo(cid) {
-  const c = db.prepare("SELECT id, name, info FROM course WHERE id = ?").get(cid); if (!c) throw new Error("없는 과목");
+  const c = db.prepare("SELECT course_id id, name, info FROM course WHERE course_id = ?").get(cid); if (!c) throw new Error("없는 과목");
   const info = J(c.info), topics = info.topics && typeof info.topics === "object" ? info.topics : {};
-  const items = db.prepare(`SELECT p.id pid, p.status, ch.key ch, pv.body FROM problem p JOIN chapter ch ON ch.id = p.chapter_id
-      JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version WHERE p.course_id = ?`).all(cid).map(r => ({ ...r, body: J(r.body) }));
+  const items = db.prepare(`SELECT p.problem_id pid, p.status, ch.chapter_key ch, pv.body FROM problem p JOIN chapter ch ON ch.chapter_id = p.chapter_id
+      JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version WHERE p.course_id = ?`).all(cid).map(r => ({ ...r, body: J(r.body) }));
   const pub = items.filter(i => i.status === "published"), topicMode = pub.length > 0 && pub.filter(i => i.body.topic).length / pub.length >= 0.8;
-  const chapters = db.prepare("SELECT key, title FROM chapter WHERE course_id = ? ORDER BY sort, id").all(cid);
+  const chapters = db.prepare("SELECT chapter_key `key`, title FROM chapter WHERE course_id = ? ORDER BY sort, chapter_id").all(cid);
   return { cid, name: c.name, topics, topicMode, chapters, byPid: new Map(items.map(i => [i.pid, i])) };
 }
 const vocabDone = cid => !!meta("vocab_ok:" + cid) || !!db.prepare("SELECT 1 FROM facet WHERE course_id = ? AND status = 'active'").get(cid);
@@ -525,20 +546,20 @@ function importMerge(cid, files, { dry, exportDir, keepThin = false, chapters = 
   const v = +(meta("vocab_ver:" + cid) || 0) + 1, t = now(), cnt = { kc: 0, facet: 0, misc: 0, misc_dup: 0, misc_nokc: 0, facet_merged: 0, facet_thin: 0 };
   const W = (k, where) => s => txt(s, k, warn, where);
   if (!dry) report.backup = backup("merge");
-  db.exec("BEGIN");                                                       // --dry도 같은 쓰기를 해 보고 되돌린다 (세는 값이 실제와 같게)
+  db.exec("START TRANSACTION");                                           // --dry도 같은 쓰기를 해 보고 되돌린다 (세는 값이 실제와 같게)
   try {
     const oldK = db.prepare("SELECT code, status FROM kc WHERE course_id = ?").all(cid);
     const oldSup = new Map(oldK.filter(k => k.status !== "retired").map(k => [k.code, new Set(J(meta(`kc_support:${cid}:${k.code}`), []))]));
     let kn = oldK.filter(k => /^c\d+$/.test(k.code)).reduce((m, k) => Math.max(m, +k.code.slice(1)), 0);
     const mapK = new Map(), mapF = new Map();
-    const kcUp = db.prepare(`INSERT INTO kc(course_id, code, chapter_keys, name, definition, boundary, confusable, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,?,?, 'draft', ?, ?)
-        ON CONFLICT(course_id, code) DO UPDATE SET chapter_keys = excluded.chapter_keys, name = CASE WHEN kc.source = 'admin' THEN kc.name ELSE excluded.name END,
-        definition = excluded.definition, boundary = excluded.boundary, vocab_ver = excluded.vocab_ver, updated_at = excluded.updated_at
-        WHERE kc.source NOT IN ('author', 'admin') AND kc.status != 'retired'`);
-    const fUp = db.prepare(`INSERT INTO facet(course_id, code, kc, name, statement, kind, confusable, sort, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,'[]',?, 'llm', 'draft', ?, ?)
-        ON CONFLICT(course_id, code) DO UPDATE SET name = CASE WHEN facet.source = 'admin' THEN facet.name ELSE excluded.name END,
-        statement = CASE WHEN facet.source = 'admin' THEN facet.statement ELSE excluded.statement END, vocab_ver = excluded.vocab_ver, updated_at = excluded.updated_at
-        WHERE facet.source NOT IN ('author', 'admin') AND facet.status != 'retired'`);
+    const kcUp = db.prepare(`INSERT INTO kc(course_id, code, chapter_keys, name, definition, boundary, confusable, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,?,?, 'draft', ?, ?) AS n
+        ON DUPLICATE KEY UPDATE          -- 저자·관리자 개념과 은퇴한 개념은 그대로 (MySQL에는 upsert의 WHERE가 없어 칸마다 IF)
+          chapter_keys = IF(kc.source NOT IN ('author','admin') AND kc.status != 'retired', n.chapter_keys, kc.chapter_keys), name = IF(kc.source NOT IN ('author','admin') AND kc.status != 'retired', n.name, kc.name), definition = IF(kc.source NOT IN ('author','admin') AND kc.status != 'retired', n.definition, kc.definition), boundary = IF(kc.source NOT IN ('author','admin') AND kc.status != 'retired', n.boundary, kc.boundary),
+          vocab_ver = IF(kc.source NOT IN ('author','admin') AND kc.status != 'retired', n.vocab_ver, kc.vocab_ver), updated_at = IF(kc.source NOT IN ('author','admin') AND kc.status != 'retired', n.updated_at, kc.updated_at)`);
+    const fUp = db.prepare(`INSERT INTO facet(course_id, code, kc, name, statement, kind, confusable, sort, source, status, vocab_ver, updated_at) VALUES (?,?,?,?,?,?,'[]',?, 'llm', 'draft', ?, ?) AS n
+        ON DUPLICATE KEY UPDATE
+          name = IF(facet.source NOT IN ('author','admin') AND facet.status != 'retired', n.name, facet.name), statement = IF(facet.source NOT IN ('author','admin') AND facet.status != 'retired', n.statement, facet.statement),
+          vocab_ver = IF(facet.source NOT IN ('author','admin') AND facet.status != 'retired', n.vocab_ver, facet.vocab_ver), updated_at = IF(facet.source NOT IN ('author','admin') AND facet.status != 'retired', n.updated_at, facet.updated_at)`);
     for (const g of groups) {
       const from = (g.from || []).filter(r => sup.has(r)); if (!from.length) continue;
       const pids = new Set(from.flatMap(r => sup.get(r)));
@@ -575,7 +596,7 @@ function importMerge(cid, files, { dry, exportDir, keepThin = false, chapters = 
     }
     const have = miscOf(cid, null, { all: true }).filter(x => x.status !== "rejected");
     let mn = maxNum(miscOf(cid, null, { all: true }), /^m(\d+)$/);
-    const mIns = db.prepare(`INSERT OR IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?,?,?,?,?,?,?,?, 'llm', 'auto', ?, ?, ?)`);
+    const mIns = db.prepare(`INSERT IGNORE INTO misc(course_id, code, chapter_key, kc, cw, belief, truth, contrast, cue, src, status, vocab_ver, updated_at, facet) VALUES (?,?,?,?,?,?,?,?,?, 'llm', 'auto', ?, ?, ?)`);
     for (const d of D) for (const m of d.miscs) {
       const k = mapK.get(`${d.ch}:${m.kc}`) || (C.topicMode ? m.kc : null);
       const fref = m.facet ? `${d.ch}:${m.kc}.${m.facet}` : null, f = (fref && mapF.get(fref)) || null;
@@ -599,9 +620,9 @@ function importMerge(cid, files, { dry, exportDir, keepThin = false, chapters = 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const a = process.argv.slice(2), opt = k => { const i = a.indexOf("--" + k); return i >= 0 ? a.splice(i, 2)[1] : null; };
   const chs = opt("chapters"), chapters = chs ? chs.split(",").map(x => x.trim()).filter(Boolean) : null;
-  const cid = +opt("course"), exp = opt("export"), stage = opt("stage"), dry = a.includes("--dry"), keepThin = a.includes("--keep-thin"), files = a.filter(x => x !== "--dry" && x !== "--keep-thin");
-  if (!cid || !files.length) { console.log("사용법: node server/insight/manual-import.js --course <id> [--stage vocab|merge|tag|second|third|family|verify] [--dry] [--keep-thin] [--chapters CH1,CH2] [--export data/export/course4] <…_answer.json …>"); process.exit(0); }
-  const R = importAnswers(cid, files, { dry, stage, keepThin, chapters, ...(exp ? { exportDir: exp } : {}) });
+  const cid = +opt("course"), exp = opt("export"), stage = opt("stage"), dry = a.includes("--dry"), keepThin = a.includes("--keep-thin"), noSecond = a.includes("--no-second"), files = a.filter(x => x !== "--dry" && x !== "--keep-thin" && x !== "--no-second");
+  if (!cid || !files.length) { console.log("사용법: node server/insight/manual-import.js --course <id> [--stage vocab|merge|tag|second|third|family|verify] [--dry] [--keep-thin] [--no-second] [--chapters CH1,CH2] [--export data/export/course4] <…_answer.json …>"); process.exit(0); }
+  const R = importAnswers(cid, files, { dry, stage, keepThin, chapters, noSecond, ...(exp ? { exportDir: exp } : {}) });
   console.log(`[${R.stage}] ` + (dry ? "[미리보기: 쓰지 않음]" : `[썼음: ${R.written || 0}행 · 백업 ${R.backup || "-"}]`));
   if (R.error) console.log("멈춤: " + R.error);
   if (R.summary) console.log(R.summary);

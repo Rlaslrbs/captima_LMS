@@ -1,0 +1,195 @@
+{
+ "items": [
+  {
+   "ref": "p895",
+   "rationale": "대시보드는 주요 정보를 한눈에 보게 하는 도구이다. 디지털 트윈은 물리 자산을 가상으로 재현해 시뮬레이션하는 기술이다.",
+   "facet": "c05.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 개념인 디지털 트윈과 혼동",
+     "examples": [
+      "디지털 트윈",
+      "디지털트윈"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "시각화 관련 일반 용어를 답함",
+     "examples": [
+      "시각화",
+      "BI",
+      "보고서"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p896",
+   "rationale": "디지털 트윈은 물리 자산을 가상으로 재현해 시뮬레이션하는 기술이다. 대시보드는 정보를 한눈에 보여주는 도구이다.",
+   "facet": "c05.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 개념인 대시보드와 혼동",
+     "examples": [
+      "대시보드",
+      "dashboard"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "시뮬레이션 또는 가상 관련 일반 용어를 답함",
+     "examples": [
+      "시뮬레이션",
+      "가상현실",
+      "VR"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p897",
+   "rationale": "투자로부터 가치를 창출하기 위해 함께 필요한 기타 자산이 보완적 자산이다. 조직적·경영적·사회적 자산의 세 유형이 있다.",
+   "facet": "c03.f1",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "세 유형 중 하나만 답함",
+     "examples": [
+      "조직적 자산",
+      "경영적 자산",
+      "사회적 자산"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    },
+    {
+     "pattern": "비슷한 일반 용어를 답함",
+     "examples": [
+      "무형자산",
+      "IT 인프라",
+      "보완재"
+     ],
+     "misc": "none",
+     "d": "0",
+     "err": "concept_confusion"
+    }
+   ]
+  },
+  {
+   "ref": "p898",
+   "rationale": "비즈니스 모델은 가치 창출을 위해 제품이나 서비스를 생산·전달·판매하는 방법이다.",
+   "facet": "c05.f1",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "이웃 개념과 혼동",
+     "examples": [
+      "비즈니스 프로세스",
+      "가치사슬",
+      "경영 전략"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "수익 구조로만 이해함",
+     "examples": [
+      "수익 모델",
+      "수익구조"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p899",
+   "rationale": "정보시스템은 정보기술·조직·경영의 세 차원으로 이해한다.",
+   "facet": "c01.f2",
+   "depth": "1",
+   "depth_why": "D1c",
+   "short_errors": [
+    {
+     "pattern": "IT 구성요소나 입출력 활동을 차원으로 답함",
+     "examples": [
+      "하드웨어, 소프트웨어, 네트워크",
+      "입력, 처리, 출력"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "보완적 자산의 세 유형과 혼동",
+     "examples": [
+      "조직적, 경영적, 사회적",
+      "조직, 경영, 사회"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "사람·프로세스 같은 일반 요소를 나열함",
+     "examples": [
+      "사람, 프로세스, 기술"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "partial"
+    }
+   ]
+  },
+  {
+   "ref": "p1133",
+   "rationale": "정보시스템에서 오류가 가장 널리 생기는 단계는 입력 단계이다. 입력 데이터의 낮은 품질이 시스템 품질 저하의 가장 흔한 원인이다.",
+   "facet": "c01.f4",
+   "depth": "1",
+   "depth_why": "D1c",
+   "facets2": [
+    "c15.f1"
+   ],
+   "short_errors": [
+    {
+     "pattern": "처리 단계라고 답함(소프트웨어 버그 연상)",
+     "examples": [
+      "처리",
+      "처리 단계"
+     ],
+     "misc": "none",
+     "d": "2",
+     "err": "concept_confusion"
+    },
+    {
+     "pattern": "출력 단계나 피드백이라고 답함",
+     "examples": [
+      "출력",
+      "피드백"
+     ],
+     "misc": "none",
+     "d": "1",
+     "err": "recall"
+    }
+   ]
+  }
+ ]
+}
