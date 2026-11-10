@@ -1,0 +1,2657 @@
+{
+ "course": "공학수학2 · 선형대수",
+ "facets": [
+  {
+   "code": "block.f1",
+   "name": "블록 곱의 조건",
+   "statement": "블록 행렬의 곱이 정의되려면 앞 행렬의 열 분할이 뒤 행렬의 행 분할과 일치해야 한다."
+  },
+  {
+   "code": "block.f2",
+   "name": "블록 삼각행렬의 역행렬",
+   "statement": "대각 블록이 가역인 블록 삼각행렬의 역행렬은 블록 단위로 직접 계산할 수 있다."
+  },
+  {
+   "code": "det.f1",
+   "name": "행렬식 계산과 행 연산",
+   "statement": "여인자 전개와 행 연산을 이용하여 행렬식을 효율적으로 계산한다."
+  },
+  {
+   "code": "det.f2",
+   "name": "가역성 판정과 곱셈성",
+   "statement": "행렬식이 0이 아니면 가역이며 곱의 행렬식은 각각의 행렬식의 곱과 같다."
+  },
+  {
+   "code": "det.f3",
+   "name": "스칼라배와 덧셈 성질",
+   "statement": "n차 행렬 A에 대해 det(cA)는 c^n det(A)이지만 덧셈에 대해서는 분배되지 않는다."
+  },
+  {
+   "code": "detapp.f1",
+   "name": "크래머 공식 적용 조건",
+   "statement": "계수행렬이 가역일 때만 크래머 공식을 사용하여 유일해를 구할 수 있다."
+  },
+  {
+   "code": "detapp.f2",
+   "name": "도형의 넓이와 부피",
+   "statement": "선형변환에 의한 영역의 부피는 원래 영역의 부피에 행렬식의 절댓값을 곱한 것이다."
+  },
+  {
+   "code": "detapp.f3",
+   "name": "수반행렬과 역행렬 공식",
+   "statement": "가역행렬 A에 대해 역행렬은 수반행렬을 행렬식으로 나눈 것으로 표현된다."
+  },
+  {
+   "code": "dot.f1",
+   "name": "수직 조건",
+   "statement": "두 벡터의 내적이 0일 때, 두 벡터는 서로 직교(수직)한다."
+  },
+  {
+   "code": "dot.f2",
+   "name": "코시-슈바르츠 부등식",
+   "statement": "두 벡터 내적의 절댓값은 항상 각 벡터의 길이를 곱한 값보다 작거나 같다."
+  },
+  {
+   "code": "elim.f1",
+   "name": "소거와 피벗",
+   "statement": "기본 행연산을 통해 아래 성분을 소거하며 피벗이 0이 되면 행 교환으로 해결한다."
+  },
+  {
+   "code": "elim.f2",
+   "name": "해의 존재와 유일성",
+   "statement": "마지막 열에 피벗이 없어야 해가 존재하며 자유변수가 없으면 해가 유일하다."
+  },
+  {
+   "code": "inv.f1",
+   "name": "곱의 역행렬 순서",
+   "statement": "가역행렬 A, B에 대하여 곱의 역행렬은 순서가 바뀐다."
+  },
+  {
+   "code": "inv.f2",
+   "name": "가역행렬 정리 동치조건",
+   "statement": "정사각행렬에서 가역성, 단위행렬로의 행축약, 피벗 개수 등은 모두 동치이다."
+  },
+  {
+   "code": "lincomb.f1",
+   "name": "선형결합의 기하학적 의미",
+   "statement": "평행하지 않은 두 벡터의 선형결합은 평면을 이루고, 세 벡터가 선형 독립이면 3차원 공간 전체를 채운다."
+  },
+  {
+   "code": "lincomb.f2",
+   "name": "선형결합 방정식",
+   "statement": "선형결합이 특정 벡터를 만드는지 확인하려면 각 성분별 연립방정식을 세워 계수를 구한다."
+  },
+  {
+   "code": "lincomb.f3",
+   "name": "열의 선형결합과 해",
+   "statement": "Ax=b의 해가 존재함은 b가 열벡터들의 선형결합으로 표현됨을 뜻한다."
+  },
+  {
+   "code": "lincomb.f4",
+   "name": "특수해와 동차해",
+   "statement": "비동차 시스템의 일반해는 특수해와 동차시스템의 해들의 선형결합의 합이다."
+  },
+  {
+   "code": "lineplane.f1",
+   "name": "직선과 평면의 방정식",
+   "statement": "직선은 점과 방향벡터로, 평면은 점과 법선벡터로 다양한 형태로 표현할 수 있다."
+  },
+  {
+   "code": "lineplane.f2",
+   "name": "위치 관계 판별",
+   "statement": "직선과 평면의 평행, 수직, 교차 여부는 방향벡터와 법선벡터의 관계를 통해 판별한다."
+  },
+  {
+   "code": "lineplane.f3",
+   "name": "거리 계산",
+   "statement": "점과 평면, 평행 평면, 꼬인 직선 사이의 거리는 각 상황에 맞는 공식을 사용하여 계산한다."
+  },
+  {
+   "code": "lintrans.f1",
+   "name": "표준행렬 구성",
+   "statement": "선형변환 T의 표준행렬은 단위벡터들의 상을 순서대로 열벡터로 하여 구성한다."
+  },
+  {
+   "code": "lintrans.f2",
+   "name": "일대일 및 위로 조건",
+   "statement": "일대일은 피벗열 개수로, 위로 성질은 모든 행의 피벗 존재 여부로 판별한다."
+  },
+  {
+   "code": "lintrans.f3",
+   "name": "선형변환의 성질",
+   "statement": "모든 선형변환은 행렬변환으로 표현되며 원점을 원점으로 보낸다."
+  },
+  {
+   "code": "lu.f1",
+   "name": "LU 분해의 조건과 구성",
+   "statement": "행 교환 없이 대치 연산만으로 U를 만들 수 있을 때 L과 U로 분해된다."
+  },
+  {
+   "code": "lu.f2",
+   "name": "삼각 시스템의 순차적 해결",
+   "statement": "Ax=b를 풀 때 Lc=b를 전진대입하고 Ux=c를 후진대입하여 푼다."
+  },
+  {
+   "code": "matops.f1",
+   "name": "행렬 연산 정의 및 크기",
+   "statement": "행렬 연산은 정의된 크기 조건과 성분별 또는 행-열 규칙에 따라 수행된다."
+  },
+  {
+   "code": "matops.f2",
+   "name": "행렬 곱의 열 해석",
+   "statement": "행렬 곱 AB의 각 열은 행렬 A의 열 벡터들의 선형결합으로 표현된다."
+  },
+  {
+   "code": "matops.f3",
+   "name": "행렬 곱의 비가환성",
+   "statement": "행렬 곱 AB는 일반적으로 BA와 같지 않으며 약분이 성립하지 않는다."
+  },
+  {
+   "code": "matops.f4",
+   "name": "전치 연산의 성질",
+   "statement": "전치 연산은 덧셈에 분배되며 곱셈에 대해서는 순서가 뒤집혀 분배된다."
+  }
+ ],
+ "items": [
+  {
+   "ref": "p433",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "\\(\\mathbf u+\\mathbf v+\\mathbf w\\)와 \\(2\\mathbf u+2\\mathbf v+\\mathbf w\\)를 계산하시오. \\(\\mathbf u,\\mathbf v,\\mathbf w\\)가 한 평면 위에 있다는 것을 어떻게 알 수 있는가? 세 벡터가 한 평면 위에 있는 것은 \\(\\mathbf w=c\\mathbf u+d\\mathbf v\\)이기 때문이다. \\(c\\)와 \\(d\\)를 구하시오.\n\\[\\mathbf u=\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix},\\;\\mathbf v=\\begin{bmatrix}-3\\\\1\\\\-2\\end{bmatrix},\\;\\mathbf w=\\begin{bmatrix}2\\\\-3\\\\-1\\end{bmatrix}\\]",
+   "options": [
+    "A. \\((0,0,1)\\), \\((-2,3,1)\\), \\(c=d=-1\\)",
+    "B. \\(\\mathbf 0\\), \\((-2,3,1)\\), \\(c=1,\\ d=-1\\)",
+    "C. \\(\\mathbf 0\\), \\((2,-3,-1)\\), \\(c=d=1\\)",
+    "D. \\(\\mathbf 0\\), \\((-2,3,1)\\), \\(c=d=-1\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(\\mathbf u+\\mathbf v+\\mathbf w=(1-3+2,\\;2+1-3,\\;3-2-1)=(0,0,0)\\).\n\\(2\\mathbf u+2\\mathbf v+\\mathbf w=(\\mathbf u+\\mathbf v+\\mathbf w)+(\\mathbf u+\\mathbf v)=\\mathbf u+\\mathbf v=(-2,3,1)\\).\n\\(\\mathbf u+\\mathbf v+\\mathbf w=\\mathbf 0\\)이면 \\(\\mathbf w=-\\mathbf u-\\mathbf v\\)입니다. 즉 \\(\\mathbf w\\)는 \\(\\mathbf u,\\mathbf v\\)의 선형결합이라 \\(\\mathbf u,\\mathbf v\\)가 펼치는 평면 안에 있습니다. \\(c=-1,\\;d=-1\\).\n앞에서 그래프로 본 \"세 벡터가 한 평면에 있다\"는 문제와 같은 상황입니다. 세 벡터의 0 아닌 결합이 \\(\\mathbf 0\\)이 되면 공면입니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lincomb.f2",
+    "depth": 2
+   },
+   "now": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p434",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "\\(\\mathbf v=(1,-2,1)\\)과 \\(\\mathbf w=(0,1,-1)\\)의 모든 선형결합은 성분의 합이 ___이다. \\(c\\mathbf v+d\\mathbf w=(3,3,-6)\\)이 되는 \\(c\\)와 \\(d\\)를 구하시오. \\((3,3,6)\\)은 왜 만들 수 없는가?",
+   "options": [
+    "A. 합은 0, \\(c=3,\\ d=-3\\), \\((3,3,6)\\)은 성분 합이 0이 아니라서",
+    "B. 합은 0, \\(c=3,\\ d=9\\), \\((3,3,6)\\)은 성분 합이 0이 아니라서",
+    "C. 합은 0, \\(c=-3,\\ d=9\\), \\((3,3,6)\\)은 \\(\\mathbf v\\)와 평행해서",
+    "D. 합은 1, \\(c=3,\\ d=9\\), \\((3,3,6)\\)은 성분 합이 1이 아니라서"
+   ],
+   "answer": "B",
+   "solution": "\\(\\mathbf v\\)의 성분 합 \\(1-2+1=0\\), \\(\\mathbf w\\)의 성분 합 \\(0+1-1=0\\). 합은 선형결합해도 유지되므로 \\(c\\mathbf v+d\\mathbf w\\)의 성분 합도 \\(c\\cdot0+d\\cdot0=0\\).\n\\(c\\mathbf v+d\\mathbf w=(c,\\;-2c+d,\\;c-d)=(3,3,-6)\\). 첫 성분에서 \\(c=3\\), 둘째에서 \\(-6+d=3\\)이라 \\(d=9\\), 셋째 \\(3-9=-6\\) 확인.\n\\((3,3,6)\\)은 성분 합이 \\(12\\ne0\\)이라 이 평면(\\(x+y+z=0\\)) 밖에 있습니다. 어떤 \\(c,d\\)로도 만들 수 없습니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f2",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lincomb.f2",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lincomb.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p435",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "평행사변형의 세 꼭짓점이 \\((1,1)\\), \\((4,2)\\), \\((1,3)\\)일 때, 가능한 넷째 꼭짓점 세 개를 모두 구하시오. 그중 두 개를 그리시오.",
+   "options": [
+    "A. \\((4,4),\\ (4,0),\\ (-2,2)\\)",
+    "B. \\((4,4),\\ (-2,4),\\ (4,0)\\)",
+    "C. \\((4,4),\\ (2,2),\\ (-2,2)\\)",
+    "D. \\((4,4)\\) 하나뿐"
+   ],
+   "answer": "A",
+   "solution": "세 꼭짓점 \\(A=(1,1),B=(4,2),C=(1,3)\\) 중 어느 점을 넷째 꼭짓점의 맞은편으로 두느냐에 따라 세 가지입니다. 평행사변형은 마주보는 두 꼭짓점의 합이 나머지 두 꼭짓점의 합과 같습니다.\n\\(A\\)의 맞은편: \\(D=B+C-A=(4,4)\\)\n\\(B\\)의 맞은편: \\(D=A+C-B=(-2,2)\\)\n\\(C\\)의 맞은편: \\(D=A+B-C=(4,0)\\)",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p438",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "점 \\(-\\mathbf v+2\\mathbf w\\)와, \\(c+d=1\\)인 다른 선형결합 \\(c\\mathbf v+d\\mathbf w\\)를 하나 더 표시하시오. \\(c+d=1\\)인 선형결합 전체가 이루는 직선을 그리시오.",
+   "options": [
+    "A. 평면 전체, \\(-\\mathbf v+2\\mathbf w\\)도 포함",
+    "B. \\(\\mathbf v\\)와 \\(\\mathbf w\\)의 끝점을 지나는 직선, \\(-\\mathbf v+2\\mathbf w\\)는 \\(\\mathbf w\\)보다 바깥쪽",
+    "C. \\(\\mathbf v\\)와 \\(\\mathbf w\\) 사이의 선분, \\(-\\mathbf v+2\\mathbf w\\)는 선분 위",
+    "D. 원점과 \\(\\mathbf v+\\mathbf w\\)를 지나는 직선, \\(-\\mathbf v+2\\mathbf w\\)는 그 위"
+   ],
+   "answer": "B",
+   "solution": "교수님 필기의 affine combination 그대로입니다. \\(c+d=1\\)이면 \\(c\\mathbf v+d\\mathbf w=\\mathbf w+c(\\mathbf v-\\mathbf w)\\)로 쓸 수 있습니다. \\(\\mathbf w\\)에서 출발해 방향 \\(\\mathbf v-\\mathbf w\\)로 \\(c\\)만큼 가는 점이므로, \\(c\\)가 모든 실수를 돌면 두 끝점을 지나는 직선이 됩니다.\n\\(-\\mathbf v+2\\mathbf w\\)는 \\(c=-1\\)이라 \\(\\mathbf w\\)에서 \\(\\mathbf v\\)의 반대쪽으로 한 칸 더 간 점입니다. \\(c,d\\ge0\\)까지 요구하면(convex) 선분으로 줄어듭니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p439",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "그림 1.5b에서 \\(\\tfrac13\\mathbf u+\\tfrac13\\mathbf v+\\tfrac13\\mathbf w\\)와 \\(\\tfrac12\\mathbf u+\\tfrac12\\mathbf w\\)의 위치를 찾으시오. 도전 문제: \\(c,d,e\\)에 어떤 제한을 두어야 선형결합 \\(c\\mathbf u+d\\mathbf v+e\\mathbf w\\)가 점선 삼각형을 채우는가? 삼각형 안에 머무르기 위한 조건 하나는 \\(c\\ge0,d\\ge0,e\\ge0\\)이다.",
+   "options": [
+    "A. \\(c,d,e\\ge0\\)이고 \\(c+d+e\\le1\\)",
+    "B. \\(c+d+e=1\\)만",
+    "C. \\(c,d,e\\ge0\\)이고 \\(c+d+e=1\\)",
+    "D. \\(0\\le c,d,e\\le1\\)"
+   ],
+   "answer": "C",
+   "solution": "교수님이 정리하신 convex combination의 정의입니다. 계수가 모두 0 이상이고 합이 1이면 꼭짓점 \\(\\mathbf u,\\mathbf v,\\mathbf w\\)로 만든 삼각형 안(경계 포함)에 있습니다.\n합이 1인 조건은 점을 세 끝점이 이루는 평면 위에 묶어 둡니다(affine).\n모두 0 이상인 조건은 그 평면에서 삼각형 밖으로 나가지 않게 합니다.\n\\(\\tfrac13,\\tfrac13,\\tfrac13\\)은 세 꼭짓점의 평균이라 무게중심, \\(\\tfrac12,0,\\tfrac12\\)는 \\(\\mathbf u\\)와 \\(\\mathbf w\\)의 중점입니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p440",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "위의 \\(\\mathbf u,\\mathbf v,\\mathbf w\\)의 모든 선형결합을 생각할 때, \\(c\\mathbf u+d\\mathbf v+e\\mathbf w\\)로 만들 수 없는 벡터가 있는가? \\(\\mathbf u,\\mathbf v,\\mathbf w\\)가 모두 ___ 안에 있다면 답이 달라지는가?",
+   "options": [
+    "A. 없다. 셋이 한 평면에 있어도 \\(\\mathbf R^3\\) 전체가 나온다",
+    "B. 있다. 길이가 \\(\\|\\mathbf u\\|+\\|\\mathbf v\\|+\\|\\mathbf w\\|\\)보다 긴 벡터",
+    "C. 있다. \\(\\mathbf u,\\mathbf v,\\mathbf w\\)가 펼치는 평면 밖의 벡터",
+    "D. 없다(\\(\\mathbf R^3\\) 전체). 셋이 한 평면에 있으면 그 평면만 나온다"
+   ],
+   "answer": "D",
+   "solution": "그림의 \\(\\mathbf u,\\mathbf v,\\mathbf w\\)는 한 평면에 있지 않습니다. \\(c\\mathbf u+d\\mathbf v\\)가 평면을 채우고, \\(e\\mathbf w\\)가 그 평면 밖 방향을 더해 공간 전체가 됩니다. 세 벡터가 원점을 지나는 한 평면 안에 있으면(1.1-5번처럼) 그 평면만 만들어집니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "lincomb.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p443",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "세 벡터 \\(\\mathbf u=(1,3)\\), \\(\\mathbf v=(2,7)\\), \\(\\mathbf w=(1,5)\\)의 서로 다른 두 선형결합으로 \\(\\mathbf b=(0,1)\\)을 만드시오. 조금 까다로운 질문: 평면 위의 아무 세 벡터 \\(\\mathbf u,\\mathbf v,\\mathbf w\\)를 고르면, \\(\\mathbf b=(0,1)\\)을 만드는 서로 다른 두 선형결합이 항상 존재하는가?",
+   "options": [
+    "A. \\(-2\\mathbf u+\\mathbf v\\)와 \\(\\mathbf u-\\mathbf v+\\mathbf w\\) / 항상 그렇지는 않다",
+    "B. \\(-2\\mathbf u+\\mathbf v\\)와 \\(\\mathbf u-\\mathbf v+\\mathbf w\\) / 항상 그렇다",
+    "C. \\(\\mathbf u+\\mathbf v-\\mathbf w\\)와 \\(-2\\mathbf u+\\mathbf v\\) / 항상 그렇지는 않다",
+    "D. \\(-2\\mathbf u+\\mathbf v\\)와 \\(2\\mathbf u-\\mathbf v\\) / 항상 그렇다"
+   ],
+   "answer": "A",
+   "solution": "\\(-2(1,3)+(2,7)=(0,1)\\): 첫 번째 결합.\n\\(3\\mathbf u-2\\mathbf v+\\mathbf w=(3-4+1,\\;9-14+5)=(0,0)\\)입니다. 평면에서 세 벡터는 항상 이런 0 결합이 있습니다.\n둘을 더하면 \\(\\mathbf u-\\mathbf v+\\mathbf w=(0,1)\\): 두 번째 결합. 0 결합을 몇 배든 더할 수 있으니 실은 무한히 많습니다(2.5절의 \\(x=x_p+x_h\\)와 같은 구조).\n반례: \\((1,1),(2,2),(3,3)\\)은 모두 한 직선 위라 \\((0,1)\\)을 만들 수 없습니다. 해가 있으면 무한히 많지만, 해가 없을 수도 있습니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f3",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lincomb.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p445",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "다음 벡터들에 대해 내적 \\(\\mathbf u\\cdot\\mathbf v\\), \\(\\mathbf u\\cdot\\mathbf w\\), \\(\\mathbf u\\cdot(\\mathbf v+\\mathbf w)\\), \\(\\mathbf w\\cdot\\mathbf v\\)를 계산하시오.\n\\[\\mathbf u=\\begin{bmatrix}-.6\\\\.8\\end{bmatrix},\\;\\mathbf v=\\begin{bmatrix}4\\\\3\\end{bmatrix},\\;\\mathbf w=\\begin{bmatrix}1\\\\2\\end{bmatrix}\\]",
+   "options": [
+    "A. \\(0,\\ 1,\\ 1,\\ 10\\)",
+    "B. \\(1,\\ 1,\\ 2,\\ 10\\)",
+    "C. \\(0,\\ -1,\\ -1,\\ 10\\)",
+    "D. \\(0,\\ 1,\\ 10,\\ 10\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(\\mathbf u\\cdot\\mathbf v=-2.4+2.4=0\\): 수직입니다.\n\\(\\mathbf u\\cdot\\mathbf w=-0.6+1.6=1\\).\n\\(\\mathbf u\\cdot(\\mathbf v+\\mathbf w)=\\mathbf u\\cdot(5,5)=-3+4=1\\). 분배법칙 \\(\\mathbf u\\cdot\\mathbf v+\\mathbf u\\cdot\\mathbf w=0+1\\)과 같습니다.\n\\(\\mathbf w\\cdot\\mathbf v=4+6=10=\\mathbf v\\cdot\\mathbf w\\).",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p453",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "벡터 \\((1,0,-1)\\)과 좌표축 방향 단위벡터 \\(\\mathbf i,\\mathbf j,\\mathbf k\\) 사이의 각 \\(\\alpha,\\beta,\\theta\\)의 코사인은 각각 얼마인가? 공식 \\(\\cos^2\\alpha+\\cos^2\\beta+\\cos^2\\theta=1\\)을 확인하시오.",
+   "options": [
+    "A. \\(\\tfrac12,\\ 0,\\ -\\tfrac12\\)",
+    "B. \\(\\tfrac1{\\sqrt2},\\ 0,\\ \\tfrac1{\\sqrt2}\\)",
+    "C. \\(1,\\ 0,\\ -1\\)",
+    "D. \\(\\tfrac1{\\sqrt2},\\ 0,\\ -\\tfrac1{\\sqrt2}\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(\\mathbf v\\cdot\\mathbf i=v_1\\)이므로 \\(\\cos\\alpha=v_1/\\|\\mathbf v\\|\\) 등입니다. \\(\\|\\mathbf v\\|=\\sqrt2\\). 일반적으로 \\(\\dfrac{v_1^2+v_2^2+v_3^2}{\\|\\mathbf v\\|^2}=1\\). 방향 코사인은 단위벡터 \\(\\mathbf v/\\|\\mathbf v\\|\\)의 성분 자체입니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p455",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "(내적의 법칙) 다음 식들은 간단하지만 유용하다: (1) \\(\\mathbf v\\cdot\\mathbf w=\\mathbf w\\cdot\\mathbf v\\) &nbsp; (2) \\(\\mathbf u\\cdot(\\mathbf v+\\mathbf w)=\\mathbf u\\cdot\\mathbf v+\\mathbf u\\cdot\\mathbf w\\) &nbsp; (3) \\((c\\mathbf v)\\cdot\\mathbf w=c(\\mathbf v\\cdot\\mathbf w)\\). (2)에 \\(\\mathbf u=\\mathbf v+\\mathbf w\\)를 넣어 \\(\\|\\mathbf v+\\mathbf w\\|^2=\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)임을 증명하시오.",
+   "options": [
+    "A. \\(\\mathbf v\\cdot\\mathbf v-2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)",
+    "B. \\(\\mathbf v\\cdot\\mathbf v+\\mathbf w\\cdot\\mathbf w\\)",
+    "C. \\(\\mathbf v\\cdot\\mathbf v+\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)",
+    "D. \\(\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(\\|\\mathbf v+\\mathbf w\\|^2=(\\mathbf v+\\mathbf w)\\cdot(\\mathbf v+\\mathbf w)\\).\n법칙 (2)로 \\(=(\\mathbf v+\\mathbf w)\\cdot\\mathbf v+(\\mathbf v+\\mathbf w)\\cdot\\mathbf w\\).\n법칙 (1)로 순서를 바꾸고 (2)를 다시 쓰면 \\(\\mathbf v\\cdot\\mathbf v+\\mathbf w\\cdot\\mathbf v+\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\).\n\\(\\mathbf v\\cdot\\mathbf w=\\mathbf w\\cdot\\mathbf v\\)라 \\(=\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\).\n내적은 괄호를 전개하듯 풀어도 된다는 것이 핵심입니다. 단, 행렬곱과 달리 내적은 교환이 되므로 \\(2\\mathbf v\\cdot\\mat",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p456",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "\"코사인 법칙\"은 \\((\\mathbf v-\\mathbf w)\\cdot(\\mathbf v-\\mathbf w)=\\mathbf v\\cdot\\mathbf v-2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\)에서 나온다: \\(\\|\\mathbf v-\\mathbf w\\|^2=\\|\\mathbf v\\|^2-2\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta+\\|\\mathbf w\\|^2\\). 세 변이 \\(\\mathbf v\\), \\(\\mathbf w\\), \\(\\mathbf v-\\mathbf w\\)인 삼각형을 그리시오. 어느 각이 \\(\\theta\\)인가?",
+   "options": [
+    "A. \\(\\mathbf v\\)와 \\(\\mathbf v+\\mathbf w\\) 사이의 각",
+    "B. \\(\\mathbf v\\)와 \\(\\mathbf w\\) 사이의 각 (변 \\(\\mathbf v-\\mathbf w\\)의 맞은편)",
+    "C. \\(\\mathbf v\\)와 \\(\\mathbf v-\\mathbf w\\) 사이의 각",
+    "D. \\(\\mathbf w\\)와 \\(\\mathbf v-\\mathbf w\\) 사이의 각"
+   ],
+   "answer": "B",
+   "solution": "앞에서 증명했던 \\(\\mathbf a\\cdot\\mathbf b=\\|\\mathbf a\\|\\|\\mathbf b\\|\\cos\\theta\\)의 증명을 거꾸로 읽은 것입니다. 두 식을 비교하면 \\(\\mathbf v\\cdot\\mathbf w=\\|\\mathbf v\\|\\|\\mathbf w\\|\\cos\\theta\\)이고, 이때 \\(\\theta\\)는 \\(\\mathbf v\\), \\(\\mathbf w\\) 사이의 각입니다.\n\\(\\theta0\\)이라 \\(\\|\\mathbf v-\\mathbf w\\|^290^\\circ\\)면 반대입니다. \\(\\theta=90^\\circ\\)에서 피타고라스 정리가 됩니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "dot.f1",
+    "depth": 3
+   },
+   "now": {
+    "facet": "dot.f1",
+    "depth": 3
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p457",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "삼각부등식은 (\\(\\mathbf v+\\mathbf w\\)의 길이) \\(\\le\\) (\\(\\mathbf v\\)의 길이) \\(+\\) (\\(\\mathbf w\\)의 길이)를 말한다. 19번에서 \\(\\|\\mathbf v+\\mathbf w\\|^2=\\|\\mathbf v\\|^2+2\\mathbf v\\cdot\\mathbf w+\\|\\mathbf w\\|^2\\)을 얻었다. 여기서 \\(\\mathbf v\\cdot\\mathbf w\\)를 \\(\\|\\mathbf v\\|\\|\\mathbf w\\|\\)로 키워서, 세 번째 변의 길이가 나머지 두 변의 길이의 합을 넘을 수 없음을 보이시오.",
+   "options": [
+    "A. \\(\\mathbf v\\cdot\\mathbf w=0\\)이라 \\(\\|\\mathbf v+\\mathbf w\\|^2=\\|\\mathbf v\\|^2+\\|\\mathbf w\\|^2\\)",
+    "B. \\(\\mathbf v\\cdot\\mathbf w\\ge\\|\\mathbf v\\|\\|\\mathbf w\\|\\)라서 \\(\\|\\mathbf v+\\mathbf w\\|^2\\ge(\\|\\mathbf v\\|+\\|\\mathbf w\\|)^2\\)",
+    "C. 슈바르츠 \\(\\mathbf v\\cdot\\mathbf w\\le\\|\\mathbf v\\|\\|\\mathbf w\\|\\)로 \\(\\|\\mathbf v+\\mathbf w\\|^2\\le(\\|\\mathbf v\\|+\\|\\mathbf w\\|)^2\\)",
+    "D. \\(\\|\\mathbf v+\\mathbf w\\|=\\|\\mathbf v-\\mathbf w\\|\\)라서"
+   ],
+   "answer": "C",
+   "solution": "슈바르츠 부등식으로 \\(\\mathbf v\\cdot\\mathbf w\\le\\|\\mathbf v\\|\\|\\mathbf w\\|\\).\n따라서 \\(\\|\\mathbf v+\\mathbf w\\|^2\\le\\|\\mathbf v\\|^2+2\\|\\mathbf v\\|\\|\\mathbf w\\|+\\|\\mathbf w\\|^2=(\\|\\mathbf v\\|+\\|\\mathbf w\\|)^2\\).\n양변이 0 이상이라 제곱근을 취해도 부등호가 유지됩니다.\n등호는 \\(\\cos\\theta=1\\), 같은 방향일 때입니다.",
+   "judge_A": {
+    "facet": "dot.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f2",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "dot.f2",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p459",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "(26번은 교재 오타라 27번과 합침) 두 변이 \\(\\mathbf v\\)와 \\(\\mathbf w\\)인 평행사변형에서, 두 대각선 길이의 제곱의 합 \\(\\|\\mathbf v+\\mathbf w\\|^2+\\|\\mathbf v-\\mathbf w\\|^2\\)이 네 변 길이의 제곱의 합 \\(2\\|\\mathbf v\\|^2+2\\|\\mathbf w\\|^2\\)과 같음을 보이시오.",
+   "options": [
+    "A. \\(\\|\\mathbf v+\\mathbf w\\|=\\|\\mathbf v-\\mathbf w\\|\\)이기 때문",
+    "B. 삼각부등식 때문",
+    "C. 평행사변형에서는 항상 \\(\\mathbf v\\cdot\\mathbf w=0\\)이기 때문",
+    "D. 두 전개식에서 \\(+2\\mathbf v\\cdot\\mathbf w\\)와 \\(-2\\mathbf v\\cdot\\mathbf w\\)가 상쇄되기 때문"
+   ],
+   "answer": "D",
+   "solution": "\\(\\|\\mathbf v+\\mathbf w\\|^2=\\mathbf v\\cdot\\mathbf v+2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\) (19번)\n\\(\\|\\mathbf v-\\mathbf w\\|^2=\\mathbf v\\cdot\\mathbf v-2\\mathbf v\\cdot\\mathbf w+\\mathbf w\\cdot\\mathbf w\\) (20번)\n더하면 \\(2\\|\\mathbf v\\|^2+2\\|\\mathbf w\\|^2\\). 평행사변형의 네 변은 \\(\\mathbf v,\\mathbf w,\\mathbf v,\\mathbf w\\)라 네 변 제곱의 합과 같습니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p460",
+   "kind": "mc",
+   "chapter": "1.1–1.2 벡터와 내적",
+   "question": "\\(\\mathbf v=(1,2)\\)일 때, \\(xy\\) 평면에서 \\(\\mathbf v\\cdot\\mathbf w=x+2y=5\\)를 만족하는 모든 벡터 \\(\\mathbf w=(x,y)\\)를 그리시오. 그런 \\(\\mathbf w\\)들은 왜 한 직선 위에 있는가? 가장 짧은 \\(\\mathbf w\\)는 무엇인가?",
+   "options": [
+    "A. 직선, 가장 짧은 \\(\\mathbf w=(1,2)\\)",
+    "B. 원, 가장 짧은 \\(\\mathbf w=(1,2)\\)",
+    "C. 직선, 가장 짧은 \\(\\mathbf w=(5,0)\\)",
+    "D. 직선, 가장 짧은 \\(\\mathbf w=(0,\\tfrac52)\\)"
+   ],
+   "answer": "A",
+   "solution": "미지수 2개에 방정식 1개라 자유도 1, 직선입니다. 이 직선은 \\(\\mathbf v\\)에 수직입니다(직선 위 두 점의 차 \\(\\mathbf d\\)는 \\(\\mathbf v\\cdot\\mathbf d=0\\)).\n원점에서 직선까지 가장 가까운 점은 수선의 발, 즉 \\(\\mathbf v\\) 방향의 점입니다. \\(\\mathbf w=t(1,2)\\)를 넣으면 \\(5t=5\\), \\(t=1\\).\n또는 \\(\\mathbf v\\cdot\\mathbf w=5\\)에서 \\(\\|\\mathbf w\\|\\ge\\dfrac{\\mathbf v\\cdot\\mathbf w}{\\|\\mathbf v\\|}=\\dfrac5{\\sqrt5}=\\sqrt5\\) (슈바르츠). \\(\\mathbf w\\)의 \\(\\mathbf v\\) 방향 스칼라 사영이 항상 \\(\\sqrt5\\)라는 뜻입니다.",
+   "judge_A": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "dot.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "dot.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "dot.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p479",
+   "kind": "mc",
+   "chapter": "1.3 직선과 평면",
+   "question": "점 \\((1,5,1)\\)을 지나고 두 평면 \\(2x+y-2z=2\\), \\(x+3z=4\\)에 모두 수직인 평면의 방정식을 구하여라.",
+   "options": [
+    "A. \\(3x+8y-z=42\\)",
+    "B. \\(3x+y+z=9\\)",
+    "C. \\(3x-8y-z=-38\\)",
+    "D. \\(3x-8y-z=38\\)"
+   ],
+   "answer": "C",
+   "solution": "구하는 평면은 두 평면에 수직이므로 두 법선 \\(\\langle2,1,-2\\rangle\\), \\(\\langle1,0,3\\rangle\\)이 모두 이 평면 안의 방향입니다.법선 = 두 벡터의 외적 \\(\\langle3-0,\\;-2-6,\\;0-1\\rangle=\\langle3,-8,-1\\rangle\\).\\((1,5,1)\\): \\(3-40-1=-38\\).\"수직인 평면\"의 법선은 두 법선과 평행이 아니라 수직입니다(평행/수직 혼동이 흔한 함정).",
+   "judge_A": {
+    "facet": "lineplane.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lineplane.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lineplane.f2",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lineplane.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p482",
+   "kind": "mc",
+   "chapter": "1.3 직선과 평면",
+   "question": "(a) 두 평면의 교선의 매개변수방정식을 구하고, (b) 두 평면 사이의 각을 구하여라.\n\\(x+y+z=1,\\quad x+2y+2z=1\\)",
+   "options": [
+    "A. \\(x=1,\\;y=t,\\;z=t\\); \\(\\approx15.8^\\circ\\)",
+    "B. \\(x=1+2t,\\;y=3t,\\;z=3t\\); \\(\\approx15.8^\\circ\\)",
+    "C. \\(x=1,\\;y=t,\\;z=-t\\); \\(\\approx15.8^\\circ\\)",
+    "D. \\(x=1,\\;y=t,\\;z=-t\\); \\(\\approx74.2^\\circ\\)"
+   ],
+   "answer": "C",
+   "solution": "둘째 식 − 첫째 식: \\(y+z=0\\). 그러면 \\(x=1\\). \\(y=t\\)로 두면 \\(z=-t\\): \\(x=1,\\;y=t,\\;z=-t\\) (방향 \\(\\langle0,1,-1\\rangle\\) = 외적 \\(\\langle1,1,1\\rangle\\times\\langle1,2,2\\rangle\\)과 평행).\n\\(\\cos\\theta=\\dfrac{1+2+2}{\\sqrt3\\cdot3}=\\dfrac5{3\\sqrt3}\\approx0.962\\) → \\(\\theta\\approx15.8^\\circ\\).검산: 점 \\((1,t,-t)\\)를 두 평면에 대입하면 \\(1\\)이 나옵니다.",
+   "judge_A": {
+    "facet": "lineplane.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lineplane.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lineplane.f1",
+    "depth": 2
+   },
+   "now": {
+    "facet": "lineplane.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p492",
+   "kind": "mc",
+   "chapter": "2.1-2 행렬 연산과 행렬 곱",
+   "question": "\\(\\mathbf R^n\\)의 벡터는 \\(n\\times1\\) 행렬로 볼 수 있으므로 정리 3의 전치 성질이 벡터에도 적용된다. \\(A=\\begin{bmatrix}1&-3\\\\-2&4\\end{bmatrix}\\), \\(\\mathbf x=\\begin{bmatrix}5\\\\3\\end{bmatrix}\\)일 때 \\((A\\mathbf x)^T\\), \\(\\mathbf x^TA^T\\), \\(\\mathbf x\\mathbf x^T\\), \\(\\mathbf x^T\\mathbf x\\)를 계산하라. \\(A^T\\mathbf x^T\\)는 정의되는가?",
+   "options": [
+    "A. \\((A\\mathbf x)^T=\\mathbf x^TA^T=[-4\\ \\ 2]\\), \\(\\mathbf x\\mathbf x^T=\\begin{bmatrix}25&15\\\\15&9\\end{bmatrix}\\), \\(\\mathbf x^T\\mathbf x=34\\), \\(A^T\\mathbf x^T\\)는 정의되지 않는다",
+    "B. \\((A\\mathbf x)^T=[-4\\ \\ 2]\\), \\(\\mathbf x\\mathbf x^T=[34]\\), \\(\\mathbf x^T\\mathbf x=\\begin{bmatrix}25&15\\\\15&9\\end{bmatrix}\\), \\(A^T\\mathbf x^T\\)는 정의되지 않는다",
+    "C. \\((A\\mathbf x)^T=[-4\\ \\ 2]\\), \\(\\mathbf x\\mathbf x^T=\\begin{bmatrix}25&15\\\\15&9\\end{bmatrix}\\), \\(\\mathbf x^T\\mathbf x=34\\), \\(A^T\\mathbf x^T\\)도 정의되어 \\(2\\times2\\) 행렬이 된다",
+    "D. \\((A\\mathbf x)^T=\\mathbf x^TA=[-1\\ \\ -3]\\), \\(\\mathbf x\\mathbf x^T=\\begin{bmatrix}25&15\\\\15&9\\end{bmatrix}\\), \\(\\mathbf x^T\\mathbf x=34\\), \\(A^T\\mathbf x^T\\)는 정의되지 않는다"
+   ],
+   "answer": "A",
+   "solution": "\\(A\\mathbf x=\\begin{bmatrix}5-9\\\\-10+12\\end{bmatrix}=\\begin{bmatrix}-4\\\\2\\end{bmatrix}\\)이므로 \\((A\\mathbf x)^T=[-4\\ \\ 2]\\).\n\\(\\mathbf x^TA^T=[5\\ \\ 3]\\begin{bmatrix}1&-2\\\\-3&4\\end{bmatrix}=[5-9,\\ -10+12]=[-4\\ \\ 2]\\). 전치의 곱은 순서가 뒤집힌다: \\((A\\mathbf x)^T=\\mathbf x^TA^T\\). (\\(\\mathbf x^TA=[-1\\ \\ -3]\\)과 헷갈리지 말 것.)\n\\(\\mathbf x\\mathbf x^T\\)는 \\(2\\times1\\)과 \\(1\\times2\\)의 곱이라 \\(2\\times2\\)(외적): \\(\\begin{bmatrix}25&15\\\\15&9\\end{bmatrix}\\). \\(\\mathbf x^T\\mathbf x=25+9=34\\)는 \\(1\\times1\\)(내적).\n\\(A^T\\)는 \\(2\\times2\\",
+   "judge_A": {
+    "facet": "matops.f4",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f4",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f1",
+    "depth": 3
+   },
+   "now": {
+    "facet": "matops.f4",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p493",
+   "kind": "mc",
+   "chapter": "2.1-2 행렬 연산과 행렬 곱",
+   "question": "\\(A\\)가 \\(4\\times4\\) 행렬이고 \\(\\mathbf x\\)가 \\(\\mathbf R^4\\)의 벡터일 때, \\(A^2\\mathbf x\\)를 계산하는 가장 빠른 방법은 무엇인가? 곱셈 횟수를 세어라.",
+   "options": [
+    "A. \\((A^2)\\mathbf x\\), 곱셈 80번",
+    "B. \\(A(A\\mathbf x)\\), 곱셈 16번",
+    "C. \\(A(A\\mathbf x)\\), 곱셈 32번",
+    "D. \\(A(A\\mathbf x)\\), 곱셈 64번"
+   ],
+   "answer": "C",
+   "solution": "\\(A\\mathbf x\\): 성분 4개, 성분마다 곱셈 4번 → 16번. 한 번 더 \\(A(A\\mathbf x)\\) → 16번. 합계 32번.\n\\(A^2\\)을 먼저 만들면 성분 16개 × 4번 = 64번, 그 뒤 \\(A^2\\mathbf x\\)에 16번 → 80번.\n결합법칙 \\((AA)\\mathbf x=A(A\\mathbf x)\\)이므로 결과는 같고, 행렬×행렬보다 행렬×벡터가 훨씬 쌉니다. LU에서 \\(L\\mathbf c=\\mathbf b\\), \\(U\\mathbf x=\\mathbf c\\)로 푸는 것이 \\(A^{-1}\\mathbf b\\)보다 싼 것도 같은 원리입니다.",
+   "judge_A": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f3",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "matops.f3",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p507",
+   "kind": "mc",
+   "chapter": "2.1-2 행렬 연산과 행렬 곱",
+   "question": "16. a. \\(A\\), \\(B\\)가 \\(3\\times3\\)이고 \\(B=[\\mathbf b_1\\ \\mathbf b_2\\ \\mathbf b_3]\\)이면 \\(AB=[A\\mathbf b_1+A\\mathbf b_2+A\\mathbf b_3]\\)이다.\nb. \\(AB\\)의 둘째 행은 \\(A\\)의 둘째 행에 \\(B\\)를 오른쪽에서 곱한 것이다.\nc. \\((AB)C=(AC)B\\)\nd. \\((AB)^T=A^TB^T\\)\ne. 행렬의 합의 전치는 각 전치의 합과 같다.",
+   "options": [
+    "A. a T, b T, c F, d F, e T",
+    "B. a F, b T, c F, d T, e T",
+    "C. a F, b T, c T, d F, e T",
+    "D. a F, b T, c F, d F, e T"
+   ],
+   "answer": "D",
+   "solution": "(a) 거짓. 열은 나란히 배열하는 것이지 더하는 게 아닙니다. 더하면 \\(3\\times1\\)이 되어 \\(3\\times3\\)인 \\(AB\\)와 크기부터 다릅니다.\n(b) 참. \\(\\text{row}_2(AB)=\\text{row}_2(A)\\,B\\).\n(c) 거짓. 곱의 순서는 바꿀 수 없습니다. \\((AB)C=A(BC)\\)는 맞지만 \\(B\\)와 \\(C\\)의 자리를 바꿀 수는 없습니다.\n(d) 거짓. \\((AB)^T=B^TA^T\\).\n(e) 참.\n2025 O/X 1-4(\\(B\\)의 열이 같으면 \\(AB\\)의 열도 같다)와 같은 \"열 관점\" 사고가 필요합니다.",
+   "judge_A": {
+    "facet": "matops.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f4",
+    "depth": 1
+   },
+   "now": {
+    "facet": "matops.f2",
+    "depth": 1
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p515",
+   "kind": "mc",
+   "chapter": "2.1-2 행렬 연산과 행렬 곱",
+   "question": "\\(AD=I_m\\) (\\(m\\times m\\) 단위행렬)이라 하자. 임의의 \\(\\mathbf b\\in\\mathbf R^m\\)에 대해 \\(A\\mathbf x=\\mathbf b\\)가 해를 가짐을 보이고 (힌트: \\(AD\\mathbf b=\\mathbf b\\)), \\(A\\)가 열보다 행이 많을 수 없는 이유를 설명하라.",
+   "options": [
+    "A. \\(A(D\\mathbf b)=\\mathbf b\\)이므로 \\(\\mathbf x=D\\mathbf b\\)가 해이다. 모든 \\(\\mathbf b\\)에 해가 있으면 \\(A\\)의 모든 행에 피벗이 있고, 피벗은 서로 다른 열에 있으므로 (열 수) \\(\\ge\\) (행 수)",
+    "B. \\(\\mathbf x=\\mathbf b D\\)가 해이다. 따라서 (열 수) \\(\\ge\\) (행 수)",
+    "C. \\(A(D\\mathbf b)=\\mathbf b\\)이므로 \\(\\mathbf x=D\\mathbf b\\)가 해이다. 모든 열이 피벗열이므로 (열 수) \\(\\le\\) (행 수)",
+    "D. \\(AD=I_m\\)이므로 \\(A\\mathbf x=\\mathbf b\\)의 해는 \\(\\mathbf x=A^{-1}\\mathbf b\\)로 유일하다"
+   ],
+   "answer": "A",
+   "solution": "\\(\\mathbf b\\)가 무엇이든 \\(A(D\\mathbf b)=(AD)\\mathbf b=I_m\\mathbf b=\\mathbf b\\)이므로 \\(\\mathbf x=D\\mathbf b\\)가 \\(A\\mathbf x=\\mathbf b\\)의 해.\n모든 \\(\\mathbf b\\)에 대해 해가 있으면 \\(A\\)의 모든 행에 피벗이 있어야 합니다 (그렇지 않으면 소거 후 \\([0\\ \\cdots\\ 0\\mid *]\\) 꼴 불능행이 생기는 \\(\\mathbf b\\)가 존재).\n피벗은 서로 다른 열에 있으므로 행 수 \\(\\le\\) 열 수.\n23번과 짝: 좌역(\\(CA=I\\)) → 열 \\(\\le\\) 행, 우역(\\(AD=I\\)) → 행 \\(\\le\\) 열.",
+   "judge_A": {
+    "facet": "matops.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "now": {
+    "facet": "matops.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p516",
+   "kind": "mc",
+   "chapter": "2.1-2 행렬 연산과 행렬 곱",
+   "question": "\\(A\\)가 \\(m\\times n\\) 행렬이고 \\(CA=I_n\\), \\(AD=I_m\\)인 \\(n\\times m\\) 행렬 \\(C\\), \\(D\\)가 존재한다. \\(m=n\\)이고 \\(C=D\\)임을 증명하라. (힌트: \\(CAD\\)를 생각하라.)",
+   "options": [
+    "A. \\(CA=I_n\\)에서 바로 \\(m=n\\). 그리고 \\(C=I_nC=(DA)C=D(AC)=D\\) (\\(AC=I\\)이므로)",
+    "B. \\(m=n\\)이면 \\(C\\)와 \\(D\\)는 \\(A\\)의 서로 다른 역행렬일 수 있다",
+    "C. 23번에서 \\(m\\ge n\\), 24번에서 \\(m\\le n\\)이므로 \\(m=n\\). 그리고 \\(C=CI_m=C(AD)=(CA)D=I_nD=D\\)",
+    "D. 23번에서 \\(m\\le n\\), 24번에서 \\(m\\ge n\\)이므로 \\(m=n\\). 그리고 \\(C=CI_m=C(AD)=(CA)D=D\\)"
+   ],
+   "answer": "C",
+   "solution": "23번: \\(CA=I_n\\Rightarrow\\) 행 수 \\(\\ge\\) 열 수, 즉 \\(m\\ge n\\). 24번: \\(AD=I_m\\Rightarrow\\) 행 수 \\(\\le\\) 열 수, 즉 \\(m\\le n\\). 따라서 \\(m=n\\).\n\\(C=CI_m=C(AD)=(CA)D=I_nD=D\\).\n결론: 좌역과 우역이 둘 다 있으면 \\(A\\)는 정사각이고 두 역행렬은 같습니다. 이것이 역행렬의 유일성(2.6절)의 뿌리입니다. (\\(AD=I\\)인 정사각 \\(A\\)는 \\(CA=I\\)인 \\(C\\)도 갖는다는 2022 O/X 16과도 연결.)",
+   "judge_A": {
+    "facet": "matops.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "matops.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p529",
+   "kind": "mc",
+   "chapter": "2.3 선형변환",
+   "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 먼저 \\(\\mathbf e_2\\)를 \\(\\mathbf e_2-2\\mathbf e_1\\)로 보내는(\\(\\mathbf e_1\\)은 그대로) 가로 층밀림을 한 다음 직선 \\(x_2=-x_1\\)에 대해 대칭시킨다. 표준행렬을 구하여라.",
+   "options": [
+    "A. \\(\\begin{bmatrix}2&-1\\\\-1&0\\end{bmatrix}\\)",
+    "B. \\(\\begin{bmatrix}0&-1\\\\-1&-2\\end{bmatrix}\\)",
+    "C. \\(\\begin{bmatrix}0&1\\\\1&-2\\end{bmatrix}\\)",
+    "D. \\(\\begin{bmatrix}0&-1\\\\-1&2\\end{bmatrix}\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(x_2=-x_1\\) 대칭: \\(\\mathbf e_1\\to-\\mathbf e_2\\), \\(\\mathbf e_2\\to-\\mathbf e_1\\) (행렬 \\(\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\)).\\(\\mathbf e_1\\to\\mathbf e_1\\to-\\mathbf e_2\\).\\(\\mathbf e_2\\to\\mathbf e_2-2\\mathbf e_1\\to(-\\mathbf e_1)-2(-\\mathbf e_2)=-\\mathbf e_1+2\\mathbf e_2\\) (대칭이 선형이라 각각 보내서 결합).\\(A=\\begin{bmatrix}0&-1\\\\-1&0\\end{bmatrix}\\begin{bmatrix}1&-2\\\\0&1\\end{bmatrix}=\\begin{bmatrix}0&-1\\\\-1&2\\end{bmatrix}\\).둘째 보기는 순서 반대, 셋째는 \\(x_2=x_1\\) 대칭을 쓴 것, 넷째는 층밀림을 \\(+2\\mathbf e_1\\)로 한 것.",
+   "judge_A": {
+    "facet": "lintrans.f1",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "lintrans.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lintrans.f1",
+    "depth": 2
+   },
+   "now": {
+    "facet": "lintrans.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p536",
+   "kind": "mc",
+   "chapter": "2.3 선형변환",
+   "question": "\\(T:\\mathbf R^2\\to\\mathbf R^2\\)는 \\(T(x_1,x_2)=(x_1+x_2,\\ 4x_1+5x_2)\\)인 선형변환이다. \\(T(\\mathbf x)=(3,8)\\)인 \\(\\mathbf x\\)를 구하여라.",
+   "options": [
+    "A. \\(\\mathbf x=(-1,4)\\)",
+    "B. \\(\\mathbf x=(7,4)\\)",
+    "C. \\(\\mathbf x=(7,-4)\\)",
+    "D. \\(\\mathbf x=(-4,7)\\)"
+   ],
+   "answer": "C",
+   "solution": "\\(A=\\begin{bmatrix}1&1\\\\4&5\\end{bmatrix}\\), \\(\\left[\\begin{array}{cc|c}1&1&3\\\\4&5&8\\end{array}\\right]\\).\\(R_2-4R_1\\): \\([0\\ 1\\,|\\,-4]\\). \\(R_1-R_2\\): \\([1\\ 0\\,|\\,7]\\).\\(\\mathbf x=(7,-4)\\). 검산: \\(7-4=3\\), \\(28-20=8\\).\\((-1,4)\\)는 첫 성분만 맞고(\\(3\\)) 둘째가 16이라 틀림 — 반드시 두 식 모두 검산.",
+   "judge_A": {
+    "facet": "lintrans.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lintrans.f1",
+    "depth": 2
+   },
+   "now": {
+    "facet": "lintrans.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p537",
+   "kind": "mc",
+   "chapter": "2.3 선형변환",
+   "question": "\\(T:\\mathbf R^2\\to\\mathbf R^3\\)는 \\(T(x_1,x_2)=(x_1-2x_2,\\ -x_1+3x_2,\\ 3x_1-2x_2)\\)인 선형변환이다. \\(T(\\mathbf x)=(-1,4,9)\\)인 \\(\\mathbf x\\)를 구하여라.",
+   "options": [
+    "A. \\(\\mathbf x=(5,3)\\)",
+    "B. \\(\\mathbf x=(3,5)\\)",
+    "C. \\(\\mathbf x=(5,-3)\\)",
+    "D. \\(\\mathbf x=(1,1)\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(\\left[\\begin{array}{cc|c}1&-2&-1\\\\-1&3&4\\\\3&-2&9\\end{array}\\right]\\).\\(R_2+R_1\\): \\([0\\ 1\\,|\\,3]\\); \\(R_3-3R_1\\): \\([0\\ 4\\,|\\,12]\\); \\(R_3-4R_2\\): \\([0\\ 0\\,|\\,0]\\).\\(R_1+2R_2\\): \\([1\\ 0\\,|\\,5]\\). \\(\\mathbf x=(5,3)\\), 유일.검산: \\(5-6=-1\\), \\(-5+9=4\\), \\(15-6=9\\).\\(3\\times2\\)라 마지막 행이 \\(0=0\\)인지 확인해야 해가 존재(만약 \\(0=c\\ne0\\)이면 해 없음).",
+   "judge_A": {
+    "facet": "lintrans.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f2",
+    "depth": 2
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p538",
+   "kind": "ox",
+   "chapter": "2.3 선형변환",
+   "question": "참/거짓: \\(\\mathbf R^n\\)의 모든 벡터 \\(\\mathbf x\\)가 \\(\\mathbf R^m\\)의 어떤 벡터로 보내지면 사상 \\(T:\\mathbf R^n\\to\\mathbf R^m\\)은 \\(\\mathbf R^m\\) 위로의(onto) 사상이다.",
+   "answer": "X",
+   "solution": "\"모든 \\(\\mathbf x\\)가 어딘가로 간다\"는 모든 함수의 성질입니다. onto는 반대 방향: 모든 \\(\\mathbf b\\in\\mathbf R^m\\)에 대해 \\(T(\\mathbf x)=\\mathbf b\\)인 \\(\\mathbf x\\)가 존재해야 합니다(치역 = 공역).",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p549",
+   "kind": "ox",
+   "chapter": "2.3 선형변환",
+   "question": "참/거짓: \\(A\\)가 \\(3\\times5\\) 행렬이고 \\(T\\)가 \\(T(\\mathbf x)=A\\mathbf x\\)로 정의되는 변환이면 \\(T\\)의 정의역(domain)은 \\(\\mathbf R^3\\)이다.",
+   "answer": "X",
+   "solution": "\\(A\\mathbf x\\)가 정의되려면 \\(\\mathbf x\\)의 성분 수가 \\(A\\)의 열 수 5와 같아야 합니다. 정의역은 \\(\\mathbf R^5\\), 공역(codomain)이 \\(\\mathbf R^3\\)입니다(노트 필기: \\(3\\times5\\cdot5\\times1=3\\times1\\), \\(\\mathbf R^5\\to\\mathbf R^3\\)). 2025 O/X 1-5와 같은 함정(정의역을 \\(\\mathbf R^m\\)으로 착각).",
+   "judge_A": {
+    "facet": "lintrans.f3",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lintrans.f3",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lintrans.f3",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p550",
+   "kind": "ox",
+   "chapter": "2.3 선형변환",
+   "question": "참/거짓: \\(A\\)가 \\(m\\times n\\) 행렬이면 변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)의 치역(range)은 \\(\\mathbf R^m\\)이다.",
+   "answer": "X",
+   "solution": "치역은 실제로 나오는 값 전체, 즉 \\(A\\)의 열들의 선형결합 전체이고 공역 \\(\\mathbf R^m\\)의 부분집합일 뿐입니다. 치역 \\(=\\mathbf R^m\\)이려면(= onto) \\(A\\)의 모든 행에 피벗이 있어야 합니다. 반례: \\(A=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix}\\)의 치역은 \\(x_1\\)축뿐. 2021 O/X 7(\\(3\\times5\\))과 같은 유형.",
+   "judge_A": {
+    "facet": "lintrans.f3",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lintrans.f3",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lintrans.f3",
+    "depth": 1
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p553",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "문제 1의 삼각 시스템을 후진대입으로 풀어라(\\(y\\) 먼저, 그다음 \\(x\\)). \\(x(2,10)+y(3,9)=(1,11)\\)임을 확인하라. 우변이 \\((4,44)\\)로 바뀌면 새 해는?",
+   "options": [
+    "A. \\((x,y)=(2,-1)\\); 새 해 \\((8,-4)\\)",
+    "B. \\((x,y)=(-1,2)\\); 새 해 \\((-4,8)\\)",
+    "C. \\((x,y)=(2,-1)\\); 새 해 \\((8,-1)\\)",
+    "D. \\((x,y)=(2,-1)\\); 새 해 \\((-8,4)\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(-6y=6\\Rightarrow y=-1\\), \\(2x+3(-1)=1\\Rightarrow x=2\\).열 그림 확인: \\(2(2,10)-(3,9)=(1,11)\\).\\((4,44)=4(1,11)\\)이므로 해도 4배: \\((8,-4)\\).우변 전체가 \\(k\\)배면 해도 \\(k\\)배 (\\(x\\), \\(y\\) 둘 다).",
+   "judge_A": {
+    "facet": "lincomb.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lu.f2",
+    "depth": 2
+   },
+   "now": {
+    "facet": "lincomb.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p560",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "두 식이 해를 가지는지 결정하는 \\(b_1,b_2\\)의 조건은? 해는 몇 개인가? \\(\\mathbf b=(1,2)\\)와 \\((1,0)\\)에 대한 열 그림을 그려라. \\[3x-2y=b_1,\\qquad 6x-4y=b_2.\\]",
+   "options": [
+    "A. \\(b_1=2b_2\\)이면 해 무수히; \\((1,2)\\)는 해 없음, \\((1,0)\\)은 해 있음",
+    "B. \\(b_2=2b_1\\)이면 해가 정확히 하나; \\((1,2)\\)는 해 있음, \\((1,0)\\)은 해 없음",
+    "C. \\(b_2=2b_1\\)이면 해 무수히; 열 \\((3,6),(-2,-4)\\)가 한 직선 위 → \\((1,2)\\)는 해 있음, \\((1,0)\\)은 해 없음",
+    "D. \\(b_2=2b_1\\)이면 해 무수히; \\((1,0)\\)은 해 있음, \\((1,2)\\)는 해 없음"
+   ],
+   "answer": "C",
+   "solution": "식2 − 2×식1: \\(0=b_2-2b_1\\). 조건 \\(b_2=2b_1\\).그때 두 직선이 같아 해 무수히.열 그림: \\(x(3,6)+y(-2,-4)\\). 두 열 모두 방향 \\((1,2)\\)의 직선 위 → 결합도 그 직선 위만. \\((1,2)\\)는 그 직선 위(\\(2=2\\cdot1\\)), \\((1,0)\\)은 밖.",
+   "judge_A": {
+    "facet": "elim.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lincomb.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f3",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p562",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "(추천) 연립일차방정식은 해를 정확히 두 개 가질 수 없다. 왜? (a) \\((x,y,z)\\)와 \\((X,Y,Z)\\)가 두 해라면, 또 다른 해는?",
+   "options": [
+    "A. \\((x-X,\\;y-Y,\\;z-Z)\\)",
+    "B. \\((xX,\\;yY,\\;zZ)\\)",
+    "C. \\(\\tfrac12(x+X,\\;y+Y,\\;z+Z)\\)",
+    "D. \\((x+X,\\;y+Y,\\;z+Z)\\)"
+   ],
+   "answer": "C",
+   "solution": "\\(A\\mathbf u=\\mathbf b\\), \\(A\\mathbf U=\\mathbf b\\)이면 \\(A\\left(\\tfrac12\\mathbf u+\\tfrac12\\mathbf U\\right)=\\tfrac12\\mathbf b+\\tfrac12\\mathbf b=\\mathbf b\\).계수의 합이 1이면 항상 해 → 해가 2개면 무수히 많다.합 \\(\\mathbf u+\\mathbf U\\)는 \\(A(\\mathbf u+\\mathbf U)=2\\mathbf b\\)라 (\\(\\mathbf b\\ne\\mathbf 0\\)이면) 해가 아님. 차 \\(\\mathbf u-\\mathbf U\\)는 \\(A\\mathbf x=\\mathbf 0\\)의 해.",
+   "judge_A": {
+    "facet": "elim.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lincomb.f3",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lincomb.f4",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 1
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p565",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "행 교환을 강제하는 \\(d\\)는 무엇이고 그때의 (특이하지 않은) 삼각 시스템은? 이 시스템을 특이하게(셋째 피벗 없음) 만드는 \\(d\\)는? \\[2x+5y+z=0,\\qquad 4x+dy+z=2,\\qquad y-z=3.\\]",
+   "options": [
+    "A. 행 교환 \\(d=10\\), 특이 \\(d=11\\)",
+    "B. 행 교환 \\(d=10\\), 특이 \\(d=9\\)",
+    "C. 행 교환 \\(d=11\\), 특이 \\(d=10\\)",
+    "D. 행 교환 \\(d=0\\), 특이 \\(d=11\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(R_2-2R_1\\): \\((d-10)y-z=2\\).\\(d=10\\): 둘째 피벗 자리 0 → 3행 \\(y-z=3\\)과 교환. 삼각 시스템 \\(2x+5y+z=0,\\;y-z=3,\\;-z=2\\).\\(d\\ne10\\): \\(R_3-\\tfrac{1}{d-10}R_2\\)의 \\(z\\) 계수 \\(-1+\\tfrac{1}{d-10}=0\\iff d=11\\). 즉 \\((d-10,-1)\\)이 \\((1,-1)\\)과 같아지는 때. 그때 \\(0=1\\) → 해 없음.2025-5-1과 같은 \"마지막 피벗 자리에 매개변수\" 유형.",
+   "judge_A": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p568",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "1열과 2열이 같으면 어느 피벗이 빠지는가? \\[\\text{같은 열:}\\quad 2x+2y+z=0,\\quad 4x+4y+z=0,\\quad 6x+6y+z=2.\\]",
+   "options": [
+    "A. 둘째 피벗 (2열에 피벗 없음)",
+    "B. 셋째 피벗만 (3열)",
+    "C. 빠지는 피벗 없음 (행 교환으로 해결)",
+    "D. 첫째 피벗"
+   ],
+   "answer": "A",
+   "solution": "\\(R_2-2R_1=[0\\;0\\;-1\\,|\\,0]\\), \\(R_3-3R_1=[0\\;0\\;-2\\,|\\,2]\\).1열을 지우면 2열도 같이 지워짐 → 아래 행들의 2열이 모두 0, 교환으로도 못 고침.(참고) 이어서 \\(R_3-2R_2=[0\\;0\\;0\\,|\\,2]\\): \\(0=2\\)라 이 시스템은 해 없음.",
+   "judge_A": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p572",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "\\(A=\\begin{bmatrix}a&2\\\\a&a\\end{bmatrix}\\)에서 소거가 실패하는 두 수 \\(a\\)는?",
+   "options": [
+    "A. \\(a=0,\\;2\\)",
+    "B. \\(a=2\\)만",
+    "C. \\(a=0,\\;-2\\)",
+    "D. \\(a=1,\\;2\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(a=0\\): 1열이 전부 0 → 교환해도 1열 피벗 없음.\\(a\\ne0\\): \\(R_2-R_1\\)로 둘째 피벗 \\(a-2\\) → \\(a=2\\)이면 0 (두 열이 같아짐).확인: \\(ad-bc=a^2-2a=a(a-2)\\).",
+   "judge_A": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p573",
+   "kind": "mc",
+   "chapter": "2.4 연립일차방정식",
+   "question": "어떤 세 수 \\(a\\)에서 소거가 피벗 3개를 주지 못하는가? \\[A=\\begin{bmatrix}a&2&3\\\\a&a&4\\\\a&a&a\\end{bmatrix}\\ \\text{는 세 값의 } a\\text{에서 특이하다.}\\]",
+   "options": [
+    "A. \\(a=0,\\;2,\\;3\\)",
+    "B. \\(a=0,\\;2,\\;4\\)",
+    "C. \\(a=2,\\;3,\\;4\\)",
+    "D. \\(a=0,\\;3,\\;4\\)"
+   ],
+   "answer": "B",
+   "solution": "\\(a\\ne0\\): \\(R_2-R_1=[0\\;a-2\\;1]\\), \\(R_3-R_1=[0\\;a-2\\;a-3]\\).\\(a=2\\)이면 둘째 피벗 자리와 그 아래가 모두 0 → 피벗 누락.아니면 \\(R_3-R_2=[0\\;0\\;a-4]\\) → \\(a=4\\)이면 셋째 피벗 0.\\(a=0\\)은 1열이 0.확인: \\(\\det A=a(a-2)(a-4)\\).",
+   "judge_A": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p580",
+   "kind": "ox",
+   "chapter": "2.4 연립일차방정식",
+   "question": "inconsistent한 시스템은 해가 두 개 이상이다.",
+   "answer": "X",
+   "solution": "inconsistent = 해가 없음. 해가 하나 이상이면 consistent입니다.",
+   "judge_A": {
+    "facet": "lincomb.f3",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lincomb.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lincomb.f3",
+    "depth": 1
+   },
+   "now": {
+    "facet": "lincomb.f3",
+    "depth": 1
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p581",
+   "kind": "ox",
+   "chapter": "2.4 연립일차방정식",
+   "question": "세 변수, 세 방정식인 연립방정식의 계수행렬 \\(A\\)가 모든 열에 피벗을 가진다고 하자. 그러면 모든 \\(A\\mathbf x=\\mathbf b\\)는 유일한 해를 가진다.",
+   "answer": "O",
+   "solution": "\\(3\\times3\\)에서 피벗 3개면 \\(U\\)의 대각이 모두 0이 아니라 \\(0=c\\) 모순 행이 생기지 않고(해 존재), 자유로운 변수도 없어(유일) 어떤 \\(\\mathbf b\\)든 후진대입으로 딱 하나의 해가 나옵니다. (교수님 필기: \"unique solution\" 밑줄)",
+   "judge_A": {
+    "facet": "elim.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p601",
+   "kind": "mc",
+   "chapter": "2.5 행 축약과 사다리꼴",
+   "question": "다음 동차 시스템의 해집합을 매개변수 벡터 형태로 쓰시오: \\(x_1+3x_2+x_3=0,\\;-4x_1-9x_2+2x_3=0,\\;-3x_2-6x_3=0\\).",
+   "options": [
+    "A. \\(\\mathbf x=x_3(5,-2,1)\\)",
+    "B. \\(\\mathbf x=x_3(5,2,1)\\)",
+    "C. \\(\\mathbf x=\\mathbf 0\\) (자명해뿐)",
+    "D. \\(\\mathbf x=x_3(-5,2,1)\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(R_2+4R_1\\): \\([0\\;3\\;6]\\), \\(R_3+R_2\\): \\([0\\;0\\;0]\\).\\(R_2\\div3\\): \\([0\\;1\\;2]\\), \\(R_1-3R_2\\): \\([1\\;0\\;-5]\\).\\(x_1-5x_3=0,\\;x_2+2x_3=0\\) → \\(x_1=5x_3,\\;x_2=-2x_3\\).원점을 지나는 직선. 15번(같은 계수, 우변만 다름)과 비교.",
+   "judge_A": {
+    "facet": "lincomb.f4",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f4",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "lincomb.f4",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p602",
+   "kind": "mc",
+   "chapter": "2.5 행 축약과 사다리꼴",
+   "question": "\\(A\\)가 \\(\\begin{bmatrix}1&3&-3&7\\\\0&1&-4&5\\end{bmatrix}\\)와 행 동치일 때, \\(A\\mathbf x=\\mathbf 0\\)의 모든 해를 매개변수 벡터 형태로 쓰시오.",
+   "options": [
+    "A. \\(\\mathbf x=x_3(-9,4,0,1)+x_4(8,-5,1,0)\\)",
+    "B. \\(\\mathbf x=x_3(9,-4,1,0)+x_4(-8,5,0,1)\\)",
+    "C. \\(\\mathbf x=x_3(3,4,1,0)+x_4(-7,-5,0,1)\\)",
+    "D. \\(\\mathbf x=x_3(-9,4,1,0)+x_4(8,-5,0,1)\\)"
+   ],
+   "answer": "D",
+   "solution": "주어진 행렬은 \\(A\\)(계수행렬) — 변수 4개. \\(R_1-3R_2\\): \\([1\\;0\\;9\\;-8]\\).\\(x_1=-9x_3+8x_4,\\;x_2=4x_3-5x_4\\), \\(x_3,x_4\\) 자유.셋째 보기는 RREF 없이 1행에서 \\(x_2\\) 항을 무시한 실수(\\(A\\mathbf s\\ne\\mathbf 0\\)), 넷째는 자유변수 자리(1을 넣을 위치)를 바꾼 실수입니다.",
+   "judge_A": {
+    "facet": "lincomb.f4",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f4",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "lincomb.f4",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p611",
+   "kind": "mc",
+   "chapter": "2.5 행 축약과 사다리꼴",
+   "question": "\\(A\\)는 \\(3\\times3\\) 행렬이고 \\(\\mathbf y\\in\\mathbb R^3\\)에 대해 \\(A\\mathbf x=\\mathbf y\\)가 해를 갖지 않는다. \\(A\\mathbf x=\\mathbf z\\)가 유일한 해를 갖는 \\(\\mathbf z\\in\\mathbb R^3\\)가 존재하는가?",
+   "options": [
+    "A. 알 수 없다",
+    "B. 없다: 피벗이 최대 2개 → 자유변수 ≥ 1 → 모든 \\(\\mathbf z\\)에 대해 해가 없거나 무수히 많음",
+    "C. 있다: \\(\\mathbf z=\\mathbf 0\\)이면 유일해 \\(\\mathbf 0\\)",
+    "D. 있다: \\(\\mathbf z\\)를 잘 고르면 유일해가 가능"
+   ],
+   "answer": "B",
+   "solution": "\\(A\\mathbf x=\\mathbf y\\)가 해가 없다 → 모든 행에 피벗이 있지는 않음 → 정사각 \\(3\\times3\\)이라 피벗 ≤ 2 → 자유변수 ≥ 1 → 해가 있는 \\(\\mathbf z\\)라도 해는 무수히 많음. \\(\\mathbf z=\\mathbf 0\\)이어도 nontrivial 해가 있습니다. 2025 O/X 1-9, 2023 O/X 14(“모든 \\(\\mathbf b\\)에 해 ⇒ 해가 둘 이상인 \\(\\mathbf v\\) 불가”)와 같은 논리.",
+   "judge_A": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "elim.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p616",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "연습문제 1에서 구한 역행렬을 이용하여 연립방정식 \\(8x_1+6x_2=2,\\;5x_1+4x_2=-1\\)을 푸시오.",
+   "options": [
+    "A. \\(x_1=-7,\\;x_2=9\\)",
+    "B. \\(x_1=7,\\;x_2=-9\\)",
+    "C. \\(x_1=1,\\;x_2=1\\)",
+    "D. \\(x_1=14,\\;x_2=-18\\)"
+   ],
+   "answer": "B",
+   "solution": "\\(A\\mathbf x=\\mathbf b\\), \\(A=\\begin{bmatrix}8&6\\\\5&4\\end{bmatrix}\\), \\(\\mathbf b=\\begin{bmatrix}2\\\\-1\\end{bmatrix}\\). 노트 정리 2.2: \\(\\mathbf x=A^{-1}\\mathbf b\\).\\(\\begin{bmatrix}2&-3\\\\-5/2&4\\end{bmatrix}\\begin{bmatrix}2\\\\-1\\end{bmatrix}=\\begin{bmatrix}4+3\\\\-5-4\\end{bmatrix}=\\begin{bmatrix}7\\\\-9\\end{bmatrix}\\).검산: \\(8\\cdot7+6(-9)=2\\), \\(5\\cdot7+4(-9)=-1\\). 오답 보기는 틀린 역행렬(부호 오류, \\(\\det\\) 부호 반대, \\(\\tfrac1{\\det}\\) 누락)을 쓴 결과입니다.",
+   "judge_A": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "detapp.f3",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "now": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p617",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "\\(A=\\begin{bmatrix}1&2\\\\5&12\\end{bmatrix}\\), \\(\\mathbf b_1=\\begin{bmatrix}-1\\\\3\\end{bmatrix}\\), \\(\\mathbf b_2=\\begin{bmatrix}1\\\\-5\\end{bmatrix}\\), \\(\\mathbf b_3=\\begin{bmatrix}2\\\\6\\end{bmatrix}\\), \\(\\mathbf b_4=\\begin{bmatrix}3\\\\5\\end{bmatrix}\\)이다. (a) \\(A^{-1}\\)를 구하고, 이를 이용하여 네 방정식 \\(A\\mathbf x=\\mathbf b_1,\\dots,A\\mathbf x=\\mathbf b_4\\)를 푸시오. (b) (a)의 네 방정식은 계수행렬이 모두 같으므로 같은 행연산으로 한꺼번에 풀 수 있다. 첨가행렬 \\([A\\;\\mathbf b_1\\;\\mathbf b_2\\;\\mathbf b_3\\;\\mathbf b_4]\\)를 행축약하여 네 방정식을 푸시오.",
+   "options": [
+    "A. \\((-9,4);\\;(11,-5);\\;(6,-2);\\;(13,-5)\\)",
+    "B. \\((-18,8);\\;(22,-10);\\;(12,-4);\\;(26,-10)\\)",
+    "C. \\((9,-4);\\;(-11,5);\\;(-6,2);\\;(-13,5)\\)",
+    "D. \\((-3,-1);\\;(1,0);\\;(18,8);\\;(23,10)\\)"
+   ],
+   "answer": "A",
+   "solution": "(a) \\(\\det A=12-10=2\\), \\(A^{-1}=\\tfrac12\\begin{bmatrix}12&-2\\\\-5&1\\end{bmatrix}=\\begin{bmatrix}6&-1\\\\-5/2&1/2\\end{bmatrix}\\). \\(A^{-1}\\mathbf b_1=\\tfrac12(-12-6,\\;5+3)=(-9,4)\\), 나머지도 같은 방식으로 \\((11,-5),(6,-2),(13,-5)\\).(b) \\(\\left[\\begin{array}{cc|cccc}1&2&-1&1&2&3\\\\5&12&3&-5&6&5\\end{array}\\right]\\xrightarrow{R_2-5R_1}\\left[\\begin{array}{cc|cccc}1&2&-1&1&2&3\\\\0&2&8&-10&-4&-10\\end{array}\\right]\\xrightarrow{\\frac12R_2,\\;R_1-2R_2}\\left[\\begin{array}{cc|cccc}1&0&-9&11&6&13\\\\0&1&4&-5&-2&-5\\end{array}",
+   "judge_A": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "detapp.f3",
+    "depth": 2
+   },
+   "now": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p622",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "\\(A,B\\)는 \\(n\\times n\\) 행렬이고 \\(B\\)는 가역, \\(AB\\)도 가역이다. \\(A\\)가 가역임을 보이시오. [힌트: \\(C=AB\\)로 놓고 이 식을 \\(A\\)에 대해 푼다.]",
+   "options": [
+    "A. \\(A=BC^{-1}\\)",
+    "B. \\(A=B^{-1}C\\)",
+    "C. \\(A=C^{-1}B\\)",
+    "D. \\(A=CB^{-1}\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(C=AB\\)의 양변에 오른쪽에서 \\(B^{-1}\\)을 곱하면 \\(CB^{-1}=ABB^{-1}=A\\).\\(C\\)와 \\(B^{-1}\\)은 모두 가역이므로 곱 \\(A=CB^{-1}\\)도 가역(\\(A^{-1}=BC^{-1}\\)).주의: \\((AB)^{-1}=B^{-1}A^{-1}\\) 공식은 \\(A\\)와 \\(B\\)가 둘 다 가역임을 이미 알 때만 쓸 수 있으므로 여기서는 쓰면 안 됩니다. 기출 2023 O/X 15와 같은 내용입니다.",
+   "judge_A": {
+    "facet": "inv.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "inv.f1",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "inv.f1",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p623",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "\\(A,B,C\\)가 정사각행렬이고 \\(B\\)가 가역일 때 방정식 \\(AB=BC\\)를 \\(A\\)에 대해 푸시오.",
+   "options": [
+    "A. \\(BC^{-1}B^{-1}\\)",
+    "B. \\(C\\)",
+    "C. \\(BCB^{-1}\\)",
+    "D. \\(B^{-1}CB\\)"
+   ],
+   "answer": "C",
+   "solution": "\\(AB=BC\\)의 양변에 오른쪽에서 \\(B^{-1}\\)을 곱합니다: \\(ABB^{-1}=BCB^{-1}\\).\\(A=BCB^{-1}\\).\\(B\\)가 \\(A\\) 오른쪽에 있으니 \\(B^{-1}\\)도 오른쪽에서 곱합니다. \\(A=C\\)로 약분하거나 \\(B^{-1}CB\\)로 쓰면 틀립니다(행렬은 교환법칙이 없음).",
+   "judge_A": {
+    "facet": "inv.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "now": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p624",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "\\(A,B,C\\)가 가역인 \\(n\\times n\\) 행렬일 때, 방정식 \\(C^{-1}(A+X)B^{-1}=I_n\\)은 해 \\(X\\)를 갖는가? 갖는다면 구하시오.",
+   "options": [
+    "A. \\(BC-A\\)",
+    "B. \\(CB+A\\)",
+    "C. \\(C^{-1}B-A\\)",
+    "D. \\(CB-A\\)"
+   ],
+   "answer": "D",
+   "solution": "왼쪽에서 \\(C\\), 오른쪽에서 \\(B\\)를 곱하면 \\((A+X)=CB\\) (\\(CC^{-1}=I\\), \\(B^{-1}B=I\\)).\\(X=CB-A\\).역으로 대입하면 \\(C^{-1}(A+CB-A)B^{-1}=C^{-1}CBB^{-1}=I\\)이므로 정말 해입니다. 순서가 \\(CB\\)이지 \\(BC\\)가 아닙니다(\\(C\\)가 왼쪽, \\(B\\)가 오른쪽).",
+   "judge_A": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f3",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "now": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p626",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "이 절에서 배운 알고리즘으로 \\(\\begin{bmatrix}1&0&-2\\\\-3&1&4\\\\2&-3&4\\end{bmatrix}\\)의 역행렬을 구하시오(존재한다면).",
+   "options": [
+    "A. \\(\\begin{bmatrix}8&10&\\frac{7}{2}\\\\3&4&\\frac{3}{2}\\\\1&1&\\frac{1}{2}\\end{bmatrix}\\)",
+    "B. \\(\\begin{bmatrix}8&3&1\\\\10&4&1\\\\\\frac{7}{2}&\\frac{3}{2}&\\frac{1}{2}\\end{bmatrix}\\)",
+    "C. \\(\\begin{bmatrix}8&3&1\\\\10&4&1\\\\-\\frac{7}{2}&-\\frac{3}{2}&-\\frac{1}{2}\\end{bmatrix}\\)",
+    "D. \\(\\begin{bmatrix}8&3&1\\\\10&4&1\\\\7&3&1\\end{bmatrix}\\)"
+   ],
+   "answer": "B",
+   "solution": "\\(R_2+3R_1\\), \\(R_3-2R_1\\): \\(\\left[\\begin{array}{ccc|ccc}1&0&-2&1&0&0\\\\0&1&-2&3&1&0\\\\0&-3&8&-2&0&1\\end{array}\\right]\\).\\(R_3+3R_2\\): \\(\\left[\\begin{array}{ccc|ccc}1&0&-2&1&0&0\\\\0&1&-2&3&1&0\\\\0&0&2&7&3&1\\end{array}\\right]\\). 피벗 3개 → 가역.위로 올라가며 소거: \\(R_1+R_3\\), \\(R_2+R_3\\), 마지막에 \\(\\tfrac12R_3\\) → \\(\\left[\\begin{array}{ccc|ccc}1&0&0&8&3&1\\\\0&1&0&10&4&1\\\\0&0&1&7/2&3/2&1/2\\end{array}\\right]\\).흔한 실수: 3행을 \\(\\tfrac12\\)배 하는 마지막 스케일링을 빠뜨림(둘째 보기), 전치(첫째 보기), 부호 오류. 검산은 \\(AA^{-1}=I\\)의 한두 성분만 보아도 충분합니다.",
+   "judge_A": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "judge_C": null,
+   "now": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p637",
+   "kind": "ox",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "(함의 문제: “명제 1이 참이면 명제 2가 항상 참인가?”) \\(A\\mathbf x=\\mathbf b\\)가 해를 갖지 않는 \\(\\mathbf b\\in\\mathbb R^n\\)이 존재하면 변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)는 일대일이 아니다.",
+   "answer": "O",
+   "solution": "해가 없는 \\(\\mathbf b\\)가 있으면 모든 행에 피벗이 없고, 정사각이므로 모든 열에도 피벗이 없어 \\(A\\mathbf x=\\mathbf 0\\)에 비자명해가 있습니다. 그러면 서로 다른 두 벡터가 같은 곳으로 가므로 일대일이 아닙니다(\\(A\\)가 가역이 아님).",
+   "judge_A": {
+    "facet": "inv.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lintrans.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "inv.f2",
+    "depth": 1
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p638",
+   "kind": "mc",
+   "chapter": "2.6 역행렬과 가역행렬 정리",
+   "question": "\\(C\\)가 \\(6\\times6\\)이고 방정식 \\(C\\mathbf x=\\mathbf v\\)가 \\(\\mathbb R^6\\)의 모든 \\(\\mathbf v\\)에 대해 해를 가진다. 어떤 \\(\\mathbf v\\)에 대해 \\(C\\mathbf x=\\mathbf v\\)가 둘 이상의 해를 가질 수 있는가? 그 이유는?",
+   "options": [
+    "A. 가능. 해가 있다는 것만으로는 유일성을 알 수 없다",
+    "B. 불가능. 단, \\(\\mathbf v=\\mathbf 0\\)일 때만 해가 하나이다",
+    "C. 불가능. 모든 \\(\\mathbf v\\)에 해가 있으면 \\(C\\)가 가역이라 해는 \\(C^{-1}\\mathbf v\\) 하나뿐이다",
+    "D. 가능. \\(6\\times6\\)이므로 자유변수가 있을 수 있다"
+   ],
+   "answer": "C",
+   "solution": "모든 \\(\\mathbf v\\)에 대해 해가 있으면 \\(C\\)의 모든 행에 피벗(존재 정리).\\(C\\)는 정사각이므로 피벗 6개가 대각선 위 → \\(C\\sim I_6\\) → 가역(IMT 5).가역이면 해는 \\(\\mathbf x=C^{-1}\\mathbf v\\) 하나뿐(정리 2.2).정사각이라는 조건이 핵심입니다. \\(m\\times n\\)(\\(m",
+   "judge_A": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "inv.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p645",
+   "kind": "mc",
+   "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+   "question": "(연습문제 5–8에서 \\(X\\), \\(Y\\), \\(Z\\)를 \\(A\\), \\(B\\), \\(C\\)로 나타내는 공식을 구하고 계산을 정당화하여라. 공식을 얻기 위해 어떤 행렬의 크기에 대한 가정이 필요할 수도 있다. [힌트: 왼쪽의 곱을 계산해 오른쪽과 같다고 놓아라.])\\[\\begin{bmatrix}A&B\\\\0&I\\end{bmatrix}\\begin{bmatrix}X&Y&Z\\\\0&0&I\\end{bmatrix}=\\begin{bmatrix}I&0&0\\\\0&0&I\\end{bmatrix}\\]",
+   "options": [
+    "A. \\(X=A^{-1},\\ Y=I,\\ Z=-A^{-1}B\\)",
+    "B. \\(X=A^{-1},\\ Y=0,\\ Z=A^{-1}B\\)",
+    "C. \\(X=A^{-1},\\ Y=0,\\ Z=-A^{-1}B\\)",
+    "D. \\(X=A^{-1},\\ Y=0,\\ Z=-BA^{-1}\\)"
+   ],
+   "answer": "C",
+   "solution": "왼쪽 곱은 \\(\\begin{bmatrix}AX&AY&AZ+B\\\\0&0&I\\end{bmatrix}=\\begin{bmatrix}I&0&0\\\\0&0&I\\end{bmatrix}\\).\n(1,1): \\(AX=I\\)에서 \\(X=A^{-1}\\).(1,2): \\(AY=0\\)의 양변 왼쪽에 \\(A^{-1}\\)을 곱해 \\(Y=0\\).(1,3): \\(AZ+B=0\\)이므로 \\(AZ=-B\\), 왼쪽에 \\(A^{-1}\\)을 곱해 \\(Z=-A^{-1}B\\).\n이번에는 \\(AZ\\)라서 \\(A^{-1}\\)이 왼쪽입니다. 교재 해설의 '곱 순서가 결정적'이라는 말이 이 뜻입니다.",
+   "judge_A": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "block.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "block.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p646",
+   "kind": "mc",
+   "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+   "question": "\\(A_{11}\\)이 가역행렬이라 하자. 아래 곱이 표시된 꼴이 되도록 하는 행렬 \\(X\\), \\(Y\\)를 구하고 \\(B_{22}\\)도 계산하여라. [힌트: 왼쪽의 곱을 계산해 오른쪽과 같다고 놓아라.]\n\\[\\begin{bmatrix}I&0&0\\\\X&I&0\\\\Y&0&I\\end{bmatrix}\\begin{bmatrix}A_{11}&A_{12}\\\\A_{21}&A_{22}\\\\A_{31}&A_{32}\\end{bmatrix}=\\begin{bmatrix}B_{11}&B_{12}\\\\0&B_{22}\\\\0&B_{32}\\end{bmatrix}\\]",
+   "options": [
+    "A. \\(X=-A_{11}^{-1}A_{21},\\ Y=-A_{11}^{-1}A_{31},\\ B_{22}=A_{22}-A_{11}^{-1}A_{21}A_{12}\\)",
+    "B. \\(X=-A_{21}A_{11}^{-1},\\ Y=-A_{31}A_{11}^{-1},\\ B_{22}=A_{22}-A_{21}A_{11}^{-1}A_{12}\\)",
+    "C. \\(X=A_{21}A_{11}^{-1},\\ Y=A_{31}A_{11}^{-1},\\ B_{22}=A_{22}+A_{21}A_{11}^{-1}A_{12}\\)",
+    "D. \\(X=-A_{21}A_{11}^{-1},\\ Y=-A_{31}A_{11}^{-1},\\ B_{22}=A_{22}+A_{21}A_{11}^{-1}A_{12}\\)"
+   ],
+   "answer": "B",
+   "solution": "왼쪽 곱의 두 번째, 세 번째 블록행은 \\(\\big(XA_{11}+A_{21},\\ XA_{12}+A_{22}\\big)\\), \\(\\big(YA_{11}+A_{31},\\ YA_{12}+A_{32}\\big)\\)입니다.\n(2,1)이 0: \\(XA_{11}+A_{21}=0\\)이므로 \\(XA_{11}=-A_{21}\\). 오른쪽에 \\(A_{11}^{-1}\\)을 곱해 \\(X=-A_{21}A_{11}^{-1}\\).(3,1)이 0: 같은 방법으로 \\(Y=-A_{31}A_{11}^{-1}\\).(2,2): \\(B_{22}=XA_{12}+A_{22}=A_{22}-A_{21}A_{11}^{-1}A_{12}\\).\n이 \\(B_{22}\\)가 \\(A_{11}\\)의 Schur 여각(15번)입니다. 블록 단위 가우스 소거이고, 숫자 소거에서 '아래 행 \\(-\\) (배수)\\(\\times\\)피벗 행'이 '\\(A_{21}-A_{21}A_{11}^{-1}A_{11}\\)'로 일반화된 것입니다.",
+   "judge_A": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "block.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "block.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p652",
+   "kind": "mc",
+   "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+   "question": "\\(A_{11}\\)이 가역이라 하자. 다음 식이 성립하도록 \\(X\\)와 \\(Y\\)를 구하여라.\n\\[\\begin{bmatrix}A_{11}&A_{12}\\\\A_{21}&A_{22}\\end{bmatrix}=\\begin{bmatrix}I&0\\\\X&I\\end{bmatrix}\\begin{bmatrix}A_{11}&0\\\\0&S\\end{bmatrix}\\begin{bmatrix}I&Y\\\\0&I\\end{bmatrix}\\qquad(7)\\]\n여기서 \\(S=A_{22}-A_{21}A_{11}^{-1}A_{12}\\)이고 \\(S\\)를 \\(A_{11}\\)의 Schur 여각(Schur complement)이라 한다. 마찬가지로 \\(A_{22}\\)가 가역이면 \\(A_{11}-A_{12}A_{22}^{-1}A_{21}\\)을 \\(A_{22}\\)의 Schur 여각이라 한다. 이런 식은 시스템 공학 등의 이론에 자주 나타난다.",
+   "options": [
+    "A. \\(X=A_{21}A_{11}^{-1},\\ Y=A_{12}A_{11}^{-1}\\)",
+    "B. \\(X=A_{21}A_{11}^{-1},\\ Y=A_{11}^{-1}A_{12}\\)",
+    "C. \\(X=-A_{21}A_{11}^{-1},\\ Y=-A_{11}^{-1}A_{12}\\)",
+    "D. \\(X=A_{11}^{-1}A_{21},\\ Y=A_{12}A_{11}^{-1}\\)"
+   ],
+   "answer": "B",
+   "solution": "오른쪽 곱을 계산합니다. \\(\\begin{bmatrix}I&0\\\\X&I\\end{bmatrix}\\begin{bmatrix}A_{11}&0\\\\0&S\\end{bmatrix}=\\begin{bmatrix}A_{11}&0\\\\XA_{11}&S\\end{bmatrix}\\)이고 여기에 \\(\\begin{bmatrix}I&Y\\\\0&I\\end{bmatrix}\\)를 오른쪽에서 곱하면 \\(\\begin{bmatrix}A_{11}&A_{11}Y\\\\XA_{11}&XA_{11}Y+S\\end{bmatrix}\\).\n(1,2): \\(A_{11}Y=A_{12}\\), 왼쪽에 \\(A_{11}^{-1}\\)을 곱해 \\(Y=A_{11}^{-1}A_{12}\\).(2,1): \\(XA_{11}=A_{21}\\), 오른쪽에 \\(A_{11}^{-1}\\)을 곱해 \\(X=A_{21}A_{11}^{-1}\\).(2,2) 확인: \\(XA_{11}Y+S=A_{21}A_{11}^{-1}A_{12}+A_{22}-A_{21}A_{11}^{-1}A_{12}=A",
+   "judge_A": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "block.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "block.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p668",
+   "kind": "mc",
+   "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+   "question": "\\(A\\)를 대각 성분이 모두 0이 아닌 \\(n\\times n\\) 하삼각행렬이라 하자. \\(A\\)가 가역이고 \\(A^{-1}\\)도 하삼각행렬임을 보여라. [힌트: \\(A\\)가 행 대치와 스케일링만으로 \\(I\\)로 바뀔 수 있는 이유를 설명하라(피벗은 어디에 있는가?). 또한 \\(A\\)를 \\(I\\)로 줄이는 행연산이 \\(I\\)를 하삼각행렬로 바꾸는 이유도 설명하라.]",
+   "options": [
+    "A. \\([A\\ I]\\)를 줄일 때 위 행에 아래 행을 더해야 하므로 \\(A^{-1}\\)은 상삼각행렬이 된다.",
+    "B. 하삼각행렬은 행렬식이 항상 0이라 \\(A^{-1}\\)이 존재하려면 윗부분이 0이어야 하므로 \\(A^{-1}\\)도 하삼각이다.",
+    "C. 대각 성분이 0이 아니므로 각 대각 성분이 피벗이 되어 \\(A\\)는 'k행을 스케일링하고 그 아래 행들에서만 빼는' 행연산만으로 \\(I\\)로 줄어든다. 이 연산은 모두 아래 행에만 영향을 주므로 \\([A\\ I]\\)의 오른쪽 \\(I\\)는 하삼각행렬이 되고 그것이 \\(A^{-1}\\)이다.",
+    "D. 행 교환이 반드시 필요하므로 \\(A^{-1}\\)은 하삼각이 아니라 치환행렬과 하삼각행렬의 곱이다."
+   ],
+   "answer": "C",
+   "solution": "\\([A\\ I]\\)를 줄입니다. (1,1) 성분은 0이 아니므로 피벗입니다. 1행을 스케일링해 1로 만들고, 1행의 배수를 아래 행에서 빼 1열을 지웁니다. \\(A\\)가 하삼각이므로 이 연산은 1열과 오른쪽 \\(I\\)의 1열만 바꿉니다.\n그러면 (2,2) 성분도 여전히 0이 아니고(2행에 남은 0이 아닌 성분은 그것뿐), 피벗이 됩니다. 같은 방식으로 \\(k=2,\\dots,n\\)번째 열까지 반복하면 \\(A\\)는 \\(I\\)가 됩니다. 사용한 연산은 아래 행에 위 행의 배수를 더하는 행 대치와 스케일링뿐이므로 \\(A\\)는 가역입니다.\n같은 연산을 \\(I\\)에 적용하면 '위 행을 아래 행에 더하는' 연산만 쓰이므로 결과는 하삼각행렬입니다. 그것이 \\(A^{-1}\\)이므로 \\(A^{-1}\\)은 하삼각행렬입니다.\n대각 성분이 0이 아니라는 조건이 '모든 열에 피벗이 있다'는 뜻입니다(행렬식으로 보면 대각 성분의 곱 \\(\\ne0\\)). 이 사실이 20번과, 기출 2024-7(하삼각 블록 역행렬",
+   "judge_A": {
+    "facet": "lu.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "elim.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lu.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p670",
+   "kind": "mc",
+   "chapter": "2.7–2.8 블록 행렬과 LU 분해",
+   "question": "연습문제의 \\(A\\)에 대해 \\(A=BC\\)를 만족하는 \\(5\\times3\\) 행렬 \\(B\\)와 \\(3\\times4\\) 행렬 \\(C\\)를 구하여라. 이 아이디어를 \\(A\\)가 \\(m\\times n\\)이고 \\(A=LU\\)이며 \\(U\\)의 0이 아닌 행이 3개뿐인 경우로 일반화하여라.",
+   "options": [
+    "A. \\(B=L\\)의 처음 3행(\\(3\\times5\\)), \\(C=U\\)의 처음 3열(\\(5\\times3\\))",
+    "B. \\(B=L\\)의 처음 3열(\\(5\\times3\\)), \\(C=U\\)의 위쪽 3행(\\(3\\times4\\))",
+    "C. \\(B=L\\)의 마지막 3열(\\(5\\times3\\)), \\(C=U\\)의 위쪽 3행(\\(3\\times4\\))",
+    "D. \\(B=L\\)의 처음 3열(\\(5\\times3\\)), \\(C=U\\)의 아래쪽 3행(\\(3\\times4\\))"
+   ],
+   "answer": "B",
+   "solution": "P1에서 \\(A=LU\\), \\(U\\)의 4, 5행이 영행입니다.\n\\(LU\\)를 열–행 전개로 보면 \\(L\\)의 4, 5열은 \\(U\\)의 영행 4, 5와만 곱해지므로 \\(A\\)에 아무 영향이 없습니다.\n따라서 \\(B=L\\)의 처음 3열, \\(C=U\\)의 위쪽 3행으로 \\(A=BC\\)가 됩니다.\n\\[B=\\begin{bmatrix}1&0&0\\\\3&1&0\\\\1&-1&1\\\\2&2&-1\\\\-3&-3&2\\end{bmatrix},\\qquad C=\\begin{bmatrix}2&-4&-2&3\\\\0&3&1&-1\\\\0&0&0&5\\end{bmatrix}\\]\n일반화: \\(U\\)의 영이 아닌 행이 \\(r\\)개이면 \\(B=L\\)의 처음 \\(r\\)열(\\(m\\times r\\)), \\(C=U\\)의 위쪽 \\(r\\)행(\\(r\\times n\\)). 크기는 \\(m\\times r\\), \\(r\\times n\\)이 되어 저장 공간이 줄어듭니다(23번).",
+   "judge_A": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lu.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "block.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "block.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p690",
+   "kind": "mc",
+   "chapter": "3.1–3.2 행렬식",
+   "question": "\\(A,B\\)는 \\(n\\times n\\) 행렬이다. 각 진술이 참인지 거짓인지 쓰고 이유를 밝혀라.\n(a) 행 교환을 연속으로 세 번 하면 새 행렬식은 원래 행렬식과 같다.\n(b) \\(A\\)의 행렬식은 \\(A\\)의 대각성분들의 곱이다.\n(c) \\(\\det A=0\\)이면 두 행이나 두 열이 같거나, 어떤 행이나 열이 0이다.\n(d) \\(\\det A^{-1}=(-1)\\det A\\)이다.",
+   "options": [
+    "A. (a) 참, (b) 거짓, (c) 거짓, (d) 거짓",
+    "B. (a) 거짓, (b) 거짓, (c) 참, (d) 거짓",
+    "C. (a) 거짓, (b) 거짓, (c) 거짓, (d) 거짓",
+    "D. (a) 거짓, (b) 거짓, (c) 거짓, (d) 참"
+   ],
+   "answer": "C",
+   "solution": "(a) 거짓. 교환 한 번마다 \\(-1\\)이 곱해져 \\((-1)^3=-1\\). 새 det = \\(-\\)(원래 det).\n(b) 거짓. 성질 7은 삼각행렬일 때만입니다. 반례: \\(\\begin{bmatrix}1&2\\\\3&4\\end{bmatrix}\\)의 det는 \\(-2\\), 대각곱은 4.\n(c) 거짓. 역은 성립하지 않습니다. 반례: \\(\\begin{bmatrix}1&2\\\\2&4\\end{bmatrix}\\)은 det = 0이지만 같은 행·영행이 없습니다(2행 = 2×1행). 한 행(열)이 다른 행(열)들의 결합이기만 해도 0입니다.\n(d) 거짓. 성질 8에서 \\(\\det A\\det A^{-1}=\\det I=1\\)이라 \\(\\det A^{-1}=1/\\det A\\). 반례 \\(A=2I_2\\): \\(\\det A^{-1}=\\tfrac14\\ne-4\\).",
+   "judge_A": {
+    "facet": "det.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "det.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p696",
+   "kind": "mc",
+   "chapter": "3.1–3.2 행렬식",
+   "question": "\\(A,B\\)가 \\(3\\times3\\) 행렬이고 \\(\\det A=-3,\\ \\det B=4\\)이다. 행렬식의 성질을 이용하여 구하여라: a. \\(\\det AB\\) &nbsp; b. \\(\\det 5A\\) &nbsp; c. \\(\\det B^T\\) &nbsp; d. \\(\\det A^{-1}\\) &nbsp; e. \\(\\det A^3\\)",
+   "options": [
+    "A. \\(-12,\\ -375,\\ -4,\\ \\tfrac13,\\ -27\\)",
+    "B. \\(-12,\\ -375,\\ 4,\\ 3,\\ -9\\)",
+    "C. \\(-12,\\ -15,\\ 4,\\ -\\tfrac13,\\ -27\\)",
+    "D. \\(-12,\\ -375,\\ 4,\\ -\\tfrac13,\\ -27\\)"
+   ],
+   "answer": "D",
+   "solution": "a. 성질 8: \\((-3)(4)=-12\\).\nb. \\(3\\times3\\)이라 \\(\\det 5A=5^3\\det A=125(-3)=-375\\). (\\(5\\det A=-15\\)는 함정)\nc. 성질 9: \\(\\det B^T=\\det B=4\\).\nd. \\(1/\\det A=-\\tfrac13\\).\ne. \\((\\det A)^3=-27\\) (\\(3\\det A=-9\\) 아님).\nc는 2021 O/X 9(\\(\\det A=\\det A^T\\)), 2025 O/X 1-10(\\(\\det AB=\\det(AB)^T\\))과 같은 성질 9입니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "det.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p697",
+   "kind": "mc",
+   "chapter": "3.1–3.2 행렬식",
+   "question": "\\(A,B\\)가 \\(4\\times4\\) 행렬이고 \\(\\det A=-3,\\ \\det B=-1\\)이다. 구하여라: a. \\(\\det AB\\) &nbsp; b. \\(\\det B^5\\) &nbsp; c. \\(\\det 2A\\) &nbsp; d. \\(\\det A^TBA\\) &nbsp; e. \\(\\det B^{-1}AB\\)",
+   "options": [
+    "A. \\(3,\\ -1,\\ -24,\\ -9,\\ 3\\)",
+    "B. \\(3,\\ -1,\\ -48,\\ 9,\\ -3\\)",
+    "C. \\(3,\\ -1,\\ -48,\\ -9,\\ -3\\)",
+    "D. \\(3,\\ -1,\\ -6,\\ -9,\\ -3\\)"
+   ],
+   "answer": "C",
+   "solution": "a. \\((-3)(-1)=3\\).\nb. \\((-1)^5=-1\\).\nc. \\(4\\times4\\)라 \\(2^4(-3)=-48\\).\nd. \\(\\det A^T\\det B\\det A=(-3)(-1)(-3)=-9\\) (\\(\\det A^T=\\det A\\)).\ne. \\(\\tfrac{1}{-1}(-3)(-1)=-3=\\det A\\) (닮은 행렬).\n2023 중간 9번과 같은 조건입니다. 시험에서는 \"틀린 것\"으로 \\(\\det 2A=-6\\)이 나왔습니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "det.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p698",
+   "kind": "mc",
+   "chapter": "3.1–3.2 행렬식",
+   "question": "\\(A=\\begin{bmatrix}a+e&b+f\\\\c&d\\end{bmatrix},\\ B=\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix},\\ C=\\begin{bmatrix}e&f\\\\c&d\\end{bmatrix}\\)일 때 \\(\\det A=\\det B+\\det C\\)임을 확인하여라.",
+   "options": [
+    "A. \\((a+e)d-c(b+f)=(ad-bc)+(ed-cf)\\)",
+    "B. \\((a+e)d-c(b+f)=(ad-bc)+(ed+cf)\\)",
+    "C. \\((a+e)(b+f)-cd=(ab-cd)+(ef-cd)\\)",
+    "D. \\(A=B+C\\)이므로 \\(\\det A=\\det B+\\det C\\)"
+   ],
+   "answer": "A",
+   "solution": "1행만 \\((a,b)+(e,f)\\)로 나뉘고 2행은 공통 → 성질 3(a)(한 행에 대한 선형성) 그대로입니다.\\(B+C=\\begin{bmatrix}a+e&b+f\\\\2c&2d\\end{bmatrix}\\ne A\\)이므로 셋째 보기는 틀린 논리입니다(\\(\\det(B+C)\\ne\\det B+\\det C\\)). 2021-7: 4행을 \\((5,15,35,70)+(0,0,0,a-70)\\)로 나눠 \\(a\\)를 구한 문제와 같은 원리.",
+   "judge_A": {
+    "facet": "det.f3",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "det.f3",
+    "depth": 3
+   },
+   "now": {
+    "facet": "det.f3",
+    "depth": 3
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p700",
+   "kind": "mc",
+   "chapter": "3.1–3.2 행렬식",
+   "question": "\\(A=\\begin{bmatrix}a_{11}&a_{12}&u_1+v_1\\\\a_{21}&a_{22}&u_2+v_2\\\\a_{31}&a_{32}&u_3+v_3\\end{bmatrix},\\ B=\\begin{bmatrix}a_{11}&a_{12}&u_1\\\\a_{21}&a_{22}&u_2\\\\a_{31}&a_{32}&u_3\\end{bmatrix},\\ C=\\begin{bmatrix}a_{11}&a_{12}&v_1\\\\a_{21}&a_{22}&v_2\\\\a_{31}&a_{32}&v_3\\end{bmatrix}\\)일 때 \\(\\det A=\\det B+\\det C\\)임을 확인하여라. 단, \\(A\\)는 \\(B+C\\)와 같지 않다.",
+   "options": [
+    "A. \\(A=B+C\\)이므로 \\(\\det A=\\det B+\\det C\\)",
+    "B. 1행으로 여인자 전개하면 각 항이 바로 나뉜다",
+    "C. 3열로 여인자 전개: \\(\\sum_i(u_i+v_i)C_{i3}\\). \\(C_{i3}\\)는 1, 2열로만 정해져 \\(A,B,C\\)에 공통",
+    "D. \\(\\det A=\\det B\\cdot\\det C\\)이므로"
+   ],
+   "answer": "C",
+   "solution": "3열 전개: \\(\\det A=(u_1+v_1)C_{13}+(u_2+v_2)C_{23}+(u_3+v_3)C_{33}\\).\n\\(C_{i3}=(-1)^{i+3}\\det A_{i3}\\)는 3열을 지운 소행렬이라 \\(A,B,C\\) 모두 같습니다.\n나누면 \\(\\sum u_iC_{i3}=\\det B\\), \\(\\sum v_iC_{i3}=\\det C\\).\n\"한 열씩 선형\"(성질 3(a)의 열 버전)을 여인자 전개로 확인한 것입니다. 2021-7의 행 선형성과 같은 원리.",
+   "judge_A": {
+    "facet": "det.f3",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f3",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "det.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f3",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p709",
+   "kind": "mc",
+   "chapter": "3.3 크래머·수반행렬·넓이와 부피",
+   "question": "연립방정식이 유일한 해를 갖는 매개변수 \\(s\\)의 값을 구하고, 그 해를 구하여라. \\[\\begin{aligned}sx_1+2sx_2 &= -1\\\\ 3x_1+6sx_2 &= 4\\end{aligned}\\]",
+   "options": [
+    "A. \\(s\\ne0,\\ 1\\); \\(x_1=-\\dfrac{7}{3(s-1)},\\ x_2=\\dfrac{4s+3}{6s(s-1)}\\)",
+    "B. \\(s\\ne0,\\ 1\\); \\(x_1=-\\dfrac{3(s-1)}{7},\\ x_2=\\dfrac{6s(s-1)}{4s+3}\\)",
+    "C. \\(s\\ne1\\); \\(x_1=-\\dfrac{7}{3(s-1)},\\ x_2=\\dfrac{4s+3}{6s(s-1)}\\)",
+    "D. \\(s\\ne0,\\ 1\\); \\(x_1=\\dfrac{7}{3(s-1)},\\ x_2=-\\dfrac{4s+3}{6s(s-1)}\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(A=\\begin{bmatrix}s & 2s\\\\ 3 & 6s\\end{bmatrix},\\ \\mathbf b=\\begin{bmatrix}-1\\\\ 4\\end{bmatrix}\\), \\(\\det A=6s^2-6s=6s(s-1)\\).유일해 \\(\\Leftrightarrow\\det A\\ne0\\) → \\(s\\ne0,\\ 1\\).\\(\\det A_1(\\mathbf b)=\\det\\begin{bmatrix}-1 & 2s\\\\ 4 & 6s\\end{bmatrix}=-14s\\), \\(\\det A_2(\\mathbf b)=\\det\\begin{bmatrix}s & -1\\\\ 3 & 4\\end{bmatrix}=4s+3\\).\\(x_1=-\\dfrac{7}{3(s-1)},\\quad x_2=\\dfrac{4s+3}{6s(s-1)}\\).약분한 \\(x_1=-\\tfrac{7}{3(s-1)}\\)은 \\(s=0\\)에서도 값이 있지만, \\(s=0\\)이면 첫 식이 \\(0=-1\\)이라 해가 없습니다. 제외할 값은 약분 전 \\(\\det A=0\\)에",
+   "judge_A": {
+    "facet": "detapp.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "detapp.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "detapp.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "detapp.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p710",
+   "kind": "mc",
+   "chapter": "3.3 크래머·수반행렬·넓이와 부피",
+   "question": "연립방정식이 유일한 해를 갖는 매개변수 \\(s\\)의 값을 구하고, 그 해를 구하여라. \\[\\begin{aligned}sx_1-2x_2 &= 1\\\\ 4sx_1+4sx_2 &= 2\\end{aligned}\\]",
+   "options": [
+    "A. \\(s\\ne0,\\ -2\\); \\(x_1=\\dfrac{s+1}{s(s+2)},\\ x_2=-\\dfrac{1}{2(s+2)}\\)",
+    "B. \\(s\\ne0,\\ -2\\); \\(x_1=\\dfrac{s+1}{s(s-2)},\\ x_2=-\\dfrac{1}{2(s-2)}\\)",
+    "C. \\(s\\ne-2\\); \\(x_1=\\dfrac{s+1}{s(s+2)},\\ x_2=-\\dfrac{1}{2(s+2)}\\)",
+    "D. \\(s\\ne0,\\ 2\\); \\(x_1=\\dfrac{s+1}{s(s+2)},\\ x_2=-\\dfrac{1}{2(s+2)}\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(A=\\begin{bmatrix}s & -2\\\\ 4s & 4s\\end{bmatrix},\\ \\mathbf b=\\begin{bmatrix}1\\\\ 2\\end{bmatrix}\\), \\(\\det A=4s^2+8s=4s(s+2)\\).유일해 \\(\\Leftrightarrow\\det A\\ne0\\) → \\(s\\ne0,\\ -2\\).\\(\\det A_1(\\mathbf b)=\\det\\begin{bmatrix}1 & -2\\\\ 2 & 4s\\end{bmatrix}=4s+4\\), \\(\\det A_2(\\mathbf b)=\\det\\begin{bmatrix}s & 1\\\\ 4s & 2\\end{bmatrix}=-2s\\).\\(x_1=\\dfrac{s+1}{s(s+2)},\\quad x_2=-\\dfrac{1}{2(s+2)}\\).\\(\\det A=s\\cdot4s-(-2)(4s)=4s^2+8s\\) (\\(-(-2)(4s)=+8s\\) 부호 주의). \\(s=0\\)이면 둘째 식이 \\(0=2\\), \\(s=-2\\)이면 \\(-2x_1-2x_2=1",
+   "judge_A": {
+    "facet": "detapp.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "detapp.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "detapp.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "detapp.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p725",
+   "kind": "mc",
+   "chapter": "3.3 크래머·수반행렬·넓이와 부피",
+   "question": "부피의 개념을 이용하여 \\(3\\times3\\) 행렬 \\(A\\)의 행렬식이 0일 필요충분조건이 \\(A\\)가 비가역인 것임을 설명하여라. 3.2절 정리 4는 사용하지 말 것. [힌트: \\(A\\)의 열을 생각하라.]",
+   "options": [
+    "A. 부피가 0이면 \\(A\\)의 성분 중 적어도 하나가 0이므로 \\(A\\)는 비가역",
+    "B. 부피 \\(|\\det A|\\)는 항상 양수이므로 \\(\\det A=0\\)인 \\(3\\times3\\) 행렬은 존재하지 않는다",
+    "C. 부피가 0이면 \\(A\\)의 열 중 하나가 반드시 영벡터이므로 \\(A\\)는 비가역",
+    "D. \\(\\det A=0\\Leftrightarrow\\) 세 열이 만드는 평행육면체의 부피가 0 \\(\\Leftrightarrow\\) 세 열이 원점을 지나는 한 평면 위에 있음(한 열이 나머지 두 열의 선형결합) \\(\\Leftrightarrow\\) \\(A\\)는 비가역"
+   ],
+   "answer": "D",
+   "solution": "정리 9: \\(|\\det A|\\)는 \\(A\\)의 세 열이 결정하는 평행육면체의 부피입니다. 부피가 0인 것은 평행육면체가 납작해져 세 열이 원점을 지나는 한 평면(또는 직선) 위에 놓일 때, 즉 한 열이 나머지 열들의 선형결합일 때뿐입니다. 이 경우 소거하면 피벗이 3개가 될 수 없어 \\(A\\mathbf x=\\mathbf 0\\)이 자유변수를 가지므로 \\(A\\)는 비가역입니다(역도 같은 논리).오답 반례: \\(\\begin{bmatrix}1&2&3\\\\2&4&6\\\\1&1&1\\end{bmatrix}\\)은 성분에 0이 없고 영벡터 열도 없지만 det = 0입니다(1행과 2행 비례). 반대로 \\(I\\)는 성분에 0이 있지만 가역입니다.",
+   "judge_A": {
+    "facet": "detapp.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "detapp.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "detapp.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p729",
+   "kind": "mc",
+   "chapter": "3.3 크래머·수반행렬·넓이와 부피",
+   "question": "\\(R\\)을 꼭짓점이 \\((x_1,y_1),(x_2,y_2),(x_3,y_3)\\)인 삼각형이라 하자. \\[\\{\\text{삼각형의 넓이}\\}=\\frac12\\det\\begin{bmatrix}x_1&y_1&1\\\\x_2&y_2&1\\\\x_3&y_3&1\\end{bmatrix}\\] 임을 보여라(정확히는 절댓값). [힌트: 한 꼭짓점을 빼서 \\(R\\)을 원점으로 평행이동하고 29번을 이용하라.]",
+   "options": [
+    "A. \\(\\tfrac12\\det\\begin{bmatrix}x_1-x_3&y_1-y_3\\\\x_2-x_3&y_2-y_3\\end{bmatrix}\\)",
+    "B. \\(\\det\\begin{bmatrix}x_1&y_1\\\\x_2&y_2\\end{bmatrix}\\)",
+    "C. \\(-\\det\\begin{bmatrix}x_1-x_3&y_1-y_3\\\\x_2-x_3&y_2-y_3\\end{bmatrix}\\)",
+    "D. \\(\\det\\begin{bmatrix}x_1-x_3&y_1-y_3\\\\x_2-x_3&y_2-y_3\\end{bmatrix}\\)"
+   ],
+   "answer": "D",
+   "solution": "\\((x_3,y_3)\\)을 빼서 평행이동(넓이 불변): 꼭짓점 \\((0,0),(x_1-x_3,y_1-y_3),(x_2-x_3,y_2-y_3)\\). 29번에 의해 넓이 \\(=\\tfrac12\\left|\\det\\begin{bmatrix}x_1-x_3&x_2-x_3\\\\y_1-y_3&y_2-y_3\\end{bmatrix}\\right|\\).3×3 행렬식에서 \\(R_1-R_3,\\ R_2-R_3\\) (행렬식 불변) → 3열이 \\((0,0,1)^T\\). 3열 여인자 전개: \\((3,3)\\) 위치 부호 \\((-1)^{6}=+\\)이므로 \\(\\det\\begin{bmatrix}x_1-x_3&y_1-y_3\\\\x_2-x_3&y_2-y_3\\end{bmatrix}\\).전치해도 det 같으므로 두 식이 일치.기출 2021-8: \\(\\tfrac12\\left|\\det\\begin{bmatrix}2&1&1\\\\3&4&1\\\\0&5&1\\end{bmatrix}\\right|=\\tfrac12|10|=5\\). 꼭짓점 순서에 따라 det",
+   "judge_A": {
+    "facet": "detapp.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "det.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f1",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p745",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "다음을 계산하여라. \\(\\begin{bmatrix}\\cos\\pi/4&-\\sin\\pi/4\\\\\\sin\\pi/4&\\cos\\pi/4\\end{bmatrix}^{10}\\)",
+   "options": [
+    "A. \\(\\begin{bmatrix}1&0\\\\0&1\\end{bmatrix}\\)",
+    "B. \\(\\begin{bmatrix}-1&0\\\\0&-1\\end{bmatrix}\\)",
+    "C. \\(\\begin{bmatrix}0&1\\\\-1&0\\end{bmatrix}\\)",
+    "D. \\(\\begin{bmatrix}0&-1\\\\1&0\\end{bmatrix}\\)"
+   ],
+   "answer": "D",
+   "solution": "45° 회전을 10번 하면 \\(450^\\circ=360^\\circ+90^\\circ\\), 즉 반시계 90° 회전입니다. 회전의 합성은 각도의 합(행렬곱 = 합성, 2.3절). 90° 회전행렬은 \\(\\begin{bmatrix}\\cos90^\\circ&-\\sin90^\\circ\\\\\\sin90^\\circ&\\cos90^\\circ\\end{bmatrix}\\).",
+   "judge_A": {
+    "facet": "lintrans.f1",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lintrans.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lintrans.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lintrans.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p751",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(\\begin{vmatrix}5&1&-1\\\\1&-3&-2\\\\0&5&3\\end{vmatrix}=-3\\)을 이용하여 \\(A=\\begin{bmatrix}3&5&1&-1\\\\1&5&1&-1\\\\3&1&-3&-2\\\\4&0&5&3\\end{bmatrix}\\)의 \\(\\det A\\)와 \\(\\det(2A)\\)를 각각 구하여라.",
+   "options": [
+    "A. \\(\\det A=-3,\\;\\det(2A)=-48\\)",
+    "B. \\(\\det A=6,\\;\\det(2A)=96\\)",
+    "C. \\(\\det A=-6,\\;\\det(2A)=-96\\)",
+    "D. \\(\\det A=-6,\\;\\det(2A)=-12\\)"
+   ],
+   "answer": "C",
+   "solution": "\\(R_1-R_2\\) (replacement, det 불변): 1행이 \\((2,0,0,0)\\).1행으로 전개: \\(2\\cdot\\begin{vmatrix}5&1&-1\\\\1&-3&-2\\\\0&5&3\\end{vmatrix}=2(-3)=-6\\). (1,1) 자리라 부호 +.\\(4\\times4\\)라 \\(\\det(2A)=2^4\\det A=-96\\).둘째 보기는 \\(2A\\)를 \\(2\\det A\\)로 착각한 가장 흔한 실수입니다.",
+   "judge_A": {
+    "facet": "det.f3",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "det.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f3",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p752",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(i=1,\\dots,12\\)에 대해 \\(\\mathbf v_i\\)는 \\(i\\)시 정각에 원형 시계 중심에서 시침 끝으로 가는 벡터이다. \\(\\mathbf v_{10}\\)을 제외한 나머지 11개를 모두 더한 벡터를 \\(\\mathbf v\\)라 하자. \\(\\mathbf v_1,\\dots,\\mathbf v_{12}\\) 중 \\(\\mathbf v\\)와 같은 벡터는?",
+   "options": [
+    "A. \\(\\mathbf v_{10}\\)",
+    "B. \\(\\mathbf v_4\\)",
+    "C. \\(\\mathbf v_8\\)",
+    "D. \\(\\mathbf v_2\\)"
+   ],
+   "answer": "B",
+   "solution": "12개를 모두 더하면 \\(\\mathbf 0\\)이라 \\(\\mathbf v=-\\mathbf v_{10}\\). 10시의 반대 방향은 4시입니다. 연습문제 1.1-13과 같은 원리.",
+   "judge_A": {
+    "facet": "lintrans.f3",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p754",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(S=\\begin{bmatrix}0&1&0&0&0\\\\0&0&1&0&0\\\\0&0&0&1&0\\\\0&0&0&0&1\\\\0&0&0&0&0\\end{bmatrix}\\)일 때 \\(S^k\\ne0\\)인 자연수 \\(k\\)를 모두 고르시오.",
+   "options": [
+    "A. 모든 자연수",
+    "B. \\(1,2,3\\)",
+    "C. \\(1,2,3,4,5\\)",
+    "D. \\(1,2,3,4\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(AS\\)는 \\(A\\)의 열을 오른쪽으로 한 칸 밀고 첫 열에 \\(\\mathbf 0\\)을 넣는 연산입니다(열 관점). \\(S^k\\)는 1이 \\(k\\)칸 위 대각선에 있고, \\(k=5\\)에서 모두 밀려나 영행렬이 됩니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p756",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(\\begin{bmatrix}4&-1&-1&-1\\\\-1&4&-1&-1\\\\-1&-1&4&-1\\\\-1&-1&-1&4\\end{bmatrix}^{-1}=\\begin{bmatrix}a&b&b&b\\\\b&a&b&b\\\\b&b&a&b\\\\b&b&b&a\\end{bmatrix}\\)을 만족하는 \\(a,b\\)는?",
+   "options": [
+    "A. \\(a=\\tfrac25,\\;b=\\tfrac15\\)",
+    "B. \\(a=\\tfrac25,\\;b=-\\tfrac15\\)",
+    "C. \\(a=\\tfrac15,\\;b=\\tfrac25\\)",
+    "D. \\(a=\\tfrac14,\\;b=0\\)"
+   ],
+   "answer": "A",
+   "solution": "\\(AB=I\\)의 대각 성분: \\(4a-b-b-b=4a-3b=1\\).비대각 성분(예: (1,2)): \\(4b-a-b-b=2b-a=0\\).\\(a=2b\\)를 넣으면 \\(5b=1\\): \\(b=\\tfrac15,\\;a=\\tfrac25\\).역행렬을 구하지 않고 \\(AB=I\\)의 성분 몇 개로 푸는 것이 핵심입니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f1",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "matops.f1",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p759",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(PA=LU\\)일 때 \\(A\\mathbf x=\\mathbf b\\)의 해를 구하시오. \\(P=\\begin{bmatrix}0&1&0&0\\\\0&0&1&0\\\\0&0&0&1\\\\1&0&0&0\\end{bmatrix},\\;L=\\begin{bmatrix}1&0&0&0\\\\2&1&0&0\\\\-1&0&1&0\\\\-4&3&-5&1\\end{bmatrix},\\;U=\\begin{bmatrix}1&-2&-4&-3\\\\0&-3&1&0\\\\0&0&2&1\\\\0&0&0&1\\end{bmatrix},\\;\\mathbf b=\\begin{bmatrix}9\\\\1\\\\7\\\\0\\end{bmatrix}\\)",
+   "options": [
+    "A. \\(\\mathbf x=(3,-1,-2,2)\\)",
+    "B. \\(\\mathbf x=(1,5,1,3)\\)",
+    "C. \\(\\mathbf x=(2,2,-1,3)\\)",
+    "D. \\(\\mathbf x=(2,-2,-1,3)\\)"
+   ],
+   "answer": "D",
+   "solution": "\\(A\\mathbf x=\\mathbf b\\)의 양변에 \\(P\\): \\(LU\\mathbf x=P\\mathbf b=\\mathbf b'=(1,7,0,9)\\). (\\(\\mathbf b\\)의 행을 \\(P\\)대로 섞기)전진대입 \\(L\\mathbf y=\\mathbf b'\\): \\(\\mathbf y=(1,5,1,3)\\).후진대입 \\(U\\mathbf x=\\mathbf y\\): \\(x_4=3,\\;x_3=(1-3)/2=-1,\\;x_2=(5+1)/(-3)=-2,\\;x_1=1-4-4+9=2\\).둘째 보기는 \\(\\mathbf y\\)에서 멈춘 경우입니다. \\(P\\mathbf b\\)를 빼먹으면 전혀 다른 값이 나옵니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "lu.f2",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lu.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lu.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p763",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(n\\times n\\) 행렬 \\(P\\)와 \\(Q\\)가 순열(permutation)행렬이면 \\(\\det(P-Q)=0\\)이다.",
+   "answer": "O",
+   "solution": "\\(\\mathbf 1=(1,\\dots,1)\\)이라 하면 치환행렬은 각 행에 1이 하나라 \\(P\\mathbf 1=Q\\mathbf 1=\\mathbf 1\\). 그러면 \\((P-Q)\\mathbf 1=\\mathbf 0\\)이고 \\(\\mathbf 1\\ne\\mathbf 0\\)이라 \\(P-Q\\)는 비가역, det = 0.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p770",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(a\\)가 어떤 값일 때 \\(A=\\begin{bmatrix}a&3&3\\\\a&a&5\\\\a&a&a\\end{bmatrix}\\)의 역행렬이 존재하지 않는지 모두 고르시오.",
+   "options": [
+    "A. \\(a=0,3\\)",
+    "B. \\(a=0,3,5\\)",
+    "C. \\(a=0,5\\)",
+    "D. \\(a=3,5\\)"
+   ],
+   "answer": "B",
+   "solution": "\\(R_2-R_1,\\;R_3-R_1\\): \\(\\begin{bmatrix}a&3&3\\\\0&a-3&2\\\\0&a-3&a-3\\end{bmatrix}\\).\\(R_3-R_2\\): \\(\\begin{bmatrix}a&3&3\\\\0&a-3&2\\\\0&0&a-5\\end{bmatrix}\\).피벗(대각) \\(a,\\;a-3,\\;a-5\\) 중 하나라도 0이면 비가역. \\(\\det A=a(a-3)(a-5)\\).\\(a=0\\)을 빠뜨리기 쉽습니다(첫 열이 통째로 0).",
+   "judge_A": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p776",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "평행사변형의 두 대각선 길이의 합은 평행사변형의 네 변의 길이의 합과 같다.",
+   "answer": "X",
+   "solution": "성립하는 것은 제곱의 합: \\(\\|\\mathbf u+\\mathbf v\\|^2+\\|\\mathbf u-\\mathbf v\\|^2=2(\\|\\mathbf u\\|^2+\\|\\mathbf v\\|^2)\\) (1.2-26–27). 길이의 합은 삼각부등식 때문에 일반적으로 다릅니다.",
+   "judge_A": {
+    "facet": "lineplane.f3",
+    "depth": 4
+   },
+   "judge_B": {
+    "facet": "dot.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "dot.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "dot.f2",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p778",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(n\\times n\\) 행렬 \\(A\\)에 대해 임의의 \\(\\mathbf b\\)에 대해 \\(A\\mathbf x=\\mathbf b\\)가 항상 해를 갖는다고 하자. 그러면 어떤 \\(\\mathbf v\\)에 대해 \\(A\\mathbf x=\\mathbf v\\)가 두 개 이상의 해를 가질 수 있다.",
+   "answer": "X",
+   "solution": "정사각행렬에서 모든 \\(\\mathbf b\\)에 해가 있으면 피벗이 \\(n\\)개 → 가역(가역행렬 정리). 그러면 해는 \\(A^{-1}\\mathbf v\\) 하나뿐입니다.",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 4
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "inv.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p779",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(n\\times n\\) 행렬 \\(B\\)와 \\(AB\\)가 역행렬이 존재하면 \\(A\\)는 역행렬이 존재한다.",
+   "answer": "O",
+   "solution": "\\(A=(AB)B^{-1}\\)은 가역행렬 두 개의 곱이라 가역. \\(A^{-1}=B(AB)^{-1}\\).",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "det.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "inv.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p781",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "다음 두 선형시스템의 해의 유무는 같다. ① \\(5x_1+x_2-3x_3=0,\\;-9x_1+2x_2+5x_3=1,\\;4x_1+x_2-6x_3=9\\) ② 우변만 \\(0,5,45\\)로 바뀐 시스템.",
+   "answer": "O",
+   "solution": "②의 우변은 ①의 우변의 5배입니다. \\(A\\mathbf x=\\mathbf b\\)의 해 \\(\\mathbf x\\)가 있으면 \\(5\\mathbf x\\)가 \\(A\\mathbf y=5\\mathbf b\\)의 해이고, 거꾸로도 \\(\\tfrac15\\)배로 됩니다.",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "lincomb.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lincomb.f3",
+    "depth": 4
+   },
+   "now": {
+    "facet": "lincomb.f3",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p784",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "다음 중 \\((A+B)^2\\)와 같은 행렬을 모두 고르시오. 1. \\(A^2+2AB+B^2\\) &nbsp; 2. \\(A(A+B)+B(B+A)\\) &nbsp; 3. \\((A+B)(B+A)\\) &nbsp; 4. \\(A^2+AB+BA+B^2\\)",
+   "options": [
+    "A. 1, 4",
+    "B. 1, 2, 3, 4",
+    "C. 2, 3, 4",
+    "D. 4만"
+   ],
+   "answer": "C",
+   "solution": "\\((A+B)^2=(A+B)(A+B)=A^2+AB+BA+B^2\\). 행렬곱은 교환법칙이 없어 \\(AB+BA\\ne2AB\\)라 1번은 \\(AB=BA\\)일 때만 성립합니다. \\(A+B=B+A\\)라 3번도 같고, 2번은 분배법칙으로 펼치면 4번과 같습니다. 예전에 같이 풀었던 문제 그대로입니다.",
+   "judge_A": {
+    "facet": "matops.f3",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "matops.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "now": {
+    "facet": "matops.f3",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p788",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "블록행렬 \\(\\begin{bmatrix}I&0&0\\\\C&I&0\\\\A&B&I\\end{bmatrix}\\)의 역행렬이 \\(\\begin{bmatrix}I&0&0\\\\Z&I&0\\\\X&Y&I\\end{bmatrix}\\)이다. \\(X\\)를 \\(A,B,C\\)로 나타내면?",
+   "options": [
+    "A. \\(X=-A-BC\\)",
+    "B. \\(X=A-BC\\)",
+    "C. \\(X=-A+BC\\)",
+    "D. \\(X=-A+CB\\)"
+   ],
+   "answer": "C",
+   "solution": "두 행렬의 곱이 \\(I\\)여야 합니다.(2,1) 블록: \\(C+Z=0\\) → \\(Z=-C\\). (3,2) 블록: \\(B+Y=0\\) → \\(Y=-B\\).(3,1) 블록: \\(A+BZ+X=0\\) → \\(X=-A-BZ=-A+BC\\).\\(BC\\)와 \\(CB\\)는 다릅니다(곱 순서 유지). 기본행렬 역행렬처럼 \"부호만 바꾸면\" 되는 게 아니라 \\(BC\\) 항이 생긴다는 점이 2.6–2.7 연결 포인트입니다.",
+   "judge_A": {
+    "facet": "block.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "block.f2",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "block.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "block.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p792",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(\\mathbf R^3\\) 공간에서 어떤 직선에 평행인 두 직선은 평행하다.",
+   "answer": "O",
+   "solution": "평행 = 방향벡터가 서로 배수. 두 직선의 방향이 모두 기준 직선의 방향과 배수 관계면 서로도 배수 관계입니다.",
+   "judge_A": {
+    "facet": "lineplane.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lineplane.f2",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "lineplane.f2",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lineplane.f2",
+    "depth": 2
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p793",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "행렬 \\(B\\)의 열들이 선형종속이면 행렬 \\(AB\\)의 열들도 선형종속이다.",
+   "answer": "O",
+   "solution": "\\(B\\mathbf x=\\mathbf 0\\)인 \\(\\mathbf x\\ne\\mathbf 0\\)이 있으면 \\(AB\\mathbf x=A\\mathbf 0=\\mathbf 0\\). 같은 \\(\\mathbf x\\)가 \\(AB\\)의 열 사이 종속 관계를 줍니다. (2024 O/X 12의 반대 방향과 비교)",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "matops.f2",
+    "depth": 4
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p795",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(m\\times n\\) 행렬 \\(A\\)의 랭크(피벗 개수)가 \\(n\\)이면 \\(A\\mathbf x=\\mathbf b\\)는 항상 해가 1개 이하이다.",
+   "answer": "O",
+   "solution": "피벗이 \\(n\\)개 = 모든 열이 피벗열 = 자유변수 없음. 해가 있으면 유일하고, 없을 수도 있습니다(\\(m>n\\)이면).",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 2
+   },
+   "judge_B": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p796",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(n\\times n\\) 행렬 \\(A\\)에 대하여 \\(AD=I\\)인 행렬 \\(D\\)가 존재하면 \\(CA=I\\)인 행렬 \\(C\\)가 존재한다.",
+   "answer": "O",
+   "solution": "정사각행렬에서 한쪽 역행렬이 있으면 가역이고(가역행렬 정리), \\(C=D=A^{-1}\\)입니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 4
+   },
+   "judge_C": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "now": {
+    "facet": "inv.f2",
+    "depth": 2
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p802",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(A=\\begin{bmatrix}a&1&2&3\\\\a&a&4&5\\\\a&a&a&6\\\\a&a&a&a\\end{bmatrix}\\)이 가역이 되는 \\(a\\)를 보기(\\(1,2,3,4,0,6\\))에서 모두 고르시오.",
+   "options": [
+    "A. \\(0, 1, 4, 6\\)",
+    "B. \\(1, 4, 6\\)",
+    "C. \\(2, 3, 4\\)",
+    "D. \\(2, 3\\)"
+   ],
+   "answer": "D",
+   "solution": "아래 행에서 위 행을 차례로 빼면 상삼각 \\(\\begin{bmatrix}a&1&2&3\\\\0&a-1&2&2\\\\0&0&a-4&2\\\\0&0&0&a-6\\end{bmatrix}\\).대각(피벗) \\(a,\\;a-1,\\;a-4,\\;a-6\\)이 모두 0이 아니어야 가역 → \\(a\\notin\\{0,1,4,6\\}\\).2023-5와 같은 유형입니다. 셋째 보기는 반대로 비가역인 값입니다.",
+   "judge_A": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "inv.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "det.f2",
+    "depth": 2
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p806",
+   "kind": "mc",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(A=\\begin{bmatrix}1&0&0\\\\0&r-2&2\\\\0&s-1&r+2\\\\0&0&3\\end{bmatrix}\\)의 랭크(피벗 개수)에 대한 설명으로 틀린 것을 모두 고르면? 1. 랭크가 1일 수는 없다. 2. \\(r=2,s=1\\)이면 랭크가 2이다. 3. \\(r=1\\)이면 랭크는 3이다. 4. \\(s=2\\)이면 랭크는 3이다. 5. \\((r-2)(s-1)=0\\)이면 랭크는 2이다.",
+   "options": [
+    "A. 3",
+    "B. 2, 5",
+    "C. 5",
+    "D. 1, 5"
+   ],
+   "answer": "C",
+   "solution": "1행과 4행만으로 피벗 2개는 항상 있습니다(1번 참). 2열의 \\(r-2,\\,s-1\\)이 둘 다 0일 때만 피벗이 2개입니다(2번 참). \\(r=1\\)이면 2열에 \\(-1\\)이 생겨 피벗 3개(3번 참), \\(s=2\\)도 마찬가지(4번 참). 5번 반례: \\(r=2,\\;s=3\\)이면 2열에 2가 있어 랭크 3.",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 3
+   },
+   "judge_B": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f1",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f1",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p810",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(m\\times n\\) 행렬 \\(A\\)의 랭크가 \\(m\\)이면 선형시스템 \\(A\\mathbf x=\\mathbf b\\)는 항상 해를 갖는다.",
+   "answer": "O",
+   "solution": "모든 행에 피벗이 있으면 \\(0=\\)(0 아닌 수) 같은 행이 생길 수 없습니다. 그래서 모든 \\(\\mathbf b\\)에 해가 있습니다(존재 정리, 2.5절).",
+   "judge_A": {
+    "facet": "lintrans.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "elim.f2",
+    "depth": 4
+   },
+   "now": {
+    "facet": "elim.f2",
+    "depth": 3
+   },
+   "blind_fit": null
+  },
+  {
+   "ref": "p813",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(3\\times5\\) 행렬 \\(A\\)가 나타내는 선형변환 \\(\\mathbf x\\mapsto A\\mathbf x\\)의 치역은 \\(\\mathbf R^3\\)이다.",
+   "answer": "X",
+   "solution": "치역은 \\(A\\)의 열들의 선형결합 전체라 \\(\\mathbf R^3\\)의 일부일 수 있습니다. 예: \\(A=0\\)이면 \\(\\{\\mathbf 0\\}\\). 공역이 \\(\\mathbf R^3\\)인 것과 구별해야 합니다.",
+   "judge_A": {
+    "facet": "lintrans.f3",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "lintrans.f3",
+    "depth": 3
+   },
+   "judge_C": {
+    "facet": "lintrans.f3",
+    "depth": 3
+   },
+   "now": {
+    "facet": "lintrans.f3",
+    "depth": 3
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p815",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(\\det(A)=\\det(A^T)\\)이다.",
+   "answer": "O",
+   "solution": "행렬식 성질 9. 기본행렬로 쪼개 증명합니다(3.1절).",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "det.f1",
+    "depth": 1
+   },
+   "judge_C": {
+    "facet": "det.f1",
+    "depth": 1
+   },
+   "now": {
+    "facet": "det.f1",
+    "depth": 1
+   },
+   "blind_fit": "no"
+  },
+  {
+   "ref": "p816",
+   "kind": "ox",
+   "chapter": "중간고사 기출 2021–2025",
+   "question": "\\(n\\times n\\) 행렬 \\(A,B,D\\)에 대해 \\(\\det\\begin{bmatrix}A&B\\\\0&D\\end{bmatrix}=\\det A\\det D\\)가 항상 성립한다.",
+   "answer": "O",
+   "solution": "블록 상삼각의 행렬식입니다(3.2절 7쪽). \\(B\\)는 영향을 주지 않습니다. \\(\\begin{bmatrix}A&0\\\\C&D\\end{bmatrix}\\)도 같습니다.",
+   "judge_A": {
+    "facet": "det.f2",
+    "depth": 1
+   },
+   "judge_B": {
+    "facet": "det.f1",
+    "depth": 2
+   },
+   "judge_C": {
+    "facet": "det.f1",
+    "depth": 1
+   },
+   "now": {
+    "facet": "det.f1",
+    "depth": 1
+   },
+   "blind_fit": null
+  }
+ ]
+}

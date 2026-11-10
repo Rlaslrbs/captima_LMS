@@ -4,8 +4,8 @@
    "ref": "p1088",
    "rationale": "데이터 3법은 개인정보보호법, 정보통신망법, 신용정보법이며 전자상거래법은 포함되지 않는다.",
    "facet": "c13.f5",
-   "depth": "4",
-   "depth_why": "D4a",
+   "depth": "1",
+   "depth_why": "D1a",
    "options": [
     {
      "idx": 0,

@@ -1,0 +1,769 @@
+{
+ "items": [
+  {
+   "ref": "p433",
+   "action": "change",
+   "facet": "lincomb.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "w가 u,v의 선형결합이라 한 평면에 있다는 선형결합의 기하적 의미를 적용하는 문항이며 내적 개념은 쓰이지 않음"
+  },
+  {
+   "ref": "p434",
+   "action": "keep",
+   "facet": "lincomb.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "성분별 연립으로 c,d를 구하고 성분합 불변으로 도달 불가를 판단하는 선형결합 방정식 적용"
+  },
+  {
+   "ref": "p435",
+   "action": "exclude",
+   "facet": "lincomb.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "평행사변형 꼭짓점 계산은 벡터 덧셈 계산일 뿐 목록 facet의 개념 세부를 요구하지 않음"
+  },
+  {
+   "ref": "p438",
+   "action": "change",
+   "facet": "lincomb.f1",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": false,
+   "reason": "c+d=1(affine) 결합이 직선, 선분, 평면 중 무엇인지 이웃 개념 사이에서 고르는 문항"
+  },
+  {
+   "ref": "p439",
+   "action": "change",
+   "facet": "lincomb.f1",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": false,
+   "reason": "합=1·비음 조건(convex)과 합≤1 등 이웃 조건 중 삼각형을 채우는 조건을 고르는 구별 문항"
+  },
+  {
+   "ref": "p440",
+   "action": "keep",
+   "facet": "lincomb.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "세 벡터가 한 평면에 있는지 여부에 따라 선형결합이 R^3 전체인지 평면인지 판정"
+  },
+  {
+   "ref": "p443",
+   "action": "change",
+   "facet": "lincomb.f1",
+   "depth": 4,
+   "depth_why": "D4c",
+   "sure": false,
+   "reason": "'항상 존재하는가'는 세 벡터가 모두 평행하면 평면을 채우지 못한다는 반례로 판단하는 always 문항"
+  },
+  {
+   "ref": "p445",
+   "action": "exclude",
+   "facet": "dot.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "내적 수치 계산만으로 보기가 갈리는 계산 문항이라 개념 진단에 부적합"
+  },
+  {
+   "ref": "p453",
+   "action": "exclude",
+   "facet": "dot.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "방향 코사인 계산 문항으로 수직 조건이나 코시-슈바르츠 개념이 필요하지 않음"
+  },
+  {
+   "ref": "p455",
+   "action": "exclude",
+   "facet": "dot.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "내적 분배·교환 법칙으로 전개하는 대수 계산이며 목록의 내적 facet(수직, 슈바르츠)과 맞지 않음"
+  },
+  {
+   "ref": "p456",
+   "action": "exclude",
+   "facet": "dot.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "코사인 법칙의 θ가 v,w 사이각임을 묻는 문항으로 목록에 맞는 facet이 없음"
+  },
+  {
+   "ref": "p457",
+   "action": "keep",
+   "facet": "dot.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "슈바르츠 부등식을 그대로 적용해 삼각부등식을 얻는 강의형 적용"
+  },
+  {
+   "ref": "p459",
+   "action": "exclude",
+   "facet": "dot.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "평행사변형 법칙은 내적 전개의 ±2v·w 상쇄 계산이고 수직 조건은 오답 함정일 뿐 필요 개념이 아님"
+  },
+  {
+   "ref": "p460",
+   "action": "change",
+   "facet": "dot.f1",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "v·w=5인 직선이 v에 수직임을 이용해 최단 w를 v 방향에서 찾는, 강의에 없는 형태의 수직 조건 활용"
+  },
+  {
+   "ref": "p479",
+   "action": "keep",
+   "facet": "lineplane.f2",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": true,
+   "reason": "두 평면에 수직인 평면의 법선은 두 법선에 수직(평행 아님)임을 구별해야 함"
+  },
+  {
+   "ref": "p482",
+   "action": "keep",
+   "facet": "lineplane.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "교선의 매개변수 방정식을 세우는 것이 중심이나 평면 사이 각(법선 각) 판별도 섞여 있음"
+  },
+  {
+   "ref": "p492",
+   "action": "keep",
+   "facet": "matops.f4",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "(Ax)^T=x^TA^T 전치 순서 적용이 중심이나 크기 조건(matops.f1) 보기도 함께 섞여 있음"
+  },
+  {
+   "ref": "p493",
+   "action": "change",
+   "facet": "matops.f1",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "행-열 규칙으로 곱셈 횟수를 세는 강의에 없는 형태이며 비가환성(matops.f3)과는 무관"
+  },
+  {
+   "ref": "p507",
+   "action": "keep",
+   "facet": "matops.f2",
+   "depth": 1,
+   "depth_why": "D1b",
+   "sure": false,
+   "reason": "열 관점·행 관점·전치 순서 진술의 참거짓으로 여러 facet이 섞인 정의 수준 문항"
+  },
+  {
+   "ref": "p515",
+   "action": "change",
+   "facet": "lintrans.f2",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "모든 b에 해가 있으면 모든 행에 피벗이 있어 행≤열이라는 위로 조건을 우역행렬 상황에 적용"
+  },
+  {
+   "ref": "p516",
+   "action": "change",
+   "facet": "lintrans.f2",
+   "depth": 4,
+   "depth_why": "D4d",
+   "sure": false,
+   "reason": "좌역·우역에서 피벗 개수로 m≥n, m≤n을 얻고 결합법칙으로 C=D를 보이는 결합 문항"
+  },
+  {
+   "ref": "p529",
+   "action": "keep",
+   "facet": "lintrans.f1",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": false,
+   "reason": "합성 순서와 대칭축을 구별해 표준행렬을 구성하는 문항"
+  },
+  {
+   "ref": "p536",
+   "action": "exclude",
+   "facet": "elim.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "행축약 계산만으로 보기가 갈리는 계산 실수형 문항"
+  },
+  {
+   "ref": "p537",
+   "action": "exclude",
+   "facet": "elim.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "보기는 계산 결과 차이뿐이며 해의 존재 판정이 보기 선택에 쓰이지 않음"
+  },
+  {
+   "ref": "p538",
+   "action": "keep",
+   "facet": "lintrans.f2",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": true,
+   "reason": "모든 x가 어딘가로 간다는 함수 성질과 onto(모든 b에 원상 존재)를 구별"
+  },
+  {
+   "ref": "p549",
+   "action": "change",
+   "facet": "matops.f1",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": false,
+   "reason": "3×5 행렬의 열 수로 정의역 R^5를 정하는 크기 조건이며 정의역·공역 혼동을 구별"
+  },
+  {
+   "ref": "p550",
+   "action": "change",
+   "facet": "lintrans.f2",
+   "depth": 3,
+   "depth_why": "D3c",
+   "sure": false,
+   "reason": "치역을 공역 R^m과 같다고 붙인 거짓 진술로 위로 조건(모든 행 피벗)과의 구별이 핵심"
+  },
+  {
+   "ref": "p553",
+   "action": "exclude",
+   "facet": "elim.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "후진대입 계산과 우변 배수 처리로 보기가 갈리는 계산 위주 문항"
+  },
+  {
+   "ref": "p560",
+   "action": "keep",
+   "facet": "lincomb.f3",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "b가 두 열이 놓인 직선 위에 있는지로 해의 존재를 판정"
+  },
+  {
+   "ref": "p562",
+   "action": "change",
+   "facet": "lincomb.f4",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "두 해의 차가 동차해이고 중점이 다시 해임을 보는 특수해+동차해 구조의 비강의형 활용"
+  },
+  {
+   "ref": "p565",
+   "action": "keep",
+   "facet": "elim.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "매개변수 d에서 피벗 자리가 0이 되어 행교환이 필요한지, 셋째 피벗이 사라지는지 판정"
+  },
+  {
+   "ref": "p568",
+   "action": "change",
+   "facet": "elim.f1",
+   "depth": 4,
+   "depth_why": "D4b",
+   "sure": false,
+   "reason": "두 열이 같아 행교환으로도 피벗을 복구할 수 없는 예외 상황"
+  },
+  {
+   "ref": "p572",
+   "action": "keep",
+   "facet": "elim.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "a 값에 따라 피벗이 0이 되어 소거가 실패하는지 판정"
+  },
+  {
+   "ref": "p573",
+   "action": "keep",
+   "facet": "elim.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "세 a 값에서 피벗 누락 여부를 판정"
+  },
+  {
+   "ref": "p580",
+   "action": "change",
+   "facet": "elim.f2",
+   "depth": 1,
+   "depth_why": "D1b",
+   "sure": true,
+   "reason": "inconsistent(해 없음)의 정의를 뒤집은 진술로 해의 존재 개념의 정의 문항"
+  },
+  {
+   "ref": "p581",
+   "action": "change",
+   "facet": "elim.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": false,
+   "reason": "정사각에서 모든 열 피벗이면 마지막 열 피벗·자유변수가 모두 없는지 확인하는 조건 판정"
+  },
+  {
+   "ref": "p601",
+   "action": "exclude",
+   "facet": "lincomb.f4",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "동차해 매개변수 형태의 부호 계산으로 보기가 갈리는 계산 문항"
+  },
+  {
+   "ref": "p602",
+   "action": "keep",
+   "facet": "lincomb.f4",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "동차해를 자유변수 벡터의 선형결합으로 쓰는 강의형 적용, 자유변수 자리 실수를 구별"
+  },
+  {
+   "ref": "p611",
+   "action": "change",
+   "facet": "elim.f2",
+   "depth": 4,
+   "depth_why": "D4c",
+   "sure": false,
+   "reason": "해가 없는 y가 있으면 모든 z에 대해 유일해가 불가능함을 보이는 all 형태의 추론"
+  },
+  {
+   "ref": "p616",
+   "action": "exclude",
+   "facet": "inv.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "x=A^{-1}b 수치 계산이며 오답은 역행렬 계산 실수에서 나옴"
+  },
+  {
+   "ref": "p617",
+   "action": "exclude",
+   "facet": "inv.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "역행렬과 첨가행렬 행축약의 수치 계산 문항"
+  },
+  {
+   "ref": "p622",
+   "action": "keep",
+   "facet": "inv.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "C=AB에서 오른쪽에 B^{-1}을 곱하는 곱의 순서가 핵심이며 가역행렬 곱의 가역성 적용"
+  },
+  {
+   "ref": "p623",
+   "action": "keep",
+   "facet": "matops.f3",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "B를 약분하거나 순서를 바꾸면 안 된다는 비가환성 적용"
+  },
+  {
+   "ref": "p624",
+   "action": "keep",
+   "facet": "matops.f3",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "좌우 곱 위치를 지켜 X=CB-A를 얻는 비가환성 적용"
+  },
+  {
+   "ref": "p626",
+   "action": "exclude",
+   "facet": "inv.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "역행렬 알고리즘 수치 계산이며 보기는 전치·부호·스케일 누락 실수"
+  },
+  {
+   "ref": "p637",
+   "action": "change",
+   "facet": "inv.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": false,
+   "reason": "정사각에서 해 없는 b가 있으면 일대일이 아님을 가역행렬 정리 동치로 판정하는 함의 문항"
+  },
+  {
+   "ref": "p638",
+   "action": "keep",
+   "facet": "inv.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "모든 v에 해가 있는 정사각행렬은 가역이라 해가 유일함을 판정"
+  },
+  {
+   "ref": "p645",
+   "action": "change",
+   "facet": "block.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "[A B;0 I] 블록 삼각행렬의 역에 해당하는 블록을 직접 계산하며 A^{-1} 곱의 위치가 핵심"
+  },
+  {
+   "ref": "p646",
+   "action": "keep",
+   "facet": "block.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "블록 곱을 계산해 블록 단위로 비교하는 문항이며 곱 순서(오른쪽 A11^{-1})가 함정"
+  },
+  {
+   "ref": "p652",
+   "action": "keep",
+   "facet": "block.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "세 블록 행렬의 곱을 계산해 X,Y를 구하는 블록 곱 적용"
+  },
+  {
+   "ref": "p668",
+   "action": "change",
+   "facet": "lu.f1",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "대각 성분이 0이 아닌 하삼각은 아래 행 대치만으로 축약되어 역도 하삼각임을 보이는 비강의형 문항"
+  },
+  {
+   "ref": "p670",
+   "action": "change",
+   "facet": "block.f1",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "L의 열·U의 행 분할(열-행 전개)로 A=BC를 만드는 블록 분할 조건의 비강의형 활용"
+  },
+  {
+   "ref": "p690",
+   "action": "change",
+   "facet": "det.f1",
+   "depth": 4,
+   "depth_why": "D4c",
+   "sure": false,
+   "reason": "행교환 부호, 삼각행렬 한정, 역 명제 거짓 등 always/converse 진술이 섞인 행렬식 성질 문항"
+  },
+  {
+   "ref": "p696",
+   "action": "keep",
+   "facet": "det.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "곱·역·거듭제곱의 행렬식 곱셈성 적용이 중심이나 det(5A) 스칼라배 함정도 포함"
+  },
+  {
+   "ref": "p697",
+   "action": "change",
+   "facet": "det.f3",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "보기 대부분이 det(2A)=2^4 det A 스칼라배 처리로 갈리며 기출 함정도 det 2A였음"
+  },
+  {
+   "ref": "p698",
+   "action": "keep",
+   "facet": "det.f3",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": true,
+   "reason": "한 행 선형성과 det(B+C)≠det B+det C(덧셈 비분배)를 구별"
+  },
+  {
+   "ref": "p700",
+   "action": "change",
+   "facet": "det.f1",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": false,
+   "reason": "바뀌는 3열을 따라 여인자 전개해야 함을 다른 전개·잘못된 논리와 구별하는 문항"
+  },
+  {
+   "ref": "p709",
+   "action": "keep",
+   "facet": "detapp.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "det A≠0이어야 크래머 공식이 적용된다는 조건을 약분 전 기준으로 확인"
+  },
+  {
+   "ref": "p710",
+   "action": "keep",
+   "facet": "detapp.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "det A≠0 조건 확인 후 크래머 공식 적용"
+  },
+  {
+   "ref": "p725",
+   "action": "keep",
+   "facet": "detapp.f2",
+   "depth": 3,
+   "depth_why": "D3a",
+   "sure": true,
+   "reason": "부피 0과 성분 0·영벡터 열 등 이웃 오개념을 구별해 비가역성과 연결"
+  },
+  {
+   "ref": "p729",
+   "action": "change",
+   "facet": "detapp.f2",
+   "depth": 4,
+   "depth_why": "D4d",
+   "sure": false,
+   "reason": "삼각형 넓이 행렬식 공식에 행 연산·여인자 전개(det.f1)를 결합해야 하는 문항"
+  },
+  {
+   "ref": "p745",
+   "action": "change",
+   "facet": "lintrans.f1",
+   "depth": 2,
+   "depth_why": "D2b",
+   "sure": false,
+   "reason": "45° 회전행렬의 10제곱을 90° 회전행렬로 쓰는 같은 대상의 적용"
+  },
+  {
+   "ref": "p751",
+   "action": "keep",
+   "facet": "det.f3",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "det(2A)=2^4 det A 처리가 핵심 함정이나 행 연산·전개(det.f1)도 함께 필요"
+  },
+  {
+   "ref": "p752",
+   "action": "exclude",
+   "facet": "lincomb.f1",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "시계 벡터 합이 0이라는 대칭 사실로 푸는 문항이며 목록 facet의 개념 세부가 아님"
+  },
+  {
+   "ref": "p754",
+   "action": "keep",
+   "facet": "matops.f2",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "AS가 열을 한 칸씩 미는 열 관점으로 S^k를 판단하는 비강의형 대상"
+  },
+  {
+   "ref": "p756",
+   "action": "keep",
+   "facet": "matops.f1",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "역행렬을 구하지 않고 AB=I의 행-열 성분 몇 개로 a,b를 정하는 비강의형 활용"
+  },
+  {
+   "ref": "p759",
+   "action": "keep",
+   "facet": "lu.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": false,
+   "reason": "Pb 후 전진대입·후진대입을 하는 적용이며 y에서 멈추는 함정 포함"
+  },
+  {
+   "ref": "p763",
+   "action": "keep",
+   "facet": "det.f2",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": true,
+   "reason": "(P-Q)1=0으로 비가역임을 보여 det=0을 얻는 비강의형 대상에의 가역성 판정"
+  },
+  {
+   "ref": "p770",
+   "action": "change",
+   "facet": "inv.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": false,
+   "reason": "피벗 a, a-3, a-5 중 0이 있는지로 역행렬 존재를 판정하는 문항"
+  },
+  {
+   "ref": "p776",
+   "action": "change",
+   "facet": "dot.f2",
+   "depth": 3,
+   "depth_why": "D3c",
+   "sure": false,
+   "reason": "제곱의 합에 성립하는 성질을 길이의 합에 붙인 거짓 진술로 삼각부등식으로 반박"
+  },
+  {
+   "ref": "p778",
+   "action": "keep",
+   "facet": "inv.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "정사각에서 모든 b에 해가 있으면 가역이라 해가 유일함을 판정"
+  },
+  {
+   "ref": "p779",
+   "action": "change",
+   "facet": "inv.f1",
+   "depth": 4,
+   "depth_why": "D4c",
+   "sure": false,
+   "reason": "가역행렬 곱의 가역성의 역방향(AB, B 가역이면 A 가역)을 A=(AB)B^{-1}로 보이는 문항"
+  },
+  {
+   "ref": "p781",
+   "action": "keep",
+   "facet": "lincomb.f3",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "우변을 5배 해도 열들의 선형결합으로 표현 가능한지가 유지됨을 판정"
+  },
+  {
+   "ref": "p784",
+   "action": "keep",
+   "facet": "matops.f3",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "AB+BA≠2AB라는 비가환성 적용"
+  },
+  {
+   "ref": "p788",
+   "action": "keep",
+   "facet": "block.f2",
+   "depth": 3,
+   "depth_why": "D3c",
+   "sure": true,
+   "reason": "기본행렬처럼 부호만 바꾸면 된다는 이웃 성질과 달리 BC 항이 생김을 구별"
+  },
+  {
+   "ref": "p792",
+   "action": "keep",
+   "facet": "lineplane.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "방향벡터의 배수 관계로 평행을 판별하는 적용"
+  },
+  {
+   "ref": "p793",
+   "action": "keep",
+   "facet": "matops.f2",
+   "depth": 4,
+   "depth_why": "D4a",
+   "sure": false,
+   "reason": "AB의 열이 A×(B의 열)이라 B의 종속 관계가 AB로 옮겨감을 보는 비강의형 활용"
+  },
+  {
+   "ref": "p795",
+   "action": "keep",
+   "facet": "elim.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "모든 열 피벗이면 자유변수가 없어 해가 1개 이하인지 판정"
+  },
+  {
+   "ref": "p796",
+   "action": "keep",
+   "facet": "inv.f2",
+   "depth": 2,
+   "depth_why": "D2a",
+   "sure": true,
+   "reason": "정사각에서 한쪽 역행렬이 있으면 가역이라는 가역행렬 정리 적용"
+  },
+  {
+   "ref": "p802",
+   "action": "change",
+   "facet": "inv.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "대각 피벗이 모두 0이 아닌지로 가역 여부를 판정하며 해의 존재(elim.f2)와는 거리가 멂"
+  },
+  {
+   "ref": "p806",
+   "action": "keep",
+   "facet": "elim.f1",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": false,
+   "reason": "매개변수 r,s에 따라 피벗이 생기는지 확인해 랭크 진술을 판정"
+  },
+  {
+   "ref": "p810",
+   "action": "keep",
+   "facet": "elim.f2",
+   "depth": 3,
+   "depth_why": "D3b",
+   "sure": true,
+   "reason": "모든 행에 피벗이 있으면 불능행이 없어 항상 해가 존재함을 판정"
+  },
+  {
+   "ref": "p813",
+   "action": "change",
+   "facet": "lintrans.f2",
+   "depth": 3,
+   "depth_why": "D3c",
+   "sure": false,
+   "reason": "치역을 공역 R^3과 같다고 붙인 거짓 진술로 위로 조건과의 구별이 핵심"
+  },
+  {
+   "ref": "p815",
+   "action": "keep",
+   "facet": "det.f1",
+   "depth": 1,
+   "depth_why": "D1a",
+   "sure": false,
+   "reason": "det A=det A^T라는 강의 문장을 확인하는 정의 수준이며 맞는 facet이 애매함"
+  },
+  {
+   "ref": "p816",
+   "action": "keep",
+   "facet": "det.f1",
+   "depth": 1,
+   "depth_why": "D1a",
+   "sure": false,
+   "reason": "블록 상삼각 행렬식 공식이라는 강의 문장 확인이며 맞는 facet이 애매함"
+  }
+ ]
+}

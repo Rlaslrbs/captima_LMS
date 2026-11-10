@@ -1,0 +1,92 @@
+{
+  "notes": "N9C단원은 대응표본 t, 독립표본 비합동(Welch)·합동 t와 구간, 단측 구간, 모분산을 아는 z를 계산하는 단원이다. 가장 많이 틀리는 구분은 대응(1표본)과 독립 절차, 비합동의 Welch 자유도(내림)와 합동의 n+m−2, 합동분산 계산, 단측 임계값(α)과 기각/채택 결론 문장이다.",
+  "kcs": [
+    {
+      "ref": "k1",
+      "name": "대응표본 계산",
+      "definition": "대응표본은 차이의 평균 z̄와 표준편차 sz로 1표본 t(자유도 n−1)를 계산하고, 구간과 검정으로 해석한다.",
+      "boundary": "독립표본 절차는 포함하지 않는다.",
+      "support": ["q1", "q2", "q3", "q15"],
+      "facets": [
+        { "ref": "f1", "name": "차이로 t 계산", "kind": "procedure", "statement": "대응표본의 t=z̄/(sz/√n)이며 자유도는 n−1이다.", "support": ["q1", "q15"] },
+        { "ref": "f2", "name": "대응 구간·결론", "kind": "procedure", "statement": "대응표본의 구간은 z̄±tα/2,n−1·sz/√n이고, 단측 H₀를 기각하지 못하면 증거 부족이다.", "support": ["q2", "q3"] }
+      ]
+    },
+    {
+      "ref": "k2",
+      "name": "비합동 독립표본 계산",
+      "definition": "분산이 다르다고 보고 표준오차 √(sx²/n+sy²/m)와 Welch 자유도 ν(내림)로 t, 구간, 검정 결론을 구한다.",
+      "boundary": "합동분산 계산은 포함하지 않는다.",
+      "support": ["q4", "q5", "q6", "q7", "q11", "q12", "q13", "q16", "q17", "q18"],
+      "facets": [
+        { "ref": "f1", "name": "Welch 자유도", "kind": "procedure", "statement": "Welch 자유도 ν는 두 표본분산으로 계산해 내림한 정수를 쓴다(예: 48, 27, 19).", "support": ["q4", "q11", "q16"] },
+        { "ref": "f2", "name": "비합동 t와 구간", "kind": "procedure", "statement": "t=(x̄−ȳ)/√(sx²/n+sy²/m)이며 구간은 (x̄−ȳ)±tα/2,ν·SE, 단측 구간은 tα를 쓴다.", "support": ["q5", "q6", "q13"] },
+        { "ref": "f3", "name": "두 평균 비교 결론", "kind": "property", "statement": "기각하면 HA 방향의 차이가 있고, 채택은 증거 부족이며 평균이 같다는 증명이 아니다.", "support": ["q7", "q12", "q17", "q18"] },
+        { "ref": "f4", "name": "σ 알 때 두 평균 z", "kind": "procedure", "statement": "두 모표준편차를 알면 z=(x̄−ȳ)/√(σA²/n+σB²/m)로 z 임계값과 비교한다.", "support": ["q18"] }
+      ]
+    },
+    {
+      "ref": "k3",
+      "name": "합동분산 독립표본 계산",
+      "definition": "분산이 같다고 가정하고 합동분산 sp²로 표준오차를 구하며 자유도는 n+m−2다.",
+      "boundary": "비합동의 Welch 자유도는 포함하지 않는다.",
+      "support": ["q8", "q9", "q10", "q14"],
+      "facets": [
+        { "ref": "f1", "name": "sp와 sp² 계산", "kind": "procedure", "statement": "sp²=[(n−1)sx²+(m−1)sy²]/(n+m−2)이며 sp는 그 제곱근이다.", "support": ["q8", "q14"] },
+        { "ref": "f2", "name": "합동 t와 구간", "kind": "procedure", "statement": "t=(x̄−ȳ)/(sp√(1/n+1/m))이고 자유도 n+m−2의 t 임계값으로 구간을 만든다.", "support": ["q9", "q10"] }
+      ]
+    }
+  ],
+  "miscs": [
+    {
+      "evidence": ["q3", "q7", "q12", "q17", "q18"],
+      "kc": "k2",
+      "facet": "f3",
+      "confused_with": "none",
+      "belief": "H₀를 채택하면 두 평균이 같음이 증명된다고 생각함",
+      "truth": "채택은 두 평균이 다르다는 증거가 부족하다는 뜻일 뿐이다",
+      "contrast": "틀린 믿음 채택 = 평균이 같음의 증명 / 바른 이해 채택 = 증거 부족",
+      "cue": "채택은 '증거 부족'으로 쓴다"
+    },
+    {
+      "evidence": ["q3", "q7", "q12", "q17", "q18"],
+      "kc": "k2",
+      "facet": "f3",
+      "confused_with": "none",
+      "belief": "기각하면 HA와 반대 방향의 차이가 있다고 결론낸다고 생각함",
+      "truth": "기각 결론은 HA가 가리키는 방향의 차이다",
+      "contrast": "틀린 믿음 반대 방향의 차이 / 바른 이해 HA 방향의 차이",
+      "cue": "기각하면 HA의 문장을 결론으로 쓴다"
+    },
+    {
+      "evidence": ["q4", "q5", "q10"],
+      "kc": "k2",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "비합동에서도 자유도를 n+m−2로 쓴다고 생각함",
+      "truth": "비합동은 Welch 자유도를 내림해서 쓰고 n+m−2는 합동의 자유도다",
+      "contrast": "비합동은 ν(내림) / 합동은 n+m−2",
+      "cue": "합동인지 비합동인지에 따라 자유도를 바꾼다"
+    },
+    {
+      "evidence": ["q8", "q14"],
+      "kc": "k3",
+      "facet": "f1",
+      "confused_with": "none",
+      "belief": "합동분산을 두 분산의 단순 평균으로 구한다고 생각함",
+      "truth": "자유도로 가중해 (n−1)sx²+(m−1)sy²를 n+m−2로 나눈다",
+      "contrast": "틀린 믿음 (sx²+sy²)/2 / 바른 이해 자유도 가중 평균",
+      "cue": "표본별 자유도로 가중해 합친다"
+    },
+    {
+      "evidence": ["q13"],
+      "kc": "k2",
+      "facet": "f2",
+      "confused_with": "none",
+      "belief": "단측 구간에도 tα/2를 쓴다고 생각함",
+      "truth": "단측 구간은 한쪽 꼬리 α를 쓴다(t0.01,27=2.473)",
+      "contrast": "양측은 tα/2 / 단측은 tα",
+      "cue": "단측이면 α를 그대로 쓴다"
+    }
+  ]
+}

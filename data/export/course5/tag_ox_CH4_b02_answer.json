@@ -3,13 +3,13 @@
   {
    "ref": "p953",
    "rationale": "Do Not Track은 추적 금지 요청을 보낼 뿐 강제력이 없어 실제 추적이 금지되지 않는다. 설정 기능만으로 보호된다고 믿는 통제 감각과 연결된다.",
-   "facet": "c15.f5",
-   "depth": "4",
-   "depth_why": "D4a",
+   "facet": "c13.f2",
+   "depth": "1",
+   "depth_why": "D1b",
    "ox": {
     "statement_true": false,
-    "misc": "m031",
-    "d": "2",
+    "misc": "none",
+    "d": "0",
     "err": "overgeneralize",
     "reverse_misc": "none",
     "planted_error": "DNT 설정이 실제 추적을 금지한다고 함"
@@ -77,8 +77,8 @@
    "ref": "p1083",
    "rationale": "FIP 5원칙 중 공지/인식과 선택/동의가 핵심이다. 핵심 원칙 구분은 배운 세부 포인트에 직접 없다.",
    "facet": "c13.f5",
-   "depth": "4",
-   "depth_why": "D4a",
+   "depth": "1",
+   "depth_why": "D1a",
    "ox": {
     "statement_true": true,
     "misc": "none",

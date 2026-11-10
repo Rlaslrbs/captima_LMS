@@ -1,0 +1,58 @@
+{
+ "items": [
+  {
+   "ref": "p1115",
+   "facet": "c21.f1",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1117",
+   "facet": "c16.f4",
+   "depth_why": "D4d",
+   "depth": "4"
+  },
+  {
+   "ref": "p1164",
+   "facet": "c16.f5",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1165",
+   "facet": "c19.f1",
+   "depth_why": "D1b",
+   "depth": "1"
+  },
+  {
+   "ref": "p1167",
+   "facet": "c18.f1",
+   "depth_why": "D3a",
+   "depth": "3"
+  },
+  {
+   "ref": "p1168",
+   "facet": "c20.f1",
+   "depth_why": "D2b",
+   "depth": "2"
+  },
+  {
+   "ref": "p1169",
+   "facet": "c20.f4",
+   "depth_why": "D1a",
+   "depth": "1"
+  },
+  {
+   "ref": "p1170",
+   "facet": "c18.f3",
+   "depth_why": "D1c",
+   "depth": "1"
+  },
+  {
+   "ref": "p1171",
+   "facet": "c16.f2",
+   "depth_why": "D4d",
+   "depth": "4"
+  }
+ ]
+}

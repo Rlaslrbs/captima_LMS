@@ -125,8 +125,8 @@
    "ref": "p950",
    "rationale": "GDPR은 법(규정)으로 중대 위반에 높은 과징금을 부과한다는 서술이며 참이다. 과징금 상한 수치는 배운 세부 포인트에 직접 없다.",
    "facet": "c13.f5",
-   "depth": "4",
-   "depth_why": "D4a",
+   "depth": "1",
+   "depth_why": "D1a",
    "ox": {
     "statement_true": true,
     "misc": "none",
@@ -139,8 +139,8 @@
    "ref": "p951",
    "rationale": "2020년 데이터 3법 개정으로 가명정보를 연구·통계·공익 기록 보존 목적에 활용할 수 있게 되었다.",
    "facet": "c13.f5",
-   "depth": "4",
-   "depth_why": "D4a",
+   "depth": "1",
+   "depth_why": "D1a",
    "ox": {
     "statement_true": true,
     "misc": "none",
