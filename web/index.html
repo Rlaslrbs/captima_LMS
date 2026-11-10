@@ -3,15 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#efefec" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <title>문제노트</title>
 <link rel="preload" href="/fonts/PretendardVariable.sub.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/glass.css"><!-- Liquid Glass 테마 (데모): 이 줄을 빼면 원래 디자인 -->
-<script>try{var t=JSON.parse(localStorage.getItem("mn:theme")||'"auto"');if(t!=="auto")document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/css/insight.css"><!-- 학습 리포트 정리: 색을 줄이고 글자 위계를 키움. glass.css 뒤에 와야 한다 -->
+<link rel="stylesheet" href="/css/onboarding-showcase.css"><!-- 첫 방문 소개 화면 -->
+<script>try{var t=JSON.parse(localStorage.getItem("mn:theme")||'"auto"');if(t!=="auto")document.documentElement.dataset.theme=t;var g=localStorage.getItem("mn:glass");if(g!=null)document.documentElement.style.setProperty("--lg-v",+JSON.parse(g))}catch(e){}</script>
 </head>
 <body>
+<!-- 유리 굴절: 뒤 배경을 휘게 하고, 빨강·초록·파랑을 조금씩 다르게 휘어 가장자리에 무지개 번짐(분산)을 낸다 (Chrome 계열만 backdrop-filter:url()을 지원, 나머지는 보통 유리) -->
+<svg class="lg-defs" width="0" height="0" aria-hidden="true" focusable="false"><filter id="lg-refract" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.0035 0.006" numOctaves="2" seed="11" result="n"/>
+  <feGaussianBlur in="n" stdDeviation="2" result="nb"/>
+  <feDisplacementMap in="SourceGraphic" in2="nb" scale="46" xChannelSelector="R" yChannelSelector="G" result="dr"/>
+  <feColorMatrix in="dr" type="matrix" values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" result="r"/>
+  <feDisplacementMap in="SourceGraphic" in2="nb" scale="40" xChannelSelector="R" yChannelSelector="G" result="dg"/>
+  <feColorMatrix in="dg" type="matrix" values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0" result="g"/>
+  <feDisplacementMap in="SourceGraphic" in2="nb" scale="34" xChannelSelector="R" yChannelSelector="G" result="db"/>
+  <feColorMatrix in="db" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0" result="b"/>
+  <feBlend in="r" in2="g" mode="screen" result="rg"/>
+  <feBlend in="rg" in2="b" mode="screen"/>
+</filter></svg>
 <header class="top">
   <div class="top-in">
     <a class="brand" href="/" data-link>문제노트<sup>beta</sup></a>
@@ -26,5 +41,6 @@
 </header>
 <div id="view" class="view"></div>
 <script type="module" src="/js/app.js"></script>
+<script type="module" src="/js/spotlight.js"></script><!-- 로고 비추기 (glass.css와 함께) -->
 </body>
 </html>

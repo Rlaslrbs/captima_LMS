@@ -4,6 +4,7 @@ import { S, api, hasDevice, createDevice, adoptDevice, loadCatalog, courseMeta, 
 import { mountCourse, REVIEW_AFTER } from "./course.js";
 import { mountMe } from "./me.js";
 import { CURRICULUM, KINDS } from "./curriculum.js";
+import { showOnboardingShowcase } from "./onboarding-showcase.js";
 
 const view = $("#view");
 
@@ -63,6 +64,10 @@ async function route() {
   }
 }
 function navigate(url, { replace = false } = {}) {
+  if (url && url.includes("onboarding")) {
+    showOnboardingShowcase();
+    return;
+  }
   if (url === location.pathname + location.search) return;
   history[replace ? "replaceState" : "pushState"](null, "", url); route();
 }
@@ -175,7 +180,7 @@ function mountBrowse(r) {
     const sets = setsOf(it), c = sets[0];
     const col = c && c.color || { light: "#0066cc", dark: "#2997ff" };
     const on = sets.some(s => isEnrolled(s.id));
-    return `<button class="ctile ${c ? "" : "off"}" data-open="${it.id}" style="--c:${esc(col.light)};--cd:${esc(col.dark)}">
+    return `<button class="ctile ${c ? "" : "off"}${on ? " mine" : ""}" data-open="${it.id}" style="--c:${esc(col.light)};--cd:${esc(col.dark)}">
       <span class="kd k-${it.kind}">${KINDS[it.kind]}</span>
       <b>${esc(it.name)}</b>
       <small>${c ? `${sets.reduce((n, s) => n + s.problems, 0)}문제${on ? ` · <i class="on">✓ 담음</i>` : ""}` : "준비 중"}</small>
@@ -193,6 +198,8 @@ function mountBrowse(r) {
         : `<div class="empty">아직 올라온 교양 과목이 없어요.</div>`}
       </div>
     </div>`;
+    const yrs = view.querySelector(".years.from-r,.years.from-l");
+    if (yrs) yrs.addEventListener("animationend", e => e.target === yrs && yrs.classList.remove("from-r", "from-l"));   // 끝나면 타일 굴절을 다시 켠다 (glass.css)
     dir = 0;
   }
 
@@ -283,50 +290,11 @@ function mountBrowse(r) {
   } };
 }
 
-// ───────── 첫 접속 안내 + 동의 ─────────
-function onboarding() {
-  return new Promise(resolve => {
-    const wrap = document.createElement("div"); wrap.className = "onb";
-    wrap.innerHTML = `<div class="onb-card" role="dialog" aria-modal="true" aria-labelledby="onb-t">
-      <p class="eyebrow">베타 테스트</p>
-      <h1 id="onb-t">문제노트에 오신 걸<br>환영해요</h1>
-      <ul class="onb-list">
-        <li><span class="oi">⚡</span><div><b>로그인 없이 바로 풀어요</b><small>이 기기에 익명 번호만 만들어요. 이름·이메일은 받지 않아요.</small></div></li>
-        <li><span class="oi">📈</span><div><b>풀이 기록으로 문제를 고쳐요</b><small>동의하면 문제별 정답 여부, 고른 답, 풀이 시간이 익명으로 모여요. 너무 어렵거나 헷갈리는 문제를 찾아 고치는 데만 써요.</small></div></li>
-        <li><span class="oi">🔁</span><div><b>다른 기기에서 이어 풀어요</b><small>동의하면 기록이 서버에도 저장돼, 6자리 코드로 폰과 노트북을 이어 쓸 수 있어요.</small></div></li>
-      </ul>
-      <details class="onb-more"><summary>모으는 것과 모으지 않는 것</summary>
-        <p><b>모으는 것</b> 문제별 정답 여부 · 고른 답이나 쓴 답 · 풀이 시간 · 화면 크기와 기기 종류(폰/PC) · 오류 제보 내용</p>
-        <p><b>모으지 않는 것</b> 이름 · 이메일 · 학번 · 위치 · 연락처. 동의는 마이페이지에서 언제든 끌 수 있어요.</p></details>
-      <div class="onb-year"><span>몇 학년이에요? <small>(선택, 둘러보기가 그 학년부터 열려요)</small></span>
-        <div class="seg" role="radiogroup" aria-label="학년">${["1", "2", "3", "4"].map(y => `<label><input type="radio" name="onbYear" value="${y}"><span>${y}학년</span></label>`).join("")}<label><input type="radio" name="onbYear" value="ge"><span>교양만</span></label></div></div>
-      <label class="onb-nick"><span>닉네임 <small>(선택, 제보할 때 표시)</small></span><input id="onbNick" maxlength="20" placeholder="예: 경영 22" autocomplete="off"></label>
-      <div class="onb-btns"><button class="btn pri lg" data-c="1">동의하고 시작하기</button><button class="btn ghost" data-c="0">동의하지 않고 시작 <small>기록은 이 브라우저에만 저장돼요</small></button></div>
-      <form class="onb-claim" id="onbClaim"><button type="button" class="linkish" id="onbHave">이미 쓰던 기록이 있나요? 코드나 기록 열쇠로 가져오기</button>
-        <div class="inrow" hidden><input id="onbCode" maxlength="64" placeholder="6자리 코드 또는 기록 열쇠" autocomplete="off" autocapitalize="off" spellcheck="false"><button class="btn">가져오기</button></div></form>
-    </div>`;
-    document.body.appendChild(wrap);
-    requestAnimationFrame(() => wrap.classList.add("in"));
-    const finish = () => { wrap.classList.remove("in"); setTimeout(() => wrap.remove(), 350); resolve(); };
-    wrap.addEventListener("click", async e => {
-      const b = e.target.closest("button"); if (!b) return;
-      if (b.id === "onbHave") { b.nextElementSibling.hidden = false; $("#onbCode").focus(); return; }
-      if (b.dataset.c !== undefined) {
-        b.disabled = true;
-        const yr = wrap.querySelector('input[name="onbYear"]:checked'); if (yr) LS.set("browseYear", yr.value);
-        await createDevice({ consent: b.dataset.c === "1", nickname: $("#onbNick").value.trim() });
-        finish(); toast(b.dataset.c === "1" ? "고마워요! 이제 과목을 담아 볼까요?" : "시작해요! 과목을 담아 볼까요?", "ok");
-      }
-    });
-    $("#onbClaim").addEventListener("submit", async e => {
-      e.preventDefault(); const v = $("#onbCode").value.trim();
-      const isKey = /^[A-Za-z0-9_-]{16,64}$/.test(v);
-      if (!/^\d{6}$/.test(v) && !isKey) { toast("6자리 코드나 기록 열쇠를 입력해 주세요", "bad"); return; }
-      try { const r = await api("POST", "/api/transfer/claim", isKey ? { key: v } : { code: v }); await adoptDevice(r.device_id); finish(); toast("기록을 가져왔어요", "ok"); }
-      catch (err) { toast(err.status ? err.message : "인터넷 연결을 확인해 주세요", "bad"); }
-    });
-  });
+// ───────── 첫 접속 안내 + 동의 (스크롤 소개 화면, onboarding-showcase.js) ─────────
+async function onboarding() {
+  return await showOnboardingShowcase();
 }
+window.openShowcaseOnboarding = showOnboardingShowcase;
 
 // ───────── 기록 열쇠 알림 (로그인이 없어서 기록을 잃지 않게, 30문제를 풀면 한 번) ─────────
 function keyNudge() {
@@ -354,7 +322,9 @@ onChange(w => { if (w === "online") renderNet(); });
   applyTheme(); renderNet();
   await loadCatalog();
   route();
-  if (!hasDevice()) {
+  if (new URLSearchParams(location.search).has("onboarding") || location.hash === "#onboarding") {
+    showOnboardingShowcase();
+  } else if (!hasDevice()) {
     await onboarding();
     if (!S.enroll.length && (location.pathname === "/" || location.pathname === "/browse")) {   // 고른 학년 탭으로 다시 연다
       const y = LS.get("browseYear", ""), url = "/browse" + (y ? "?y=" + y : "");
