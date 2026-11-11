@@ -1,0 +1,86 @@
+[
+ {
+  "ext_id": "C10-13",
+  "facet": "dpform.elements",
+  "facet_hint": "수식화의 구성 요소",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "C11-14",
+  "facet": "bb_bip.fathom",
+  "facet_hint": "분지폐기 검사 3가지",
+  "depth": 2,
+  "depth_why": "D2b"
+ },
+ {
+  "ext_id": "C12-22",
+  "facet": "nlp_grad.grad",
+  "facet_hint": "그래디언트 탐색",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "C13-13",
+  "facet": "mh_ls.rev",
+  "facet_hint": "하위 경로 역순 이웃해",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "C14-10",
+  "facet": "gt_dom.dominated",
+  "facet_hint": "열등전략 판정과 제거",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "C16-26",
+  "facet": "steady_prob.cost",
+  "facet_hint": "단위시간당 기대비용",
+  "depth": 2,
+  "depth_why": "D2b"
+ },
+ {
+  "ext_id": "C17-13",
+  "facet": "qbd.balance",
+  "facet_hint": "평형 방정식",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "C10-7",
+  "facet": "dpform.recur",
+  "facet_hint": "반복식과 후방 풀이",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "C11-1",
+  "facet": "bipmodel.logic",
+  "facet_hint": "논리 조건 식으로 쓰기",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "C12-1",
+  "facet": "nlp_convex.func",
+  "facet_hint": "볼록·오목 함수 판정",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "C13-8",
+  "facet": "mh_ga.concept",
+  "facet_hint": "모집단·세대와 부모 선택",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "C14-1",
+  "facet": "gt_class.kinds",
+  "facet_hint": "게임 분류 기준",
+  "depth": 1,
+  "depth_why": "D1a"
+ }
+]

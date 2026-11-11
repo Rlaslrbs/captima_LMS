@@ -1,0 +1,86 @@
+[
+ {
+  "ext_id": "8.1.23",
+  "facet": null,
+  "facet_hint": "단측 신뢰구간: α를 둘로 나누지 않음",
+  "depth": 4,
+  "depth_why": "D4c"
+ },
+ {
+  "ext_id": "8.2.5",
+  "facet": null,
+  "facet_hint": "p-value와 α로 결론, H₀ 채택 ≠ 증명",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "8.2.29a",
+  "facet": null,
+  "facet_hint": "가설 설정: 보이고 싶은 주장은 H_A",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "R-11",
+  "facet": null,
+  "facet_hint": "중심극한정리: n ≥ 30이면 표본평균 근사 정규",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "tf21",
+  "facet": null,
+  "facet_hint": "t분포의 꼬리가 두꺼운 이유(S가 확률변수)",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "9-9.28",
+  "facet": null,
+  "facet_hint": "비합동(unpooled) 두 표본 t 통계량",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "9-9.20",
+  "facet": null,
+  "facet_hint": "대응 표본 vs 독립 표본 절차",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "9-9.21",
+  "facet": null,
+  "facet_hint": "대응 표본이 외부 요인 변동을 줄이는 이유",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "9-9.29",
+  "facet": null,
+  "facet_hint": "양측 검정 결론과 해석",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "tf20",
+  "facet": null,
+  "facet_hint": "자유도가 커지면 t분포 꼬리가 얇아짐",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "R-10",
+  "facet": null,
+  "facet_hint": "표준오차 = 통계량의 표준편차",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "8.2.29b",
+  "facet": null,
+  "facet_hint": "t 임계값: 자유도 n−1, 꼬리마다 α/2",
+  "depth": 2,
+  "depth_why": "D2a"
+ }
+]
