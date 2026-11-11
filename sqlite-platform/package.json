@@ -1,0 +1,12 @@
+{
+  "name": "munje-note-platform",
+  "private": true,
+  "type": "module",
+  "description": "문제노트 베타 플랫폼 (사용자 웹 + 관리자 웹 + SQLite). Node 24 내장 기능만 사용",
+  "scripts": {
+    "start": "node server/server.js",
+    "import": "node server/import.js",
+    "test": "node --test \"server/insight/test/*.test.mjs\""
+  },
+  "engines": { "node": ">=22.13" }
+}

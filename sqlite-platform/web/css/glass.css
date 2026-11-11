@@ -1,0 +1,263 @@
+/* Liquid Glass 테마 (데모) — app.css 위에 덮어쓴다. index.html에서 이 파일 한 줄을 빼면 원래 디자인으로 돌아간다.
+   원칙
+   - 떠 있는 것(위쪽 바, 탭, 메뉴, 창, 알림)만 진짜 유리: 뒤를 흐리고(blur) 채도를 올린다.
+   - 문제 카드처럼 많이 쌓이는 것은 반투명 + 테두리 빛만 (blur를 수백 개 걸면 휴대폰 스크롤이 느려진다).
+   - 모든 유리에는 위쪽 가장자리 빛(rim)과 얇은 테두리를 줘서 판처럼 보이게 한다.
+   - 투명도 줄이기 설정을 켠 사용자에게는 불투명하게. */
+
+/* 글꼴: Pretendard Variable (SF Pro와 비슷하게 만든 한글 글꼴). 굵기 100~900을 파일 하나로.
+   예전 .sub 파일은 한글 917자뿐이라 빠진 글자(큘·챙·켠 …)가 맑은 고딕으로 섞여 나왔다 → 자주 쓰는 한글 2,350자 + 사이트에 나오는 글자 전부로 다시 만듦 */
+@font-face{font-family:"Pretendard Variable";font-weight:100 900;font-style:normal;font-display:swap;src:url(/fonts/PretendardVariable.sub.woff2) format("woff2-variations"),url(/fonts/PretendardVariable.sub.woff2) format("woff2")}
+:root{--font-body:"Pretendard Variable","Pretendard",-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+body{letter-spacing:-.011em}
+/* 애플식 글자 위계: 큰 제목은 아주 굵고 좁게, 작은 글씨는 조금 넓게 */
+.hero h1,.c-head h1,.sh-card h2,.onb-card h1{font-weight:800;letter-spacing:-.035em}
+.eyebrow{font-weight:650;letter-spacing:-.005em}
+.hubh,.term h2,.panel h2,.ctitle,.ctile b,.eb-t b,.rv-h b{font-weight:720;letter-spacing:-.025em}
+.cmeta,.cstats,.hint,small{letter-spacing:-.003em}
+.big,.sum b,.eb-d b,.sline .sl-n b{font-weight:760;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+:root{
+  /* 유리 불투명도: 마이페이지 막대(--lg-v 0~100, 기본 50)로 조절. 50 = 기본(×1), 0 = 가장 맑게(×0.35), 100 = 거의 불투명(×3) */
+  --lg-v:50; --lg-k:calc(.35 + min(var(--lg-v), 50) * .013 + max(var(--lg-v) - 50, 0) * .04);
+  /* 라이트 모드 흰색: 순백(#fff) 대신 아주 살짝 따뜻하고 낮은 흰색으로 눈부심을 줄인다 */
+  --paper:#efefec; --sheet:#f9f9f6;
+  --lg-card:rgba(249,249,246,min(1,calc(.66 * var(--lg-k))));
+  --lg-card-hi:rgba(249,249,246,min(1,calc(.92 * var(--lg-k))));
+  --lg-chrome:rgba(249,249,246,min(1,calc(.3 * var(--lg-k))));
+  --lg-fill:rgba(255,255,255,.5);
+  --lg-rim:inset 0 1px 0 rgba(255,255,255,.95),inset 0 0 0 1px rgba(255,255,255,.6),inset 0 -1px 1px rgba(255,255,255,.2);
+  --lg-edge:0 0 0 1px rgba(15,20,60,.09);
+  --lg-blur:blur(16px) saturate(190%);
+  --shadow:0 10px 30px rgba(40,50,120,.10),0 2px 4px rgba(20,25,60,.06);
+  --shadow-up:0 20px 48px rgba(40,50,120,.16),0 3px 8px rgba(20,25,60,.07);
+  --line:rgba(0,0,0,.06);
+  --r:22px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --lg-card:rgba(48,48,56,min(1,calc(.4 * var(--lg-k)))); --lg-card-hi:rgba(58,58,66,min(1,calc(.72 * var(--lg-k)))); --lg-chrome:rgba(30,30,36,min(1,calc(.32 * var(--lg-k)))); --lg-fill:rgba(255,255,255,.08);
+  --lg-rim:inset 0 1px 0 rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.08); --lg-edge:0 0 0 .5px rgba(0,0,0,.4);
+  --shadow:0 8px 30px rgba(0,0,0,.35); --shadow-up:0 18px 46px rgba(0,0,0,.5);
+}}
+:root[data-theme="dark"]{
+  --lg-card:rgba(48,48,56,min(1,calc(.4 * var(--lg-k)))); --lg-card-hi:rgba(58,58,66,min(1,calc(.72 * var(--lg-k)))); --lg-chrome:rgba(30,30,36,min(1,calc(.32 * var(--lg-k)))); --lg-fill:rgba(255,255,255,.08);
+  --lg-rim:inset 0 1px 0 rgba(255,255,255,.16),inset 0 0 0 1px rgba(255,255,255,.08); --lg-edge:0 0 0 .5px rgba(0,0,0,.4);
+  --shadow:0 8px 30px rgba(0,0,0,.35); --shadow-up:0 18px 46px rgba(0,0,0,.5);
+}
+
+body{padding-top:calc(var(--barh) + 14px)}
+
+/* ── 배경 로고 (CAPTIMA): 다크 = 원본처럼 회색 로고, 라이트 = 반전한 진한 로고. 살짝 흐리게 해서 글자를 방해하지 않게 ── */
+:root{--logo-a:.13;--logo-f:invert(1);--logo-blur:2.5px;--lg-spec:rgba(255,255,255,.16)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--logo-a:.32;--logo-f:sepia(0) saturate(1) hue-rotate(0deg) brightness(1);--lg-spec:rgba(255,255,255,.14)}}
+:root[data-theme="dark"]{--logo-a:.32;--logo-f:sepia(0) saturate(1) hue-rotate(0deg) brightness(1);--lg-spec:rgba(255,255,255,.14)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:url(/img/captima-bg.webp) 50% 56%/min(80vw,780px) auto no-repeat;
+  opacity:var(--logo-a);filter:var(--logo-f) blur(var(--logo-blur)) drop-shadow(0 0 0 rgba(255,140,60,0));
+  transform-origin:50% 56%;transition:opacity 1s var(--ease),filter 1.2s var(--ease),transform 1.6s var(--spring)}
+/* 내 강의실 · 과목(문제 풀이) 화면은 문제에 집중하게 로고 없이 원래 배경색만 */
+body:has(> #view.v-home),body:has(> #view.v-course){--logo-a:0;--lg-card-glass:rgba(249,249,246,min(1,calc(.9 * var(--lg-k))))}
+:root[data-theme="dark"] body:has(> #view.v-home),:root[data-theme="dark"] body:has(> #view.v-course){--lg-card-glass:var(--lg-card)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) body:has(> #view.v-home),:root:not([data-theme="light"]) body:has(> #view.v-course){--lg-card-glass:var(--lg-card)}}
+.lg-defs{position:absolute;width:0;height:0;overflow:hidden}
+
+/* ── 떠 있는 위쪽 바: 화면 가장자리에서 떨어진 알약 모양 유리 ── */
+.top{top:10px;left:12px;right:12px;max-width:1040px;margin-inline:auto;border-radius:26px;border:0;
+  background:var(--lg-chrome);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow)}
+.nav a[aria-current="page"]{background:var(--lg-card-hi);color:var(--ink);box-shadow:var(--lg-rim),0 2px 8px rgba(0,0,0,.08)}
+.nav a:hover{background:var(--lg-fill)}
+.icon:hover{background:var(--lg-fill)}
+
+/* ── 쌓이는 면: 반투명 + 테두리 빛 ── */
+.course,.sum,.empty,.card,.hc,.stat,.overall,.ctile,.review,.panel,.next-up,.resume-big,.exam-big,.sline,.kpill,.ins-card{
+  background:var(--lg-card);box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow)}
+.course:hover,.hc:hover,.ctile:hover,.next-up:hover,.resume-big:hover,.kpill:hover{box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow-up)}
+.card.st-correct,.card.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--lg-rim),var(--shadow)}
+.card.st-wrong{box-shadow:0 0 0 2px var(--red),var(--lg-rim),var(--shadow)}
+.ctile.off{background:rgba(255,255,255,.38);box-shadow:var(--lg-rim),0 0 0 1px rgba(15,20,60,.06)}
+:root[data-theme="dark"] .ctile.off{background:rgba(255,255,255,.04);box-shadow:var(--lg-rim)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ctile.off{background:rgba(255,255,255,.04);box-shadow:var(--lg-rim)}}
+.starb{border-left-color:rgba(255,255,255,.35)}
+.eb-d,.opt{background:var(--lg-fill);box-shadow:var(--lg-rim)}
+.opt:hover:not(:disabled){background:var(--lg-card-hi)}
+
+/* ── 진짜 유리: 떠 있는 것들 ── */
+.sh-card,.pm,.onb-card,.dialog,.fx-bar,.fx-handle,.nudge{
+  background:var(--lg-chrome);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow-up)}
+.sh-card{background:var(--lg-card-hi)}
+.sheet{background:rgba(0,0,0,.18)}
+.onb{background:color-mix(in srgb,var(--paper) 35%,transparent)}
+.toast{background:color-mix(in srgb,var(--ink) 72%,transparent);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),var(--shadow-up)}
+
+/* ── 알약 버튼 · 칩 · 탭: 유리 캡슐 ── */
+.btn,.chip,.back,.enroll,.semtab,.ex-x{background:var(--lg-fill);box-shadow:var(--lg-rim),var(--lg-edge)}   /* 작은 버튼은 blur 없이 테두리 빛만 (많아서 느려지지 않게) */
+.btn:hover:not(:disabled),.chip:hover,.back:hover,.enroll:hover,.semtab:hover{background:var(--lg-card-hi)}
+.btn.ghost{background:transparent;box-shadow:none}
+.btn.ghost:hover:not(:disabled){background:var(--lg-fill)}
+/* 주요 버튼: 색 유리 (위는 밝고 아래는 진하게 + 위 가장자리 빛) */
+.btn.pri{background:linear-gradient(180deg,color-mix(in srgb,var(--action) 78%,#fff),var(--action) 55%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.08),0 6px 18px color-mix(in srgb,var(--action) 32%,transparent)}
+.btn.pri:hover:not(:disabled){background:linear-gradient(180deg,color-mix(in srgb,var(--action-hover) 72%,#fff),var(--action-hover) 55%)}
+.chip[aria-pressed="true"],.semtab[aria-selected="true"]{background:color-mix(in srgb,var(--ink) 88%,transparent);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 4px 12px rgba(0,0,0,.15)}
+.ex-b.soon{background:color-mix(in srgb,var(--red) 14%,transparent)}
+.starb:hover{background:var(--lg-fill)}
+
+/* 분할 버튼(탭 · 화면 테마): 홈이 파인 유리 + 고른 칸은 볼록한 렌즈 */
+.tabs,.seg{background:color-mix(in srgb,var(--lg-fill) 70%,transparent);box-shadow:inset 0 1px 3px rgba(0,0,0,.08),var(--lg-edge);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.tab[aria-selected="true"],.seg input:checked + span{background:var(--lg-card-hi);box-shadow:var(--lg-rim),0 3px 10px rgba(0,0,0,.12)}
+
+/* 과목 배지: 색 유리 구슬 */
+.badge{background:linear-gradient(180deg,rgba(255,255,255,.32),rgba(255,255,255,0) 55%),linear-gradient(145deg,color-mix(in srgb,var(--bc) 78%,#fff),var(--bc));box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -6px 12px rgba(0,0,0,.12),0 4px 12px color-mix(in srgb,var(--c,#06c) 30%,transparent)}
+
+/* ── 빛의 굴절: 떠 있는 유리는 뒤(로고 · 빛)를 살짝 휘게 + 덜 흐리게 해서 굴절이 보이게 ──
+   backdrop-filter는 var() 없이 값을 그대로 써야 url()을 모르는 브라우저(Safari 등)가 앞 줄의 보통 유리로 남는다.
+   위 가장자리에서 들어온 빛(정반사)을 얇은 그라데이션으로 얹는다. */
+.top,.sh-card,.pm,.onb-card,.dialog,.fx-bar,.nudge{
+  background:linear-gradient(160deg,var(--lg-spec),transparent 38%),var(--lg-chrome);
+  backdrop-filter:url(#lg-refract) blur(3px) saturate(190%) brightness(1.05)}
+.sh-card{background:linear-gradient(160deg,var(--lg-spec),transparent 38%),var(--lg-card-hi)}
+/* 큰 면(과목 · 허브 · 리포트 카드)도 마우스 쓰는 큰 화면에서는 진짜 유리로. 문제 카드·보기처럼 많이 쌓이는 것은 빼서 스크롤이 느려지지 않게 */
+@media (hover:hover) and (pointer:fine){
+  :root{--lg-card-glass:rgba(249,249,246,min(1,calc(.24 * var(--lg-k))))}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lg-card-glass:rgba(40,40,48,min(1,calc(.24 * var(--lg-k))))}}
+  :root[data-theme="dark"]{--lg-card-glass:rgba(40,40,48,min(1,calc(.24 * var(--lg-k))))}
+  .course,.hc,.ctile,.next-up,.resume-big,.exam-big,.overall,.sum,.panel,.ins-card,.sline,.review{
+    background:linear-gradient(160deg,var(--lg-spec),transparent 34%),var(--lg-card-glass);
+    -webkit-backdrop-filter:blur(14px) saturate(180%);backdrop-filter:blur(14px) saturate(180%);
+    backdrop-filter:url(#lg-refract) blur(2px) saturate(180%) brightness(1.04)}
+  .ctile.off{background:linear-gradient(160deg,var(--lg-spec),transparent 34%),rgba(255,255,255,.3)}
+  /* 학년을 바꿔 타일이 미끄러지는 동안은 굴절(SVG)을 잠깐 끈다: 움직이는 타일마다 매 프레임 다시 계산해서 끊겼다. 끝나면 app.js가 클래스를 지워 다시 켠다 */
+  .years.from-r .ctile,.years.from-l .ctile{backdrop-filter:blur(2px) saturate(180%) brightness(1.04)}
+}
+
+/* ── 참고 UI(대시보드 카드형) 느낌: 파스텔 표지 · 검은 알약 태그 · 크게 둥근 카드 · 마우스를 올리면 살짝 떠오름 ── */
+/* 허브 카드: 위쪽 4px 선 대신 과목 색이 은은하게 번진 표지. isolation으로 표지를 카드 배경 위 · 글자 아래에 둔다 */
+.hc{isolation:isolate;border-radius:24px}
+.hc::before{inset:0 0 auto 0;height:64px;z-index:-1;opacity:1;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 11%,transparent),transparent)}
+.hc.sp::before{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 20%,transparent),transparent 70%)}
+/* 종류 태그(장 번호 등): 작은 검은 알약 */
+.hc .hn{background:var(--ink);color:var(--paper);border-radius:999px;padding:2px 9px;font-size:11px;letter-spacing:0}
+/* 과목 타일: 왼쪽 색 줄은 그대로, 같은 색을 아주 옅게 깔아서 파스텔 카드처럼 */
+.ctile:not(.off){background-image:linear-gradient(160deg,var(--lg-spec),transparent 34%),linear-gradient(150deg,color-mix(in srgb,var(--c) 12%,transparent),transparent 60%)}
+.ctile,.course{border-radius:22px}
+.cmain,.starb{border-radius:22px}
+.starb{border-radius:0 22px 22px 0}
+/* 담은 과목: 타일 전체를 파란 유리로 (✓ 담음 글자만이 아니라 한눈에 보이게) */
+.ctile.mine{background:linear-gradient(160deg,rgba(255,255,255,.28),transparent 40%),color-mix(in srgb,var(--action) 88%,transparent);color:#fff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.45),0 0 0 1px color-mix(in srgb,var(--action) 60%,transparent),0 8px 24px color-mix(in srgb,var(--action) 30%,transparent)}
+.ctile.mine::before{display:none}
+.ctile.mine .kd,.ctile.mine small{color:rgba(255,255,255,.85)}
+:root .ctile.mine small i.on{color:#fff}   /* 다크 모드의 노란 '담음' 색보다 앞서게 */
+/* 진행 막대: 끝이 둥근 얇은 막대 */
+.bar{height:5px;border-radius:999px}
+/* 떠오르기: 손가락 화면에서는 끄고, 움직임 줄이기 설정도 존중 */
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .hc,.ctile,.course,.next-up,.resume-big,.exam-big{transition:transform .35s var(--spring),box-shadow .35s var(--ease),background-color .2s var(--ease)}
+  .hc:hover,.ctile:hover,.next-up:hover,.resume-big:hover{transform:translateY(-5px)}
+  .course:hover{transform:translateY(-3px)}
+}
+
+/* ── 로고 비추기 (spotlight.js, 다크 모드 전용): 보는 사람이 로고로 빨려 들어가고, 카드는 바깥으로 날아간 뒤
+   아래에서 올라온 탐조등 여러 줄기가 엇갈려 흔들리며 금빛 로고를 비춘다 ── */
+.spot-btn{display:none;position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:66;
+  width:50px;height:50px;border-radius:50%;border:0;cursor:pointer;place-items:center;color:var(--ink);
+  background:linear-gradient(160deg,var(--lg-spec),transparent 45%),var(--lg-chrome);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur);
+  box-shadow:var(--lg-rim),var(--lg-edge),var(--shadow-up);transition:color .4s var(--ease),box-shadow .5s var(--ease),transform .3s var(--spring)}
+:root[data-theme="dark"] .spot-btn{display:grid}
+@media (prefers-color-scheme: dark){:root:not([data-theme]) .spot-btn{display:grid}}
+.spot-btn:hover{transform:scale(1.06)}
+.spot-btn:active{transform:scale(.94)}
+.spot-btn[aria-pressed="true"]{color:#ffc46b;box-shadow:var(--lg-rim),0 0 0 1px rgba(255,190,90,.35),0 0 28px rgba(255,170,60,.45)}
+/* 내 강의실 · 과목(문제 풀이) 화면에서는 버튼도 숨긴다 (로고가 없는 화면) */
+body:has(> #view.v-home) .spot-btn,body:has(> #view.v-course) .spot-btn{display:none}
+/* 로고가 확 다가왔다가 조금 물러나 자리 잡는다. 키프레임은 CSS로 둬야 끝값(1.12)과 닫을 때의 되돌림이 끊기지 않는다 */
+html.spot{scrollbar-gutter:stable}   /* 스크롤 막대가 사라져도 자리를 비워 둬서 화면이 옆으로 밀리지 않게 */
+@keyframes spot-rush{0%{transform:scale(1)}45%{transform:scale(1.4)}100%{transform:scale(1.12)}}
+html.spot body::after{opacity:.95;transform:scale(1.12);transition-delay:.35s;animation:spot-rush 1.5s cubic-bezier(.45,0,.2,1) both;
+  filter:sepia(.9) saturate(2.6) hue-rotate(-6deg) brightness(1.75) blur(.3px) drop-shadow(0 0 22px rgba(255,180,70,.5))}
+.spot-fx{position:fixed;inset:0;z-index:64;pointer-events:none;opacity:0;overflow:hidden;transition:opacity .6s var(--ease);
+  background:radial-gradient(80% 75% at 50% 56%,transparent 40%,rgba(0,0,0,.6)),linear-gradient(to top,rgba(255,140,60,.16),transparent 30%)}
+html.spot .spot-fx{opacity:1;pointer-events:auto;cursor:pointer;transition:opacity 1s var(--ease) .5s}
+.spot-fx i{position:absolute;pointer-events:none;mix-blend-mode:screen}
+/* 탐조등: 아래에서 위로 넓어지는 빛기둥. 하나씩 차례로 켜지고, 서로 다른 박자로 좌우로 흔들려 엇갈린다 */
+.spot-ray{bottom:-4%;left:var(--x);width:clamp(80px,11vw,160px);height:150vh;translate:-50% 0;transform-origin:50% 100%;
+  background:linear-gradient(to top,rgba(255,240,215,.5),rgba(255,236,210,.16) 40%,transparent 80%);
+  clip-path:polygon(47% 100%,53% 100%,100% 0,0 0);filter:blur(4px);rotate:var(--a1)}   /* 기본 투명도 1: 닫을 때 바깥 상자가 사라지는 동안 빛줄기도 같이 서서히 사라진다 */
+.r1{--x:8%;--a1:-30deg;--a2:2deg;--d:7s;--i:0}
+.r2{--x:24%;--a1:20deg;--a2:-14deg;--d:5.4s;--i:2}
+.r3{--x:40%;--a1:-12deg;--a2:18deg;--d:8.2s;--i:4}
+.r4{--x:60%;--a1:14deg;--a2:-18deg;--d:6.6s;--i:5}
+.r5{--x:76%;--a1:-18deg;--a2:20deg;--d:5s;--i:3}
+.r6{--x:92%;--a1:30deg;--a2:-4deg;--d:7.6s;--i:1}
+html.spot .spot-ray{animation:ray-on .5s var(--ease) calc(.7s + var(--i) * .14s) backwards,ray-sweep var(--d) ease-in-out .7s infinite alternate}
+@keyframes ray-on{0%{opacity:0}40%{opacity:1.2}100%{opacity:1}}
+@keyframes ray-sweep{from{rotate:var(--a1)}to{rotate:var(--a2)}}
+/* 로고 뒤 금빛 후광: 숨 쉬듯 */
+.spot-halo{left:50%;top:56%;width:min(110vw,1000px);aspect-ratio:1;translate:-50% -50%;
+  background:radial-gradient(closest-side,rgba(255,170,70,.24),rgba(255,130,40,.07) 55%,transparent)}
+html.spot .spot-halo{animation:ray-on .8s var(--ease) .6s backwards,spot-breathe 4.5s ease-in-out 1.4s infinite}
+@keyframes spot-breathe{0%,100%{opacity:.75;scale:1}50%{opacity:1;scale:1.05}}
+.spot-hint{position:absolute;left:0;right:0;bottom:calc(30px + env(safe-area-inset-bottom,0px));margin:0;text-align:center;font-size:13px;color:rgba(255,220,180,.6);opacity:0;transition:opacity .6s var(--ease)}
+html.spot .spot-hint{opacity:1;transition-delay:2.4s}
+@media (prefers-reduced-motion:reduce){html.spot .spot-ray,html.spot .spot-halo{animation:ray-on .5s var(--ease) backwards}html.spot body::after{animation:none}}
+
+/* 마이페이지의 유리 불투명도 막대 */
+.glass-r{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.glass-r input{width:min(180px,40vw);accent-color:var(--action);cursor:pointer}
+
+/* ── 접근성 · 대체 ── */
+@media (prefers-reduced-transparency:reduce){
+  :root{--lg-card:var(--sheet);--lg-card-hi:var(--sheet);--lg-chrome:var(--sheet);--lg-card-glass:var(--sheet);--logo-a:0}
+  .top,.sh-card,.pm,.onb-card,.dialog,.fx-bar,.nudge,.course,.hc,.ctile,.next-up,.resume-big,.exam-big,.overall,.sum,.panel,.ins-card,.sline,.review{-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  :root{--lg-chrome:var(--lg-card-hi)}
+}
+
+/* ───────── 문제 화면: 읽기 우선 ─────────
+   애플 원칙대로 유리는 떠 있는 조작 영역(위쪽 바, 아래 이동 바, ⋯ 메뉴, 토스트)에만 쓰고, 글이 놓이는 면은 불투명하게.
+   #view.in-set = 단원·오답노트 등 문제를 푸는 화면. 그 안에서만 유리 변수를 불투명 값으로 바꿔 끼운다 → 위의 유리 규칙이 그대로 종이가 된다 */
+:root{--read-sheet:#ffffff;--read-ink:#111114;--read-line:rgba(15,20,40,.12);--read-sol:#f3f5f9;--read-rim:inset 0 1px 0 rgba(255,255,255,.9);
+  --read-shadow:0 6px 20px rgba(20,25,60,.06),0 1px 2px rgba(20,25,60,.05);--read-lift:0 30px 80px rgba(20,25,60,.16),0 8px 24px rgba(20,25,60,.08);--read-veil:rgba(245,245,247,.55)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--read-sheet:#1c1c1e;--read-ink:#f2f2f5;--read-line:rgba(255,255,255,.14);--read-sol:#26272c;--read-rim:inset 0 1px 0 rgba(255,255,255,.07);
+  --read-shadow:0 6px 20px rgba(0,0,0,.4);--read-lift:0 30px 80px rgba(0,0,0,.6);--read-veil:rgba(0,0,0,.5)}}
+:root[data-theme="dark"]{--read-sheet:#1c1c1e;--read-ink:#f2f2f5;--read-line:rgba(255,255,255,.14);--read-sol:#26272c;--read-rim:inset 0 1px 0 rgba(255,255,255,.07);
+  --read-shadow:0 6px 20px rgba(0,0,0,.4);--read-lift:0 30px 80px rgba(0,0,0,.6);--read-veil:rgba(0,0,0,.5)}
+
+.view.in-set{--lg-card:var(--read-sheet);--lg-card-hi:var(--read-sheet);--lg-fill:var(--fill2);--lg-rim:var(--read-rim);--lg-edge:0 0 0 1px var(--read-line);--shadow:var(--read-shadow);
+  letter-spacing:0;color:var(--read-ink)}
+/* 배경 빛: 목록에서는 거의 지우고, 집중 모드에서는 흐리고 어둡게 깔아 문제 시트를 띄운다 */
+body:has(.view.in-set)::before{opacity:calc(var(--amb) * .25)}
+html.fx-on body:has(.view.in-set)::before{opacity:calc(var(--amb) * .7);filter:blur(70px)}
+html.fx-on body:has(.view.in-set)::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:var(--read-veil)}
+
+/* 글자: 자간 0, 줄간격 넉넉하게, 진한 글자 */
+.in-set .q{color:var(--read-ink);line-height:1.65;letter-spacing:0}
+.fx-on .in-set .card.fx-cur .q{letter-spacing:-.005em;line-height:1.6}
+.in-set .opts.mc .opt{line-height:1.5}
+.in-set .sol{line-height:1.65;font-size:15px}
+
+/* 보기: 흰 바탕 + 테두리 (흐린 회색 면 대신). 맞힘·틀림 테두리는 그대로 */
+.in-set .opt{background:var(--read-sheet);color:var(--read-ink);box-shadow:inset 0 0 0 1px var(--read-line)}
+.in-set .opt:hover:not(:disabled){background:color-mix(in srgb,var(--action) 6%,var(--read-sheet));box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--action) 45%,transparent)}
+.in-set .opt.good{box-shadow:inset 0 0 0 1.5px var(--ok)}
+.in-set .opt.bad{box-shadow:inset 0 0 0 1.5px var(--red)}
+
+/* 해설: 문제와 나뉘게 옅은 색 면 + 왼쪽 색 띠 */
+.in-set .sol{border-top:0;margin-top:20px;padding:14px 18px;border-radius:14px;background:var(--read-sol);box-shadow:inset 3px 0 0 var(--accent)}
+.in-set .sol .ans{background:var(--read-sheet);box-shadow:inset 0 0 0 1px var(--read-line)}
+.in-set .sol .ans.soft{background:transparent}
+
+/* 상태 테두리 (맞힘 초록 · 틀림 빨강) */
+.in-set .card.st-correct,.in-set .card.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--read-shadow)}
+.in-set .card.st-wrong{box-shadow:0 0 0 2px var(--red),var(--read-shadow)}
+
+/* 집중 모드: 문제 하나가 큰 불투명 시트로 떠 있다 (iOS 모달 시트처럼) */
+.fx-on .in-set .card.fx-cur{border-radius:28px;box-shadow:var(--read-rim),0 0 0 1px var(--read-line),var(--read-lift)}
+.fx-on .in-set .card.fx-cur.st-correct,.fx-on .in-set .card.fx-cur.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--read-lift)}
+.fx-on .in-set .card.fx-cur.st-wrong{box-shadow:0 0 0 2px var(--red),var(--read-lift)}
+
+/* 과목 창(아래에서 올라오는 시트): 뒤 타일 글자가 비쳐 겹쳐 보이지 않게 면을 불투명하게 */
+.sh-card{background:linear-gradient(160deg,var(--lg-spec),transparent 38%),var(--sheet)}
+.sh-card .course{background:var(--sheet);-webkit-backdrop-filter:none;backdrop-filter:none}

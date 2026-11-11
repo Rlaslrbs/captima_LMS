@@ -1,0 +1,86 @@
+[
+ {
+  "ext_id": "3-4",
+  "facet": null,
+  "facet_hint": "적응·부산물·잡음의 구별",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "5-10",
+  "facet": null,
+  "facet_hint": "탐지 기구가 없으면 정보도 없다",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "8-12",
+  "facet": null,
+  "facet_hint": "근연도로 설명하는 부모-자식·동기간 갈등",
+  "depth": 2,
+  "depth_why": "D2a"
+ },
+ {
+  "ext_id": "10-10",
+  "facet": null,
+  "facet_hint": "쿨리지 효과(남성의 단기 짝짓기 증거)",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "11-13",
+  "facet": null,
+  "facet_hint": "직접 상호성 이론 (학자 이름이 아니라 개념이 세부 포인트)",
+  "depth": 1,
+  "depth_why": "D1c"
+ },
+ {
+  "ext_id": "X-4",
+  "facet": null,
+  "facet_hint": "자연선택에는 목표·계획이 없다(땜질)",
+  "depth": 3,
+  "depth_why": "D3a"
+ },
+ {
+  "ext_id": "4-8",
+  "facet": null,
+  "facet_hint": "진화심리학의 반증 가능한 새 예측",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "12-3",
+  "facet": null,
+  "facet_hint": "간접 상호성 = 평판(남을 도왔는가)",
+  "depth": 3,
+  "depth_why": "D3c"
+ },
+ {
+  "ext_id": "6-6",
+  "facet": null,
+  "facet_hint": "향신료 항균 가설의 예측 (수치가 아니라 고기 > 채소 방향)",
+  "depth": 1,
+  "depth_why": "D1b"
+ },
+ {
+  "ext_id": "7-3",
+  "facet": null,
+  "facet_hint": "고전 다윈 이론과 이타 행동의 수수께끼",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "9-8",
+  "facet": null,
+  "facet_hint": "여성의 배우자 선호: 자원·지위 단서",
+  "depth": 1,
+  "depth_why": "D1a"
+ },
+ {
+  "ext_id": "X-5",
+  "facet": null,
+  "facet_hint": "아름다움 = 건강·젊음의 단서 (조건 함정: 싱글·전염병)",
+  "depth": 3,
+  "depth_why": "D3b"
+ }
+]

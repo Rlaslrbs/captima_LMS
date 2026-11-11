@@ -1,0 +1,155 @@
+/* 조용한 화면 1단계: 규칙 정리 — app.css · glass.css · insight.css 위에 덮어쓴다. index.html에서 이 줄을 빼면 예전 모양.
+   화면 구조는 건드리지 않고 값만 줄인다.
+   - 글자 크기 6단계(13 · 15 · 17 · 22 · 28 · 40), 굵기 3단계(400 · 600 · 700)
+   - 모서리 4단계(8 · 12 · 20 · 알약)
+   - 깊이 2단계: 바닥의 면은 색 차이 + 가는 선, 떠 있는 것(위쪽 바 · 메뉴 · 창 · 알림)만 유리와 그림자
+   - 색: 파랑은 행동 · 선택 · 진행, 빨강 · 초록은 채점 결과에만, 과목 색은 배지에만
+   학습 리포트(.ins-*)와 첫 방문 소개 화면은 이미 정리돼 있어서 손대지 않는다. */
+
+:root{
+  --t1:13px; --t2:15px; --t3:17px; --t4:22px; --t5:28px; --t6:clamp(32px,5.4vw,40px);
+  --r1:8px; --r2:12px; --r:20px;
+  --muted:#5f5f66;   /* 바탕(#efefec) 위 대비 5.5:1 (예전 #6e6e73은 4.4:1) */
+  --flat:0 0 0 1px var(--line);
+  --lens:var(--sheet);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lens:#3a3a3f}}
+:root[data-theme="dark"]{--lens:#3a3a3f}
+
+/* ── 배경 로고: 탐조등을 켰을 때만 (html.spot 규칙이 다시 켠다) ── */
+body::after{opacity:0}
+
+/* ── 깊이 1: 바닥에 놓인 면. 유리 · 그림자 · 테두리 빛을 뺀다 ── */
+.course,.sum,.empty,.card,.hc,.stat,.overall,.ctile,.review,.panel,.next-up,.resume-big,.exam-big,.sline,.kpill{
+  background:var(--sheet);box-shadow:var(--flat);-webkit-backdrop-filter:none;backdrop-filter:none}
+.course:hover,.hc:hover,.ctile:hover,.next-up:hover,.resume-big:hover,.exam-big:hover,.kpill:hover{
+  background:color-mix(in srgb,var(--ink) 3%,var(--sheet));box-shadow:var(--flat);transform:none}
+.hc:active,.ctile:active,.next-up:active,.resume-big:active,.kpill:active{transform:scale(.985)}
+.card.st-correct,.card.st-resolved,.card.st-wrong{box-shadow:var(--flat)}   /* 맞힘 · 틀림은 카드 테두리 대신 보기와 꼬리표가 알려 준다 */
+.ctile:not(.off){background-image:none}
+.years.from-r .ctile,.years.from-l .ctile{-webkit-backdrop-filter:none;backdrop-filter:none}
+:root:root .ctile.off{background:transparent;box-shadow:var(--flat)}   /* 준비 중: 면 없이 선만 */
+.ctile.mine,.ctile.mine:hover{background:var(--action);box-shadow:none}
+.hc::before{display:none}
+.starb{border-left-color:var(--line)}
+.eb-d,.opt{background:var(--fill2);box-shadow:none}
+.opt:hover:not(:disabled){background:var(--fill)}
+.badge{background:var(--bc);box-shadow:none}
+
+/* ── 깊이 2: 글자 위에 뜨는 메뉴 · 이동 막대 · 창은 굴절 없이 더 불투명한 유리 (뒤 글자가 비쳐 겹치지 않게) ── */
+.pm,.fx-bar,.dialog,.nudge{background:var(--lg-card-hi);-webkit-backdrop-filter:var(--lg-blur);backdrop-filter:var(--lg-blur)}
+
+/* ── 버튼 · 칩 · 탭: 평평한 면. 선택은 파란 테두리 하나로 ── */
+.btn,.chip,.back,.enroll,.semtab,.ex-x,.more{background:var(--fill2);box-shadow:none}
+.btn:hover:not(:disabled),.chip:hover,.back:hover,.enroll:hover,.semtab:hover,.more:hover{background:var(--fill)}
+.btn.ghost{background:transparent}
+.btn.ghost:hover:not(:disabled){background:var(--fill2)}
+.btn.pri{background:var(--action);box-shadow:none}
+.btn.pri:hover:not(:disabled){background:var(--action-hover)}
+.chip[aria-pressed="true"],.semtab[aria-selected="true"]{background:color-mix(in srgb,var(--action) 12%,transparent);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--action)}
+.nav a[aria-current="page"]{background:var(--fill);color:var(--ink);box-shadow:none}
+.nav a:hover,.icon:hover,.starb:hover{background:var(--fill2)}
+.tabs,.seg{background:var(--fill);box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+.tab[aria-selected="true"],.seg input:checked + span{background:var(--lens);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* ── 색: 진행 막대는 파랑 하나 (맞힘 · 틀림은 옆 숫자와 "자세히"의 통계가 알려 준다) ── */
+.bar:not(.stat .bar) > span{background:var(--action)!important}
+.meta .no{color:var(--ink)}
+.fx-dot.cur{background:var(--action);color:var(--on-action)}
+.ans{background:var(--fill2)}
+.ans b{color:var(--ink)}
+.kindtag,.star,.hc .hn{background:var(--fill2);color:var(--muted)}
+.nu-t small,.rb-t small{color:var(--muted)}
+.big-empty .ill{color:var(--muted);animation:none}
+
+/* ── 글자 크기 ── */
+body{font-size:var(--t2)}
+h1{font-size:var(--t6)}
+.c-head h1,.hero.sm h1,.sh-card h2,.onb-card h1{font-size:var(--t5)}
+.hubh,.crumb .ct,.panel h2,.bsheet h2,.big-empty h2,.sum b,.big,.eb-d b{font-size:var(--t4)}
+.brand,.lead,.ctitle,.term h2,.rv-h b,.hc .ht,.q,.opt,.opts.mc .opt,.btn.lg,.fx-pos b,.dialog h2,.eb-t b,.nu-t b,.rb-t b,.overall b,.sline .sl-n b,.cnote b,.fx-on .card.fx-cur .q,.fx-on .card.fx-cur .opt{font-size:var(--t3)}
+.eyebrow,.ctile b,.semtab,.sh-x,.btn,.enroll,.back,.tab,.chip,.overall,.sline,.resume b,.grp-h,.pm-b,.inrow input,textarea,.row-f input,.kpill,.fx-btn,.ng-t b,.onb-list b,.panel h3,.dialog p,.aif,.tog b,.kv,.olist .on b,.rm,.row-f label,.onb-btns .btn.ghost,.onb-year > span{font-size:var(--t2)}
+.hint,.sum span,.sum b small,.big small,.cmeta,.cstats,.starb small,.semtab small,.kd,.term h2 small,.ctile small,.sh-head,.sh-old,.rel h3,.relc .chip small,.rv-h small,
+.stat h3,.legend,.krow,.krow .kn,.chips .lab,.chip .n,.rs-q,.resume small,.hc .hn,.hc .hm,.meta,.kindtag,.star,.exb,.stt,.pill,.pm-i,.q .en,.opts.mc .opt small.ko,.src,.mine,
+.fx-sec,.fx-pos,.fx-dot,.seg span,.rp-q,.fx-mode,.fx-bar .fx-row .fx-mode,.tab .cnt,.net,.onb-list small,.onb-more,.onb-nick span,.onb-btns .btn.ghost small,.linkish,.panel h2 small,.tog small,.kv code,.sem,
+.srow,.sl,.olist .on small,.rh,.rh .when,.rn,.aitag,.aiv,.aih small,.air,.more,.chip.on-x span,.nu-t small,.nu-t span,.hc-ok,.kindrow .lab,.kpill .n,.kpill .w,.kbd-hint,kbd,
+.rb-t small,.rb-t span,.cnote span,.dd,.eb-d small,.eb-t span,.ng-t small,.glass-r,.tbl table,.sol table,.c-head .sub{font-size:var(--t1)}
+@media (min-width:521px){.nav a{font-size:var(--t2)}}
+.q,.opt,.sol,.ans{word-break:keep-all}   /* 한글이 낱말 중간에서 끊기지 않게 (긴 식 · 영문은 overflow-wrap이 자른다) */
+@media (min-width:900px){.fx-on .card.fx-cur .q{font-size:var(--t4)}}
+
+/* ── 굵기: 읽는 글은 400, 누르는 것과 줄 제목은 600, 화면 제목만 700 ── */
+b,strong{font-weight:600}
+h1,.hero h1,.c-head h1,.sh-card h2,.onb-card h1,.hubh,.crumb .ct,.panel h2,.bsheet h2,.big-empty h2,.brand,.sum b,.big,.eb-d b{font-weight:700}
+.eyebrow,.ctitle,.ctile b,.term h2,.rv-h b,.hc .ht,.grp-h,.semtab,.starb small,.stt,.pill,.meta .no,.verdict,.opts.mc .opt .k,.sline b,.sline .sl-n b,.cstats b,.hc .hm b,.overall b,
+.seg input:checked + span,.net,.sn,.eb-t b,.hc-ok,.kpill,.kpill .w,.cnote b,.aitag,.dd,.tab .cnt{font-weight:600}
+.seg span,.chip,.q,.fx-on .card.fx-cur .q,.opts.mc .opt,.rv-n,.sum span,.stat h3,.chips .lab,.kd,.kindtag,.star,.exb,.hc .hn,.cnote span,.kindrow .lab,.semtab small,.term h2 small,.onb-nick small,.onb-year small,.pm-b,.kpill .n{font-weight:400}
+
+/* ── 모서리 ── */
+.top{border-radius:999px}
+.course,.cmain,.ctile,.hc,.addc,.review,.next-up,.resume-big,.exam-big,.dialog,.onb-card,.nudge,.fx-bar,.fx-on .card.fx-cur{border-radius:var(--r)}
+.starb,.cnote{border-radius:0 var(--r) var(--r) 0}
+.sh-card,.bsheet{border-radius:var(--r) var(--r) 0 0}
+@media (min-width:700px){.sh-card{border-radius:var(--r)}}
+@media (min-width:640px){.bsheet{border-radius:var(--r)}}
+.opt,.ans,.mine,.inrow input,textarea,.row-f input,.tabs,.seg,.pm,.semtab,.badge,.c-head .badge,.oi,.onb-more,.onb-nick input,.rn,.aibox,.eb-d,.srow,.toast{border-radius:var(--r2)}
+.tab,.seg span{border-radius:9px}   /* 바깥 12 − 안쪽 여백 3 */
+.kindtag,.star,.exb,.hc .hn,.src span,.kv code,.badge.sm,.pm-b,kbd{border-radius:var(--r1)}
+
+/* ── 움직임: 누르는 것은 150ms, 화면이 바뀔 때는 250ms ── */
+button,.chip,.opt,.btn,.hc,.tab,.back,.course,.cmain,.starb,.semtab,.ctile,.next-up,.resume-big,.exam-big,.kpill{transition-duration:.15s}
+.view.enter{animation-duration:.25s}
+
+/* ── 누르는 크기: 책갈피 · ⋯ · 화면 테마 버튼을 44px로 (줄 높이는 그대로 두려고 바깥 여백을 뺀다) ── */
+.savep{width:44px;height:44px;margin:-12px -2px}
+.pmenu summary{width:44px;height:44px;margin:-12px -6px -12px -2px}
+.pm{top:calc(100% + 18px)}
+.icon{width:44px;height:44px}
+
+
+/* ═════ 2단계: 문제 풀이 화면 (course.js · focus.js와 함께) ═════
+   - 머리 한 줄(뒤로 · 범위 이름 · 푼 수 · 보기 단추) + 진행 선. 탭 · 통계 · 필터는 "보기" 단추로 펼친다
+   - 아래 이동 바는 늘 보이고, 채점하면 "다음 문제"가 파란 주요 버튼이 된다
+   - 채점 표시는 보기 안에서만 */
+.view.in-set:has(#toolsBtn) .wrap{max-width:760px}   /* 읽는 폭 */
+.fx-on .view{padding-top:0}
+
+.crumb:has(#toolsBtn){display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:6px 10px;margin-top:-8px}
+.crumb:has(#toolsBtn) .back{width:44px;height:44px;min-height:0;padding:0 0 3px;margin-left:-12px;background:transparent;font-size:var(--t5);font-weight:400;line-height:1}
+.crumb:has(#toolsBtn) .back:hover{background:var(--fill2)}
+.crumb:has(#toolsBtn) .ct{font-size:var(--t3);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cp{font-size:var(--t1);color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cprog{grid-column:1/-1;height:3px;border-radius:2px;background:var(--fill2);overflow:hidden}
+.cprog i{display:block;height:100%;width:0;border-radius:2px;background:var(--action);transition:width .4s var(--ease)}
+.view.in-set:not(.tools-open) :is(#tabsNav,#stats,#toolbar){display:none}
+.view.tools-open #tabsNav{margin-top:14px}
+
+/* 영어 원문: 접어 둔다. 높이만 0으로 해서 수식 크기는 미리 잴 수 있게 한다 */
+.q .en-w{display:block;margin-top:2px}
+.q .en-w .linkish{padding:6px 0;font-weight:400}
+.q .en-w .en{max-height:0;overflow:hidden;visibility:hidden;margin:0}
+.q .en-w.open .en{max-height:none;overflow:visible;visibility:visible;margin-top:2px}
+
+/* 보기: 글자 동그라미, 채점은 보기 안에서 */
+.opts.mc .opt{align-items:center}
+.opts.mc .opt .k{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--lens);font-size:var(--t1);color:var(--muted)}
+.opts.mc .opt.good .k{background:var(--ok);color:var(--sheet)}
+.opts.mc .opt.bad .k{background:var(--red);color:var(--sheet)}
+.card.just .opt.good{animation:opt-ok .4s var(--ease)}
+.card.just .opt.bad{animation:opt-no .3s var(--ease)}
+@keyframes opt-ok{40%{transform:scale(1.015)}}
+@keyframes opt-no{25%{transform:translateX(-5px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+
+/* 아래 이동 바: 늘 보인다. 문제 번호 줄과 "목록으로 보기"는 번호 단추를 눌렀을 때만 */
+.fx-has-bar body{padding-bottom:96px}
+.fx-has-bar .toast{bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+.fx-bar{bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translate(-50%,0);opacity:1;pointer-events:auto;width:min(712px,calc(100% - 24px));padding:8px;gap:6px}
+.fx-bar .fx-dots,.fx-bar > .fx-mode{display:none}
+.fx-open .fx-bar .fx-dots{display:flex}
+.fx-open .fx-bar > .fx-mode{display:block}
+button.fx-pos{appearance:none;border:0;background:none;cursor:pointer;justify-content:center;font:inherit;font-size:var(--t1);color:var(--muted);min-height:44px;padding:0 14px;border-radius:var(--r2)}
+button.fx-pos:hover,button.fx-pos[aria-expanded="true"]{background:var(--fill2)}
+.fx-btn{min-height:44px;background:transparent}
+.fx-btn:hover:not(:disabled){background:var(--fill2)}
+.fx-btn.pri,.fx-btn.pri:hover:not(:disabled){background:var(--action);min-width:0;overflow:hidden;text-overflow:ellipsis}
+.fx-on .card.fx-cur .nextrow{display:none}   /* 버튼은 남겨 둔다: Enter 키와 이동 바가 이 버튼을 누른다 */
