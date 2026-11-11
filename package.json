@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node server/server.js",
     "import": "node server/import.js",
+    "hide": "node tools/apply-hidden.mjs",
+    "backup": "node deploy/windows/backup.mjs",
     "test": "node --test \"server/insight/test/*.test.mjs\""
   },
   "engines": { "node": ">=22.13" }

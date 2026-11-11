@@ -1,4 +1,4 @@
-# 작업 스케줄러 등록 (Windows) — 한 번만 실행하면 된다
+﻿# 작업 스케줄러 등록 (Windows) — 한 번만 실행하면 된다
 # 사용법 (PowerShell을 '관리자 권한'으로 열고):  .\deploy\windows\register-tasks.ps1
 #
 # 등록되는 작업
