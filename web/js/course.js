@@ -18,13 +18,6 @@ const SPECIAL = [
 /** 줄바꿈만 있는 글(공수2 문제 등)은 <br>로 바꿔 보여 준다 */
 const fmt = s => (s && !/<(p|ol|ul|table|div|br|section)\b/i.test(s) ? String(s).replace(/\n/g, "<br>") : s || "");
 
-// ───────── 채점 순간 화면 테두리 효과 (맞힘 = 초록, 틀림 = 빨강 + 흔들림) ─────────
-function playHit(v) {
-  let el = $("#hit"); if (!el) { el = document.createElement("div"); el.id = "hit"; el.className = "hit"; el.setAttribute("aria-hidden", "true"); document.body.appendChild(el); }
-  el.className = "hit"; void el.offsetWidth; el.className = "hit " + v;
-  if (v === "bad") { const st = $("#view"); st.classList.remove("shake"); void st.offsetWidth; st.classList.add("shake"); }
-}
-
 // 서버가 켜 둔 기능 (AI 채점 도우미 등). 한 번만 묻는다
 let featuresP = null;
 const features = () => (featuresP ||= api("GET", "/api/features").catch(() => { featuresP = null; return {}; }));
@@ -59,6 +52,7 @@ export async function mountCourse(view, route, ctx) {
   const shownAt = {};         // 풀이 시간 측정: problem_id → { t, h }
   const shownLogged = new Set();
   let scopeAsk = false;
+  let toolsOpen = false;      // 머리 줄의 "보기" 단추로 펼치는 탭 · 통계 · 필터
   const prog = id => S.progress[id] || {};
   // 풀이 행동 기록 (Contract 5)
   const firstKey = {};        // 서답형·서술형: 처음 글자를 친 때 → rd (읽고 계획한 시간)
@@ -193,7 +187,7 @@ export async function mountCourse(view, route, ctx) {
     delete firstKey[pid]; dwell = { pid, v: p.v, ok, t: Date.now(), h: hiddenMs() };
     open[pid] = true; graded.add(pid); keep.clear(); keep.add(pid);
     saveProgress(pid, rec);                            // → onChange("progress") → 카드만 다시 그림
-    playHit(ok ? "ok" : "bad");
+    $("#c-" + pid, main)?.classList.add("just");       // 채점 순간: 고른 보기와 정답 보기만 살짝 움직인다 (화면 전체는 번쩍이지 않는다)
   }
   function resetScope() {
     const ids = scoped().filter(p => S.progress[p.id]).map(p => p.id);
@@ -229,6 +223,7 @@ export async function mountCourse(view, route, ctx) {
   // ───────── 통계 · 도구 막대 ─────────
   function renderStats() {
     const list = scoped(); const t = counts(list); const pc = t.done ? Math.round((t.c + t.r) / t.done * 100) : 0;
+    $("#headN", view).textContent = `${t.done} / ${t.all}`; $("#headBar", view).style.width = (t.all ? t.done / t.all * 100 : 0) + "%";
     const kinds = ["ox", "mc", "short", "essay"].filter(k => list.some(p => p.kind === k));
     const chs = CHS.filter(c => list.some(p => p.chapter_id === c.id));
     const row = (name, k) => `<div class="krow"><span>${esc(name)}</span>${barHTML(k, "in")}<span class="kn">${k.done}/${k.all}</span></div>`;
@@ -452,7 +447,7 @@ export async function mountCourse(view, route, ctx) {
     const none = set === "REVIEW" && !scoped().length ? `<div class="empty">지금 복습할 오답이 없어요. 틀린 문제는 하루가 지나면 여기에 다시 나와요.</div>`
       : set === "SAVED" && !scoped().length
       ? `<div class="empty">아직 담은 문제가 없어요. 문제 카드 오른쪽 위 <b>책갈피</b>를 누르면 여기에 모여요.</div>`
-      : `<div class="empty">조건에 맞는 문제가 없어요. 위에서 유형이나 보기를 바꿔 보세요.</div>`;
+      : `<div class="empty">조건에 맞는 문제가 없어요. 오른쪽 위 단추를 눌러 유형이나 보기를 바꿔 보세요.</div>`;
     main.innerHTML = list.length ? withHeads(list) : none;
   }
   function renderNote() {
@@ -627,14 +622,17 @@ export async function mountCourse(view, route, ctx) {
     if (set === "NOTE") tab = "note";
     const crumb = $("#crumb", view);
     crumb.hidden = hub; $("#tabsNav", view).hidden = hub; $("#stats", view).hidden = hub; $("#toolbar", view).hidden = hub;
-    view.classList.toggle("in-set", !hub);
+    view.classList.toggle("in-set", !hub); view.classList.toggle("tools-open", !hub && toolsOpen);
     renderEnroll(); renderExam();
     if (hub) { revIds = null; renderHub(); document.title = C.short + " · 문제노트"; }
     else {
       const sc = scopeOf(set);
       document.title = sc.title + " · " + C.short;
       $("#tab-solve", view).hidden = set === "NOTE";
-      crumb.innerHTML = `<button class="back" data-go="hub">‹ 메뉴</button><span class="ct">${esc(sc.title)}</span>`;
+      // 머리 한 줄: 뒤로 · 범위 이름 · 푼 수 · 보기 단추(탭 · 통계 · 필터를 펼친다) + 진행 선. 필터가 걸려 있으면 단추에 그 이름이 보인다
+      const fl = tab === "note" ? "오답노트" : (!isQ() && set !== "REVIEW" && { todo: "안 푼 문제", wrong: "틀린 문제" }[ui.show]) || (ui.star && set !== "STAR" ? "★ 중요" : "보기");
+      crumb.innerHTML = `<button class="back" data-go="hub" aria-label="단원 목록으로">‹</button><span class="ct">${esc(sc.title)}</span><span class="cp" id="headN" title="푼 문제 / 전체"></span>
+        <button class="more" id="toolsBtn" aria-expanded="${toolsOpen}" aria-controls="tabsNav stats toolbar">${fl}<i aria-hidden="true">›</i></button><span class="cprog"><i id="headBar"></i></span>`;
       $("#tab-solve", view).setAttribute("aria-selected", tab === "solve"); $("#tab-note", view).setAttribute("aria-selected", tab === "note");
       renderStats(); renderToolbar();
       tab === "solve" ? renderSolve() : renderNote();
@@ -659,10 +657,9 @@ export async function mountCourse(view, route, ctx) {
   // ───────── 이동 ─────────
   const go = (s, t = "solve") => ctx.navigate(`/course/${cid}` + (s ? "/" + encodeURIComponent(s) + (t === "note" && s !== "NOTE" ? "?tab=note" : "") : ""));
   const focus = initFocus(main, {
-    scopeKey, title: () => scopeOf(set).title,
+    scopeKey,
     resumeGet: k => { if (jumpVia !== null) { const v = jumpVia; jumpVia = null; return v || null; } return S.resume[k] ? "c-" + S.resume[k] : null; },
     resumeSet: (k, cardId) => setResume(k, +cardId.slice(2)),
-    totals: () => counts(scoped()),
     onCurrent: (cardId, idx) => { if (dwell && cardId && cardId !== "c-" + dwell.pid) dwellEnd(); if (cardId) { markShown(+cardId.slice(2), idx); mathAround(cardId); fixNext(); } else { watchCards(); lazyMath(); } },
     onLeave: () => { if (keep.size) { keep.clear(); prune(); } },
   });
@@ -746,6 +743,7 @@ export async function mountCourse(view, route, ctx) {
       if (d.end === "note") go(set, "note"); else if (d.end === "hub") go(null); else focus.next();
       return;
     }
+    if (b.id === "toolsBtn") { toolsOpen = !toolsOpen; view.classList.toggle("tools-open", toolsOpen); b.setAttribute("aria-expanded", toolsOpen); return; }
     if (b.id === "moreBtn") { ui.more = !ui.more; persist(); renderStats(); renderToolbar(); return; }
     if (b.id === "tab-solve") { go(set, "solve"); return; }
     if (b.id === "tab-note") { go(set, "note"); return; }
@@ -798,7 +796,7 @@ export async function mountCourse(view, route, ctx) {
     update(r) {
       const changed = r.set !== set || r.tab !== tab;
       set = r.set; tab = r.tab || "solve";
-      if (changed) { keep.clear(); unsaved.clear(); scopeAsk = false; focus.reset(); dwellEnd(); for (const k in qT) delete qT[k]; if (set && set !== "INSIGHT") setLast(cid, set, scopeOf(set).title); }
+      if (changed) { keep.clear(); unsaved.clear(); scopeAsk = false; toolsOpen = false; focus.reset(); dwellEnd(); for (const k in qT) delete qT[k]; if (set && set !== "INSIGHT") setLast(cid, set, scopeOf(set).title); }
       render(); scrollTo(0, 0);
       if (jumpTo) { const id = jumpTo; jumpTo = null; jumpAfter(id); }
     },
@@ -807,7 +805,7 @@ export async function mountCourse(view, route, ctx) {
       clearMath(main); if (mio) mio.disconnect();
       focus.destroy(); off(); offTheme(); document.removeEventListener("keydown", onDocKey); mq.removeEventListener("change", onScheme); if (io) io.disconnect();
       view.removeEventListener("click", onClick); view.removeEventListener("input", onInput); view.removeEventListener("change", onExam); view.removeEventListener("keydown", onKey);
-      view.classList.remove("in-set"); view.style.removeProperty("--accent"); view.style.removeProperty("--accent-weak");
+      view.classList.remove("in-set", "tools-open"); view.style.removeProperty("--accent"); view.style.removeProperty("--accent-weak");
     },
   };
 }
