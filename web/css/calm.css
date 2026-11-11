@@ -124,6 +124,12 @@ button,.chip,.opt,.btn,.hc,.tab,.back,.course,.cmain,.starb,.semtab,.ctile,.next
 .view.in-set:not(.tools-open) :is(#tabsNav,#stats,#toolbar){display:none}
 .view.tools-open #tabsNav{margin-top:14px}
 
+/* 영어 원문: 접어 둔다. 높이만 0으로 해서 수식 크기는 미리 잴 수 있게 한다 */
+.q .en-w{display:block;margin-top:2px}
+.q .en-w .linkish{padding:6px 0;font-weight:400}
+.q .en-w .en{max-height:0;overflow:hidden;visibility:hidden;margin:0}
+.q .en-w.open .en{max-height:none;overflow:visible;visibility:visible;margin-top:2px}
+
 /* 보기: 글자 동그라미, 채점은 보기 안에서 */
 .opts.mc .opt{align-items:center}
 .opts.mc .opt .k{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--lens);font-size:var(--t1);color:var(--muted)}

@@ -1,9 +1,6 @@
 // 학습 리포트 서버 시험 (ctx.js · evidence.js · report.js · server.js 라우트):  node --test "server/insight/test/*.test.mjs"
 // 버리는 DB 복사본 둘(VACUUM INTO, INSIGHT_TMP 또는 OS 임시 폴더): A는 포트 4004(REPORT_PORT) 서버, B는 이 프로세스에서 모양·시간 재기.
 // 진짜 Gemini는 부르지 않는다 (GEMINI_BASE = 아무도 듣지 않는 포트). 끝나면 서버를 끄고 복사본을 지운다.
-// MySQL 판: 이 시험은 SQLite 사본(DB_PATH)으로 서버를 띄우는 방식이라 아직 MySQL로 옮기지 않았어요 (npm test에서 빠짐, docs/db/MYSQL_서버전환_가이드.md 8장).
-// MySQL 접속 정보가 보이면 실제 DB에 쓰지 않게 바로 멈춘다.
-if (process.env.MYSQL_USER || process.env.DB_USER) throw new Error("이 시험은 SQLite 판 전용이에요. MySQL 접속 정보(MYSQL_USER)가 있는 환경에서는 돌리지 않아요");
 import { test, after } from "node:test";
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
@@ -17,7 +14,7 @@ import { DatabaseSync } from "node:sqlite";
 const HERE = dirname(fileURLToPath(import.meta.url)), ROOT = join(HERE, "..", "..", "..");
 const PORT = +(process.env.REPORT_PORT || 4004), BASE = `http://127.0.0.1:${PORT}`, DEAD = `http://127.0.0.1:${+(process.env.DEAD_PORT || 4014)}`;
 const KEY = "fake-" + randomBytes(8).toString("hex");          // 로그에 나오면 안 되는 값
-const HEAVY = "DEVICE_ID_EXAMPLE";
+const HEAVY = "eEKBcdlYBlP5o89GFBq_Ww";
 const rid = () => randomBytes(12).toString("base64url");
 
 // 1) 버리는 복사본: 원본 → A, A → B (둘이 같은 내용이 되게)

@@ -257,3 +257,7 @@ html.fx-on body:has(.view.in-set)::after{content:"";position:fixed;inset:0;z-ind
 .fx-on .in-set .card.fx-cur{border-radius:28px;box-shadow:var(--read-rim),0 0 0 1px var(--read-line),var(--read-lift)}
 .fx-on .in-set .card.fx-cur.st-correct,.fx-on .in-set .card.fx-cur.st-resolved{box-shadow:0 0 0 2px var(--ok),var(--read-lift)}
 .fx-on .in-set .card.fx-cur.st-wrong{box-shadow:0 0 0 2px var(--red),var(--read-lift)}
+
+/* 과목 창(아래에서 올라오는 시트): 뒤 타일 글자가 비쳐 겹쳐 보이지 않게 면을 불투명하게 */
+.sh-card{background:linear-gradient(160deg,var(--lg-spec),transparent 38%),var(--sheet)}
+.sh-card .course{background:var(--sheet);-webkit-backdrop-filter:none;backdrop-filter:none}

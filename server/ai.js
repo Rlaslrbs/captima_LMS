@@ -88,7 +88,7 @@ const BUDGET = { tag: 1024, vocab: 2048, verify: 0, narr: 256, insight_diag: 512
 const quirk = new Map();
 export function genCfg(model, purpose, thinking) {
   if (quirk.get(model) === "bare") return {};
-  if (purpose === "grade" && thinking == null) return { temperature: 0 };
+  if (purpose === "grade" && thinking == null) return /2\.5/.test(model) ? { temperature: 0, thinkingConfig: { thinkingBudget: 0 } } : { temperature: 0 };
   if (/2\.5/.test(model)) { const b = typeof thinking === "number" ? thinking : BUDGET[purpose]; return b == null ? { temperature: 0 } : { temperature: 0, thinkingConfig: { thinkingBudget: b } }; }
   return { thinkingConfig: { thinkingLevel: typeof thinking === "string" ? thinking : "low" } };
 }

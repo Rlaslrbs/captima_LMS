@@ -9,7 +9,7 @@ LOG=data/tunnel.log
 if lsof -tiTCP:4000 -sTCP:LISTEN >/dev/null 2>&1; then
   echo "4000 포트에 이미 서버가 켜져 있어요. 그 서버를 그대로 써요."
 else
-  node --env-file-if-exists=.env server/server.js &
+  node server/server.js &
   SERVER_PID=$!
   sleep 1
 fi

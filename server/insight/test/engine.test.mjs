@@ -372,7 +372,7 @@ test("cutTex: 보이는 길이로 세고, 수식은 중간에서 자르지 않�
 });
 
 // ───────── 6. 실제 기록 (DB 복사본, 읽기 전용) ─────────
-const DBF = join(ROOT, "data", "app.db"), HEAVY = "DEVICE_ID_EXAMPLE";
+const DBF = join(ROOT, "data", "app.db"), HEAVY = "eEKBcdlYBlP5o89GFBq_Ww";
 const J = (s, d = {}) => { try { return s ? JSON.parse(s) : d; } catch { return d; } };
 function courseCtx(db, cid) {   // Contract 2 (server/insight/ctx.js와 같은 모양)
   const c = db.prepare("SELECT * FROM course WHERE id = ?").get(cid), info = J(c.info);

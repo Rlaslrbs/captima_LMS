@@ -13,7 +13,7 @@ const N_MAX = 5, N_MIN = 3, OUT_MAX = 3;
 /** 관리자 스위치: 전체(insight_ai) 또는 과목별(insight_ai:<cid>). 기본 꺼짐 */
 export const aiOn = cid => ai.enabled() && (meta("insight_ai") === "1" || meta("insight_ai:" + cid) === "1");
 export const aiSwitch = () => ({ global: meta("insight_ai") === "1",
-  courses: Object.fromEntries(st("sw", "SELECT meta_key `key`, value FROM insight_meta WHERE meta_key LIKE 'insight_ai:%'").all().map(r => [+r.key.split(":")[1], r.value === "1"])) });
+  courses: Object.fromEntries(st("sw", "SELECT key, value FROM insight_meta WHERE key LIKE 'insight_ai:%'").all().map(r => [+r.key.split(":")[1], r.value === "1"])) });
 export function setAiSwitch(cid, on) { meta(cid ? "insight_ai:" + cid : "insight_ai", on ? "1" : null); return aiSwitch(); }
 
 const running = new Set();
@@ -33,12 +33,12 @@ const answerText = (kind, b) => kind === "mc" ? (Array.isArray(b.ans) ? b.ans : 
 /** 이 기기의 최근 오답 (첫 시도든 다시 풀기든, 모르겠어요 제외), 문제마다 마지막 것, 지금도 틀린 상태인 공개 문제 */
 function recentWrong(deviceId, cid) {
   const rows = st("wr", `SELECT e.problem_id pid, e.payload, p.ext_id ext, ch.title chTitle, pv.kind, pv.body FROM event e
-      JOIN problem p ON p.problem_id = e.problem_id AND p.status = 'published' JOIN chapter ch ON ch.chapter_id = p.chapter_id
-      JOIN problem_version pv ON pv.problem_id = p.problem_id AND pv.version = p.current_version AND pv.version = e.version
+      JOIN problem p ON p.id = e.problem_id AND p.status = 'published' JOIN chapter ch ON ch.id = p.chapter_id
+      JOIN problem_version pv ON pv.problem_id = p.id AND pv.version = p.current_version AND pv.version = e.version
       LEFT JOIN progress pr ON pr.device_id = e.device_id AND pr.problem_id = e.problem_id
-      WHERE e.device_id = ? AND p.course_id = ? AND e.type = 'answer_submit' AND e.payload->>'$.correct' IN ('false', '0')
+      WHERE e.device_id = ? AND p.course_id = ? AND e.type = 'answer_submit' AND json_extract(e.payload, '$.correct') = 0
         AND pv.kind IN ('ox','mc','short') AND (pr.status IS NULL OR pr.status = 'wrong')
-      ORDER BY e.seq DESC LIMIT 60`).all(deviceId, cid);
+      ORDER BY e.rowid DESC LIMIT 60`).all(deviceId, cid);
   const out = [], seen = new Set();
   for (const r of rows) {
     if (seen.has(r.pid)) continue; seen.add(r.pid);
@@ -53,12 +53,12 @@ function recentWrong(deviceId, cid) {
 function conceptsOf(cid, items) {
   const F = facetsOf(cid).filter(f => f.status === "active");
   if (F.length) {
-    const tag = new Map(st("tg", `SELECT t.problem_id pid, t.facet FROM item_tag t JOIN problem p ON p.problem_id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?`).all(cid).map(r => [r.pid, r.facet]));
+    const tag = new Map(st("tg", `SELECT t.problem_id pid, t.facet FROM item_tag t JOIN problem p ON p.id = t.problem_id AND t.version = p.current_version WHERE p.course_id = ?`).all(cid).map(r => [r.pid, r.facet]));
     const want = new Set(items.map(i => tag.get(i.pid)).filter(Boolean));
     const L = [...F.filter(f => want.has(f.code)), ...F.filter(f => !want.has(f.code))].slice(0, 30);
     return L.map(f => ({ code: f.code, name: f.name, note: f.statement, src: "facet" }));
   }
-  const info = J(st("ci", "SELECT info FROM course WHERE course_id = ?").get(cid)?.info), topics = info.topics && typeof info.topics === "object" ? info.topics : {};
+  const info = J(st("ci", "SELECT info FROM course WHERE id = ?").get(cid)?.info), topics = info.topics && typeof info.topics === "object" ? info.topics : {};
   const tk = Object.keys(topics);
   if (tk.length) return tk.slice(0, 40).map(k => ({ code: k, name: String(topics[k]), note: "", src: "topic" }));
   return [...new Set(items.map(i => i.chTitle))].map((t, i) => ({ code: "ch" + i, name: t, note: "", src: "chapter" }));

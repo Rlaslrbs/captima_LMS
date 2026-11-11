@@ -446,13 +446,27 @@ export function showOnboardingShowcase() {
               </ul>
             </div>
             <div class="onb-tile onb-rv" style="--d:120ms">
-              <p class="onb-tile-cap">화면 예시 · 공학수학</p>
-              <p class="onb-tile-h">역행렬과 가역성</p>
-              ${[["1 정의", "확실히", 100], ["2 적용", "확실히", 88], ["3 구별", "얕게", 46], ["4 조건", "모름", 12]].map(([d, s, w]) =>
-                `<div class="onb-lv"><span>${d}</span><div class="onb-track"><i style="--w:${w}%"></i></div><em>${s}</em></div>`).join("")}
-              <div class="onb-note">
-                <small>이렇게 헷갈리고 있을 수 있어요</small>
-                <b>가역이면 항상 대각화할 수 있다고 생각하고 있어요</b>
+              <p class="onb-tile-cap">실제 리포트 · 공학수학</p>
+              <div class="ins-card">
+                <div class="ins-meta"><span class="ins-b hl">더 다질 부분</span><span class="ins-n">근거 20문제</span></div>
+                <h3 class="ins-u">행렬식 계산과 행 연산</h3>
+                <p class="ins-path">행렬식 › 행렬식의 정의와 성질 › 행렬식 계산과 행 연산</p>
+                <p class="ins-d">조건까지는 맞히는데 적용에서 막히는 것 같아요.</p>
+                <div class="ins-lr"><span class="ins-lad" role="img" aria-label="정의 맞힘, 적용 일부 틀림, 구별 안 풀어 봄, 조건 일부 틀림"><i class="ok"></i><i class="mixed"></i><i class="none"></i><i class="mixed"></i></span><span>정의 문제 3개 맞힘 · 적용 문제 14개 일부 틀림 · 조건 문제 3개 일부 틀림</span></div>
+              </div>
+              <div class="ins-card">
+                <div class="ins-meta"><span class="ins-b ok">확실</span><span class="ins-n">근거 6문제</span></div>
+                <h3 class="ins-u">행렬 곱의 비가환성</h3>
+                <p class="ins-path">O/X 개념 카드 › 행렬 연산의 정의와 성질 › 행렬 곱의 비가환성</p>
+                <p class="ins-d">확실히 알고 있어요. 조건 문제까지 맞혔어요.</p>
+                <div class="ins-lr"><span class="ins-lad" role="img" aria-label="정의 안 풀어 봄, 적용 맞힘, 구별 맞힘, 조건 안 풀어 봄"><i class="none"></i><i class="ok"></i><i class="ok"></i><i class="none"></i></span><span>적용 문제 3개 맞힘 · 구별 문제 3개 맞힘</span></div>
+              </div>
+              <div class="ins-card">
+                <div class="ins-meta"><span class="ins-b hl">다지기</span><span class="ins-n">근거 4문제</span></div>
+                <h3 class="ins-u">코시-슈바르츠 부등식</h3>
+                <p class="ins-path">벡터와 내적 › 벡터의 내적과 성질 › 코시-슈바르츠 부등식</p>
+                <p class="ins-d">아직 덜 다져진 것 같아요.</p>
+                <div class="ins-lr"><span class="ins-lad" role="img" aria-label="정의 맞힘, 적용 틀림, 구별 틀림, 조건 맞힘"><i class="ok"></i><i class="miss"></i><i class="miss"></i><i class="ok"></i></span><span>정의 문제 1개 맞힘 · 적용 문제 1개 틀림 · 구별 문제 1개 틀림 · 조건 문제 1개 맞힘</span></div>
               </div>
             </div>
           </div>

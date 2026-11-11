@@ -1,7 +1,7 @@
 // 학습 리포트: 기기·과목별 '뽑은' 리포트 한 장 (결정 7). 계산은 web/js/insight-engine.js (화면과 같은 파일)의 buildReport 하나.
 // - 보기(GET)는 계산하지 않는다: 저장한 insight 행 + 그 뒤에 쌓인 새 기록 수(since) + 뽑을 수 있는지(can_make)
 // - 뽑기(POST)만 엔진을 돌린다. 지문(fp)이 그대로면 같은 리포트를 돌려주고, 바뀌었으면 그 행 하나를 덮어쓴다 (지난 리포트는 남기지 않는다)
-import { db, J, now } from "../db.js";
+import { db, J, now, v2Ready } from "../db.js";
 import { buildReport } from "../../web/js/insight-engine.js";
 import { PARAMS } from "./params.js";
 import { courseCtx, ctxKey, useContentVer } from "./ctx.js";
@@ -30,24 +30,26 @@ export function gate(deviceId, cid) {
   const G = PARAMS.gate, W = PARAMS.w, chs = new Map(), seen = new Set();
   const add = (ch, pid) => (chs.get(ch) || chs.set(ch, new Set()).get(ch)).add(pid);
   let n = 0, events = 0;
-  for (const r of st("gev", `SELECT e.problem_id pid, ANY_VALUE(ch.chapter_key) ch, COUNT(*) n FROM event e JOIN problem p ON p.problem_id = e.problem_id JOIN chapter ch ON ch.chapter_id = p.chapter_id
+  for (const r of st("gev", `SELECT e.problem_id pid, ch.key ch, COUNT(*) n FROM event e JOIN problem p ON p.id = e.problem_id JOIN chapter ch ON ch.id = p.chapter_id
       WHERE e.device_id = ? AND e.type IN (${ANS}) AND p.course_id = ? AND p.status = 'published' GROUP BY e.problem_id`).all(deviceId, cid)) {
     n += W.first + W.retry * (r.n - 1); events += r.n; seen.add(r.pid); add(r.ch, r.pid);
   }
-  for (const r of st("gpr", `SELECT pr.problem_id pid, ch.chapter_key ch FROM progress pr JOIN problem p ON p.problem_id = pr.problem_id JOIN chapter ch ON ch.chapter_id = p.chapter_id
+  for (const r of st("gpr", `SELECT pr.problem_id pid, ch.key ch FROM progress pr JOIN problem p ON p.id = pr.problem_id JOIN chapter ch ON ch.id = p.chapter_id
       WHERE pr.device_id = ? AND p.course_id = ? AND p.status = 'published'`).all(deviceId, cid)) if (!seen.has(r.pid)) { n += W.legacy; add(r.ch, r.pid); }
   const have = { n_eff: Math.round(n * 10) / 10, events, chapters: [...chs.values()].filter(s => s.size >= G.chItems).length };
   const need = { n_eff: G.n_eff, chapters: G.chapters };                  // 결정 8: 엔진도 n_eff와 단원 수만 본다 (답 기록 수 events는 보여 주기만)
   return { can_make: have.n_eff >= need.n_eff && have.chapters >= need.chapters, have, need };
 }
 /** 리포트를 뽑은 뒤 새로 쌓인 답 수 (answer_submit·idk, 행 번호 > 뽑을 때의 마지막 번호) */
-const since = (deviceId, cid, rid) => st("since", `SELECT COUNT(*) n FROM event e JOIN problem p ON p.problem_id = e.problem_id
-    WHERE e.device_id = ? AND e.type IN (${ANS}) AND e.seq > ? AND p.course_id = ?`).get(deviceId, rid || 0, cid).n;
-const rowOf = (deviceId, cid) => st("row", `SELECT fp, det, updated_at, narr, CAST(det->>'$.ev_rid' AS SIGNED) rid, det->>'$.made_at' made_at, det->>'$.dfp' dfp, state FROM insight
-    WHERE device_id = ? AND course_id = ? AND COALESCE(JSON_TYPE(det->'$.made_at'), 'NULL') <> 'NULL'`).get(deviceId, cid);
+const since = (deviceId, cid, rid) => st("since", `SELECT COUNT(*) n FROM event e JOIN problem p ON p.id = e.problem_id
+    WHERE e.device_id = ? AND e.type IN (${ANS}) AND e.rowid > ? AND p.course_id = ?`).get(deviceId, rid || 0, cid).n;
+const rowOf = (deviceId, cid) => st("row", `SELECT fp, det, updated_at, narr, json_extract(det, '$.ev_rid') rid, json_extract(det, '$.made_at') made_at, json_extract(det, '$.dfp') dfp, json_extract(det, '$.v2.on') v2on, state FROM insight
+    WHERE device_id = ? AND course_id = ? AND json_extract(det, '$.made_at') IS NOT NULL`).get(deviceId, cid);
 
 /** 뽑은 뒤 풀이 기록이 바뀌었는가 (답 기록 없이도: 기록 지우고 다시 풀기·채점 수정). 뽑을 때의 기록 지문(dfp)과 지금 것을 견준다. 문제 내용·서버 판 바뀜은 세지 않는다 */
 const staleOf = (deviceId, cid, row) => row.dfp != null && row.dfp !== fingerprint(deviceId, cid, null);
+/** v2가 켜지기 전에 뽑은 리포트인가: 과목은 v2가 켜졌는데 저장본의 v2.on이 켜짐이 아니다. 다시 뽑으면 v2.on이 켜져 사라진다 */
+const upgradeOf = (cid, row) => row.v2on !== 1 && v2Ready(cid);
 // 잠금 리포트를 뽑은 뒤 새로 풀지도 않았고 기록도 안 바뀌었으면, 어림 문턱을 넘었어도 엔진이 이미 '아직'이라고 한 것이다
 const canMake = (g, row, n, stale) => g.can_make && !(row.state === "locked" && n === 0 && !stale);
 
@@ -56,13 +58,13 @@ const aiCard = f => ({ id: f.id, kind: "illusion", ...(f.concept && f.concept.sr
   concept: f.concept ? f.concept.name : null, wrong: f.belief, fix: [f.truth, f.cue].filter(Boolean).join(" → "), chosen: f.chosen, evidence: [{ pid: f.pid, ext: f.ext, ok: false }] });
 // 저장한 리포트 글 끝에 since·stale·can_make를 붙인다 (다시 읽어 풀지 않음). 같은 행·같은 값이면 지난 Packed를 그대로
 function packRow(deviceId, cid, row) {
-  const n = since(deviceId, cid, row.rid), stale = staleOf(deviceId, cid, row), can = canMake(gate(deviceId, cid), row, n, stale), k = deviceId + "|" + cid;
+  const n = since(deviceId, cid, row.rid), stale = staleOf(deviceId, cid, row), up = upgradeOf(cid, row), can = canMake(gate(deviceId, cid), row, n, stale || up), k = deviceId + "|" + cid;
   // 2단계 AI 진단 (DECISIONS #10): 같은 리포트(fp)에 붙은 것만 "ai"로. 도는 중이면 {state:"pending"}, 스위치가 꺼졌으면 아무것도 없다
   const A = J(row.narr, null), aiDoc = A && A.kind === "ai_diag" && A.fp === row.fp && aiOn(cid) ? { state: "ready", findings: A.findings || [] }
     : aiPending(deviceId, cid) ? { state: "pending" } : null;
-  const sig = row.updated_at + "|" + row.fp + "|" + n + "|" + can + "|" + stale + "|" + (aiDoc ? aiDoc.state : "");
+  const sig = row.updated_at + "|" + row.fp + "|" + n + "|" + can + "|" + stale + "|" + up + "|" + (aiDoc ? aiDoc.state : "");
   const e = LRU.get(k); if (e && e.sig === sig) { LRU.delete(k); LRU.set(k, e); return e.pk; }
-  const pk = new Packed(Buffer.from(row.det.slice(0, row.det.lastIndexOf("}")) + `,"since":{"answers":${n}},"stale":${stale},"can_make":${can}${aiDoc ? `,"ai":${JSON.stringify(aiDoc)}` : ""}${aiDoc && aiDoc.state === "ready" && aiDoc.findings.length ? `,"ai_findings":${JSON.stringify(aiDoc.findings.map(aiCard))}` : ""}}`), TYPE);
+  const pk = new Packed(Buffer.from(row.det.slice(0, row.det.lastIndexOf("}")) + `,"since":{"answers":${n}},"stale":${stale},"upgrade":${up},"can_make":${can}${aiDoc ? `,"ai":${JSON.stringify(aiDoc)}` : ""}${aiDoc && aiDoc.state === "ready" && aiDoc.findings.length ? `,"ai_findings":${JSON.stringify(aiDoc.findings.map(aiCard))}` : ""}}`), TYPE);
   LRU.delete(k); LRU.set(k, { sig, pk }); if (LRU.size > MAX) LRU.delete(LRU.keys().next().value);
   return pk;
 }
@@ -81,8 +83,8 @@ export function makeSnap(deviceId, cid) {
   const dfp = fingerprint(deviceId, cid, null), raw = loadRaw(deviceId, cid), det = buildDoc(deviceId, cid, day, key, fp, raw);
   if (!det) return null;
   const s = JSON.stringify({ ...det, made_at: now(), dfp, ev_rid: raw.events.reduce((m, e) => Math.max(m, e.rid), 0) });
-  st("put", `INSERT INTO insight(device_id, course_id, fp, state, det, updated_at) VALUES (?,?,?,?,?,?) AS n
-      ON DUPLICATE KEY UPDATE fp = n.fp, state = n.state, det = n.det, updated_at = n.updated_at`)
+  st("put", `INSERT INTO insight(device_id, course_id, fp, state, det, updated_at) VALUES (?,?,?,?,?,?)
+      ON CONFLICT(device_id, course_id) DO UPDATE SET fp = excluded.fp, state = excluded.state, det = excluded.det, updated_at = excluded.updated_at`)
     .run(deviceId, cid, fp, det.state, s, now());                   // 서술형 정리(narr…) 칸은 그대로 둔다 (P4가 여기서 만든다)
   if (det.state === "ready" && aiOn(cid)) startDiag(deviceId, cid, fp);   // 뒤에서: 실패해도 학습자에게는 결정적 리포트 그대로   // 뒤에서: 실패해도 학습자에게는 결정적 리포트 그대로
   return packRow(deviceId, cid, rowOf(deviceId, cid));
@@ -91,26 +93,26 @@ export function makeSnap(deviceId, cid) {
 /** 담은 과목마다 한 줄 요약: 저장한 행 + 새 기록 수 + 뽑을 수 있는지만 (계산하지 않는다) */
 export function overview(deviceId, { consent = true } = {}) {
   const courses = {};
-  const cids = st("enr", `SELECT e.course_id cid FROM enrollment e JOIN course c ON c.course_id = e.course_id JOIN semester s ON s.semester_id = c.semester_id
+  const cids = st("enr", `SELECT e.course_id cid FROM enrollment e JOIN course c ON c.id = e.course_id JOIN semester s ON s.id = c.semester_id
       WHERE e.device_id = ? AND c.visible = 1 AND s.visible = 1 ORDER BY e.sort, e.course_id`).all(deviceId).map(r => r.cid);
   for (const cid of cids) {
     if (!consent) { courses[cid] = { state: "no_consent" }; continue; }
-    const r = st("sum", `SELECT state, det->>'$.made_at' made_at, CAST(det->>'$.ev_rid' AS SIGNED) rid, det->>'$.dfp' dfp, JSON_LENGTH(det, '$.findings') nf,
-        det->>'$.findings[0].type' tt, det->>'$.findings[0].unit.name' tn FROM insight
-        WHERE device_id = ? AND course_id = ? AND COALESCE(JSON_TYPE(det->'$.made_at'), 'NULL') <> 'NULL'`).get(deviceId, cid);
-    const g = gate(deviceId, cid), n = r ? since(deviceId, cid, r.rid) : 0, stale = r ? staleOf(deviceId, cid, r) : false, can_make = r ? canMake(g, r, n, stale) : g.can_make;
-    courses[cid] = r ? { state: r.state, made_at: r.made_at, since: { answers: n }, stale, can_make, n_findings: r.nf ?? null, top_type: r.tt ?? null, top_name: r.tn ?? null }
+    const r = st("sum", `SELECT state, json_extract(det, '$.made_at') made_at, json_extract(det, '$.ev_rid') rid, json_extract(det, '$.dfp') dfp, json_extract(det, '$.v2.on') v2on, json_array_length(det, '$.findings') nf,
+        json_extract(det, '$.findings[0].type') tt, json_extract(det, '$.findings[0].unit.name') tn FROM insight
+        WHERE device_id = ? AND course_id = ? AND json_extract(det, '$.made_at') IS NOT NULL`).get(deviceId, cid);
+    const g = gate(deviceId, cid), n = r ? since(deviceId, cid, r.rid) : 0, stale = r ? staleOf(deviceId, cid, r) : false, upgrade = r ? upgradeOf(cid, r) : false, can_make = r ? canMake(g, r, n, stale || upgrade) : g.can_make;
+    courses[cid] = r ? { state: r.state, made_at: r.made_at, since: { answers: n }, stale, upgrade, can_make, n_findings: r.nf ?? null, top_type: r.tt ?? null, top_name: r.tn ?? null }
       : { state: "none", made_at: null, since: null, can_make, n_findings: null, top_type: null, top_name: null };
   }
   return { courses };
 }
 
 /** 과목이 있고 보이는가 (라우트가 동의 확인보다 먼저 404를 가른다) */
-export const courseVisible = cid => !!st("vis", "SELECT 1 FROM course c JOIN semester s ON s.semester_id = c.semester_id WHERE c.course_id = ? AND c.visible = 1 AND s.visible = 1").get(cid);
+export const courseVisible = cid => !!st("vis", "SELECT 1 FROM course c JOIN semester s ON s.id = c.semester_id WHERE c.id = ? AND c.visible = 1 AND s.visible = 1").get(cid);
 
 /** 켠 직후 한 번: 보이는 과목의 내용 묶음을 만들고 빈 기록으로 엔진을 한 번 돌려 둔다 (첫 뽑기가 JIT·묶음 만들기를 기다리지 않게) */
 export function warmUp() {
-  for (const { id } of db.prepare("SELECT c.course_id id FROM course c JOIN semester s ON s.semester_id = c.semester_id WHERE c.visible = 1 AND s.visible = 1").all()) {
+  for (const { id } of db.prepare("SELECT c.id FROM course c JOIN semester s ON s.id = c.semester_id WHERE c.visible = 1 AND s.visible = 1").all()) {
     try { const ctx = courseCtx(id); if (ctx) buildReport({ events: [], progress: [], grades: [], aux: [], fp: null }, ctx, PARAMS, kstDay()); }
     catch (e) { console.error("[insight] 데우기 실패", id, e && e.message); }
   }

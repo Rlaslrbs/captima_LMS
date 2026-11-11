@@ -53,6 +53,7 @@ export async function mountCourse(view, route, ctx) {
   const shownLogged = new Set();
   let scopeAsk = false;
   let toolsOpen = false;      // 머리 줄의 "보기" 단추로 펼치는 탭 · 통계 · 필터
+  const enOpen = new Set();   // 영어 원문을 펼친 문제
   const prog = id => S.progress[id] || {};
   // 풀이 행동 기록 (Contract 5)
   const firstKey = {};        // 서답형·서술형: 처음 글자를 친 때 → rd (읽고 계획한 시간)
@@ -267,15 +268,11 @@ export async function mountCourse(view, route, ctx) {
   // ───────── 문제 카드 ─────────
   const srcText = s => (files[s[0]] || s[0]) + (s[1] ? " · " + (/^\d/.test(s[1]) ? "p." : "") + s[1] : "");
   const srcHTML = p => p.src && p.src.length ? `<div class="src"><span class="lab">출처</span>${p.src.map(s => `<span>${esc(srcText(s))}</span>`).join("")}</div>` : "";
-  const sub = s => s ? `<span class="en">${fmt(s)}</span>` : "";
-  // 원문·번역(작은 글씨)은 접어 둔다: 긴 문제가 한눈에 들어오게. 한 번 펼치면 이 과목에서는 계속 펼친다
-  const subName = C.lang === "en" ? "한국어 번역" : "영어 원문";
-  let subOn = LS.get("subOn:" + cid, false);
-  const subBtn = () => `<button class="subt" data-subt aria-pressed="${subOn}">${subOn ? subName + " 접기" : subName + " 보기"}</button>`;
-  function setSub(on) {
-    subOn = on; LS.set("subOn:" + cid, on); view.classList.toggle("sub-on", on);
-    $$("[data-subt]", view).forEach(b => { b.setAttribute("aria-pressed", on); b.textContent = on ? subName + " 접기" : subName + " 보기"; });
-  }
+  // 한국어 문제에 딸린 영어 원문은 접어 둔다 (같은 식이 두 번 보이지 않게). 영어 문제의 한국어 번역은 그대로 보여 준다
+  const KO = /[가-힣]/;
+  const sub = (p) => { const s = p.q_sub; if (!s) return ""; if (!KO.test(p.q) || KO.test(s)) return `<span class="en">${fmt(s)}</span>`;
+    const on = enOpen.has(p.id);
+    return `<span class="en-w ${on ? "open" : ""}"><button class="linkish" data-en="${p.id}" aria-expanded="${on}">${on ? "영어 원문 접기" : "영어 원문 보기"}</button><span class="en">${fmt(s)}</span></span>`; };
   function solHTML(p, st) {
     const pr = prog(p.id);
     let head = "";
@@ -336,7 +333,7 @@ export async function mountCourse(view, route, ctx) {
     const exams = Array.isArray(p.exams) && p.exams.length ? `<span class="exb">기출 ${esc(p.exams.join(", "))}</span>` : "";
     return `<article class="card ${st ? "st-" + st : ""}" id="c-${p.id}">
       <div class="meta"><span class="no">${esc(p.no || p.ext_id)}</span><span class="kindtag">${KIND[p.kind]}</span>${p.star ? '<span class="star">★ 중요</span>' : ""}${exams}<span class="stt ${st}">${stLabel}</span>${saveBtn(p)}${menu}</div>
-      <div class="q">${fmt(p.q)}${sub(p.q_sub)}</div>${p.q_sub || (p.opts_sub && p.opts_sub.some(Boolean)) ? subBtn() : ""}
+      <div class="q">${fmt(p.q)}${sub(p)}</div>
       ${body}${shown ? solHTML(p, st) : ""}${next}</article>`;
   }
 
@@ -613,7 +610,6 @@ export async function mountCourse(view, route, ctx) {
   }
 
   function render() {
-    view.classList.toggle("sub-on", subOn);
     if (set === "INSIGHT") { renderInsight(); return; }
     if (ins) { ins.destroy(); ins = null; insAsked = false; }   // 리포트에서 나옴 (방금 뽑았을 수 있으니 메뉴의 개요를 다시 묻는다)
     insTok++;                                          // 불러오는 중이던 리포트 화면도 취소
@@ -719,7 +715,6 @@ export async function mountCourse(view, route, ctx) {
     const b = e.target.closest("button"); if (!b || !view.contains(b)) return;
     const d = b.dataset;
     const pm = b.closest("details.pmenu"); if (pm) setTimeout(() => { pm.open = false; }, d.copy ? 1200 : 0);
-    if (d.subt !== undefined) { setSub(!subOn); return; }
     if (b.id === "examBtn") { const i = $("#examIn", view); try { i.showPicker(); } catch { i.focus(); i.click(); } return; }
     if (b.id === "examX") { setExam(cid, null); toast("시험일을 지웠어요"); return; }
     if (b.id === "enrollBtn") { toggleEnroll(cid); renderEnroll(); toast(isEnrolled(cid) ? `${C.short}을(를) 내 강의실에 담았어요` : "내 강의실에서 뺐어요"); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); return; }
@@ -744,6 +739,7 @@ export async function mountCourse(view, route, ctx) {
       return;
     }
     if (b.id === "toolsBtn") { toolsOpen = !toolsOpen; view.classList.toggle("tools-open", toolsOpen); b.setAttribute("aria-expanded", toolsOpen); return; }
+    if (d.en) { const id = +d.en, on = !enOpen.has(id); on ? enOpen.add(id) : enOpen.delete(id); b.parentElement.classList.toggle("open", on); b.setAttribute("aria-expanded", on); b.textContent = on ? "영어 원문 접기" : "영어 원문 보기"; return; }
     if (b.id === "moreBtn") { ui.more = !ui.more; persist(); renderStats(); renderToolbar(); return; }
     if (b.id === "tab-solve") { go(set, "solve"); return; }
     if (b.id === "tab-note") { go(set, "note"); return; }

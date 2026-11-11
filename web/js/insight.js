@@ -257,7 +257,8 @@ export function mount(main, ctx) {
     if (making) return `<div class="ins-snap"><span class="ins-asof">${esc(madeText(d.made_at))}</span><span class="ins-run" role="status"><span class="spin"></span>새로 뽑는 중이에요…</span></div>`;
     const n = (d.since && +d.since.answers) || 0;
     const act = ctx.dev ? "" : n > 0 ? `<button class="ins-go sm" data-ins-make="1">새로 뽑기 · 새 기록 ${n}개</button>`
-      : d.stale ? `<button class="ins-go sm" data-ins-make="1">새로 뽑기 · 기록이 바뀌었어요</button>` : `<button class="ins-go sm ghost" disabled>새 기록이 없어요</button>`;
+      : d.upgrade ? `<button class="ins-go sm" data-ins-make="1">새로 뽑기 · 더 자세한 리포트가 열렸어요</button>`
+      : d.stale ? `<button class="ins-go sm" data-ins-make="1">새로 뽑기 · 기록이 바뀌었어요</button>` :`<button class="ins-go sm ghost" disabled>새 기록이 없어요</button>`;
     return `<div class="ins-snap"><span class="ins-asof">${esc(madeText(d.made_at) || "학습 리포트")}</span>${act}</div>${errP}`;
   }
 

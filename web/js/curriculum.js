@@ -10,19 +10,19 @@ export const CURRICULUM = [
       { id: "ieintro", name: "산업경영공학의 이해", kind: "base" },
     ],
     [
-      { id: "phys", name: "일반물리", kind: "base" },
+      { id: "phys", name: "일반물리", kind: "base", codes: ["PHY1"] },
       { id: "prog", name: "기초프로그래밍", kind: "base" },
     ],
   ] },
   { year: 2, terms: [
     [
-      { id: "em1", name: "공학수학 1", kind: "base" },
+      { id: "em1", name: "공학수학 1", kind: "base", codes: ["IE203"] },
       { id: "ds1", name: "데이터사이언스 1", kind: "opt", pre: ["prog"] },
       { id: "pdms", name: "제품개발및제조시스템", kind: "opt" },
       { id: "expstat", name: "실험통계학", kind: "base", codes: ["IE207"] },
-      { id: "db", name: "데이터베이스", kind: "opt" },
-      { id: "econ", name: "경제성공학", kind: "opt" },
-      { id: "ergo", name: "인간공학", kind: "opt" },
+      { id: "db", name: "데이터베이스", kind: "opt", codes: ["IE213"] },
+      { id: "econ", name: "경제성공학", kind: "opt", codes: ["IE201"] },
+      { id: "ergo", name: "인간공학", kind: "opt", codes: ["IE308"] },
     ],
     [
       { id: "em2", name: "공학수학 2", kind: "base", codes: ["LA2"] },
@@ -30,7 +30,7 @@ export const CURRICULUM = [
       { id: "pom", name: "생산경영론", kind: "opt", codes: ["IE216"] },
       { id: "appstat", name: "응용통계학", kind: "base", codes: ["IE208"], pre: ["expstat"] },
       { id: "mis", name: "경영정보시스템", kind: "opt", codes: ["MIS"] },
-      { id: "htmkt", name: "하이테크마케팅", kind: "opt" },
+      { id: "htmkt", name: "하이테크마케팅", kind: "opt", codes: ["IE217"] },
     ],
   ] },
   { year: 3, terms: [
@@ -38,8 +38,8 @@ export const CURRICULUM = [
       { id: "ms1", name: "경영과학 1", kind: "req", codes: ["IE301"] },
       { id: "dm1", name: "데이터마이닝 1", kind: "opt", pre: ["ds2"] },
       { id: "scm", name: "공급사슬관리", kind: "opt" },
-      { id: "qe", name: "품질공학", kind: "opt", codes: ["IE312"], pre: ["appstat"] },
-      { id: "fe", name: "금융공학", kind: "opt" },
+      { id: "qe", name: "품질공학", kind: "opt", pre: ["appstat"], codes: ["IE312"] },
+      { id: "fe", name: "금융공학", kind: "opt", codes: ["IE329"] },
       { id: "mot", name: "기술경영", kind: "opt", codes: ["IE304"] },
     ],
     [
@@ -58,7 +58,7 @@ export const CURRICULUM = [
       { id: "sds", name: "서비스데이터사이언스", kind: "opt" },
       { id: "cad", name: "CAD/CAM", kind: "opt" },
       { id: "sim", name: "컴퓨터시뮬레이션", kind: "opt", pre: ["appstat"] },
-      { id: "ml", name: "머신러닝", kind: "opt" },
+      { id: "ml", name: "머신러닝", kind: "opt", codes: ["IE428"] },
       { id: "beda", name: "경영경제데이터분석", kind: "opt" },
       { id: "cap1", name: "창의적종합설계 1", kind: "req" },
     ],
