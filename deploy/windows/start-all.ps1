@@ -1,13 +1,14 @@
-# 문제노트 서버 + Cloudflare Tunnel을 함께 켠다 (Windows)
+﻿# 문제노트 서버 + Cloudflare Tunnel을 함께 켠다 (Windows)
 # 사용법 (PowerShell):  .\deploy\windows\start-all.ps1
 # 끄려면 이 창에서 Ctrl+C
 #
 # 설정은 아래 두 값만 바꾸면 된다.
-#   $TunnelName : 고정 주소를 쓸 때 만든 터널 이름 (비워 두면 임시 주소로 켠다)
+#   $TunnelName : 비워 두면 맥 운영 서버와 같이 임시 주소(trycloudflare.com, 켤 때마다 바뀜)로 켠다.
+#                 고정 주소를 만들었으면 그 터널 이름(예: "munje-note")을 넣는다.
 #   $Port       : 서버 포트 (기본 4000)
 
 $ErrorActionPreference = "Stop"
-$TunnelName = "munje-note"
+$TunnelName = ""
 $Port = 4000
 
 $Root = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path

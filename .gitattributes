@@ -1,0 +1,11 @@
+# 줄바꿈: 저장소에는 LF로, Windows에서 받아도 스크립트가 깨지지 않게
+* text=auto
+*.ps1 text eol=crlf
+*.sh text eol=lf
+*.mjs text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.woff2 binary
+*.webp binary
+*.png binary
+*.pdf binary

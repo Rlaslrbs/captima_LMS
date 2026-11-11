@@ -1,6 +1,6 @@
 #!/bin/sh
-# 커밋 전 검사: 비밀(키, .env, MySQL 접속 파일 .my.cnf, 관리자 경로)과 개인 기록(DB, 백업)이 올라가지 않게 막는다.
-# 설치: npm run setup (git config core.hooksPath .githooks). 우회(--no-verify)하지 않는다.
+# 커밋 전 검사: 비밀(키, .env, 관리자 경로)과 개인 기록(DB, 백업)이 올라가지 않게 막는다.
+# 설치: git config core.hooksPath .githooks (처음 한 번). 우회(--no-verify)하지 않는다.
 staged=$(git diff --cached --name-only --diff-filter=ACM)
 bad=$(printf '%s\n' "$staged" | grep -E '(^|/)(\.env|\.my\.cnf|gemini_key\.txt|admin_path\.txt)$|\.db$|\.db-(wal|shm)$|^data/backups/|\.log$')
 if [ -n "$bad" ]; then
