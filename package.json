@@ -4,8 +4,8 @@
   "type": "module",
   "description": "문제노트 베타 플랫폼 (사용자 웹 + 관리자 웹 + SQLite). Node 24 내장 기능만 사용",
   "scripts": {
-    "start": "node server/server.js",
-    "import": "node server/import.js",
+    "start": "node --env-file-if-exists=.env server/server.js",
+    "import": "node --env-file-if-exists=.env server/import.js",
     "hide": "node tools/apply-hidden.mjs",
     "backup": "node deploy/windows/backup.mjs",
     "test": "node --test \"server/insight/test/*.test.mjs\""

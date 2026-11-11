@@ -24,12 +24,13 @@
 | `과목추가_프롬프트.md` | 새 과목 문제 세트를 만드는 절차 |
 | `과목_작업규칙.md` | 새 과목 시작·완료 때 GitHub 이슈·PR 쓰는 법 (과목 만들기 전에 꼭 확인) |
 | `인수인계.md` | 지금 상태, API 목록, 데이터 형식 (먼저 읽기) |
-| `sqlite-platform/` | 맥 라이브 서버 코드를 참고용으로 보관한 것. 고치지 않아요 |
+| `tools/apply-hidden.mjs` | 새 DB에 문제를 넣은 뒤 `data/import/<과목>_hidden.txt` 목록을 다시 숨김으로 (`npm run hide`) |
+| `deploy/windows/` | 운영 서버(Windows 노트북): 서버 + Cloudflare Tunnel 켜기, 자동 시작, 백업. 안내: `윈도우_배포_안내.md` |
 
 ## 3. 실행
 1. Node 24 이상. **npm 설치는 없어요.** Node 내장 기능(`node:http`, `node:sqlite`, `node:test`)만 써요. 외부 패키지를 추가하지 마요.
-2. `.env.example`을 `.env`로 복사하고 `GEMINI_API_KEY`를 채워요. `.env`는 git에 올라가지 않아요.
-3. `node server/import.js`로 문제를 넣고 `npm start`로 켜요. 사용자 웹은 `http://127.0.0.1:4000`.
+2. Gemini 키는 `data/gemini_key.txt` 첫 줄에 두거나, `.env.example`을 `.env`로 복사해 `GEMINI_API_KEY`를 채워요(`npm start`가 `.env`를 읽어요). 둘 다 git에 올라가지 않아요.
+3. 처음이면 `npm start`로 한 번 켜서 빈 DB를 만들고, `npm run import`(문제 세트 전부) → `npm run hide`(숨김 목록 다시 적용). 사용자 웹은 `http://127.0.0.1:4000`.
 4. 테스트: `npm test` (`node --test "server/insight/test/*.test.mjs"`). 일부는 운영 DB 사본이 있어야 돌아가요.
 5. 커밋 검사 켜기(처음 한 번): `git config core.hooksPath .githooks`. 키·DB·`.env`가 커밋에 들어가면 막아요.
 
