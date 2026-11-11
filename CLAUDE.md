@@ -4,7 +4,7 @@
 역할별 자세한 안내는 `prompts/`에 있어요 (아래 "영역별 안내" 표).
 
 ## 1. 이 프로젝트는
-- **문제노트**: 대학 시험 대비 문제 풀이 웹. 사용자 웹(`web/`) + 관리자 웹(`admin/`) + 서버(`server/`) + MySQL.
+- **문제노트**: 대학 시험 대비 문제 풀이 웹. 사용자 웹(`web/`) + 관리자 웹(`admin/`) + 서버(`server/`) + SQLite.
 - **학습 리포트**: 풀이 기록으로 "어느 개념의 어느 깊이에서 막혔는지, 무엇을 헷갈려 착각하는지"를 알려 주는 기능. 개념 태그가 붙은 과목은 v2, 아니면 v1.
 - **로그인이 없어요.** 기기 번호(`X-Device`)가 곧 신원이에요. 그래서 기기 번호는 비밀번호만큼 조심해요.
 
@@ -14,9 +14,7 @@
 | `web/` | 사용자 웹. 바닐라 ES 모듈(`app.js`, `course.js`, `insight.js` …), `css/app.css` |
 | `admin/` | 관리자 웹. 해시 경로(`#/…`). `diag.js`는 진단 탭 |
 | `server/server.js` | HTTP 서버 + API (`node:http`) |
-| `server/db.js`, `import.js` | DB 열기·문제 세트 가져오기 |
-| `server/mysql/` | MySQL 스키마(`schema.sql`)·커리큘럼, 연결부(`sync.js`·`worker.js`). `server/schema.sql`은 예전 SQLite 판 (옮기기 원본 읽기용) |
-| `tools/mysql-setup.mjs` | MySQL 준비 한 번에: 연결 확인 → 표 만들기 → SQLite 복사(번호 그대로) → 대조 |
+| `server/db.js`, `schema.sql`, `import.js` | DB 열기·스키마·문제 세트 가져오기 |
 | `server/ai.js` | Gemini 호출 입구 (`generate()` 하나로만 부른다) |
 | `server/insight/` | 학습 리포트 서버쪽: `report.js`, `ctx.js`, `tagger.js`, `aidiag.js`, `admin.js`, `manual-import.js`, `misc-rewrite.js`, `test/` |
 | `web/js/insight-engine.js`, `insight-depth.js` | 진단 엔진(브라우저·서버 공용 순수 모듈) |
@@ -26,12 +24,14 @@
 | `과목추가_프롬프트.md` | 새 과목 문제 세트를 만드는 절차 |
 | `과목_작업규칙.md` | 새 과목 시작·완료 때 GitHub 이슈·PR 쓰는 법 (과목 만들기 전에 꼭 확인) |
 | `인수인계.md` | 지금 상태, API 목록, 데이터 형식 (먼저 읽기) |
+| `sqlite-platform/` | 맥 라이브 서버 코드를 참고용으로 보관한 것. 고치지 않아요 |
 
 ## 3. 실행
-1. Node 24 이상. 외부 패키지는 **`mysql2` 하나만** 써요 (`npm install`). 그 밖에는 Node 내장 기능(`node:http`, `node:test` …)만. 패키지를 더하지 마요.
-2. `.env.example`을 `.env`로 복사하고 `GEMINI_API_KEY`, MySQL 접속(`MYSQL_HOST`·`MYSQL_USER`·`MYSQL_PASSWORD`·`MYSQL_DATABASE`)을 채워요. `.env`는 git에 올라가지 않아요.
-3. MySQL이 처음이면 `node --env-file=.env tools/mysql-setup.mjs all --content-only` (서버 연결 전체 절차: `docs/db/MySQL_서버연결_프롬프트.md`). 문제는 `npm run import -- data/import/<과목>.json`, 켜기는 `npm run dev`. 사용자 웹은 `http://127.0.0.1:4000`.
-4. 테스트: `npm test` (진단 엔진 시험). SQLite 사본으로 서버를 띄우는 `ai`·`report` 시험은 아직 MySQL로 옮기지 않았어요 (`docs/db/MYSQL_서버전환_가이드.md` 8장).
+1. Node 24 이상. **npm 설치는 없어요.** Node 내장 기능(`node:http`, `node:sqlite`, `node:test`)만 써요. 외부 패키지를 추가하지 마요.
+2. `.env.example`을 `.env`로 복사하고 `GEMINI_API_KEY`를 채워요. `.env`는 git에 올라가지 않아요.
+3. `node server/import.js`로 문제를 넣고 `npm start`로 켜요. 사용자 웹은 `http://127.0.0.1:4000`.
+4. 테스트: `npm test` (`node --test "server/insight/test/*.test.mjs"`). 일부는 운영 DB 사본이 있어야 돌아가요.
+5. 커밋 검사 켜기(처음 한 번): `git config core.hooksPath .githooks`. 키·DB·`.env`가 커밋에 들어가면 막아요.
 
 ## 4. 영역별 안내 (역할을 정하면 해당 파일을 읽고 시작해요)
 | 영역 | 파일 | 맡는 것 |
@@ -56,10 +56,8 @@
 - 학습자 기록 표(`device`, `progress`, `event`, `report`, `bookmark`, `ai_grade`)는 시키기 전에 수정하지 않아요. 학습자 개인 정보를 외부(LLM 등)로 보낼 때는 익명화·최소한만.
 
 **DB**
-- 운영 DB(MySQL)를 직접 고치지 않아요. 정해진 도구(`import.js`, `manual-import.js`, `misc-rewrite.js` …)로만, **백업(mysqldump) 뒤에**, 허락받고 써요. 시험은 **시험용 DB**로. `DELETE`·`DROP`·`TRUNCATE`는 실행 전에 사람에게 확인받아요.
-- 스키마 변경은 `server/mysql/schema.sql`에 먼저 쓰고 그 파일을 실행해요 (`CREATE … IF NOT EXISTS` / 추가만, 고칠 때는 다시 실행해도 안전한 "고침" 구역). 기존 표를 지우지 않아요.
-- 새 SQL은 MySQL 문법으로 (`ON DUPLICATE KEY UPDATE`, `INSERT IGNORE`, `->>` …). SQLite에서 옮길 때의 규칙: `docs/db/MYSQL_서버전환_가이드.md` 4장.
-- 접속 비밀번호는 `.env`에만. 코드·로그·채팅·커밋에 쓰지 않아요.
+- 운영 DB(`data/app.db`)를 직접 고치지 않아요. 정해진 도구(`import.js`, `manual-import.js`, `misc-rewrite.js` …)로만, **백업(`VACUUM INTO`) 뒤에**, 허락받고 써요. 시험은 **복사본 DB**로. `DELETE`·`DROP`는 실행 전에 사람에게 확인받아요.
+- 스키마 변경은 `CREATE … IF NOT EXISTS` / 추가만. 기존 표를 바꾸거나 지우지 않아요. MySQL 판은 `mysql-version` 브랜치에 보관돼 있어요 (사람이 많아져 옮길 때 참고).
 - 개념·세부 포인트·오개념 코드는 **한 번 만들면 바꾸지 않아요**(이름만 고침). 없앨 때는 retired 표시.
 
 **코드**
