@@ -1,25 +1,34 @@
 // 캡티마로고 기능의 화면 (탐조등 버튼을 눌러 로고로 들어갔을 때만, spotlight.js·glass.css와 함께)
-// 로고·탐조등·계절 연출을 모두 촘촘한 글자만으로 그린다 (바탕 칸 없이, 서로 다른 글자가 점처럼 모여 모양이 된다).
-// 손가락·마우스로 만질 수 있다: 움직이면 로고 글자와 잎이 밀려나고 탐조등이 따라오며, 누르면 그 자리에서 바람이 터진다.
+// 로고·탐조등·계절 연출을 모두 촘촘한 글자만으로 그린다 (바탕 칸 없이). 글자는 과목의 개념 태그 이름을 이어 쓴 것이다.
+// 손가락·마우스로 만질 수 있다: 휙 휘저으면 그 바람에 잎이 날아가고 로고 글자가 흩어졌다 돌아오며, 탐조등이 손을 따라온다.
 // 계절·날씨·행사(크리스마스 등)는 SCENES에 장면을 하나씩 더하고 pick()에서 고른다. 지금은 가을: 단풍잎이 흩날린다.
 const root = document.documentElement;
 const fx = document.querySelector(".spot-fx");   // spotlight.js가 만든 판 (로고가 없는 테마에서는 없다)
 const still = matchMedia("(prefers-reduced-motion: reduce)");
 const LOGO_Y = .56, LOGO_SRC = "/img/captima-bg.webp";   // glass.css body::after와 같게
-const CW = 6, CH = 9, FONT = "bold 9px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace";
+const C = 6, FONT = "600 6px Pretendard,system-ui,sans-serif";   // 한글이 정사각형이라 칸도 정사각형
 const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
 const lerp = (a, b, k) => a + (b - a) * k;
 const rgb = (c, m) => `rgb(${Math.min(255, c[0] * m) | 0},${Math.min(255, c[1] * m) | 0},${Math.min(255, c[2] * m) | 0})`;
-const hash = n => { const s = Math.sin(n * 12.9898 + 4.1414) * 43758.5453; return s - Math.floor(s); };   // 같은 자리에는 늘 같은 글자
-const from = (set, k) => set[k * set.length | 0];
+const hash = n => { const s = Math.sin(n * 12.9898 + 4.1414) * 43758.5453; return s - Math.floor(s); };
 
-// 글자 묶음: 옅은 것 → 묵직한 것
-const THIN = ".,:;'`-~^\"", MID = "+=*/\\<>!?ilcvtr7j1()[]{}", BOLD = "ABDEGHKMNPRSWXZ#%&@$0235689";
+// 글자로 쓸 개념 태그 이름들 (서버가 못 주면 로고 이름으로)
+let WORDS = ["CAPTIMA"];
+fetch("/api/concept-words").then(r => r.ok ? r.json() : null).then(d => { if (d && d.words && d.words.length) WORDS = d.words; }).catch(() => {});
+// 낱말을 섞어 한 줄로 이은 글 (띄어쓰기 대신 가운뎃점)
+function stream(n) {
+  const w = WORDS.slice().sort(() => Math.random() - .5);
+  let s = "";
+  for (let i = 0; s.length < n; i++) s += w[i % w.length].replace(/\s+/g, "") + "·";
+  return s;
+}
+
 // 로고: 어두운 금 → 빛 받은 금
 const GOLD = [[92, 58, 18], [142, 92, 26], [196, 134, 38], [236, 176, 60], [255, 212, 104], [255, 240, 178]];
 // 탐조등: 아래 여섯 군데에서 올라와 서로 다른 박자로 흔들린다 (x 위치, 두 끝 각도, 한 번 흔들리는 시간, 켜지는 순서)
 const RAYS = [[.08, -30, 2, 7, 0], [.24, 20, -14, 5.4, 2], [.4, -12, 18, 8.2, 4], [.6, 14, -18, 6.6, 5], [.76, -18, 20, 5, 3], [.92, 30, -4, 7.6, 1]];
 const RAY_FG = ["", "rgba(255,236,206,.2)", "rgba(255,240,214,.4)", "rgba(255,246,228,.72)"];
+const STAR = ".·,:+*";
 
 // 단풍잎 본 (# 잎, + 잎맥). 이 본을 잎 크기만큼 늘려 그 안을 글자로 채운다
 const MAPLE = [".....#.....", ".....#.....", "..#.#+#.#..", "..##+++##..", "#.###+###.#", "####+++####", ".####+####.", "..###+###..", ".###.+.###.", ".....+.....", ".....+....."];
@@ -33,36 +42,43 @@ const autumn = {
     return out.sort((a, b) => a.d - b.d);   // 작은(먼) 잎부터 그려 큰 잎이 앞에 온다
   },
   leaf(W, H, anywhere, old) {
-    const l = old || { id: Math.random() * 999 | 0, d: Math.random() ** 1.5, px: 0, py: 0 };   // d: 0 멀다 … 1 가깝다
+    const l = old || { d: Math.random() ** 1.5, px: 0, py: 0 };   // d: 0 멀다 … 1 가깝다
     const d = l.d, c = FALL[Math.random() * FALL.length | 0];
+    l.word = stream(40);                          // 잎마다 개념 이름 몇 개를 싣고 다닌다
     l.s = 3 + d * 5.5;                            // 본의 한 점이 화면에서 차지하는 크기(px)
     l.fall = 24 + d * 44; l.drift = .55 + d * .6;
     l.rot = Math.random() * 6.28; l.spin = (Math.random() - .5) * 1.8;
     l.flip = Math.random() * 6.28; l.flipV = 1.2 + Math.random() * 2.2;
     l.sway = Math.random() * 6.28; l.swayV = .8 + Math.random() * 1.2;
-    // 색 6가지: [뒷면, 앞면] × [어둡게, 보통, 밝게] + 잎맥
+    // 색: [뒷면, 앞면] × [어둡게, 보통, 밝게] + 잎맥
     l.cols = [.42, .56, .7, .72, .9, 1.12].map(m => rgb(c, m * (.62 + d * .38))); l.vein = rgb(c, .4 * (.62 + d * .38));
     if (anywhere) { l.x = Math.random() * W; l.y = Math.random() * H; }
     else if (Math.random() < .6) { l.x = Math.random() * W * 1.1 - W * .1; l.y = -70; }   // 위에서
     else { l.x = -70; l.y = Math.random() * H * .8; }                                      // 바람 불어오는 왼쪽에서
     return l;
   },
-  step(L, dt, t, W, H, ptr) {
+  step(L, dt, t, W, H) {
     const gust = 34 + 26 * Math.sin(t * .31) + 18 * Math.sin(t * .83 + 1.7);   // 바람이 세졌다 약해졌다
     const cx = W / 2, cy = H * LOGO_Y, R = Math.min(W, H) * .34;
     for (const l of L) {
       l.sway += l.swayV * dt; l.rot += l.spin * dt; l.flip += l.flipV * dt;
-      // 손이 가까이 오면 비켜나고, 손이 움직이는 쪽으로 끌려간다
-      if (ptr.on) {
-        const ex = l.x - ptr.x, ey = l.y - ptr.y, e = Math.hypot(ex, ey) || 1;
-        if (e < 150) { const k = (1 - e / 150) ** 2; l.px += (ex / e * 900 + ptr.vx * 1.6) * k * dt; l.py += (ey / e * 900 + ptr.vy * 1.6) * k * dt; l.spin += (ptr.vx > 0 ? 1 : -1) * k * dt * 6; }
-      }
-      l.px *= 1 - Math.min(1, dt * 1.6); l.py *= 1 - Math.min(1, dt * 1.6); l.spin = clamp(l.spin, -7, 7) * (1 - dt * .25);
+      const damp = 1 - Math.min(1, dt * 1.3); l.px *= damp; l.py *= damp;   // 손바람은 천천히 잦아든다
+      l.spin = clamp(l.spin, -9, 9) * (1 - dt * .3);
       // 로고 가까이에서는 바람이 로고를 감아 돈다 (소용돌이)
       const dx = l.x - cx, dy = l.y - cy, k = Math.exp(-(dx * dx + dy * dy) / (R * R)) * 58 / R;
       l.x += (gust * l.drift + Math.sin(l.sway) * 22 - dy * k + l.px) * dt;
       l.y += (l.fall + Math.cos(l.sway * 1.3) * 12 + dx * k + l.py) * dt;
-      if (l.y > H + 70 || l.x > W + 70 || l.x < -140 || l.y < -140) this.leaf(W, H, false, l);
+      if (l.y > H + 70 || l.x > W + 70 || l.x < -160 || l.y < -160) { l.px = l.py = 0; this.leaf(W, H, false, l); }
+    }
+  },
+  // 손이 (vx, vy) 빠르기로 (x, y)를 지나갔다: 가까운 잎이 그 바람을 타고 날아간다
+  swipe(L, x, y, vx, vy) {
+    for (const l of L) {
+      const e = Math.hypot(l.x - x, l.y - y);
+      if (e > 190) continue;
+      const k = (1 - e / 190) * (1.15 - l.d * .45);   // 작은 잎이 더 가볍다
+      l.px = clamp(l.px + vx * k * .6, -1700, 1700); l.py = clamp(l.py + vy * k * .6, -1700, 1700);
+      l.spin += (Math.random() - .5) * 8 * k; l.flipV = 3 + Math.random() * 4;
     }
   },
   // 누른 자리에서 바람이 터져 잎이 사방으로 날린다
@@ -76,17 +92,16 @@ const autumn = {
   draw(g, L) {
     for (const l of L) {
       const ca = Math.cos(l.rot), sa = Math.sin(l.rot), f = Math.cos(l.flip), w = Math.max(.16, Math.abs(f)), face = f < 0 ? 0 : 3;
-      const ext = 5.5 * l.s * 1.42, c0 = Math.floor((l.x - ext) / CW), c1 = Math.ceil((l.x + ext) / CW), r0 = Math.floor((l.y - ext) / CH), r1 = Math.ceil((l.y + ext) / CH);
+      const ext = 5.5 * l.s * 1.42, c0 = Math.floor((l.x - ext) / C), c1 = Math.ceil((l.x + ext) / C), r0 = Math.floor((l.y - ext) / C), r1 = Math.ceil((l.y + ext) / C);
+      let n = 0;
       for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) {
-        const qx = c * CW + CW / 2 - l.x, qy = r * CH + CH / 2 - l.y;
+        const qx = c * C + C / 2 - l.x, qy = r * C + C / 2 - l.y;
         const u = Math.floor((qx * ca + qy * sa) / (l.s * w) + 5.5), v = Math.floor((qy * ca - qx * sa) / l.s + 5.5);
         if (u < 0 || v < 0 || u > 10 || v > 10) continue;
         const p = MAPLE[v][u];
         if (p === ".") continue;
-        const k = hash(l.id + c * 31 + r * 57 - Math.floor(l.x / CW) * 31 - Math.floor(l.y / CH) * 57);   // 잎에 붙어 다니는 글자
-        if (p === "+") { g.fillStyle = l.vein; g.fillText(from("|/\\!Il1", k), c * CW + CW / 2, r * CH + CH / 2); continue; }
-        g.fillStyle = l.cols[face + (k * 3 | 0)];
-        g.fillText(from(k < .5 ? MID : BOLD, hash(k * 91)), c * CW + CW / 2, r * CH + CH / 2);
+        g.fillStyle = p === "+" ? l.vein : l.cols[face + (hash(u * 7 + v * 13) * 3 | 0)];
+        g.fillText(l.word[n++ % l.word.length], c * C + C / 2, r * C + C / 2);   // 줄을 따라 낱말이 이어진다
       }
     }
   }
@@ -104,32 +119,33 @@ if (fx) {
   const g = cv.getContext("2d");
   const img = new Image();
   // 로고 그림을 읽을 수 있을 때만 CSS 로고·빛기둥을 끄고 글자판으로 바꾼다 (못 읽으면 원래 모습 그대로)
-  img.onload = () => { root.classList.add("spot-ascii"); hint.textContent = "움직이거나 눌러 보세요 · 버튼을 다시 누르면 돌아가요"; };
+  img.onload = () => { root.classList.add("spot-ascii"); hint.textContent = "마우스나 손가락으로 휘저어 보세요 · 버튼을 다시 누르면 돌아가요"; };
   img.src = LOGO_SRC;
 
   let W = 0, H = 0, cols = 0, rows = 0, dust = "", lit = null, parts = [], stars = [];
   let scene = null, items = [], raf = 0, last = 0, acc = 0, t = 0, on = false;
-  const ptr = { on: false, x: 0, y: 0, vx: 0, vy: 0, at: 0, aim: 0 };
+  const ptr = { x: 0, y: 0, at: 0, aim: 0 };
 
   function size() {
     const dpr = Math.min(devicePixelRatio || 1, 2);
-    W = innerWidth; H = innerHeight; cols = Math.ceil(W / CW); rows = Math.ceil(H / CH);
+    W = innerWidth; H = innerHeight; cols = Math.ceil(W / C); rows = Math.ceil(H / C);
     cv.width = W * dpr; cv.height = H * dpr;
     g.setTransform(dpr, 0, 0, dpr, 0, 0);
     g.font = FONT; g.textAlign = "center"; g.textBaseline = "middle";
     lit = new Uint8Array(cols * rows);
-    // 빛이 닿아야 보이는 먼지 글자: 칸의 절반쯤에만, 자리마다 정해진 글자
+    // 빛이 닿아야 보이는 먼지 글자: 개념 이름이 줄줄이 적혀 있고, 군데군데 비어 있다
+    const text = stream(cols * rows);
     let d = "";
-    for (let j = 0; j < cols * rows; j++) { const k = hash(j * 1.37); d += k < .52 ? from(k < .3 ? THIN : k < .45 ? MID : BOLD, hash(j * 7.7)) : " "; }
+    for (let j = 0; j < cols * rows; j++) d += hash(j * 1.37) < .42 ? text[j] : " ";
     dust = d;
     // 빛이 없어도 늘 보이는 먼 점들 (밤하늘)
     stars = [];
-    for (let n = Math.round(cols * rows / 60); n--;) stars.push({ x: (Math.random() * cols | 0) * CW + CW / 2, y: (Math.random() * rows | 0) * CH + CH / 2, ch: from(".·'`,:+*", Math.random()), a: .12 + Math.random() ** 3 * .5, v: .4 + Math.random() * 1.6, p: Math.random() * 6.28 });
-    // 로고 그림을 글자 줄 수만큼 줄여 읽어, 밝은 자리마다 글자 하나씩 놓는다
+    for (let n = Math.round(cols * rows / 90); n--;) stars.push({ x: (Math.random() * cols | 0) * C + C / 2, y: (Math.random() * rows | 0) * C + C / 2, ch: STAR[Math.random() * STAR.length | 0], a: .12 + Math.random() ** 3 * .5, v: .4 + Math.random() * 1.6, p: Math.random() * 6.28 });
+    // 로고 그림을 글자 줄 수만큼 줄여 읽어, 밝은 자리마다 글자를 하나씩 이어 적는다
     const o = document.createElement("canvas"); o.width = cols; o.height = rows;
     const og = o.getContext("2d", { willReadFrequently: true });
     const lw = Math.min(W * .8, 780) * 1.12, lh = lw * img.naturalHeight / img.naturalWidth;
-    og.drawImage(img, (W / 2 - lw / 2) / CW, (H * LOGO_Y - lh / 2) / CH, lw / CW, lh / CH);
+    og.drawImage(img, (W / 2 - lw / 2) / C, (H * LOGO_Y - lh / 2) / C, lw / C, lh / C);
     const px = og.getImageData(0, 0, cols, rows).data;
     const val = i => Math.max(px[i * 4], px[i * 4 + 1], px[i * 4 + 2]) * px[i * 4 + 3] / 255;
     let top = 1;
@@ -138,9 +154,8 @@ if (fx) {
     for (let i = 0; i < cols * rows; i++) {
       const k = val(i) / top;
       if (k < .1) continue;
-      const lv = k > .75 ? 3 : k > .5 ? 2 : k > .28 ? 1 : 0, q = Math.random();
-      parts.push({ j: i, hx: i % cols * CW + CW / 2, hy: (i / cols | 0) * CH + CH / 2, ox: 0, oy: 0, vx: 0, vy: 0, lv,
-        ch: from(lv ? (q < .35 ? MID : BOLD) : (q < .6 ? THIN : MID), Math.random()), tone: Math.random() * 3 | 0, ord: Math.random() });
+      parts.push({ j: i, hx: i % cols * C + C / 2, hy: (i / cols | 0) * C + C / 2, ox: 0, oy: 0, vx: 0, vy: 0,
+        lv: k > .75 ? 3 : k > .5 ? 2 : k > .28 ? 1 : 0, ch: text[parts.length], tone: Math.random() * 3 | 0, ord: Math.random() });
     }
   }
 
@@ -156,7 +171,7 @@ if (fx) {
       if (ptr.aim > .01) a = lerp(a, clamp(Math.atan2(ptr.x - ox, oy - ptr.y), -1.15, 1.15), ptr.aim * .9);
       const dx = Math.sin(a), dy = -Math.cos(a), gain = Math.min(1, (t - born) / .4);
       for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
-        const vx = c * CW + CW / 2 - ox, vy = r * CH + CH / 2 - oy;
+        const vx = c * C + C / 2 - ox, vy = r * C + C / 2 - oy;
         const along = vx * dx + vy * dy;
         if (along <= 0) continue;
         const half = 3 + hw * along / far, perp = Math.abs(vx * dy - vy * dx);
@@ -168,21 +183,24 @@ if (fx) {
     }
   }
 
-  // 로고 글자: 손이 닿으면 밀려났다가 제자리로 튕겨 돌아온다
+  // 로고 글자: 밀려났다가 제자리로 튕겨 돌아온다
   function logoStep(dt) {
+    const damp = 1 - Math.min(1, dt * 4.2);
     for (const p of parts) {
-      if (ptr.on) {
-        const ex = p.hx + p.ox - ptr.x, ey = p.hy + p.oy - ptr.y, e2 = ex * ex + ey * ey;
-        if (e2 < 8100) { const e = Math.sqrt(e2) || 1, k = (1 - e / 90) * 2600 * dt; p.vx += ex / e * k + ptr.vx * dt * 1.2; p.vy += ey / e * k + ptr.vy * dt * 1.2; }
-      }
       if (!p.ox && !p.oy && !p.vx && !p.vy) continue;
-      p.vx += -p.ox * 38 * dt; p.vy += -p.oy * 38 * dt;
-      const damp = 1 - Math.min(1, dt * 4.5); p.vx *= damp; p.vy *= damp;
+      p.vx = (p.vx - p.ox * 34 * dt) * damp; p.vy = (p.vy - p.oy * 34 * dt) * damp;
       p.ox += p.vx * dt; p.oy += p.vy * dt;
       if (Math.abs(p.ox) + Math.abs(p.oy) + Math.abs(p.vx) + Math.abs(p.vy) < .05) p.ox = p.oy = p.vx = p.vy = 0;
     }
-    // 글자가 조금씩 바뀌며 반짝인다
-    for (let n = Math.min(14, parts.length); n--;) { const p = parts[Math.random() * parts.length | 0]; p.ch = from(p.lv ? (Math.random() < .35 ? MID : BOLD) : THIN, Math.random()); p.tone = Math.random() * 3 | 0; }
+    for (let n = Math.min(20, parts.length); n--;) parts[Math.random() * parts.length | 0].tone = Math.random() * 3 | 0;   // 반짝임
+  }
+  // 손이 지나간 바람: 잎은 멀리 날아가고, 로고 글자는 조금 흩어진다
+  function swipe(x, y, vx, vy) {
+    for (const p of parts) {
+      const ex = p.hx + p.ox - x, ey = p.hy + p.oy - y, e2 = ex * ex + ey * ey;
+      if (e2 < 10000) { const k = (1 - Math.sqrt(e2) / 100) * .32; p.vx += vx * k + ex * k * 3; p.vy += vy * k + ey * k * 3; }
+    }
+    if (scene && scene.swipe) scene.swipe(items, x, y, vx, vy);
   }
   function burst(x, y) {
     for (const p of parts) {
@@ -201,13 +219,13 @@ if (fx) {
     // 빛기둥: 빛이 닿은 먼지 글자만 보인다
     for (let n = 1; n <= 3; n++) {
       g.fillStyle = RAY_FG[n];
-      for (let j = 0; j < lit.length; j++) if (lit[j] === n && dust[j] !== " ") g.fillText(dust[j], j % cols * CW + CW / 2, (j / cols | 0) * CH + CH / 2);
+      for (let j = 0; j < lit.length; j++) if (lit[j] === n && dust[j] !== " ") g.fillText(dust[j], j % cols * C + C / 2, (j / cols | 0) * C + C / 2);
     }
     // 로고: 글자가 하나씩 켜지며 나타나고, 빛이 지나가는 글자는 더 밝다
     const shown = clamp((t - .45) / 1.3, 0, 1);
     for (const p of parts) {
       if (p.ord > shown) continue;
-      g.fillStyle = GOLD_FG[Math.min(5, p.lv + 1 + Math.min(2, lit[p.j]) - (p.lv ? 0 : 1))][p.tone];
+      g.fillStyle = GOLD_FG[Math.min(5, p.lv + Math.min(2, lit[p.j]) + (p.lv ? 1 : 0))][p.tone];
       g.fillText(p.ch, p.hx + p.ox, p.hy + p.oy);
     }
     if (scene) scene.draw(g, items);
@@ -218,11 +236,9 @@ if (fx) {
     const dt = Math.min(.1, (now - last) / 1000); last = now; acc += dt;
     if (acc < 1 / 30 || document.hidden) return;
     t += acc;
-    ptr.on = now - ptr.at < 2500;                                  // 손을 떼고 조금 지나면 원래 흐름으로
-    ptr.aim += ((ptr.on ? 1 : 0) - ptr.aim) * Math.min(1, acc * 3);
-    ptr.vx *= .8; ptr.vy *= .8;
+    ptr.aim += ((performance.now() - ptr.at < 2500 ? 1 : 0) - ptr.aim) * Math.min(1, acc * 3);   // 손을 떼고 조금 지나면 탐조등이 원래대로
     logoStep(acc);
-    if (scene) scene.step(items, acc, t, W, H, ptr);
+    if (scene) scene.step(items, acc, t, W, H);
     acc = 0;
     paint();
   }
@@ -243,12 +259,15 @@ if (fx) {
   }).observe(root, { attributes: true, attributeFilter: ["class"] });
   addEventListener("resize", () => { if (on && raf) { size(); items = scene ? scene.make(W, H) : []; } });
 
-  // 만지기: 움직이면 밀고, 누르면 바람이 터진다
-  const move = e => {
-    const now = performance.now(), dt = Math.max(8, now - (ptr.seen || now)) / 1000;
-    if (ptr.at && now - ptr.at < 200) { ptr.vx = clamp((e.clientX - ptr.x) / dt, -1500, 1500); ptr.vy = clamp((e.clientY - ptr.y) / dt, -1500, 1500); }
-    ptr.x = e.clientX; ptr.y = e.clientY; ptr.at = ptr.seen = now;
-  };
-  fx.addEventListener("pointermove", move);
-  fx.addEventListener("pointerdown", e => { if (!raf) return; move(e); burst(e.clientX, e.clientY); });
+  // 만지기: 누르지 않아도, 휙 휘저으면 그 빠르기만큼 바람이 인다. 판 위의 버튼을 지나가도 끊기지 않게 창 전체에서 듣는다
+  addEventListener("pointermove", e => {
+    if (!raf) return;
+    const now = performance.now(), dt = (now - ptr.at) / 1000;
+    if (dt > 0 && dt < .12) {
+      const vx = clamp((e.clientX - ptr.x) / dt, -2600, 2600), vy = clamp((e.clientY - ptr.y) / dt, -2600, 2600);
+      if (vx * vx + vy * vy > 150 * 150) swipe(e.clientX, e.clientY, vx, vy);
+    }
+    ptr.x = e.clientX; ptr.y = e.clientY; ptr.at = now;
+  }, { passive: true });
+  fx.addEventListener("pointerdown", e => { if (raf) burst(e.clientX, e.clientY); });
 }

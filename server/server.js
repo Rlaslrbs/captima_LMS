@@ -187,6 +187,9 @@ function insightRoute(m, d, fn) {
     $headers: { Vary: "Accept-Encoding, X-Device", "Server-Timing": `insight;dur=${(performance.now() - t).toFixed(2)}` } };
 }
 const user = {
+  // 로고 화면(logo-scene.js)이 글자로 쓰는 개념 태그 이름. 공개된 과목의 것만, 학습자 정보는 없다
+  "GET /api/concept-words": () => ({ words: db.prepare(`SELECT DISTINCT k.name FROM kc k JOIN course c ON c.id = k.course_id
+    WHERE c.visible = 1 AND k.status != 'retired' AND length(k.name) BETWEEN 2 AND 16 ORDER BY k.name LIMIT 600`).all().map(r => r.name) }),
   // 화면이 켜고 끌 기능 (insight_ai: AI 정리, P4). insight_dev: 개발용 예시 리포트 (INSIGHT_DEV=1로 켠 서버에서만)
   "GET /api/features": () => ({ ai_grade: ai.enabled(), insight: true, insight_ai: false, ...(INSIGHT_DEV ? { insight_dev: true } : {}) }),
 
