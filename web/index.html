@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/css/calm.css"><!-- 조용한 화면: 글자·모서리·그림자·색 규칙 정리, 문제 풀이 화면 머리 한 줄과 늘 보이는 이동 바. 빼면 예전 모양 -->
 <link rel="stylesheet" href="/css/insight.css"><!-- 학습 리포트 정리: 색을 줄이고 글자 위계를 키움. glass.css 뒤에 와야 한다 -->
 <link rel="stylesheet" href="/css/onboarding-showcase.css"><!-- 첫 방문 소개 화면 -->
+<link rel="stylesheet" href="/css/ascii-bg.css"><!-- 뒷배경 ASCII 장면 (js/ascii-scene.js와 함께). 빼면 민무늬 배경 -->
 <script>try{var t=JSON.parse(localStorage.getItem("mn:theme")||'"auto"');if(t!=="auto")document.documentElement.dataset.theme=t;var g=localStorage.getItem("mn:glass");if(g!=null)document.documentElement.style.setProperty("--lg-v",+JSON.parse(g))}catch(e){}</script>
 </head>
 <body>
@@ -43,5 +44,6 @@
 <div id="view" class="view"></div>
 <script type="module" src="/js/app.js"></script>
 <script type="module" src="/js/spotlight.js"></script><!-- 로고 비추기 (glass.css와 함께) -->
+<script type="module" src="/js/ascii-scene.js"></script><!-- 뒷배경 ASCII 장면: 글자 바탕 + 입체 개구리·나비 (ascii-bg.css와 함께) -->
 </body>
 </html>

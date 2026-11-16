@@ -1,0 +1,11 @@
+/* 뒷배경 ASCII 장면 (js/ascii-scene.js가 캔버스 두 장을 붙인다)
+   bg = 화면 가득 빼곡한 글자 바탕, fg = 그 격자 위에 그리는 입체 개구리·나비.
+   index.html에서 이 줄과 ascii-scene.js 줄을 빼면 원래 민무늬 배경으로 돌아간다. */
+:root{--ascii-a:.1}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ascii-a:.15}}
+:root[data-theme="dark"]{--ascii-a:.15}
+.ascii-cv{position:fixed;inset:0;width:100%;height:100%;pointer-events:none}
+.ascii-bg{z-index:-2;opacity:var(--ascii-a)}
+.ascii-fg{z-index:-1}
+/* 문제 푸는 화면·첫 방문 소개 화면에서는 없다 (집중). 숨기면 스크립트도 그리기를 쉰다 */
+html:has(#view.v-course) .ascii-cv,html:has(.view.in-set) .ascii-cv,html:has(.onb-showcase.is-active) .ascii-cv{display:none}
