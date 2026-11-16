@@ -1,7 +1,7 @@
 // 로고 비추기 (다크 모드 전용, glass.css의 배경 로고가 있을 때만)
 // 오른쪽 아래 버튼을 누르면 보는 사람이 가운데 CAPTIMA 로고로 빨려 들어가듯 다가가고,
 // 화면의 카드·메뉴는 로고에서 바깥으로 날아가 사라진다. 남은 로고를 아래에서 올라온 탐조등들이 비춘다.
-// 다시 누르거나 아무 곳이나 누르거나 Esc로 돌아온다.
+// 다시 누르거나 Esc로 돌아온다 (글자판이 못 뜬 경우에는 아무 곳이나 눌러도 돌아온다).
 const root = document.documentElement;
 const darkMQ = matchMedia("(prefers-color-scheme: dark)");
 const calm = matchMedia("(prefers-reduced-motion: reduce)");
@@ -99,7 +99,7 @@ if (getComputedStyle(document.body, "::after").backgroundImage.includes("captima
   }
 
   btn.addEventListener("click", () => on ? close() : open());
-  fx.addEventListener("click", () => close());
+  fx.addEventListener("click", () => { if (!root.classList.contains("spot-ascii")) close(); });   // 글자판(logo-scene.js)에서는 누르는 것이 만지기라서, 버튼이나 Esc로만 돌아간다
   addEventListener("keydown", e => { if (e.key === "Escape") close(); });
   addEventListener("popstate", () => close(true));
   // 라이트 모드로 바뀌면 바로 원래대로

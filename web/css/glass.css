@@ -184,6 +184,7 @@ html.spot .spot-fx{opacity:1;pointer-events:auto;cursor:pointer;transition:opaci
 /* 글자판이 준비되면 CSS 로고·빛기둥·후광은 끈다 (같은 것을 logo-scene.js가 그린다) */
 html.spot.spot-ascii body::after{opacity:0;animation:none}
 html.spot-ascii .spot-ray,html.spot-ascii .spot-halo{display:none}
+html.spot.spot-ascii .spot-fx{cursor:crosshair;touch-action:none}   /* 판을 만질 수 있다 (밀기·누르기) */
 /* 탐조등: 아래에서 위로 넓어지는 빛기둥. 하나씩 차례로 켜지고, 서로 다른 박자로 좌우로 흔들려 엇갈린다 */
 .spot-ray{bottom:-4%;left:var(--x);width:clamp(80px,11vw,160px);height:150vh;translate:-50% 0;transform-origin:50% 100%;
   background:linear-gradient(to top,rgba(255,240,215,.5),rgba(255,236,210,.16) 40%,transparent 80%);
