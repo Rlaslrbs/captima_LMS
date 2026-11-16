@@ -180,6 +180,7 @@ html.spot body::after{opacity:.95;transform:scale(1.12);transition-delay:.35s;an
   background:radial-gradient(80% 75% at 50% 56%,transparent 40%,rgba(0,0,0,.6)),linear-gradient(to top,rgba(255,140,60,.16),transparent 30%)}
 html.spot .spot-fx{opacity:1;pointer-events:auto;cursor:pointer;transition:opacity 1s var(--ease) .5s}
 .spot-fx i{position:absolute;pointer-events:none;mix-blend-mode:screen}
+.spot-season{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}   /* 계절 연출 (logo-season.js): 지금은 가을 낙엽 */
 /* 탐조등: 아래에서 위로 넓어지는 빛기둥. 하나씩 차례로 켜지고, 서로 다른 박자로 좌우로 흔들려 엇갈린다 */
 .spot-ray{bottom:-4%;left:var(--x);width:clamp(80px,11vw,160px);height:150vh;translate:-50% 0;transform-origin:50% 100%;
   background:linear-gradient(to top,rgba(255,240,215,.5),rgba(255,236,210,.16) 40%,transparent 80%);
