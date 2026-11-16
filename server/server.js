@@ -153,7 +153,10 @@ const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; ch
   ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".woff2": "font/woff2", ".ico": "image/x-icon" };
 const TEXT = new Set([".html", ".js", ".css", ".json", ".svg"]);
 const fileCache = new Map();          // 글 파일: 경로 → { mtime, size, pk }
-function serveStatic(req, res, base, rel) {
+// 학생 화면(pub)만 공개 캐시. 글 파일은 브라우저가 매번 확인하고(고치면 바로 반영), Cloudflare만 60초 들고 있어 수업 시작 때 몰려도 노트북은 한 번만 보낸다
+const PUB_TEXT = "public, max-age=0, must-revalidate, s-maxage=60";
+const PUB_BIN = "public, max-age=604800";       // 글꼴·이미지 7일
+function serveStatic(req, res, base, rel, pub = false) {
   const p = normalize(join(base, rel || "index.html"));
   if (!p.startsWith(base)) return fail(res, 403, "forbidden");
   let file = p;
@@ -163,10 +166,10 @@ function serveStatic(req, res, base, rel) {
   if (TEXT.has(ext)) {                // 파일이 바뀌면(수정 시각·크기) 다시 읽어 압축한다
     let c = fileCache.get(file);
     if (!c || c.mtime !== st.mtimeMs || c.size !== st.size) { c = { mtime: st.mtimeMs, size: st.size, pk: new Packed(readFileSync(file), type) }; fileCache.set(file, c); }
-    return sendPacked(req, res, c.pk);
+    return sendPacked(req, res, c.pk, pub ? PUB_TEXT : "no-cache");
   }
   const etag = '"' + st.size.toString(36) + "-" + Math.floor(st.mtimeMs).toString(36) + '"';
-  const h = { ...SEC, "Content-Type": type, ETag: etag, "Cache-Control": ext === ".woff2" ? "public, max-age=604800" : "no-cache" };
+  const h = { ...SEC, "Content-Type": type, ETag: etag, "Cache-Control": pub || ext === ".woff2" ? PUB_BIN : "no-cache" };
   if (req.headers["if-none-match"] === etag) { res.writeHead(304, h); return res.end(); }
   res.writeHead(200, { ...h, "Content-Length": st.size });
   createReadStream(file).pipe(res);
@@ -500,7 +503,7 @@ const server = createServer(async (req, res) => {
     if (path.startsWith("/api/")) return await handle(USER, req, res, path, url.searchParams, { limit: 2e5, isAdmin: false });
     if (path.startsWith("/admin")) return fail(res, 404, "not found");        // 비밀 주소가 아닌 /admin… 은 숨긴다
     if (INSIGHT_DEV && path === "/js/fixtures/insight-sample.json") return serveStatic(req, res, join(ROOT, "docs", "insight", "fixtures"), "insight-sample.json");   // 개발용 예시 (테스터에게는 없음)
-    return serveStatic(req, res, join(ROOT, "web"), path.slice(1));
+    return serveStatic(req, res, join(ROOT, "web"), path.slice(1), true);
   } catch (e) {
     console.error(e);
     if (!res.headersSent) fail(res, e.status || 500, e.status ? e.message : "서버 오류");
