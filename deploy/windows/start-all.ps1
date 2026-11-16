@@ -24,7 +24,8 @@ if (-not (Test-Path $Cloudflared)) {
 
 # 1) 노트북이 잠들지 않게 한다 (이 창이 켜져 있는 동안)
 Add-Type -Namespace Win -Name Power -MemberDefinition '[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint esFlags);'
-[void][Win.Power]::SetThreadExecutionState(0x80000001)   # ES_CONTINUOUS | ES_SYSTEM_REQUIRED
+# 10진수로 쓴다. PowerShell 5.1은 0x80000001을 음수 Int32로 읽어 uint 변환에 실패한다.
+[void][Win.Power]::SetThreadExecutionState(2147483649)   # ES_CONTINUOUS | ES_SYSTEM_REQUIRED
 
 # 2) 서버가 이미 켜져 있는지 확인
 $busy = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
@@ -80,6 +81,6 @@ try {
 } finally {
     if (-not $tunnel.HasExited) { Stop-Process -Id $tunnel.Id -Force -ErrorAction SilentlyContinue }
     if ($server -and -not $server.HasExited) { Stop-Process -Id $server.Id -Force -ErrorAction SilentlyContinue }
-    [void][Win.Power]::SetThreadExecutionState(0x80000000)  # 잠들기 허용으로 되돌림
+    [void][Win.Power]::SetThreadExecutionState(2147483648)  # 잠들기 허용으로 되돌림
     Write-Host "껐어요."
 }
