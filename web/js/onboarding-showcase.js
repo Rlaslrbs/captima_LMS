@@ -6,6 +6,7 @@
 
 import { S, api, createDevice, adoptDevice, hasDevice } from "./store.js";
 import { toast, LS, esc } from "./util.js";   // LS는 util.js에 있다 (store.js는 내보내지 않음)
+import { mountScene } from "./logo-scene-core.js";   // 탐조등 화면과 같은 글자 장면을 소개 화면 뒤에도 깐다
 
 // ─────────────────────────────────────────────────────────────
 // 1. 배경 글자 격자 + 물방울 (Canvas 2D)
@@ -561,6 +562,7 @@ export function showOnboardingShowcase() {
 
     // ───────── 배경 격자: 마우스를 누른 채 움직일 때만 물방울 ─────────
     const engine = new DropGridEngine($("#onbCanvas"));
+    const glow = mountScene(wrap, { before: wrap.querySelector(".onb-header"), dim: .45, auto: true });   // 탐조등 빛기둥·단풍잎·로고 글자 (로고는 글이 읽히게 어둡게)
     let pressed = false;
     const onPointerDown = e => {
       // 단추 · 입력칸 위에서 누른 것은 물방울로 치지 않는다. 손가락은 스크롤에 써야 하니 마우스만.
@@ -697,6 +699,7 @@ export function showOnboardingShowcase() {
       wrap.classList.remove("is-active");
       setTimeout(() => {
         engine.destroy();
+        glow.destroy();
         wrap.remove();
         document.documentElement.classList.remove("onb-lock");
         resolve();
