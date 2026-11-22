@@ -26,6 +26,11 @@ body::after{opacity:0}
   background:color-mix(in srgb,var(--ink) 3%,var(--sheet));box-shadow:var(--flat);transform:none}
 .hc:active,.ctile:active,.next-up:active,.resume-big:active,.kpill:active{transform:scale(.985)}
 .card.st-correct,.card.st-resolved,.card.st-wrong{box-shadow:var(--flat)}   /* 맞힘 · 틀림은 카드 테두리 대신 보기와 꼬리표가 알려 준다 */
+/* 집중 모드(.fx-on .in-set .card.fx-cur…)의 "읽기 우선" 규칙이 glass.css에서 더 높은 명시도로 빨간·초록 테두리와
+   큰 그림자(--read-lift)를 되살려서, 선택자 명시도를 맞춰 다시 눌러 둔다 (나중 파일이 이긴다는 가정이 깨졌던 곳) */
+.fx-on .in-set .card.fx-cur,
+.fx-on .in-set .card.fx-cur.st-correct,.fx-on .in-set .card.fx-cur.st-resolved,.fx-on .in-set .card.fx-cur.st-wrong,
+.in-set .card.st-wrong{box-shadow:var(--flat);border-radius:var(--r)}
 .ctile:not(.off){background-image:none}
 .years.from-r .ctile,.years.from-l .ctile{-webkit-backdrop-filter:none;backdrop-filter:none}
 :root:root .ctile.off{background:transparent;box-shadow:var(--flat)}   /* 준비 중: 면 없이 선만 */
