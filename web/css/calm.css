@@ -12,6 +12,10 @@
   --muted:#5f5f66;   /* 바탕(#efefec) 위 대비 5.5:1 (예전 #6e6e73은 4.4:1) */
   --flat:0 0 0 1px var(--line);
   --lens:var(--sheet);
+  /* 간격 4px 그리드 — 큰 여백부터 하나씩 이 토큰으로 옮긴다(3단계) */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:64px;
+  /* 모션: 누르는 것 120ms · 화면 전환 220ms · 진행 바 420ms. --spring은 app.css에 이미 있다 */
+  --dur-fast:120ms; --dur:220ms; --dur-slow:420ms;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--lens:#3a3a3f}}
 :root[data-theme="dark"]{--lens:#3a3a3f}
@@ -101,9 +105,10 @@ h1,.hero h1,.c-head h1,.sh-card h2,.onb-card h1,.hubh,.crumb .ct,.panel h2,.bshe
 .tab,.seg span{border-radius:9px}   /* 바깥 12 − 안쪽 여백 3 */
 .kindtag,.star,.exb,.hc .hn,.src span,.kv code,.badge.sm,.pm-b,kbd{border-radius:var(--r1)}
 
-/* ── 움직임: 누르는 것은 150ms, 화면이 바뀔 때는 250ms ── */
-button,.chip,.opt,.btn,.hc,.tab,.back,.course,.cmain,.starb,.semtab,.ctile,.next-up,.resume-big,.exam-big,.kpill{transition-duration:.15s}
-.view.enter{animation-duration:.25s}
+/* ── 움직임: 누르는 것은 120ms, 화면이 바뀔 때는 220ms, 진행 바는 420ms + 스프링 ── */
+button,.chip,.opt,.btn,.hc,.tab,.back,.course,.cmain,.starb,.semtab,.ctile,.next-up,.resume-big,.exam-big,.kpill{transition-duration:var(--dur-fast)}
+.view.enter{animation-duration:var(--dur)}
+.bar span,.cprog i{transition:width var(--dur-slow) var(--spring)}
 
 /* ── 누르는 크기: 책갈피 · ⋯ · 화면 테마 버튼을 44px로 (줄 높이는 그대로 두려고 바깥 여백을 뺀다) ── */
 .savep{width:44px;height:44px;margin:-12px -2px}
@@ -158,3 +163,18 @@ button.fx-pos:hover,button.fx-pos[aria-expanded="true"]{background:var(--fill2)}
 .fx-btn:hover:not(:disabled){background:var(--fill2)}
 .fx-btn.pri,.fx-btn.pri:hover:not(:disabled){background:var(--action);min-width:0;overflow:hidden;text-overflow:ellipsis}
 .fx-on .card.fx-cur .nextrow{display:none}   /* 버튼은 남겨 둔다: Enter 키와 이동 바가 이 버튼을 누른다 */
+
+/* ═════ 3단계: 디자인 토큰 고정 (과목 추가 템플릿 세션의 Apple급 디자인 제안 3-1) ═════
+   1단계에서 큰 화면 위주로 6단계(--t1~--t6)를 씌웠는데, app.css에 남아 있던 자잘한 글자(12~15px대)
+   중 "정말 위계가 섞인 것"만 마저 올린다. 간격(--s1~--s8)·모션(--dur-*) 토큰은 :root와 "움직임" section에
+   더해 뒀다(바로 위).
+   건드리지 않은 것(값이 있어도 일부러 그대로 둔 것):
+   - 아이콘 글자(화살표·점 .chev .resume i .starb .eic .rb-go .exam-big>i .next-up>i .ng-i .nu-i
+     .rv-row i .more i .ib .ex-x .oi .code span): 읽는 글이 아니라 아이콘·전환코드 크기라 글자 위계 대상이 아님
+   - 과목 배지 원(.badge, .c-head .badge, .resume-big .badge, .badge.sm): 원 지름에 맞춘 값이라 그대로
+     (화면폭이 좁아지면 원도 작아지고 글자도 같이 작아짐 — 위계가 아니라 모양에 따른 크기)
+   - input,select의 16px(!important): iOS 자동 확대 방지용 — 절대 토큰으로 안 바꿈
+   - .fx-top-in,.fx-handle: focus.js가 2단계부터 더는 만들지 않는 선택자라 안 보임(죽은 CSS, 지우지 않고 둠)
+   - .ins-*(학습 리포트), .onb-*(첫 방문 소개 화면): 각자 이미 따로 정리돼 있어 손대지 않음 */
+.toast,.panel .muted,.yeartabs .semtab{font-size:var(--t2)}
+.sline,.overall,.subt,.seg.sm span,.keybox #myKey{font-size:var(--t1)}
