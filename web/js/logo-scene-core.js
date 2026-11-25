@@ -1,4 +1,4 @@
-// 캡티마로고 기능의 글자 장면 본체. 탐조등 화면(logo-scene.js)과 첫 소개 화면(onboarding-showcase.js)이 mountScene()으로 붙여 쓴다
+// 캡티마로고 기능의 글자 장면 본체. 탐조등 화면(logo-scene.js)이 mountScene()으로 붙여 쓴다 (다른 화면에도 붙일 수 있게 따로 둔다)
 // 로고·탐조등·계절 연출을 모두 촘촘한 글자만으로 그린다 (바탕 칸 없이). 글자는 과목의 개념 태그 이름을 이어 쓴 것이다.
 // 손가락·마우스로 만질 수 있다: 휙 휘저으면 그 바람에 잎이 날아가고 로고 글자가 흩어졌다 돌아오며, 탐조등이 손을 따라온다.
 // 계절·날씨·행사(크리스마스 등)는 SCENES에 장면을 하나씩 더하고 pick()에서 고른다. 지금은 가을: 단풍잎이 흩날린다.
@@ -115,7 +115,9 @@ const SCENES = { autumn };
 function pick() { const m = new Date().getMonth() + 1; return m >= 9 && m <= 11 ? SCENES.autumn : null; }
 
 /** host 안에 글자 장면 캔버스를 붙이고 { start, stop, destroy }를 돌려준다.
- *  opts: before(이 요소 앞에 붙인다), burst(누르면 바람), dim(로고 밝기 0~1), ready(로고 그림을 읽었을 때 부른다), auto(읽자마자 시작) */
+ *  opts: before(이 요소 앞에 붙인다), burst(누르면 바람), ready(로고 그림을 읽었을 때 부른다),
+ *        logo(로고 글자만: 빛기둥·별·계절 연출 없음, 만지기는 된다. 움직이는 글자가 없으면 다시 그리지 않는다),
+ *        color("image"면 금색 대신 로고 그림의 원래 색), dim(로고 밝기 0~1), auto(그림을 읽자마자 시작) */
 export function mountScene(host, opts = {}) {
   loadWords();
   const cv = document.createElement("canvas");
@@ -129,7 +131,7 @@ export function mountScene(host, opts = {}) {
   img.src = LOGO_SRC;
 
   let W = 0, H = 0, cols = 0, rows = 0, dust = "", lit = null, parts = [], stars = [];
-  let scene = null, items = [], raf = 0, last = 0, acc = 0, t = 0, on = false;
+  let scene = null, items = [], raf = 0, last = 0, acc = 0, t = 0, on = false, dirty = false;
   const ptr = { x: 0, y: 0, at: 0, aim: 0 };
 
   function size() {
@@ -160,8 +162,10 @@ export function mountScene(host, opts = {}) {
     for (let i = 0; i < cols * rows; i++) {
       const k = val(i) / top;
       if (k < .1) continue;
+      // 원래 색: 그 자리 그림 색을 가장 밝은 곳이 제 밝기가 되게 펴서 쓴다 (글자마다 조금씩 밝기를 달리해 결이 생긴다)
+      const cols3 = opts.color === "image" ? [.85, 1, 1.15].map(m => rgb([px[i * 4], px[i * 4 + 1], px[i * 4 + 2]], m * px[i * 4 + 3] / top)) : null;
       parts.push({ j: i, hx: i % cols * C + C / 2, hy: (i / cols | 0) * C + C / 2, ox: 0, oy: 0, vx: 0, vy: 0,
-        lv: k > .75 ? 3 : k > .5 ? 2 : k > .28 ? 1 : 0, ch: text[parts.length], tone: Math.random() * 3 | 0, ord: Math.random() });
+        lv: k > .75 ? 3 : k > .5 ? 2 : k > .28 ? 1 : 0, ch: text[parts.length], tone: Math.random() * 3 | 0, ord: Math.random(), cols3 });
     }
   }
 
@@ -189,16 +193,19 @@ export function mountScene(host, opts = {}) {
     }
   }
 
-  // 로고 글자: 밀려났다가 제자리로 튕겨 돌아온다
+  // 로고 글자: 밀려났다가 제자리로 튕겨 돌아온다. 아직 움직이는 글자 수를 돌려준다
   function logoStep(dt) {
     const damp = 1 - Math.min(1, dt * 4.2);
+    let moving = 0;
     for (const p of parts) {
       if (!p.ox && !p.oy && !p.vx && !p.vy) continue;
+      moving++;
       p.vx = (p.vx - p.ox * 34 * dt) * damp; p.vy = (p.vy - p.oy * 34 * dt) * damp;
       p.ox += p.vx * dt; p.oy += p.vy * dt;
       if (Math.abs(p.ox) + Math.abs(p.oy) + Math.abs(p.vx) + Math.abs(p.vy) < .05) p.ox = p.oy = p.vx = p.vy = 0;
     }
-    for (let n = Math.min(20, parts.length); n--;) parts[Math.random() * parts.length | 0].tone = Math.random() * 3 | 0;   // 반짝임
+    if (!opts.logo) for (let n = Math.min(20, parts.length); n--;) parts[Math.random() * parts.length | 0].tone = Math.random() * 3 | 0;   // 반짝임
+    return moving;
   }
   // 손이 지나간 바람: 잎은 멀리 날아가고, 로고 글자는 조금 흩어진다
   function swipe(x, y, vx, vy) {
@@ -219,6 +226,20 @@ export function mountScene(host, opts = {}) {
   const GOLD_FG = GOLD.map(c => [.78, 1, 1.22].map(m => rgb(c, m)));
   function paint() {
     g.clearRect(0, 0, W, H);
+    if (!opts.logo) paintSky();
+    // 로고: 글자가 하나씩 켜지며 나타나고, 빛이 지나가는 글자는 더 밝다
+    const shown = clamp((t - .45) / 1.3, 0, 1);
+    g.globalAlpha = opts.dim == null ? 1 : opts.dim;
+    for (const p of parts) {
+      if (p.ord > shown) continue;
+      g.fillStyle = p.cols3 ? p.cols3[p.tone] : GOLD_FG[Math.min(5, p.lv + Math.min(2, lit[p.j]) + (p.lv ? 1 : 0))][p.tone];
+      g.fillText(p.ch, p.hx + p.ox, p.hy + p.oy);
+    }
+    g.globalAlpha = 1;
+    if (scene) scene.draw(g, items);
+  }
+  // 로고 뒤: 별 · 탐조등 빛기둥 (로고만 그릴 때는 없다)
+  function paintSky() {
     light();
     // 먼 점들: 저마다 다른 박자로 깜빡인다
     for (const s of stars) { g.fillStyle = `rgba(255,238,214,${(s.a * (.65 + .35 * Math.sin(t * s.v + s.p))).toFixed(2)})`; g.fillText(s.ch, s.x, s.y); }
@@ -227,16 +248,6 @@ export function mountScene(host, opts = {}) {
       g.fillStyle = RAY_FG[n];
       for (let j = 0; j < lit.length; j++) if (lit[j] === n && dust[j] !== " ") g.fillText(dust[j], j % cols * C + C / 2, (j / cols | 0) * C + C / 2);
     }
-    // 로고: 글자가 하나씩 켜지며 나타나고, 빛이 지나가는 글자는 더 밝다
-    const shown = clamp((t - .45) / 1.3, 0, 1);
-    g.globalAlpha = opts.dim == null ? 1 : opts.dim;
-    for (const p of parts) {
-      if (p.ord > shown) continue;
-      g.fillStyle = GOLD_FG[Math.min(5, p.lv + Math.min(2, lit[p.j]) + (p.lv ? 1 : 0))][p.tone];
-      g.fillText(p.ch, p.hx + p.ox, p.hy + p.oy);
-    }
-    g.globalAlpha = 1;
-    if (scene) scene.draw(g, items);
   }
 
   function frame(now) {
@@ -245,15 +256,17 @@ export function mountScene(host, opts = {}) {
     if (acc < 1 / 30 || document.hidden) return;
     t += acc;
     ptr.aim += ((performance.now() - ptr.at < 2500 ? 1 : 0) - ptr.aim) * Math.min(1, acc * 3);   // 손을 떼고 조금 지나면 탐조등이 원래대로
-    logoStep(acc);
+    const moving = logoStep(acc);
     if (scene) scene.step(items, acc, t, W, H);
     acc = 0;
+    if (opts.logo && !moving && t > 2 && !dirty) return;                  // 로고만: 다 나타났고 움직이는 글자가 없으면 그대로 둔다
+    dirty = false;
     paint();
   }
   function start() {
     on = true;
     if (raf || !ready) return;
-    scene = pick(); size(); items = scene ? scene.make(W, H) : [];
+    scene = opts.logo ? null : pick(); size(); items = scene ? scene.make(W, H) : [];
     ptr.at = 0; ptr.aim = 0;
     if (still.matches) { t = 9; paint(); return; }   // 움직임 줄이기: 다 켜진 한 장만
     t = 0; acc = 0; last = performance.now(); raf = requestAnimationFrame(frame);
@@ -262,7 +275,7 @@ export function mountScene(host, opts = {}) {
     on = false;
     setTimeout(() => { if (!on) { cancelAnimationFrame(raf); raf = 0; items = []; parts = []; g.clearRect(0, 0, W, H); } }, 700);   // 판이 사라진 뒤에 멈추고 지운다
   }
-  const onResize = () => { if (on && raf) { size(); items = scene ? scene.make(W, H) : []; } };
+  const onResize = () => { if (on && raf) { size(); items = scene ? scene.make(W, H) : []; dirty = true; } };
   addEventListener("resize", onResize);
 
   // 만지기: 누르지 않아도, 휙 휘저으면 그 빠르기만큼 바람이 인다. 위에 다른 화면이 있어도 끊기지 않게 창 전체에서 듣는다
@@ -276,7 +289,8 @@ export function mountScene(host, opts = {}) {
     ptr.x = e.clientX; ptr.y = e.clientY; ptr.at = now;
   };
   addEventListener("pointermove", onMove, { passive: true });
-  if (opts.burst) host.addEventListener("pointerdown", e => { if (raf) burst(e.clientX, e.clientY); });
+  // 단추·입력칸을 누른 것은 바람으로 치지 않는다
+  if (opts.burst) host.addEventListener("pointerdown", e => { if (raf && !(e.target.closest && e.target.closest("input, textarea, button, summary, label, a, select"))) burst(e.clientX, e.clientY); });
 
   return {
     start, stop,

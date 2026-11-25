@@ -315,5 +315,5 @@ html.onb-lock { overflow: hidden; }
   .onb-flash { display: none; }
 }
 
-/* ── 탐조등 장면 (logo-scene-core.js): 글자 격자 위, 글·카드(z-index 10) 아래. 스크롤해도 제자리 ── */
+/* ── CAPTIMA 로고 글자 (logo-scene-core.js, 로고만): 글자 격자 위, 글·카드(z-index 10) 아래. 스크롤해도 제자리 ── */
 .onb-showcase .spot-scene { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }

@@ -1,5 +1,5 @@
 // 캡티마로고 기능: 탐조등 버튼을 눌러 로고로 들어갔을 때 글자 장면을 켠다 (spotlight.js·glass.css와 함께)
-// 장면 본체는 logo-scene-core.js. 첫 소개 화면 뒤에도 같은 장면을 쓴다 (onboarding-showcase.js)
+// 장면 본체는 logo-scene-core.js
 import { mountScene } from "./logo-scene-core.js";
 
 const root = document.documentElement;
