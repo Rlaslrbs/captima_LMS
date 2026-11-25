@@ -9,7 +9,7 @@
   "short": "경정시",
   "name": "경영정보시스템",
   "professor": "최현홍",
-  "meta": "Topic 1~5 PPT + 필기",
+  "meta": "Topic 1~10 PPT + 중간 필기",
   "lang": "ko",
   "color": {
    "light": "#1f5f8b",
@@ -23,7 +23,12 @@
    "T4": "Topic4 PPT (4_MIS_week4_Ethical and social issues in IS_2026.pdf)",
    "T5": "Topic5 PPT (5_MIS_week5_IT infra and emerging tech_2026.pdf)",
    "NT": "필기 정리 (중간_정리_타자.pdf)",
-   "TB": "교재 Laudon & Laudon, Management Information Systems (보충)"
+   "TB": "교재 Laudon & Laudon, Management Information Systems (보충)",
+   "T6": "Topic6 PPT (7_MIS_week6_DB_2026.pdf)",
+   "T7": "Topic7 PPT (8_MIS_week7_Telecomm_2026.pdf)",
+   "T8": "Topic8 PPT (9_MIS_week8_Security_2026.pdf)",
+   "T9": "Topic9 PPT (10_MIS_week9_Enterprise Applications_2026.pdf)",
+   "T10": "Topic10 PPT (11_MIS_week10_e commerce_2026.pdf)"
   },
   "topics": {
    "org_def": {
@@ -131,6 +136,236 @@
       "name": "네트워크 경제와 효과",
       "kind": "def",
       "statement": "제품의 경제적 가치가 사용자 수에 따라 달라지는 시장 상황이며, 이 효과를 네트워크 효과(네트워크 외부성)라고 한다"
+     }
+    }
+   },
+   "final_infra": {
+    "name": "IT 인프라와 클라우드",
+    "facets": {
+     "cloud": {
+      "name": "클라우드 서비스·배치",
+      "kind": "distinction",
+      "statement": "서비스 유형은 제공 자원의 범위, 배치 모델은 인프라의 운영·공유 방식을 구분한다."
+     },
+     "infra": {
+      "name": "인프라 투자·거버넌스",
+      "kind": "relation",
+      "statement": "SLA는 계약한 서비스 수준을 나타내고 TCO는 정보기술 자산의 전체 소유 비용을 나타낸다."
+     },
+     "byod": {
+      "name": "개인 기기의 업무 사용",
+      "kind": "condition",
+      "statement": "BYOD의 편의와 장비비 절감은 보안·지원 정책 및 기기 관리 비용과 함께 평가해야 한다."
+     }
+    }
+   },
+   "final_platform": {
+    "name": "소프트웨어 플랫폼",
+    "facets": {
+     "edgegreen": {
+      "name": "엣지·그린 컴퓨팅",
+      "kind": "distinction",
+      "statement": "엣지는 데이터 처리 위치를, 그린 컴퓨팅은 정보기술의 환경 영향을 다룬다."
+     },
+     "software": {
+      "name": "소프트웨어 플랫폼",
+      "kind": "distinction",
+      "statement": "웹 서비스는 표준에 따라 시스템끼리 통신하고, SOA는 이러한 서비스를 조합하는 설계 방식이다."
+     }
+    }
+   },
+   "final_data": {
+    "name": "데이터베이스와 BI",
+    "facets": {
+     "dbms": {
+      "name": "파일 환경과 DBMS",
+      "kind": "distinction",
+      "statement": "DBMS는 응용 프로그램과 저장 데이터 사이의 인터페이스로서 통합 관리를 지원한다."
+     },
+     "relkey": {
+      "name": "관계형 구조와 키",
+      "kind": "distinction",
+      "statement": "기본키는 행을 고유하게 식별하고 외래키는 다른 테이블과의 참조 관계를 나타낸다."
+     },
+     "query": {
+      "name": "쿼리와 DB 설계",
+      "kind": "procedure",
+      "statement": "쿼리는 특정 조건의 데이터를 조회하고 데이터 정의는 저장 구조를 규정한다."
+     },
+     "dbmodels": {
+      "name": "비관계형·클라우드 DB",
+      "kind": "distinction",
+      "statement": "비관계형은 데이터 모델의 분류이며 클라우드는 제공 방식의 분류다."
+     },
+     "ledger": {
+      "name": "블록체인 기반 DB",
+      "kind": "condition",
+      "statement": "블록체인은 여러 참여자의 기록 검증과 추적을 지원하지만 성능과 입력의 신뢰성에 제약이 있다."
+     }
+    }
+   },
+   "final_analytics": {
+    "name": "BI와 데이터 품질",
+    "facets": {
+     "bi": {
+      "name": "BI 인프라와 분석",
+      "kind": "distinction",
+      "statement": "웨어하우스는 분석용 데이터를 통합하고 OLAP은 여러 차원에서 데이터를 살펴본다."
+     },
+     "quality": {
+      "name": "정보 정책과 데이터 품질",
+      "kind": "condition",
+      "statement": "정보 정책은 관리 규칙을 정하고 데이터 품질 보증은 분석에 쓰이는 데이터의 오류를 줄인다."
+     }
+    }
+   },
+   "final_net": {
+    "name": "네트워크와 무선통신",
+    "facets": {
+     "network": {
+      "name": "네트워크 구성과 제어",
+      "kind": "distinction",
+      "statement": "라우터는 네트워크 간 전달을 맡고 SDN은 제어를 소프트웨어로 관리한다."
+     },
+     "packet": {
+      "name": "패킷 교환과 TCP/IP",
+      "kind": "distinction",
+      "statement": "패킷 교환은 메시지를 나누어 전송하며 TCP와 IP는 서로 다른 통신 역할을 수행한다."
+     },
+     "internet": {
+      "name": "인터넷 주소와 서비스",
+      "kind": "distinction",
+      "statement": "DNS는 이름을 해석하고 VoIP는 IP망에서 음성을 전달하며 VPN은 논리적으로 사설 접속을 만든다."
+     }
+    }
+   },
+   "final_wireless": {
+    "name": "무선 식별과 센서",
+    "facets": {
+     "media": {
+      "name": "신호·전송매체·범위",
+      "kind": "distinction",
+      "statement": "대역폭은 전송 능력에 관한 지표이고 LAN과 WAN은 네트워크가 포괄하는 범위로 구분한다."
+     },
+     "wireless": {
+      "name": "무선 식별과 센서",
+      "kind": "distinction",
+      "statement": "RFID는 대상 식별을, WSN은 여러 센서의 측정 자료 수집을 지원한다."
+     }
+    }
+   },
+   "final_security": {
+    "name": "정보시스템 보안",
+    "facets": {
+     "threat": {
+      "name": "위협 유형과 탐지",
+      "kind": "distinction",
+      "statement": "위협은 전파 방식, 피해 방식, 속임수나 가용성 훼손 등 작동 특성에 따라 구별한다."
+     },
+     "control": {
+      "name": "통제와 정보시스템 감사",
+      "kind": "distinction",
+      "statement": "일반 통제는 여러 시스템에 공통으로 적용되며 응용 통제는 특정 응용의 데이터 처리에 적용된다."
+     },
+     "continuity": {
+      "name": "위험 평가와 업무 연속성",
+      "kind": "distinction",
+      "statement": "DRP는 중단된 컴퓨팅 서비스를 복구하고 BCP는 핵심 업무를 지속하거나 재개하는 데 초점을 둔다."
+     }
+    }
+   },
+   "final_protection": {
+    "name": "보안 도구와 인증",
+    "facets": {
+     "identity": {
+      "name": "신원관리와 인증",
+      "kind": "distinction",
+      "statement": "인증은 사용자의 신원을 확인하고 신원관리는 접근 권한의 배정과 관리를 포함한다."
+     },
+     "defense": {
+      "name": "방화벽·탐지·악성코드 방어",
+      "kind": "distinction",
+      "statement": "방화벽은 통신을 통제하고 IDS는 의심 활동을 탐지하며 안티멀웨어는 악성 소프트웨어를 다룬다."
+     },
+     "crypto": {
+      "name": "암호화와 공개키 인프라",
+      "kind": "distinction",
+      "statement": "대칭키는 같은 키를 쓰고 공개키 방식은 공개키·개인키를 쓰며 인증서는 신원과 키를 연결한다."
+     },
+     "cloudsec": {
+      "name": "클라우드·모바일 보안",
+      "kind": "condition",
+      "statement": "외부 클라우드 또는 개인 단말을 사용하면 기업은 정보의 관리 책임과 접근 통제를 따로 확인해야 한다."
+     }
+    }
+   },
+   "final_enterprise": {
+    "name": "전사적 애플리케이션",
+    "facets": {
+     "erp": {
+      "name": "전사적 자원관리",
+      "kind": "relation",
+      "statement": "ERP는 공통 데이터와 연계 모듈로 기업 내부의 기능과 비즈니스 프로세스를 통합한다."
+     },
+     "scm": {
+      "name": "공급사슬과 SCM 기능",
+      "kind": "distinction",
+      "statement": "SCM 계획은 수요와 공급 일정을 정하고 실행은 물류 흐름과 진행을 관리한다."
+     },
+     "demand": {
+      "name": "수요 신호와 재고",
+      "kind": "distinction",
+      "statement": "푸시는 예측, 풀은 실제 주문이 생산과 공급을 촉발하며, 왜곡된 신호는 채찍효과를 키울 수 있다."
+     }
+    }
+   },
+   "final_customer": {
+    "name": "고객관계관리",
+    "facets": {
+     "crm": {
+      "name": "CRM 운영·분석",
+      "kind": "distinction",
+      "statement": "운영적 CRM은 고객 접점 업무를, 분석적 CRM은 고객 데이터에서 패턴을 찾는 업무를 지원한다."
+     },
+     "retain": {
+      "name": "고객 가치와 도입 과제",
+      "kind": "relation",
+      "statement": "교차 판매는 관련 상품을 제안하며, 고객 유지 활동은 해지와 전환 비용을 고려한다."
+     }
+    }
+   },
+   "final_commerce": {
+    "name": "디지털 시장과 전자상거래",
+    "facets": {
+     "market": {
+      "name": "디지털 시장의 특징",
+      "kind": "relation",
+      "statement": "전자상거래는 정보 탐색과 가격 변경 비용, 가격 결정 방식 및 중개 구조에 영향을 줄 수 있다."
+     },
+     "digital": {
+      "name": "디지털 제품의 비용 구조",
+      "kind": "condition",
+      "statement": "디지털 제품은 초판 제작 비용이 들고 추가 복제·전달의 한계비용이 낮을 수 있다."
+     },
+     "business": {
+      "name": "거래 유형과 비즈니스 모델",
+      "kind": "distinction",
+      "statement": "거래 유형은 참여자 관계를, 비즈니스 모델은 고객에게 제공되는 핵심 기능을 구분한다."
+     },
+     "revenue": {
+      "name": "전자상거래 수익모델",
+      "kind": "distinction",
+      "statement": "수익 모델은 고객 가치의 종류와 별도로 기업이 어떤 사건에 대해 누구에게 대가를 받는지를 설명한다."
+     }
+    }
+   },
+   "final_marketing": {
+    "name": "온라인 마케팅",
+    "facets": {
+     "marketing": {
+      "name": "온라인 마케팅과 광고",
+      "kind": "distinction",
+      "statement": "롱테일은 다양한 틈새 수요를, 행위 타게팅은 이용 이력을, 네이티브 광고는 광고의 제시 형식을 활용한다."
      }
     }
    }
@@ -250,6 +485,796 @@
     "facet": "net_econ.def",
     "belief": "사용자 수를 늘리기보다 1인당 가격을 올리는 편이 유리하다고 생각함",
     "truth": "네트워크 경제는 제품 가치가 사용자 수에 따라 달라지는 시장이며, 보완재는 수요가 함께 늘어나는 제품이다"
+   },
+   "m_mf_5_cloud_1": {
+    "facet": "final_infra.cloud",
+    "belief": "‘IaaS와 SaaS의 차이는 고객이 임대료를 매월 납부하는지 여부다’라는 진술이 옳다고 생각함",
+    "truth": "IaaS와 SaaS는 공급자가 제공하고 관리하는 자원의 범위가 다르다."
+   },
+   "m_mf_5_cloud_2_1": {
+    "facet": "final_infra.cloud",
+    "belief": "완성된 앱을 임대하는 상황으로 해석한다고 생각함",
+    "truth": "PaaS"
+   },
+   "m_mf_5_cloud_2_2": {
+    "facet": "final_infra.cloud",
+    "belief": "운영체제부터 관리할 가상 인프라가 필요한 상황으로 해석한다고 생각함",
+    "truth": "PaaS"
+   },
+   "m_mf_5_cloud_2_3": {
+    "facet": "final_infra.cloud",
+    "belief": "사내 서버에 개발 환경을 직접 설치해야 한다고 생각함",
+    "truth": "PaaS"
+   },
+   "m_mf_5_cloud_4": {
+    "facet": "final_infra.cloud",
+    "belief": "클라우드를 배치 모델과 서비스 유형 중 하나로만 분류할 수 있다고 생각함",
+    "truth": "공공 클라우드는 배치 모델이고 SaaS는 서비스 유형이므로 한 서비스에 두 분류를 함께 적용할 수 있다."
+   },
+   "m_mf_5_edgegreen_8": {
+    "facet": "final_platform.edgegreen",
+    "belief": "엣지 처리를 하려면 데이터를 모두 원격 서버에 보내야 한다고 생각함",
+    "truth": "엣지는 데이터 발생 지점과 가까운 곳에서 처리하므로 모든 원본의 원격 왕복을 전제하지 않는다."
+   },
+   "m_mf_5_edgegreen_9_1": {
+    "facet": "final_platform.edgegreen",
+    "belief": "데이터 보존 기간 자체를 환경 개선 기준으로 생각함",
+    "truth": "현장 연산과 데이터센터의 에너지 효율 개선"
+   },
+   "m_mf_5_edgegreen_9_2": {
+    "facet": "final_platform.edgegreen",
+    "belief": "모든 데이터의 원격 전송이 현장 판단에 유리하다고 생각함",
+    "truth": "현장 연산과 데이터센터의 에너지 효율 개선"
+   },
+   "m_mf_5_edgegreen_9_3": {
+    "facet": "final_platform.edgegreen",
+    "belief": "데이터를 한곳에 모으는 것만으로 두 목표를 달성한다고 생각함",
+    "truth": "현장 연산과 데이터센터의 에너지 효율 개선"
+   },
+   "m_mf_5_software_14": {
+    "facet": "final_platform.software",
+    "belief": "웹 서비스를 쓰는 시스템은 구현 언어까지 같아야 한다고 생각함",
+    "truth": "서로 다른 시스템도 공통 웹 표준과 메시지 형식에 맞추면 데이터를 교환할 수 있다."
+   },
+   "m_mf_5_software_15_1": {
+    "facet": "final_platform.software",
+    "belief": "멀티미디어 표시 기능이 데이터의 의미를 교환한다고 생각함",
+    "truth": "XML의 요소와 속성으로 가격과 통화 표현"
+   },
+   "m_mf_5_software_15_2": {
+    "facet": "final_platform.software",
+    "belief": "실행 환경 변경을 메시지 구조 설계로 생각함",
+    "truth": "XML의 요소와 속성으로 가격과 통화 표현"
+   },
+   "m_mf_5_software_15_3": {
+    "facet": "final_platform.software",
+    "belief": "운영체제 설치 방식이 교환 데이터 의미를 결정한다고 생각함",
+    "truth": "XML의 요소와 속성으로 가격과 통화 표현"
+   },
+   "m_mf_5_infra_18": {
+    "facet": "final_infra.infra",
+    "belief": "‘같은 서버 기능을 제공한다면 초기 장비 가격이 낮은 쪽의 총소유비용도 낮다’라는 진술이 옳다고 생각함",
+    "truth": "초기 장비 가격 외의 운영·지원 비용에 따라 총소유비용 순서는 달라질 수 있다."
+   },
+   "m_mf_5_byod_21": {
+    "facet": "final_infra.byod",
+    "belief": "개인 소유 기기에 저장된 업무 정보의 분실 대응은 회사 책임이 아니라고 생각함",
+    "truth": "개인 기기에 회사 정보가 있으면 분실 대응과 업무정보 보호 절차를 사전에 정해야 한다."
+   },
+   "m_mf_5_byod_22_1": {
+    "facet": "final_infra.byod",
+    "belief": "기기 소유권을 업무 접근 권한과 혼동한다고 생각함",
+    "truth": "지원 기종과 지원 범위, 보안 요구사항을 사전 합의한다."
+   },
+   "m_mf_5_byod_22_2": {
+    "facet": "final_infra.byod",
+    "belief": "기술지원 범위에 대한 사전 합의가 불필요하다고 생각함",
+    "truth": "지원 기종과 지원 범위, 보안 요구사항을 사전 합의한다."
+   },
+   "m_mf_5_byod_22_3": {
+    "facet": "final_infra.byod",
+    "belief": "개인 기기 분실에는 조직의 책임이 없다고 생각함",
+    "truth": "지원 기종과 지원 범위, 보안 요구사항을 사전 합의한다."
+   },
+   "m_mf_6_dbms_25": {
+    "facet": "final_data.dbms",
+    "belief": "‘부서 두 곳에 같은 고객 주소가 저장된 순간부터 두 주소의 값은 서로 불일치한다’라는 진술이 옳다고 생각함",
+    "truth": "같은 정보의 복제는 중복이고, 두 사본의 값이 달라질 때 불일치다."
+   },
+   "m_mf_6_dbms_27_1": {
+    "facet": "final_data.dbms",
+    "belief": "논리적 보기마다 물리 사본이 필요하다고 생각함",
+    "truth": "DBMS로 서로 다른 논리적 보기를 제공한다."
+   },
+   "m_mf_6_dbms_27_2": {
+    "facet": "final_data.dbms",
+    "belief": "논리적 보기의 변경이 물리 구조의 직접 변경을 요구한다고 생각함",
+    "truth": "DBMS로 서로 다른 논리적 보기를 제공한다."
+   },
+   "m_mf_6_dbms_27_3": {
+    "facet": "final_data.dbms",
+    "belief": "통합 DB는 모든 사용자에게 같은 화면을 줘야 한다고 생각함",
+    "truth": "DBMS로 서로 다른 논리적 보기를 제공한다."
+   },
+   "m_mf_6_relkey_31": {
+    "facet": "final_data.relkey",
+    "belief": "같은 외래키가 여러 행에 나오면 참조무결성이 깨진다고 생각함",
+    "truth": "여러 부품 행에 같은 공급자 외래키가 나타날 수 있으며, 각 값이 실제 공급자 행을 참조하는지가 관건이다."
+   },
+   "m_mf_6_relkey_32_1": {
+    "facet": "final_data.relkey",
+    "belief": "다른 행에서 같은 외래키를 쓰면 안 된다고 생각함",
+    "truth": "새 부품 P1의 공급자로 S3을 지정한다."
+   },
+   "m_mf_6_relkey_32_2": {
+    "facet": "final_data.relkey",
+    "belief": "등록된 공급자를 참조해도 별도의 식별자가 필요하다고 생각함",
+    "truth": "새 부품 P1의 공급자로 S3을 지정한다."
+   },
+   "m_mf_6_relkey_32_3": {
+    "facet": "final_data.relkey",
+    "belief": "참조값과 무관한 필드 변경도 참조를 무효화한다고 생각함",
+    "truth": "새 부품 P1의 공급자로 S3을 지정한다."
+   },
+   "m_mf_6_query_36": {
+    "facet": "final_data.query",
+    "belief": "‘‘재고가 10보다 적은 부품 번호를 보여 달라’는 요청은 테이블 구조를 새로 정의하는 작업이다’라는 진술이 옳다고 생각함",
+    "truth": "이 요청은 이미 정의된 테이블에서 조건에 맞는 데이터를 조회하는 질의다."
+   },
+   "m_mf_6_query_37_1": {
+    "facet": "final_data.query",
+    "belief": "데이터 구조 설정과 값 조회의 순서를 혼동한다고 생각함",
+    "truth": "데이터 정의 → 질의"
+   },
+   "m_mf_6_query_37_2": {
+    "facet": "final_data.query",
+    "belief": "필드 유형을 정하는 것도 값 조회라고 생각함",
+    "truth": "데이터 정의 → 질의"
+   },
+   "m_mf_6_query_37_3": {
+    "facet": "final_data.query",
+    "belief": "조건부 조회가 테이블 구조를 바꾼다고 생각함",
+    "truth": "데이터 정의 → 질의"
+   },
+   "m_mf_6_dbmodels_39": {
+    "facet": "final_data.dbmodels",
+    "belief": "‘클라우드 DB로 이전하면 기존 관계형 테이블을 유지할 수 없다’라는 진술이 옳다고 생각함",
+    "truth": "클라우드에서도 관계형 DB를 사용할 수 있다."
+   },
+   "m_mf_6_dbmodels_41_1": {
+    "facet": "final_data.dbmodels",
+    "belief": "서버 운영 방식과 데이터 모델을 같은 분류로 생각함",
+    "truth": "데이터 모델 선택과 제공 방식 선택이다."
+   },
+   "m_mf_6_dbmodels_41_2": {
+    "facet": "final_data.dbmodels",
+    "belief": "문서형 DB는 사내에서만 운영할 수 있다고 생각함",
+    "truth": "데이터 모델 선택과 제공 방식 선택이다."
+   },
+   "m_mf_6_dbmodels_41_3": {
+    "facet": "final_data.dbmodels",
+    "belief": "클라우드로 이전하면 특정 데이터 모델로 고정된다고 생각함",
+    "truth": "데이터 모델 선택과 제공 방식 선택이다."
+   },
+   "m_mf_6_ledger_44": {
+    "facet": "final_data.ledger",
+    "belief": "블록체인에 기록하면 잘못 입력한 실제 원산지가 자동으로 정정된다고 생각함",
+    "truth": "블록체인의 기록 검증과 추적 가능성만으로 최초 입력이 현실과 일치한다고 보장할 수 없다."
+   },
+   "m_mf_6_bi_48": {
+    "facet": "final_analytics.bi",
+    "belief": "‘웨어하우스에 데이터를 적재하면 제품·분기별 수치를 살펴보는 분석도 적재 작업과 같은 기능이 된다’라는 진술이 옳다고 생각함",
+    "truth": "웨어하우스 적재는 데이터 저장·통합이며, 다차원 분석은 OLAP과 같은 도구의 기능이다."
+   },
+   "m_mf_6_quality_51": {
+    "facet": "final_analytics.quality",
+    "belief": "‘가입 고객만 기록한 대용량 DB라면 표본 크기가 커질수록 비가입 고객의 행동도 자동으로 대표한다’라는 진술이 옳다고 생각함",
+    "truth": "대용량이어도 비가입 고객이 빠져 있으면 대표성이 확보되지 않는다."
+   },
+   "m_mf_6_quality_52_1": {
+    "facet": "final_analytics.quality",
+    "belief": "서버 성능 개선으로 동일 고객의 식별 오류가 해소된다고 생각함",
+    "truth": "식별 규칙과 누락 범위를 확인하고 데이터를 정비한다."
+   },
+   "m_mf_6_quality_52_2": {
+    "facet": "final_analytics.quality",
+    "belief": "관측된 집단만으로 전체를 대표할 수 있다고 생각함",
+    "truth": "식별 규칙과 누락 범위를 확인하고 데이터를 정비한다."
+   },
+   "m_mf_6_quality_52_3": {
+    "facet": "final_analytics.quality",
+    "belief": "원천 품질 점검을 결과 발표 뒤로 미뤄도 된다고 생각함",
+    "truth": "식별 규칙과 누락 범위를 확인하고 데이터를 정비한다."
+   },
+   "m_mf_7_network_56": {
+    "facet": "final_net.network",
+    "belief": "‘지점 LAN과 외부 네트워크 사이에 데이터를 전달하는 일은 서버의 저장 공간을 늘리면 해결된다’라는 진술이 옳다고 생각함",
+    "truth": "서로 다른 네트워크 사이의 전달에는 라우터와 같은 네트워크 장비의 기능이 필요하다."
+   },
+   "m_mf_7_network_57_1": {
+    "facet": "final_net.network",
+    "belief": "단말 저장 용량 확대가 전달 정책을 통합한다고 생각함",
+    "truth": "전달과 제어를 분리해 정책을 소프트웨어로 관리한다."
+   },
+   "m_mf_7_network_57_2": {
+    "facet": "final_net.network",
+    "belief": "물리 매체 교체가 제어 정책을 통합한다고 생각함",
+    "truth": "전달과 제어를 분리해 정책을 소프트웨어로 관리한다."
+   },
+   "m_mf_7_network_57_3": {
+    "facet": "final_net.network",
+    "belief": "주소 이름이 전달 정책을 중앙 관리한다고 생각함",
+    "truth": "전달과 제어를 분리해 정책을 소프트웨어로 관리한다."
+   },
+   "m_mf_7_packet_60": {
+    "facet": "final_net.packet",
+    "belief": "‘같은 메시지에서 나온 패킷은 패킷 교환에서도 모두 동일한 경로로 이동해야 한다’라는 진술이 옳다고 생각함",
+    "truth": "패킷들은 서로 다른 경로로 이동할 수 있고 목적지에서 재조립될 수 있다."
+   },
+   "m_mf_7_packet_62_1": {
+    "facet": "final_net.packet",
+    "belief": "도메인 이름을 바꾸면 도착 순서를 복구한다고 생각함",
+    "truth": "TCP가 제공하는 순서 관리"
+   },
+   "m_mf_7_packet_62_2": {
+    "facet": "final_net.packet",
+    "belief": "정확한 목적지 주소가 패킷 순서까지 정한다고 생각함",
+    "truth": "TCP가 제공하는 순서 관리"
+   },
+   "m_mf_7_packet_62_3": {
+    "facet": "final_net.packet",
+    "belief": "대역폭이 늘면 전송 순서가 보장된다고 생각함",
+    "truth": "TCP가 제공하는 순서 관리"
+   },
+   "m_mf_7_media_66": {
+    "facet": "final_wireless.media",
+    "belief": "‘사무실 LAN의 전송 속도를 높이면 연결 범위를 그대로 두어도 WAN으로 분류된다’라는 진술이 옳다고 생각함",
+    "truth": "LAN과 WAN은 전송 속도가 아닌 연결 범위로 구분한다."
+   },
+   "m_mf_7_media_67_1": {
+    "facet": "final_wireless.media",
+    "belief": "빠른 매체가 곧 광역 네트워크라고 생각함",
+    "truth": "매체가 달라져도 연결 범위가 같으면 LAN일 수 있다."
+   },
+   "m_mf_7_media_67_2": {
+    "facet": "final_wireless.media",
+    "belief": "광 신호를 쓰는 유선 매체를 무선 방식으로 생각함",
+    "truth": "매체가 달라져도 연결 범위가 같으면 LAN일 수 있다."
+   },
+   "m_mf_7_media_67_3": {
+    "facet": "final_wireless.media",
+    "belief": "전송 매체와 이름 해석의 역할을 혼동한다고 생각함",
+    "truth": "매체가 달라져도 연결 범위가 같으면 LAN일 수 있다."
+   },
+   "m_mf_7_internet_70": {
+    "facet": "final_net.internet",
+    "belief": "DNS로 본사 주소를 찾는 것만으로 사설 연결이 된다고 생각함",
+    "truth": "DNS 이름 해석은 사설 접속을 만들지 않으며 공용망 위 사설 연결에는 VPN을 사용할 수 있다."
+   },
+   "m_mf_7_internet_72_1": {
+    "facet": "final_net.internet",
+    "belief": "주소 해석에 성공하면 사설 연결이 만들어진다고 생각함",
+    "truth": "VPN"
+   },
+   "m_mf_7_internet_72_2": {
+    "facet": "final_net.internet",
+    "belief": "IP망에서 음성을 전송하는 기능이 사내 접속을 보호한다고 생각함",
+    "truth": "VPN"
+   },
+   "m_mf_7_internet_72_3": {
+    "facet": "final_net.internet",
+    "belief": "물품 식별 기술을 원격 사내 접속으로 혼동한다고 생각함",
+    "truth": "VPN"
+   },
+   "m_mf_7_wireless_75": {
+    "facet": "final_wireless.wireless",
+    "belief": "‘WiFi의 공식 명칭을 풀어 쓰라고 하면 Wireless Fidelity만 정답이다’라는 진술이 옳다고 생각함",
+    "truth": "강의에서는 WiFi의 공식 풀어쓰기 약어가 없다고 설명한다."
+   },
+   "m_mf_7_wireless_77": {
+    "facet": "final_wireless.wireless",
+    "belief": "RFID로 상품을 식별하면 그 구역의 온도도 연속해서 측정한다고 생각함",
+    "truth": "상품 식별과 환경 상태 측정은 다르며 온도 수집에는 센서와 그 데이터 전송이 필요하다."
+   },
+   "m_mf_8_threat_82": {
+    "facet": "final_security.threat",
+    "belief": "‘정상적인 앱으로 위장해 실행을 유도하는 트로이 목마는 이름 자체가 자가 복제 방식임을 뜻한다’라는 진술이 옳다고 생각함",
+    "truth": "트로이 목마의 특징은 정상 프로그램처럼 위장한다는 점이며 자가 복제를 뜻하지 않는다."
+   },
+   "m_mf_8_threat_84_1": {
+    "facet": "final_security.threat",
+    "belief": "요청 폭주를 사칭 메시지로 해석한다고 생각함",
+    "truth": "분산 서비스 거부로 인한 가용성 저하"
+   },
+   "m_mf_8_threat_84_2": {
+    "facet": "final_security.threat",
+    "belief": "서비스 중단을 가로채기와 동일하게 본다고 생각함",
+    "truth": "분산 서비스 거부로 인한 가용성 저하"
+   },
+   "m_mf_8_threat_84_3": {
+    "facet": "final_security.threat",
+    "belief": "정상 요청 처리가 막힌 현상을 광고 과금 조작으로 해석한다고 생각함",
+    "truth": "분산 서비스 거부로 인한 가용성 저하"
+   },
+   "m_mf_8_control_87": {
+    "facet": "final_security.control",
+    "belief": "특정 업무 앱의 입력 범위 검사도 전사 공통 통제라고 생각함",
+    "truth": "판매 프로그램의 주문 수량 입력 검사는 그 응용의 입력 단계에 특화된 응용 통제다."
+   },
+   "m_mf_8_control_89_1": {
+    "facet": "final_security.control",
+    "belief": "통제의 적용 범위를 거꾸로 해석한다고 생각함",
+    "truth": "일반 통제 → 응용 통제"
+   },
+   "m_mf_8_control_89_2": {
+    "facet": "final_security.control",
+    "belief": "급여 앱만의 검사도 전사 공통이라고 생각함",
+    "truth": "일반 통제 → 응용 통제"
+   },
+   "m_mf_8_control_89_3": {
+    "facet": "final_security.control",
+    "belief": "전사적 프로그램 변경 절차를 한 앱의 검사처럼 생각함",
+    "truth": "일반 통제 → 응용 통제"
+   },
+   "m_mf_8_continuity_93": {
+    "facet": "final_security.continuity",
+    "belief": "전산 복구 절차만 정하면 핵심 업무의 임시 절차도 자동으로 갖춰진다고 생각함",
+    "truth": "전산 복구 절차와 함께 주문 접수 등 핵심 업무의 대체 절차를 별도로 정해야 한다."
+   },
+   "m_mf_8_continuity_94_1": {
+    "facet": "final_security.continuity",
+    "belief": "기대 손실을 최악 손실과 혼동한다고 생각함",
+    "truth": "예상 연간 손실을 추정해 통제의 우선순위에 활용한다."
+   },
+   "m_mf_8_continuity_94_2": {
+    "facet": "final_security.continuity",
+    "belief": "기대값은 해마다 실현된다고 생각함",
+    "truth": "예상 연간 손실을 추정해 통제의 우선순위에 활용한다."
+   },
+   "m_mf_8_continuity_94_3": {
+    "facet": "final_security.continuity",
+    "belief": "금액을 확률과 같은 지표로 생각함",
+    "truth": "예상 연간 손실을 추정해 통제의 우선순위에 활용한다."
+   },
+   "m_mf_8_identity_97": {
+    "facet": "final_protection.identity",
+    "belief": "‘신원을 올바르게 인증한 직원은 그 회사의 모든 데이터에 접근할 수 있다’라는 진술이 옳다고 생각함",
+    "truth": "인증이 끝나도 접근할 수 있는 자원은 부여된 권한에 따른다."
+   },
+   "m_mf_8_identity_98_1": {
+    "facet": "final_protection.identity",
+    "belief": "기억하는 정보 두 종류를 서로 다른 요소라고 생각함",
+    "truth": "비밀번호와 별도 장치에서 얻은 일회용 코드"
+   },
+   "m_mf_8_identity_98_2": {
+    "facet": "final_protection.identity",
+    "belief": "비밀번호 개수가 늘면 요소 종류가 늘어난다고 생각함",
+    "truth": "비밀번호와 별도 장치에서 얻은 일회용 코드"
+   },
+   "m_mf_8_identity_98_3": {
+    "facet": "final_protection.identity",
+    "belief": "암기 정보의 형태가 다르면 요소가 다르다고 생각함",
+    "truth": "비밀번호와 별도 장치에서 얻은 일회용 코드"
+   },
+   "m_mf_8_defense_101": {
+    "facet": "final_protection.defense",
+    "belief": "네트워크 방화벽의 동작과 단말의 악성 소프트웨어 탐지가 같다고 생각함",
+    "truth": "방화벽의 트래픽 통제와 안티멀웨어의 악성 소프트웨어 탐지·대응은 서로 다른 역할이다."
+   },
+   "m_mf_8_defense_103_1": {
+    "facet": "final_protection.defense",
+    "belief": "네트워크 경계 통제가 파일 검사와 같은 역할이라고 생각함",
+    "truth": "안티멀웨어"
+   },
+   "m_mf_8_defense_103_2": {
+    "facet": "final_protection.defense",
+    "belief": "침입 징후 탐지를 단말 악성 파일 검사와 같은 기능으로 생각함",
+    "truth": "안티멀웨어"
+   },
+   "m_mf_8_defense_103_3": {
+    "facet": "final_protection.defense",
+    "belief": "신원 확인에 쓰는 인증서가 실행 파일을 검사한다고 생각함",
+    "truth": "안티멀웨어"
+   },
+   "m_mf_8_crypto_106": {
+    "facet": "final_protection.crypto",
+    "belief": "‘수신자만 읽도록 보내는 공개키 암호화 예에서 송신자는 자신의 공개키로 내용을 암호화한다’라는 진술이 옳다고 생각함",
+    "truth": "수신자만 읽도록 하려면 수신자의 공개키로 암호화하고 그 수신자가 자기 개인키로 복호화한다."
+   },
+   "m_mf_8_cloudsec_110": {
+    "facet": "final_protection.cloudsec",
+    "belief": "‘클라우드 공급자의 평판이 좋으면 어느 서비스에서 누가 보안 설정을 담당하는지 검토할 필요가 없다’라는 진술이 옳다고 생각함",
+    "truth": "공급자의 역량과 함께 선택한 서비스에서의 관리 책임과 접근 조건을 검토해야 한다."
+   },
+   "m_mf_9_erp_114": {
+    "facet": "final_enterprise.erp",
+    "belief": "부서의 앱이 같은 회사 제품이면 데이터가 분리돼도 ERP 통합이 된다고 생각함",
+    "truth": "ERP 통합에는 업무 모듈 사이에서 공통 데이터를 사용하고 관련 프로세스를 연계하는 구조가 필요하다."
+   },
+   "m_mf_9_erp_116_1": {
+    "facet": "final_enterprise.erp",
+    "belief": "고객 기능이 하나 있어도 CRM이 주목적이라고 생각함",
+    "truth": "ERP 중심 시스템"
+   },
+   "m_mf_9_erp_116_2": {
+    "facet": "final_enterprise.erp",
+    "belief": "생산 업무만 포함하면 공급사슬 관리가 주목적이라고 생각함",
+    "truth": "ERP 중심 시스템"
+   },
+   "m_mf_9_erp_116_3": {
+    "facet": "final_enterprise.erp",
+    "belief": "고객 이력 조회만 보고 핵심 기능을 판단한다고 생각함",
+    "truth": "ERP 중심 시스템"
+   },
+   "m_mf_9_scm_121": {
+    "facet": "final_enterprise.scm",
+    "belief": "‘출하된 물품의 위치를 추적하는 일은 미래 수요를 전망하는 공급사슬 계획 기능이다’라는 진술이 옳다고 생각함",
+    "truth": "출하된 물품의 위치 추적은 공급사슬 실행에 가깝고, 수요 예측은 계획 기능이다."
+   },
+   "m_mf_9_scm_122_1": {
+    "facet": "final_enterprise.scm",
+    "belief": "계획과 실행의 역할을 반대로 이해한다고 생각함",
+    "truth": "공급사슬 계획 → 공급사슬 실행"
+   },
+   "m_mf_9_scm_122_2": {
+    "facet": "final_enterprise.scm",
+    "belief": "예측도 이미 진행 중인 물류 작업이라고 생각함",
+    "truth": "공급사슬 계획 → 공급사슬 실행"
+   },
+   "m_mf_9_scm_122_3": {
+    "facet": "final_enterprise.scm",
+    "belief": "실제 물품 이동 관리도 미래 계획에 해당한다고 생각함",
+    "truth": "공급사슬 계획 → 공급사슬 실행"
+   },
+   "m_mf_9_demand_126": {
+    "facet": "final_enterprise.demand",
+    "belief": "‘고객의 실제 주문을 확인한 뒤부터 해당 제품을 생산한다면 이 방식은 푸시 기반이다’라는 진술이 옳다고 생각함",
+    "truth": "실제 주문이 생산을 촉발하는 방식은 풀 기반이다."
+   },
+   "m_mf_9_demand_127_1": {
+    "facet": "final_enterprise.demand",
+    "belief": "공통 수요를 보지 않아도 단계별 예측 빈도만 높이면 된다고 생각함",
+    "truth": "실제 판매 자료를 상류 구성원과 공유한다."
+   },
+   "m_mf_9_demand_127_2": {
+    "facet": "final_enterprise.demand",
+    "belief": "직전 단계 주문은 최종 판매와 같다고 생각함",
+    "truth": "실제 판매 자료를 상류 구성원과 공유한다."
+   },
+   "m_mf_9_demand_127_3": {
+    "facet": "final_enterprise.demand",
+    "belief": "추가 재고가 거래 정보의 왜곡을 해결한다고 생각함",
+    "truth": "실제 판매 자료를 상류 구성원과 공유한다."
+   },
+   "m_mf_9_crm_132": {
+    "facet": "final_customer.crm",
+    "belief": "‘고객의 문의를 상담원에게 배정하는 일은 고객 패턴을 분석하는 분석적 CRM의 대표 기능이다’라는 진술이 옳다고 생각함",
+    "truth": "고객 문의 배정은 고객 접점의 업무를 지원하는 운영적 CRM에 해당한다."
+   },
+   "m_mf_9_crm_133_1": {
+    "facet": "final_customer.crm",
+    "belief": "고객 접점과 고객 분석을 반대로 해석한다고 생각함",
+    "truth": "분석적 CRM → 운영적 CRM"
+   },
+   "m_mf_9_crm_133_2": {
+    "facet": "final_customer.crm",
+    "belief": "고객에게 제안을 전달하는 것까지 데이터 분석이라고 생각함",
+    "truth": "분석적 CRM → 운영적 CRM"
+   },
+   "m_mf_9_crm_133_3": {
+    "facet": "final_customer.crm",
+    "belief": "구매 패턴 분석도 접점 업무라고 생각함",
+    "truth": "분석적 CRM → 운영적 CRM"
+   },
+   "m_mf_9_retain_138": {
+    "facet": "final_customer.retain",
+    "belief": "‘이미 구매한 책의 관련 워크북을 추천하는 것은 원래 책을 더 비싼 버전으로 바꾸는 제안이다’라는 진술이 옳다고 생각함",
+    "truth": "관련 워크북을 추가 제안하는 방식은 교차 판매이며 원래 상품의 상위 버전으로 바꾸는 것과 다르다."
+   },
+   "m_mf_10_market_142": {
+    "facet": "final_commerce.market",
+    "belief": "온라인 비교로 거래 당사자의 정보 격차가 항상 완전히 없어진다고 생각함",
+    "truth": "온라인 비교는 정보 격차를 줄일 수 있지만 품질 등 관찰하기 어려운 정보가 남을 수 있다."
+   },
+   "m_mf_10_market_144_1": {
+    "facet": "final_commerce.market",
+    "belief": "중개 단계가 줄어드는 것을 당사자의 정보 차이로 생각함",
+    "truth": "중개 소멸"
+   },
+   "m_mf_10_market_144_2": {
+    "facet": "final_commerce.market",
+    "belief": "직접 판매만으로 가격이 수요 따라 바뀐다고 생각함",
+    "truth": "중개 소멸"
+   },
+   "m_mf_10_market_144_3": {
+    "facet": "final_commerce.market",
+    "belief": "중간 유통요원의 축소가 가격 변경 비용과 같은 개념이라고 생각함",
+    "truth": "중개 소멸"
+   },
+   "m_mf_10_digital_147": {
+    "facet": "final_commerce.digital",
+    "belief": "온라인 주문과 결제를 한 모든 상품은 디지털 제품이라고 생각함",
+    "truth": "실물 책의 주문 방식이 온라인이어도 전달되는 상품은 실물이며 전자책은 디지털로 전달된다."
+   },
+   "m_mf_10_business_150": {
+    "facet": "final_commerce.business",
+    "belief": "플랫폼 운영사가 기업이면 개인 판매자와 개인 구매자의 거래도 B2C라고 생각함",
+    "truth": "거래 유형은 물건을 사고파는 당사자를 기준으로 하므로 이 개인 간 거래는 C2C다."
+   },
+   "m_mf_10_business_151_1": {
+    "facet": "final_commerce.business",
+    "belief": "판매자와 구매자를 연결하는 사업자가 직접 상품을 소매한다고 생각함",
+    "truth": "시장 생성자"
+   },
+   "m_mf_10_business_151_2": {
+    "facet": "final_commerce.business",
+    "belief": "상품 목록 제공을 콘텐츠 자체의 제공으로 생각함",
+    "truth": "시장 생성자"
+   },
+   "m_mf_10_business_151_3": {
+    "facet": "final_commerce.business",
+    "belief": "검색 기능이 있으면 핵심 사업이 포털이라고 생각함",
+    "truth": "시장 생성자"
+   },
+   "m_mf_10_revenue_156": {
+    "facet": "final_commerce.revenue",
+    "belief": "광고를 노출해 받는 수익과 판매 성사 시 받는 수익은 같은 모델이라고 생각함",
+    "truth": "거래 성사에 따른 수익은 거래 수수료이고 광고 노출 등에 대한 수익은 광고 수익이다."
+   },
+   "m_mf_10_revenue_157_1": {
+    "facet": "final_commerce.revenue",
+    "belief": "외부 사이트 소개 성과를 직접 거래 처리가 만든 수수료로 생각함",
+    "truth": "제휴 수익"
+   },
+   "m_mf_10_revenue_157_2": {
+    "facet": "final_commerce.revenue",
+    "belief": "구매 건별 보상을 정기 구독료로 생각함",
+    "truth": "제휴 수익"
+   },
+   "m_mf_10_revenue_157_3": {
+    "facet": "final_commerce.revenue",
+    "belief": "추천한 운영자가 상품을 직접 판매한다고 생각함",
+    "truth": "제휴 수익"
+   },
+   "m_mf_10_marketing_162": {
+    "facet": "final_marketing.marketing",
+    "belief": "‘롱테일 전략은 틈새 제품을 전부 버리고 상위 인기 상품에만 집중하는 전략이다’라는 진술이 옳다고 생각함",
+    "truth": "롱테일 전략은 개별 수요가 작은 다양한 틈새 상품의 총수요도 활용한다."
+   },
+   "m_mf_10_marketing_163_1": {
+    "facet": "final_marketing.marketing",
+    "belief": "게시물에 자연스럽게 섞인 광고라면 행동 이력을 썼다고 생각함",
+    "truth": "네이티브 광고 형식"
+   },
+   "m_mf_10_marketing_163_2": {
+    "facet": "final_marketing.marketing",
+    "belief": "광고 표시 형식을 틈새 상품 전략으로 생각함",
+    "truth": "네이티브 광고 형식"
+   },
+   "m_mf_10_marketing_163_3": {
+    "facet": "final_marketing.marketing",
+    "belief": "광고 모양만으로 유입 실적의 보상 방식을 알 수 있다고 생각함",
+    "truth": "네이티브 광고 형식"
+   },
+   "m_mf_6_bi_168_1": {
+    "facet": "final_analytics.bi",
+    "belief": "정해진 차원 비교와 새로운 발견을 반대로 분류한다고 생각함",
+    "truth": "OLAP → 데이터마이닝"
+   },
+   "m_mf_6_bi_168_2": {
+    "facet": "final_analytics.bi",
+    "belief": "차원별 집계 비교를 데이터 오류 수정으로 생각함",
+    "truth": "OLAP → 데이터마이닝"
+   },
+   "m_mf_6_bi_168_3": {
+    "facet": "final_analytics.bi",
+    "belief": "새로운 패턴을 저장 기능만으로 알아낸다고 생각함",
+    "truth": "OLAP → 데이터마이닝"
+   },
+   "m_mf_7_packet_170_1": {
+    "facet": "final_net.packet",
+    "belief": "주소 지정이 웹 요청의 응용보다 위에 있다고 생각함",
+    "truth": "응용 계층 → 전송 계층 → 인터넷 계층"
+   },
+   "m_mf_7_packet_170_2": {
+    "facet": "final_net.packet",
+    "belief": "웹 요청을 인터넷 계층 아래 기능으로 생각함",
+    "truth": "응용 계층 → 전송 계층 → 인터넷 계층"
+   },
+   "m_mf_7_packet_170_3": {
+    "facet": "final_net.packet",
+    "belief": "전송 계층과 인터넷 계층을 바꿔 기억한다고 생각함",
+    "truth": "응용 계층 → 전송 계층 → 인터넷 계층"
+   },
+   "m_mf_7_wireless_171": {
+    "facet": "final_wireless.wireless",
+    "belief": "센서의 자료를 모니터링할 수 있으면 원격 제어도 구현됐다고 생각함",
+    "truth": "센서 데이터 수집만으로 원격 제어나 기기 간 상호작용이 구현됐다고 결론낼 수 없다."
+   },
+   "m_mf_8_defense_174": {
+    "facet": "final_protection.defense",
+    "belief": "IDS는 위급 상황에도 자동 대응 기능을 갖출 수 없다고 생각함",
+    "truth": "강의의 IDS는 경보를 울리거나 위급할 때 사전에 정해진 보안 조치를 수행할 수 있다."
+   },
+   "m_mf_9_erp_175": {
+    "facet": "final_enterprise.erp",
+    "belief": "앱 구매가 가능하면 구현 비용과 벤더 의존성은 평가할 필요가 없다고 생각함",
+    "truth": "전사적 앱은 구매 외에도 구현·조직 변화 비용 및 장기적인 벤더 의존성을 평가해야 한다."
+   },
+   "m_mf_10_marketing_176_1": {
+    "facet": "final_marketing.marketing",
+    "belief": "광고가 보인 때마다 비용이 청구된다고 생각함",
+    "truth": "CPA"
+   },
+   "m_mf_10_marketing_176_2": {
+    "facet": "final_marketing.marketing",
+    "belief": "사이트로 이동한 클릭만으로 과금 조건을 충족한다고 생각함",
+    "truth": "CPA"
+   },
+   "m_mf_10_marketing_176_3": {
+    "facet": "final_marketing.marketing",
+    "belief": "행동 성과에 따른 대가를 정기 이용료로 해석한다고 생각함",
+    "truth": "CPA"
+   },
+   "m_mf_10_digital_177": {
+    "facet": "final_commerce.digital",
+    "belief": "디지털 상품의 추가 복제비가 낮으면 최초 제작비 부담도 없다고 생각함",
+    "truth": "추가 복제 비용이 낮아도 이미 발생한 제작비는 총비용에 남는다."
+   },
+   "m_mf_5_cloud_178": {
+    "facet": "final_infra.cloud",
+    "belief": "원격 서버가 빠르면 네트워크 지연은 게임에 영향을 주지 않는다고 생각함",
+    "truth": "클라우드 서버가 빨라도 통신 지연이나 접속 불안정은 이용자 경험에 영향을 준다."
+   },
+   "m_mf_5_infra_179_1": {
+    "facet": "final_infra.infra",
+    "belief": "계약의 서비스 조건과 비용 분석 항목을 뒤바꿔 생각함",
+    "truth": "A의 보상은 SLA, B의 교육·지원 지출은 TCO"
+   },
+   "m_mf_5_infra_179_2": {
+    "facet": "final_infra.infra",
+    "belief": "교육과 지원의 실제 지출도 전부 계약 성능이라고 생각함",
+    "truth": "A의 보상은 SLA, B의 교육·지원 지출은 TCO"
+   },
+   "m_mf_5_infra_179_3": {
+    "facet": "final_infra.infra",
+    "belief": "월 요금이 같으면 계약과 전체 소유 비용도 같다고 생각함",
+    "truth": "A의 보상은 SLA, B의 교육·지원 지출은 TCO"
+   },
+   "m_mf_6_ledger_181_1": {
+    "facet": "final_data.ledger",
+    "belief": "개방된 참여와 제한된 참여를 구분하지 못한다고 생각함",
+    "truth": "사설 블록체인"
+   },
+   "m_mf_6_ledger_181_2": {
+    "facet": "final_data.ledger",
+    "belief": "공개 영역에 기록해도 협력사에게만 보인다고 생각함",
+    "truth": "사설 블록체인"
+   },
+   "m_mf_6_ledger_181_3": {
+    "facet": "final_data.ledger",
+    "belief": "열린 가입과 데이터 공개가 참여 제어라고 생각함",
+    "truth": "사설 블록체인"
+   },
+   "m_mf_9_retain_186_1": {
+    "facet": "final_customer.retain",
+    "belief": "직접 지출과 새 절차를 익히는 부담을 반대로 봄 생각함",
+    "truth": "재무적 → 절차적 → 관계적 비용"
+   },
+   "m_mf_9_retain_186_2": {
+    "facet": "final_customer.retain",
+    "belief": "사용법 학습을 기존 관계 상실과 혼동한다고 생각함",
+    "truth": "재무적 → 절차적 → 관계적 비용"
+   },
+   "m_mf_9_retain_186_3": {
+    "facet": "final_customer.retain",
+    "belief": "새 제품에 지불한 돈을 관계 손실로 생각함",
+    "truth": "재무적 → 절차적 → 관계적 비용"
+   },
+   "m_mf_10_market_187_1": {
+    "facet": "final_commerce.market",
+    "belief": "고객별 내용 선택과 콘텐츠 형식의 다양성을 바꿔 생각함",
+    "truth": "개인화·맞춤화 → 풍부성"
+   },
+   "m_mf_10_market_187_2": {
+    "facet": "final_commerce.market",
+    "belief": "맞춤 메시지를 정보량만의 차이로 생각함",
+    "truth": "개인화·맞춤화 → 풍부성"
+   },
+   "m_mf_10_market_187_3": {
+    "facet": "final_commerce.market",
+    "belief": "거래 위치에 관한 제약과 메시지의 구성을 같은 특성으로 생각함",
+    "truth": "개인화·맞춤화 → 풍부성"
+   },
+   "m_mf_5_cloud_190_1": {
+    "facet": "final_infra.cloud",
+    "belief": "운영체제와 인프라 대여를 완성 앱 이용과 혼동한다고 생각함",
+    "truth": "앱 제공은 SaaS로 분류하고 민감 자료의 배치와 공급자 중단 대응을 따로 결정한다."
+   },
+   "m_mf_5_cloud_190_2": {
+    "facet": "final_infra.cloud",
+    "belief": "배치 모델을 서비스 유형의 답으로 생각함",
+    "truth": "앱 제공은 SaaS로 분류하고 민감 자료의 배치와 공급자 중단 대응을 따로 결정한다."
+   },
+   "m_mf_5_cloud_190_3": {
+    "facet": "final_infra.cloud",
+    "belief": "자료를 따로 저장하면 앱의 서비스 중단 영향도 사라진다고 생각함",
+    "truth": "앱 제공은 SaaS로 분류하고 민감 자료의 배치와 공급자 중단 대응을 따로 결정한다."
+   },
+   "m_mf_7_internet_192_1": {
+    "facet": "final_net.internet",
+    "belief": "트래픽 우선 처리를 수신 데이터 순서 복원으로 생각함",
+    "truth": "망 중립성의 유료 우선 처리 제한"
+   },
+   "m_mf_7_internet_192_2": {
+    "facet": "final_net.internet",
+    "belief": "콘텐츠별 대우를 도메인 관리의 문제로 생각함",
+    "truth": "망 중립성의 유료 우선 처리 제한"
+   },
+   "m_mf_7_internet_192_3": {
+    "facet": "final_net.internet",
+    "belief": "우선 처리와 신호 표현 방식을 같은 문제로 생각함",
+    "truth": "망 중립성의 유료 우선 처리 제한"
+   },
+   "m_mf_5_byod_196_1": {
+    "facet": "final_infra.byod",
+    "belief": "개인 기기를 사용하면 회사 정보의 보호 책임도 개인에게만 있다고 생각함",
+    "truth": "서로 다른 인증 요소를 요구하고 분실 신고 시 해당 기기의 업무 접근을 차단한다."
+   },
+   "m_mf_5_byod_196_2": {
+    "facet": "final_infra.byod",
+    "belief": "암기 비밀번호를 여러 번 쓰면 서로 다른 인증 요소라고 생각함",
+    "truth": "서로 다른 인증 요소를 요구하고 분실 신고 시 해당 기기의 업무 접근을 차단한다."
+   },
+   "m_mf_5_byod_196_3": {
+    "facet": "final_infra.byod",
+    "belief": "기기 지원 여부로 자료 접근 권한이 자동 결정된다고 생각함",
+    "truth": "서로 다른 인증 요소를 요구하고 분실 신고 시 해당 기기의 업무 접근을 차단한다."
+   },
+   "m_mf_9_demand_200_1": {
+    "facet": "final_enterprise.demand",
+    "belief": "온라인 판매 채널이 푸시·풀 분류를 결정한다고 생각함",
+    "truth": "실제 주문으로 생산을 시작하는 풀에 해당하며 공통 수요 신호는 주문 변동의 증폭을 줄일 수 있다."
+   },
+   "m_mf_9_demand_200_2": {
+    "facet": "final_enterprise.demand",
+    "belief": "판매 중개가 줄면 공급사슬의 공급 단계도 없어진다고 생각함",
+    "truth": "실제 주문으로 생산을 시작하는 풀에 해당하며 공통 수요 신호는 주문 변동의 증폭을 줄일 수 있다."
+   },
+   "m_mf_9_demand_200_3": {
+    "facet": "final_enterprise.demand",
+    "belief": "생산 개시 신호 대신 일정 공유 여부로 풀을 판단한다고 생각함",
+    "truth": "실제 주문으로 생산을 시작하는 풀에 해당하며 공통 수요 신호는 주문 변동의 증폭을 줄일 수 있다."
+   },
+   "m_mf_10_marketing_201": {
+    "facet": "final_marketing.marketing",
+    "belief": "행위 타게팅에서는 이용 권한과 수집 집단의 편향을 확인할 필요가 없다고 생각함",
+    "truth": "행위 타게팅에 쓰는 자료에도 이용 권한과 수집 집단의 편향을 검토해야 한다."
+   },
+   "m_mf_6_ledger_202": {
+    "facet": "final_data.ledger",
+    "belief": "태그 값을 원장에 올리면 실제 원산지와의 일치도 보장된다고 생각함",
+    "truth": "RFID 식별과 원장 이력 보존만으로 처음 붙인 태그의 내용이 맞는지까지 보장할 수 없다."
+   },
+   "m_mf_9_crm_204_1": {
+    "facet": "final_customer.crm",
+    "belief": "통합 저장, 분석, 화면 표시를 모두 저장소 적재로 생각함",
+    "truth": "다차원 분석은 분석 단계이며 상담 화면은 운영적 CRM의 고객 접점이다."
+   },
+   "m_mf_9_crm_204_2": {
+    "facet": "final_customer.crm",
+    "belief": "분석과 고객 접점을 거꾸로 분류한다고 생각함",
+    "truth": "다차원 분석은 분석 단계이며 상담 화면은 운영적 CRM의 고객 접점이다."
+   },
+   "m_mf_9_crm_204_3": {
+    "facet": "final_customer.crm",
+    "belief": "고객 자료를 쓴다는 이유만으로 물류 실행으로 생각함",
+    "truth": "다차원 분석은 분석 단계이며 상담 화면은 운영적 CRM의 고객 접점이다."
+   },
+   "m_mf_10_revenue_205": {
+    "facet": "final_commerce.revenue",
+    "belief": "‘기업이 앱 이용료를 월 구독으로 받기만 하면 고객의 전환비용이 반드시 증가한다’라는 진술이 옳다고 생각함",
+    "truth": "구독은 수익을 얻는 방식이며 전환비용은 자료 이전이나 새 서비스 학습처럼 고객이 실제로 부담하는 비용에 달려 있다."
    }
   }
  },
@@ -289,6 +1314,48 @@
    "title": "약자 풀어쓰기 (영어 철자까지 채점)",
    "short": "약자",
    "group": ""
+  },
+  {
+   "key": "MISF5",
+   "title": "CH5 · IT 인프라와 최신 기술 (58쪽부터)",
+   "short": "기말 5과",
+   "group": "기말고사"
+  },
+  {
+   "key": "MISF6",
+   "title": "CH6 · 데이터베이스와 정보관리",
+   "short": "기말 6과",
+   "group": "기말고사"
+  },
+  {
+   "key": "MISF7",
+   "title": "CH7 · 통신, 인터넷과 무선기술",
+   "short": "기말 7과",
+   "group": "기말고사"
+  },
+  {
+   "key": "MISF8",
+   "title": "CH8 · 정보시스템 보안",
+   "short": "기말 8과",
+   "group": "기말고사"
+  },
+  {
+   "key": "MISF9",
+   "title": "CH9 · 전사적 애플리케이션",
+   "short": "기말 9과",
+   "group": "기말고사"
+  },
+  {
+   "key": "MISF10",
+   "title": "CH10 · 전자상거래",
+   "short": "기말 10과",
+   "group": "기말고사"
+  },
+  {
+   "key": "MISFINAL",
+   "title": "기말고사 종합",
+   "short": "기말 종합",
+   "group": "기말고사 종합"
   }
  ],
  "problems": [
@@ -9544,6 +10611,6779 @@
      "59"
     ]
    ]
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": false,
+   "q": "가상 서버, 저장장치, 네트워크를 빌리고 고객이 운영체제와 응용 프로그램을 관리한다. 이 서비스 유형의 약어는?",
+   "src": [
+    [
+     "T5",
+     "59"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 1
+   },
+   "a": "IaaS",
+   "s": "<p>공급자가 컴퓨팅 인프라를 제공하고 고객은 그 위의 소프트웨어를 관리한다.</p>",
+   "strict": true,
+   "accept": [
+    "IaaS",
+    "Infrastructure as a Service",
+    "인프라 서비스"
+   ],
+   "no": "MF5-01",
+   "ext_id": "MF5-01"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "IaaS와 SaaS의 차이는 고객이 임대료를 매월 납부하는지 여부다.",
+   "src": [
+    [
+     "T5",
+     "59"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 3,
+    "mis": "m_mf_5_cloud_1"
+   },
+   "ox": false,
+   "fix": "IaaS와 SaaS는 공급자가 제공하고 관리하는 자원의 범위가 다르다.",
+   "s": "<p>가상 인프라를 제공하는 IaaS와 완성된 응용 소프트웨어를 제공하는 SaaS는 제공 범위로 구분한다.</p><p>함정: IaaS와 SaaS는 공급자가 제공하고 관리하는 자원의 범위가 다르다.</p>",
+   "no": "MF5-02",
+   "ext_id": "MF5-02"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "mc",
+   "star": true,
+   "q": "개발팀이 실행 환경과 개발 도구를 제공받아 자체 앱을 배포하려고 한다. 완성된 앱을 임대하거나 운영체제부터 설치할 필요는 없다. 알맞은 유형은?",
+   "src": [
+    [
+     "T5",
+     "59"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_5_cloud_2_1",
+     "m_mf_5_cloud_2_2",
+     "m_mf_5_cloud_2_3"
+    ]
+   },
+   "opts": [
+    "PaaS",
+    "SaaS",
+    "IaaS",
+    "사내 구축"
+   ],
+   "ans": 0,
+   "a": "PaaS",
+   "s": "<p>개발·배포 환경이 제공되는지가 판단 기준이다.</p>",
+   "why": [
+    "",
+    "완성된 앱을 임대하는 상황으로 해석함",
+    "운영체제부터 관리할 가상 인프라가 필요한 상황으로 해석함",
+    "사내 서버에 개발 환경을 직접 설치해야 한다고 생각함"
+   ],
+   "no": "MF5-03",
+   "ext_id": "MF5-03"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": false,
+   "q": "민감 데이터는 전용 환경에 두고 수요가 급증하는 업무는 공공 클라우드에서 처리한다. 두 배치를 조합한 모델은?",
+   "src": [
+    [
+     "T5",
+     "60"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 1
+   },
+   "a": "하이브리드 클라우드",
+   "s": "<p>사설 환경과 공공 클라우드를 용도에 맞게 함께 사용한다.</p>",
+   "strict": true,
+   "accept": [
+    "하이브리드 클라우드",
+    "hybrid cloud",
+    "혼합형 클라우드"
+   ],
+   "no": "MF5-04",
+   "ext_id": "MF5-04"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "공공 클라우드에서 완성된 회계 프로그램을 제공받는 상황은 공공 클라우드와 SaaS 중 하나로만 분류할 수 있다.",
+   "src": [
+    [
+     "T5",
+     "59"
+    ],
+    [
+     "T5",
+     "60"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 3,
+    "mis": "m_mf_5_cloud_4"
+   },
+   "ox": false,
+   "fix": "공공 클라우드는 배치 모델이고 SaaS는 서비스 유형이므로 한 서비스에 두 분류를 함께 적용할 수 있다.",
+   "s": "<p>고객에게 무엇을 제공하는지와 인프라가 어떻게 운영되는지는 다른 질문이다.</p><p>함정: 공공 클라우드는 배치 모델이고 SaaS는 서비스 유형이므로 한 서비스에 두 분류를 함께 적용할 수 있다.</p>",
+   "no": "MF5-05",
+   "ext_id": "MF5-05"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "외부 클라우드 공급자가 서비스를 종료하면 고객 기업의 업무 연속성이 영향을 받을 수 있다.",
+   "src": [
+    [
+     "T5",
+     "58"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>서비스 종료나 폐업은 기술적으로 정상인 고객 시스템에도 연속성 문제를 일으킬 수 있다.</p>",
+   "no": "MF5-06",
+   "ext_id": "MF5-06"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "essay",
+   "star": true,
+   "q": "업무 앱 이용 방식과 고객 데이터 저장 위치를 각각 정해야 한다. SaaS와 공공·사설 클라우드가 답하는 질문의 차이를 설명하시오.",
+   "src": [
+    [
+     "T5",
+     "58"
+    ],
+    [
+     "T5",
+     "59"
+    ],
+    [
+     "T5",
+     "60"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 4
+   },
+   "a": "<p>SaaS는 완성된 응용 소프트웨어의 제공을 뜻한다. 공공·사설 클라우드는 인프라의 운영과 공유 방식에 관한 구분이다. 앱을 임대한다는 사실만으로 고객 데이터의 보관 정책과 서비스 중단 위험에 대한 판단이 끝나지는 않는다.</p>",
+   "pts": [
+    "SaaS의 제공 범위",
+    "공공·사설의 배치 구분",
+    "보관 정책 또는 공급자 중단 위험을 따로 확인"
+   ],
+   "s": "<p>서비스 유형과 배치 모델을 먼저 구분하고, 책임 소재와 연속성 위험을 따로 평가한다.</p>",
+   "no": "MF5-07",
+   "ext_id": "MF5-07"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": true,
+   "q": "센서 데이터의 즉각적인 판단을 위해 원격 데이터센터에 보내기 전에 센서가 있는 현장 가까이서 처리하는 방식은?",
+   "src": [
+    [
+     "T5",
+     "69"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.edgegreen",
+    "depth": 1,
+    "family": "mis-final-5-edgegreen",
+    "role": "base"
+   },
+   "a": "엣지 컴퓨팅",
+   "s": "<p>처리 위치를 데이터 발생 지점과 가깝게 옮겨 응답 지연이나 통신 부담을 줄인다.</p>",
+   "strict": true,
+   "accept": [
+    "엣지 컴퓨팅",
+    "edge computing",
+    "에지 컴퓨팅"
+   ],
+   "no": "MF5-08",
+   "ext_id": "MF5-08"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "공장 센서의 경보를 엣지에서 판단하려면 원격 클라우드로 센서 원본을 전부 보낸 뒤 결과를 받아야 한다.",
+   "src": [
+    [
+     "T5",
+     "69"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.edgegreen",
+    "depth": 3,
+    "mis": "m_mf_5_edgegreen_8"
+   },
+   "ox": false,
+   "fix": "엣지는 데이터 발생 지점과 가까운 곳에서 처리하므로 모든 원본의 원격 왕복을 전제하지 않는다.",
+   "s": "<p>빠른 현장 판단과 원격 서버를 통한 장기 집계는 역할을 나눌 수 있다.</p><p>함정: 엣지는 데이터 발생 지점과 가까운 곳에서 처리하므로 모든 원본의 원격 왕복을 전제하지 않는다.</p>",
+   "no": "MF5-09",
+   "ext_id": "MF5-09"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "mc",
+   "star": true,
+   "q": "현장에서 이상을 즉시 판단하고 데이터센터의 환경 영향도 줄이려 한다. 각각에 대응하는 조치는?",
+   "src": [
+    [
+     "T5",
+     "69"
+    ],
+    [
+     "T5",
+     "70"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.edgegreen",
+    "depth": 3,
+    "mis": [
+     "m_mf_5_edgegreen_9_1",
+     "",
+     "m_mf_5_edgegreen_9_2",
+     "m_mf_5_edgegreen_9_3"
+    ],
+    "family": "mis-final-5-edgegreen",
+    "role": "near",
+    "delta": [
+     "combine",
+     "현장 처리 판단에 환경 목표 추가"
+    ]
+   },
+   "opts": [
+    "현장 연산과 데이터 보존 기간 연장",
+    "현장 연산과 데이터센터의 에너지 효율 개선",
+    "원격 전송 확대와 에너지 효율 개선",
+    "원격에서 전량 처리하고 현장 응답 대기"
+   ],
+   "ans": 1,
+   "a": "현장 연산과 데이터센터의 에너지 효율 개선",
+   "s": "<p>현장 연산은 엣지, 환경 부담 절감은 그린 컴퓨팅에 해당한다.</p>",
+   "why": [
+    "데이터 보존 기간 자체를 환경 개선 기준으로 생각함",
+    "",
+    "모든 데이터의 원격 전송이 현장 판단에 유리하다고 생각함",
+    "데이터를 한곳에 모으는 것만으로 두 목표를 달성한다고 생각함"
+   ],
+   "no": "MF5-10",
+   "ext_id": "MF5-10"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "그린 컴퓨팅은 장비를 쓰는 동안의 전력뿐 아니라 장비의 생산이나 폐기 단계에서 발생하는 환경 영향도 고려한다.",
+   "src": [
+    [
+     "T5",
+     "70"
+    ],
+    [
+     "T5",
+     "71"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.edgegreen",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>그린 IT는 정보기술 자원의 수명주기 전반에서 환경 부담을 줄이려는 접근이다.</p>",
+   "no": "MF5-11",
+   "ext_id": "MF5-11"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": false,
+   "q": "운영체제와 프로세서로부터 독립적인 객체 지향 언어로, 가상 머신 위에서 실행되는 언어는?",
+   "src": [
+    [
+     "T5",
+     "78"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.software",
+    "depth": 1
+   },
+   "a": "자바",
+   "s": "<p>자바의 실행 환경 덕분에 지원되는 여러 플랫폼에서 같은 프로그램을 실행할 수 있다.</p>",
+   "strict": true,
+   "accept": [
+    "자바",
+    "Java"
+   ],
+   "no": "MF5-12",
+   "ext_id": "MF5-12"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": false,
+   "q": "공통 표준을 따르는 소프트웨어 서비스를 결합해 업무 기능을 구성하는 아키텍처의 약어는?",
+   "src": [
+    [
+     "T5",
+     "81"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.software",
+    "depth": 1
+   },
+   "a": "SOA",
+   "s": "<p>재사용할 수 있는 서비스를 조합해 여러 시스템의 기능을 연결하는 설계 방식이다.</p>",
+   "strict": true,
+   "accept": [
+    "SOA",
+    "Service-Oriented Architecture",
+    "Service Oriented Architecture",
+    "서비스 지향 아키텍처"
+   ],
+   "no": "MF5-13",
+   "ext_id": "MF5-13"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "리눅스는 강의에서 오픈소스 운영체제의 사례로 다뤄진다.",
+   "src": [
+    [
+     "T5",
+     "75"
+    ],
+    [
+     "T5",
+     "77"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.software",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>강의는 리눅스와 이를 활용한 플랫폼을 오픈소스 생태계의 사례로 제시한다.</p>",
+   "no": "MF5-14",
+   "ext_id": "MF5-14"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "상품 가격을 웹 서비스로 교환하려면 공급사와 구매사가 같은 프로그래밍 언어로 시스템을 다시 작성해야 한다.",
+   "src": [
+    [
+     "T5",
+     "80"
+    ],
+    [
+     "T5",
+     "81"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.software",
+    "depth": 3,
+    "mis": "m_mf_5_software_14"
+   },
+   "ox": false,
+   "fix": "서로 다른 시스템도 공통 웹 표준과 메시지 형식에 맞추면 데이터를 교환할 수 있다.",
+   "s": "<p>호환이 필요한 것은 메시지를 주고받는 인터페이스다.</p><p>함정: 서로 다른 시스템도 공통 웹 표준과 메시지 형식에 맞추면 데이터를 교환할 수 있다.</p>",
+   "no": "MF5-15",
+   "ext_id": "MF5-15"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "mc",
+   "star": true,
+   "q": "강의 예시처럼 값이 가격이고 단위가 USD임을 데이터 자체에 표시해 시스템끼리 주고받으려 한다. 적합한 것은?",
+   "src": [
+    [
+     "T5",
+     "78"
+    ],
+    [
+     "T5",
+     "79"
+    ],
+    [
+     "T5",
+     "80"
+    ]
+   ],
+   "topic": "final_platform",
+   "dx": {
+    "facet": "final_platform.software",
+    "depth": 3,
+    "mis": [
+     "m_mf_5_software_15_1",
+     "m_mf_5_software_15_2",
+     "",
+     "m_mf_5_software_15_3"
+    ]
+   },
+   "opts": [
+    "HTML5의 동영상 표시 기능 사용",
+    "자바 가상 머신의 실행 환경 교체",
+    "XML의 요소와 속성으로 가격과 통화 표현",
+    "리눅스 운영체제의 설치 방식 변경"
+   ],
+   "ans": 2,
+   "a": "XML의 요소와 속성으로 가격과 통화 표현",
+   "s": "<p>XML 예시는 데이터 항목과 속성에 의미를 부여한다.</p>",
+   "why": [
+    "멀티미디어 표시 기능이 데이터의 의미를 교환한다고 생각함",
+    "실행 환경 변경을 메시지 구조 설계로 생각함",
+    "",
+    "운영체제 설치 방식이 교환 데이터 의미를 결정한다고 생각함"
+   ],
+   "no": "MF5-16",
+   "ext_id": "MF5-16"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": false,
+   "q": "외주 공급자가 제공할 가용성 수준과 미달 시 보상을 문서로 정한다. 이 문서의 약어는?",
+   "src": [
+    [
+     "T5",
+     "82"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.infra",
+    "depth": 1
+   },
+   "a": "SLA",
+   "s": "<p>공급자가 달성해야 할 서비스 수준과 책임을 계약에 명시한다.</p>",
+   "strict": true,
+   "accept": [
+    "SLA",
+    "Service Level Agreement",
+    "서비스 수준 계약서",
+    "서비스 수준 협약"
+   ],
+   "no": "MF5-17",
+   "ext_id": "MF5-17"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": true,
+   "q": "장비 구입비에 설치, 유지보수, 교육 등 관련 비용을 합쳐 투자 대안을 비교하는 기준의 약어는?",
+   "src": [
+    [
+     "T5",
+     "89"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.infra",
+    "depth": 1,
+    "family": "mis-final-5-infra",
+    "role": "base"
+   },
+   "a": "TCO",
+   "s": "<p>획득 비용 외에도 사용·관리 과정에서 발생하는 비용을 고려한다.</p>",
+   "strict": true,
+   "accept": [
+    "TCO",
+    "Total Cost of Ownership",
+    "총소유비용",
+    "총 소유 비용"
+   ],
+   "no": "MF5-18",
+   "ext_id": "MF5-18"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": true,
+   "q": "같은 서버 기능을 제공한다면 초기 장비 가격이 낮은 쪽의 총소유비용도 낮다.",
+   "src": [
+    [
+     "T5",
+     "89"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.infra",
+    "depth": 3,
+    "mis": "m_mf_5_infra_18",
+    "family": "mis-final-5-infra",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "전체 비용에서 초기 가격만 고려"
+    ]
+   },
+   "ox": false,
+   "fix": "초기 장비 가격 외의 운영·지원 비용에 따라 총소유비용 순서는 달라질 수 있다.",
+   "s": "<p>구입 가격이 낮아도 설치, 교육 및 유지 비용이 크면 총비용이 상승할 수 있다.</p><p>함정: 초기 장비 가격 외의 운영·지원 비용에 따라 총소유비용 순서는 달라질 수 있다.</p>",
+   "no": "MF5-19",
+   "ext_id": "MF5-19"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "essay",
+   "star": true,
+   "q": "서버를 직접 구매할지 외부에 맡길지 검토하는 회사가 있다. TCO, SLA, 거버넌스로 각각 무엇을 확인해야 하는가?",
+   "src": [
+    [
+     "T5",
+     "82"
+    ],
+    [
+     "T5",
+     "85"
+    ],
+    [
+     "T5",
+     "86"
+    ],
+    [
+     "T5",
+     "88"
+    ],
+    [
+     "T5",
+     "89"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.infra",
+    "depth": 4
+   },
+   "a": "<p>TCO로 구입·설치·유지·교육 등 대안별 전체 비용을 비교한다. SLA로 외부 공급자가 제공할 가용성 같은 수준과 위반 시 대응을 확인한다. 거버넌스에서는 투자 및 운영 의사결정 권한과 비용 분담을 정한다.</p>",
+   "pts": [
+    "대안별 전체 비용 비교",
+    "공급자의 서비스 수준과 책임",
+    "관리 권한 및 비용 분담"
+   ],
+   "s": "<p>비용, 계약상 성능, 조직의 의사결정 권한은 서로 다른 판단 기준이다.</p>",
+   "no": "MF5-20",
+   "ext_id": "MF5-20"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": true,
+   "q": "BYOD로 기업의 단말 구매비를 줄여도 다양한 기종을 지원할 인력과 관리 비용은 생길 수 있다.",
+   "src": [
+    [
+     "T5",
+     "92"
+    ],
+    [
+     "T5",
+     "95"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.byod",
+    "depth": 2,
+    "family": "mis-final-5-byod",
+    "role": "base"
+   },
+   "ox": true,
+   "s": "<p>직원 개인 기기의 다양성이 호환성 확인과 기술지원을 복잡하게 만든다.</p>",
+   "no": "MF5-21",
+   "ext_id": "MF5-21"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "개인 휴대폰의 소유권이 직원에게 있으면, 회사는 분실 시 업무 데이터의 보호 절차를 정할 이유가 없다.",
+   "src": [
+    [
+     "T5",
+     "93"
+    ],
+    [
+     "T5",
+     "97"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.byod",
+    "depth": 3,
+    "mis": "m_mf_5_byod_21"
+   },
+   "ox": false,
+   "fix": "개인 기기에 회사 정보가 있으면 분실 대응과 업무정보 보호 절차를 사전에 정해야 한다.",
+   "s": "<p>기기의 소유권과 업무정보에 대한 기업의 보안 책임을 구분해야 한다.</p><p>함정: 개인 기기에 회사 정보가 있으면 분실 대응과 업무정보 보호 절차를 사전에 정해야 한다.</p>",
+   "no": "MF5-22",
+   "ext_id": "MF5-22"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "mc",
+   "star": false,
+   "q": "기종을 다양하게 허용하면서 기술지원 범위를 명확히 하려 한다. 도입 전에 할 일은?",
+   "src": [
+    [
+     "T5",
+     "95"
+    ],
+    [
+     "T5",
+     "97"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.byod",
+    "depth": 3,
+    "mis": [
+     "m_mf_5_byod_22_1",
+     "m_mf_5_byod_22_2",
+     "m_mf_5_byod_22_3",
+     ""
+    ]
+   },
+   "opts": [
+    "접속 권한을 개인 기기 소유권에 따라 일괄 부여한다.",
+    "직원 만족도만 확인하고 지원 규칙은 도입 뒤 정한다.",
+    "개인 기기인 만큼 분실 대응을 전적으로 개인에게 맡긴다.",
+    "지원 기종과 지원 범위, 보안 요구사항을 사전 합의한다."
+   ],
+   "ans": 3,
+   "a": "지원 기종과 지원 범위, 보안 요구사항을 사전 합의한다.",
+   "s": "<p>사용 가능한 장비, 지원의 경계, 정보보호 의무를 함께 정하면 도입상의 혼선을 줄일 수 있다.</p>",
+   "why": [
+    "기기 소유권을 업무 접근 권한과 혼동함",
+    "기술지원 범위에 대한 사전 합의가 불필요하다고 생각함",
+    "개인 기기 분실에는 조직의 책임이 없다고 생각함",
+    ""
+   ],
+   "no": "MF5-23",
+   "ext_id": "MF5-23"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "essay",
+   "star": true,
+   "q": "직원의 개인 기기로 업무를 처리하고 싶지만 고객 정보 유출과 지원 부담을 걱정한다. 장점 하나와 정책 방안 두 가지를 설명하시오.",
+   "src": [
+    [
+     "T5",
+     "91"
+    ],
+    [
+     "T5",
+     "92"
+    ],
+    [
+     "T5",
+     "93"
+    ],
+    [
+     "T5",
+     "95"
+    ],
+    [
+     "T5",
+     "97"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.byod",
+    "depth": 4,
+    "family": "mis-final-5-byod",
+    "role": "near",
+    "delta": [
+     "combine",
+     "지원 비용에 분실 대응 조건 추가"
+    ]
+   },
+   "a": "<p>익숙한 기기로 업무 효율이나 편의성이 올라갈 수 있다. 지원할 기종과 기술지원 범위를 미리 정하고, 접속과 정보보호 기준을 마련해 기기 분실에도 대응할 수 있어야 한다.</p>",
+   "pts": [
+    "효율·편의 또는 장비비 절감",
+    "지원 기종 또는 지원 범위",
+    "접속·분실 등 보안 대응"
+   ],
+   "s": "<p>BYOD 도입의 판단은 구매비와 사용 편의를 넘어 지원과 보안까지 포함한다.</p>",
+   "no": "MF5-24",
+   "ext_id": "MF5-24"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "short",
+   "star": false,
+   "q": "업무용 모바일 장치를 모니터링·관리·보호하고 분실 시 대응을 지원하는 소프트웨어의 약어는?",
+   "src": [
+    [
+     "T5",
+     "97"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.byod",
+    "depth": 1
+   },
+   "a": "MDM",
+   "s": "<p>조직이 업무에 쓰이는 기기를 파악하고 분실이나 도난에 대응하도록 돕는다.</p>",
+   "strict": true,
+   "accept": [
+    "MDM",
+    "Mobile Device Management",
+    "모바일 장치 관리",
+    "모바일 기기 관리"
+   ],
+   "no": "MF5-25",
+   "ext_id": "MF5-25"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "개발과 유지보수를 외주화해도 내부 교육과 업무 지원에 비용이 든다면 투자 대안을 비교할 때 이를 고려해야 한다.",
+   "src": [
+    [
+     "T5",
+     "82"
+    ],
+    [
+     "T5",
+     "89"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.infra",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>외주화는 업무 담당 주체를 바꾸며, TCO에는 기업에 남는 관련 비용도 포함된다.</p>",
+   "no": "MF5-26",
+   "ext_id": "MF5-26"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "ox",
+   "star": false,
+   "q": "서버가 고성능인 클라우드 게임 서비스라면 이용자 단말과 서버 사이의 통신 상태는 플레이 지연과 무관하다.",
+   "src": [
+    [
+     "T5",
+     "58"
+    ],
+    [
+     "T5",
+     "62"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 3,
+    "mis": "m_mf_5_cloud_178"
+   },
+   "ox": false,
+   "fix": "클라우드 서버가 빨라도 통신 지연이나 접속 불안정은 이용자 경험에 영향을 준다.",
+   "s": "<p>원격 연산 성능과 네트워크를 거치는 입력·응답 시간을 따로 봐야 한다.</p><p>함정: 클라우드 서버가 빨라도 통신 지연이나 접속 불안정은 이용자 경험에 영향을 준다.</p>",
+   "no": "MF5-27",
+   "ext_id": "MF5-27"
+  },
+  {
+   "chapter": "MISF5",
+   "kind": "mc",
+   "star": false,
+   "q": "두 외주 업체의 월 요금이 같다. A는 가동률 미달 보상 조건만 더 유리하고, B는 전환 교육·지원 지출이 더 적다. 두 차이를 각각 읽어야 할 기준은?",
+   "src": [
+    [
+     "T5",
+     "82"
+    ],
+    [
+     "T5",
+     "89"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.infra",
+    "depth": 3,
+    "mis": [
+     "m_mf_5_infra_179_1",
+     "",
+     "m_mf_5_infra_179_2",
+     "m_mf_5_infra_179_3"
+    ]
+   },
+   "opts": [
+    "A의 보상은 TCO에서만, B의 교육·지원 지출은 SLA에서만 파악",
+    "A의 보상은 SLA, B의 교육·지원 지출은 TCO",
+    "둘 다 SLA에서만 파악",
+    "둘 다 구매가가 같으므로 비교할 수 없음"
+   ],
+   "ans": 1,
+   "a": "A의 보상은 SLA, B의 교육·지원 지출은 TCO",
+   "s": "<p>계약에 명시한 가용성·보상과 운영에 수반되는 전체 비용은 서로 다른 관점이다.</p>",
+   "why": [
+    "계약의 서비스 조건과 비용 분석 항목을 뒤바꿔 생각함",
+    "",
+    "교육과 지원의 실제 지출도 전부 계약 성능이라고 생각함",
+    "월 요금이 같으면 계약과 전체 소유 비용도 같다고 생각함"
+   ],
+   "no": "MF5-28",
+   "ext_id": "MF5-28"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": false,
+   "q": "응용 프로그램과 실제 저장 데이터 사이에 위치해 접근과 관리를 담당하는 소프트웨어의 약어는?",
+   "src": [
+    [
+     "T6",
+     "22"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbms",
+    "depth": 1
+   },
+   "a": "DBMS",
+   "s": "<p>DB는 저장된 데이터 집합이며 DBMS는 이를 관리하는 소프트웨어다.</p>",
+   "strict": true,
+   "accept": [
+    "DBMS",
+    "Database Management System",
+    "Database Management Systems",
+    "데이터베이스 관리시스템"
+   ],
+   "no": "MF6-01",
+   "ext_id": "MF6-01"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "부서 두 곳에 같은 고객 주소가 저장된 순간부터 두 주소의 값은 서로 불일치한다.",
+   "src": [
+    [
+     "T6",
+     "16"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbms",
+    "depth": 3,
+    "mis": "m_mf_6_dbms_25"
+   },
+   "ox": false,
+   "fix": "같은 정보의 복제는 중복이고, 두 사본의 값이 달라질 때 불일치다.",
+   "s": "<p>중복이 불일치 위험을 높이지만 중복과 불일치는 동일한 현상이 아니다.</p><p>함정: 같은 정보의 복제는 중복이고, 두 사본의 값이 달라질 때 불일치다.</p>",
+   "no": "MF6-02",
+   "ext_id": "MF6-02"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "파일의 저장 형식을 바꾸자 그 파일을 사용하는 프로그램을 함께 수정해야 했다면 프로그램과 데이터 사이의 의존성을 보여 준다.",
+   "src": [
+    [
+     "T6",
+     "17"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbms",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>데이터 구조가 응용 프로그램에 묶여 있어 구조 변경의 영향이 프로그램까지 전파된다.</p>",
+   "no": "MF6-03",
+   "ext_id": "MF6-03"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": true,
+   "q": "같은 직원 자료를 인사팀은 배치 관점에서, 재무팀은 급여 관점에서 조회한다. 이때 조회에 표시할 필드와 물리 저장을 구분하는 방법은?",
+   "src": [
+    [
+     "T6",
+     "21"
+    ],
+    [
+     "T6",
+     "22"
+    ],
+    [
+     "T6",
+     "23"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbms",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_6_dbms_27_1",
+     "m_mf_6_dbms_27_2",
+     "m_mf_6_dbms_27_3"
+    ]
+   },
+   "opts": [
+    "DBMS로 서로 다른 논리적 보기를 제공한다.",
+    "부서마다 독립 파일을 복제한다.",
+    "사용자에게 물리적 저장 구조를 직접 수정하게 한다.",
+    "부서마다 같은 쿼리 결과를 강제한다."
+   ],
+   "ans": 0,
+   "a": "DBMS로 서로 다른 논리적 보기를 제공한다.",
+   "s": "<p>사용자는 필요한 논리적 관점에서 자료를 보고 DBMS가 실제 저장과의 인터페이스를 담당한다.</p>",
+   "why": [
+    "",
+    "논리적 보기마다 물리 사본이 필요하다고 생각함",
+    "논리적 보기의 변경이 물리 구조의 직접 변경을 요구한다고 생각함",
+    "통합 DB는 모든 사용자에게 같은 화면을 줘야 한다고 생각함"
+   ],
+   "no": "MF6-04",
+   "ext_id": "MF6-04"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "essay",
+   "star": true,
+   "q": "지점별 고객 파일에서 주소가 서로 다르고, 주소 필드를 추가할 때 여러 프로그램을 고쳐야 한다. 두 문제와 DBMS 도입 효과를 설명하시오.",
+   "src": [
+    [
+     "T6",
+     "14"
+    ],
+    [
+     "T6",
+     "15"
+    ],
+    [
+     "T6",
+     "16"
+    ],
+    [
+     "T6",
+     "17"
+    ],
+    [
+     "T6",
+     "18"
+    ],
+    [
+     "T6",
+     "22"
+    ],
+    [
+     "T6",
+     "24"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbms",
+    "depth": 4
+   },
+   "a": "<p>여러 사본의 고객 주소가 달라진 것은 데이터 불일치다. 파일 구조가 프로그램에 직접 묶인 것은 프로그램–데이터 의존성이다. 공유 DB와 DBMS를 이용하면 데이터 관리가 일원화되고, 프로그램에서 물리적 저장과 접근을 직접 관리하는 부담을 줄일 수 있다.</p>",
+   "pts": [
+    "중복과 불일치의 관계",
+    "프로그램–데이터 의존성 설명",
+    "DBMS의 통합 관리와 인터페이스"
+   ],
+   "s": "<p>서로 다른 문제 원인을 구별해야 관리 방식으로 해결할 지점을 찾을 수 있다.</p>",
+   "no": "MF6-05",
+   "ext_id": "MF6-05"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": false,
+   "q": "테이블에서 각 행을 유일하게 식별하는 필드 또는 필드 조합은?",
+   "src": [
+    [
+     "T6",
+     "25"
+    ],
+    [
+     "T6",
+     "26"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.relkey",
+    "depth": 1
+   },
+   "a": "기본키",
+   "s": "<p>관계형 테이블에서 한 행을 다른 행과 구별하는 식별자다.</p>",
+   "strict": true,
+   "accept": [
+    "기본키",
+    "primary key",
+    "기본 키",
+    "주키",
+    "PK"
+   ],
+   "no": "MF6-06",
+   "ext_id": "MF6-06"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": true,
+   "q": "부품 테이블의 공급자 번호를 공급자 테이블의 식별자에 연결할 때, 부품 테이블에 있는 공급자 번호의 역할은?",
+   "src": [
+    [
+     "T6",
+     "27"
+    ],
+    [
+     "T6",
+     "28"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.relkey",
+    "depth": 1,
+    "family": "mis-final-6-relkey",
+    "role": "base"
+   },
+   "a": "외래키",
+   "s": "<p>부품 행이 어느 공급자 행을 가리키는지 연결한다.</p>",
+   "strict": true,
+   "accept": [
+    "외래키",
+    "foreign key",
+    "외래 키",
+    "외부키",
+    "FK"
+   ],
+   "no": "MF6-07",
+   "ext_id": "MF6-07"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": true,
+   "q": "한 공급자가 여러 부품을 공급하면 부품 테이블에서 같은 공급자 번호를 두 번 쓰는 것만으로 참조무결성이 깨진다.",
+   "src": [
+    [
+     "T6",
+     "27"
+    ],
+    [
+     "T6",
+     "28"
+    ],
+    [
+     "T6",
+     "35"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.relkey",
+    "depth": 3,
+    "mis": "m_mf_6_relkey_31",
+    "family": "mis-final-6-relkey",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "외래키에 기본키 유일성 적용"
+    ]
+   },
+   "ox": false,
+   "fix": "여러 부품 행에 같은 공급자 외래키가 나타날 수 있으며, 각 값이 실제 공급자 행을 참조하는지가 관건이다.",
+   "s": "<p>외래키의 참조 유효성과 기본키의 행 식별 유일성은 다른 규칙이다.</p><p>함정: 여러 부품 행에 같은 공급자 외래키가 나타날 수 있으며, 각 값이 실제 공급자 행을 참조하는지가 관건이다.</p>",
+   "no": "MF6-08",
+   "ext_id": "MF6-08"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": true,
+   "q": "공급자 표에는 S1과 S2만 있다. 부품 번호의 유일성은 이미 보장된다. 어떤 입력이 참조 관계에 문제를 일으키는가?",
+   "src": [
+    [
+     "T6",
+     "27"
+    ],
+    [
+     "T6",
+     "28"
+    ],
+    [
+     "T6",
+     "35"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.relkey",
+    "depth": 3,
+    "mis": [
+     "m_mf_6_relkey_32_1",
+     "",
+     "m_mf_6_relkey_32_2",
+     "m_mf_6_relkey_32_3"
+    ],
+    "family": "mis-final-6-relkey",
+    "role": "near",
+    "delta": [
+     "condition",
+     "참조 대상에 없는 공급자 추가"
+    ]
+   },
+   "opts": [
+    "새 부품 P2와 P3의 공급자를 둘 다 S1로 지정한다.",
+    "새 부품 P1의 공급자로 S3을 지정한다.",
+    "S2를 참조하는 부품을 추가한다.",
+    "S1을 참조하는 부품의 설명만 수정한다."
+   ],
+   "ans": 1,
+   "a": "새 부품 P1의 공급자로 S3을 지정한다.",
+   "s": "<p>S3은 공급자 목록에 없어 참조가 성립하지 않는다.</p>",
+   "why": [
+    "다른 행에서 같은 외래키를 쓰면 안 된다고 생각함",
+    "",
+    "등록된 공급자를 참조해도 별도의 식별자가 필요하다고 생각함",
+    "참조값과 무관한 필드 변경도 참조를 무효화한다고 생각함"
+   ],
+   "no": "MF6-09",
+   "ext_id": "MF6-09"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "한 테이블에 공급자 연락처가 부품마다 되풀이된다면 공급자 정보를 별도의 테이블로 정리하는 설계를 고려할 수 있다.",
+   "src": [
+    [
+     "T6",
+     "33"
+    ],
+    [
+     "T6",
+     "34"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.relkey",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>정규화는 복잡한 데이터 그룹을 안정적이고 유연한 구조로 나눌 때 활용된다.</p>",
+   "no": "MF6-10",
+   "ext_id": "MF6-10"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": false,
+   "q": "관계형 DB에 조회 명령을 전달하는 구조화 질의 언어의 약어는?",
+   "src": [
+    [
+     "T6",
+     "31"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.query",
+    "depth": 1
+   },
+   "a": "SQL",
+   "s": "<p>SQL로 필요한 조건과 출력 항목 등을 지정해 질의할 수 있다.</p>",
+   "strict": true,
+   "accept": [
+    "SQL",
+    "Structured Query Language",
+    "구조화 질의 언어",
+    "구조적 질의 언어"
+   ],
+   "no": "MF6-11",
+   "ext_id": "MF6-11"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "필드 이름과 데이터 유형을 지정하는 일은 데이터 정의와 관련된다.",
+   "src": [
+    [
+     "T6",
+     "30"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.query",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>저장할 데이터의 구조를 정하는 기능과 저장된 내용을 조회하는 기능을 구분한다.</p>",
+   "no": "MF6-12",
+   "ext_id": "MF6-12"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "‘재고가 10보다 적은 부품 번호를 보여 달라’는 요청은 테이블 구조를 새로 정의하는 작업이다.",
+   "src": [
+    [
+     "T6",
+     "30"
+    ],
+    [
+     "T6",
+     "31"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.query",
+    "depth": 3,
+    "mis": "m_mf_6_query_36"
+   },
+   "ox": false,
+   "fix": "이 요청은 이미 정의된 테이블에서 조건에 맞는 데이터를 조회하는 질의다.",
+   "s": "<p>어떤 구조로 저장할지를 정하는 일과 저장된 값에서 특정 레코드를 찾는 일이 다르다.</p><p>함정: 이 요청은 이미 정의된 테이블에서 조건에 맞는 데이터를 조회하는 질의다.</p>",
+   "no": "MF6-13",
+   "ext_id": "MF6-13"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": true,
+   "q": "새 고객 필드에 어떤 종류의 값을 저장할지 설정한 뒤 해당 필드 값이 일치하는 고객을 찾는다. 두 작업을 순서대로 분류하면?",
+   "src": [
+    [
+     "T6",
+     "30"
+    ],
+    [
+     "T6",
+     "31"
+    ],
+    [
+     "T6",
+     "33"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.query",
+    "depth": 3,
+    "mis": [
+     "m_mf_6_query_37_1",
+     "m_mf_6_query_37_2",
+     "",
+     "m_mf_6_query_37_3"
+    ]
+   },
+   "opts": [
+    "질의 → 데이터 정의",
+    "질의 → 질의",
+    "데이터 정의 → 질의",
+    "데이터 정의 → 데이터 정의"
+   ],
+   "ans": 2,
+   "a": "데이터 정의 → 질의",
+   "s": "<p>먼저 저장 구조를 결정하고 이후 그 구조를 사용해 데이터를 찾는다.</p>",
+   "why": [
+    "데이터 구조 설정과 값 조회의 순서를 혼동함",
+    "필드 유형을 정하는 것도 값 조회라고 생각함",
+    "",
+    "조건부 조회가 테이블 구조를 바꾼다고 생각함"
+   ],
+   "no": "MF6-14",
+   "ext_id": "MF6-14"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": false,
+   "q": "필드 구성이 문서마다 달라질 수 있는 자료를 문서 단위로 저장하는 비관계형 DB 유형은?",
+   "src": [
+    [
+     "T6",
+     "39"
+    ],
+    [
+     "T6",
+     "40"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbmodels",
+    "depth": 1
+   },
+   "a": "문서형 데이터베이스",
+   "s": "<p>문서형 모델은 문서를 단위로 데이터와 구조를 표현한다.</p>",
+   "strict": true,
+   "accept": [
+    "문서형 데이터베이스",
+    "문서형 DB",
+    "문서 지향 데이터베이스",
+    "document database",
+    "document-oriented database"
+   ],
+   "no": "MF6-15",
+   "ext_id": "MF6-15"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "클라우드 DB로 이전하면 기존 관계형 테이블을 유지할 수 없다.",
+   "src": [
+    [
+     "T6",
+     "39"
+    ],
+    [
+     "T6",
+     "41"
+    ],
+    [
+     "T6",
+     "47"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbmodels",
+    "depth": 3,
+    "mis": "m_mf_6_dbmodels_39"
+   },
+   "ox": false,
+   "fix": "클라우드에서도 관계형 DB를 사용할 수 있다.",
+   "s": "<p>클라우드는 어디에서 어떤 방식으로 서비스를 쓰는지에 관한 분류다.</p><p>함정: 클라우드에서도 관계형 DB를 사용할 수 있다.</p>",
+   "no": "MF6-16",
+   "ext_id": "MF6-16"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "복잡하게 연결된 개체의 관계를 중심으로 표현하려는 경우 그래프 DB를 검토할 수 있다.",
+   "src": [
+    [
+     "T6",
+     "40"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbmodels",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>비관계형 DB 중 그래프 모델은 개체와 그 사이 연결을 데이터 구조의 중심에 둔다.</p>",
+   "no": "MF6-17",
+   "ext_id": "MF6-17"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": true,
+   "q": "공급자별 문서의 필드가 제각각이라 문서형 DB를 검토한다. 서버 관리 부담을 줄이기 위해 클라우드 서비스도 검토한다. 두 판단의 관계는?",
+   "src": [
+    [
+     "T6",
+     "39"
+    ],
+    [
+     "T6",
+     "40"
+    ],
+    [
+     "T6",
+     "41"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.dbmodels",
+    "depth": 3,
+    "mis": [
+     "m_mf_6_dbmodels_41_1",
+     "m_mf_6_dbmodels_41_2",
+     "m_mf_6_dbmodels_41_3",
+     ""
+    ]
+   },
+   "opts": [
+    "같은 선택을 두 이름으로 부른다.",
+    "문서형 DB를 선택하면 클라우드 방식은 배제된다.",
+    "클라우드 선택 자체가 문서형 데이터 구조를 결정한다.",
+    "데이터 모델 선택과 제공 방식 선택이다."
+   ],
+   "ans": 3,
+   "a": "데이터 모델 선택과 제공 방식 선택이다.",
+   "s": "<p>문서형과 클라우드 여부는 서로 다른 축이다.</p>",
+   "why": [
+    "서버 운영 방식과 데이터 모델을 같은 분류로 생각함",
+    "문서형 DB는 사내에서만 운영할 수 있다고 생각함",
+    "클라우드로 이전하면 특정 데이터 모델로 고정된다고 생각함",
+    ""
+   ],
+   "no": "MF6-18",
+   "ext_id": "MF6-18"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": false,
+   "q": "블록체인에 기록된 조건이 충족되면 계약상의 처리를 자동으로 실행하도록 구성한 것은?",
+   "src": [
+    [
+     "T6",
+     "48"
+    ],
+    [
+     "T6",
+     "54"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.ledger",
+    "depth": 1
+   },
+   "a": "스마트 계약",
+   "s": "<p>업무 규칙에 맞춰 기록된 조건에 따라 후속 조치를 실행한다.</p>",
+   "strict": true,
+   "accept": [
+    "스마트 계약",
+    "스마트계약",
+    "스마트 컨트랙트",
+    "smart contract"
+   ],
+   "no": "MF6-19",
+   "ext_id": "MF6-19"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": true,
+   "q": "여러 조직이 거래 기록을 검증하고 변경 이력을 추적하려는 상황은 블록체인 기반 DB를 검토할 이유가 된다.",
+   "src": [
+    [
+     "T6",
+     "48"
+    ],
+    [
+     "T6",
+     "49"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.ledger",
+    "depth": 2,
+    "family": "mis-final-6-ledger",
+    "role": "base"
+   },
+   "ox": true,
+   "s": "<p>참여자 간 기록 검증과 이력 추적에 장점이 있다.</p>",
+   "no": "MF6-20",
+   "ext_id": "MF6-20"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": true,
+   "q": "유통업자가 최초 입력에서 원산지를 잘못 기록해도, 블록체인에 올라가는 즉시 실제 원산지로 정정된다.",
+   "src": [
+    [
+     "T6",
+     "48"
+    ],
+    [
+     "T6",
+     "50"
+    ],
+    [
+     "T6",
+     "53"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.ledger",
+    "depth": 3,
+    "mis": "m_mf_6_ledger_44",
+    "family": "mis-final-6-ledger",
+    "role": "near",
+    "delta": [
+     "condition",
+     "최초 입력 내용이 잘못된 조건 추가"
+    ]
+   },
+   "ox": false,
+   "fix": "블록체인의 기록 검증과 추적 가능성만으로 최초 입력이 현실과 일치한다고 보장할 수 없다.",
+   "s": "<p>공유 기록을 유지하는 역량과 원천 데이터의 사실성을 구분해야 한다.</p><p>함정: 블록체인의 기록 검증과 추적 가능성만으로 최초 입력이 현실과 일치한다고 보장할 수 없다.</p>",
+   "no": "MF6-21",
+   "ext_id": "MF6-21"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "공급망 정보의 추적성이 유용해도 처리 속도와 운영 비용을 평가한 뒤 블록체인 기반 DB의 적합성을 판단해야 한다.",
+   "src": [
+    [
+     "T6",
+     "49"
+    ],
+    [
+     "T6",
+     "50"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.ledger",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>기존 DB보다 모든 목적에 우수한 방식이 아니므로 사용 목적에 맞는 상충관계를 따져야 한다.</p>",
+   "no": "MF6-22",
+   "ext_id": "MF6-22"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": false,
+   "q": "여러 운영 시스템에 흩어진 데이터를 모아 과거와 현재의 분석에 활용하는 저장소는?",
+   "src": [
+    [
+     "T6",
+     "60"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.bi",
+    "depth": 1
+   },
+   "a": "데이터 웨어하우스",
+   "s": "<p>기업 차원의 분석에서 사용할 데이터를 여러 원천에서 모아 보관한다.</p>",
+   "strict": true,
+   "accept": [
+    "데이터 웨어하우스",
+    "data warehouse",
+    "데이터웨어하우스",
+    "DW"
+   ],
+   "no": "MF6-23",
+   "ext_id": "MF6-23"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "short",
+   "star": true,
+   "q": "제품, 지역, 월 같은 차원에서 매출을 살펴보는 분석 도구의 약어는?",
+   "src": [
+    [
+     "T6",
+     "65"
+    ],
+    [
+     "T6",
+     "66"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.bi",
+    "depth": 1,
+    "family": "mis-final-6-bi",
+    "role": "base"
+   },
+   "a": "OLAP",
+   "s": "<p>차원을 바꿔 집계된 데이터의 다양한 관점을 확인할 수 있다.</p>",
+   "strict": true,
+   "accept": [
+    "OLAP",
+    "Online Analytical Processing",
+    "온라인 분석 처리"
+   ],
+   "no": "MF6-24",
+   "ext_id": "MF6-24"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": true,
+   "q": "웨어하우스에 데이터를 적재하면 제품·분기별 수치를 살펴보는 분석도 적재 작업과 같은 기능이 된다.",
+   "src": [
+    [
+     "T6",
+     "60"
+    ],
+    [
+     "T6",
+     "66"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.bi",
+    "depth": 3,
+    "mis": "m_mf_6_bi_48",
+    "family": "mis-final-6-bi",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "다차원 분석을 저장소 적재와 비교"
+    ]
+   },
+   "ox": false,
+   "fix": "웨어하우스 적재는 데이터 저장·통합이며, 다차원 분석은 OLAP과 같은 도구의 기능이다.",
+   "s": "<p>분석용 기반을 갖추는 작업과 그 위에서 질문에 답하는 작업을 구분한다.</p><p>함정: 웨어하우스 적재는 데이터 저장·통합이며, 다차원 분석은 OLAP과 같은 도구의 기능이다.</p>",
+   "no": "MF6-25",
+   "ext_id": "MF6-25"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "하둡은 여러 컴퓨터에 작업을 분산하는 데 쓰이고 인메모리 컴퓨팅은 주기억장치를 활용한다.",
+   "src": [
+    [
+     "T6",
+     "62"
+    ],
+    [
+     "T6",
+     "63"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.bi",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>분산 처리와 저장 매체의 선택은 대용량 데이터 처리에 대응하는 서로 다른 설명이다.</p>",
+   "no": "MF6-26",
+   "ext_id": "MF6-26"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "누가 고객 데이터에 접근할 수 있고 누가 그 데이터를 관리할 책임이 있는지는 정보 정책에서 다룰 수 있다.",
+   "src": [
+    [
+     "T6",
+     "70"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.quality",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>정보 정책은 데이터의 수집·공유·관리 책임에 관한 조직의 규칙을 정한다.</p>",
+   "no": "MF6-27",
+   "ext_id": "MF6-27"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "가입 고객만 기록한 대용량 DB라면 표본 크기가 커질수록 비가입 고객의 행동도 자동으로 대표한다.",
+   "src": [
+    [
+     "T6",
+     "75"
+    ],
+    [
+     "T6",
+     "77"
+    ],
+    [
+     "T6",
+     "78"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.quality",
+    "depth": 3,
+    "mis": "m_mf_6_quality_51"
+   },
+   "ox": false,
+   "fix": "대용량이어도 비가입 고객이 빠져 있으면 대표성이 확보되지 않는다.",
+   "s": "<p>관측이 많은 것과 관심 집단을 고르게 포함한 것은 별개다.</p><p>함정: 대용량이어도 비가입 고객이 빠져 있으면 대표성이 확보되지 않는다.</p>",
+   "no": "MF6-28",
+   "ext_id": "MF6-28"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": false,
+   "q": "고객 분석을 시작하기 전에 지점마다 고객 코드가 다르고 특정 고객 집단의 기록이 빠져 있다는 사실을 확인했다. 첫 조치는?",
+   "src": [
+    [
+     "T6",
+     "70"
+    ],
+    [
+     "T6",
+     "71"
+    ],
+    [
+     "T6",
+     "77"
+    ],
+    [
+     "T6",
+     "78"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.quality",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_6_quality_52_1",
+     "m_mf_6_quality_52_2",
+     "m_mf_6_quality_52_3"
+    ]
+   },
+   "opts": [
+    "식별 규칙과 누락 범위를 확인하고 데이터를 정비한다.",
+    "동일 자료를 더 빠른 분석 서버로 옮긴다.",
+    "누락 집단을 빼고도 전체 고객의 패턴이라 발표한다.",
+    "분석 결과부터 확정하고 접근 규칙은 나중에 정한다."
+   ],
+   "ans": 0,
+   "a": "식별 규칙과 누락 범위를 확인하고 데이터를 정비한다.",
+   "s": "<p>분석 도구를 바꿔도 원천 자료의 불일치와 누락은 해결되지 않는다.</p>",
+   "why": [
+    "",
+    "서버 성능 개선으로 동일 고객의 식별 오류가 해소된다고 생각함",
+    "관측된 집단만으로 전체를 대표할 수 있다고 생각함",
+    "원천 품질 점검을 결과 발표 뒤로 미뤄도 된다고 생각함"
+   ],
+   "no": "MF6-29",
+   "ext_id": "MF6-29"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "essay",
+   "star": true,
+   "q": "지역별 매출을 분석했는데 일부 지점의 고객 코드가 중복되고 특정 지역 기록이 빠졌다. 분석 신뢰도를 높일 조치 세 가지를 설명하시오.",
+   "src": [
+    [
+     "T6",
+     "60"
+    ],
+    [
+     "T6",
+     "66"
+    ],
+    [
+     "T6",
+     "70"
+    ],
+    [
+     "T6",
+     "71"
+    ],
+    [
+     "T6",
+     "77"
+    ],
+    [
+     "T6",
+     "78"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.quality",
+    "depth": 4
+   },
+   "a": "<p>고객 식별 기준을 정해 중복·불일치를 정비하고, 지역별 누락 범위와 원인을 확인한다. 데이터 관리 책임과 품질 확인 절차를 마련하고 정비된 데이터로 분석을 다시 수행한다.</p>",
+   "pts": [
+    "식별 기준과 중복 정비",
+    "누락 또는 대표성 확인",
+    "관리 책임·품질 확인 절차"
+   ],
+   "s": "<p>보고서의 숫자를 세분화하는 것만으로 누락된 관측을 복구할 수 없다.</p>",
+   "no": "MF6-30",
+   "ext_id": "MF6-30"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": false,
+   "q": "상품·지역·월별 집계표를 먼저 살펴본 뒤, 미리 가정하지 않았던 상품 구매 간 패턴을 찾아내려 한다. 두 작업에 맞는 도구의 순서는?",
+   "src": [
+    [
+     "T6",
+     "65"
+    ],
+    [
+     "T6",
+     "66"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.bi",
+    "depth": 3,
+    "mis": [
+     "m_mf_6_bi_168_1",
+     "m_mf_6_bi_168_2",
+     "",
+     "m_mf_6_bi_168_3"
+    ]
+   },
+   "opts": [
+    "데이터마이닝 → OLAP",
+    "데이터 정제 → OLAP",
+    "OLAP → 데이터마이닝",
+    "OLAP → 데이터 웨어하우스"
+   ],
+   "ans": 2,
+   "a": "OLAP → 데이터마이닝",
+   "s": "<p>차원별 집계 비교와 새로운 패턴 발견은 분석 목적이 다르다.</p>",
+   "why": [
+    "정해진 차원 비교와 새로운 발견을 반대로 분류함",
+    "차원별 집계 비교를 데이터 오류 수정으로 생각함",
+    "",
+    "새로운 패턴을 저장 기능만으로 알아낸다고 생각함"
+   ],
+   "no": "MF6-31",
+   "ext_id": "MF6-31"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "ox",
+   "star": false,
+   "q": "무작위 표본을 검사해 입력 오류의 규모를 파악하는 작업과, 식별한 형식 오류를 실제로 고치는 작업은 서로 다른 품질 활동이다.",
+   "src": [
+    [
+     "T6",
+     "71"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.quality",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>품질 감사는 현황을 조사하고 데이터 정제는 확인된 오류를 식별·수정한다.</p>",
+   "no": "MF6-32",
+   "ext_id": "MF6-32"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "essay",
+   "star": true,
+   "q": "공급자 하나가 부품 셋을 공급하고 있다. 관계의 종류와 공급자 행을 삭제할 때 참조 관계가 깨지지 않게 할 정책 하나를 설명하시오.",
+   "src": [
+    [
+     "T6",
+     "27"
+    ],
+    [
+     "T6",
+     "28"
+    ],
+    [
+     "T6",
+     "34"
+    ],
+    [
+     "T6",
+     "35"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.relkey",
+    "depth": 4
+   },
+   "a": "<p>공급자 한 행에 부품 여러 행이 대응하는 일대다 관계다. 해당 공급자를 참조하는 부품이 있으면 공급자 삭제를 제한하거나, 업무 정책에 따라 관련 부품을 함께 삭제하거나 참조값을 유효한 공급자로 바꿀 수 있다.</p>",
+   "pts": [
+    "일대다 관계",
+    "어느 테이블이 공급자를 참조하는지",
+    "유효한 삭제 제한·연쇄 삭제·참조값 변경 중 하나"
+   ],
+   "s": "<p>강의의 개체관계성도와 참조무결성 예시에서는 한 공급자를 여러 부품 행이 참조한다.</p>",
+   "no": "MF6-33",
+   "ext_id": "MF6-33"
+  },
+  {
+   "chapter": "MISF6",
+   "kind": "mc",
+   "star": false,
+   "q": "협력사만 거래 내역을 열람할 수 있게 하고 참여 권한도 관리자가 정하려 한다. 어떤 블록체인 유형이 요구와 가장 잘 맞는가?",
+   "src": [
+    [
+     "T6",
+     "50"
+    ],
+    [
+     "T6",
+     "52"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.ledger",
+    "depth": 3,
+    "mis": [
+     "m_mf_6_ledger_181_1",
+     "m_mf_6_ledger_181_2",
+     "",
+     "m_mf_6_ledger_181_3"
+    ]
+   },
+   "opts": [
+    "모든 거래가 공개된 공공 블록체인",
+    "공공 공개 영역에 모든 거래를 올린 하이브리드 블록체인",
+    "사설 블록체인",
+    "가입 제한 없이 데이터를 공개하는 네트워크"
+   ],
+   "ans": 2,
+   "a": "사설 블록체인",
+   "s": "<p>제한된 참여자와 열람 권한의 관리가 요구의 핵심이다.</p>",
+   "why": [
+    "개방된 참여와 제한된 참여를 구분하지 못함",
+    "공개 영역에 기록해도 협력사에게만 보인다고 생각함",
+    "",
+    "열린 가입과 데이터 공개가 참여 제어라고 생각함"
+   ],
+   "no": "MF6-34",
+   "ext_id": "MF6-34"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": false,
+   "q": "각 네트워크 장비의 전달 기능과 제어 기능을 분리해 소프트웨어로 네트워크를 관리하는 기술의 약어는?",
+   "src": [
+    [
+     "T7",
+     "13"
+    ],
+    [
+     "T7",
+     "14"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.network",
+    "depth": 1
+   },
+   "a": "SDN",
+   "s": "<p>중앙 소프트웨어 제어를 통해 네트워크 동작을 유연하게 바꿀 수 있다.</p>",
+   "strict": true,
+   "accept": [
+    "SDN",
+    "Software Defined Networking",
+    "Software-Defined Networking",
+    "소프트웨어 정의 네트워크"
+   ],
+   "no": "MF7-01",
+   "ext_id": "MF7-01"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "같은 근거리 네트워크 안에서 스위치가 연결된 장치 사이의 데이터 전송을 맡을 수 있다.",
+   "src": [
+    [
+     "T7",
+     "11"
+    ],
+    [
+     "T7",
+     "12"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.network",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>스위치는 연결된 장치를 묶고 데이터를 목적 장치 쪽으로 전달한다.</p>",
+   "no": "MF7-02",
+   "ext_id": "MF7-02"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "지점 LAN과 외부 네트워크 사이에 데이터를 전달하는 일은 서버의 저장 공간을 늘리면 해결된다.",
+   "src": [
+    [
+     "T7",
+     "12"
+    ],
+    [
+     "T7",
+     "15"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.network",
+    "depth": 3,
+    "mis": "m_mf_7_network_56"
+   },
+   "ox": false,
+   "fix": "서로 다른 네트워크 사이의 전달에는 라우터와 같은 네트워크 장비의 기능이 필요하다.",
+   "s": "<p>서버 저장 능력과 네트워크 간 경로 선택은 다른 역할이다.</p><p>함정: 서로 다른 네트워크 사이의 전달에는 라우터와 같은 네트워크 장비의 기능이 필요하다.</p>",
+   "no": "MF7-03",
+   "ext_id": "MF7-03"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "mc",
+   "star": true,
+   "q": "여러 지점에서 장비를 일일이 설정하는 대신 전달 정책을 소프트웨어에서 관리하려 한다. 어떤 변화가 목적과 가장 맞는가?",
+   "src": [
+    [
+     "T7",
+     "12"
+    ],
+    [
+     "T7",
+     "13"
+    ],
+    [
+     "T7",
+     "14"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.network",
+    "depth": 3,
+    "mis": [
+     "m_mf_7_network_57_1",
+     "",
+     "m_mf_7_network_57_2",
+     "m_mf_7_network_57_3"
+    ]
+   },
+   "opts": [
+    "사용자 단말의 저장 용량을 증설한다.",
+    "전달과 제어를 분리해 정책을 소프트웨어로 관리한다.",
+    "일부 지점의 케이블만 광섬유로 바꾼다.",
+    "네트워크 주소에 읽기 쉬운 이름을 붙인다."
+   ],
+   "ans": 1,
+   "a": "전달과 제어를 분리해 정책을 소프트웨어로 관리한다.",
+   "s": "<p>이 요구는 대역폭이나 주소 해석보다 네트워크를 제어하는 방식에 관한 것이다.</p>",
+   "why": [
+    "단말 저장 용량 확대가 전달 정책을 통합한다고 생각함",
+    "",
+    "물리 매체 교체가 제어 정책을 통합한다고 생각함",
+    "주소 이름이 전달 정책을 중앙 관리한다고 생각함"
+   ],
+   "no": "MF7-04",
+   "ext_id": "MF7-04"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": false,
+   "q": "메시지를 작은 단위로 나누어 네트워크를 통해 보내고 목적지에서 다시 조립하는 전송 방식은?",
+   "src": [
+    [
+     "T7",
+     "18"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 1
+   },
+   "a": "패킷 교환",
+   "s": "<p>메시지 전부에 전용 경로를 할당하는 대신 작은 전송 단위가 네트워크를 공유한다.</p>",
+   "strict": true,
+   "accept": [
+    "패킷 교환",
+    "packet switching",
+    "패킷 스위칭"
+   ],
+   "no": "MF7-05",
+   "ext_id": "MF7-05"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": true,
+   "q": "인터넷 통신 계층 모델에서 전송의 신뢰성과 수신 데이터의 순서를 관리하는 프로토콜의 약어는?",
+   "src": [
+    [
+     "T7",
+     "19"
+    ],
+    [
+     "T7",
+     "22"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 1,
+    "family": "mis-final-7-packet",
+    "role": "base"
+   },
+   "a": "TCP",
+   "s": "<p>IP의 주소 지정·전달과 달리 TCP는 전송의 신뢰성과 순서를 관리한다.</p>",
+   "strict": true,
+   "accept": [
+    "TCP",
+    "Transmission Control Protocol",
+    "전송 제어 프로토콜"
+   ],
+   "no": "MF7-06",
+   "ext_id": "MF7-06"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "같은 메시지에서 나온 패킷은 패킷 교환에서도 모두 동일한 경로로 이동해야 한다.",
+   "src": [
+    [
+     "T7",
+     "18"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 3,
+    "mis": "m_mf_7_packet_60"
+   },
+   "ox": false,
+   "fix": "패킷들은 서로 다른 경로로 이동할 수 있고 목적지에서 재조립될 수 있다.",
+   "s": "<p>같은 메시지라는 사실이 동일한 경로의 사용을 요구하지 않는다.</p><p>함정: 패킷들은 서로 다른 경로로 이동할 수 있고 목적지에서 재조립될 수 있다.</p>",
+   "no": "MF7-07",
+   "ext_id": "MF7-07"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "TCP/IP에서 IP는 패킷의 주소 지정과 목적지로의 전달에 관여한다.",
+   "src": [
+    [
+     "T7",
+     "19"
+    ],
+    [
+     "T7",
+     "22"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>IP의 전달 역할은 TCP의 전송 순서·신뢰성 관리와 구분된다.</p>",
+   "no": "MF7-08",
+   "ext_id": "MF7-08"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "mc",
+   "star": true,
+   "q": "목적지까지 패킷은 도달했지만 순서가 뒤바뀌었다. 주소 지정과는 구분되는 어떤 기능이 필요한가?",
+   "src": [
+    [
+     "T7",
+     "18"
+    ],
+    [
+     "T7",
+     "19"
+    ],
+    [
+     "T7",
+     "22"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 3,
+    "mis": [
+     "m_mf_7_packet_62_1",
+     "m_mf_7_packet_62_2",
+     "",
+     "m_mf_7_packet_62_3"
+    ],
+    "family": "mis-final-7-packet",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "전송 순서 관리와 주소 지정 구별"
+    ]
+   },
+   "opts": [
+    "DNS의 이름 해석",
+    "IP의 목적지 주소 지정",
+    "TCP가 제공하는 순서 관리",
+    "무선 매체의 대역폭 확대"
+   ],
+   "ans": 2,
+   "a": "TCP가 제공하는 순서 관리",
+   "s": "<p>도달한 데이터의 순서를 복구하는 작업은 주소 지정 자체와 다르다.</p>",
+   "why": [
+    "도메인 이름을 바꾸면 도착 순서를 복구한다고 생각함",
+    "정확한 목적지 주소가 패킷 순서까지 정한다고 생각함",
+    "",
+    "대역폭이 늘면 전송 순서가 보장된다고 생각함"
+   ],
+   "no": "MF7-09",
+   "ext_id": "MF7-09"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "essay",
+   "star": true,
+   "q": "파일을 패킷처럼 나눠 보내는 이유와, 패킷이 다른 경로로 도착할 때 IP와 TCP가 맡는 역할을 설명하시오.",
+   "src": [
+    [
+     "T7",
+     "18"
+    ],
+    [
+     "T7",
+     "19"
+    ],
+    [
+     "T7",
+     "22"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 4
+   },
+   "a": "<p>메시지를 분할하면 네트워크 자원을 여러 전송이 공유할 수 있다. IP는 패킷을 주소에 따라 목적지에 보내고, TCP는 전송의 신뢰성을 관리하고 수신 쪽에서 올바른 순서를 복원할 수 있게 한다.</p>",
+   "pts": [
+    "작은 단위 분할과 네트워크 공유",
+    "IP의 주소·전달 역할",
+    "TCP의 신뢰성·순서 역할"
+   ],
+   "s": "<p>분할·공유는 교환 방식의 특징이고, 전달과 순서 관리는 프로토콜의 역할이다.</p>",
+   "no": "MF7-10",
+   "ext_id": "MF7-10"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": true,
+   "q": "한 사무실 또는 건물처럼 제한된 지역에서 여러 장치를 연결한 네트워크의 약어는?",
+   "src": [
+    [
+     "T7",
+     "31"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.media",
+    "depth": 1,
+    "family": "mis-final-7-media",
+    "role": "base"
+   },
+   "a": "LAN",
+   "s": "<p>LAN은 좁은 지리 범위를 연결하는 네트워크다.</p>",
+   "strict": true,
+   "accept": [
+    "LAN",
+    "Local Area Network",
+    "근거리 통신망",
+    "근거리 네트워크"
+   ],
+   "no": "MF7-11",
+   "ext_id": "MF7-11"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "디지털 신호의 불연속적인 값 표현과 아날로그 신호의 연속적인 변화는 서로 다른 신호 방식이다.",
+   "src": [
+    [
+     "T7",
+     "28"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.media",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>강의는 정보를 표현하는 신호를 연속성에 따라 구분한다.</p>",
+   "no": "MF7-12",
+   "ext_id": "MF7-12"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": true,
+   "q": "사무실 LAN의 전송 속도를 높이면 연결 범위를 그대로 두어도 WAN으로 분류된다.",
+   "src": [
+    [
+     "T7",
+     "29"
+    ],
+    [
+     "T7",
+     "31"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.media",
+    "depth": 3,
+    "mis": "m_mf_7_media_66",
+    "family": "mis-final-7-media",
+    "role": "near",
+    "delta": [
+     "condition",
+     "연결 범위는 유지하고 속도만 변경"
+    ]
+   },
+   "ox": false,
+   "fix": "LAN과 WAN은 전송 속도가 아닌 연결 범위로 구분한다.",
+   "s": "<p>속도를 나타내는 전송 지표와 네트워크의 지리 범위가 별개다.</p><p>함정: LAN과 WAN은 전송 속도가 아닌 연결 범위로 구분한다.</p>",
+   "no": "MF7-13",
+   "ext_id": "MF7-13"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "mc",
+   "star": true,
+   "q": "한 건물 안의 연결을 유지하면서 전송 매체를 꼬임선에서 광섬유로 바꾼다. 어떤 설명이 맞는가?",
+   "src": [
+    [
+     "T7",
+     "29"
+    ],
+    [
+     "T7",
+     "30"
+    ],
+    [
+     "T7",
+     "31"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.media",
+    "depth": 3,
+    "mis": [
+     "m_mf_7_media_67_1",
+     "m_mf_7_media_67_2",
+     "m_mf_7_media_67_3",
+     ""
+    ]
+   },
+   "opts": [
+    "매체 변경으로 WAN이 된다.",
+    "광섬유로 바꾸면 자동으로 무선 네트워크가 된다.",
+    "광섬유 사용으로 DNS 기능이 전송 매체에 포함된다.",
+    "매체가 달라져도 연결 범위가 같으면 LAN일 수 있다."
+   ],
+   "ans": 3,
+   "a": "매체가 달라져도 연결 범위가 같으면 LAN일 수 있다.",
+   "s": "<p>광섬유는 전송 매체의 선택이며 LAN 여부는 연결 범위로 판단한다.</p>",
+   "why": [
+    "빠른 매체가 곧 광역 네트워크라고 생각함",
+    "광 신호를 쓰는 유선 매체를 무선 방식으로 생각함",
+    "전송 매체와 이름 해석의 역할을 혼동함",
+    ""
+   ],
+   "no": "MF7-14",
+   "ext_id": "MF7-14"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": true,
+   "q": "사람이 읽는 인터넷 도메인 이름을 IP 주소에 대응시키는 시스템의 약어는?",
+   "src": [
+    [
+     "T7",
+     "38"
+    ],
+    [
+     "T7",
+     "39"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.internet",
+    "depth": 1,
+    "family": "mis-final-7-internet",
+    "role": "base"
+   },
+   "a": "DNS",
+   "s": "<p>이름을 실제 통신에 사용할 주소로 해석한다.</p>",
+   "strict": true,
+   "accept": [
+    "DNS",
+    "Domain Name System",
+    "도메인 이름 시스템",
+    "도메인 네임 시스템"
+   ],
+   "no": "MF7-15",
+   "ext_id": "MF7-15"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": false,
+   "q": "음성을 디지털화해 IP 기반 네트워크로 전송하는 통신 서비스의 약어는?",
+   "src": [
+    [
+     "T7",
+     "48"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.internet",
+    "depth": 1
+   },
+   "a": "VoIP",
+   "s": "<p>음성 정보를 IP망으로 전송한다.</p>",
+   "strict": true,
+   "accept": [
+    "VoIP",
+    "Voice over IP",
+    "Voice over Internet Protocol",
+    "인터넷 전화"
+   ],
+   "no": "MF7-16",
+   "ext_id": "MF7-16"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": true,
+   "q": "외부 직원이 공용망에서 본사 주소를 DNS로 해석할 수 있다면, 이것으로 사설 네트워크 연결까지 성립한다.",
+   "src": [
+    [
+     "T7",
+     "38"
+    ],
+    [
+     "T7",
+     "50"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.internet",
+    "depth": 3,
+    "mis": "m_mf_7_internet_70",
+    "family": "mis-final-7-internet",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "이름 해석을 사설 연결과 비교"
+    ]
+   },
+   "ox": false,
+   "fix": "DNS 이름 해석은 사설 접속을 만들지 않으며 공용망 위 사설 연결에는 VPN을 사용할 수 있다.",
+   "s": "<p>목적지 주소를 찾고 보호된 접속을 만드는 과정은 다르다.</p><p>함정: DNS 이름 해석은 사설 접속을 만들지 않으며 공용망 위 사설 연결에는 VPN을 사용할 수 있다.</p>",
+   "no": "MF7-17",
+   "ext_id": "MF7-17"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "망 중립성 논의에서는 콘텐츠나 서비스에 따라 접속 사업자가 트래픽을 차별하는지가 쟁점이 된다.",
+   "src": [
+    [
+     "T7",
+     "41"
+    ],
+    [
+     "T7",
+     "42"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.internet",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>망 중립성은 인터넷 서비스를 제공할 때 트래픽을 어떻게 대우하는지에 관한 원칙이다.</p>",
+   "no": "MF7-18",
+   "ext_id": "MF7-18"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "mc",
+   "star": false,
+   "q": "출장 중 공용 인터넷을 사용하면서 본사 내부망에 사설 연결을 만들려 한다. 가장 직접적으로 필요한 기술은?",
+   "src": [
+    [
+     "T7",
+     "38"
+    ],
+    [
+     "T7",
+     "48"
+    ],
+    [
+     "T7",
+     "50"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.internet",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_7_internet_72_1",
+     "m_mf_7_internet_72_2",
+     "m_mf_7_internet_72_3"
+    ]
+   },
+   "opts": [
+    "VPN",
+    "DNS",
+    "VoIP",
+    "RFID"
+   ],
+   "ans": 0,
+   "a": "VPN",
+   "s": "<p>VPN은 공용망을 이용해 사설 통신을 구성하는 데 쓰인다.</p>",
+   "why": [
+    "",
+    "주소 해석에 성공하면 사설 연결이 만들어진다고 생각함",
+    "IP망에서 음성을 전송하는 기능이 사내 접속을 보호한다고 생각함",
+    "물품 식별 기술을 원격 사내 접속으로 혼동함"
+   ],
+   "no": "MF7-19",
+   "ext_id": "MF7-19"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": true,
+   "q": "무선주파수로 태그가 붙은 상품을 식별하는 기술의 약어는?",
+   "src": [
+    [
+     "T7",
+     "59"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 1,
+    "family": "mis-final-7-wireless",
+    "role": "base"
+   },
+   "a": "RFID",
+   "s": "<p>태그와 판독기의 무선 통신을 이용해 대상을 식별한다.</p>",
+   "strict": true,
+   "accept": [
+    "RFID",
+    "Radio Frequency Identification",
+    "Radio-Frequency Identification",
+    "무선 주파수 식별",
+    "전자 태그"
+   ],
+   "no": "MF7-20",
+   "ext_id": "MF7-20"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": false,
+   "q": "두 단말을 매우 가까이 대어 통신하는 RFID 계열 기술의 약어는?",
+   "src": [
+    [
+     "T7",
+     "60"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 1
+   },
+   "a": "NFC",
+   "s": "<p>가까운 거리에서 단말 간 정보를 주고받는다.</p>",
+   "strict": true,
+   "accept": [
+    "NFC",
+    "Near Field Communication",
+    "Near-Field Communication",
+    "근거리 무선 통신"
+   ],
+   "no": "MF7-21",
+   "ext_id": "MF7-21"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "WiFi의 공식 명칭을 풀어 쓰라고 하면 Wireless Fidelity만 정답이다.",
+   "src": [
+    [
+     "T7",
+     "56"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 3,
+    "mis": "m_mf_7_wireless_75"
+   },
+   "ox": false,
+   "fix": "강의에서는 WiFi의 공식 풀어쓰기 약어가 없다고 설명한다.",
+   "s": "<p>WiFi를 일반적인 기술 명칭으로 사용하되 공식 약어라는 전제를 두면 안 된다.</p><p>함정: 강의에서는 WiFi의 공식 풀어쓰기 약어가 없다고 설명한다.</p>",
+   "no": "MF7-22",
+   "ext_id": "MF7-22"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "짧은 거리에서 주변기기를 연결하는 블루투스와 무선 LAN 접속에 쓰는 WiFi는 사용 목적이 다를 수 있다.",
+   "src": [
+    [
+     "T7",
+     "55"
+    ],
+    [
+     "T7",
+     "56"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>둘 다 무선 방식이지만 연결 목적과 범위에 따라 선택한다.</p>",
+   "no": "MF7-23",
+   "ext_id": "MF7-23"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "상품의 RFID 태그를 읽는 기능만 설치해도 창고 구역별 온도를 계속 수집하는 무선 센서 네트워크가 구축된다.",
+   "src": [
+    [
+     "T7",
+     "59"
+    ],
+    [
+     "T7",
+     "63"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 3,
+    "mis": "m_mf_7_wireless_77",
+    "family": "mis-final-7-wireless",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "상품 식별을 온도 계측과 비교"
+    ]
+   },
+   "ox": false,
+   "fix": "상품 식별과 환경 상태 측정은 다르며 온도 수집에는 센서와 그 데이터 전송이 필요하다.",
+   "s": "<p>식별을 한다는 사실은 온도 센서와 연속 측정망이 있다는 뜻이 아니다.</p><p>함정: 상품 식별과 환경 상태 측정은 다르며 온도 수집에는 센서와 그 데이터 전송이 필요하다.</p>",
+   "no": "MF7-24",
+   "ext_id": "MF7-24"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "스마트팜에서는 환경 센서가 수집한 정보를 재배 환경의 제어에 활용할 수 있다.",
+   "src": [
+    [
+     "T7",
+     "63"
+    ],
+    [
+     "T7",
+     "65"
+    ],
+    [
+     "T7",
+     "67"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>IoT 사례에서는 센서 측정값을 전송·분석해 운영 의사결정이나 장비 제어와 연결한다.</p>",
+   "no": "MF7-25",
+   "ext_id": "MF7-25"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "essay",
+   "star": true,
+   "q": "스마트팜에서 작물 상자의 이력과 온실별 온도를 각각 수집한다. RFID와 WSN의 역할 및 도입 시 고려할 점을 설명하시오.",
+   "src": [
+    [
+     "T7",
+     "59"
+    ],
+    [
+     "T7",
+     "63"
+    ],
+    [
+     "T7",
+     "65"
+    ],
+    [
+     "T7",
+     "67"
+    ],
+    [
+     "T7",
+     "70"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 4
+   },
+   "a": "<p>상자 태그를 읽는 RFID는 상자를 식별하고 이력과 연결하는 데 쓴다. WSN은 여러 온실 센서에서 측정한 온도를 무선으로 수집한다. 구역별 설치·운영 비용과 데이터 또는 장비 관리 역량을 고려한다.</p>",
+   "pts": [
+    "RFID 식별",
+    "WSN 온도 측정·수집",
+    "비용 또는 기술 관리 요건"
+   ],
+   "s": "<p>무선으로 수집한다는 공통점보다 어떤 정보를 어느 장치에서 얻는지가 중요하다.</p>",
+   "no": "MF7-26",
+   "ext_id": "MF7-26"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "mc",
+   "star": false,
+   "q": "강의의 TCP/IP 계층 모형에서 HTTP, TCP, IP를 위에서 아래로 배치한 것은?",
+   "src": [
+    [
+     "T7",
+     "21"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.packet",
+    "depth": 3,
+    "mis": [
+     "m_mf_7_packet_170_1",
+     "m_mf_7_packet_170_2",
+     "m_mf_7_packet_170_3",
+     ""
+    ]
+   },
+   "opts": [
+    "인터넷 계층 → 응용 계층 → 전송 계층",
+    "전송 계층 → 인터넷 계층 → 응용 계층",
+    "응용 계층 → 인터넷 계층 → 전송 계층",
+    "응용 계층 → 전송 계층 → 인터넷 계층"
+   ],
+   "ans": 3,
+   "a": "응용 계층 → 전송 계층 → 인터넷 계층",
+   "s": "<p>HTTP는 응용, TCP는 전송, IP는 인터넷 계층에 속한다.</p>",
+   "why": [
+    "주소 지정이 웹 요청의 응용보다 위에 있다고 생각함",
+    "웹 요청을 인터넷 계층 아래 기능으로 생각함",
+    "전송 계층과 인터넷 계층을 바꿔 기억함",
+    ""
+   ],
+   "no": "MF7-27",
+   "ext_id": "MF7-27"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "ox",
+   "star": false,
+   "q": "온실 센서의 정보를 모니터링할 수 있다는 사실만으로, 환풍기를 원격 제어하거나 기기끼리 상호작용하게 할 수 있다는 결론이 나온다.",
+   "src": [
+    [
+     "T7",
+     "63"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 3,
+    "mis": "m_mf_7_wireless_171"
+   },
+   "ox": false,
+   "fix": "센서 데이터 수집만으로 원격 제어나 기기 간 상호작용이 구현됐다고 결론낼 수 없다.",
+   "s": "<p>WSN의 측정과 모니터링은 IoT 구현의 기반이며 지능형 제어는 추가 기능을 요구한다.</p><p>함정: 센서 데이터 수집만으로 원격 제어나 기기 간 상호작용이 구현됐다고 결론낼 수 없다.</p>",
+   "no": "MF7-28",
+   "ext_id": "MF7-28"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": false,
+   "q": "네트워크 안의 사용자, 보안, 자원 조정 등 전반적 운영을 맡으며 주로 서버에 설치되는 소프트웨어의 약어는?",
+   "src": [
+    [
+     "T7",
+     "12"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.network",
+    "depth": 1
+   },
+   "a": "NOS",
+   "s": "<p>스위치나 라우터의 전송 역할과 달리 네트워크 전반의 관리를 지원한다.</p>",
+   "strict": true,
+   "accept": [
+    "NOS",
+    "Network Operating System",
+    "네트워크 운영 시스템",
+    "네트워크 운영체제"
+   ],
+   "no": "MF7-29",
+   "ext_id": "MF7-29"
+  },
+  {
+   "chapter": "MISF7",
+   "kind": "short",
+   "star": false,
+   "q": "디지털 통신에서 링크가 초당 보낼 수 있는 비트 수로 나타낼 수 있는 전송 능력은?",
+   "src": [
+    [
+     "T7",
+     "29"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.media",
+    "depth": 1
+   },
+   "a": "대역폭",
+   "s": "<p>대표적으로 초당 비트 수로 표현되며 연결의 지리 범위와는 다른 지표다.</p>",
+   "strict": true,
+   "accept": [
+    "대역폭",
+    "bandwidth",
+    "전송 대역폭"
+   ],
+   "no": "MF7-30",
+   "ext_id": "MF7-30"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "다른 프로그램 파일에 붙는 형태와 달리 스스로 복제되어 네트워크를 통해 확산하는 악성 소프트웨어는?",
+   "src": [
+    [
+     "T8",
+     "19"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 1
+   },
+   "a": "웜",
+   "s": "<p>전파 방식의 핵심은 숙주 프로그램에 붙을 필요 없이 스스로 확산할 수 있다는 것이다.</p>",
+   "strict": true,
+   "accept": [
+    "웜",
+    "worm",
+    "컴퓨터 웜",
+    "computer worm"
+   ],
+   "no": "MF8-01",
+   "ext_id": "MF8-01"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "사용자의 파일 또는 시스템에 대한 접근을 막고 그 복구 대가를 요구하는 악성 소프트웨어는?",
+   "src": [
+    [
+     "T8",
+     "21"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 1
+   },
+   "a": "랜섬웨어",
+   "s": "<p>접근을 제한한 후 대가를 요구한다는 점이 판단 기준이다.</p>",
+   "strict": true,
+   "accept": [
+    "랜섬웨어",
+    "ransomware"
+   ],
+   "no": "MF8-02",
+   "ext_id": "MF8-02"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "정상적인 앱으로 위장해 실행을 유도하는 트로이 목마는 이름 자체가 자가 복제 방식임을 뜻한다.",
+   "src": [
+    [
+     "T8",
+     "19"
+    ],
+    [
+     "T8",
+     "20"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 3,
+    "mis": "m_mf_8_threat_82"
+   },
+   "ox": false,
+   "fix": "트로이 목마의 특징은 정상 프로그램처럼 위장한다는 점이며 자가 복제를 뜻하지 않는다.",
+   "s": "<p>위장하여 설치를 유도하는 방식과 스스로 퍼지는 방식을 구분한다.</p><p>함정: 트로이 목마의 특징은 정상 프로그램처럼 위장한다는 점이며 자가 복제를 뜻하지 않는다.</p>",
+   "no": "MF8-03",
+   "ext_id": "MF8-03"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "신뢰할 만한 기관으로 가장한 메시지와 네트워크에 흐르는 데이터를 감시하는 행위는 서로 다른 위협이다.",
+   "src": [
+    [
+     "T8",
+     "27"
+    ],
+    [
+     "T8",
+     "32"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>전자는 사용자의 행동을 유도하는 피싱이고 후자는 전달 중인 통신을 엿보는 스니핑이다.</p>",
+   "no": "MF8-04",
+   "ext_id": "MF8-04"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "mc",
+   "star": true,
+   "q": "여러 곳에서 온 과도한 요청으로 정상 고객이 서비스를 이용하지 못한다. 사건을 어떤 위험으로 분류하는 것이 가장 적합한가?",
+   "src": [
+    [
+     "T8",
+     "27"
+    ],
+    [
+     "T8",
+     "32"
+    ],
+    [
+     "T8",
+     "33"
+    ],
+    [
+     "T8",
+     "37"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 3,
+    "mis": [
+     "m_mf_8_threat_84_1",
+     "",
+     "m_mf_8_threat_84_2",
+     "m_mf_8_threat_84_3"
+    ]
+   },
+   "opts": [
+    "피싱으로 인한 계정 정보 탈취",
+    "분산 서비스 거부로 인한 가용성 저하",
+    "스니핑으로 인한 통신 노출",
+    "클릭 사기로 인한 광고비 손실"
+   ],
+   "ans": 1,
+   "a": "분산 서비스 거부로 인한 가용성 저하",
+   "s": "<p>사례에서 관측된 직접 피해는 정당한 이용자의 서비스 접근 불능이다.</p>",
+   "why": [
+    "요청 폭주를 사칭 메시지로 해석함",
+    "",
+    "서비스 중단을 가로채기와 동일하게 본다고 생각함",
+    "정상 요청 처리가 막힌 현상을 광고 과금 조작으로 해석함"
+   ],
+   "no": "MF8-05",
+   "ext_id": "MF8-05"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "정보시스템 보안 위험은 내부 임직원에게서도 생길 수 있으며 알려지지 않았거나 대응이 나오지 않은 소프트웨어 취약점도 문제가 될 수 있다.",
+   "src": [
+    [
+     "T8",
+     "41"
+    ],
+    [
+     "T8",
+     "44"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>보안 평가는 외부 공격뿐 아니라 내부자 위험과 소프트웨어의 취약성도 고려한다.</p>",
+   "no": "MF8-06",
+   "ext_id": "MF8-06"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": true,
+   "q": "업무 앱의 입력, 처리, 출력 단계에 맞추어 설계한 통제의 종류는?",
+   "src": [
+    [
+     "T8",
+     "60"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 1,
+    "family": "mis-final-8-control",
+    "role": "base"
+   },
+   "a": "응용 통제",
+   "s": "<p>특정 업무 애플리케이션의 데이터가 올바르게 처리되는지 관리한다.</p>",
+   "strict": true,
+   "accept": [
+    "응용 통제",
+    "응용통제",
+    "application control",
+    "application controls"
+   ],
+   "no": "MF8-07",
+   "ext_id": "MF8-07"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": true,
+   "q": "판매 프로그램에서 주문 수량의 입력 범위를 검사하는 것은 여러 시스템의 운영에 공통 적용되는 일반 통제다.",
+   "src": [
+    [
+     "T8",
+     "59"
+    ],
+    [
+     "T8",
+     "60"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 3,
+    "mis": "m_mf_8_control_87",
+    "family": "mis-final-8-control",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "한 응용의 입력 검사에 일반 통제 적용"
+    ]
+   },
+   "ox": false,
+   "fix": "판매 프로그램의 주문 수량 입력 검사는 그 응용의 입력 단계에 특화된 응용 통제다.",
+   "s": "<p>전사에 공통 적용되는지, 특정 응용의 처리에 적용되는지 살펴본다.</p><p>함정: 판매 프로그램의 주문 수량 입력 검사는 그 응용의 입력 단계에 특화된 응용 통제다.</p>",
+   "no": "MF8-08",
+   "ext_id": "MF8-08"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "기업이 통제 절차를 문서로 두고 있어도 정보시스템 감사에서 실제 통제의 효과를 확인할 수 있다.",
+   "src": [
+    [
+     "T8",
+     "71"
+    ],
+    [
+     "T8",
+     "72"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>감사는 보안 및 통제가 설계되고 운영되는 상태를 평가한다.</p>",
+   "no": "MF8-09",
+   "ext_id": "MF8-09"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "mc",
+   "star": true,
+   "q": "전사 프로그램 변경 관리와 급여 앱의 지급액 처리 검사를 각각 분류하면?",
+   "src": [
+    [
+     "T8",
+     "59"
+    ],
+    [
+     "T8",
+     "60"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 3,
+    "mis": [
+     "m_mf_8_control_89_1",
+     "m_mf_8_control_89_2",
+     "",
+     "m_mf_8_control_89_3"
+    ]
+   },
+   "opts": [
+    "응용 통제 → 일반 통제",
+    "일반 통제 → 일반 통제",
+    "일반 통제 → 응용 통제",
+    "응용 통제 → 응용 통제"
+   ],
+   "ans": 2,
+   "a": "일반 통제 → 응용 통제",
+   "s": "<p>전사는 변경 관리 체계에, 급여 앱 검사는 특정 응용의 처리 단계에 적용된다.</p>",
+   "why": [
+    "통제의 적용 범위를 거꾸로 해석함",
+    "급여 앱만의 검사도 전사 공통이라고 생각함",
+    "",
+    "전사적 프로그램 변경 절차를 한 앱의 검사처럼 생각함"
+   ],
+   "no": "MF8-10",
+   "ext_id": "MF8-10"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "전자 증거가 필요한 사건에서는 저장된 전자 정보의 수집·보존과 조사 가능성이 기업의 대응에 영향을 준다.",
+   "src": [
+    [
+     "T8",
+     "51"
+    ],
+    [
+     "T8",
+     "53"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>디지털 포렌식은 전자 증거를 조사에 쓸 수 있도록 수집·보존·분석하는 데 관련된다.</p>",
+   "no": "MF8-11",
+   "ext_id": "MF8-11"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": true,
+   "q": "정전이나 화재로 중단된 컴퓨팅 서비스와 장비를 복구하는 계획의 약어는?",
+   "src": [
+    [
+     "T8",
+     "66"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 1,
+    "family": "mis-final-8-continuity",
+    "role": "base"
+   },
+   "a": "DRP",
+   "s": "<p>전산 자원과 컴퓨팅 서비스의 복구가 계획의 초점이다.</p>",
+   "strict": true,
+   "accept": [
+    "DRP",
+    "Disaster Recovery Planning",
+    "Disaster Recovery Plan",
+    "재난 복구 계획",
+    "재해 복구 계획"
+   ],
+   "no": "MF8-12",
+   "ext_id": "MF8-12"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "업무 시설이 피해를 입어도 대체 절차로 핵심 업무를 계속하거나 재개하도록 정하는 계획의 약어는?",
+   "src": [
+    [
+     "T8",
+     "67"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 1
+   },
+   "a": "BCP",
+   "s": "<p>컴퓨팅뿐 아니라 인력과 절차를 포함해 핵심 업무의 지속을 계획한다.</p>",
+   "strict": true,
+   "accept": [
+    "BCP",
+    "Business Continuity Planning",
+    "Business Continuity Plan",
+    "비즈니스 연속성 계획",
+    "업무 연속성 계획",
+    "사업 연속성 계획"
+   ],
+   "no": "MF8-13",
+   "ext_id": "MF8-13"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": true,
+   "q": "재해 뒤 데이터베이스를 복구하는 절차를 마련하면, 전산 복구를 기다리는 동안 고객 주문을 받는 대체 절차도 자동으로 마련된다.",
+   "src": [
+    [
+     "T8",
+     "65"
+    ],
+    [
+     "T8",
+     "66"
+    ],
+    [
+     "T8",
+     "67"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 3,
+    "mis": "m_mf_8_continuity_93",
+    "family": "mis-final-8-continuity",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "전산 복구를 업무 연속성과 비교"
+    ]
+   },
+   "ox": false,
+   "fix": "전산 복구 절차와 함께 주문 접수 등 핵심 업무의 대체 절차를 별도로 정해야 한다.",
+   "s": "<p>시스템 복구는 업무 연속성을 돕지만 다른 업무 자원과 임시 절차까지 결정하지 않는다.</p><p>함정: 전산 복구 절차와 함께 주문 접수 등 핵심 업무의 대체 절차를 별도로 정해야 한다.</p>",
+   "no": "MF8-14",
+   "ext_id": "MF8-14"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "mc",
+   "star": true,
+   "q": "연간 발생 확률과 발생 시 손실을 추정했다. 두 값을 곱해 얻는 정보의 용도는?",
+   "src": [
+    [
+     "T8",
+     "61"
+    ],
+    [
+     "T8",
+     "62"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 3,
+    "mis": [
+     "m_mf_8_continuity_94_1",
+     "m_mf_8_continuity_94_2",
+     "m_mf_8_continuity_94_3",
+     ""
+    ]
+   },
+   "opts": [
+    "발생 가능한 최대 손실로 확정한다.",
+    "손실이 매년 같은 금액임을 증명한다.",
+    "해당 위험의 발생 확률 자체로 기록한다.",
+    "예상 연간 손실을 추정해 통제의 우선순위에 활용한다."
+   ],
+   "ans": 3,
+   "a": "예상 연간 손실을 추정해 통제의 우선순위에 활용한다.",
+   "s": "<p>위험의 가능성과 영향을 함께 고려하여 제한된 보안 자원을 배분한다.</p>",
+   "why": [
+    "기대 손실을 최악 손실과 혼동함",
+    "기대값은 해마다 실현된다고 생각함",
+    "금액을 확률과 같은 지표로 생각함",
+    ""
+   ],
+   "no": "MF8-15",
+   "ext_id": "MF8-15"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "essay",
+   "star": true,
+   "q": "데이터센터 화재로 주문 시스템이 멈췄다. 복구 계획과 연속성 계획에 각각 어떤 조치를 넣을지, 우선순위는 어떻게 매길지 설명하시오.",
+   "src": [
+    [
+     "T8",
+     "61"
+    ],
+    [
+     "T8",
+     "65"
+    ],
+    [
+     "T8",
+     "66"
+    ],
+    [
+     "T8",
+     "67"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 4
+   },
+   "a": "<p>DRP에는 백업에서 주문 시스템을 복구하거나 대체 컴퓨팅 환경을 가동하는 조치를 넣는다. BCP에는 중단 동안 대체 창구로 주문을 접수하는 절차와 인력 배치를 넣는다. 위험 평가에서 발생 가능성과 업무 손실의 크기를 분석해 우선순위를 정한다.</p>",
+   "pts": [
+    "전산 서비스 복구 조치",
+    "핵심 업무의 대체 절차",
+    "가능성과 피해 영향에 근거한 우선순위"
+   ],
+   "s": "<p>전산이 복구됐는지와 업무가 이어졌는지는 별도로 확인해야 한다.</p>",
+   "no": "MF8-16",
+   "ext_id": "MF8-16"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": true,
+   "q": "사용자가 주장하는 신원이 실제로 그 사용자에게 해당하는지 확인하는 절차는?",
+   "src": [
+    [
+     "T8",
+     "76"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.identity",
+    "depth": 1,
+    "family": "mis-final-8-identity",
+    "role": "base"
+   },
+   "a": "인증",
+   "s": "<p>인증은 시스템이 사용자의 신원을 검증하는 절차다.</p>",
+   "strict": true,
+   "accept": [
+    "인증",
+    "authentication",
+    "사용자 인증",
+    "신원 인증"
+   ],
+   "no": "MF8-17",
+   "ext_id": "MF8-17"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": true,
+   "q": "신원을 올바르게 인증한 직원은 그 회사의 모든 데이터에 접근할 수 있다.",
+   "src": [
+    [
+     "T8",
+     "75"
+    ],
+    [
+     "T8",
+     "76"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.identity",
+    "depth": 3,
+    "mis": "m_mf_8_identity_97",
+    "family": "mis-final-8-identity",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "신원 확인에서 모든 자원 접근으로 확대"
+    ]
+   },
+   "ox": false,
+   "fix": "인증이 끝나도 접근할 수 있는 자원은 부여된 권한에 따른다.",
+   "s": "<p>신원 확인과 자원 사용 권한을 분리해야 한다.</p><p>함정: 인증이 끝나도 접근할 수 있는 자원은 부여된 권한에 따른다.</p>",
+   "no": "MF8-18",
+   "ext_id": "MF8-18"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "mc",
+   "star": true,
+   "q": "다음 중 서로 다른 두 인증 요소를 결합한 사례는?",
+   "src": [
+    [
+     "T8",
+     "77"
+    ],
+    [
+     "T8",
+     "78"
+    ],
+    [
+     "T8",
+     "80"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.identity",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_8_identity_98_1",
+     "m_mf_8_identity_98_2",
+     "m_mf_8_identity_98_3"
+    ]
+   },
+   "opts": [
+    "비밀번호와 별도 장치에서 얻은 일회용 코드",
+    "비밀번호와 PIN",
+    "서로 다른 비밀번호 두 개",
+    "PIN과 암기형 보안 질문"
+   ],
+   "ans": 0,
+   "a": "비밀번호와 별도 장치에서 얻은 일회용 코드",
+   "s": "<p>두 단계라는 사실보다 지식 요소와 소유 요소처럼 서로 다른 요소를 쓰는 것이 중요하다.</p>",
+   "why": [
+    "",
+    "기억하는 정보 두 종류를 서로 다른 요소라고 생각함",
+    "비밀번호 개수가 늘면 요소 종류가 늘어난다고 생각함",
+    "암기 정보의 형태가 다르면 요소가 다르다고 생각함"
+   ],
+   "no": "MF8-19",
+   "ext_id": "MF8-19"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "동일한 방식으로 인증한 두 직원에게 맡은 직무에 따라 서로 다른 시스템 접근 권한을 줄 수 있다.",
+   "src": [
+    [
+     "T8",
+     "75"
+    ],
+    [
+     "T8",
+     "76"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.identity",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>신원 확인의 성공이 해당 사용자의 직무별 권한을 동일하게 만드는 것은 아니다.</p>",
+   "no": "MF8-20",
+   "ext_id": "MF8-20"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": true,
+   "q": "의심스러운 네트워크 활동이나 침입 징후를 모니터링하고 경보를 내는 시스템의 약어는?",
+   "src": [
+    [
+     "T8",
+     "84"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.defense",
+    "depth": 1,
+    "family": "mis-final-8-defense",
+    "role": "base"
+   },
+   "a": "IDS",
+   "s": "<p>탐지와 경보가 침입탐지 시스템의 주된 역할이다.</p>",
+   "strict": true,
+   "accept": [
+    "IDS",
+    "Intrusion Detection System",
+    "침입탐지시스템",
+    "침입 탐지 시스템"
+   ],
+   "no": "MF8-21",
+   "ext_id": "MF8-21"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "네트워크 경계의 방화벽으로 트래픽을 통제하면 단말에서 실행되는 악성 소프트웨어를 탐지하는 기능까지 같은 방식으로 수행된다.",
+   "src": [
+    [
+     "T8",
+     "81"
+    ],
+    [
+     "T8",
+     "83"
+    ],
+    [
+     "T8",
+     "84"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.defense",
+    "depth": 3,
+    "mis": "m_mf_8_defense_101"
+   },
+   "ox": false,
+   "fix": "방화벽의 트래픽 통제와 안티멀웨어의 악성 소프트웨어 탐지·대응은 서로 다른 역할이다.",
+   "s": "<p>보호 위치와 통제 대상을 구별해야 여러 도구를 함께 쓰는 이유를 설명할 수 있다.</p><p>함정: 방화벽의 트래픽 통제와 안티멀웨어의 악성 소프트웨어 탐지·대응은 서로 다른 역할이다.</p>",
+   "no": "MF8-22",
+   "ext_id": "MF8-22"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "미리 정한 규칙으로 통신의 통과 여부를 정하는 기능과 의심 활동을 발견해 알리는 기능은 서로 보완할 수 있다.",
+   "src": [
+    [
+     "T8",
+     "81"
+    ],
+    [
+     "T8",
+     "84"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.defense",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>방화벽과 침입탐지시스템은 서로 다른 역할을 맡는다.</p>",
+   "no": "MF8-23",
+   "ext_id": "MF8-23"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "mc",
+   "star": false,
+   "q": "단말에 있는 파일이 알려진 악성 프로그램인지 검사하려 한다. 가장 직접적으로 맞는 도구는?",
+   "src": [
+    [
+     "T8",
+     "81"
+    ],
+    [
+     "T8",
+     "83"
+    ],
+    [
+     "T8",
+     "84"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.defense",
+    "depth": 3,
+    "mis": [
+     "m_mf_8_defense_103_1",
+     "",
+     "m_mf_8_defense_103_2",
+     "m_mf_8_defense_103_3"
+    ]
+   },
+   "opts": [
+    "방화벽",
+    "안티멀웨어",
+    "침입탐지시스템",
+    "전자 인증서"
+   ],
+   "ans": 1,
+   "a": "안티멀웨어",
+   "s": "<p>파일에서 악성 소프트웨어를 발견하고 대응하는 목적에 맞는다.</p>",
+   "why": [
+    "네트워크 경계 통제가 파일 검사와 같은 역할이라고 생각함",
+    "",
+    "침입 징후 탐지를 단말 악성 파일 검사와 같은 기능으로 생각함",
+    "신원 확인에 쓰는 인증서가 실행 파일을 검사한다고 생각함"
+   ],
+   "no": "MF8-24",
+   "ext_id": "MF8-24"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "공개키가 실제 해당 조직 또는 개인의 것인지 확인하는 데 쓰이는 전자 인증서를 발급하는 기관의 약어는?",
+   "src": [
+    [
+     "T8",
+     "90"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.crypto",
+    "depth": 1
+   },
+   "a": "CA",
+   "s": "<p>인증기관은 인증서에 담긴 신원과 공개키의 관계에 신뢰를 부여한다.</p>",
+   "strict": true,
+   "accept": [
+    "CA",
+    "Certificate Authority",
+    "Certification Authority",
+    "인증기관",
+    "인증 기관"
+   ],
+   "no": "MF8-25",
+   "ext_id": "MF8-25"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "공개키 방식과 인증기관이 발급하는 전자 인증서를 함께 활용하는 체계의 약어는?",
+   "src": [
+    [
+     "T8",
+     "91"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.crypto",
+    "depth": 1
+   },
+   "a": "PKI",
+   "s": "<p>공개키 활용에 필요한 신뢰를 인증서와 인증기관으로 뒷받침한다.</p>",
+   "strict": true,
+   "accept": [
+    "PKI",
+    "Public Key Infrastructure",
+    "공개키 인프라",
+    "공개 키 인프라"
+   ],
+   "no": "MF8-26",
+   "ext_id": "MF8-26"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "수신자만 읽도록 보내는 공개키 암호화 예에서 송신자는 자신의 공개키로 내용을 암호화한다.",
+   "src": [
+    [
+     "T8",
+     "88"
+    ],
+    [
+     "T8",
+     "89"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.crypto",
+    "depth": 3,
+    "mis": "m_mf_8_crypto_106"
+   },
+   "ox": false,
+   "fix": "수신자만 읽도록 하려면 수신자의 공개키로 암호화하고 그 수신자가 자기 개인키로 복호화한다.",
+   "s": "<p>메시지를 읽어야 하는 당사자가 해당 공개키와 짝인 개인키를 가지고 있어야 한다.</p><p>함정: 수신자만 읽도록 하려면 수신자의 공개키로 암호화하고 그 수신자가 자기 개인키로 복호화한다.</p>",
+   "no": "MF8-27",
+   "ext_id": "MF8-27"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "대칭키 방식에서는 송신자와 수신자가 같은 비밀 키를 안전하게 공유하는 문제가 생긴다.",
+   "src": [
+    [
+     "T8",
+     "86"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.crypto",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>암호화와 복호화에 같은 키를 쓰므로 그 키를 두 당사자가 안전하게 보유해야 한다.</p>",
+   "no": "MF8-28",
+   "ext_id": "MF8-28"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "essay",
+   "star": true,
+   "q": "협력사만 문서를 읽게 보내려는데 웹에서 찾은 공개키가 협력사의 것인지도 확인해야 한다. 암호화와 전자 인증서의 역할을 설명하시오.",
+   "src": [
+    [
+     "T8",
+     "86"
+    ],
+    [
+     "T8",
+     "88"
+    ],
+    [
+     "T8",
+     "89"
+    ],
+    [
+     "T8",
+     "90"
+    ],
+    [
+     "T8",
+     "91"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.crypto",
+    "depth": 4
+   },
+   "a": "<p>협력사의 공개키로 암호화하면 짝이 되는 개인키를 가진 협력사가 복호화할 수 있다. 신뢰할 수 있는 인증기관의 인증서를 통해 공개키가 의도한 협력사에 연결되어 있는지 검증한다.</p>",
+   "pts": [
+    "수신자의 공개키로 암호화",
+    "수신자의 개인키로 복호화",
+    "인증서로 신원과 공개키 연결 확인"
+   ],
+   "s": "<p>기밀성을 위한 암호화와 키의 소유자 확인은 서로 다른 문제를 해결한다.</p>",
+   "no": "MF8-29",
+   "ext_id": "MF8-29"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "정보를 클라우드에 맡길 때는 공급자의 보안 역량에 더해 기업 자체의 데이터 저장·접근 조건을 검토해야 한다.",
+   "src": [
+    [
+     "T8",
+     "93"
+    ],
+    [
+     "T8",
+     "94"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.cloudsec",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>물리적 환경의 관리 방식이 바뀌어도 보안 요구사항과 책임 범위의 확인은 남는다.</p>",
+   "no": "MF8-30",
+   "ext_id": "MF8-30"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "클라우드 공급자의 평판이 좋으면 어느 서비스에서 누가 보안 설정을 담당하는지 검토할 필요가 없다.",
+   "src": [
+    [
+     "T8",
+     "93"
+    ],
+    [
+     "T8",
+     "94"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.cloudsec",
+    "depth": 3,
+    "mis": "m_mf_8_cloudsec_110"
+   },
+   "ox": false,
+   "fix": "공급자의 역량과 함께 선택한 서비스에서의 관리 책임과 접근 조건을 검토해야 한다.",
+   "s": "<p>공급자의 평판만으로 고객 측 관리 의무와 서비스의 실제 설정을 알 수 없다.</p><p>함정: 공급자의 역량과 함께 선택한 서비스에서의 관리 책임과 접근 조건을 검토해야 한다.</p>",
+   "no": "MF8-31",
+   "ext_id": "MF8-31"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "업무용 모바일 기기를 분실했을 때에는 기기 자체의 가격과 별도로 접속 권한과 저장된 회사 정보의 위험이 발생한다.",
+   "src": [
+    [
+     "T8",
+     "95"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.cloudsec",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>모바일 도입의 보안에서는 단말에 든 데이터와 단말로 접근할 수 있는 시스템도 고려한다.</p>",
+   "no": "MF8-32",
+   "ext_id": "MF8-32"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "essay",
+   "star": true,
+   "q": "직원이 이동 중 휴대폰에서 외부 클라우드의 업무 자료를 열람한다. 서비스와 단말에서 각각 확인해야 할 방어 항목을 설명하시오.",
+   "src": [
+    [
+     "T8",
+     "93"
+    ],
+    [
+     "T8",
+     "94"
+    ],
+    [
+     "T8",
+     "95"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.cloudsec",
+    "depth": 4
+   },
+   "a": "<p>서비스에서는 데이터의 저장·접근 조건과 보안 관리 책임을 확인한다. 모바일 단말에서는 잠금이나 접근 통제, 분실 시 차단 또는 업무 데이터 보호 절차를 마련한다.</p>",
+   "pts": [
+    "클라우드 보안 책임",
+    "데이터 저장·접근 조건",
+    "단말의 분실 대응 또는 접근 통제"
+   ],
+   "s": "<p>외부 서비스에 저장된 정보도 권한이 있는 휴대폰을 통해 노출될 수 있다.</p>",
+   "no": "MF8-33",
+   "ext_id": "MF8-33"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "회사의 컴퓨팅 장비와 인터넷을 어떤 목적으로 어디까지 쓸 수 있는지 정하는 방침의 약어는?",
+   "src": [
+    [
+     "T8",
+     "63"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 1
+   },
+   "a": "AUP",
+   "s": "<p>회사 자원에 허용되는 사용 목적과 범위, 위반 시의 처리를 정할 수 있다.</p>",
+   "strict": true,
+   "accept": [
+    "AUP",
+    "Acceptable Use Policy",
+    "이용목적 제한 방침",
+    "이용 목적 제한 방침",
+    "허용 사용 정책"
+   ],
+   "no": "MF8-34",
+   "ext_id": "MF8-34"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "주문 담당자가 직접 누락 항목을 확인한다면 해당 통제는 수동 통제이면서 주문 처리 애플리케이션의 응용 통제일 수 있다.",
+   "src": [
+    [
+     "T8",
+     "59"
+    ],
+    [
+     "T8",
+     "60"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.control",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>수동·자동은 수행 방식, 일반·응용은 적용 범위를 나타낸다.</p>",
+   "no": "MF8-35",
+   "ext_id": "MF8-35"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "강의의 IDS는 경보만 내보낼 수 있으므로 위급 상황에서도 사전에 정의된 보안 조치를 수행할 수 없다.",
+   "src": [
+    [
+     "T8",
+     "84"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.defense",
+    "depth": 3,
+    "mis": "m_mf_8_defense_174",
+    "family": "mis-final-8-defense",
+    "role": "near",
+    "delta": [
+     "qualifier",
+     "탐지 이후의 처리를 경보로만 한정"
+    ]
+   },
+   "ox": false,
+   "fix": "강의의 IDS는 경보를 울리거나 위급할 때 사전에 정해진 보안 조치를 수행할 수 있다.",
+   "s": "<p>주된 기능인 탐지·알림과 탐지 뒤에 연동되는 대응을 구분한다.</p><p>함정: 강의의 IDS는 경보를 울리거나 위급할 때 사전에 정해진 보안 조치를 수행할 수 있다.</p>",
+   "no": "MF8-36",
+   "ext_id": "MF8-36"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "short",
+   "star": false,
+   "q": "개발자가 미처 인식하지 못하던 소프트웨어 결함이 발견되어, 대응할 시간이 거의 없는 상황의 취약성을 무엇이라 하는가?",
+   "src": [
+    [
+     "T8",
+     "44"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 1
+   },
+   "a": "제로 데이 취약성",
+   "s": "<p>강의는 개발자가 결함을 인지하고 대응하기 전 발생하는 보안 위험을 설명한다.</p>",
+   "strict": true,
+   "accept": [
+    "제로 데이 취약성",
+    "제로데이 취약성",
+    "제로 데이 취약점",
+    "제로데이 취약점",
+    "zero-day vulnerability",
+    "zero day vulnerability"
+   ],
+   "no": "MF8-37",
+   "ext_id": "MF8-37"
+  },
+  {
+   "chapter": "MISF8",
+   "kind": "ox",
+   "star": false,
+   "q": "사용자가 누른 키를 기록하는 악성 소프트웨어와 광고를 매개로 한 악성 활동은 강의에서 다른 유형으로 다룬다.",
+   "src": [
+    [
+     "T8",
+     "22"
+    ],
+    [
+     "T8",
+     "25"
+    ],
+    [
+     "T8",
+     "26"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.threat",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>키로거는 키 입력 기록이 핵심이고 멀버타이징은 광고를 매개로 한다.</p>",
+   "no": "MF8-38",
+   "ext_id": "MF8-38"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": true,
+   "q": "인사, 생산, 회계 등 기업 내부 자원과 프로세스를 통합 관리하는 전사적 시스템의 약어는?",
+   "src": [
+    [
+     "T9",
+     "21"
+    ],
+    [
+     "T9",
+     "22"
+    ],
+    [
+     "T9",
+     "23"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 1
+   },
+   "a": "ERP",
+   "s": "<p>여러 기능의 모듈을 연결해 기업 내부 데이터를 공유할 수 있게 한다.</p>",
+   "strict": true,
+   "accept": [
+    "ERP",
+    "Enterprise Resource Planning",
+    "전사적 자원 관리",
+    "전사적 자원관리"
+   ],
+   "no": "MF9-01",
+   "ext_id": "MF9-01"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "부서별 프로그램이 같은 회사의 제품이면, 데이터가 각자 분리되어 있어도 공통 데이터를 활용한 ERP 통합이 이루어진다.",
+   "src": [
+    [
+     "T9",
+     "21"
+    ],
+    [
+     "T9",
+     "23"
+    ],
+    [
+     "T9",
+     "26"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 3,
+    "mis": "m_mf_9_erp_114"
+   },
+   "ox": false,
+   "fix": "ERP 통합에는 업무 모듈 사이에서 공통 데이터를 사용하고 관련 프로세스를 연계하는 구조가 필요하다.",
+   "s": "<p>제품 이름이나 공급자가 같은 것만으로 업무 데이터가 통합되지는 않는다.</p><p>함정: ERP 통합에는 업무 모듈 사이에서 공통 데이터를 사용하고 관련 프로세스를 연계하는 구조가 필요하다.</p>",
+   "no": "MF9-02",
+   "ext_id": "MF9-02"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "영업이 입력한 주문을 생산과 회계도 공유하면 중복 입력을 줄이고 업무 간 조정을 돕는다.",
+   "src": [
+    [
+     "T9",
+     "23"
+    ],
+    [
+     "T9",
+     "24"
+    ],
+    [
+     "T9",
+     "26"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>부서 간 프로세스가 공유 데이터를 활용하면 같은 거래의 정보가 관련 업무로 연결된다.</p>",
+   "no": "MF9-03",
+   "ext_id": "MF9-03"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "mc",
+   "star": true,
+   "q": "회계·생산·인사 데이터의 전사적 공유가 주목적이고 고객 이력 조회는 부가 기능이다. 어느 분류가 가장 적절한가?",
+   "src": [
+    [
+     "T9",
+     "4"
+    ],
+    [
+     "T9",
+     "5"
+    ],
+    [
+     "T9",
+     "23"
+    ],
+    [
+     "T9",
+     "33"
+    ],
+    [
+     "T9",
+     "55"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 3,
+    "mis": [
+     "m_mf_9_erp_116_1",
+     "m_mf_9_erp_116_2",
+     "",
+     "m_mf_9_erp_116_3"
+    ]
+   },
+   "opts": [
+    "분석적 CRM 중심 시스템",
+    "SCM 중심 시스템",
+    "ERP 중심 시스템",
+    "고객 서비스에 특화된 CRM 시스템"
+   ],
+   "ans": 2,
+   "a": "ERP 중심 시스템",
+   "s": "<p>응용 프로그램 영역은 겹칠 수 있으므로 분류는 주된 업무 목적을 기준으로 한다.</p>",
+   "why": [
+    "고객 기능이 하나 있어도 CRM이 주목적이라고 생각함",
+    "생산 업무만 포함하면 공급사슬 관리가 주목적이라고 생각함",
+    "",
+    "고객 이력 조회만 보고 핵심 기능을 판단한다고 생각함"
+   ],
+   "no": "MF9-04",
+   "ext_id": "MF9-04"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "전사적 소프트웨어 도입 시 기업은 기존 업무 절차를 소프트웨어가 전제로 하는 절차와 맞출지 검토해야 한다.",
+   "src": [
+    [
+     "T9",
+     "25"
+    ],
+    [
+     "T9",
+     "74"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>여러 부서가 표준 프로세스를 함께 사용하려면 도입 과정에서 업무 변경과 조정이 발생할 수 있다.</p>",
+   "no": "MF9-05",
+   "ext_id": "MF9-05"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "essay",
+   "star": true,
+   "q": "구매와 생산 부서가 같은 품목 정보를 각각 관리하는 기업에서 ERP를 도입한다. 기대 효과 두 가지와 도입 과제 하나를 설명하시오.",
+   "src": [
+    [
+     "T9",
+     "21"
+    ],
+    [
+     "T9",
+     "23"
+    ],
+    [
+     "T9",
+     "25"
+    ],
+    [
+     "T9",
+     "26"
+    ],
+    [
+     "T9",
+     "74"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 4
+   },
+   "a": "<p>공통 데이터의 사용으로 이중 입력과 상이한 값이 줄고, 구매와 생산이 최신 주문·재고 자료를 공유해 조정하기 쉬워진다. 전환 전 품목과 업무 절차를 정리해 표준 프로세스에 맞춰야 한다.</p>",
+   "pts": [
+    "공통 데이터와 일관성",
+    "모듈 간 정보 공유·조정",
+    "업무 표준이나 전환 과정의 과제"
+   ],
+   "s": "<p>통합 효과는 소프트웨어 구매만으로 생기지 않고 데이터와 업무 기준을 함께 맞춰야 한다.</p>",
+   "no": "MF9-06",
+   "ext_id": "MF9-06"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": false,
+   "q": "공급자, 생산자, 유통 등 공급사슬 구성원과 관련 업무를 관리하는 시스템의 약어는?",
+   "src": [
+    [
+     "T9",
+     "33"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.scm",
+    "depth": 1
+   },
+   "a": "SCM",
+   "s": "<p>기업 내부뿐 아니라 공급사슬 구성원 사이의 흐름을 조정한다.</p>",
+   "strict": true,
+   "accept": [
+    "SCM",
+    "Supply Chain Management",
+    "공급사슬 관리",
+    "공급망 관리"
+   ],
+   "no": "MF9-07",
+   "ext_id": "MF9-07"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "공급사슬에서 제품이 고객 쪽으로 움직이는 것과 별개로 고객 주문 정보는 공급자 쪽으로 전달될 수 있다.",
+   "src": [
+    [
+     "T9",
+     "34"
+    ],
+    [
+     "T9",
+     "35"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.scm",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>물질·정보·자금의 흐름은 한 방향으로 고정되지 않는다.</p>",
+   "no": "MF9-08",
+   "ext_id": "MF9-08"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": true,
+   "q": "출하된 물품의 위치를 추적하는 일은 미래 수요를 전망하는 공급사슬 계획 기능이다.",
+   "src": [
+    [
+     "T9",
+     "37"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.scm",
+    "depth": 3,
+    "mis": "m_mf_9_scm_121",
+    "family": "mis-final-9-scm",
+    "role": "base"
+   },
+   "ox": false,
+   "fix": "출하된 물품의 위치 추적은 공급사슬 실행에 가깝고, 수요 예측은 계획 기능이다.",
+   "s": "<p>이미 진행 중인 물류를 관리하는 것과 앞으로의 수요·공급을 계획하는 것은 목적이 다르다.</p><p>함정: 출하된 물품의 위치 추적은 공급사슬 실행에 가깝고, 수요 예측은 계획 기능이다.</p>",
+   "no": "MF9-09",
+   "ext_id": "MF9-09"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "mc",
+   "star": true,
+   "q": "생산 전에 수요를 예측하고 계획을 세운 뒤, 출하가 시작되면 물품 이동을 관리한다. 두 기능의 순서는?",
+   "src": [
+    [
+     "T9",
+     "35"
+    ],
+    [
+     "T9",
+     "37"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.scm",
+    "depth": 3,
+    "mis": [
+     "m_mf_9_scm_122_1",
+     "m_mf_9_scm_122_2",
+     "m_mf_9_scm_122_3",
+     ""
+    ],
+    "family": "mis-final-9-scm",
+    "role": "near",
+    "delta": [
+     "repr",
+     "개별 작업을 두 단계 업무 흐름으로 표현"
+    ]
+   },
+   "opts": [
+    "공급사슬 실행 → 공급사슬 계획",
+    "공급사슬 실행 → 공급사슬 실행",
+    "공급사슬 계획 → 공급사슬 계획",
+    "공급사슬 계획 → 공급사슬 실행"
+   ],
+   "ans": 3,
+   "a": "공급사슬 계획 → 공급사슬 실행",
+   "s": "<p>예측과 일정 설정은 계획이고 실제 물품 이동 관리는 실행이다.</p>",
+   "why": [
+    "계획과 실행의 역할을 반대로 이해함",
+    "예측도 이미 진행 중인 물류 작업이라고 생각함",
+    "실제 물품 이동 관리도 미래 계획에 해당한다고 생각함",
+    ""
+   ],
+   "no": "MF9-10",
+   "ext_id": "MF9-10"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": false,
+   "q": "원재료 공급자와 그 공급자의 공급자처럼 생산 기업의 공급원 쪽을 가리키는 공급사슬 방향은?",
+   "src": [
+    [
+     "T9",
+     "35"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.scm",
+    "depth": 1
+   },
+   "a": "상류 공급사슬",
+   "s": "<p>공급망에서 원재료와 부품을 기업에 제공하는 방향이다.</p>",
+   "strict": true,
+   "accept": [
+    "상류 공급사슬",
+    "상류",
+    "upstream",
+    "upstream supply chain"
+   ],
+   "no": "MF9-11",
+   "ext_id": "MF9-11"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": true,
+   "q": "소매의 작은 수요 변화가 공급사슬 상류로 갈수록 더 큰 주문 변동으로 나타나는 현상은?",
+   "src": [
+    [
+     "T9",
+     "44"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 1,
+    "family": "mis-final-9-demand",
+    "role": "base"
+   },
+   "a": "채찍효과",
+   "s": "<p>각 구성원의 개별 수요 추정과 재고 결정이 상류의 변동을 키울 수 있다.</p>",
+   "strict": true,
+   "accept": [
+    "채찍효과",
+    "채찍 효과",
+    "bullwhip effect",
+    "황소 채찍 효과"
+   ],
+   "no": "MF9-12",
+   "ext_id": "MF9-12"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": false,
+   "q": "필요한 시점에 필요한 만큼 공급·생산하여 불필요한 재고를 줄이는 전략의 약어는?",
+   "src": [
+    [
+     "T9",
+     "43"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 1
+   },
+   "a": "JIT",
+   "s": "<p>적기에 필요한 자재를 공급해 재고 부담을 낮추므로 공급의 신뢰성이 중요하다.</p>",
+   "strict": true,
+   "accept": [
+    "JIT",
+    "Just in Time",
+    "Just-in-Time",
+    "적시생산",
+    "적시 생산",
+    "적시생산 전략"
+   ],
+   "no": "MF9-13",
+   "ext_id": "MF9-13"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "고객의 실제 주문을 확인한 뒤부터 해당 제품을 생산한다면 이 방식은 푸시 기반이다.",
+   "src": [
+    [
+     "T9",
+     "45"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 3,
+    "mis": "m_mf_9_demand_126"
+   },
+   "ox": false,
+   "fix": "실제 주문이 생산을 촉발하는 방식은 풀 기반이다.",
+   "s": "<p>예측을 출발점으로 미리 준비하는 푸시와 실제 주문이 출발점인 풀을 구분한다.</p><p>함정: 실제 주문이 생산을 촉발하는 방식은 풀 기반이다.</p>",
+   "no": "MF9-14",
+   "ext_id": "MF9-14"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "mc",
+   "star": true,
+   "q": "소매점 매출은 거의 일정하지만 유통업체와 제조업체로 갈수록 발주량이 요동한다. 이를 줄일 정보 개선은?",
+   "src": [
+    [
+     "T9",
+     "44"
+    ],
+    [
+     "T9",
+     "45"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_9_demand_127_1",
+     "m_mf_9_demand_127_2",
+     "m_mf_9_demand_127_3"
+    ],
+    "family": "mis-final-9-demand",
+    "role": "near",
+    "delta": [
+     "reverse",
+     "수요 변동의 원인에서 완화책으로 전환"
+    ]
+   },
+   "opts": [
+    "실제 판매 자료를 상류 구성원과 공유한다.",
+    "각 단계의 독립 예측만 더 자주 갱신한다.",
+    "상류가 소매 판매 대신 직전 단계의 변동 주문만 참고한다.",
+    "모든 단계가 실제 판매를 보지 않고 안전재고 배수를 높인다."
+   ],
+   "ans": 0,
+   "a": "실제 판매 자료를 상류 구성원과 공유한다.",
+   "s": "<p>실제 수요 신호가 공유되면 각 단계가 왜곡된 주문량을 수요로 오인할 가능성이 줄어든다.</p>",
+   "why": [
+    "",
+    "공통 수요를 보지 않아도 단계별 예측 빈도만 높이면 된다고 생각함",
+    "직전 단계 주문은 최종 판매와 같다고 생각함",
+    "추가 재고가 거래 정보의 왜곡을 해결한다고 생각함"
+   ],
+   "no": "MF9-15",
+   "ext_id": "MF9-15"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "재고를 줄이는 JIT를 적용하는 기업은 상류에서 자재를 필요한 때 받을 수 있는지도 고려해야 한다.",
+   "src": [
+    [
+     "T9",
+     "43"
+    ],
+    [
+     "T9",
+     "44"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>재고 완충이 줄어들면 적시에 공급받을 수 있는 조건이 중요하다.</p>",
+   "no": "MF9-16",
+   "ext_id": "MF9-16"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "essay",
+   "star": true,
+   "q": "수요 예측에 따라 만드는 범용 제품과 실제 주문 후 만드는 맞춤 제품이 있다. 모델을 각각 구분하고, 상류 주문 급증을 줄일 정보 공유 방안을 설명하시오.",
+   "src": [
+    [
+     "T9",
+     "43"
+    ],
+    [
+     "T9",
+     "44"
+    ],
+    [
+     "T9",
+     "45"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 4
+   },
+   "a": "<p>범용 제품의 생산은 예측이 촉발하므로 푸시, 맞춤 제품은 실제 주문이 촉발하므로 풀이다. 실제 고객 판매와 재고 정보를 참여 기업들이 공유하면 단계별 추정만으로 인한 주문 신호의 과장을 줄일 수 있다.</p>",
+   "pts": [
+    "푸시의 촉발 신호",
+    "풀의 촉발 신호",
+    "실제 자료 공유와 채찍효과의 관계"
+   ],
+   "s": "<p>제품의 맞춤 여부 자체보다 생산을 시작시키는 정보가 무엇인지가 분류 기준이다.</p>",
+   "no": "MF9-17",
+   "ext_id": "MF9-17"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": false,
+   "q": "고객 접점의 정보와 상호작용을 통합해 판매·서비스·마케팅을 지원하는 시스템의 약어는?",
+   "src": [
+    [
+     "T9",
+     "54"
+    ],
+    [
+     "T9",
+     "55"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 1
+   },
+   "a": "CRM",
+   "s": "<p>여러 부서의 고객 정보를 활용해 고객 관계 관리 활동을 수행한다.</p>",
+   "strict": true,
+   "accept": [
+    "CRM",
+    "Customer Relationship Management",
+    "고객관계관리",
+    "고객 관계 관리"
+   ],
+   "no": "MF9-18",
+   "ext_id": "MF9-18"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": false,
+   "q": "영업사원의 잠재 고객, 연락처, 상품 정보 및 영업 활동 관리를 지원하는 기능의 약어는?",
+   "src": [
+    [
+     "T9",
+     "58"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 1
+   },
+   "a": "SFA",
+   "s": "<p>영업 담당자의 반복 업무와 판매 활동 관리를 돕는 CRM 기능이다.</p>",
+   "strict": true,
+   "accept": [
+    "SFA",
+    "Sales Force Automation",
+    "영업자동화",
+    "영업 자동화",
+    "영업자동화 시스템"
+   ],
+   "no": "MF9-19",
+   "ext_id": "MF9-19"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": true,
+   "q": "고객의 문의를 상담원에게 배정하는 일은 고객 패턴을 분석하는 분석적 CRM의 대표 기능이다.",
+   "src": [
+    [
+     "T9",
+     "56"
+    ],
+    [
+     "T9",
+     "59"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 3,
+    "mis": "m_mf_9_crm_132",
+    "family": "mis-final-9-crm",
+    "role": "base"
+   },
+   "ox": false,
+   "fix": "고객 문의 배정은 고객 접점의 업무를 지원하는 운영적 CRM에 해당한다.",
+   "s": "<p>고객 요청을 처리하는 기능과 고객 데이터를 분석하는 기능을 구분한다.</p><p>함정: 고객 문의 배정은 고객 접점의 업무를 지원하는 운영적 CRM에 해당한다.</p>",
+   "no": "MF9-20",
+   "ext_id": "MF9-20"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "mc",
+   "star": true,
+   "q": "고객 구매 기록을 분석해 어떤 제품을 함께 추천할지 정하고, 다음 통화에서 상담원이 그 제안을 전달한다. 두 단계의 순서는?",
+   "src": [
+    [
+     "T9",
+     "56"
+    ],
+    [
+     "T9",
+     "61"
+    ],
+    [
+     "T9",
+     "62"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 3,
+    "mis": [
+     "m_mf_9_crm_133_1",
+     "",
+     "m_mf_9_crm_133_2",
+     "m_mf_9_crm_133_3"
+    ],
+    "family": "mis-final-9-crm",
+    "role": "near",
+    "delta": [
+     "repr",
+     "한 접점 업무를 분석·운영 순서로 제시"
+    ]
+   },
+   "opts": [
+    "운영적 CRM → 분석적 CRM",
+    "분석적 CRM → 운영적 CRM",
+    "분석적 CRM → 분석적 CRM",
+    "운영적 CRM → 운영적 CRM"
+   ],
+   "ans": 1,
+   "a": "분석적 CRM → 운영적 CRM",
+   "s": "<p>기록으로부터 추천 근거를 만드는 단계는 분석이고, 상담 접점에서 제안하는 단계는 운영이다.</p>",
+   "why": [
+    "고객 접점과 고객 분석을 반대로 해석함",
+    "",
+    "고객에게 제안을 전달하는 것까지 데이터 분석이라고 생각함",
+    "구매 패턴 분석도 접점 업무라고 생각함"
+   ],
+   "no": "MF9-21",
+   "ext_id": "MF9-21"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "운영적 CRM이 모은 고객 거래·접점 자료는 분석적 CRM의 입력이 될 수 있다.",
+   "src": [
+    [
+     "T9",
+     "56"
+    ],
+    [
+     "T9",
+     "64"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>업무 수행 중 쌓인 데이터는 고객 세분화와 관계 관리 분석에 활용될 수 있다.</p>",
+   "no": "MF9-22",
+   "ext_id": "MF9-22"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "essay",
+   "star": true,
+   "q": "같은 고객이 온라인과 매장에서 구매하고 서비스 전화도 한다. 고객 정보가 분리돼 있을 때 생기는 문제와 운영적·분석적 CRM의 대응을 설명하시오.",
+   "src": [
+    [
+     "T9",
+     "55"
+    ],
+    [
+     "T9",
+     "56"
+    ],
+    [
+     "T9",
+     "59"
+    ],
+    [
+     "T9",
+     "61"
+    ],
+    [
+     "T9",
+     "62"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 4
+   },
+   "a": "<p>접점별 기록이 나뉘면 상담원이 전체 이력을 놓치고 마케팅도 고객 행동을 부분적으로만 본다. 운영적 CRM으로 접점 업무와 이력을 연계하고, 분석적 CRM으로 통합 자료에서 고객군과 구매 패턴을 찾아 제안을 개선한다.</p>",
+   "pts": [
+    "접점별 기록 분리의 문제",
+    "운영적 CRM 대응",
+    "분석적 CRM 대응"
+   ],
+   "s": "<p>고객 관계는 접점에서 실행되고, 그 과정의 데이터가 분석으로 다시 활용된다.</p>",
+   "no": "MF9-23",
+   "ext_id": "MF9-23"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "short",
+   "star": false,
+   "q": "고객이 구매한 상품과 관련된 다른 상품을 함께 권하는 판매 방식은?",
+   "src": [
+    [
+     "T9",
+     "62"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.retain",
+    "depth": 1
+   },
+   "a": "교차 판매",
+   "s": "<p>관심이나 필요가 연결된 제품을 추가로 제안한다.</p>",
+   "strict": true,
+   "accept": [
+    "교차 판매",
+    "교차판매",
+    "cross-selling",
+    "cross selling"
+   ],
+   "no": "MF9-24",
+   "ext_id": "MF9-24"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "다른 서비스로 옮기는 과정에서 이전 자료를 옮기고 새 사용법을 익혀야 하는 부담은 전환비용이 될 수 있다.",
+   "src": [
+    [
+     "T9",
+     "66"
+    ],
+    [
+     "T9",
+     "67"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.retain",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>전환비용은 지불하는 돈에 더해 시간과 학습 노력 같은 부담을 포함한다.</p>",
+   "no": "MF9-25",
+   "ext_id": "MF9-25"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "이미 구매한 책의 관련 워크북을 추천하는 것은 원래 책을 더 비싼 버전으로 바꾸는 제안이다.",
+   "src": [
+    [
+     "T9",
+     "62"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.retain",
+    "depth": 3,
+    "mis": "m_mf_9_retain_138"
+   },
+   "ox": false,
+   "fix": "관련 워크북을 추가 제안하는 방식은 교차 판매이며 원래 상품의 상위 버전으로 바꾸는 것과 다르다.",
+   "s": "<p>교차 판매의 판단 기준은 원래 상품과 관련된 별도 상품을 더 권하는 것이다.</p><p>함정: 관련 워크북을 추가 제안하는 방식은 교차 판매이며 원래 상품의 상위 버전으로 바꾸는 것과 다르다.</p>",
+   "no": "MF9-26",
+   "ext_id": "MF9-26"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "부서마다 업무 방식이 다른 조직에서 전사적 애플리케이션을 도입하면 기술 설치 외에 데이터와 업무 절차의 조정도 필요할 수 있다.",
+   "src": [
+    [
+     "T9",
+     "74"
+    ],
+    [
+     "T9",
+     "75"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.retain",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>통합의 범위가 넓으면 기존 업무의 변경과 조직적 도입 비용이 커질 수 있다.</p>",
+   "no": "MF9-27",
+   "ext_id": "MF9-27"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "ox",
+   "star": false,
+   "q": "전사적 앱의 구매 비용을 감당할 수 있다면 구현에 필요한 프로세스 재설계나 추가 구매 시의 공급업체 의존성은 투자 평가에서 생략해도 된다.",
+   "src": [
+    [
+     "T9",
+     "74"
+    ],
+    [
+     "T9",
+     "75"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 3,
+    "mis": "m_mf_9_erp_175"
+   },
+   "ox": false,
+   "fix": "전사적 앱은 구매 외에도 구현·조직 변화 비용 및 장기적인 벤더 의존성을 평가해야 한다.",
+   "s": "<p>도입 시점의 지출만으로 전환과 후속 운영의 비용을 알 수 없다.</p><p>함정: 전사적 앱은 구매 외에도 구현·조직 변화 비용 및 장기적인 벤더 의존성을 평가해야 한다.</p>",
+   "no": "MF9-28",
+   "ext_id": "MF9-28"
+  },
+  {
+   "chapter": "MISF9",
+   "kind": "mc",
+   "star": true,
+   "q": "업체를 옮기면서 지불한 신규 라이선스 요금, 직원이 새 시스템 사용법을 익히는 시간, 기존 공급사와의 신뢰 관계를 잃는 부담을 순서대로 분류하면?",
+   "src": [
+    [
+     "T9",
+     "66"
+    ],
+    [
+     "T9",
+     "67"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.retain",
+    "depth": 3,
+    "mis": [
+     "m_mf_9_retain_186_1",
+     "m_mf_9_retain_186_2",
+     "m_mf_9_retain_186_3",
+     ""
+    ]
+   },
+   "opts": [
+    "절차적 → 재무적 → 관계적 비용",
+    "재무적 → 관계적 → 절차적 비용",
+    "관계적 → 절차적 → 재무적 비용",
+    "재무적 → 절차적 → 관계적 비용"
+   ],
+   "ans": 3,
+   "a": "재무적 → 절차적 → 관계적 비용",
+   "s": "<p>직접 지출, 전환 절차에서의 시간·노력, 기존 관계 상실은 서로 다른 전환비용이다.</p>",
+   "why": [
+    "직접 지출과 새 절차를 익히는 부담을 반대로 봄",
+    "사용법 학습을 기존 관계 상실과 혼동함",
+    "새 제품에 지불한 돈을 관계 손실로 생각함",
+    ""
+   ],
+   "no": "MF9-29",
+   "ext_id": "MF9-29"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "상품 가격을 변경하고 새 가격을 소비자에게 알리는 데 드는 비용은?",
+   "src": [
+    [
+     "T10",
+     "16"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 1
+   },
+   "a": "메뉴 비용",
+   "s": "<p>가격 자체의 수준이 아니라 가격을 바꾸는 과정에서 드는 비용이다.</p>",
+   "strict": true,
+   "accept": [
+    "메뉴 비용",
+    "메뉴비용",
+    "menu cost",
+    "menu costs"
+   ],
+   "no": "MF10-01",
+   "ext_id": "MF10-01"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "수요나 시장 상황의 변화에 따라 판매 가격을 유동적으로 바꾸는 방식은?",
+   "src": [
+    [
+     "T10",
+     "17"
+    ],
+    [
+     "T10",
+     "18"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 1
+   },
+   "a": "동적 가격 결정",
+   "s": "<p>수요와 공급 조건의 변화를 가격 결정에 반영한다.</p>",
+   "strict": true,
+   "accept": [
+    "동적 가격 결정",
+    "동적가격결정",
+    "동적 가격결정",
+    "dynamic pricing"
+   ],
+   "no": "MF10-02",
+   "ext_id": "MF10-02"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "비교 사이트에서 판매 조건을 쉽게 확인할 수 있게 되면 거래 당사자 사이의 정보 불균형이 반드시 완전히 사라진다.",
+   "src": [
+    [
+     "T10",
+     "15"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 3,
+    "mis": "m_mf_10_market_142"
+   },
+   "ox": false,
+   "fix": "온라인 비교는 정보 격차를 줄일 수 있지만 품질 등 관찰하기 어려운 정보가 남을 수 있다.",
+   "s": "<p>정보 탐색이 쉬워지는 것과 모든 관련 정보를 양쪽이 똑같이 아는 것은 다르다.</p><p>함정: 온라인 비교는 정보 격차를 줄일 수 있지만 품질 등 관찰하기 어려운 정보가 남을 수 있다.</p>",
+   "no": "MF10-03",
+   "ext_id": "MF10-03"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "온라인 가격 표시를 저렴하게 수정할 수 있으면 시장 상황 변화에 따라 가격을 조정하기 쉽다.",
+   "src": [
+    [
+     "T10",
+     "16"
+    ],
+    [
+     "T10",
+     "17"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>변경 비용 절감은 가격을 더 자주 조정할 여지를 높인다.</p>",
+   "no": "MF10-04",
+   "ext_id": "MF10-04"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "mc",
+   "star": true,
+   "q": "제조사가 기존 도매상과 소매점을 거치던 상품을 자체 웹사이트에서 직접 판매한다. 이 변화의 이름은?",
+   "src": [
+    [
+     "T10",
+     "15"
+    ],
+    [
+     "T10",
+     "16"
+    ],
+    [
+     "T10",
+     "17"
+    ],
+    [
+     "T10",
+     "19"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 3,
+    "mis": [
+     "m_mf_10_market_144_1",
+     "m_mf_10_market_144_2",
+     "",
+     "m_mf_10_market_144_3"
+    ]
+   },
+   "opts": [
+    "정보 불균형",
+    "동적 가격 결정",
+    "중개 소멸",
+    "메뉴 비용"
+   ],
+   "ans": 2,
+   "a": "중개 소멸",
+   "s": "<p>기존에 거래를 연결하던 중간 단계가 줄어들었다.</p>",
+   "why": [
+    "중개 단계가 줄어드는 것을 당사자의 정보 차이로 생각함",
+    "직접 판매만으로 가격이 수요 따라 바뀐다고 생각함",
+    "",
+    "중간 유통요원의 축소가 가격 변경 비용과 같은 개념이라고 생각함"
+   ],
+   "no": "MF10-05",
+   "ext_id": "MF10-05"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "다운로드 가능한 음원, 전자책, 소프트웨어처럼 디지털 네트워크를 통해 전달되는 상품의 분류는?",
+   "src": [
+    [
+     "T10",
+     "20"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.digital",
+    "depth": 1
+   },
+   "a": "디지털 제품",
+   "s": "<p>구매 절차뿐 아니라 상품 자체도 디지털 형태로 전달된다.</p>",
+   "strict": true,
+   "accept": [
+    "디지털 제품",
+    "digital goods",
+    "digital good",
+    "디지털 상품",
+    "디지털 재화"
+   ],
+   "no": "MF10-06",
+   "ext_id": "MF10-06"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": true,
+   "q": "디지털 상품의 첫 번째 버전은 제작비가 클 수 있지만 완성본의 추가 사본을 만드는 비용은 낮을 수 있다.",
+   "src": [
+    [
+     "T10",
+     "20"
+    ],
+    [
+     "T10",
+     "21"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.digital",
+    "depth": 2,
+    "family": "mis-final-10-digital",
+    "role": "base"
+   },
+   "ox": true,
+   "s": "<p>초판 제작 비용과 추가 1개를 복제하는 비용은 서로 다른 비용이다.</p>",
+   "no": "MF10-07",
+   "ext_id": "MF10-07"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": true,
+   "q": "온라인으로 주문한 실물 책은 결제가 디지털로 이루어지므로 배송이 필요한 실물 상품도 전자책과 같은 디지털 제품이다.",
+   "src": [
+    [
+     "T10",
+     "20"
+    ],
+    [
+     "T10",
+     "21"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.digital",
+    "depth": 3,
+    "mis": "m_mf_10_digital_147",
+    "family": "mis-final-10-digital",
+    "role": "near",
+    "delta": [
+     "object",
+     "디지털 상품을 온라인 주문 실물로 변경"
+    ]
+   },
+   "ox": false,
+   "fix": "실물 책의 주문 방식이 온라인이어도 전달되는 상품은 실물이며 전자책은 디지털로 전달된다.",
+   "s": "<p>전자상거래 여부와 상품 자체의 형태를 구분해야 한다.</p><p>함정: 실물 책의 주문 방식이 온라인이어도 전달되는 상품은 실물이며 전자책은 디지털로 전달된다.</p>",
+   "no": "MF10-08",
+   "ext_id": "MF10-08"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "essay",
+   "star": true,
+   "q": "온라인 서점이 종이책과 같은 내용의 전자책을 판매한다. 추가 사본 비용과 판매 가격을 바꾸는 비용이 어떻게 다른지 설명하시오.",
+   "src": [
+    [
+     "T10",
+     "16"
+    ],
+    [
+     "T10",
+     "20"
+    ],
+    [
+     "T10",
+     "21"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.digital",
+    "depth": 4
+   },
+   "a": "<p>전자책은 완성본의 추가 복제에 드는 비용이 낮지만 첫 버전 제작비는 들 수 있다. 종이책의 추가 판매에는 물리적 생산·배송 등이 필요하다. 메뉴 비용은 온라인에 표시된 가격을 변경하는 비용으로, 사본 하나를 더 만드는 비용과 별개다.</p>",
+   "pts": [
+    "전자책의 추가 사본 복제비와 초판 제작비 구분",
+    "종이책의 물리 생산·배송",
+    "메뉴 비용을 가격 변경 비용으로 설명"
+   ],
+   "s": "<p>상품을 한 부 더 공급하는 비용과 이미 표시한 가격을 바꾸는 비용이 다르다.</p>",
+   "no": "MF10-09",
+   "ext_id": "MF10-09"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "소비자 개인이 다른 소비자 개인에게 중고 물건을 파는 거래 유형의 약어는?",
+   "src": [
+    [
+     "T10",
+     "24"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.business",
+    "depth": 1
+   },
+   "a": "C2C",
+   "s": "<p>거래 당사자 둘 다 소비자다. 연결 플랫폼이 회사여도 해당 개인 간 거래의 당사자는 변하지 않는다.</p>",
+   "strict": true,
+   "accept": [
+    "C2C",
+    "Consumer to Consumer",
+    "Consumer-to-Consumer",
+    "소비자 간 거래",
+    "개인 간 거래"
+   ],
+   "no": "MF10-10",
+   "ext_id": "MF10-10"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "개인끼리 중고품을 거래하더라도 이를 연결하는 서비스 운영사가 회사라면 개인들의 거래 유형은 B2C다.",
+   "src": [
+    [
+     "T10",
+     "24"
+    ],
+    [
+     "T10",
+     "33"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.business",
+    "depth": 3,
+    "mis": "m_mf_10_business_150"
+   },
+   "ox": false,
+   "fix": "거래 유형은 물건을 사고파는 당사자를 기준으로 하므로 이 개인 간 거래는 C2C다.",
+   "s": "<p>거래 상대방과 거래 환경을 제공하는 사업자를 구별한다.</p><p>함정: 거래 유형은 물건을 사고파는 당사자를 기준으로 하므로 이 개인 간 거래는 C2C다.</p>",
+   "no": "MF10-11",
+   "ext_id": "MF10-11"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "mc",
+   "star": true,
+   "q": "독립 판매자 다수가 등록한 제품을 비교할 수 있게 하고 구매자와 판매자가 만나도록 운영하는 서비스의 모델은?",
+   "src": [
+    [
+     "T10",
+     "30"
+    ],
+    [
+     "T10",
+     "32"
+    ],
+    [
+     "T10",
+     "33"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.business",
+    "depth": 3,
+    "mis": [
+     "m_mf_10_business_151_1",
+     "m_mf_10_business_151_2",
+     "m_mf_10_business_151_3",
+     ""
+    ]
+   },
+   "opts": [
+    "온라인 리테일러",
+    "콘텐츠 제공자",
+    "포털",
+    "시장 생성자"
+   ],
+   "ans": 3,
+   "a": "시장 생성자",
+   "s": "<p>핵심 기능은 제삼자 판매자와 구매자 간의 시장을 형성하는 것이다.</p>",
+   "why": [
+    "판매자와 구매자를 연결하는 사업자가 직접 상품을 소매한다고 생각함",
+    "상품 목록 제공을 콘텐츠 자체의 제공으로 생각함",
+    "검색 기능이 있으면 핵심 사업이 포털이라고 생각함",
+    ""
+   ],
+   "no": "MF10-12",
+   "ext_id": "MF10-12"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "영상이나 음악 등 콘텐츠를 제공하는 모델과 관심사가 비슷한 사람들이 교류하게 하는 커뮤니티 모델은 제공 가치에서 차이가 난다.",
+   "src": [
+    [
+     "T10",
+     "27"
+    ],
+    [
+     "T10",
+     "31"
+    ],
+    [
+     "T10",
+     "34"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.business",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>콘텐츠 소비와 참여자 간 상호작용을 무엇이 중심인지 기준으로 구분할 수 있다.</p>",
+   "no": "MF10-13",
+   "ext_id": "MF10-13"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "전통적으로 대면이나 전화로 처리하던 고객 거래를 온라인으로 처리해 주는 중개형 비즈니스 모델은?",
+   "src": [
+    [
+     "T10",
+     "32"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.business",
+    "depth": 1
+   },
+   "a": "거래 중개자",
+   "s": "<p>고객 대신 거래 절차를 처리하는 것이 중심이다.</p>",
+   "strict": true,
+   "accept": [
+    "거래 중개자",
+    "거래중개자",
+    "transaction broker",
+    "거래 중개인",
+    "거래 중개업체"
+   ],
+   "no": "MF10-14",
+   "ext_id": "MF10-14"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "서비스에 계속 접근하려고 고객이 일정 주기마다 이용료를 내는 방식은?",
+   "src": [
+    [
+     "T10",
+     "39"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 1
+   },
+   "a": "구독 수익 모델",
+   "s": "<p>이용 기간에 대한 정기적 대가가 핵심이다.</p>",
+   "strict": true,
+   "accept": [
+    "구독 수익 모델",
+    "subscription revenue model",
+    "구독 모델",
+    "구독형 수익 모델"
+   ],
+   "no": "MF10-15",
+   "ext_id": "MF10-15"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "기본 기능은 무료로 두고 추가 기능을 원하는 고객에게 요금을 받는 모델은?",
+   "src": [
+    [
+     "T10",
+     "41"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 1
+   },
+   "a": "프리미엄 수익 모델",
+   "s": "<p>무료 서비스로 이용자를 모으고 일부의 유료 전환으로 수익을 얻는다.</p>",
+   "strict": true,
+   "accept": [
+    "프리미엄 수익 모델",
+    "freemium",
+    "freemium revenue model",
+    "무료 프리미엄 수익 모델",
+    "무료/프리미엄 수익 모델",
+    "프리미엄 모델"
+   ],
+   "no": "MF10-16",
+   "ext_id": "MF10-16"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": true,
+   "q": "판매 거래가 성사될 때 판매액의 일부를 받는 수익은, 거래 전에 광고를 노출하고 받는 수익과 같은 모델이다.",
+   "src": [
+    [
+     "T10",
+     "37"
+    ],
+    [
+     "T10",
+     "42"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 3,
+    "mis": "m_mf_10_revenue_156",
+    "family": "mis-final-10-revenue",
+    "role": "base"
+   },
+   "ox": false,
+   "fix": "거래 성사에 따른 수익은 거래 수수료이고 광고 노출 등에 대한 수익은 광고 수익이다.",
+   "s": "<p>대가를 발생시키는 활동이 무엇인지 확인한다.</p><p>함정: 거래 성사에 따른 수익은 거래 수수료이고 광고 노출 등에 대한 수익은 광고 수익이다.</p>",
+   "no": "MF10-17",
+   "ext_id": "MF10-17"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "mc",
+   "star": true,
+   "q": "블로그의 추천 링크를 눌러 별도 쇼핑몰에서 구입하면 쇼핑몰이 블로그 운영자에게 보상한다. 블로그의 수익 모델은?",
+   "src": [
+    [
+     "T10",
+     "37"
+    ],
+    [
+     "T10",
+     "42"
+    ],
+    [
+     "T10",
+     "43"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_10_revenue_157_1",
+     "m_mf_10_revenue_157_2",
+     "m_mf_10_revenue_157_3"
+    ],
+    "family": "mis-final-10-revenue",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "거래 성사 수익을 외부 제휴와 비교"
+    ]
+   },
+   "opts": [
+    "제휴 수익",
+    "거래 수수료 수익",
+    "구독 수익",
+    "판매 수익"
+   ],
+   "ans": 0,
+   "a": "제휴 수익",
+   "s": "<p>블로그가 다른 사이트로 방문자를 유도하고 그 성과에 대해 보상받는다.</p>",
+   "why": [
+    "",
+    "외부 사이트 소개 성과를 직접 거래 처리가 만든 수수료로 생각함",
+    "구매 건별 보상을 정기 구독료로 생각함",
+    "추천한 운영자가 상품을 직접 판매한다고 생각함"
+   ],
+   "no": "MF10-18",
+   "ext_id": "MF10-18"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "콘텐츠 서비스가 광고주에게 노출료를 받고 일부 이용자에게는 정기 구독료를 받는다면 두 수익 모델이 함께 존재한다.",
+   "src": [
+    [
+     "T10",
+     "27"
+    ],
+    [
+     "T10",
+     "36"
+    ],
+    [
+     "T10",
+     "37"
+    ],
+    [
+     "T10",
+     "39"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>하나의 비즈니스 모델이 복수의 방식으로 수익을 낼 수 있다.</p>",
+   "no": "MF10-19",
+   "ext_id": "MF10-19"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "essay",
+   "star": true,
+   "q": "시장 플랫폼이 판매자 주문 성사 수수료, 배너 광고비, 판매자 정기 이용료를 각각 받는다. 세 수익을 구별하고 비즈니스 모델과의 관계를 설명하시오.",
+   "src": [
+    [
+     "T10",
+     "33"
+    ],
+    [
+     "T10",
+     "37"
+    ],
+    [
+     "T10",
+     "39"
+    ],
+    [
+     "T10",
+     "42"
+    ],
+    [
+     "T10",
+     "43"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 4
+   },
+   "a": "<p>주문 성사에 따른 대가는 거래 수수료, 배너의 노출 대가는 광고 수익, 기간마다 받는 이용료는 구독 수익이다. 세 수익원이 함께 있어도 구매자와 판매자가 만나는 거래 장을 제공하는 핵심 기능은 시장 생성이다.</p>",
+   "pts": [
+    "거래 수수료 기준",
+    "광고 수익 기준",
+    "구독 수익 기준",
+    "시장 생성이라는 제공 가치와 수익의 구분"
+   ],
+   "s": "<p>사업이 제공하는 가치와 그 가치에서 수익을 얻는 방식을 분리해 분석한다.</p>",
+   "no": "MF10-20",
+   "ext_id": "MF10-20"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "개별 판매량은 적지만 제품 종류가 많아 합산 수요가 의미 있는 시장을 활용하는 마케팅은?",
+   "src": [
+    [
+     "T10",
+     "49"
+    ],
+    [
+     "T10",
+     "50"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 1
+   },
+   "a": "롱테일 마케팅",
+   "s": "<p>소수 인기 상품 외에 다수 틈새 품목의 수요를 합산해 활용한다.</p>",
+   "strict": true,
+   "accept": [
+    "롱테일 마케팅",
+    "long tail marketing",
+    "long-tail marketing",
+    "롱 테일 마케팅"
+   ],
+   "no": "MF10-21",
+   "ext_id": "MF10-21"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": true,
+   "q": "이용자가 방문하거나 검색한 기록 등 온라인 행동을 토대로 광고 대상을 선택하는 기법은?",
+   "src": [
+    [
+     "T10",
+     "51"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 1,
+    "family": "mis-final-10-marketing",
+    "role": "base"
+   },
+   "a": "행위 타게팅",
+   "s": "<p>온라인 이용 행태를 광고 대상 선정에 활용한다.</p>",
+   "strict": true,
+   "accept": [
+    "행위 타게팅",
+    "행위 타기팅",
+    "행동 타게팅",
+    "행동 타기팅",
+    "behavioral targeting",
+    "behavioural targeting"
+   ],
+   "no": "MF10-22",
+   "ext_id": "MF10-22"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "롱테일 전략은 틈새 제품을 전부 버리고 상위 인기 상품에만 집중하는 전략이다.",
+   "src": [
+    [
+     "T10",
+     "49"
+    ],
+    [
+     "T10",
+     "50"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 3,
+    "mis": "m_mf_10_marketing_162"
+   },
+   "ox": false,
+   "fix": "롱테일 전략은 개별 수요가 작은 다양한 틈새 상품의 총수요도 활용한다.",
+   "s": "<p>인기 상품이 큰 비중을 차지하더라도 나머지 품목의 합산 기회가 사라지는 것은 아니다.</p><p>함정: 롱테일 전략은 개별 수요가 작은 다양한 틈새 상품의 총수요도 활용한다.</p>",
+   "no": "MF10-23",
+   "ext_id": "MF10-23"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "mc",
+   "star": true,
+   "q": "현재 페이지의 일반 게시물과 유사한 모양으로 광고가 제시되지만 이용자의 과거 방문 자료는 쓰지 않는다. 확인되는 특성은?",
+   "src": [
+    [
+     "T10",
+     "51"
+    ],
+    [
+     "T10",
+     "54"
+    ],
+    [
+     "T10",
+     "57"
+    ],
+    [
+     "T10",
+     "58"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 3,
+    "mis": [
+     "m_mf_10_marketing_163_1",
+     "",
+     "m_mf_10_marketing_163_2",
+     "m_mf_10_marketing_163_3"
+    ],
+    "family": "mis-final-10-marketing",
+    "role": "near",
+    "delta": [
+     "neighbour",
+     "광고 대상 선정과 광고 표시 형식 비교"
+    ]
+   },
+   "opts": [
+    "행위 타게팅",
+    "네이티브 광고 형식",
+    "롱테일 상품 구성",
+    "제휴 수익 정산"
+   ],
+   "ans": 1,
+   "a": "네이티브 광고 형식",
+   "s": "<p>네이티브는 제시 형식, 행위 타게팅은 대상을 선정하는 데이터에 관한 특성이다.</p>",
+   "why": [
+    "게시물에 자연스럽게 섞인 광고라면 행동 이력을 썼다고 생각함",
+    "",
+    "광고 표시 형식을 틈새 상품 전략으로 생각함",
+    "광고 모양만으로 유입 실적의 보상 방식을 알 수 있다고 생각함"
+   ],
+   "no": "MF10-24",
+   "ext_id": "MF10-24"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "광고비를 노출 횟수로 지불하는 방식과 실제 클릭 횟수로 지불하는 방식은 과금 기준이 다르다.",
+   "src": [
+    [
+     "T10",
+     "55"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>노출은 화면에 나타나는 사건이고 클릭은 이용자가 실제로 선택하는 사건이다.</p>",
+   "no": "MF10-25",
+   "ext_id": "MF10-25"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "short",
+   "star": false,
+   "q": "온라인 광고에서 이용자의 클릭 1회당 비용을 뜻하는 약어는?",
+   "src": [
+    [
+     "T10",
+     "55"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 1
+   },
+   "a": "CPC",
+   "s": "<p>광고가 화면에 노출된 횟수와 구분하여 사용자가 클릭한 횟수를 기준으로 계산한다.</p>",
+   "strict": true,
+   "accept": [
+    "CPC",
+    "Cost Per Click",
+    "Cost-Per-Click",
+    "클릭당 비용",
+    "클릭당 광고비"
+   ],
+   "no": "MF10-26",
+   "ext_id": "MF10-26"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "mc",
+   "star": true,
+   "q": "클릭이 있었더라도 회원가입을 마치지 않으면 광고주가 요금을 내지 않기로 했다. 어떤 방식인가?",
+   "src": [
+    [
+     "T10",
+     "54"
+    ],
+    [
+     "T10",
+     "55"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_10_marketing_176_1",
+     "m_mf_10_marketing_176_2",
+     "m_mf_10_marketing_176_3"
+    ]
+   },
+   "opts": [
+    "CPA",
+    "CPM",
+    "CPC",
+    "구독 수익"
+   ],
+   "ans": 0,
+   "a": "CPA",
+   "s": "<p>과금 기준이 노출이나 클릭보다 뒤에 있는 구체적인 사용자 행동이다.</p>",
+   "why": [
+    "",
+    "광고가 보인 때마다 비용이 청구된다고 생각함",
+    "사이트로 이동한 클릭만으로 과금 조건을 충족한다고 생각함",
+    "행동 성과에 따른 대가를 정기 이용료로 해석함"
+   ],
+   "no": "MF10-27",
+   "ext_id": "MF10-27"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "추가 사본의 복제 비용이 낮은 디지털 상품은 판매량이 적더라도 최초 버전의 제작비를 회수할 필요가 없다.",
+   "src": [
+    [
+     "T10",
+     "20"
+    ],
+    [
+     "T10",
+     "21"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.digital",
+    "depth": 3,
+    "mis": "m_mf_10_digital_177"
+   },
+   "ox": false,
+   "fix": "추가 복제 비용이 낮아도 이미 발생한 제작비는 총비용에 남는다.",
+   "s": "<p>낮은 한계비용이 초기 제작 비용을 없애지는 않는다.</p><p>함정: 추가 복제 비용이 낮아도 이미 발생한 제작비는 총비용에 남는다.</p>",
+   "no": "MF10-28",
+   "ext_id": "MF10-28"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "mc",
+   "star": false,
+   "q": "한 쇼핑 사이트가 고객별 맞춤 메시지를 보내고 상품 설명을 영상·음성·텍스트로 제시한다. 순서대로 나타난 특성은?",
+   "src": [
+    [
+     "T10",
+     "13"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 3,
+    "mis": [
+     "",
+     "m_mf_10_market_187_1",
+     "m_mf_10_market_187_2",
+     "m_mf_10_market_187_3"
+    ]
+   },
+   "opts": [
+    "개인화·맞춤화 → 풍부성",
+    "풍부성 → 개인화·맞춤화",
+    "정보밀도 → 세계적 표준",
+    "유비쿼티 → 소셜 기술"
+   ],
+   "ans": 0,
+   "a": "개인화·맞춤화 → 풍부성",
+   "s": "<p>맞춤 메시지는 고객에 따라 내용을 바꾸고 풍부성은 표현에 여러 종류의 콘텐츠를 활용한다.</p>",
+   "why": [
+    "",
+    "고객별 내용 선택과 콘텐츠 형식의 다양성을 바꿔 생각함",
+    "맞춤 메시지를 정보량만의 차이로 생각함",
+    "거래 위치에 관한 제약과 메시지의 구성을 같은 특성으로 생각함"
+   ],
+   "no": "MF10-29",
+   "ext_id": "MF10-29"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "어디에서든 거래할 수 있는 특성과 후기 정보를 검색·비교할 수 있는 특성은 각각 다른 장점을 설명한다.",
+   "src": [
+    [
+     "T10",
+     "13"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>유비쿼티는 거래 장소의 제약을 줄이고 정보밀도는 유용한 정보의 검색·활용을 가리킨다.</p>",
+   "no": "MF10-30",
+   "ext_id": "MF10-30"
+  },
+  {
+   "chapter": "MISF10",
+   "kind": "ox",
+   "star": false,
+   "q": "사용자가 많아질수록 커뮤니케이션 서비스가 더 유용해지는 경우, 초기 이용자 확보는 추가 복제 비용과 별개의 전략적 과제다.",
+   "src": [
+    [
+     "T10",
+     "21"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.digital",
+    "depth": 2
+   },
+   "ox": true,
+   "s": "<p>강의는 일부 디지털 제품의 네트워크 효과와 초기 사용자 확보의 중요성을 설명한다.</p>",
+   "no": "MF10-31",
+   "ext_id": "MF10-31"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "mc",
+   "star": true,
+   "q": "온라인 서비스가 완성된 협업 앱을 구독해 쓰면서 민감한 자료는 자체 전용 환경에 남기려 한다. 판단 순서로 적절한 것은?",
+   "src": [
+    [
+     "T5",
+     "58"
+    ],
+    [
+     "T5",
+     "59"
+    ],
+    [
+     "T5",
+     "60"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.cloud",
+    "depth": 4,
+    "mis": [
+     "m_mf_5_cloud_190_1",
+     "",
+     "m_mf_5_cloud_190_2",
+     "m_mf_5_cloud_190_3"
+    ]
+   },
+   "opts": [
+    "앱 제공을 IaaS로 분류하고 배치는 월 요금만으로 결정한다.",
+    "앱 제공은 SaaS로 분류하고 민감 자료의 배치와 공급자 중단 대응을 따로 결정한다.",
+    "앱과 자료를 모두 공공 클라우드로 분류하면 서비스 유형 검토가 끝난다.",
+    "전용 환경에 자료를 두기로 하면 앱 공급자의 서비스 종료 대응은 필요 없다."
+   ],
+   "ans": 1,
+   "a": "앱 제공은 SaaS로 분류하고 민감 자료의 배치와 공급자 중단 대응을 따로 결정한다.",
+   "s": "<p>완성 앱 제공 여부, 자료의 배치 그리고 업무 연속성 위험은 별개로 점검한다.</p>",
+   "why": [
+    "운영체제와 인프라 대여를 완성 앱 이용과 혼동함",
+    "",
+    "배치 모델을 서비스 유형의 답으로 생각함",
+    "자료를 따로 저장하면 앱의 서비스 중단 영향도 사라진다고 생각함"
+   ],
+   "no": "MF-01",
+   "ext_id": "MF-01"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "short",
+   "star": false,
+   "q": "관계형 DB가 관리하는 정보 가운데 항목명·필드의 의미·형식 같은 데이터에 관한 정보를 보관한 것은?",
+   "src": [
+    [
+     "T6",
+     "30"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.query",
+    "depth": 1
+   },
+   "a": "데이터 사전",
+   "s": "<p>데이터 정의를 기록해 데이터 구조와 항목의 속성을 확인하게 한다.</p>",
+   "strict": true,
+   "accept": [
+    "데이터 사전",
+    "data dictionary",
+    "데이터사전",
+    "자료사전"
+   ],
+   "no": "MF-02",
+   "ext_id": "MF-02"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "mc",
+   "star": true,
+   "q": "인터넷 접속 사업자가 같은 조건에서 특정 동영상 사업자의 트래픽만 유료로 우선 처리한다. 강의의 개념으로 가장 직접적인 쟁점은?",
+   "src": [
+    [
+     "T7",
+     "41"
+    ],
+    [
+     "T7",
+     "42"
+    ],
+    [
+     "T7",
+     "43"
+    ],
+    [
+     "T7",
+     "44"
+    ]
+   ],
+   "topic": "final_net",
+   "dx": {
+    "facet": "final_net.internet",
+    "depth": 4,
+    "mis": [
+     "m_mf_7_internet_192_1",
+     "m_mf_7_internet_192_2",
+     "",
+     "m_mf_7_internet_192_3"
+    ]
+   },
+   "opts": [
+    "송신 패킷의 도착 순서 복원",
+    "도메인 계층 구조의 운영",
+    "망 중립성의 유료 우선 처리 제한",
+    "아날로그 신호의 디지털 변환"
+   ],
+   "ans": 2,
+   "a": "망 중립성의 유료 우선 처리 제한",
+   "s": "<p>접속 사업자가 특정 트래픽을 돈을 받고 우선 처리하는 것은 망 중립성 원칙의 쟁점이다.</p>",
+   "why": [
+    "트래픽 우선 처리를 수신 데이터 순서 복원으로 생각함",
+    "콘텐츠별 대우를 도메인 관리의 문제로 생각함",
+    "",
+    "우선 처리와 신호 표현 방식을 같은 문제로 생각함"
+   ],
+   "no": "MF-03",
+   "ext_id": "MF-03"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "short",
+   "star": false,
+   "q": "한 사고의 연간 발생 확률은 20%이며 건당 손실은 500만 원이다. 연간 예상 손실은 몇 만 원인가? 단위를 빼고 숫자만 입력하시오.",
+   "src": [
+    [
+     "T8",
+     "61"
+    ],
+    [
+     "T8",
+     "62"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 2
+   },
+   "a": "100",
+   "s": "<p>사고 한 건의 손실에 연간 발생 확률을 곱하므로 500 × 0.2 = 100만 원이다.</p>",
+   "strict": true,
+   "num": 100,
+   "tol": 0,
+   "ph": "숫자만 입력",
+   "no": "MF-04",
+   "ext_id": "MF-04"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "한 제품에 고객 정보 관리 기능과 내부 자원 통합 기능이 함께 있다면, 기업이 무엇을 주로 관리하려고 도입하는지에 따라 중점 시스템을 판단할 수 있다.",
+   "src": [
+    [
+     "T9",
+     "4"
+    ],
+    [
+     "T9",
+     "5"
+    ],
+    [
+     "T9",
+     "23"
+    ],
+    [
+     "T9",
+     "55"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.erp",
+    "depth": 4
+   },
+   "ox": true,
+   "s": "<p>강의에서는 제품의 기능이 겹칠 수 있으며 주요 사용 목적에 주목한다.</p>",
+   "no": "MF-05",
+   "ext_id": "MF-05"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "제조사가 기존 소매상을 빼고 직접 판매를 시작했지만 판매가를 계속 고정한다. 중개 단계는 줄었지만 이 사례에서 동적 가격 결정이 일어났다고 볼 근거는 없다.",
+   "src": [
+    [
+     "T10",
+     "17"
+    ],
+    [
+     "T10",
+     "19"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.market",
+    "depth": 4
+   },
+   "ox": true,
+   "s": "<p>거래 경로의 변경은 중개소멸과 관련되고, 동적 가격 결정은 조건에 따라 실제 가격이 변하는지로 판단한다.</p>",
+   "no": "MF-06",
+   "ext_id": "MF-06"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "mc",
+   "star": true,
+   "q": "개인 기기를 업무에 쓰되 분실 시 고객 기록 접근을 줄이고 싶다. 조직의 대응으로 가장 적절한 것은?",
+   "src": [
+    [
+     "T5",
+     "93"
+    ],
+    [
+     "T5",
+     "97"
+    ],
+    [
+     "T8",
+     "75"
+    ],
+    [
+     "T8",
+     "76"
+    ],
+    [
+     "T8",
+     "80"
+    ],
+    [
+     "T8",
+     "95"
+    ]
+   ],
+   "topic": "final_infra",
+   "dx": {
+    "facet": "final_infra.byod",
+    "depth": 4,
+    "mis": [
+     "m_mf_5_byod_196_1",
+     "m_mf_5_byod_196_2",
+     "m_mf_5_byod_196_3",
+     ""
+    ]
+   },
+   "opts": [
+    "개인 소유 단말이므로 사내 계정 보호를 사용자 선택에 맡긴다.",
+    "암기형 비밀번호 두 개를 등록하고 분실 후에도 접속을 유지한다.",
+    "지원 기종은 정하되 그 기기에서 접근하는 자료의 권한은 정하지 않는다.",
+    "서로 다른 인증 요소를 요구하고 분실 신고 시 해당 기기의 업무 접근을 차단한다."
+   ],
+   "ans": 3,
+   "a": "서로 다른 인증 요소를 요구하고 분실 신고 시 해당 기기의 업무 접근을 차단한다.",
+   "s": "<p>기기 정책과 별개로 인증을 강화하고 분실 기기의 업무 접근 권한을 다룬다.</p>",
+   "why": [
+    "개인 기기를 사용하면 회사 정보의 보호 책임도 개인에게만 있다고 생각함",
+    "암기 비밀번호를 여러 번 쓰면 서로 다른 인증 요소라고 생각함",
+    "기기 지원 여부로 자료 접근 권한이 자동 결정된다고 생각함",
+    ""
+   ],
+   "no": "MF-07",
+   "ext_id": "MF-07"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "essay",
+   "star": true,
+   "q": "같은 고객의 구매가 점포별로 다른 ID에 쌓여 분석적 CRM이 연관 상품 추천을 놓친다. 데이터 계층과 CRM 계층에서 각각 무엇을 바꿀지 설명하시오.",
+   "src": [
+    [
+     "T6",
+     "60"
+    ],
+    [
+     "T6",
+     "70"
+    ],
+    [
+     "T6",
+     "71"
+    ],
+    [
+     "T9",
+     "55"
+    ],
+    [
+     "T9",
+     "56"
+    ],
+    [
+     "T9",
+     "62"
+    ]
+   ],
+   "topic": "final_analytics",
+   "dx": {
+    "facet": "final_analytics.quality",
+    "depth": 4
+   },
+   "a": "<p>고객의 공통 식별 기준과 관리 책임을 정하고 중복 기록을 정비해 분석 기준을 일치시킨다. 통합된 구매 이력을 바탕으로 분석적 CRM에서 함께 구매하는 상품을 찾아 추천하고 고객 접점 업무에 전달한다.</p>",
+   "pts": [
+    "공통 식별 기준 또는 중복 정비",
+    "책임 또는 분석용 데이터 통합",
+    "구매 이력으로 교차 판매 기회 분석",
+    "분석 결과의 고객 접점 활용"
+   ],
+   "s": "<p>고객 분석의 정확성은 분석 도구와 함께 그 도구가 참조하는 식별 정보의 일관성에 달려 있다.</p>",
+   "no": "MF-08",
+   "ext_id": "MF-08"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "온실 센서가 측정값을 수집하고 가까운 게이트웨이가 경보 조건을 판단한 뒤 일일 요약만 원격에 보내면, 센서 네트워크와 엣지 처리를 함께 사용하는 사례가 될 수 있다.",
+   "src": [
+    [
+     "T5",
+     "69"
+    ],
+    [
+     "T7",
+     "63"
+    ],
+    [
+     "T7",
+     "65"
+    ],
+    [
+     "T7",
+     "67"
+    ]
+   ],
+   "topic": "final_wireless",
+   "dx": {
+    "facet": "final_wireless.wireless",
+    "depth": 4
+   },
+   "ox": true,
+   "s": "<p>WSN은 측정 자료를 수집하고 엣지 처리는 수집된 자료를 발생 지점 가까이에서 계산한다.</p>",
+   "no": "MF-09",
+   "ext_id": "MF-09"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "essay",
+   "star": true,
+   "q": "외부 주문 앱이 중단돼 복구까지 두 시간이 걸린다. SLA, DRP, BCP를 각각 어떤 질문에 적용할지 설명하시오.",
+   "src": [
+    [
+     "T5",
+     "58"
+    ],
+    [
+     "T5",
+     "82"
+    ],
+    [
+     "T8",
+     "65"
+    ],
+    [
+     "T8",
+     "66"
+    ],
+    [
+     "T8",
+     "67"
+    ]
+   ],
+   "topic": "final_security",
+   "dx": {
+    "facet": "final_security.continuity",
+    "depth": 4
+   },
+   "a": "<p>SLA로 계약한 가용성과 미달 시 보상 조건을 확인한다. DRP로 주문 시스템과 자료를 복구할 절차를 시행한다. BCP로 시스템이 멈춘 동안 대체 채널로 주문을 받아 핵심 업무를 유지한다.</p>",
+   "pts": [
+    "계약한 서비스 수준 또는 위반 책임",
+    "전산 복구",
+    "업무를 유지할 대체 절차"
+   ],
+   "s": "<p>서비스 수준에 대한 공급자 책임, 시스템의 복구, 고객 업무의 연속성은 각각 다른 기준으로 확인한다.</p>",
+   "no": "MF-10",
+   "ext_id": "MF-10"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "mc",
+   "star": true,
+   "q": "제조사가 고객의 웹 주문을 직접 받아 즉시 생산 일정에 반영하고 판매 정보를 부품 공급업체와 공유한다. 두 조치의 효과로 가장 적절한 것은?",
+   "src": [
+    [
+     "T9",
+     "37"
+    ],
+    [
+     "T9",
+     "44"
+    ],
+    [
+     "T9",
+     "45"
+    ],
+    [
+     "T10",
+     "12"
+    ],
+    [
+     "T10",
+     "19"
+    ]
+   ],
+   "topic": "final_enterprise",
+   "dx": {
+    "facet": "final_enterprise.demand",
+    "depth": 4,
+    "mis": [
+     "",
+     "m_mf_9_demand_200_1",
+     "m_mf_9_demand_200_2",
+     "m_mf_9_demand_200_3"
+    ]
+   },
+   "opts": [
+    "실제 주문으로 생산을 시작하는 풀에 해당하며 공통 수요 신호는 주문 변동의 증폭을 줄일 수 있다.",
+    "온라인 주문이므로 생산 전 수요 예측이 촉발하는 푸시로 분류한다.",
+    "고객과의 직거래만으로 상류 부품 조달 단계가 모두 사라진다.",
+    "일정을 공유하면 실제 주문이 들어오지 않아도 풀 모델이 된다."
+   ],
+   "ans": 0,
+   "a": "실제 주문으로 생산을 시작하는 풀에 해당하며 공통 수요 신호는 주문 변동의 증폭을 줄일 수 있다.",
+   "s": "<p>판매 채널과 별개로 생산을 시작하는 신호가 중요하며, 신뢰할 만한 수요 신호는 상류의 왜곡을 줄인다.</p>",
+   "why": [
+    "",
+    "온라인 판매 채널이 푸시·풀 분류를 결정한다고 생각함",
+    "판매 중개가 줄면 공급사슬의 공급 단계도 없어진다고 생각함",
+    "생산 개시 신호 대신 일정 공유 여부로 풀을 판단한다고 생각함"
+   ],
+   "no": "MF-11",
+   "ext_id": "MF-11"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "접속 기록 기반으로 광고 대상을 고르는 기업에서는 수집된 기록의 이용 권한이나 수집 집단의 편향을 검토할 필요가 없다.",
+   "src": [
+    [
+     "T6",
+     "70"
+    ],
+    [
+     "T6",
+     "77"
+    ],
+    [
+     "T10",
+     "51"
+    ]
+   ],
+   "topic": "final_marketing",
+   "dx": {
+    "facet": "final_marketing.marketing",
+    "depth": 4,
+    "mis": "m_mf_10_marketing_201"
+   },
+   "ox": false,
+   "fix": "행위 타게팅에 쓰는 자료에도 이용 권한과 수집 집단의 편향을 검토해야 한다.",
+   "s": "<p>행동 데이터가 많아도 조직의 정보 정책이나 관측 범위에 관한 검토가 필요하다.</p><p>함정: 행위 타게팅에 쓰는 자료에도 이용 권한과 수집 집단의 편향을 검토해야 한다.</p>",
+   "no": "MF-12",
+   "ext_id": "MF-12"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "식품 상자에서 RFID로 읽은 원산지 코드를 분산 원장에 올리면, 태그가 처음부터 잘못 붙어 있었더라도 소비자는 올바른 원산지를 보장받는다.",
+   "src": [
+    [
+     "T6",
+     "48"
+    ],
+    [
+     "T6",
+     "50"
+    ],
+    [
+     "T6",
+     "53"
+    ],
+    [
+     "T7",
+     "59"
+    ]
+   ],
+   "topic": "final_data",
+   "dx": {
+    "facet": "final_data.ledger",
+    "depth": 4,
+    "mis": "m_mf_6_ledger_202"
+   },
+   "ox": false,
+   "fix": "RFID 식별과 원장 이력 보존만으로 처음 붙인 태그의 내용이 맞는지까지 보장할 수 없다.",
+   "s": "<p>식별, 기록 추적, 최초 입력의 사실 확인은 서로 다른 단계다.</p><p>함정: RFID 식별과 원장 이력 보존만으로 처음 붙인 태그의 내용이 맞는지까지 보장할 수 없다.</p>",
+   "no": "MF-13",
+   "ext_id": "MF-13"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "협력사 도메인의 IP 주소를 알아내더라도 확보한 공개키가 해당 협력사의 키인지는 전자 인증서 같은 수단으로 따로 확인할 수 있다.",
+   "src": [
+    [
+     "T7",
+     "38"
+    ],
+    [
+     "T8",
+     "88"
+    ],
+    [
+     "T8",
+     "90"
+    ],
+    [
+     "T8",
+     "91"
+    ]
+   ],
+   "topic": "final_protection",
+   "dx": {
+    "facet": "final_protection.crypto",
+    "depth": 4
+   },
+   "ox": true,
+   "s": "<p>DNS는 이름을 주소에 대응시키고 인증서는 신원과 공개키의 연결을 확인하는 데 쓰인다.</p>",
+   "no": "MF-14",
+   "ext_id": "MF-14"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "mc",
+   "star": true,
+   "q": "기업이 통합 구매 자료에서 지역·기간·상품별 이용 패턴을 살펴보고, 그 결과를 바탕으로 상담 화면에 맞춤 안내를 띄운다. 구분이 바른 것은?",
+   "src": [
+    [
+     "T6",
+     "60"
+    ],
+    [
+     "T6",
+     "66"
+    ],
+    [
+     "T9",
+     "56"
+    ],
+    [
+     "T9",
+     "59"
+    ]
+   ],
+   "topic": "final_customer",
+   "dx": {
+    "facet": "final_customer.crm",
+    "depth": 4,
+    "mis": [
+     "m_mf_9_crm_204_1",
+     "",
+     "m_mf_9_crm_204_2",
+     "m_mf_9_crm_204_3"
+    ]
+   },
+   "opts": [
+    "통합 자료를 살펴보는 절차와 상담 화면은 모두 데이터 적재다.",
+    "다차원 분석은 분석 단계이며 상담 화면은 운영적 CRM의 고객 접점이다.",
+    "패턴을 집계하는 활동은 운영적 CRM이고 상담은 분석적 CRM이다.",
+    "두 활동 모두 실제 데이터를 쓰므로 공급사슬 실행에 해당한다."
+   ],
+   "ans": 1,
+   "a": "다차원 분석은 분석 단계이며 상담 화면은 운영적 CRM의 고객 접점이다.",
+   "s": "<p>데이터의 다차원 분석과 고객 접점에서 그 결과를 활용하는 작업은 구분된다.</p>",
+   "why": [
+    "통합 저장, 분석, 화면 표시를 모두 저장소 적재로 생각함",
+    "",
+    "분석과 고객 접점을 거꾸로 분류함",
+    "고객 자료를 쓴다는 이유만으로 물류 실행으로 생각함"
+   ],
+   "no": "MF-15",
+   "ext_id": "MF-15"
+  },
+  {
+   "chapter": "MISFINAL",
+   "kind": "ox",
+   "star": false,
+   "q": "기업이 앱 이용료를 월 구독으로 받기만 하면 고객의 전환비용이 반드시 증가한다.",
+   "src": [
+    [
+     "T9",
+     "66"
+    ],
+    [
+     "T9",
+     "67"
+    ],
+    [
+     "T10",
+     "39"
+    ],
+    [
+     "T10",
+     "40"
+    ]
+   ],
+   "topic": "final_commerce",
+   "dx": {
+    "facet": "final_commerce.revenue",
+    "depth": 4,
+    "mis": "m_mf_10_revenue_205"
+   },
+   "ox": false,
+   "fix": "구독은 수익을 얻는 방식이며 전환비용은 자료 이전이나 새 서비스 학습처럼 고객이 실제로 부담하는 비용에 달려 있다.",
+   "s": "<p>계약의 청구 주기만으로 고객이 서비스를 옮길 때 겪는 모든 부담을 판단할 수 없다.</p><p>함정: 구독은 수익을 얻는 방식이며 전환비용은 자료 이전이나 새 서비스 학습처럼 고객이 실제로 부담하는 비용에 달려 있다.</p>",
+   "no": "MF-16",
+   "ext_id": "MF-16"
   }
  ]
 }
