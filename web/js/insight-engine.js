@@ -5,6 +5,7 @@
 // - 아직 틀린 문제(hidden)에는 정답·바른 진술·해설 문장을 넣지 않는다
 // - v2 (docs/insight/v2/ALGORITHM.md): 태그가 붙고 v2_ready인 과목은 세부 포인트 진단(insight-depth.js)을 더한다
 import { depthModel, profileOf } from "./insight-depth.js";
+import { related } from "./insight-related.js";
 export const ENGINE_VER = 2;
 
 // ───────── 공통 ─────────
@@ -1499,6 +1500,8 @@ export function buildReport(raw, ctx, P, nowDay, dbg) {
     const DX = depthModel(N.obs, N.post, V, P, { attempted, chapterLabel: F => F && F.ch ? (S.all.get("c:" + F.ch) || {}).label : null });
     D2 = depthDoc(DX, ctx, st, e, findings.length);
     e = D2.e; findings.push(...D2.findings);
+    // 연관 개념 (RELATED.md): 서버가 과목 스위치를 켜고 그래프를 넘겼을 때만
+    if (raw.graph) D2.related = related(D2.raw, raw.graph, V, { attempted, carded: new Set(D2.findings.map(f => f.point)), P });
     const top = D2.findings.find(f => f.tier === "firm" && f.type === "illusion");
     if (top) headline = top.head;
   }
@@ -1506,7 +1509,7 @@ export function buildReport(raw, ctx, P, nowDay, dbg) {
   return { ...base, state: "ready", frame: "relative", asOf: new Date(nowDay * DAY).toISOString().slice(0, 10),
     basis: { first: N.meta.first, choice: N.meta.choice, legacy: N.meta.legacy, n_eff: r1(n_eff) },
     headline, findings, habits: habitsOut, plan, units, v2,
-    ...(D2 ? { points: D2.points, probes: D2.probes, excluded: D2.excluded, need: D2.need } : {}), profile,
+    ...(D2 ? { points: D2.points, probes: D2.probes, excluded: D2.excluded, need: D2.need, ...(D2.related ? { related: D2.related } : {}) } : {}), profile,
     relearn: { resolved: rel.resolved, confirmed: rel.confirmed, retried: rel.retried, due: rel.due, unsure: rel.unsure, star: rel.star, asked: rel.asked },
     strong: sel.strong.map(u => ({ code: u.code, name: u.name })),
     good: goodUnits(S), pending: sel.pending.map(u => ({ code: u.code, name: u.name, n: u.n, why: u.why || "few" })),

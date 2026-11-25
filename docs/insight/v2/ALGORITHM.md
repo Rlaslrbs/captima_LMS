@@ -371,7 +371,8 @@ findings: [ …v1…, {
   chain: [ { role: "base" | "variant" | "repeat", e: "E1", ext, lv, chosen, ok, text, why /* misc.belief */, change /* family_member.delta */ } ],
   text: { diag, truth, cue }, plan } ],
 probes: [{ point, reason, pids: [...], scope: "Q:…" }],
-excluded: { rapid: n, burst: n }
+excluded: { rapid: n, burst: n },
+related: [ { kc, name, from, from_point, via, n_co, rel, tier: "hedged", probes, text: { diag, why } } ]   // RELATED.md §5; [] when the course switch is off
 ```
 
 - `chain[].change` comes only from the DATA tag (`delta`). It is never LLM text at render time.
@@ -442,10 +443,21 @@ excluded: { rapid: n, burst: n }
 | 4 | Card wording OK; depth labels 1 정의 · 2 적용 · 3 구별 · 4 조건 (DATA's order) | §8 templates; §2.2 label table |
 | 5 | Rollout per course, as soon as the course is tagged | §9 |
 | 6 | No learner-facing "이 진단이 맞나요?" | §10 uses an admin-only review instead |
+| 11 | 연관 개념 (PageRank) — design first, build separately (2026-11-17) | §8 `related`; §12; `RELATED.md` |
 
 Rollout order (DATA §8.6, per-course gate `insight_meta v2_ready:<cid>`): 생경론 → 공학수학 → 경정시 → 진인본 → 응용통계.
 
 Nothing is open on the algorithm side. Building waits for the user's separate approval.
+
+---
+
+## 12. 연관 개념 (related concepts, 2026-11-17)
+
+Designed in **`RELATED.md`**. In short:
+- Seeds are this file's weak and illusion points (§5), lifted to kcs. A personalized PageRank walk on a per-course kc graph (co-tag, aggregate co-error, confusable) names up to 3 other kcs that are probably weak too.
+- Hedged only, always with one `related_check` probe (§6) and the link reason. A kc with any solid point is never named.
+- Pure function in `web/js/insight-related.js`; the graph is built in `server/insight/graph.js`. The switch is in `ctxKey`; `ENGINE_VER` stays 2.
+- Off per course until the back-test in RELATED §8 passes and the admin turns it on.
 
 ---
 
