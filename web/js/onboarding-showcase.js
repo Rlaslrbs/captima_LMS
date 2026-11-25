@@ -6,13 +6,13 @@
 
 import { S, api, createDevice, adoptDevice, hasDevice } from "./store.js";
 import { toast, LS, esc } from "./util.js";   // LS는 util.js에 있다 (store.js는 내보내지 않음)
+import { mountScene } from "./logo-scene-core.js";   // 탐조등 화면과 같은 CAPTIMA 로고 글자 (로고만, 만질 수 있게)
 
 // ─────────────────────────────────────────────────────────────
-// 1. 배경 글자 격자 + 물방울 (Canvas 2D)
+// 1. 배경 글자 격자 (움직이지 않는다. 화면 크기가 바뀔 때만 다시 그린다)
 // ─────────────────────────────────────────────────────────────
 const BG = "#000";
 const BASE_TEXT = "rgba(150, 150, 160, 0.17)";
-const DROP_TONES = ["255, 255, 255", "41, 151, 255"];   // 물방울 색: 흰색 · 파랑
 const SCRAMBLE_CHARS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/~`λπ∑∫√∞≠≤≥";
 const TOKENS = [
   "det A", "rank", "H0", "p-value", "t(n-1)", "SWOT", "MIS", "TPS", "EOQ", "SS", "σ²", "μ", "n-1",
@@ -20,271 +20,51 @@ const TOKENS = [
   "선형독립", "신뢰구간", "핵심 역량", "정보시스템", "자연선택", "재고", "가설검정"
 ];
 
-class DropGridEngine {
+class GlyphGrid {
   constructor(canvas) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d", { alpha: false });
     this.dpr = Math.min(window.devicePixelRatio || 1, 2);
-    this.still = matchMedia("(prefers-reduced-motion: reduce)").matches;   // 움직임 줄이기: 정지된 배경만
-
     this.fontSize = 10;
     this.cellW = 8.5;
     this.cellH = 15;
-    this.cols = 0;
-    this.rows = 0;
-    this.cells = [];
-
-    // 평소 글자는 한 번만 그려 두고 복사해서 쓴다 (60fps 유지)
-    this.bgCanvas = document.createElement("canvas");
-    this.bgCtx = this.bgCanvas.getContext("2d", { alpha: false });
-
-    this.activeCellIndices = new Set();   // 물방울이 지나가는 셀만 다시 그린다
-    this.ripples = [];
-    this.lastPointer = { x: -9999, y: -9999, time: 0 };
-    this.isRunning = false;
-
-    this.onResize = this.onResize.bind(this);
-    this.loop = this.loop.bind(this);
-    this.onResize();
-    window.addEventListener("resize", this.onResize);
-    this.start();
+    this.draw = this.draw.bind(this);
+    this.draw();
+    window.addEventListener("resize", this.draw);
   }
 
-  onResize() {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
+  draw() {
+    const w = window.innerWidth, h = window.innerHeight, ctx = this.ctx;
     this.canvas.width = w * this.dpr;
     this.canvas.height = h * this.dpr;
     this.canvas.style.width = `${w}px`;
     this.canvas.style.height = `${h}px`;
-
-    this.bgCanvas.width = this.canvas.width;
-    this.bgCanvas.height = this.canvas.height;
-
-    this.cols = Math.ceil(w / this.cellW) + 2;
-    this.rows = Math.ceil(h / this.cellH) + 2;
-    this.buildGrid();
-  }
-
-  buildGrid() {
-    this.cells = [];
-    this.activeCellIndices.clear();
-
-    let tokenIdx = 0;
-    let currToken = TOKENS[0];
-    let tokenCharIdx = 0;
-
-    for (let r = 0; r < this.rows; r++) {
-      for (let c = 0; c < this.cols; c++) {
-        let ch = " ";
-        if (Math.random() < 0.65) {
-          if (tokenCharIdx < currToken.length) {
-            ch = currToken[tokenCharIdx++];
-          } else {
-            tokenCharIdx = 0;
-            tokenIdx = (tokenIdx + 1) % TOKENS.length;
-            currToken = TOKENS[tokenIdx];
-            ch = " ";
-          }
-        } else {
-          ch = SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
-        }
-
-        this.cells.push({
-          x: c * this.cellW,
-          y: r * this.cellH + this.fontSize,
-          origChar: ch,
-          displayChar: ch,
-          dispX: 0,
-          dispY: 0,
-          scrambleTicks: 0,
-          glow: 0,
-          tone: 0
-        });
-      }
-    }
-    this.renderStaticBackground();
-  }
-
-  renderStaticBackground() {
-    const ctx = this.bgCtx;
     ctx.fillStyle = BG;
-    ctx.fillRect(0, 0, this.bgCanvas.width, this.bgCanvas.height);
-
+    ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     ctx.save();
     ctx.scale(this.dpr, this.dpr);
     ctx.font = `${this.fontSize}px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace`;
     ctx.textBaseline = "alphabetic";
     ctx.fillStyle = BASE_TEXT;
-    for (const cell of this.cells) {
-      if (cell.origChar !== " ") ctx.fillText(cell.origChar, cell.x, cell.y);
-    }
-    ctx.restore();
-  }
-
-  addRipple(x, y, amplitude = 0.5, maxRadius = 280, waveWidth = 38) {
-    if (this.still) return;
-    if (this.ripples.length > 12) this.ripples.shift();
-    this.ripples.push({
-      x,
-      y,
-      radius: 2,
-      maxRadius,
-      waveWidth,
-      speed: 4.0 + Math.random() * 0.6,
-      amplitude,
-      decay: 0.988,
-      tone: Math.floor(Math.random() * DROP_TONES.length)
-    });
-  }
-
-  // 마우스를 누른 채 움직일 때만 불린다 (누르지 않고 움직이면 아무 일도 없다)
-  handleDrag(x, y) {
-    const now = performance.now();
-    const dist = Math.hypot(x - this.lastPointer.x, y - this.lastPointer.y);
-    if (dist > 15 || (dist > 4 && now - this.lastPointer.time > 60)) {
-      this.lastPointer = { x, y, time: now };
-      this.addRipple(x, y, 0.5 + Math.min(0.4, dist * 0.008));
-    }
-  }
-
-  start() {
-    if (this.isRunning) return;
-    this.isRunning = true;
-    requestAnimationFrame(this.loop);
-  }
-
-  destroy() {
-    this.isRunning = false;
-    window.removeEventListener("resize", this.onResize);
-  }
-
-  loop() {
-    if (!this.isRunning) return;
-
-    const ctx = this.ctx;
-    ctx.drawImage(this.bgCanvas, 0, 0);
-    if (!this.ripples.length && !this.activeCellIndices.size) { requestAnimationFrame(this.loop); return; }
-
-    ctx.save();
-    ctx.scale(this.dpr, this.dpr);
-
-    // 물방울 퍼짐: 파문 앞면이 지나가는 셀을 밀어내고 글자를 섞는다
-    for (let i = this.ripples.length - 1; i >= 0; i--) {
-      const rip = this.ripples[i];
-      rip.radius += rip.speed;
-      rip.amplitude *= rip.decay;
-
-      if (rip.radius > rip.maxRadius || rip.amplitude < 0.02) {
-        this.ripples.splice(i, 1);
-        continue;
-      }
-
-      const minCol = Math.max(0, Math.floor((rip.x - rip.radius - rip.waveWidth) / this.cellW));
-      const maxCol = Math.min(this.cols - 1, Math.ceil((rip.x + rip.radius + rip.waveWidth) / this.cellW));
-      const minRow = Math.max(0, Math.floor((rip.y - rip.radius - rip.waveWidth) / this.cellH));
-      const maxRow = Math.min(this.rows - 1, Math.ceil((rip.y + rip.radius + rip.waveWidth) / this.cellH));
-
-      for (let r = minRow; r <= maxRow; r++) {
-        const rowOffset = r * this.cols;
-        for (let c = minCol; c <= maxCol; c++) {
-          const idx = rowOffset + c;
-          const cell = this.cells[idx];
-          if (!cell) continue;
-
-          const dx = cell.x - rip.x;
-          const dy = cell.y - rip.y;
-          const dist = Math.hypot(dx, dy);
-          const diff = dist - rip.radius;
-
-          if (Math.abs(diff) < rip.waveWidth) {
-            const phase = (diff / rip.waveWidth) * Math.PI;
-            const wave = Math.cos(phase) * rip.amplitude;
-
-            const push = Math.sin(phase) * rip.amplitude * 7;
-            const invDist = dist > 0 ? 1 / dist : 0;
-            cell.dispX += dx * invDist * push * 0.35;
-            cell.dispY += dy * invDist * push * 0.35;
-
-            if (wave > 0.1) {
-              cell.scrambleTicks = Math.max(cell.scrambleTicks, Math.floor(wave * 12 + Math.random() * 5));
-              cell.glow = Math.max(cell.glow, wave);
-              cell.tone = rip.tone;
-              this.activeCellIndices.add(idx);
-            }
-          }
-        }
-      }
-    }
-
-    // 움직이는 셀만 선별해서 그린다
-    if (this.activeCellIndices.size > 0) {
-      ctx.font = `${this.fontSize}px ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace`;
-      ctx.textBaseline = "alphabetic";
-
-      for (const idx of this.activeCellIndices) {
-        const cell = this.cells[idx];
-        if (!cell) {
-          this.activeCellIndices.delete(idx);
-          continue;
-        }
-
-        cell.dispX *= 0.86;
-        cell.dispY *= 0.86;
-        cell.glow *= 0.92;
-
-        if (cell.scrambleTicks > 0) {
-          cell.displayChar = SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
-          cell.scrambleTicks--;
+    // 낱말(TOKENS)을 차례로 풀어 쓰고, 사이사이에 아무 글자를 섞는다
+    let tokenIdx = 0, currToken = TOKENS[0], tokenCharIdx = 0;
+    const cols = Math.ceil(w / this.cellW) + 2, rows = Math.ceil(h / this.cellH) + 2;
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        let ch = " ";
+        if (Math.random() < 0.65) {
+          if (tokenCharIdx < currToken.length) ch = currToken[tokenCharIdx++];
+          else { tokenCharIdx = 0; tokenIdx = (tokenIdx + 1) % TOKENS.length; currToken = TOKENS[tokenIdx]; }
         } else {
-          cell.displayChar = cell.origChar;
+          ch = SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
         }
-
-        if (cell.glow < 0.03 && Math.abs(cell.dispX) < 0.2 && Math.abs(cell.dispY) < 0.2 && cell.scrambleTicks === 0) {
-          cell.dispX = 0;
-          cell.dispY = 0;
-          cell.glow = 0;
-          cell.displayChar = cell.origChar;
-          this.activeCellIndices.delete(idx);
-          continue;
-        }
-
-        if (cell.displayChar === " ") continue;
-
-        // 제자리의 평소 글자를 지우고, 밀려난 자리에 다시 그린다
-        ctx.fillStyle = BG;
-        ctx.fillRect(cell.x - 1, cell.y - this.fontSize + 1, this.cellW + 2, this.cellH);
-
-        const alpha = Math.min(0.9, 0.2 + cell.glow * 0.7);
-        ctx.fillStyle = `rgba(${DROP_TONES[cell.tone]}, ${alpha})`;
-        ctx.fillText(cell.displayChar, cell.x + cell.dispX, cell.y + cell.dispY);
+        if (ch !== " ") ctx.fillText(ch, c * this.cellW, r * this.cellH + this.fontSize);
       }
     }
-
-    // 물방울이 떨어진 자리에서 퍼지는 동심원
-    for (const rip of this.ripples) {
-      if (rip.amplitude > 0.04 && rip.radius > 4) {
-        const col = DROP_TONES[rip.tone];
-
-        ctx.beginPath();
-        ctx.arc(rip.x, rip.y, rip.radius, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${col}, ${Math.min(0.32, rip.amplitude * 0.3)})`;
-        ctx.lineWidth = 1.6;
-        ctx.stroke();
-
-        if (rip.radius > 28) {
-          ctx.beginPath();
-          ctx.arc(rip.x, rip.y, rip.radius - 18, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(${col}, ${rip.amplitude * 0.12})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
-      }
-    }
-
     ctx.restore();
-    requestAnimationFrame(this.loop);
   }
+
+  destroy() { window.removeEventListener("resize", this.draw); }
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -559,20 +339,10 @@ export function showOnboardingShowcase() {
     const $ = s => wrap.querySelector(s);
     const goTo = id => $("#" + id)?.scrollIntoView({ behavior: "smooth" });
 
-    // ───────── 배경 격자: 마우스를 누른 채 움직일 때만 물방울 ─────────
-    const engine = new DropGridEngine($("#onbCanvas"));
-    let pressed = false;
-    const onPointerDown = e => {
-      // 단추 · 입력칸 위에서 누른 것은 물방울로 치지 않는다. 손가락은 스크롤에 써야 하니 마우스만.
-      pressed = e.pointerType === "mouse" && e.button === 0 && !e.target.closest("input, textarea, button, summary, label, a, select");
-    };
-    const onPointerUp = () => { pressed = false; };
-    const onPointerMove = e => { if (pressed) engine.handleDrag(e.clientX, e.clientY); };
-    window.addEventListener("pointerdown", onPointerDown, { passive: true });
-    window.addEventListener("pointerup", onPointerUp, { passive: true });
-    window.addEventListener("pointercancel", onPointerUp, { passive: true });
-    window.addEventListener("blur", onPointerUp);
-    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    // ───────── 배경 격자 (움직이지 않는다) ─────────
+    const grid = new GlyphGrid($("#onbCanvas"));
+    // CAPTIMA 로고만 글자로, 원래 로고 색으로 (빛기둥·낙엽 없음). 휘저으면 흩어졌다 돌아오고, 누르면 터진다. 소개 글이 읽히게 조금 어둡게
+    const logo = mountScene(wrap, { before: wrap.querySelector(".onb-header"), logo: true, color: "image", dim: .6, burst: true, auto: true });
 
     // ───────── 스크롤: 목차 점 + 떠오르며 나타나기 ─────────
     const sections = wrap.querySelectorAll(".onb-section");
@@ -687,16 +457,12 @@ export function showOnboardingShowcase() {
     $("#onbHeaderStartBtn")?.addEventListener("click", () => goTo("feature-start"));
 
     const finish = () => {
-      window.removeEventListener("pointerdown", onPointerDown);
-      window.removeEventListener("pointerup", onPointerUp);
-      window.removeEventListener("pointercancel", onPointerUp);
-      window.removeEventListener("blur", onPointerUp);
-      window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("keydown", onKeyDown);
       io.disconnect();
       wrap.classList.remove("is-active");
       setTimeout(() => {
-        engine.destroy();
+        grid.destroy();
+        logo.destroy();
         wrap.remove();
         document.documentElement.classList.remove("onb-lock");
         resolve();
