@@ -209,6 +209,20 @@ After the learner returns from an action, the card shows "새 기록 n개 · 새
 - No tier-2 "왜 그렇게 답했나요?" for now.
 - No learner-facing "이 진단이 맞나요?". An admin-only view can come later.
 
+### 4.4 연관 개념 line (`det.related[]`, RELATED.md)
+
+- Shown **inside** the weak or illusion card whose point is `related[].from_point`, under its action. It is never a card of its own and never in the top-3 order.
+- Layout, at most 2 lines per card:
+  ```
+  ↳ 단위 행렬도 헷갈리고 있을 수 있어요.          [확인 문제 · 1]
+    치환 행렬과 같은 문제에 자주 함께 나와요 (4문제).
+  ```
+  - line 1 = `text.diag` in body text; line 2 = `text.why` in `--muted` 13 px.
+  - The button is a text-style secondary action (the card keeps one filled button, §4.2). It opens `related[].probes` as `Q:…`, answer hidden.
+- Badge: none. The ↳ and the hedged wording carry the weight.
+- `rel` is never shown to learners; the admin preview shows it with the edge path.
+- Empty `related[]` → nothing, no placeholder.
+
 ---
 
 ## 5. Showing uncertainty
@@ -330,6 +344,7 @@ Fields the UI switches on:
 - `sub`: shallow | gap | null (weak only)
 - `kind`: misc | familiar (illusion only)
 - `why`: few_items | one_format | no_variant | untagged | rapid_only
+- `related[]` (RELATED.md §5): placed by `from_point`; `via` picks no style, only `text` is shown
 
 `findings.type` (illusion | weak | solid) carries the same tier, sub and kind.
 

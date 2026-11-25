@@ -11,11 +11,11 @@ export const useContentVer = fn => { contentVer = fn; };
 const BOOT = Date.now().toString(36);
 const Q = {}, st = (k, sql) => Q[k] ||= db.prepare(sql);
 
-/** 캐시 키: 다른 프로그램의 DB 쓰기(data_version) | 관리자 쓰기 | 태그·개념 사전·보정 판 | 조절값 판 | 서버 켠 시각 */
+/** 캐시 키: 다른 프로그램의 DB 쓰기(data_version) | 관리자 쓰기 | 태그·개념 사전·보정 판 | 연관 개념 스위치 | 조절값 판 | 서버 켠 시각 */
 export function ctxKey(cid) {
   const m = {};
-  for (const r of st("meta", "SELECT key, value FROM insight_meta WHERE key IN (?, ?, ?, 'calib_rev')").all("tag_rev:" + cid, "vocab_ver:" + cid, "v2_ready:" + cid)) m[r.key] = r.value;
-  return [st("dv", "PRAGMA data_version").get().data_version, contentVer(), m["tag_rev:" + cid] ?? 0, m["vocab_ver:" + cid] ?? 0, m["v2_ready:" + cid] ?? 0, m.calib_rev ?? 0, PARAM_VER, BOOT].join("|");
+  for (const r of st("meta", "SELECT key, value FROM insight_meta WHERE key IN (?, ?, ?, ?, 'calib_rev')").all("tag_rev:" + cid, "vocab_ver:" + cid, "v2_ready:" + cid, "related:" + cid)) m[r.key] = r.value;
+  return [st("dv", "PRAGMA data_version").get().data_version, contentVer(), m["tag_rev:" + cid] ?? 0, m["vocab_ver:" + cid] ?? 0, m["v2_ready:" + cid] ?? 0, m["related:" + cid] ?? 0, m.calib_rev ?? 0, PARAM_VER, BOOT].join("|");
 }
 
 const median = a => { if (!a.length) return 0; const s = [...a].sort((x, y) => x - y), m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };

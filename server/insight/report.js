@@ -7,6 +7,7 @@ import { PARAMS } from "./params.js";
 import { courseCtx, ctxKey, useContentVer } from "./ctx.js";
 import { aiOn, startDiag, aiPending } from "./aidiag.js";
 import { loadRaw, fingerprint } from "./evidence.js";
+import { relatedOn, graphFor } from "./graph.js";
 
 let Packed = null;
 /** server.js가 켤 때 한 번: 응답 묶음 클래스(Packed)와 관리자 쓰기 횟수(contentVer)를 읽는 함수 */
@@ -22,6 +23,7 @@ const ANS = "'answer_submit','idk'";
 export function buildDoc(deviceId, cid, day = kstDay(), key = ctxKey(cid), fp = fingerprint(deviceId, cid, key, day), raw = loadRaw(deviceId, cid)) {
   const ctx = courseCtx(cid, key); if (!ctx || !ctx.visible) return null;
   raw.fp = fp;
+  if (relatedOn(cid)) raw.graph = graphFor(cid, ctx, deviceId, day);   // 연관 개념 (RELATED.md, 과목 스위치 기본 꺼짐)
   return buildReport(raw, ctx, PARAMS, day);
 }
 

@@ -32,3 +32,8 @@
     - **Async:** the deterministic report is saved and returned first. On any failure or timeout nothing changes for the learner.
     - **Validated output only:** the concept must come from the real facet, topic or chapter list. The evidence must match the learner's chosen answer. Low-confidence items are dropped. At most 3 cards.
     - **Deterministic only (phase 1, same day):** behaviour findings (habit, fluency, format) never take the top 3 cards; they go to `det.habits`.
+11. **Related concepts (user, 2026-11-17).**
+    - The user asked for "구글 페이지 연관성 알고리즘처럼" diagnosis that names a weak concept *and* the concepts linked to it, e.g. "치환 행렬이 아직 부족해요, 아마 단위 행렬 개념도 헷갈리고 있을 거예요".
+    - The user approved writing the design first: `RELATED.md` (personalized PageRank on a per-course kc graph).
+    - Hedged wording + a 확인 문제 + the link reason, like every weaker claim (#3).
+    - Building, and switching it on per course, wait for separate approval.
