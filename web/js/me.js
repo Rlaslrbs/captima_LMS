@@ -86,9 +86,17 @@ export function mountMe(view, ctx) {
 
   function render() {
     if (!S.device) return;
+    // 동기화·제보·리포트를 받아 올 때마다 다시 그린다: 입력하던 글자와 커서는 지킨다
+    const typed = ["claim", "nick"].map(id => $("#" + id, view)).filter(el => el && (el.value !== el.defaultValue || el === document.activeElement))
+      .map(el => ({ id: el.id, v: el.value, on: el === document.activeElement, a: el.selectionStart, b: el.selectionEnd }));
     view.innerHTML = `<div class="wrap me">
       <header class="hero sm"><p class="eyebrow">마이페이지</p><h1>${esc(S.device.nickname || "익명 베타 테스터")}</h1></header>
       ${profile()}${study()}${classroom()}${myReports()}${transfer()}</div>`;
+    for (const k of typed) {
+      const el = $("#" + k.id, view); if (!el) continue;
+      el.value = k.v;
+      if (k.on) { el.focus({ preventScroll: true }); el.setSelectionRange(k.a, k.b); }
+    }
     tick();
   }
   function tick() {
@@ -157,6 +165,7 @@ export function mountMe(view, ctx) {
       if (!ok) return;
       try {
         const r = await api("POST", "/api/transfer/claim", isKey ? { key: v } : { code: v });
+        $("#claim", view).value = "";            // 가져온 뒤에는 넣은 열쇠를 남기지 않는다
         await adoptDevice(r.device_id); code = null; reports = null; render(); loadReports();
         toast("기록을 가져왔어요. 이제 두 기기에서 같은 기록을 써요.", "ok");
       } catch (err) { toast(err.status ? err.message : "인터넷 연결을 확인해 주세요", "bad"); }
